@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Ruby ActiveRecord and MySQL: Ruby Study Notes - Best Ruby Guide, Ruby Tutorial</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="Ruby Study Notes - Best Ruby Guide, Ruby Tutorial" />
+<meta name="keywords" content="ruby activerecord and mysql,activerecord ruby tutorial,activerecord tutorial,rails activerecord mysql,rails active record mysql" />
+<meta name="Distribution" content="Global" />
+<meta name="author" content="Satish Talim / Original design: Erwin Aligam - ealigam@gmail.com" />
+<meta name="copyright" content="Satish Talim 2007 and beyond..." />
+<meta name="verify-v1" content="rFu86se+IkbtF+bH8mgJBKwU5HnKaSd8Ghw9umXQOkM=" />
+<meta name="robots" content="index,follow" />
+<meta http-equiv="Expires" content="0" />
+<meta name="revisit-after" content="1 days" />
+<link rel="stylesheet" href="http://rubylearning.com/images/NewOrange.css" type="text/css" />
+<link rel="stylesheet" href="http://rubylearning.com/images/syntaxhighlighter.css" type="text/css" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<!-- Google Analytics code -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-59044-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- Google Analytics code ends -->
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+
+    <div id="header">
+
+        <h1 id="logo">Ruby<span class="orange">Learning.com</span></h1>
+        <h2 id="slogan">Ruby helps programmers have more fun!</h2>
+
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="http://rubylearning.com/" title="Home page for rubylearning.com">Home</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/tutorial.html" title="Get started Learning Ruby here...">Tutorial</a></li>
+            <li><a href="http://rubylearning.com/download/downloads.html" title="Download this tutorial as an eBook">Downloads</a></li>
+            <li><a href="http://rubylearning.com/other/testimonials.html" title="People around the world who benefited from this site">Testimonials</a></li>
+            <li><a href="http://rubylearning.com/other/certification.html" title="Get certified in Ruby">Certification</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/ruby_guide.html" title="Ruby Guide, Mentor">Mentor</a></li>
+            <li><a href="http://rubylearning.com/jobs/ruby_jobs.html" title="Find Ruby Jobs and also post your job requirements">Jobs</a></li>
+            <li><a href="http://rubylearning.com/blog/" title="Ruby blog of Learning Ruby site">Blog</a></li>
+            <li><a href="http://rubylearning.org/class/" title="Free Online Ruby Course">Online Course</a></li>
+            <li><a href="http://ruby-challenge.rubylearning.org/" title="Ruby Programming Challenge for Newbies">Challenge</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/services.html" title="Services offered by Satish Talim">Services</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/about.html" title="Information about Satish Talim">About</a></li>
+        </ul>
+    </div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap">
+
+            <p>
+               <script type="text/javascript"><!--
+               google_ad_client = "pub-2265705826025555";
+               google_ad_width = 728;
+               google_ad_height = 15;
+               google_ad_format = "728x15_0ads_al_s";
+               //2007-08-02: RLRARAM
+               google_ad_channel = "3904556163";
+               google_color_border = "FFFFFF";
+               google_color_bg = "FFFFFF";
+               google_color_link = "B37400";
+               google_color_text = "000000";
+               google_color_url = "B37400";
+               //-->
+               </script>
+               <script type="text/javascript"
+                 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+               </script>
+            </p>
+
+            <div id="main">
+
+                <div id="main-inner"><a name="TemplateInfo"></a>
+                <h1>Ruby ActiveRecord and MySQL</h1>
+
+                <p class="post-footer align-right">
+                  <strong>
+                    <a href="http://rubylearning.com/satishtalim/ruby_mysql_tutorial.html">&lt;Ruby MySQL | </a>
+                    <a href="http://rubylearning.com/satishtalim/tutorial.html">TOC | </a>
+                    <a href="http://rubylearning.com/satishtalim/ruby_tk_tutorial.html">Ruby-Tk&gt;</a>
+                  </strong>
+                </p>
+
+                <p class="float-left">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-2265705826025555";
+                google_ad_width = 336;
+                google_ad_height = 280;
+                google_ad_format = "336x280_as";
+                google_ad_type = "text";
+                //2007-08-02: RLRARAM
+                google_ad_channel = "3904556163";
+                google_color_border = ["FFFFFF","FFFFFF"];
+                google_color_bg = "FFFFFF";
+                google_color_link = ["B37400","B37400"];
+                google_color_url = ["B37400","B37400"];
+                google_color_text = ["000000","000000"];
+                //-->
+                </script>
+                <script type="text/javascript"
+                  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+                </p>
+
+                <h3>Objective</h3>
+
+                <p>We shall look at code examples explaining how to connect to a <a href="http://dev.mysql.com/get/Downloads/MySQL-5.0/mysql-5.0.27-win32.zip/from/pick#mirrors">MySQL</a> database using <a href="http://rubylearning.com/">Ruby</a> and <a href="http://ar.rubyonrails.org/">ActiveRecord</a>.</p>
+
+                <h3>ActiveRecord</h3>
+
+                <p><a href="http://rubylearning.com/satishtalim/ruby_on_rails.html">Rails</a> uses <a href="http://en.wikipedia.org/wiki/Object-relational_mapping">ORM</a>, which stands for object-relational mapping. ORM libraries map database tables to classes. If a database has a table called orders, our program will have a class named Order. Rows in this table correspond to objects of the class - a particular order is represented as an object of class Order. Within that object, attributes are used to get and set the individual columns. Our Order object has methods to get and set the amount, the sales tax, and so on. In addition, the Rails classes that wrap our database tables provide a set of class-level methods that perform table-level operations. For example, we might need to find the order with a particular id. This is implemented as a class method that returns the corresponding Order object.</p>
+
+                <p><strong>So an ORM layer maps tables to classes, rows to objects, and columns to attributes of those objects</strong>. Class methods are used to perform table-level operations, and instance methods perform operations on the individual rows.</p>
+
+                <p><strong>Active Record is the ORM layer supplied with Rails</strong>. Active Record relieves us of the hassles of dealing with the underlying database, leaving us free to work on business logic. ActiveRecord relies on convention over configuration. Wherever possible, ActiveRecord guesses the correct configuration by reflecting against the data schema. When you do need a specific override, you specify the override directly in your class.</p>
+
+                <p>Also, Rails assumes that:</p>
+
+                <ul>
+                <li>database table names, like variable names, have lowercase letters and underscores between the words.</li>
+                <li>table names are always plural.</li>
+                <li>files are named in lowercase with underscores.</li>
+                </ul>
+
+                <p>Although ActiveRecord is part of Rails, you can also install it as a freestanding gem:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                gem install activerecord
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <h3>MySQL</h3>
+
+                <p>Ruby programs can interact with relational databases like MySQL via adapters in ActiveRecord. An adapter can be a pure Ruby implementation or a hybrid Ruby/C extension. From your Ruby code, you need to specify only the name of the adapter you want to use; ActiveRecord will provide the Ruby bridge code and worry about loading the native extension (if necessary).</p>
+
+                <p>MySQL is a one of the most popular open source databases around and is used by many prominent organizations from Yahoo to NASA. You can use <a href="http://rubylearning.com/data/mysqlsetup.doc">these MySQL download and installation instructions</a>.</p>
+
+                <h3>Creation of students database and rubyists table</h3>
+
+                <p>Once you have installed MySQL, we shall create a database called students and a table called rubyists (this holds the names and cities of all those who have downloaded my <a href="http://rubylearning.com/download/downloads.html">Free Ruby Study Notes</a>). To do this, open a command window and type:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                mysql -u root
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>You should now get a mysql prompt. Next at the mysql prompt, type as follows:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                mysql>create database students;
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>It will respond with:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                mysql>Query OK, 1 row affected (0.00 sec)
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Next, on the mysql prompt, type:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                mysql>grant all on students.* to 'root'@'localhost';
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Next let us create our table called rubyists by typing the following on the mysql prompt:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                mysql>use students;
+                mysql>drop table if exists rubyists;
+                create table rubyists (
+                  id int not null auto_increment,
+                  name varchar(100) not null,
+                  city text not null,
+                  primary key (id)
+                );
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>We are through with the database creation. Now type:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                mysql>exit
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Rails assumes that every table it handles has as its primary key an integer column called id internally, Rails uses the value in this column to keep track of the data it has loaded from the database and to link between data in different tables.</p>
+
+                <h3>Ruby code to access the table rubyists</h3>
+
+                <p>Let's write a Ruby program and name it as p080dbconnect.rb</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                require 'rubygems'
+                require 'active_record'
+                ActiveRecord::Base.establish_connection(
+                :adapter => "mysql",
+                :host => "localhost",
+                :database => "students"
+                )
+
+                class Rubyist &lt; ActiveRecord::Base
+                end
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>So far, in the above code we are:</p>
+
+                <ul>
+                <li>Using the ActiveRecord library, available as the activerecord gem.</li>
+                <li>Using the ActiveRecord adapter namely mysql</li>
+                <li>Establishing a connection to the database students</li>
+                <li>Creating a class called Rubyist following the conventions mentioned above</li>
+                </ul>
+
+                <p>Next we create entries in the table without writing any SQL. If you refer the ActiveRecord documentation, we can use the create method of ActiveRecord::Base (this method creates an object, and instantly saves it as a record) to do the same:
+                </p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                Rubyist.create(:name => 'Luc Juggery', :city => "Nashville, Tenessee")
+                Rubyist.create(:name => 'Sunil Kelkar', :city => "Pune, India")
+                Rubyist.create(:name => 'Adam Smith', :city => "San Fransisco, USA")
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>You can now query the table using find of ActiveRecord::Base.</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                participant = Rubyist.find(:first) # returns the first object fetched by SELECT * FROM rubyists
+                puts %{#{participant.name} stays in #{participant.city}}
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>You will observe ActiveRecord examines the database tables themselves to find out which columns are available. This is how we were able to use accessor methods for participant.name without explicitly defining them: we defined them in the database, and ActiveRecord picked them up.</p>
+
+                <p>If you want to delete an item from the database, you can use the destroy (Deletes the record in the database) method of ActiveRecord::Base:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                Rubyist.find(:first).destroy
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>The complete program is:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                require 'rubygems'
+                require 'active_record'
+                ActiveRecord::Base.establish_connection(
+                :adapter=> "mysql",
+                :host => "localhost",
+                :database=> "students"
+                )
+
+                class Rubyist &lt; ActiveRecord::Base
+                end
+
+                Rubyist.create(:name => 'Luc Juggery', :city => "Nashville, Tenessee")
+                Rubyist.create(:name => 'Sunil Kelkar', :city => "Pune, India")
+                Rubyist.create(:name => 'Adam Smith', :city => "San Fransisco, USA")
+
+                participant = Rubyist.find(:first)
+                puts %{#{participant.name} stays in #{participant.city}}
+
+                Rubyist.find(:first).destroy
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p style="background-color: #FAFAFA; padding: 5px; margin-top: 20px; font-size: 65%;"><strong>Note</strong>: The Ruby Logo is Copyright (c) 2006, Yukihiro Matsumoto. I have made extensive references to information, related to Ruby, available in the public domain (wikis and the blogs, articles of various <span style="font-weight: bold;" title="Click Gurus on the menu above">Ruby Gurus</span>), my acknowledgment and thanks to all of them.</p>
+
+                <p class="post-footer align-right">
+                  <strong>
+                    <a href="http://rubylearning.com/satishtalim/ruby_mysql_tutorial.html">&lt;Ruby MySQL | </a>
+                    <a href="http://rubylearning.com/satishtalim/tutorial.html">TOC | </a>
+                    <a href="http://rubylearning.com/satishtalim/ruby_tk_tutorial.html">Ruby-Tk&gt;</a>
+                  </strong>
+                </p>
+
+            </div>
+            <!-- main inner ends here -->
+        </div>
+
+            <div id="rightbar">
+                <p><a title="Free Online Ruby Programming Course" href="http://rubylearning.org/"><img src="http://rubylearning.com/images/rlbanner.jpg" style="border: 0px none ;" alt="Free Online Ruby Programming Course" /></a></p>
+
+                <div>
+                <!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-2265705826025555";
+                   google_ad_width = 120;
+                   google_ad_height = 600;
+                   google_ad_format = "120x600_as";
+                   google_ad_type = "text";
+                   //2007-08-02: RLRARAM
+                   google_ad_channel = "3904556163";
+                   google_color_border = ["FFFFFF","FFFFFF"];
+                   google_color_bg = "FFFFFF";
+                   google_color_link = ["B37400","B37400"];
+                   google_color_url = ["B37400","B37400"];
+                   google_color_text = ["000000","000000"];
+                   //--></script>
+                   <script type="text/javascript"
+                     src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </div>
+
+            </div>
+
+    <!-- content-wrap ends here -->
+    </div>
+
+<!-- wrap ends here -->
+</div>
+
+<!-- footer starts here -->
+<div id="footer">
+    <!-- CHANGE THE FOOTER -->
+    <p class="google">
+        <!-- Google advt starts-->
+        <br />
+        <script type="text/javascript"><!--
+                google_ad_client = "pub-2265705826025555";
+                google_ad_width = 728;
+                google_ad_height = 90;
+                google_ad_format = "728x90_as";
+                google_ad_type = "text";
+                //2007-08-02: RLRARAM
+                google_ad_channel = "3904556163";
+                google_color_border = ["FFFFFF","FFFFFF"];
+                google_color_bg = "FFFFFF";
+                google_color_link = ["B37400","B37400"];
+                google_color_url = ["B37400","B37400"];
+                google_color_text = ["000000","000000"];
+                //--></script>
+        <script type="text/javascript"
+                  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+        <!-- Google advt ends -->
+    </p>
+
+    <p> &copy; 2006-2012 <strong>RubyLearning.com A Ruby Tutorial</strong>&nbsp;&nbsp;
+
+        Page Updated: 15th Aug. 2010 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://rubylearning.com/">Home</a> | <a href="http://rubylearning.com/privacy.html">Privacy</a> | <a href="http://rubylearning.com/sitemap.html">Sitemap</a> </p>
+</div>
+
+<!-- footer ends here -->
+
+<!-- SyntaxHighlighter code -->
+<script src="http://rubylearning.com/js/shCore.js" type="text/javascript"></script>
+<script src="http://rubylearning.com/js/shBrushRuby.js" type="text/javascript"></script>
+<script type="text/javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+<!-- SyntaxHighlighter code -->
+</body>
+</html>

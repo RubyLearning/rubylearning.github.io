@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Mutable and Immutable Objects: Ruby Study Notes - Best Ruby Guide, Ruby Tutorial</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="Ruby Study Notes - Best Ruby Guide, Ruby Tutorial" />
+<meta name="keywords" content="ruby mutable and immutable objects,freezing ruby objects,ruby study notes,free ruby programming guide,ruby guide,free ruby programming course,best ruby guide,ruby tutorials,ruby tutorial,learn ruby,ruby,ruby on rails,ruby rails,ruby learning,ruby tutoring,learning ruby,ruby programming,ruby on rails development,ruby training" />
+<meta name="Distribution" content="Global" />
+<meta name="author" content="Satish Talim / Original design: Erwin Aligam - ealigam@gmail.com" />
+<meta name="copyright" content="Satish Talim 2007 and beyond..." />
+<meta name="verify-v1" content="rFu86se+IkbtF+bH8mgJBKwU5HnKaSd8Ghw9umXQOkM=" />
+<meta name="robots" content="index,follow" />
+<meta http-equiv="Expires" content="0" />
+<meta name="revisit-after" content="1 days" />
+<link rel="stylesheet" href="http://rubylearning.com/images/NewOrange.css" type="text/css" />
+<link rel="stylesheet" href="http://rubylearning.com/images/syntaxhighlighter.css" type="text/css" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<!-- Google +1 button code -->
+<link rel="canonical" href="http://rubylearning.com/satishtalim/mutable_and_immutable_objects.html" />
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<!-- Google Analytics code -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-59044-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Analytics code ends -->
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+
+    <div id="header">
+
+        <h1 id="logo">Ruby<span class="orange">Learning.com</span></h1>
+        <h2 id="slogan">Helping Ruby Programmers become Awesome!</h2>
+
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="http://rubylearning.com/" title="Home page for rubylearning.com">Home</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/tutorial.html" title="Get started Learning Ruby here...">Tutorial</a></li>
+            <li><a href="http://rubylearning.com/download/downloads.html" title="Download this tutorial as an eBook">Downloads</a></li>
+            <li><a href="http://rubylearning.com/other/testimonials.html" title="People around the world who benefited from this site">Testimonials</a></li>
+            <li><a href="http://rubylearning.com/other/certification.html" title="Get certified in Ruby">Certification</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/ruby_guide.html" title="Ruby Guide, Mentor">Mentor</a></li>
+            <li><a href="http://rubylearning.com/jobs/ruby_jobs.html" title="Find Ruby Jobs and also post your job requirements">Jobs</a></li>
+            <li><a href="http://rubylearning.com/blog/" title="Ruby blog of Ruby Learning site">Blog</a></li>
+            <li><a href="http://rubylearning.org/class/" title="Online Ruby Course">Online Course</a></li>
+            <li><a href="http://ruby-challenge.rubylearning.org/" title="Ruby Programming Challenge for Newbies">Challenge</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/services.html" title="Services offered by Satish Talim">Services</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/about.html" title="Information about Satish Talim">About</a></li>
+        </ul>
+    </div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap">
+
+            <div id="main">
+
+                <div id="main-inner"><a name="TemplateInfo"></a>
+                <h1>Mutable and Immutable Objects</h1>
+                <!-- Place this tag where you want the +1 button to render -->
+				<div class="g-plusone"></div>
+				<script type="text/javascript">
+				  window.___gcfg = {
+				    lang: 'en-US'
+				  };
+
+				  (function() {
+				    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				    po.src = 'https://apis.google.com/js/plusone.js';
+				    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+				  })();
+				</script>
+
+                <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <br />
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-2265705826025555";
+                   google_ad_width = 468;
+                   google_ad_height = 60;
+                   google_ad_format = "468x60_as";
+                   google_ad_type = "text";
+                   //2007-02-24: RLMAIO
+                   google_ad_channel = "4455446936";
+                   google_color_border = ["FFFFFF","FFFFFF"];
+                   google_color_bg = "FFFFFF";
+                   google_color_link = ["B37400","B37400"];
+                   google_color_url = ["B37400","B37400"];
+                   google_color_text = ["000000","000000"];
+                   //--></script>
+                   <script type="text/javascript"
+                     src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+
+                <p class="post-footer align-right">
+                  <strong>
+                    <a href="http://rubylearning.com/satishtalim/ruby_syntactic_sugar.html">&lt;Syntactic Sugar | </a>
+                    <a href="http://rubylearning.com/satishtalim/tutorial.html">TOC | </a>
+                    <a href="http://rubylearning.com/satishtalim/object_serialization.html">Object Serialization &gt;</a>
+                  </strong>
+                </p>
+
+                <p>Mutable objects are objects whose state can change. Immutable objects are objects whose state never changes after creation.<br /><br />Immutable objects have many desirable properties:
+                </p>
+
+                <ul>
+                  <li><span>Immutable objects are thread-safe. Threads cannot corrupt what they cannot change.</span></li>
+                  <li><span>Immutable objects make it easier to implement encapsulation. If part of an object's state is stored in an immutable object, then accessor methods can return that object to outside callers, without fear that those callers can change the object's state.</span></li>
+                  <li><span>Immutable objects make good hash keys, since their hash codes cannot change.</span></li>
+                </ul>
+
+                <p>In Ruby, Mutability is a property of an instance, not of an entire class. Any instance can become immutable by calling <strong>freeze</strong>.
+                </p>
+
+                <h3>Freezing Objects</h3>
+
+                <p>The <strong>freeze</strong> method in class <strong>Object</strong> prevents you from changing an object, effectively turning an object into a constant. After we freeze an object, an attempt to modify it results in <strong>TypeError</strong>. The following program <strong>p050xfreeze.rb</strong> illustrates this:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                str = 'A simple string. '
+                str.freeze
+                begin
+                  str &lt;&lt; 'An attempt to modify.'
+                rescue => err
+                  puts "#{err.class} #{err}"
+                end
+                # The output is - TypeError can't modify frozen string
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>However, <strong>freeze</strong> operates on an object reference, not on a variable. This means that any operation resulting in a new object will work. This is illustrated by the following example:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                str = 'Original string - '
+                str.freeze
+                str += 'attachment'
+                puts str
+                # Output is - Original string - attachment
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>The expression str + 'attachment' is evaluated to a new object, which is then assigned to str. The object is not changed, but the variable str now refers to a new object.</p>
+
+                <h3>frozen?</h3>
+
+                <p>A method <strong>frozen?</strong> tells you whether an object is frozen or not. Let's take an example here:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                a = b = 'Original String'
+                b.freeze
+                puts a.frozen? # true
+                puts b.frozen? # true
+                a = 'New String'
+                puts a
+                puts b
+                puts a.frozen? # false
+                puts b.frozen? # true
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Let us understand what we are doing here - a and b are two variables both of which are pointing to a string object - <em>Original String</em>. We then freeze the object <em>Original String</em>. Hence both a and b are now pointing to the frozen object <em>Original String</em>. This is verified by the statements puts a.frozen? and puts b.frozen?. Next, we create a new string object <em>New String</em> and make variable a point to this new object <em>New String</em>. Variable b is still pointing to the frozen object while a is not. This verified by the last 2 statements of the program.<br /><br /><strong>Usage</strong>:<br /> Ruby sometimes copies objects and freezes the copies. When you use a string as a hash key, Ruby actually copies the string, freezes the copy, and uses the copy as the hash key: that way, if the original string changes later on, the hash key isn't affected.<br /><br />Ruby's internal file operations work from a frozen copy of a filename instead of using the filename directly. If another thread modifies the original filename in the middle of an operation that's supposed to be atomic, there's no problem: Ruby wasn't relying on the original filename anyway. You can adopt this copy-and-freeze pattern in multi-threaded code to prevent a data structure you're working on from being changed by another thread.<br /><br />Another common programmer-level use of this feature is to freeze a class in order to prevent future modifications to it.<br /><br /><strong>Note</strong>: Whenever an object in Ruby has no reference to it, then that object is marked for removal and the garbage collector will remove that object based on its algorithm. There is no way to access an un-referenced object.</p>
+<!--
+                <p>Find meanings of difficult words using an <em><a href="http://www.myshopping.com.au/PT--368_Electronic_Dictionaries_Translators_Voice_Function__fs_22998_e__">easy to use electronic dictionary</a>.</em></p>
+-->
+                <h3>Summary</h3>
+
+                <p>I have listed down all the <strong><a href="http://rubylearning.com/satishtalim/ruby_summary7.html">important points</a></strong> you need to remember after you have completed the following topics: <a href="http://rubylearning.com/satishtalim/duck_typing.html">Duck Typing</a>, <a href="http://rubylearning.com/satishtalim/ruby_syntactic_sugar.html">Syntactic Sugar</a>, <a href="http://rubylearning.com/satishtalim/mutable_and_immutable_objects.html">Mutable and Immutable Objects</a>.</p>
+
+                <p style="background-color: #FAFAFA; padding: 5px; margin-top: 20px; font-size: 65%;"><strong>Note</strong>: The Ruby Logo is Copyright (c) 2006, Yukihiro Matsumoto. I have made extensive references to information, related to Ruby, available in the public domain (wikis and the blogs, articles of various <span style="font-weight: bold;" title="Click Gurus on the menu above">Ruby Gurus</span>), my acknowledgment and thanks to all of them. Much of the material on <a href="http://rubylearning.com/">rubylearning.com</a> and in the course at <a href="http://rubylearning.org/">rubylearning.org</a> is drawn <strong>primarily</strong> from the <strong>Programming Ruby book</strong>, available from <a href="http://pragprog.com/titles/ruby3/programming-ruby-3">The Pragmatic Bookshelf</a>.</p>
+
+                <p class="post-footer align-right">
+                  <strong>
+                    <a href="http://rubylearning.com/satishtalim/ruby_syntactic_sugar.html">&lt;Syntactic Sugar | </a>
+                    <a href="http://rubylearning.com/satishtalim/tutorial.html">TOC | </a>
+                    <a href="http://rubylearning.com/satishtalim/object_serialization.html">Object Serialization &gt;</a>
+                  </strong>
+                </p>
+
+            </div>
+            <!-- main inner ends here -->
+        </div>
+
+            <div id="rightbar">
+
+                <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-2265705826025555";
+                   google_ad_width = 120;
+                   google_ad_height = 600;
+                   google_ad_format = "120x600_as";
+                   google_ad_type = "text";
+                   //2007-02-24: RLMAIO
+                   google_ad_channel = "4455446936";
+                   google_color_border = ["FFFFFF","FFFFFF"];
+                   google_color_bg = "FFFFFF";
+                   google_color_link = ["B37400","B37400"];
+                   google_color_url = ["B37400","B37400"];
+                   google_color_text = ["000000","000000"];
+                   //--></script>
+                   <script type="text/javascript"
+                     src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+
+            </div>
+
+    <!-- content-wrap ends here -->
+    </div>
+
+<!-- wrap ends here -->
+</div>
+
+<!-- footer starts here -->
+<div id="footer">
+    <!-- CHANGE THE FOOTER -->
+    <p>&copy; 2006-2013&nbsp;<strong>RubyLearning.com - A Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 1st Sept. 2013 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://rubylearning.com/">Home</a> | <a href="http://rubylearning.com/privacy.html">Privacy</a> | <a href="http://rubylearning.com/sitemap.html">Sitemap</a></p>
+</div>
+<!-- footer ends here -->
+
+<!-- SyntaxHighlighter code -->
+<script src="http://rubylearning.com/js/shCore.js" type="text/javascript"></script>
+<script src="http://rubylearning.com/js/shBrushRuby.js" type="text/javascript"></script>
+<script type="text/javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+<!-- SyntaxHighlighter code -->
+</body>
+</html>

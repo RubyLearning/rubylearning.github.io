@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>FXRuby: Ruby Study Notes - Best Ruby Guide, Ruby Tutorial</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="Ruby Study Notes - Best Ruby Guide, Ruby Tutorial" />
+<meta name="keywords" content="fxruby,ruby study notes,free ruby programming guide,ruby guide,free ruby programming course,best ruby guide,ruby tutorials,ruby tutorial,learn ruby,ruby,ruby on rails,ruby rails,ruby learning,ruby tutoring,learning ruby,ruby programming,ruby on rails development,ruby training" />
+<meta name="Distribution" content="Global" />
+<meta name="author" content="Satish Talim / Original design: Erwin Aligam - ealigam@gmail.com" />
+<meta name="copyright" content="Satish Talim 2007 and beyond..." />
+<meta name="verify-v1" content="rFu86se+IkbtF+bH8mgJBKwU5HnKaSd8Ghw9umXQOkM=" />
+<meta name="robots" content="index,follow" />
+<meta http-equiv="Expires" content="0" />
+<meta name="revisit-after" content="1 days" />
+<link rel="stylesheet" href="http://rubylearning.com/images/NewOrange.css" type="text/css" />
+<link rel="stylesheet" href="http://rubylearning.com/images/syntaxhighlighter.css" type="text/css" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<!-- Google Analytics code -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-59044-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Analytics code ends -->
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+
+    <div id="header">
+
+        <h1 id="logo">Ruby<span class="orange">Learning.com</span></h1>
+        <h2 id="slogan">Ruby helps programmers have more fun!</h2>
+
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="http://rubylearning.com/" title="Home page for rubylearning.com">Home</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/tutorial.html" title="Get started Learning Ruby here...">Tutorial</a></li>
+            <li><a href="http://rubylearning.com/download/downloads.html" title="Download this tutorial as an eBook">Downloads</a></li>
+            <li><a href="http://rubylearning.com/other/testimonials.html" title="People around the world who benefited from this site">Testimonials</a></li>
+            <li><a href="http://rubylearning.com/other/certification.html" title="Get certified in Ruby">Certification</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/ruby_guide.html" title="Ruby Guide, Mentor">Mentor</a></li>
+            <li><a href="http://rubylearning.com/jobs/ruby_jobs.html" title="Find Ruby Jobs and also post your job requirements">Jobs</a></li>
+            <li><a href="http://rubylearning.com/blog/" title="Ruby blog of Ruby Learning site">Blog</a></li>
+            <li><a href="http://rubylearning.org/class/" title="Online Ruby Course">Online Course</a></li>
+            <li><a href="http://ruby-challenge.rubylearning.org/" title="Ruby Programming Challenge for Newbies">Challenge</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/services.html" title="Services offered by Satish Talim">Services</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/about.html" title="Information about Satish Talim">About</a></li>
+        </ul>
+    </div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap">
+
+            <div id="main">
+
+                <div id="main-inner"><a name="TemplateInfo"></a>
+                <h1>FXRuby: A Quick Look</h1>
+
+                <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <br />
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-2265705826025555";
+                   google_ad_width = 468;
+                   google_ad_height = 60;
+                   google_ad_format = "468x60_as";
+                   google_ad_type = "text";
+                   //2007-03-21: RLMORM
+                   google_ad_channel = "0758848029";
+                   google_color_border = ["FFFFFF","FFFFFF"];
+                   google_color_bg = "FFFFFF";
+                   google_color_link = ["B37400","B37400"];
+                   google_color_url = ["B37400","B37400"];
+                   google_color_text = ["000000","000000"];
+                   //--></script>
+                   <script type="text/javascript"
+                     src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+
+                <p><strong>FXRuby</strong> is a library for developing graphical user interfaces (GUIs) for your Ruby application. It's based on the FOX toolkit, a popular open source C++ library. FXRuby exposes all the functionality of the FOX library. FOX and FXRuby are both licensed under <a href="http://www.gnu.org/licenses/lgpl.html">LGPL</a> which permits the use of those libraries in both free and proprietary (commercial) software applications.</p>
+
+                <p>This brief article introduces FXRuby to the POARPC101 participants and is based on the various articles and tutorials on the <a href="http://www.fxruby.org/">FXRuby site</a>.</p>
+
+                <h3>Installing FXRuby</h3>
+
+                <p>For installing on Windows, open a command window and type:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                c:\>gem update fxruby
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Please refer the <a href="http://www.fxruby.org/">FXRuby site</a> for installing FXRuby on other operating systems.</p>
+
+                <h3>The Basics</h3>
+
+                <p>We will put together some basic code to display a "Welcome FORPC101" window. All of the code associated with the FXRuby extension is provided by the <span style="font-family: Courier New; font-size=8" >fox16</span> gem, so we need to start by requiring this gem:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                require 'fox16'
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Since all of the FXRuby classes are defined under the <span style="font-family: Courier New; font-size=8" >Fox</span> module, you'd normally need to refer to them using their "fully qualified" names (i.e. names that begin with the <span style="font-family: Courier New; font-size=8" >Fox::</span> prefix). Because this can get a little tedious, and because there's not really much chance of name conflicts between FXRuby and other Ruby extensions, we shall add an <span style="font-family: Courier New; font-size=8" >include Fox</span> statement so that all of the names in the <span style="font-family: Courier New; font-size=8" >Fox</span> module are "included" into the global namespace:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                require 'fox16'
+                include Fox
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Every FXRuby program begins by creating an <span style="font-family: Courier New; font-size=8" >FXApp</span> instance. <span style="font-family: Courier New; font-size=8" >FXApp</span> is the glue that holds everything together and the most frequent way you'll use to kick off the application's main event loop (which you'll see later on this article):</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                require 'fox16'
+                include Fox
+                app = FXApp.new
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>The next step is to create an <span style="font-family: Courier New; font-size=8" >FXMainWindow</span> instance to serve as the application's main window. We pass app as the first argument to <span style="font-family: Courier New; font-size=8" >FXMainWindow.new</span> to associate the new <span style="font-family: Courier New; font-size=8" >FXMainWindow.new</span> instance with this <span style="font-family: Courier New; font-size=8" >FXApp</span>, follow that with the window title, width and height:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                require 'fox16'
+                include Fox
+                app = FXApp.new
+                main = FXMainWindow.new(app, "Welcome POARPC101", :width => 250, :height => 100)
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>So far, all we've done is instantiate the client-side objects. <span style="font-family: Courier New; font-size=8" >FOX</span> makes a distinction between client-side data and server-side data. To create the server-side objects associated with the already-constructed client-side objects, we call <span style="font-family: Courier New; font-size=8" >FXApp#create</span>:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                require 'fox16'
+                include Fox
+                app = FXApp.new
+                main = FXMainWindow.new(app, "Welcome POARPC101", :width => 250, :height => 100)
+                app.create
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>By default, all windows in FXRuby programs are invisible, so we need to call our main window's <span style="font-family: Courier New; font-size=8" >show</span> instance method. <span style="font-family: Courier New; font-size=8" >PLACEMENT_SCREEN</span> is a request that the window be centered on screen:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                require 'fox16'
+                include Fox
+                app = FXApp.new
+                main = FXMainWindow.new(app, "Welcome POARPC101", :width => 250, :height => 100)
+                app.create
+                main.show(PLACEMENT_SCREEN)
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>The last step is to start the program's main loop by calling app's <span style="font-family: Courier New; font-size=8" >run</span> instance method. The <span style="font-family: Courier New; font-size=8" >FXApp#run</span> method doesn't return until the program exits:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                require 'fox16'
+                include Fox
+                app = FXApp.new
+                main = FXMainWindow.new(app, "Welcome POARPC101", :width => 250, :height => 100)
+                app.create
+                main.show(PLACEMENT_SCREEN)
+                app.run
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>At this point, we have a working (if not very interesting) program that uses FXRuby.</p>
+
+                <h3>A Little Optimization</h3>
+
+                <p>Let's make the application's main window a subclass of <span style="font-family: Courier New; font-size=8" >FXMainWindow</span>:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                require 'fox16'
+                include Fox
+                class HelloPOARPC101Window &lt; FXMainWindow
+                  def initialize(app, title, w, h)
+                    super(app, title, :width => w, :height => h)
+                  end
+                  def create
+                    super
+                    show(PLACEMENT_SCREEN)
+                  end
+                end
+                app = FXApp.new
+                HelloPOARPC101Window.new(app, "Welcome POARPC101", 250, 100)
+                app.create
+                app.run
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>In subsequent programs, it becomes convenient to focus the application control inside a custom main window class like this.</p>
+
+                <h3>Event Loop</h3>
+                <p>FXRuby programs are event-driven. After some initialization, an FXRuby program enters an <em>event loop</em>: the program waits for an event to occur, it responds to that event, and then it resumes waiting for the next event. FXRuby models an event as one object, the <em>sender</em>, sending a message to another object, the <em>target</em>. Every message that's sent from one FXRuby object to another consists of a <em>message type</em>, a <em>message identifier</em>, and some <em>message data</em>. The message type is a constant whose name begins with SEL_. The message identifier is also a constant, and it's used by the target (the receiver of the message) to distinguish between different incoming messages of the same type. The message data is just an object that provides some additional context for the message. The most useful message that a widget sends to its target is its SEL_COMMAND message. The specific meaning of SEL_COMMAND is different for different widgets. The <span style="font-family: Courier New; font-size=8" >connect()</span> method connects messages sent from a widget to a chunk of code that handles them. Under the hood, the <span style="font-family: Courier New; font-size=8" >connect()</span> method creates a target object and message identifier and then assigns those to the message sender.</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                exit_cmd.connect(SEL_COMMAND) do |sender, selector, data|
+                  # Handle it here
+                end
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>In the above example, we "connect" the SEL_COMMAND message from the exit_cmd to a Ruby block that expects three arguments. You can use any names for these arguments. In the above example, <span style="font-family: Courier New; font-size=8" >sender</span>, is a reference to the object that sent the message (exit_cmd). <span style="font-family: Courier New; font-size=8" >selector</span>, is a value that combines the message type and identifier. <span style="font-family: Courier New; font-size=8" >data</span>, is a reference to the message data.</p>
+
+                <h2>Building a Simple Text Editor</h2>
+
+                <p>Let's build a simple Text Editor. We create a simple structure for the Text Editor application by defining a <span style="font-family: Courier New; font-size=8" >TextEditor</span> class as a subclass of <span style="font-family: Courier New; font-size=8" >FXMainWindow</span>:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                # texteditor.rb
+                require 'fox16'
+                include Fox
+                class TextEditor &lt; FXMainWindow
+                  def initialize(app, title, w, h)
+                    super(app, title, :width => w, :height => h)
+                  end
+                  def create
+                    super
+                    show(PLACEMENT_SCREEN)
+                  end
+                end
+                app = FXApp.new
+                TextEditor.new(app, "Simple Text Editor", 600, 400)
+                app.create
+                app.run
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <h3>Adding a Pull-down Menu</h3>
+
+                <p>We will use the <span style="font-family: Courier New; font-size=8" >FXMenuBar, FXMenuPane, FXMenuTitle</span> and <span style="font-family: Courier New; font-size=8" >FXMenuCommand</span> classes together to create a menu system (with pull-down menus) for our application.</p>
+
+                <p>Let us put all the code related to constructing the menu bar in a new private instance method named <span style="font-family: Courier New; font-size=8" >add_menu_bar()</span>.</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                def add_menu_bar
+                  menu_bar = FXMenuBar.new(self, LAYOUT_SIDE_TOP | LAYOUT_FILL_X)
+                end
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>We are going to use a "nonfloatable" menu bar, and it has two arguments: the first is the parent window ie. <span style="font-family: Courier New; font-size=8" >self</span> which refers to the <span style="font-family: Courier New; font-size=8" >TextEditor</span> window, since this is an instance method of the <span style="font-family: Courier New; font-size=8" >TextEditor</span> class; the second argument is an options value that tells FXRuby to place the menu bar at the top of the main window's content area and to stretch as wide as possible.</p>
+
+                <p>Next we create a <span style="font-family: Courier New; font-size=8" >FXMenuPane</span> window, as a child of <span style="font-family: Courier New; font-size=8" >FXMenuBar</span>:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                file_menu = FXMenuPane.new(self)
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>A menu pane is a kind of pop-up window. You interact with it by choosing a menu command, and then it "pops down" again. You call a menu pane by clicking the <span style="font-family: Courier New; font-size=8" >FXMenuTitle</span> widget associated with that menu pane.</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                FXMenuTitle.new(menu_bar, "File", :popupMenu => file_menu)
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>The <span style="font-family: Courier New; font-size=8" >FXMenuTitle</span> is a child of <span style="font-family: Courier New; font-size=8" >FXMenuBar</span>, but it also needs to know which menu pane it should display when it is activated, and so we pass that in as the <span style="font-family: Courier New; font-size=8" >:popupMenu</span> argument. Next we add our command:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                load_cmd = FXMenuCommand.new(file_menu, "Load")
+                load_cmd.connect(SEL_COMMAND) do
+                  # ...
+                end
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>By calling <span style="font-family: Courier New; font-size=8" >connect()</span> on <span style="font-family: Courier New; font-size=8" >load_cmd</span>, we are associating a block of Ruby code with that command. When the user selects the Load command from the File menu, we want to display a file selection dialog box. Here is what should go inside the <span style="font-family: Courier New; font-size=8" >connect()</span> block:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                dialog = FXFileDialog.new(self, "Load a File")
+                dialog.selectMode = SELECTFILE_EXISTING
+                dialog.patternList = ["All Files (*)"]
+                if dialog.execute != 0
+                  load_file(dialog.filename)
+                end
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>We start by constructing a <span style="font-family: Courier New; font-size=8" >FXFileDialog</span> as a child of the main window, with the title "Load a File". Next, we set the file selection mode to <span style="font-family: Courier New; font-size=8" >SELECTFILE_EXISTING</span>, which means the user can select only an existing file. We also initialize the <span style="font-family: Courier New; font-size=8">patternList</span> to an array of strings that indicate the available file filters. Finally, we call <span style="font-family: Courier New; font-size=8" >execute()</span> to display the dialog box and wait for the user to select a file. The <span style="font-family: Courier New; font-size=8" >execute()</span> method for a dialog box returns a completion code of either 0 or 1, depending upon whether the user clicked Cancel to dismiss the dialog box or OK to accept the selected file. If the user clicked Cancel, we don't need to do anything else for this command. Otherwise, we want to call  the as-yet nonexistent <span style="font-family: Courier New; font-size=8" >load_file()</span> private method to load the selected file.</p>
+
+                <p>Similarly, we can write code for <span style="font-family: Courier New; font-size=8" >new_cmd, save_cmd</span> and <span style="font-family: Courier New; font-size=8" >exit_cmd</span>. We will add the <span style="font-family: Courier New; font-size=8" >FXMenuSeparator</span> widget to a menu pane to create a visual break between groups of related command.</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                FXMenuSeparator.new(file_menu)
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Finally, we add a call to the <span style="font-family: Courier New; font-size=8" >add_menu_bar()</span> method from the <span style="font-family: Courier New; font-size=8" >initialize()</span> method. The code so far:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                # texteditor.rb
+                require 'fox16'
+                include Fox
+                class TextEditor &lt; FXMainWindow
+                  def initialize(app, title, w, h)
+                    super(app, title, :width => w, :height => h)
+                    add_menu_bar
+                  end
+
+                  def create
+                    super
+                    show(PLACEMENT_SCREEN)
+                  end
+
+                  private
+                  def add_menu_bar
+                    menu_bar = FXMenuBar.new(self, LAYOUT_SIDE_TOP | LAYOUT_FILL_X)
+                    file_menu = FXMenuPane.new(self)
+                    FXMenuTitle.new(menu_bar, "File", :popupMenu => file_menu)
+                    new_cmd = FXMenuCommand.new(file_menu, "New")
+                    new_cmd.connect(SEL_COMMAND) do
+                      #
+                    end
+                    load_cmd = FXMenuCommand.new(file_menu, "Load")
+                    load_cmd.connect(SEL_COMMAND) do
+                      dialog = FXFileDialog.new(self, "Load a File")
+                      dialog.selectMode = SELECTFILE_EXISTING
+                      dialog.patternList = ["All Files (*)"]
+                      if dialog.execute != 0
+                        load_file(dialog.filename)
+                      end
+                    end
+                    save_cmd = FXMenuCommand.new(file_menu, "Save")
+                    save_cmd.connect(SEL_COMMAND) do
+                      dialog = FXFileDialog.new(self, "Save a File")
+                      dialog.selectMode = SELECTFILE_EXISTING
+                      dialog.patternList = ["All Files (*)"]
+                      if dialog.execute != 0
+                        save_file(dialog.filename)
+                      end
+                    end
+                    FXMenuSeparator.new(file_menu)
+                    exit_cmd = FXMenuCommand.new(file_menu, "Exit")
+                    exit_cmd.connect(SEL_COMMAND) do
+                      exit
+                    end
+                  end
+
+                  def load_file(filename)
+                    contents = ""
+                    File.open(filename, 'r') do |f1|
+                      while line = f1.gets
+                        contents += line
+                      end
+                    end
+                    puts contents
+                  end
+                end
+
+                app = FXApp.new
+                TextEditor.new(app, "Simple Text Editor", 600, 400)
+                app.create
+                app.run
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <h3>Adding a multi-line text document</h3>
+                <p><span style="font-family: Courier New; font-size=8" >FXText</span> is a fully featured text-editing component to add to our application.</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                def add_text_area
+                  @txt = FXText.new(self, :opts => TEXT_WORDWRAP|LAYOUT_FILL)
+                  @txt.text = ""
+                end
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>As shown above, we shall add a private method add_text_area to our class. By default, the text buffer for an <span style="font-family: Courier New; font-size=8" >FXText</span> widget is empty. You can initialize its value by assigning a string to its <span style="font-family: Courier New; font-size=8" >text</span> attribute. Finally, we add a call to the <span style="font-family: Courier New; font-size=8" >add_text_area()</span> method from the <span style="font-family: Courier New; font-size=8" >initialize()</span> method.</p>
+
+                <p>Let us now add some funtionality to <span style="font-family: Courier New; font-size=8" >new_cmd</span>.</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                new_cmd.connect(SEL_COMMAND) do
+                  @txt.text = ""
+                end
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Next, let's modify the functionality of the <span style="font-family: Courier New; font-size=8" >load_file()</span> method:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                def load_file(filename)
+                  contents = ""
+                  File.open(filename, 'r') do |f1|
+                    while line = f1.gets
+                      contents += line
+                    end
+                  end
+                  @txt.text = contents
+                end
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <h3>References</h3>
+                <p>You can refer to:</p>
+                <ul>
+                  <li>The <a href="http://www.fxruby.org/doc/api/">API documentation</a> for FXRuby, which is freely available.</li>
+                  <li>Book: <a href="http://www.pragprog.com/titles/fxruby/fxruby">FXRuby: Create Lean and Mean GUIs with Ruby</a>.</li>
+                </ul>
+                <p style="background-color: #FAFAFA; padding: 5px; margin-top: 20px; font-size: 65%;"><strong>Note</strong>: The Ruby Logo is Copyright (c) 2006, Yukihiro Matsumoto. I have made extensive references to information, related to Ruby, available in the public domain (wikis and the blogs, articles of various <span style="font-weight: bold;" title="Click Gurus on the menu above">Ruby Gurus</span>), my acknowledgment and thanks to all of them.</p>
+
+                <!--
+                <p class="post-footer align-right">
+                  <strong>
+                    <a href="http://rubylearning.com/satishtalim/ruby_names.html">&lt;Names | </a>
+                    <a href="http://rubylearning.com/satishtalim/tutorial.html">TOC | </a>
+                    <a href="http://rubylearning.com/satishtalim/writing_own_ruby_methods.html">Writing own Ruby Methods&gt;</a>
+                  </strong>
+                </p>
+                -->
+            </div>
+            <!-- main inner ends here -->
+        </div>
+
+            <div id="rightbar">
+                <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-2265705826025555";
+                   google_ad_width = 120;
+                   google_ad_height = 600;
+                   google_ad_format = "120x600_as";
+                   google_ad_type = "text";
+                   //2007-03-21: RLMORM
+                   google_ad_channel = "0758848029";
+                   google_color_border = ["FFFFFF","FFFFFF"];
+                   google_color_bg = "FFFFFF";
+                   google_color_link = ["B37400","B37400"];
+                   google_color_url = ["B37400","B37400"];
+                   google_color_text = ["000000","000000"];
+                   //--></script>
+                   <script type="text/javascript"
+                     src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+
+            </div>
+
+    <!-- content-wrap ends here -->
+    </div>
+
+<!-- wrap ends here -->
+</div>
+
+<!-- footer starts here -->
+<div id="footer">
+    <!-- CHANGE THE FOOTER -->
+    <p>&copy; 2006-2012&nbsp;<strong>RubyLearning.com - A Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 1st Oct. 2010 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://rubylearning.com/">Home</a> | <a href="http://rubylearning.com/privacy.html">Privacy</a> | <a href="http://rubylearning.com/sitemap.html">Sitemap</a></p>
+</div>
+
+<!-- SyntaxHighlighter code -->
+<script src="http://rubylearning.com/js/shCore.js" type="text/javascript"></script>
+<script src="http://rubylearning.com/js/shBrushRuby.js" type="text/javascript"></script>
+<script type="text/javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+<!-- SyntaxHighlighter code -->
+
+</body>
+</html>

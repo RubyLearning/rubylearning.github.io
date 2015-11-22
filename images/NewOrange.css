@@ -1,0 +1,560 @@
+/***************************************************************************
+   AUTHOR:          Erwin Aligam 
+   WEBSITE:         http://www.styleshout.com/
+   TEMPLATE NAME:   Stylevantage - orange
+   TEMPLATE CODE:   S-0001
+   VERSION:         1.1  
+   MODIIED:         Satish Talim - Sept. 1st, 2011
+   Update by:	    Samay Bhavsar (http://www.samay.info) - September 4th, 2010
+   FLUID LAYOUT:    Yes
+ ***************************************************************************/ 
+ 
+/********************************************
+   HTML ELEMENTS
+ ********************************************/ 
+
+  
+/* top elements */
+/* To make the content reach the edges of the browser window, we set the
+   margin and padding of the body and html elements to zero                
+   The universal selector (*) matches every element in the document.       */
+* {
+  margin: 0; padding: 0; /* sets 0 margin and 0 padding on everything      */
+} 
+body {
+  margin: 0; padding: 0;
+/*  font: 81%/1.5em Georgia, verdana, arial, Helvetica, sans-serif;*/
+   font: 85%/1.6em "Lucida Sans","Lucida Grande","Lucida Sans Unicode",Lucida,Verdana,Tahoma,sans-serif;
+  color: #333333;            /* Text color Black                           */
+  background-color: #FFFFFF; /* White                                      */
+  text-align: center;   
+}
+
+/* links */
+a {
+  background: inherit;
+  font-weight: bold; 
+  color: #333333; 
+}
+a:hover {
+  background: inherit;
+  /* color: #806B4D; */
+  color: #b00015;
+}
+
+/* headers */
+h1, h2, h3 {
+
+
+  color: #222; 
+}
+h1 { font-size: 1.8em; }
+h2 { font-size: 1.5em; text-transform: none; }
+h3 { font-size: 1.4em; text-transform: none;}
+
+#main h1, #rightbar h1 {
+  padding: 10px 0 5px 0px;
+  /* top, right, bottom, and left margin */
+  margin: 0 0 0 0px;
+  font-family:georgia, serif;
+  border-right:1px solid #ffffff;
+  border-bottom: 0px solid #f2f2f2;   
+} 
+
+#sidebar h1 {
+  padding: 10px 0px 5px 30px;
+  background: url(square_arrow.gif) no-repeat 2px 12px;
+  margin: 0;
+  text-transform: uppercase;  
+}
+
+p, h1, h2, h3 {
+  margin: 10px 0px;
+}
+ul, ol {
+  margin: 10px 30px;
+  padding: 0 15px;  
+  color: #333333; /* EC981F */
+}
+ul span, ol span {
+  color: #333333;
+}
+
+/* images */
+img {
+  border: 2px solid #CCC;
+}
+img.float-right {
+  margin: 5px 0px 5px 15px;  
+}
+img.float-left {
+  margin: 5px 15px 5px 0px;
+}
+a img {  
+  border: 2px solid #FFFFFF; /* original: EC981F */
+}
+a:hover img {  
+  border: 2px solid #806B4D !important; /* IE fix*/
+  border: 2px solid #b00015;
+}
+
+code {
+  margin: 5px 0;
+  padding: 10px;
+  text-align: left;
+  display: block;
+  overflow: auto;  
+  font: 500 1em/1.6em 'Lucida Console', 'courier new', monospace;
+  /* white-space: pre; */
+  background: #FAFAFA;
+  border: 1px solid #f2f2f2;  
+  border-left: 3px solid #b00015;
+}
+acronym {
+  cursor: help;
+  border-bottom: 1px solid #777;
+}
+blockquote {
+  margin: 15px;
+  padding: 0 0 0 32px;    
+   background: #FAFAFA url(quote.gif) no-repeat 5px 10px !important;
+  background-position: 8px 10px;
+  border: 1px solid #f2f2f2; 
+  border-left: 3px solid #777777;  
+}
+
+/* form elements */
+form {
+  margin:10px; padding: 0;
+  border: 1px solid #f2f2f2; 
+  background-color: #FAFAFA; 
+}
+label {
+  display:block;
+  font-weight:bold;
+  margin:5px 0;
+}
+input {
+  padding: 4px;
+  border:1px solid #eee;
+  font: normal 1em/1.6em Verdana, sans-serif;
+  color:#777;
+}
+textarea {
+  width:350px;
+  padding:4px;
+  font: normal 1em/1.6em Verdana, sans-serif;
+  border:1px solid #eee;
+  height:100px;
+  display:block;
+  color:#777;
+}
+input.button { 
+  margin: 0; 
+  font: bold 1em Arial, Sans-serif; 
+  border: 1px solid #CCC;
+  background: #FFF; 
+  padding: 2px 3px; 
+  color: #333;  
+}
+
+/* search form */
+form.searchform {
+  background: transparent;
+  border: none;
+  margin: 0; padding: 0;  
+}
+form.searchform input.textbox { 
+  margin: 0; 
+  width: 120px;
+  border: 1px solid #CCC; 
+  background: #FFF;
+  color: #333; 
+  vertical-align: top;
+}
+form.searchform input.button {
+  width: 55px;
+  vertical-align: top;
+}
+
+/*****************/
+/*    Layout     */
+/*****************/
+#wrap {
+
+  margin: 0 auto; 
+  width: 960px; 
+/*  width: 100%; */
+
+  
+  text-align: left;   
+  background: #FFF; /* CCFFCC */
+}
+#content-wrap {
+  clear:both;
+  /* changes by Paul O'B
+  margin: 0; padding:0;
+  width: 850px; */
+  width: 100%;
+}
+
+/* header */
+#header {
+  /* changes by Paul O'B
+  position: relative; */
+  clear: both;
+
+/*  background: url(headerbg-orange.gif) repeat-x 0 0;*/
+  height: 120px; 
+  width: 100%; /* changes by Paul O'B */
+}
+#header h1#logo {
+  position: absolute;
+  margin: 0; padding: 0;
+  font: bold 3.8em 'Trebuchet MS', Arial, Sans-serif;
+  letter-spacing: -2px;
+  color: #b00015;
+  text-transform: lowercase;
+  /* change the values of top and Left to adjust the position of the logo*/
+  top: 18px; 
+  /* text-shadow: -0.07em 0.0em 0.07em #eee; */
+
+}
+#header h2#slogan {
+  position: absolute;
+  margin: 0; padding: 0;
+  font: bold 1.28em 'Trebuchet MS', Arial, Sans-serif;
+  text-transform: none;
+
+  /* change the values of top and Left to adjust the position of the slogan*/
+  top: 80px; 
+padding-left:56px;
+   /* 48 to 56 */
+}
+#header .searchform {
+  position: absolute;
+  top: 5px; right: 3px; 
+}
+
+/* main column */
+#main {
+  margin:0 170px 0 0;
+  padding: 0;
+  border-left: 1px solid #f2f2f2;
+}
+/* mac hide \*/
+* html main{height:1%}
+/* end height*/
+#main-inner{width:99%;float:left;
+border-right:1px solid #F2F2F2;}
+* html #main-inner{overflow:hidden}
+/* Added by Satish on 5th Jan 2007 - start */
+.post-note {
+  background-color: #efefef;
+  padding: 5px; margin-top: 20px;
+  font-size:1.1em;
+  border: 1px solid #888888;
+  clear:both; /* suggested at Site-Point */
+}
+.post-advt {
+        border-top: 1px solid #f2f2f2;
+}
+/* Added by Satish on 5th Jan 2007 - finish */
+
+.post-footer {
+  background-color: #FAFAFA;
+  padding: 5px; margin-top: 20px;
+  font-size: 95%;
+}
+.post-footer .date {
+  background: url(clock.gif) no-repeat 0 center;
+  padding-left: 20px; margin: 0 10px 0 5px;
+}
+.post-footer .comments {
+  background: url(comment.gif) no-repeat 0 center;
+  padding-left: 20px; margin: 0 10px 0 5px;
+}
+.post-footer .readmore {
+  background: url(page.gif) no-repeat 0 center;
+  padding-left: 20px; margin: 0 10px 0 5px;
+}
+
+/* sideabar */
+#sidebar {
+  float: left;
+  width: 165px;
+  margin: 0;  padding: 0; 
+  display: inline;  
+}
+#sidebar ul.sidemenu {
+  list-style: none;
+  text-align: left;
+  margin: 0 0 8px 0;  
+  padding-right: 0;   
+  text-decoration: none;
+}
+#sidebar ul.sidemenu li {
+  border-bottom: 1px solid #EFF0F1;
+  background: url(arrow.gif) no-repeat 2px 5px;
+  padding: 2px 5px 2px 20px;  
+}
+
+* html body #sidebar ul.sidemenu li { height: 1%; }
+
+#sidebar ul.sidemenu a {
+  font-weight: bold;
+  background-image: none;
+  text-decoration: none;  
+}
+
+/* rightbar */
+#rightbar {
+  float: right;
+  width: 165px;
+  padding: 0; margin: 0;    
+}
+
+/* footer */
+#footer {
+  clear: both;
+/*  background: #FFF url(footerbg.gif) repeat-x left top;*/
+  border-top: 0px solid #F2F2F2;
+  text-align: left; 
+  height: 50px; 
+  font-size: 70%; /* added by Talim on 1st March 2007 */
+/*  width: 100%;*/
+  width:960px;
+  margin:0 auto;
+  padding-top:50px;
+}
+#footer a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* menu */
+#menu {
+  clear: both;
+  margin: 0; padding: 0;  
+  margin-bottom:10px;
+  font: 85%/1.6em "Lucida Sans","Lucida Grande","Lucida Sans Unicode",Lucida,Verdana,Tahoma,sans-serif;
+}
+#menu ul {  
+  position: relative; 
+  bottom: 4px;
+  margin: 16px 0 0 5px; padding: 0;  
+  float: left;
+/*  font: 1.1em Arial, Sans-serif;  original 1.4 */
+  width:100%;
+  border: 1px solid #808080;
+  border-width: 1px 0 1px 0;  
+  list-style: none;
+  line-height:24px;
+  background-color:#555;
+
+}
+#menu ul li{
+  display: inline;  
+}
+#menu ul li a { 
+  position: relative; 
+/*  bottom: -2px;*/
+  float: left;
+  color: #fff;
+  padding: 2px 8.15px;
+  text-decoration: none;
+/*  background: white url(menudivide.gif) repeat-y right top; */
+/*  border-bottom: 2px solid #808080;   */
+	border-right:1px solid #ddd;
+}
+#menu ul li a:hover{
+  color: #fff;
+  background-color: #b00015; 
+/*  border-bottom: 2px solid #B00015;*/
+
+}
+#menu ul li#current a{
+  color: #333;
+  background-color: #b00015; 
+/*  border-bottom: 2px solid #B00015;*/
+}
+
+/* Alignment classes */
+.float-left   { float: left;}
+p.float-left   { float: left; margin-right:10px;}
+.float-right  { float: right; }
+.align-left   { text-align: left; }
+.align-right  { text-align: right; }
+.align-center { text-align: center; }
+.align-justify { text-align: justify; }
+
+/* display classes */
+.clear  { clear: both; }
+.block  { display: block; }
+.hide   { display: none; }  
+.orange { color: #333333; }
+
+/* Satish added for syntax highlighter 27/1/2007 */
+.column2
+{
+  position: relative;
+  left: 3%;
+  top: 0px;
+  width: 95%;
+}
+
+.mugshot
+{ 
+  float : left; 
+  margin-right : 3%; 
+  /*height:100px;*/
+  width:75px
+}
+
+/*p.testimonial:first-letter 
+{ 
+  font-size : 200%; 
+  line-height : 1px; 
+  vertical-align : -100%; 
+}*/
+
+.p-default 
+{ 
+  text-indent : 0.0in; 
+  padding-left : 0.15in; 
+  margin-left : 0px;   margin-bottom : 10px;
+  
+}
+.testimonial 
+{ 
+   
+   min-height:100px;
+   height:auto !important;
+   height:100px;
+}
+
+.underline
+{
+  text-decoration:underline;
+}
+
+/* Added for Adsense background image */
+div.container
+{
+  position:relative;
+  /* float: left; */
+  width:390px;
+  height:200px; /* 397 */
+  margin:0px;
+  padding:5px;
+  color:black;
+  font-size:10px;
+  background:url(ruby-adsense.gif) no-repeat
+}
+div.adsense
+{
+  margin:120px 40px 10px
+}
+/* Not to be used for Adsense background images */
+div.container2
+{
+  position:relative;
+  width:778px;
+  height:140px;
+  margin:0px;
+  padding:5px;
+  color:black;
+  font-size:14px;
+  background:url(yellowripple.gif) no-repeat
+}
+div.adsense2
+{
+  margin:18px 20px 10px
+}
+/* Not to be used for Adsense background images */
+div.container3
+{
+  position:relative;
+  float: left;
+  width:260px;
+  height:210px;
+  margin:0px;
+  padding:5px;
+  color:black;
+  font-size:14px;
+  background:url(postit3FFFF99size125x125.gif) no-repeat
+}
+div.adsense3
+{
+  margin:55px 63px 10px
+}
+#ad_code_sky { 
+  text-align:center; 
+  width:187px; 
+  padding: 10px 0 17px 0; 
+  background:transparent url(whitewide.png) center center no-repeat;
+}
+#ad_code_bot { 
+  width:520px; 
+  padding:16px 30px; 
+  text-align:center; 
+  background: transparent url(bright.jpg) center center no-repeat; 
+}
+#ad_code_postit { 
+  /* float: right; */
+  background:#FFFFFF url(postit.jpg) center center no-repeat; 
+  width: 175px; 
+  text-align:center; 
+  padding:25px; 
+}
+#partners {
+  font-size: 80%;
+  color:#b00015;
+}
+.google{
+    text-align:left;
+    padding:2px 0px 5px 0px;
+}
+abbr[title] {
+  border-bottom: 1px dotted #E50066;
+}
+.adHeadline {font: bold 10pt Georgia, Arial; text-decoration: underline; color: #b00015;}
+.adText {font: normal 10pt Georgia, Arial; text-decoration: none; color: #333333;}
+
+/* For course certificate */
+table.stats
+{text-align: center;
+font-family: Georgia, Verdana, Geneva, Arial, Helvetica, sans-serif ;
+font-weight: normal;
+font-size: 11px;
+color: #fff;
+width: 100%;
+margin: 0 0 10px 10px;
+background-color: #efefef;
+border: 0px;
+border-collapse: collapse;
+border-spacing: 0px;}
+
+table.stats td
+{background-color: #FFF6E6;
+color: #000;
+padding: 4px;
+text-align: left;
+border: 1px #000 solid;}
+
+table.stats td.hed
+{background-color: #efefef;
+color: #fff;
+padding: 4px;
+text-align: left;
+border-bottom: 2px #000 solid;
+font-size: 12px;
+font-weight: bold;}
+
+/* For double underline ads  */
+.doubleunder {
+   text-decoration:none;
+   border-bottom-color: #333333;
+   border-bottom-style: double;
+   border-bottom-width: 3px;
+   }

@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Ruby Inheritance: Ruby Study Notes - Best Ruby Guide, Ruby Tutorial</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="Ruby Study Notes - Best Ruby Guide, Ruby Tutorial" />
+<meta name="keywords" content="ruby study notes,ruby inheritance,ruby guide,free ruby programming course,best ruby guide,ruby tutorials,ruby tutorial,learn ruby,ruby,ruby on rails,ruby rails,ruby learning,ruby tutoring,learning ruby,ruby programming,ruby on rails development,ruby training" />
+<meta name="Distribution" content="Global" />
+<meta name="author" content="Satish Talim / Original design: Erwin Aligam - ealigam@gmail.com" />
+<meta name="copyright" content="Satish Talim 2007 and beyond..." />
+<meta name="verify-v1" content="rFu86se+IkbtF+bH8mgJBKwU5HnKaSd8Ghw9umXQOkM=" />
+<meta name="robots" content="index,follow" />
+<meta http-equiv="Expires" content="0" />
+<meta name="revisit-after" content="1 days" />
+<link rel="stylesheet" href="http://rubylearning.com/images/NewOrange.css" type="text/css" />
+<link rel="stylesheet" href="http://rubylearning.com/images/syntaxhighlighter.css" type="text/css" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<!-- Google +1 button code -->
+<link rel="canonical" href="http://rubylearning.com/satishtalim/ruby_inheritance.html" />
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<!-- Google Analytics code -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-59044-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Analytics code ends -->
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+
+    <div id="header">
+
+        <h1 id="logo">Ruby<span class="orange">Learning.com</span></h1>
+        <h2 id="slogan">Helping Ruby Programmers become Awesome!</h2>
+
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="http://rubylearning.com/" title="Home page for rubylearning.com">Home</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/tutorial.html" title="Get started Learning Ruby here...">Tutorial</a></li>
+            <li><a href="http://rubylearning.com/download/downloads.html" title="Download this tutorial as an eBook">Downloads</a></li>
+            <li><a href="http://rubylearning.com/other/testimonials.html" title="People around the world who benefited from this site">Testimonials</a></li>
+            <li><a href="http://rubylearning.com/other/certification.html" title="Get certified in Ruby">Certification</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/ruby_guide.html" title="Ruby Guide, Mentor">Mentor</a></li>
+            <li><a href="http://rubylearning.com/jobs/ruby_jobs.html" title="Find Ruby Jobs and also post your job requirements">Jobs</a></li>
+            <li><a href="http://rubylearning.com/blog/" title="Ruby blog of Learning Ruby site">Blog</a></li>
+            <li><a href="http://rubylearning.org/" title="Free Online Ruby Course">Online Course</a></li>
+            <li><a href="http://ruby-challenge.rubylearning.org/" title="Ruby Programming Challenge for Newbies">Challenge</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/services.html" title="Services offered by Satish Talim">Services</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/about.html" title="Information about Satish Talim">About</a></li>
+        </ul>
+    </div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap">
+
+            <div id="main">
+
+                <div id="main-inner"> <a name="TemplateInfo"></a>
+                <h1>Ruby Inheritance</h1>
+                <!-- Place this tag where you want the +1 button to render -->
+				<div class="g-plusone"></div>
+				<script type="text/javascript">
+				  window.___gcfg = {
+				    lang: 'en-US'
+				  };
+
+				  (function() {
+				    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				    po.src = 'https://apis.google.com/js/plusone.js';
+				    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+				  })();
+				</script>
+
+                <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <br />
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-0102129433546432";
+                   google_ad_width = 468;
+                   google_ad_height = 60;
+                   google_ad_format = "468x60_as";
+                   google_ad_type = "text";
+                   //2007-09-11: RLInherit
+                   google_ad_channel = "6413576576";
+                   google_color_border = ["FFFFFF","FFFFFF"];
+                   google_color_bg = "FFFFFF";
+                   google_color_link = ["B37400","B37400"];
+                   google_color_url = ["B37400","B37400"];
+                   google_color_text = ["000000","000000"];
+                   //--></script>
+                   <script type="text/javascript"
+                     src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+                <p class="post-footer align-right">
+                  <strong>
+                    <a href="http://rubylearning.com/satishtalim/ruby_open_classes.html">&lt;Open Classes | </a>
+                    <a href="http://rubylearning.com/satishtalim/tutorial.html">TOC | </a>
+                    <a href="http://rubylearning.com/satishtalim/ruby_overriding_methods.html">Overriding Methods&gt;</a>
+                  </strong>
+                </p>
+
+                <p>Inheritance is a relation between two classes. We know that all cats are mammals, and all mammals are animals. The benefit of inheritance is that classes lower down the hierarchy get the features of those higher up, but can also add specific features of their own. If all mammals breathe, then all cats breathe. <em>In Ruby, a class can only inherit from a single other class</em>. Some other languages support multiple inheritance, a feature that allows classes to inherit features from multiple classes, but Ruby <em>doesn't</em> support this.</p>
+
+                <p>We can express this concept in Ruby - see the <strong>p033mammal.rb</strong> program below:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                class Mammal
+                  def breathe
+                    puts "inhale and exhale"
+                  end
+                end
+
+                class Cat &lt; Mammal
+                  def speak
+                    puts "Meow"
+                  end
+                end
+
+                rani = Cat.new
+                rani.breathe
+                rani.speak
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Though we didn't specify how a Cat should breathe, every cat will inherit that behaviour from the Mammal class since Cat was defined as a subclass of Mammal. (In OO terminology, the smaller class is a subclass and the larger class is a super-class. The subclass is sometimes also known as a derived or child class and the super-class as base or parent class). Hence from a programmer's standpoint, cats get the ability to breathe for free; after we add a speak method, our cats can both breathe and speak.</p>
+
+                <p>There will be situations where certain properties of the super-class should not be inherited by a particular subclass. Though birds generally know how to fly, penguins are a flightless subclass of birds. In the example <strong>p034bird.rb</strong> below, we <strong><a href="http://rubylearning.com/satishtalim/ruby_overriding_methods.html">override</a></strong> fly in class Penguin:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                class Bird
+                  def preen
+                    puts "I am cleaning my feathers."
+                  end
+                  def fly
+                    puts "I am flying."
+                  end
+                end
+
+                class Penguin &lt; Bird
+                  def fly
+                    puts "Sorry. I'd rather swim."
+                  end
+                end
+
+                p = Penguin.new
+                p.preen
+                p.fly
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Rather than exhaustively define every characteristic of every new class, we need only to append or to redefine the differences between each subclass and its super-class. This use of inheritance is sometimes called differential programming. It is one of the benefits of object-oriented programming.</p>
+
+                <p>The above two programs are taken from the online <a href="http://www.rubyist.net/%7Eslagell/ruby/inheritance.html">Ruby User's Guide</a>.</p>
+
+                <p>Thus, <strong>Inheritance</strong> allows you to create a class that is a refinement or specialization of another class. Inheritance is indicated with &lt;.</p>
+
+                <p>Here's another example, <strong>p035inherit.rb</strong></p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                class GF
+				 def initialize
+				  puts 'In GF class'
+				 end
+				 def gfmethod
+				  puts 'GF method call'
+				 end
+				end
+
+				# class F sub-class of GF
+				class F &lt; GF
+				 def initialize
+				  puts 'In F class'
+				 end
+				end
+
+				# class S sub-class of F
+				class S &lt; F
+				 def initialize
+				  puts 'In S class'
+				 end
+				end
+				son = S.new
+				son.gfmethod
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p><em>A class can only inherit from one class at a time</em> (i.e. a class can inherit from a class that inherits from another class which inherits from another class, but a single class can not inherit from many classes at once).</p>
+
+                <p class="post-note">
+                There are many classes and modules (more on this later) built into the standard Ruby language. They are available to every Ruby program automatically; no <strong>require</strong> is required. Some built-in classes are <strong>Array, Bignum, Class, Dir, Exception, File, Fixnum, Float, Integer, IO, Module, Numeric, Object, Range, String, Thread, Time</strong>. Some built-in modules are <strong>Comparable, Enumerable, GC, Kernel, Math</strong>.<br /><br />The <b>BasicObject</b> class is the parent class of all classes in Ruby. Its methods are therefore available to all objects unless explicitly overridden. Prior to Ruby 1.9, <b>Object</b> class was the root of the class hierarchy. The new class <b>BasicObject</b> serves that purpose, and <b>Object</b> is a subclass of <b>BasicObject</b>. <b>BasicObject</b> is a very simple class, with almost no methods of its own. When you create a class in Ruby, you extend <b>Object</b> unless you explicitly specify the super-class, and most programmers will never need to use or extend <b>BasicObject</b>.<br /><br />In Ruby, <strong>initialize</strong> is an ordinary method and is inherited like any other.</p>
+
+                <p class="post-note"><strong>IN RAILS:</strong> Inheritance is one of the key organizational techniques for Rails program design and the design of the Rails framework.</p>
+
+                <h3>Inheritance and Instance Variables</h3>
+
+                <p>Consider the code:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                class Dog
+                  def initialize(breed)
+                    @breed = breed
+                  end
+                end
+
+                class Lab &lt; Dog
+                  def initialize(breed, name)
+                    super(breed)
+                    @name = name
+                  end
+
+                  def to_s
+                    "(#@breed, #@name)"
+                  end
+                end
+
+                puts Lab.new("Labrador", "Benzy").to_s
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>When you invoke <b>super</b> with arguments, Ruby sends a message to the parent of the current object, asking it to invoke a method of the same name as the method invoking <b>super</b>. <b>super</b> sends exactly those arguments.</p>
+
+                <p>The <strong>to_s</strong> method in class <strong>Lab</strong> references <strong>@breed</strong> variable from the super-class <strong>Dog</strong>. This code works as you probably expect it to:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                puts Lab.new("Labrador", "Benzy").to_s ==> (Labrador, Benzy)
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Because this code behaves as expected, you may be tempted to say that these variables are inherited. <em>That is not how Ruby works</em>.</p>
+
+                <p>All Ruby objects have a set of instance variables. These are <strong>not</strong> defined by the objects's class - they are simply created when a value is assigned to them. <em>Because instance variables are not defined by a class, they are unrelated to subclassing and the inheritance mechanism</em>.</p>
+
+                <p>In the above code, <strong>Lab</strong> defines an <strong>initialize</strong> method that chains to the <strong>initialize</strong> method of its super-class. The chained method assigns values to the variable <strong>@breed</strong>, which makes those variables come into existence for a particular instance of <strong>Lab</strong>.</p>
+
+                <p>The reason that they sometimes appear to be inherited is that instance variables are created by the methods that first assign values to them, and those <em>methods</em> are often inherited or chained.</p>
+
+                <p>Since instance variables have nothing to do with inheritance, it follows that an instance variable used by a subclass cannot "shadow" an instance variable in the super-class. If a subclass uses an instance variable with the same name as a variable used by one of its ancestors, it will overwrite the value of its ancestor's variable.</p>
+
+                <p style="background-color: #FAFAFA; padding: 5px; margin-top: 20px; font-size: 65%;"><strong>Note</strong>: The Ruby Logo is Copyright (c) 2006, Yukihiro Matsumoto. I have made extensive references to information, related to Ruby, available in the public domain (wikis and the blogs, articles of various <span style="font-weight: bold;" title="Click Gurus on the menu above">Ruby Gurus</span>), my acknowledgment and thanks to all of them. Much of the material on <a href="http://rubylearning.com/">rubylearning.com</a> and in the course at <a href="http://rubylearning.org/">rubylearning.org</a> is drawn <strong>primarily</strong> from the <strong>Programming Ruby book</strong>, available from <a href="http://pragprog.com/book/ruby3/programming-ruby-1-9">The Pragmatic Bookshelf</a>.</p>
+
+                <p class="post-footer align-right">
+                  <strong>
+                    <a href="http://rubylearning.com/satishtalim/ruby_open_classes.html">&lt;Open Classes | </a>
+                    <a href="http://rubylearning.com/satishtalim/tutorial.html">TOC | </a>
+                    <a href="http://rubylearning.com/satishtalim/ruby_overriding_methods.html">Overriding Methods&gt;</a>
+                  </strong>
+                </p>
+
+            </div>
+            <!-- main inner ends here -->
+        </div>
+
+            <div id="rightbar">
+                <div id='influads_block' class='influads_block'></div><script type='text/javascript'>(function(){var acc='acc_1016d740_pub';var st='css';var or='130';var e=document.getElementsByTagName('script')[0];var d=document.createElement('script');d.src=('https:' == document.location.protocol ?'https://' : 'http://') +'engine.influads.com/show/'+or+'/'+st+'/'+acc;d.type='text/javascript';d.async=true;d.defer=true; e.parentNode.insertBefore(d,e);})();</script>
+                   <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-0102129433546432";
+                   google_ad_width = 120;
+                   google_ad_height = 600;
+                   google_ad_format = "120x600_as";
+                   google_ad_type = "text";
+                   //2007-09-11: RLInherit
+                   google_ad_channel = "6413576576";
+                   google_color_border = ["FFFFFF","FFFFFF"];
+                   google_color_bg = "FFFFFF";
+                   google_color_link = ["B37400","B37400"];
+                   google_color_url = ["B37400","B37400"];
+                   google_color_text = ["000000","000000"];
+                   //--></script>
+                   <script type="text/javascript"
+                     src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+
+            </div>
+
+    <!-- content-wrap ends here -->
+    </div>
+
+<!-- wrap ends here -->
+</div>
+
+<!-- footer starts here -->
+<div id="footer">
+    <!-- CHANGE THE FOOTER -->
+    <p> &copy; 2006-2013 <strong>RubyLearning.com A Ruby Tutorial</strong>&nbsp;&nbsp;
+
+        Page Updated: 1st Feb. 2013 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://rubylearning.com/">Home</a> | <a href="http://rubylearning.com/privacy.html">Privacy</a> | <a href="http://rubylearning.com/sitemap.html">Sitemap</a> </p>
+</div>
+
+<!-- footer ends here -->
+
+<!-- SyntaxHighlighter code -->
+<script src="http://rubylearning.com/js/shCore.js" type="text/javascript"></script>
+<script src="http://rubylearning.com/js/shBrushRuby.js" type="text/javascript"></script>
+<script type="text/javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+<!-- SyntaxHighlighter code -->
+</body>
+</html>

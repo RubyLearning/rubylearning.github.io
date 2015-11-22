@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Ruby Symbols: Ruby Study Notes - Best Ruby Guide, Ruby Tutorial</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="Ruby Study Notes - Best Ruby Guide, Ruby Tutorial" />
+<meta name="keywords" content="ruby symbols,ruby study notes,ruby guide,free ruby programming course,best ruby guide,ruby tutorials,ruby tutorial,learn ruby,ruby,ruby on rails,ruby rails,ruby learning,ruby tutoring,learning ruby,ruby programming,ruby on rails development,ruby training" />
+<meta name="Distribution" content="Global" />
+<meta name="author" content="Satish Talim / Original design: Erwin Aligam - ealigam@gmail.com" />
+<meta name="copyright" content="Satish Talim 2007 and beyond..." />
+<meta name="verify-v1" content="rFu86se+IkbtF+bH8mgJBKwU5HnKaSd8Ghw9umXQOkM=" />
+<meta name="robots" content="index,follow" />
+<meta http-equiv="Expires" content="0" />
+<meta name="revisit-after" content="1 days" />
+<link rel="stylesheet" href="http://rubylearning.com/images/NewOrange.css" type="text/css" />
+<link rel="stylesheet" href="http://rubylearning.com/images/syntaxhighlighter.css" type="text/css" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<!-- Google +1 button code -->
+<link rel="canonical" href="http://rubylearning.com/satishtalim/ruby_symbols.html" />
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<!-- Google Analytics code -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-59044-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Analytics code ends -->
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+
+    <div id="header">
+
+        <h1 id="logo">Ruby<span class="orange">Learning.com</span></h1>
+        <h2 id="slogan">Helping Ruby Programmers become Awesome!</h2>
+
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="http://rubylearning.com/" title="Home page for rubylearning.com">Home</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/tutorial.html" title="Get started Learning Ruby here...">Tutorial</a></li>
+            <li><a href="http://rubylearning.com/download/downloads.html" title="Download this tutorial as an eBook">Downloads</a></li>
+            <li><a href="http://rubylearning.com/other/testimonials.html" title="People around the world who benefited from this site">Testimonials</a></li>
+            <li><a href="http://rubylearning.com/other/certification.html" title="Get certified in Ruby">Certification</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/ruby_guide.html" title="Ruby Guide, Mentor">Mentor</a></li>
+            <li><a href="http://rubylearning.com/jobs/ruby_jobs.html" title="Find Ruby Jobs and also post your job requirements">Jobs</a></li>
+            <li><a href="http://rubylearning.com/blog/" title="Ruby blog of Learning Ruby site">Blog</a></li>
+            <li><a href="http://rubylearning.org/" title="Free Online Ruby Course">Online Course</a></li>
+            <li><a href="http://ruby-challenge.rubylearning.org/" title="Ruby Programming Challenge for Newbies">Challenge</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/services.html" title="Services offered by Satish Talim">Services</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/about.html" title="Information about Satish Talim">About</a></li>
+        </ul>
+    </div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap">
+
+            <div id="main">
+
+                <div id="main-inner"><a name="TemplateInfo"></a>
+                <h1>Ruby Symbols</h1>
+                <!-- Place this tag where you want the +1 button to render -->
+				<div class="g-plusone"></div>
+				<script type="text/javascript">
+				  window.___gcfg = {
+				    lang: 'en-US'
+				  };
+
+				  (function() {
+				    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				    po.src = 'https://apis.google.com/js/plusone.js';
+				    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+				  })();
+				</script>
+
+                <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <br />
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-2265705826025555";
+                   google_ad_width = 468;
+                   google_ad_height = 60;
+                   google_ad_format = "468x60_as";
+                   google_ad_type = "text";
+                   //2007-08-03: RLSy
+                   google_ad_channel = "8764001556";
+                   google_color_border = ["FFFFFF","FFFFFF"];
+                   google_color_bg = "FFFFFF";
+                   google_color_link = ["B37400","B37400"];
+                   google_color_url = ["B37400","B37400"];
+                   google_color_text = ["000000","000000"];
+                   //--></script>
+                   <script type="text/javascript"
+                     src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+
+                <p class="post-footer align-right">
+                  <strong>
+                    <a href="http://rubylearning.com/satishtalim/ruby_ranges.html">&lt;Ranges | </a>
+                    <a href="http://rubylearning.com/satishtalim/tutorial.html">TOC | </a>
+                    <a href="http://rubylearning.com/satishtalim/ruby_hashes.html">Hashes&gt;</a>
+                  </strong>
+                </p>
+
+                <p>A symbol looks like a variable name but it's prefixed with a colon. Examples - <strong>:action</strong>, <strong>:line_items</strong>. You don't have to pre-declare a symbol and they are guaranteed to be unique. There's no need to assign some kind of value to a symbol - Ruby takes care of that for you. Ruby also guarantees that no matter where it appears in your program, a particular symbol will have the same value.</p>
+
+                <p>Alternatively, you can consider the colon to mean "thing named" so :id is "the thing named id." You can also think of :id as meaning the name of the variable id, and plain id as meaning the value of the variable.</p>
+
+                <p class="post-note">
+                A <strong>Symbol</strong> is the most basic Ruby object you can create. It's just a name and an internal ID. Symbols are useful because a given symbol name refers to the same object throughout a Ruby program. Symbols are more efficient than strings. Two strings with the same contents are two different objects, but for any given name there is only one Symbol object. This can save both time and memory.
+                </p>
+
+                <p>Refer the example: <strong>p039symbol.rb</strong> below</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                # p039symbol.rb
+                # use the object_id method of class Object
+                # it returns an integer identifier for an object
+                puts "string".object_id
+                puts "string".object_id
+                puts :symbol.object_id
+                puts :symbol.object_id
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>The output when I ran the program on my PC was:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                >ruby p039symbol.rb
+                21066960
+                21066930
+                132178
+                132178
+                >Exit code: 0
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Therefore, when do we use a string versus a symbol?</p>
+
+                <ul>
+                <li>If the contents (the sequence of characters) of the object are important, use a string</li>
+                <li>If the identity of the object is important, use a symbol</li>
+                </ul>
+
+                <p class="post-note">
+                Ruby uses symbols, and maintains a Symbol Table to hold them. Symbols are names - names of instance variables, names of methods, names of classes. So if there is a method called control_movie, there is automatically a symbol :control_movie. Ruby's interpreted, so it keeps its Symbol Table handy at all times. You can find out what's on it at any given moment by calling <strong>Symbol.all_symbols</strong>.<br /><br />A Symbol object is created by prefixing an operator, string, variable, constant, method, class, module name with a colon. The symbol object will be unique for each different name but does not refer to a particular instance of the name, for the duration of a program's execution. Thus, if Fred is a constant in one context, a method in another, and a class in a third, the Symbol :Fred will be the same object in all three contexts.
+                </p>
+
+                <p>This can be illustrated by this simple program - <strong>p039xsymbol.rb</strong>:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                # p039xsymbol.rb
+                class Test
+                  puts :Test.object_id.to_s
+                  def test
+                    puts :test.object_id.to_s
+                    @test = 10
+                    puts :test.object_id.to_s
+                  end
+                end
+                t = Test.new
+                t.test
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>The output when I ran the program on my PC was:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                >ruby p039xsymbol.rb
+                116458
+                79218
+                79218
+                >Exit code: 0
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Here is another example - <strong>p039xysymbol.rb</strong>:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                # p039xysymbol.rb
+                know_ruby = :yes
+                if know_ruby == :yes
+                  puts 'You are a Rubyist'
+                else
+                  puts 'Start learning Ruby'
+                end
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>The output is:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                >ruby p039xysymbol.rb
+                You are a Rubyist
+                >Exit code: 0
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>In this example, :yes is a symbol. Symbols don't contain values or objects, like variables do. Instead, they're used as a consistent name within code. For example, in the preceding code you could easily replace the symbol with a string, as in example - <strong>p039xyzsymbol.rb</strong></p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                # p039xyzsymbol.rb
+                know_ruby = 'yes'
+                if know_ruby == 'yes'
+                  puts 'You are a Rubyist'
+                else
+                  puts 'Start learning Ruby'
+                end
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>This gives the same result, but isn't as efficient. In this example, every mention of 'yes' creates a new object stored separately in memory, whereas symbols are single reference values that are only initialized once. In the first code example, only :yes exists, whereas in the second example you end up with the full strings of 'yes' and 'yes' taking up memory.</p>
+
+                <p>We can also transform a String into a Symbol and vice-versa:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                puts "string".to_sym.class # Symbol
+                puts :symbol.to_s.class    # String
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Symbols are particularly useful when creating hashes and you want to have a distinction between keys and values. Please refer to <a href="http://rubylearning.com/satishtalim/ruby_hashes.html">Using Symbols as Hash Keys</a> for a practical example.</p>
+
+                <p class="post-note"><strong>Fabio Akita</strong> a Brazilian Rails enthusiast, also known online as "AkitaOnRails", wrote this exclusive article on <strong><a href="http://rubylearning.com/blog/2007/11/26/akitaonrails-on-ruby-symbols/">Ruby Symbols</a></strong> for the rubylearning.com members like you. Do read the article, after you have gone through this lesson.</p>
+
+                <p style="background-color: #FAFAFA; padding: 5px; margin-top: 20px; font-size: 65%;"><strong>Note</strong>: The Ruby Logo is Copyright (c) 2006, Yukihiro Matsumoto. I have made extensive references to information, related to Ruby, available in the public domain (wikis and the blogs, articles of various <span style="font-weight: bold;" title="Click Gurus on the menu above">Ruby Gurus</span>), my acknowledgment and thanks to all of them. Much of the material on <a href="http://rubylearning.com/">rubylearning.com</a> and in the course at <a href="http://rubylearning.org/">rubylearning.org</a> is drawn <strong>primarily</strong> from the <strong>Programming Ruby book</strong>, available from <a href="http://pragprog.com/book/ruby3/programming-ruby-1-9">The Pragmatic Bookshelf</a>.</p>
+
+                <p class="post-footer align-right">
+                  <strong>
+                    <a href="http://rubylearning.com/satishtalim/ruby_ranges.html">&lt;Ranges | </a>
+                    <a href="http://rubylearning.com/satishtalim/tutorial.html">TOC | </a>
+                    <a href="http://rubylearning.com/satishtalim/ruby_hashes.html">Hashes&gt;</a>
+                  </strong>
+                </p>
+
+            </div>
+            <!-- main inner ends here -->
+        </div>
+
+            <div id="rightbar">
+
+                <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-2265705826025555";
+                   google_ad_width = 120;
+                   google_ad_height = 600;
+                   google_ad_format = "120x600_as";
+                   google_ad_type = "text";
+                   //2007-08-03: RLSy
+                   google_ad_channel = "8764001556";
+                   google_color_border = ["FFFFFF","FFFFFF"];
+                   google_color_bg = "FFFFFF";
+                   google_color_link = ["B37400","B37400"];
+                   google_color_url = ["B37400","B37400"];
+                   google_color_text = ["000000","000000"];
+                   //--></script>
+                   <script type="text/javascript"
+                     src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+
+            </div>
+
+    <!-- content-wrap ends here -->
+    </div>
+
+<!-- wrap ends here -->
+</div>
+
+<!-- footer starts here -->
+<div id="footer">
+    <!-- CHANGE THE FOOTER -->
+    <p> &copy; 2006-2013 <strong>RubyLearning.com A Ruby Tutorial</strong>&nbsp;&nbsp;
+
+        Page Updated: 1st Feb. 2013 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://rubylearning.com/">Home</a> | <a href="http://rubylearning.com/privacy.html">Privacy</a> | <a href="http://rubylearning.com/sitemap.html">Sitemap</a> </p>
+</div>
+
+<!-- footer ends here -->
+<!-- SyntaxHighlighter code -->
+<script src="http://rubylearning.com/js/shCore.js" type="text/javascript"></script>
+<script src="http://rubylearning.com/js/shBrushRuby.js" type="text/javascript"></script>
+<script type="text/javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+<!-- SyntaxHighlighter code -->
+</body>
+</html>

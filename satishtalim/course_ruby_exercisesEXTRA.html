@@ -1,0 +1,402 @@
+<!--
+                <h4>Week 4</h4>
+                <p><br /><strong><span style="color:red;">L4E1</span></strong>: Why is the output of this program:</p>
+                <pre><code>def method
+ a = 50
+ puts a
+end
+a = 10
+method
+puts a</code></pre>
+                <p>as shown below?<br />50<br />10</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The explanation is given as comments in the code below:</p>
+                <pre><code># Demonstrates that methods as well as the main program, have a local scope.
+# That is,  variables with the same name can exist without interfering with
+# those from another scope.
+def method
+  a = 50 # Creates a new variable named a, local to 'method'
+  puts a # Uses methods local variable
+end
+
+a = 10
+method  # uses the local a variable of method
+puts a  # uses L4E1s own, local a variable.</code></pre>
+
+                <p><br /><strong><span style="color:red;">L4E2</span></strong>: This is a non-programming exercise. Try to discover the difference between the methods:</p>
+                <pre><code>to_str, to_s</code></pre>
+                <p>Show examples if you can.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: <strong>to_str</strong> - Synonym for <strong>String#to_s</strong>. <strong>to_str</strong> is used by methods such as <strong>String#concat</strong> to convert their arguments to a string. Unlike <strong>to_s</strong>, which is supported by almost all classes, <strong>to_str</strong> is normally implemented only by those classes that act like strings. Of the built-in classes, only <strong>String</strong> implements <strong>to_str</strong>.</p>
+
+                <p><br /><strong><span style="color:red;">L4E3</span></strong>: Thanks to Marcos Souza for this exercise. A plain text file has the following contents:</p>
+                <pre><code>test test test test test
+test test test test test
+test test test test test
+test test test test test
+test test test test test
+test test word test test
+test test test test test
+test test test test test
+test test test test test
+test test test test test
+test test test test test</code></pre>
+                <p>Observe that in this file, there exists a word 'word'. Write a clever but readable Ruby program that updates this file and the final contents become like this:</p>
+                <pre><code>test test test test test
+test test test test test
+test test test test test
+test test test test test
+test test test test test
+test test inserted word test test
+test test test test test
+test test test test test
+test test test test test
+test test test test test
+test test test test test</code></pre>
+                <p>Do not hard-code the file name.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code>print "Input filename: "
+STDOUT.flush
+file = gets.chomp
+File.open(file, 'r') do |fr|
+  File.open(file, 'r+') do |fw|
+    fw.puts fr.read.sub('word', 'inserted word')
+  end
+end</code></pre>
+
+                <p><br /><strong><span style="color:red;">L4E4</span></strong>: Make use of the class <strong>Dir</strong> for the following -</p>
+                <ul>
+                  <li>Display your current working directory.</li>
+                  <li>Create a new directory tmp under your working directory.</li>
+                  <li>Change your working directory to tmp.</li>
+                  <li>Display your current working directory.</li>
+                  <li>Go back to your original directory.</li>
+                  <li>Delete the tmp directory.</li>
+                </ul>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code>puts Dir.getwd
+Dir.mkdir("tmp")
+Dir.chdir("tmp")
+puts Dir.getwd
+Dir.chdir("..")
+puts Dir.getwd
+Dir.rmdir("tmp")
+</code></pre>
+
+                <p><br /><strong><span style="color:red;">L4E5</span></strong>: Given the following Ruby code snippet:</p>
+                <pre><code>a = (1930...1951).to_a
+puts a[rand(a.size)]</code></pre>
+                <p>When you run this program, which of the following values will not be displayed?</p>
+                <pre><code>   1. 1929
+   2. 1930
+   3. 1945
+   4. 1950
+   5. 1951
+   6. 1952
+</code></pre>
+                <p>Explain why that value will not be displayed.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The three-dot range operator creates a range that excludes the specified high value (1951 in this problem). (1930...1951).to_a converts the range to a list using the to_a method. We pass in the size of the array to rand method, and it returns an integer between 0 and size-1, which is then used as an index to the array.</p>
+
+                <p><br /><strong><span style="color:red;">L4E6</span></strong>: Given a string s = 'key=value', create two strings s1 and s2 such that s1 contains key and s2 contains value. <em>Hint</em>: Use some of the String functions. Call this program p021rangesex.rb</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code># p021rangesex.rb
+s = 'key=value'
+i = s.index('=')
+# If range supplied to a string, as below, a new String is created
+puts s[0...i]
+puts s[i+1,s.length]
+</code></pre>
+
+                <p><br /><strong><span style="color:red;">L4E7</span></strong>: Write a Deaf Grandma program (call it p026zdeafgm1.rb). Whatever you say to grandma (whatever you type in), she should respond with HUH?! SPEAK UP, SONNY!, unless you shout it (type in all capitals). If you shout, she can hear you (or at least she thinks so) and yells back, NO, NOT SINCE 1938! To make your program really believable, have grandma shout a different year each time; maybe any year at random between 1930 and 1950. You can't stop talking to grandma until you shout BYE.<br /><br />From Chris Pine's Book.</p>
+                <p>For example:<br /><br />You enter: Hello Grandma<br />Grandma responds: HUH?! SPEAK UP, SONNY!<br />You enter: HELLO GRANDMA<br />Grandma responds: NO, NOT SINCE 1938!</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code>a = ( 1930...1951).to_a
+puts 'Enter your response: '
+STDOUT.flush
+until (response = gets.chomp).eql?('BYE')
+  if (response.eql?(response.upcase ))
+    puts 'NO, NOT SINCE   ' + a[rand(a.size)].to_s  + ' !'
+  else
+    puts 'HUH?!   SPEAK UP, SONNY!'
+  end
+  puts 'Enter your response: '
+  STDOUT.flush
+end</code></pre>
+
+                <p><br /><strong><span style="color:red;">L4E8</span></strong>: First of all, I'd like to thank Peter Cooper for allowing me to use this exercise.<br /><br />The application you're going to develop will be a text analyzer. You will be working on it this and next week. Your Ruby code will read in text supplied in a separate file, analyze it for various patterns and statistics, and print out the results for the user. It's not a 3D graphical adventure or a fancy Web site, but text processing programs are the bread and butter of systems administration and most application development. They can be vital for parsing log files and user-submitted text on Web sites, and manipulating other textual data. With this application you'll be focusing on implementing the features quickly, rather than developing an elaborate object-oriented structure, any documentation, or a testing methodology.<br /><br />Your text analyzer will provide the following basic statistics:</p>
+                <ol>
+                  <li>Character count</li>
+                  <li>Character count (excluding spaces)</li>
+                  <li>Line count</li>
+                  <li>Word count</li>
+                  <li>Sentence count</li>
+                  <li>Paragraph count</li>
+                  <li>Average number of words per sentence</li>
+                  <li>Average number of sentences per paragraph</li>
+                </ol>
+                <p>In the last two cases, the statistics are easily calculated from the word count, sentence count, and paragraph count. That is, once you have the total number of words and the total number of sentences, it becomes a matter of a simple division to work out the average number of words per sentence.<br /><br />Before you start to code, the first step is to get some test data that your analyzer can process. You can find the text at:<br /><a href="http://rubylearning.com/data/text.txt">http://rubylearning.com/data/text.txt</a><br /><br />Save the file in the same folder as your other Ruby programs and call it text.txt. Your application will read from text.txt by default (although you'll make it more dynamic and able to accept other sources of data later on).<br /><br />Let me outline the basic steps you need to follow:</p>
+                <ol>
+                  <li>Load in a file containing the text or document you want to analyze.</li>
+                  <li>As you load the file line by line, keep a count of how many lines there are (one of your statistics taken care of).</li>
+                  <li>Put the text into a string and measure its length to get your character count.</li>
+                  <li>Temporarily remove all whitespace and measure the length of the resulting string to get the character count excluding spaces.</li>
+                  <li>Split on whitespace to find out how many words there are.</li>
+                  <li>Split on full stops (.), '!' and '?' to find out how many sentences there are.</li>
+                  <li>Split on double newlines to find out how many paragraphs there are.</li>
+                  <li>Perform calculations to work out the averages.</li>
+                </ol>
+                <p>Create a new, blank Ruby source file and save it as analyzer.rb in your Ruby folder.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: Here's the code for the following:</p>
+                <ul>
+                  <li>Load in a file containing the text or document you want to analyze.</li>
+                  <li>As you load the file line by line, keep a count of how many lines there were (one of your statistics taken care of).</li>
+                  <li>Put the text into a string and measure its length to get your character count.</li>
+                </ul>
+                <p>The program is commented upon.</p>
+                <pre><code>=begin
+  a. Ruby automatically places any parameters that are appended to the command line
+     when you launch your Ruby program into a special array called ARGV
+  b. The method File.file? returns true if the named file exists and is a regular file
+     not negates it.
+  c. The Kernel.exit method terminates your program
+=end
+# textanalyzer.rb
+if ARGV.length != 1
+  puts 'Usage: ruby textanalyzer.rb filename'
+  exit
+elsif not File.file?(ARGV[0])
+    puts "#{ARGV[0]} file does not exist !"
+    exit
+end
+
+=begin
+  File implements a readlines method that reads an entire file into an array, line by line.
+=end
+lines = File.readlines(ARGV[0])
+line_count = lines.size
+text = lines.join
+puts "#{line_count} lines"
+
+# Count the characters
+total_characters = text.length
+puts "#{total_characters} characters"
+</code></pre>
+
+
+
+                <p><br /><strong><span style="color:red;">L4E9</span></strong>: Write a Ruby program that prints the numbers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code>(1..100).each do |n|
+  puts case
+    when (n%3 == 0) &amp;&amp; (n%5 == 0) then 'FizzBuzz'
+    when (n%5) == 0 then 'Buzz'
+    when (n%3) == 0 then 'Fizz'
+    else n
+    end
+end</code></pre>
+
+                <p><br /><strong><span style="color:red;">L4E10</span></strong>: Given a string, let us say that we want to reverse the word order (rather than character order). You can use String.split, which gives you an array of words. The Array class has a reverse method; so you can reverse the array and use join to make a new string. Write this program.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code>puts 'Enter a string: '
+STDOUT.flush
+revstr = gets.chomp
+puts revstr.split(' ').reverse.join(' ')</code></pre>
+
+                <p><br /><strong><span style="color:red;">L4E11</span></strong>: Write a Ruby program (p020arraysum.rb) that, when given an array: collection = [1, 2, 3, 4, 5] calculates the sum of its elements.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code># p020arraysum.rb
+# Write a Ruby program that, when given an array
+# as collection = [1, 2, 3, 4, 5] it calculates the sum of its elements
+collection = [1, 2, 3, 4, 5]
+sum = 0
+collection.each {|i| sum += i}
+puts sum</code></pre>
+
+                <p><br /><strong><span style="color:red;">L4E12</span></strong>: Write a Ruby program (p021oddeven.rb) that, when given an array: collection = [12, 23, 456, 123, 4579] prints each number, and tells you whether it is odd or even.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code># p021oddeven.rb
+# given an array as collection = [12, 23, 456, 123, 4579] it
+# displays for each number, whether it is odd or even
+collection = [12, 23, 456, 123, 4579]
+collection.each do |i|
+  if i % 2 == 0
+    puts "#{i} is even"
+  else
+    puts "#{i} is odd"
+  end
+end</code></pre>
+
+                <p><br /><strong><span style="color:red;">L4E13</span></strong>: Something to keep your grey cells ticking.<br />I have a database of all the course participants. I want to know the number of participants who have not attempted Quiz 1 (is it so scary smile ?). A student writes a clever Ruby program that creates an array of 0's and 1's. 0's indicate that the participant has not attempted the Quiz and the 1's have attempted it.<br />Use this array quiz:<br />quiz = [0,0,0,1,0,0,1,1,0,1]<br />and write another clever program to solve my problem. That is display the number of participants who have not attempted Quiz 1.<br /><br />The output of your program should be as follow:<br />The number of participants who did not attempt Quiz 1 is x out of y total participants.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code>quiz = [0,0,0,1,0,0,1,1,0,1]
+
+puts "The number of participants who did not "+
+     "attempt Quiz 1 are #{(quiz-[1]).size} out "+
+     "of #{quiz.size} participants"</code></pre>
+
+                <p><br /><strong><span style="color:red;">L4E14</span></strong>: Ruby is a DRY language. Ruby helps you keep your code short and concise. DRY stands for: <strong>Don't Repeat Yourself</strong>. Syntactically, it's a very efficient language: you can express the same thing with less lines of code. As we know, computers are fast enough that more lines of code do not slow them down. But what about you? When it comes to debugging and maintaining, the more code you have to deal with, the harder it is to see what it does and find the problems that need fixing. Here's some code:</p>
+                <pre><code># The long way
+record = Hash.new
+record[:name] = "Satish"
+record[:email] = "mail@satishtalim.com"
+record[:phone] = "919371006659"
+return record</code></pre>
+                <p>Rewrite, the above code in one line, the DRY (or Ruby) way.</p>
+
+
+
+                <p><br /><strong><span style="color:red;">L4E15</span></strong>: Why does the Ruby code display 3 and not 7 in Ruby 1.8.6 whereas it displays 7 in Ruby 1.9 ?</p>
+                <pre><code>x = 7
+[1,2,3].each do |x|
+end
+puts x</code></pre>
+
+
+
+
+                <p><br /><strong><span style="color:red;">L4E16</span></strong>: The next set of exercises are sample questions from the Important "<a href="http://www.prometric.com/Ruby/default.htm">Ruby Association Certified Ruby Programmer</a>" Important examination. Thanks to Satoshi Asakawa for the Japanese to English translation.<br /><em>Select all answers which return true.</em></p>
+                <pre><code>h = { "Ruby" => "Matz", "Perl" => "Larry", "Python" => "Guido" }</code></pre>
+                <p>Answers:</p>
+                <ol>
+                <li>h.member?("Matz")</li>
+                <li>h.member?("Python")</li>
+                <li>h.include?("Guido")</li>
+                <li>h.include?("Ruby")</li>
+                <li>h.has_value?("Larry")</li>
+                <li>h.exists?("Perl")</li>
+                </ol>
+
+
+                <p><br /><strong><span style="color:red;">L4E17</span></strong>: Select all correct outputs for the following program.</p>
+                <pre><code>for i, j in [[1, 2], [3, 4], [5, 6]]
+p [i, j]
+end</code></pre>
+                <p>Answers:</p>
+                <pre><code>1. [[1, 2], nil]
+[[3, 4], nil]
+[[5, 6], nil]
+
+2. [nil, [1, 2]]
+[nil, [3, 4]]
+[nil, [5, 6]]
+
+3. [1, 2]
+[3, 4]
+[5, 6]
+
+4. Syntax Error</code></pre>
+
+
+
+
+                <p><br /><strong><span style="color:red;">L4E18</span></strong>: Select all correct ways to do an ascending sort by string length.</p>
+                <pre><code>a = ["Magazine", "Sunday", "Jump"]</code></pre>
+                <p>Answers:</p>
+                <pre><code>1. a.sort
+2. a.sort { |s| s }
+3. a.sort { |l, r| l &lt;=&gt; r }
+4. a.sort { |l, r| l.length &lt;=&gt; r.length }
+5. a.sort_by { |s| s }
+6. a.sort_by { |s| s.length }</code></pre>
+
+
+                <p>After learning Regular Expressions, we can now do the following (<strong>L5E7</strong>):</p>
+                <ul>
+                  <li>Temporarily remove all whitespace and measure the length of the resulting string to get the character count excluding spaces.</li>
+                  <li>Split out all the whitespace to find out how many words there are.</li>
+                  <li>Split on full stops (.), '!' and '?' to find out how many sentences there are.</li>
+                  <li>Split on double newlines to find out how many paragraphs there are.</li>
+                  <li>Perform calculations to work out the averages.</li>
+                </ul>
+                <p>The program continued:</p>
+                <pre><code># Use gsub method that performs a global substitution (like a search and replace) upon the string
+# \s means Whitespace (spaces, tabs, newlines, and so on)
+# the + that follows \s makes \s match as many Whitespaces in a row as possible.
+total_characters_nospaces = text.gsub(/\s+/, '').length
+puts "#{total_characters_nospaces} characters excluding spaces"
+# word count
+word_count = text.split.length
+puts "#{word_count} words"
+# paragraph count
+paragraph_count = text.split(/\n\n/).length
+puts "#{paragraph_count} paragraphs"
+# sentence count
+sentence_count = text.split(/\.|\?|!/).length
+puts "#{sentence_count} sentences"
+# calculating averages
+puts "#{sentence_count / paragraph_count} sentences per paragraph (average)"
+puts "#{word_count / sentence_count} words per sentence (average)"</code></pre>
+
+                <p><br /><strong><span style="color:red;">L5E1</span></strong>: Write a class called Dog, that has name as an instance variable and the following methods:</p>
+                <pre><code>bark(), eat(), chase_cat()</code></pre>
+                <p>I shall create the Dog object as follows:</p>
+                <pre><code>d = Dog.new('Leo')</code></pre>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+
+                <p><br /><strong><span style="color:red;">L5E2</span></strong>: Write a Rectangle class. I shall use your class as follows:</p>
+                <pre><code>r = Rectangle.new(23.45, 34.67)
+puts 'Area is = ' + r.area().to_s
+puts 'Perimeter is = ' + r.perimeter.to_s</code></pre>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+
+                <p><br /><strong><span style="color:red;">L5E3</span></strong>: Call this program (p026zdeafgm2.rb) - Modify your Deaf Grandma program (Week 4 / Exercise7): What if grandma doesn't want you to leave? When you shout BYE, she could pretend not to hear you. Change your previous program so that you have to shout BYE three times in a row. Make sure to test your program: if you shout BYE three times, but not in a row, you should still be talking to grandma. You must shout BYE three separate times. If you shout BYEBYEBYE or BYE BYE BYE, grandma should pretend not to hear you (and not count it as a BYE).<br /><br />From Chris Pine's Book.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code>a = ( 1930...1951).to_a
+puts 'Enter your response: '
+STDOUT.flush
+until (response = gets.chomp).eql?('BYE BYE BYE')
+  if response.eql?('BYE')
+    # do nothing
+  elsif response.eql?(response.upcase)
+    puts 'NO, NOT SINCE   ' + a[rand(a.size)].to_s  + ' !'
+  else
+    puts 'HUH?!   SPEAK UP, SONNY!'
+  end
+  puts 'Enter your response: '
+  STDOUT.flush
+end</code></pre>
+
+                <p><br /><strong><span style="color:red;">L5E4</span></strong>: Write a Ruby program (call it p028swapcontents.rb) to do the following. Take two text files say A and B. The program should swap the contents of A and B. That is after the program is executed, A should contain B's contents and B should contains A's contents.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code># p028swapcontents.rb - Program to swap the contents of 2 text files
+# Asuumptions: The two files exist in the same folder as the program
+
+# Function to read contents of one file and write them to another file
+# Accepts 2 file names - file1 and file2
+# Reads from file1 and writes to file2
+def filereadwrite(file1, file2)
+  f2 = File.open(file2, "w")
+  f1 = File.open(file1, "r")
+  while line = f1.gets
+    f2.puts line
+  end
+  f1.close
+  f2.close
+end
+
+filereadwrite("file1", "file1.tmp")
+filereadwrite("file2", "file1")
+filereadwrite("file1.tmp", "file2")
+
+File.delete('file1.tmp')</code></pre>
+
+                <p><br /><strong><span style="color:red;">L5E5</span></strong>: [Difficulty level: MEDIUM] Write a one-line Ruby script that displays on the screen all the files in the current folder as well as everything in all its sub folders, in sorted order. Make use of <strong>Dir.glob</strong> method as follows:<br />Dir.glob('**/*')<br /><br />Name this program inventory.rb. Create an inventory file by typing the following at the command prompt:<br />ruby inventory.rb > old-inventory.txt<br /><br />After a few days, when some files would have been added / deleted from this folder, run the program again like:<br />ruby inventory.rb > new-inventory.txt<br /><br />Now, write another Ruby script that displays on the screen all the files that have been added in this folder since the time the old-inventory.txt was created.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+
+                <p><br /><strong><span style="color:red;">L5E6</span></strong>: Here's code for the part of a game that saves the game state to a file. As a deterrent against cheating, when the game loads a save file it performs a simple check against the file's modification time. If it differs from the timestamp recorded inside the file, the game refuses to load the save file.<br /><br />The save_game method is responsible for recording the timestamp:</p>
+                <pre><code>def save_game(file)
+ score = 1000
+ open(file, "w") do |f|
+ f.puts(score)
+ f.puts(Time.new.to_i)
+ end
+end</code></pre>
+                <p>The load_game method is responsible for comparing the timestamp within the file to the time the filesystem has associated with the file. Write the load_game(file) method.<br /><br />This mechanism can detect simple forms of cheating:</p>
+                <pre><code>save_game("game.sav")
+sleep(2)
+load_game("game.sav") # => "Your saved score is 1000."
+# Now let's cheat by increasing our score to 9000
+open("game.sav", "r+b") { |f| f.write("9") }
+load_game("game.sav") # RuntimeError: I suspect you of cheating.</code></pre>
+                <p>Since it's possible to modify a file's times with tools like the Unix touch command, you shouldn't depend on these methods to defend you against a skilled attacker actively trying to fool your program.<br /><br />Read up on <strong>sleep</strong> method and <strong>Time</strong> class.</p>
+
+                <p><br /><strong><span style="color:red;">L5E7</span></strong>: See <strong>L4E8</strong> for the solution.</p>
+-->

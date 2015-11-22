@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Ruby Regular Expressions: Ruby Study Notes - Best Ruby Guide, Ruby Tutorial</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="Ruby Study Notes - Best Ruby Guide, Ruby Tutorial" />
+<meta name="keywords" content="ruby self,ruby study notes,free ruby programming guide,ruby guide,free ruby programming course,best ruby guide,ruby tutorials,ruby tutorial,learn ruby,ruby,ruby on rails,ruby rails,ruby learning,ruby tutoring,learning ruby,ruby programming,ruby on rails development,ruby training" />
+<meta name="Distribution" content="Global" />
+<meta name="author" content="Satish Talim / Original design: Erwin Aligam - ealigam@gmail.com" />
+<meta name="copyright" content="Satish Talim 2007 and beyond..." />
+<meta name="verify-v1" content="rFu86se+IkbtF+bH8mgJBKwU5HnKaSd8Ghw9umXQOkM=" />
+<meta name="robots" content="index,follow" />
+<meta http-equiv="Expires" content="0" />
+<meta name="revisit-after" content="1 days" />
+<link rel="stylesheet" href="http://rubylearning.com/images/NewOrange.css" type="text/css" />
+<link rel="stylesheet" href="http://rubylearning.com/images/syntaxhighlighter.css" type="text/css" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<!-- Google +1 button code -->
+<link rel="canonical" href="http://rubylearning.com/satishtalim/ruby_regular_expressions.html" />
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<!-- Google Analytics code -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-59044-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Analytics code ends -->
+
+</head>
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+
+    <div id="header">
+
+        <h1 id="logo">Ruby<span class="orange">Learning.com</span></h1>
+        <h2 id="slogan">Helping Ruby Programmers become Awesome!</h2>
+
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="http://rubylearning.com/" title="Home page for rubylearning.com">Home</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/tutorial.html" title="Get started Learning Ruby here...">Tutorial</a></li>
+            <li><a href="http://rubylearning.com/download/downloads.html" title="Download this tutorial as an eBook">Downloads</a></li>
+            <li><a href="http://rubylearning.com/other/testimonials.html" title="People around the world who benefited from this site">Testimonials</a></li>
+            <li><a href="http://rubylearning.com/other/certification.html" title="Get certified in Ruby">Certification</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/ruby_guide.html" title="Ruby Guide, Mentor">Mentor</a></li>
+            <li><a href="http://rubylearning.com/jobs/ruby_jobs.html" title="Find Ruby Jobs and also post your job requirements">Jobs</a></li>
+            <li><a href="http://rubylearning.com/blog/" title="Ruby blog of Learning Ruby site">Blog</a></li>
+            <li><a href="http://rubylearning.org/" title="Free Online Ruby Course">Online Course</a></li>
+            <li><a href="http://ruby-challenge.rubylearning.org/" title="Ruby Programming Challenge for Newbies">Challenge</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/services.html" title="Services offered by Satish Talim">Services</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/about.html" title="Information about Satish Talim">About</a></li>
+        </ul>
+    </div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap">
+
+            <div id="main">
+
+                <div id="main-inner"><a name="TemplateInfo"></a>
+                <h1>Regular Expressions</h1>
+                <!-- Place this tag where you want the +1 button to render -->
+				<div class="g-plusone"></div>
+				<script type="text/javascript">
+				  window.___gcfg = {
+				    lang: 'en-US'
+				  };
+
+				  (function() {
+				    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				    po.src = 'https://apis.google.com/js/plusone.js';
+				    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+				  })();
+				</script>
+
+                <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <br />
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-0102129433546432";
+                   //On Top RegEx 468x60, created 11/13/07
+                   google_ad_slot = "1108610265";
+                   google_ad_width = 468;
+                   google_ad_height = 60;
+                   //--></script>
+                   <script type="text/javascript"
+                   src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+
+                <p class="post-footer align-right">
+                  <strong>
+                    <a href="http://rubylearning.com/satishtalim/read_write_files.html">&lt;Read/Write Files | </a>
+                    <a href="http://rubylearning.com/satishtalim/tutorial.html">TOC | </a>
+                    <a href="http://rubylearning.com/satishtalim/writing_our_own_class_in_ruby.html">Writing Own Class &gt;</a>
+                  </strong>
+                </p>
+
+                <p>Regular expressions, though cryptic, is a powerful tool for working with text. Ruby has this feature built-in. It's used for pattern-matching and text processing.</p>
+
+                <p>Many people find regular expressions difficult to use, difficult to read, un-maintainable, and ultimately counterproductive. You may end up using only a modest number of regular expressions in your Ruby and Rails applications. Becoming a regular expression wizard isn't a prerequisite for Rails programming. <em>However, it's advisable to learn at least the basics of how regular expressions work.</em></p>
+
+                <p><strong>A regular expression is simply a way of specifying a pattern of characters to be matched in a string</strong>. In Ruby, you typically create a regular expression by writing a pattern between slash characters (/pattern/). In Ruby, regular expressions are objects (of type <strong>Regexp</strong>) and can be manipulated as such. <strong>//</strong> is a regular expression and an instance of the <strong>Regexp</strong> class, as shown below:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                //.class    # Regexp
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>You could write a pattern that matches a string containing the text Pune or the text Ruby using the following regular expression:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                /Pune|Ruby/
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>The forward slashes delimit the pattern, which consists of the two things we are matching, separated by a pipe character (|). The pipe character means "either the thing on the right or the thing on the left," in this case <em>Pune or Ruby</em>.</p>
+
+                <p>The simplest way to find out whether there's a match between a pattern and a string is with the <strong>match</strong> method. You can do this in either direction: Regular expression objects and string objects both respond to <strong>match</strong>. If there's no match, you get back <strong>nil</strong>. If there's a match, it returns an instance of the class <strong>MatchData</strong>. We can also use the match operator <strong>=~</strong> to match a string against a regular expression. If the pattern is found in the string, <strong>=~</strong> returns its starting position, otherwise it returns <strong>nil</strong>.</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                m1 = /Ruby/.match("The future is Ruby")
+                puts m1.class  # it returns MatchData
+                m2 = "The future is Ruby" =~ /Ruby/
+                puts m2          # it returns 14
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>The possible components of a regular expression include the following:</p>
+
+                <h3>Literal characters</h3>
+
+                <p>Any literal character you put in a regular expression matches <em>itself</em> in the string. </p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                /a/
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>This regular expression matches the string "a", as well as any string containing the letter "a".</p>
+
+                <p>Some characters have special meanings to the regexp parser. When you want to match one of these special characters as itself, you have to escape it with a backslash (\). For example, to match the character ? (question mark), you have to write this:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                /\?/
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>The backslash means "don't treat the next character as special; treat it as itself."</p>
+
+                <p>The special characters include ^, $, ? , ., /, \, [, ], {, }, (, ), +, and *.</p>
+
+                <h3>The wildcard character . (dot)</h3>
+
+                <p>Sometimes you'll want to match any character at some point in your pattern. You do this with the special wildcard character . (dot). A dot matches any character with the exception of a newline. This regular expression:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                /.ejected/
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>matches both "dejected" and "rejected". It also matches "%ejected" and "8ejected". The wildcard dot is handy, but sometimes it gives you more matches than you want. However, you can impose constraints on matches while still allowing for multiple possible strings, using <em>character classes</em>.</p>
+
+                <h3>Character classes</h3>
+
+                <p>A character class is an explicit list of characters, placed inside the regular expression in square brackets:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                /[dr]ejected/
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>This means "match either d or r, followed by ejected. This new pattern matches either "dejected" or "rejected" but not "&amp;ejected". A character class is a kind of quasi-wildcard: It allows for multiple possible characters, but only a limited number of them.</p>
+
+                <p>Inside a character class, you can also insert a range of characters. A common case is this, for lowercase letters:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                /[a-z]/
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>To match a hexadecimal digit, you might use several ranges inside a character class:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                /[A-Fa-f0-9]/
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>This matches any character a through f (upper- or lowercase) or any digit.</p>
+
+                <p>Sometimes you need to match any character except those on a special list. You may, for example, be looking for the first character in a string that is <em>not</em> a valid hexadecimal digit.</p>
+
+                <p>You perform this kind of negative search by negating a character class. To do so, you put a caret (^) at the beginning of the class. Here's the character class that matches any character except a valid hexadecimal digit:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                /[^A-Fa-f0-9]/
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Some character classes are so common that they have special abbreviations.</p>
+
+                <h3>Special escape sequences for common character classes</h3>
+
+                <p>To match any digit, you can do this:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                /[0-9]/
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>But you can also accomplish the same thing more concisely with the special escape sequence \d:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                /\d/
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Two other useful escape sequences for predefined character classes are these:<br />\w matches any digit, alphabetical character, or underscore (_).<br />\s matches any whitespace character (space, tab, newline).</p>
+
+                <p>Each of these predefined character classes also has a negated form. You can match <em>any character that is not a digit</em> by doing this:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                /\D/
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Similarly, \W matches <em>any character other than an alphanumeric character or underscore</em>, and \S matches <em>any non-whitespace character</em>.</p>
+
+                <p>A successful match returns a <strong>MatchData</strong> object.</p>
+
+                <p>Every <strong>match</strong> operation either succeeds or fails. Let's start with the simpler case: failure. When you try to match a string to a pattern, and the string doesn't match, the result is always <strong>nil</strong>:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                /a/.match("b") # nil
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>This <strong>nil</strong> stands in for the false or no answer when you treat the match as a true/false test.</p>
+
+                <p>Unlike <strong>nil</strong>, the <strong>MatchData</strong> object returned by a successful <strong>match</strong> has a Boolean value of true, which makes it handy for simple match/no-match tests. Beyond this, however, it also stores information about the match, which you can pry out of them with the appropriate methods: where the match began (at what character in the string), how much of the string it covered, what was captured in the parenthetical groups, and so forth.</p>
+
+                <p>To use the <strong>MatchData</strong> object, you must first save it. Consider an example where we want to pluck a phone number from a string and save the various parts of it (area code, exchange, number) in groupings. Example <strong>p064regexp.rb</strong> </p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                # p064regexp.rb
+                string = "My phone number is (123) 555-1234."
+                phone_re = /\((\d{3})\)\s+(\d{3})-(\d{4})/
+                m = phone_re.match(string)
+                unless m
+                  puts "There was no match..."
+                  exit
+                end
+                print "The whole string we started with: "
+                puts m.string
+                print "The entire part of the string that matched: "
+                puts m[0]
+                puts "The three captures: "
+                3.times do |index|
+                  puts "Capture ##{index + 1}: #{m.captures[index]}"
+                end
+                puts "Here's another way to get at the first capture:"
+                print "Capture #1: "
+                puts m[1]
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>In this code, we use the <strong>string</strong> method of <strong>MatchData</strong> (<strong>puts m.string</strong>) to get the entire string on which the <strong>match</strong> operation was performed. To get the part of the string that matched our pattern, we address the <strong>MatchData</strong> object with square brackets, with an index of 0 (<strong>puts m[0]</strong>). We also use the <strong>times</strong> method (<strong>3.times do |index|</strong>) to iterate exactly three times through a code block and print out the submatches (the parenthetical captures) in succession. Inside that code block, a method called <strong>captures</strong> fishes out the substrings that matched the parenthesized parts of the pattern. Finally, we take another look at the first capture, this time through a different technique: indexing the <strong>MatchData</strong> object directly with square brackets and positive integers, each integer corresponding to a capture.</p>
+
+                <p>Here's the output:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                >ruby p064regexp.rb
+                The whole string we started with: My phone number is (123) 555-1234.
+                The entire part of the string that matched: (123) 555-1234
+                The three captures:
+                Capture #1: 123
+                Capture #2: 555
+                Capture #3: 1234
+                Here's another way to get at the first capture:
+                Capture #1: 123
+                >Exit code: 0
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Read the Ruby-centric regular expression tutorial <a href="http://www.regular-expressions.info/ruby.html">here</a>, for a more detailed coverage on regular expressions.</p>
+
+                <p>The above topic has been adapted from the <a href="http://www.manning.com/black/">Ruby for Rails</a> book.</p>
+
+                <p style="background-color: #FAFAFA; padding: 5px; margin-top: 20px; font-size: 65%;"><strong>Note</strong>: The Ruby Logo is Copyright (c) 2006, Yukihiro Matsumoto. I have made extensive references to information, related to Ruby, available in the public domain (wikis and the blogs, articles of various <span style="font-weight: bold;" title="Click Gurus on the menu above">Ruby Gurus</span>), my acknowledgment and thanks to all of them. Much of the material on <a href="http://rubylearning.com/">rubylearning.com</a> and in the course at <a href="http://rubylearning.org/">rubylearning.org</a> is drawn <strong>primarily</strong> from the <strong>Programming Ruby book</strong>, available from <a href="http://pragprog.com/book/ruby3/programming-ruby-1-9">The Pragmatic Bookshelf</a>.</p>
+
+                <p class="post-footer align-right">
+                  <strong>
+                    <a href="http://rubylearning.com/satishtalim/read_write_files.html">&lt;Read/Write Files | </a>
+                    <a href="http://rubylearning.com/satishtalim/tutorial.html">TOC | </a>
+                    <a href="http://rubylearning.com/satishtalim/writing_our_own_class_in_ruby.html">Writing Own Class &gt;</a>
+                  </strong>
+                </p>
+
+            </div>
+            <!-- main inner ends here -->
+        </div>
+
+            <div id="rightbar">
+
+                <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-0102129433546432";
+                   //Sidebar Regex120x600, created 11/13/07
+                   google_ad_slot = "8987815830";
+                   google_ad_width = 120;
+                   google_ad_height = 600;
+                   //--></script>
+                   <script type="text/javascript"
+                   src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+
+            </div>
+
+    <!-- content-wrap ends here -->
+    </div>
+
+<!-- wrap ends here -->
+</div>
+
+<!-- footer starts here -->
+<div id="footer">
+    <!-- CHANGE THE FOOTER -->
+    <p> &copy; 2006-2013 <strong>RubyLearning.com A Ruby Tutorial</strong>&nbsp;&nbsp;
+
+        Page Updated: 1st Feb. 2013 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://rubylearning.com/">Home</a> | <a href="http://rubylearning.com/privacy.html">Privacy</a> | <a href="http://rubylearning.com/sitemap.html">Sitemap</a> </p>
+</div>
+
+<!-- footer ends here -->
+
+<!-- SyntaxHighlighter code -->
+<script src="http://rubylearning.com/js/shCore.js" type="text/javascript"></script>
+<script src="http://rubylearning.com/js/shBrushRuby.js" type="text/javascript"></script>
+<script type="text/javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+<!-- SyntaxHighlighter code -->
+</body>
+</html>

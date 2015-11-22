@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Course Ruby Exercises: Ruby Study Notes - Best Ruby Guide, Ruby Tutorial</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="Ruby Study Notes - Best Ruby Guide, Ruby Tutorial" />
+<meta name="keywords" content="ruby exercises,ruby study notes,free ruby programming guide,ruby guide,free ruby programming course,best ruby guide,ruby tutorials,ruby tutorial,learn ruby,ruby,ruby on rails,ruby rails,ruby learning,ruby tutoring,learning ruby,ruby programming,ruby on rails development,ruby training" />
+<meta name="Distribution" content="Global" />
+<meta name="author" content="Satish Talim / Original design: Erwin Aligam - ealigam@gmail.com" />
+<meta name="copyright" content="Satish Talim 2007 and beyond..." />
+<meta name="verify-v1" content="rFu86se+IkbtF+bH8mgJBKwU5HnKaSd8Ghw9umXQOkM=" />
+<meta name="robots" content="index,follow" />
+<meta http-equiv="Expires" content="0" />
+<meta name="revisit-after" content="1 days" />
+<link rel="stylesheet" href="http://rubylearning.com/images/NewOrange.css" type="text/css" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<!-- Google Analytics code -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-59044-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Analytics code ends -->
+
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+
+    <div id="header">
+
+        <h1 id="logo">Ruby<span class="orange">Learning.com</span></h1>
+        <h2 id="slogan">Ruby helps programmers have more fun!</h2>
+
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="http://rubylearning.com/" title="Home page for rubylearning.com">Home</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/tutorial.html" title="Get started Learning Ruby here...">Tutorial</a></li>
+            <li><a href="http://rubylearning.com/download/downloads.html" title="Download this tutorial as an eBook">Downloads</a></li>
+            <li><a href="http://rubylearning.com/other/testimonials.html" title="People around the world who benefited from this site">Testimonials</a></li>
+            <li><a href="http://rubylearning.com/other/certification.html" title="Get certified in Ruby">Certification</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/ruby_guide.html" title="Ruby Guide, Mentor">Mentor</a></li>
+            <li><a href="http://rubylearning.com/jobs/ruby_jobs.html" title="Find Ruby Jobs and also post your job requirements">Jobs</a></li>
+            <li><a href="http://rubylearning.com/blog/" title="Ruby blog of Ruby Learning site">Blog</a></li>
+            <li><a href="http://rubylearning.org/class/" title="Online Ruby Course">Online Course</a></li>
+            <li><a href="http://ruby-challenge.rubylearning.org/" title="Ruby Programming Challenge for Newbies">Challenge</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/services.html" title="Services offered by Satish Talim">Services</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/about.html" title="Information about Satish Talim">About</a></li>
+        </ul>
+    </div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap">
+
+            <p>
+               <script type="text/javascript"><!--
+               google_ad_client = "pub-2265705826025555";
+               google_ad_width = 728;
+               google_ad_height = 15;
+               google_ad_format = "728x15_0ads_al_s";
+               //2006-12-30: RLServices
+               google_ad_channel = "6531532653";
+               google_color_border = "FFFFFF";
+               google_color_bg = "FFFFFF";
+               google_color_link = "B37400";
+               google_color_text = "000000";
+               google_color_url = "B37400";
+               //-->
+               </script>
+               <script type="text/javascript"
+                 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+               </script>
+            </p>
+
+            <div id="main">
+
+                <div id="main-inner"><a name="TemplateInfo"></a>
+                <h1>Course Ruby Exercises</h1>
+
+                <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <br />
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-2265705826025555";
+                   google_ad_width = 468;
+                   google_ad_height = 60;
+                   google_ad_format = "468x60_as";
+                   google_ad_type = "text";
+                   //2006-12-30: RLServices
+                   google_ad_channel = "6531532653";
+                   google_color_border = ["FFFFFF","FFFFFF"];
+                   google_color_bg = "FFFFFF";
+                   google_color_link = ["B37400","B37400"];
+                   google_color_url = ["B37400","B37400"];
+                   google_color_text = ["000000","000000"];
+                   //--></script>
+                   <script type="text/javascript"
+                     src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+
+                <p>Here are the solutions to all the exercises in the <a href="http://rubylearning.org/">Free Online Ruby Programming Course</a>. These solutions have been picked up from the participants' code posted in the relevant forums.</p>
+
+                <h4>Week 1</h4>
+
+                <p><br /><strong><span style="color:red;">L1E1</span></strong>: This is a sample question from the "Ruby Association Certified Ruby Programmer" examination. Thanks to Satoshi Asakawa for the Japanese to English translation.<br /><br />Select all correct answers which outputs Error message.<br />Answers:</p>
+                <ol>
+                <li>2 + 8</li>
+                <li>3 * 10</li>
+                <li>4 ** 10</li>
+                <li>"abcde" * 3</li>
+                <li>"abcde" + 1</li>
+                <li>"abcde" + "fghij"</li>
+                </ol>
+                <p><strong><span style="color:red;">ANS</span></strong>: 5</p>
+
+                <p><br /><strong><span style="color:red;">L1E2</span></strong>: Before executing the code given below, guess the results. Next, execute the code. Did you get it right? If you did not get it right, can you think of why?</p>
+                <p><strong>Goal</strong>: Understanding operator precedence and association.</p>
+                <pre><code>y = false
+z = true
+x = y or z
+puts x
+(x = y) or z
+puts x
+x = (y or z)
+puts x</code></pre>
+                <p><strong><span style="color:red;">ANS</span></strong>: In irb:<br />x = false or true<br />Now, = has a higher precedence than or and hence it's like:<br />(x = false) or true<br />ie.<br />false or true<br /><br />Now, for or if the first argument is false it returns the value of the next argument ie. it returns the value true in this example.<br />In SciTE, the program is:<br />x = false or true<br />puts x<br /><br />as before it's like:<br />(x = false) or true<br />ie. x is assigned the value false but the value of the above expression is true which is not assigned to any variable and hence is lost.<br />Hence puts x prints false.</p>
+
+                <p><br /><strong><span style="color:red;">L1E3</span></strong>: Read the <a href="http://ruby-doc.org/core/classes/Kernel.html#M005983">sprintf</a> documentation and the % documentation in the String class and figure out the output being printed by this Ruby code</p>
+                <p><strong>Goal</strong>: To realize that the Ruby documentation is at times incomplete or not clear.</p>
+            <pre><code>puts "%05d" % 123</code></pre>
+                <p><strong><span style="color:red;">ANS</span></strong>: There is an operator form of the <strong>sprintf</strong> method: simply use a % operator between a format string and the arguments to be interpolated into it:</p>
+            <pre><code>"%05d" % 123</code></pre>
+
+                <p><br /><strong><span style="color:red;">L1E4</span></strong>: Write a Ruby program that displays how old I am, if I am 979000000 seconds old. <em>Display the result as a floating point (decimal) number to two decimal places (for example, 17.23)</em>.<br /><strong>Note</strong>: To format the output to say 2 decimal places, we can use the <strong>Kernel's format</strong> method. For example, if x = 45.5678 then format("%.2f", x) will return the string 45.57</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code>puts 'You are ' + format("%.2f", (979000000/60.0/60.0/24.0/365.0)) + ' years old.'</code></pre>
+
+                <p><br /><strong><span style="color:red;">L1E5</span></strong>: Write a Ruby program that tells you how many minutes there are in a year (do not bother right now about leap years etc.).</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code>puts 'There are %d minutes in a year' % (60*24*365)</code></pre>
+
+                <h4>Week 2</h4>
+
+                <p><br /><strong><span style="color:red;">L2E1</span></strong>: The following program prints the value of the variable. Why? Try to find the answer in the <em>Programming Ruby</em> book.</p>
+            <pre><code>my_string = 'Hello Ruby World'
+def my_string
+ 'Hello World'
+end
+puts my_string</code></pre>
+                <p><strong><span style="color:red;">ANS</span></strong>: Local variables have the quality of barewords; they must start with either a lowercase letter or the underscore character (_), and they must consist entirely of letters, numbers, and underscores. Remember, local variable references look just like method invocation expressions. Method calls can be barewords too. When Ruby sees a bareword, it interprets it as one of three things: a local variable, a keyword, or a method call.</p>
+                <ul>
+                  <li>If there's an equal sign (=) to the right of the bareword, it's a local variable undergoing an assignment.</li>
+                  <li>If the bareword is a keyword, it's a keyword (Ruby has an internal list of these and recognizes them).</li>
+                  <li>Otherwise, the bareword is assumed to be a method call.</li>
+                </ul>
+
+                <p><br /><strong><span style="color:red;">L2E2</span></strong>: Write a method called convert that takes one argument which is a temperature in degrees Fahrenheit. This method should return the temperature in degrees Celsius.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code>def convert (f)
+  (( f - 32.0 ) / 9.0 ) * 5.0
+end
+puts "The temperature in Celcius = " + format("%.2f", convert(75.0))</code></pre>
+
+                <p><br /><strong><span style="color:red;">L2E3</span></strong>: Write a Ruby program that asks for a temperature in degrees Fahrenheit. The program should display the temperature in degrees Celsius to 2 decimal places. To format the output to say 2 decimal places, we can use the Kernel's <strong>format</strong> method. For example, if x = 45.5678 then format("%.2f", x) will return the string 45.57. Another way is to use the <strong>round</strong> function as follows: puts (x*100).round/100.0</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code># p006ftoc.rb
+puts 'Enter temperature in Fahrenheit: '
+STDOUT.flush
+temp_in_fahrenheit = gets.chomp
+temp_in_celsius = (((temp_in_fahrenheit.to_f - 32.0) / 9.0) * 5.0)
+puts 'Temperature ' + temp_in_fahrenheit + ' degree Fahrenheit = ' + format("%.2f", temp_in_celsius) + ' degree Celsius'
+</code></pre>
+
+                <h4>Week 3</h4>
+
+                <p><br /><strong><span style="color:red;">L3E1</span></strong>: Write a program that processes the string s = "Welcome to the forum.\nHere you can learn Ruby.\nAlong with other members.\n" a line at a time, using all that we have learned so far. The expected output is:</p>
+                <pre><code>>ruby tmp.rb
+Line 1: Welcome to the forum.
+Line 2: Here you can learn Ruby.
+Line 3: Along with other members.
+>Exit code: 0</code></pre>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code>s = "Welcome to the forum.\nHere you can learn Ruby.\nAlong with other members.\n"
+i = 0
+s.each_line { | l | print "Line " + (i += 1).to_s + ": "; print l }</code></pre>
+
+                <p><br /><strong><span style="color:red;">L3E2</span></strong>: Run the following two programs and try and understand the difference in the outputs of the two programs. The program:</p>
+                <pre><code>def mtdarry
+ 10.times do |num|
+ puts num
+ end
+end
+
+mtdarry</code></pre>
+                <p>and the program:</p>
+                <pre><code>def mtdarry
+ 10.times do |num|
+ puts num
+ end
+end
+
+puts mtdarry</code></pre>
+                <p><strong><span style="color:red;">ANS</span></strong>: <strong>Case a</strong>. When you call the method by saying:<br />mtdarry<br />The <strong>times</strong> method iterates 10 times from 0 to (10-1) returning an int. Remember the value of the iterator num has now become 10. The displayed values are 0 to 9.<br /><br /><strong>Case b</strong>. When you call the method by saying:<br />puts mtdarry<br />As in Case a, 0 to 9 are printed (using the <strong>puts</strong> inside the method) and the value of num is now 10. <strong>Methods return the value of the last executable statement</strong>. In the block, the value being returned is the value of num. When we call by: puts mtdarry, we are actually printing the value of num which became 10 inside the method.</p>
+
+                <p><br /><strong><span style="color:red;">L3E3</span></strong>: Write a Ruby program that asks for a year and then tells the user whether the year entered by him/her is a leap year or not.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code># p016leapyear.rb
+=begin
+Program to determine if a year is a leap year.
+
+To determine if a year is a leap year, follow these steps:
+1.   If the year is evenly divisible by 4, go to step 2. Otherwise, go to step 5.
+2.   If the year is evenly divisible by 100, go to step 3. Otherwise, go to step 4.
+3.   If the year is evenly divisible by 400, go to step 4. Otherwise, go to step 5.
+4.   The year is a leap year (it has 366 days).
+5.   The year is not a leap year (it has 365 days).
+
+The above logic is combined into a single if check below
+=end
+
+# Get the input and determine if it is a leap year
+puts "Enter the year: "
+STDOUT.flush
+input_year = gets.chomp.to_i
+if ((input_year % 4 == 0) &amp;&amp; (input_year % 100 > 0)) || (input_year % 400 == 0)
+  puts "Year #{input_year} is a leap year"
+else
+  puts "Year #{input_year} is not a leap year"
+end
+</code></pre>
+
+                <p><br /><strong><span style="color:red;">L3E4</span></strong>: Write a method leap_year?. It should accept a year value from the user, check whether it's a leap year, and then return true or false. With the help of this leap_year? method calculate and display the number of minutes in a leap year (2000 and 2004) and the number of minutes in a non-leap year (1900 and 2005).</p>
+                <p><strong>Note:</strong> Time and Date/DateTime use two entirely different mechanisms for keeping track of the passage of time. Time utilizes seconds since the start of 1970 -- standard Unix time tracking. Date/DateTime uses keeps tracks of days and fractions of days using Rational, and it's start of time is about the start of the year in 4712 B.C. They are quite different, and while one should not have to write one's own code to convert from one to another -- all three classes should be patched to allow each conversion from one to another -- they should stay separate. If you want to represent 376 AD, you can't use Time. Time will be faster, since DateTime uses Rational for everything. DateTime's units are days and fractions of days. That might make a difference to you, or it might not. If you are doing a lot of date conversion or date math, you might find DateTime easier to use. Personally, I use Time unless I am dealing with date ranges that go beyond what Time handles, as a general rule.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code># p017leapyearmtd.rb
+def leap_year?(input_year)
+  ((input_year % 4 == 0)  &amp;&amp; (input_year % 100 > 0)) || (input_year % 400 == 0)
+end
+
+# Get the input and determine if it is a leap year
+puts "Enter the year: "
+STDOUT.flush
+input_year = gets.chomp.to_i
+if leap_year?(input_year)
+  puts "Year #{input_year} is a leap year and has #{366*60*24} minutes in the year"
+else
+  puts "Year #{input_year} is not a leap year and has #{365*60*24} minutes in the year"
+end</code></pre>
+
+                <p><br /><strong><span style="color:red;">L3E5</span></strong>: A Brain Teaser - A student has written the following program:</p>
+                <pre><code>i = x = y = 0
+while (i &lt; 1000000)
+ i += 1
+ x += 1
+ y += 1
+ tmp = x * y
+ puts tmp if (i &gt; 100000 &amp;&amp; i &lt; 100002)
+end</code></pre>
+                <p>The above program displays the value 10000200001. Is the program inefficient? If yes, analyze the program and make it more efficient. Remember that the variables i, x and y need to be used.</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: The code is:</p>
+                <pre><code>i = x = y = 0
+while (i &lt; 1000000)
+i += 1
+x += 1
+y += 1
+(puts x * y; break) if (i &gt; 100000 &amp;&amp; i &lt; 100002)
+end</code></pre>
+            <p>The Brain Teaser program serves various objectives:<br /><br />It should make you <strong><em>thimk</em></strong> about:</p>
+            <ul>
+              <li><strong>Optimizing the code</strong>. There are certain principles that apply to optimization in any computer language, and Ruby is no exception.</li>
+              <li><strong>Don't optimize as you go</strong>: Write your program without regard to possible optimizations, concentrating instead on making sure that the code is clean, correct, and understandable. If it's too big or too slow when you've finished, then you can consider optimizing it.</li>
+              <li><strong>Remember the 80/20 rule</strong>: In many fields you can get 80% of the result with 20% of the effort. Whenever you're about to optimize code, use profiling to find out where that 80% of execution time is going, so you know where to concentrate your effort.</li>
+              <li><strong>Always run "before" and "after" benchmarks</strong>: How else will you know that your optimizations actually made a difference? If your optimized code turns out to be only slightly faster or smaller than the original version, undo your changes and go back to the original, clear code.</li>
+              <li><strong>Avoiding Temporary objects</strong>: Reduce the number of temporary objects being used, especially in loops and avoid creating temporary objects within frequently called methods.</li>
+              <li><strong>Doing Research</strong>: This is very important. You must get into the habit of researching and exploring the Ruby documentation - you might make mistakes but never mind - this is the time to learn. Explore profile in Ruby - specific to our problem. How about each one of us executing the modified code using profile and see for ourselves, whether our code is optimized?</li>
+            </ul>
+
+                <p><br /><strong><span style="color:red;">L3E6</span></strong>: This is a sample question from the "Ruby Association Certified Ruby Programmer" examination.<br /><br />Select all correct answers which the following program outputs.</p>
+<pre><code>title = 'Programming Ruby'
+price = 3_990
+puts '"#{title}" is #{price} yen.'</code></pre>
+                <p>Answers:</p>
+                <ol>
+                <li>"#{title}" is 3_990 yen.</li>
+                <li>"#{title}" is 3990 yen.</li>
+                <li>Programming Ruby is yen.</li>
+                <li>Programming Ruby is #{price} yen.</li>
+                <li>"#{title}" is #{price} yen.</li>
+                <li>Syntax Error</li>
+                </ol>
+                <p>Why? Discuss...</p>
+
+                <p><strong><span style="color:red;">ANS</span></strong>: The answer is number five. The single quotes around the string turn off string interpolation, therefore the #{} construct is written literally rather than having its value calculated. The double quotes around the first one are also written literally.</p>
+
+                <p><br /><strong><span style="color:red;">L3 Thimk1</span></strong>: Imagine for a moment, that you want to be able to set a variable, but if it's not set, you default to a known value. You'd rather do it on a single line:</p>
+                <pre><code>puts expand = defined?( expand ) ? expand : true</code></pre>
+                <p>Why is the output nil ?</p>
+                <p><strong><span style="color:red;">ANS</span></strong>: (Thanks to Jerry Anning). According to the doc:</p>
+                <ol>
+                <li><strong>defined?</strong> returns either a description of the argument (a <strong>String</strong>) if it is defined or <strong>nil</strong> if it is not.</li>
+                <li>the ternary operator returns the argument after the ? if the conditional is <strong>true</strong> (i.e. not <strong>false</strong> or <strong>nil</strong>) or the argument after the : if it does evaluate to <strong>false</strong> or <strong>nil</strong>.</li>
+                </ol>
+                <p>The = sign is parsed (but not executed since the value being assigned is not yet known) immediately and tells Ruby that expand exists. Knowing that, <strong>defined?</strong> knows that expand HAS been defined so it returns a description of it (in this casse, local-variable). "local-variable" is not <strong>false</strong> or <strong>nil</strong>, so the first branch (expand) is returned as the value of the ternary expression, which WILL be assigned to expand. BUT expand, though it counts as defined, is not given a value until the statement is done, so the value of expand, returned by the ternary expression is the default value of a variable that hasn't been given a value yet, which is <strong>nil</strong>. Therefore, expand ends up being assigned the value <strong>nil</strong>. The whole expression returns the value of the assignment, which is the value assigned to expand, to <strong>puts</strong>, which prints it. That value is <strong>nil</strong>.</p>
+
+                <p><br /><strong><span style="color:red;">L3 Thimk2</span></strong>: What happens in the following Ruby code?</p>
+                <pre><code>x = 10
+y = 20
+x, y = y, x
+puts x
+puts y</code></pre>
+
+                <p><strong><span style="color:red;">ANS</span></strong>: (Thanks to Jerry Anning). Ruby effectively processes such multiple assignments in parallel, so puts x returns 20 and puts y returns 10.</p>
+
+                <p><br /><strong><span style="color:red;">L3 Thimk3</span></strong>: In the following Ruby code, x gets the value <strong>nil</strong>: and pqr remains an undefined local variable. Why?</p>
+                <pre><code>if false
+ x = pqr
+end
+puts x
+puts pqr</code></pre>
+
+                <p><strong><span style="color:red;">ANS</span></strong>: (Thanks to Jerry Anning). The Ruby interpreter looks at the statement x = pqr even though it will not execute it and, although it does not execute or evaluate it, it determines that x is the name of a variable, which it duly puts into the symbol table, although it is not given a value and therefore has the default value <strong>nil</strong>. pqr, on the other hand, is not assigned anything. It could be a variable or a method. Therefore, when the <strong>puts</strong> statements are executed, x exists and has a value of <strong>nil</strong>, which is duly printed and it assumes from the fact that pqr starts with a lower case letter that it is an (undefined) local variable and prints an error message to that effect, since it doesn't know how to execute puts with an undefined input.</p>
+
+            </div>
+            <!-- main inner ends here -->
+        </div>
+
+            <div id="rightbar">
+                <p><a title="Free Online Ruby Programming Course" href="http://rubylearning.org/"><img src="http://rubylearning.com/images/rlbanner.jpg" style="border: 0px none ;" alt="Free Online Ruby Programming Course" /></a></p>
+
+                <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-2265705826025555";
+                   google_ad_width = 120;
+                   google_ad_height = 600;
+                   google_ad_format = "120x600_as";
+                   google_ad_type = "text";
+                   //2006-12-30: RLServices
+                   google_ad_channel = "6531532653";
+                   google_color_border = ["FFFFFF","FFFFFF"];
+                   google_color_bg = "FFFFFF";
+                   google_color_link = ["B37400","B37400"];
+                   google_color_url = ["B37400","B37400"];
+                   google_color_text = ["000000","000000"];
+                   //--></script>
+                   <script type="text/javascript"
+                     src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+
+            </div>
+
+    <!-- content-wrap ends here -->
+    </div>
+
+<!-- wrap ends here -->
+</div>
+
+<!-- footer starts here -->
+<div id="footer">
+    <!-- CHANGE THE FOOTER -->
+    <p class="google">
+        <!-- Google advt starts-->
+        <br />
+        <script type="text/javascript"><!--
+                google_ad_client = "pub-2265705826025555";
+                google_ad_width = 728;
+                google_ad_height = 90;
+                google_ad_format = "728x90_as";
+                google_ad_type = "text";
+                //2006-12-30: RLServices
+                google_ad_channel = "6531532653";
+                google_color_border = ["FFFFFF","FFFFFF"];
+                google_color_bg = "FFFFFF";
+                google_color_link = ["B37400","B37400"];
+                google_color_url = ["B37400","B37400"];
+                google_color_text = ["000000","000000"];
+                //--></script>
+        <script type="text/javascript"
+                  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+        <!-- Google advt ends -->
+    </p>
+
+    <p>&copy; 2006-2012&nbsp;<strong>RubyLearning.com - A Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 1st Oct. 2011 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://rubylearning.com/">Home</a> | <a href="http://rubylearning.com/privacy.html">Privacy</a> | <a href="http://rubylearning.com/sitemap.html">Sitemap</a></p>
+</div>
+
+<!-- footer ends here -->
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Ruby MySQL Tutorial: Ruby Study Notes - Best Ruby Guide, Ruby Tutorial</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="Ruby Study Notes - Best Ruby Guide, Ruby Tutorial" />
+<meta name="keywords" content="ruby mysql tutorial,ruby study notes,ruby guide,free ruby programming course,best ruby guide,ruby tutorials,ruby tutorial,learn ruby,ruby,ruby on rails,ruby rails,ruby learning,ruby tutoring,learning ruby,ruby programming,ruby on rails development,ruby training" />
+<meta name="Distribution" content="Global" />
+<meta name="author" content="Satish Talim / Original design: Erwin Aligam - ealigam@gmail.com" />
+<meta name="copyright" content="Satish Talim 2007 and beyond..." />
+<meta name="verify-v1" content="rFu86se+IkbtF+bH8mgJBKwU5HnKaSd8Ghw9umXQOkM=" />
+<meta name="robots" content="index,follow" />
+<meta http-equiv="Expires" content="0" />
+<meta name="revisit-after" content="1 days" />
+<link rel="stylesheet" href="http://rubylearning.com/images/NewOrange.css" type="text/css" />
+<link rel="stylesheet" href="http://rubylearning.com/images/syntaxhighlighter.css" type="text/css" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+
+    <div id="header">
+
+        <h1 id="logo">Ruby<span class="orange">Learning.com</span></h1>
+        <h2 id="slogan">Ruby helps programmers have more fun!</h2>
+
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="http://rubylearning.com/" title="Home page for rubylearning.com">Home</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/tutorial.html" title="Get started Learning Ruby here...">Tutorial</a></li>
+            <li><a href="http://rubylearning.com/download/downloads.html" title="Download this tutorial as an eBook">Downloads</a></li>
+            <li><a href="http://rubylearning.com/other/testimonials.html" title="People around the world who benefited from this site">Testimonials</a></li>
+            <li><a href="http://rubylearning.com/other/ruby_gurus.html" title="Interviews I took of Ruby Gurus around the world">Gurus</a></li>
+            <li><a href="http://rubylearning.com/other/certification.html" title="Get certified in Ruby">Certification</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/ruby_guide.html" title="Ruby Guide, Mentor">Mentor</a></li>
+            <li><a href="http://rubylearning.com/jobs/ruby_jobs.html" title="Find Ruby Jobs and also post your job requirements">Jobs</a></li>
+            <li><a href="http://rubylearning.com/other/ruby_video_search.html" title="Watch videos on Ruby/Rails">Videos</a></li>
+            <li><a href="http://rubylearning.com/blog/" title="Ruby blog of Learning Ruby site">Blog</a></li>
+            <li><a href="http://rubylearning.org/class/" title="Free Online Ruby Course">Online Course</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/services.html" title="Services offered by Satish Talim">Services</a></li>
+            <li><a href="http://rubylearning.com/satishtalim/about.html" title="Information about Satish Talim">About</a></li>
+        </ul>
+    </div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap">
+
+            <p>
+               <script type="text/javascript"><!--
+               google_ad_client = "pub-2265705826025555";
+               google_ad_width = 728;
+               google_ad_height = 15;
+               google_ad_format = "728x15_0ads_al_s";
+               //2007-05-13: RLRMT
+               google_ad_channel = "9459813602";
+               google_color_border = "FFFFFF";
+               google_color_bg = "FFFFFF";
+               google_color_link = "B37400";
+               google_color_text = "000000";
+               google_color_url = "B37400";
+               //-->
+               </script>
+               <script type="text/javascript"
+                 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+               </script>
+            </p>
+
+            <div id="main">
+
+                <div id="main-inner"><a name="TemplateInfo"></a>
+                <h1>Ruby MySQL Tutorial</h1>
+
+                <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <br />
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-2265705826025555";
+                   google_ad_width = 468;
+                   google_ad_height = 60;
+                   google_ad_format = "468x60_as";
+                   google_ad_type = "text";
+                   //2007-05-13: RLRMT
+                   google_ad_channel = "9459813602";
+                   google_color_border = ["FFFFFF","FFFFFF"];
+                   google_color_bg = "FFFFFF";
+                   google_color_link = ["B37400","B37400"];
+                   google_color_url = ["B37400","B37400"];
+                   google_color_text = ["000000","000000"];
+                   //--></script>
+                   <script type="text/javascript"
+                     src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+
+                <p class="post-footer align-right">
+                  <strong>
+                    <a href="http://rubylearning.com/satishtalim/ruby_internet_services.html">&lt;Ruby Internet Services | </a>
+                    <a href="http://rubylearning.com/satishtalim/tutorial.html">TOC | </a>
+                    <a href="http://rubylearning.com/satishtalim/ruby_activerecord_and_mysql.html">ActiveRecord and MySQL&gt;</a>
+                  </strong>
+                </p>
+
+                <p>This brief <strong>Ruby MySQL Tutorial</strong> shows you how you can connect to MySQL in Ruby. MySQL support in Ruby was made possible by Tomita Masahiro. He has developed a pure Ruby binding called Ruby/MySQL.<br /><br />We need to install the same on our PC and the installation (you need to be connected to the internet and it takes some time) is as shown below:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                C:\>gem install mysql
+                Bulk updating Gem source index for: http://gems.rubyforge.org
+                Select which gem to install for your platform (i386-mswin32)
+                   1. mysql 2.7.3 (mswin32)
+                   2. mysql 2.7.1 (mswin32)
+                   3. mysql 2.7 (ruby)
+                   4. mysql 2.6 (ruby)
+                   5. Skip this gem
+                   6. Cancel installation
+                > 1
+                Successfully installed mysql-2.7.3-mswin32
+                Installing ri documentation for mysql-2.7.3-mswin32...
+                Installing RDoc documentation for mysql-2.7.3-mswin32...
+                C:\>
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>This installs mysql-2.7.3-mswin32 driver which is faster and supports MySQL 5.0.51a  and later. Also, it requires Ruby 1.8.6. The documentation for this driver is <a href="http://tmtm.org/en/mysql/ruby/" >here</a>.</p>
+
+                <p>I will assume that you've already installed MySQL 5 or above on your PC and that you have it running and are familiar with the basics.</p>
+
+                <p>First, ensure that your MySQL server is running. If not, you can start it by typing this at the command prompt:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                C:\>mysqld
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Now, open a new command window run the mysql client program from the command line, as:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                C:\>mysql --user=root mysql
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>You should get the mysql prompt. Next, create a database ruby as:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                mysql> create database ruby;
+                Query OK, 1 row affected (0.02 sec)
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Next, create a table student in the database ruby as:</p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                mysql> use ruby;
+                create table student (id VARCHAR(2), name VARCHAR(20), rank VARCHAR(2));
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>Populate the above table with some data and as a first exercise we try to connect to the MySQL server and print all the names in the table student. Program <strong>p078rubymysql.rb</strong></p>
+
+                <div class="column2">
+                <!-- InstanceBeginEditable name="Code" -->
+                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                require 'mysql'
+
+                #my = Mysql.new(hostname, username, password, databasename)
+                con = Mysql.new('localhost', '', '', 'ruby')
+                rs = con.query('select * from student')
+                rs.each_hash { |h| puts h['name']}
+                con.close
+                </textarea>
+                <!-- InstanceEndEditable -->
+                </div>
+
+                <p>It is as simple as that. You can explore this api further.</p>
+
+                <p style="background-color: #FAFAFA; padding: 5px; margin-top: 20px; font-size: 65%;"><strong>Note</strong>: The Ruby Logo is Copyright (c) 2006, Yukihiro Matsumoto. I have made extensive references to information, related to Ruby, available in the public domain (wikis and the blogs, articles of various <span style="font-weight: bold;" title="Click Gurus on the menu above">Ruby Gurus</span>), my acknowledgment and thanks to all of them.</p>
+
+                <p class="post-footer align-right">
+                  <strong>
+                    <a href="http://rubylearning.com/satishtalim/ruby_internet_services.html">&lt;Ruby Internet Services | </a>
+                    <a href="http://rubylearning.com/satishtalim/tutorial.html">TOC | </a>
+                    <a href="http://rubylearning.com/satishtalim/ruby_activerecord_and_mysql.html">ActiveRecord and MySQL&gt;</a>
+                  </strong>
+                </p>
+
+            </div>
+            <!-- main inner ends here -->
+        </div>
+
+            <div id="rightbar">
+                <p><a title="Free Online Ruby Programming Course" href="http://rubylearning.org/"><img src="http://rubylearning.com/images/rlbanner.jpg" style="border: 0px none ;" alt="Free Online Ruby Programming Course" /></a></p>
+
+                <p><!-- Google advt starts-->
+                   <!-- Google ad New Ruby Site -->
+                   <script type="text/javascript"><!--
+                   google_ad_client = "pub-2265705826025555";
+                   google_ad_width = 120;
+                   google_ad_height = 600;
+                   google_ad_format = "120x600_as";
+                   google_ad_type = "text";
+                   //2007-05-13: RLRMT
+                   google_ad_channel = "9459813602";
+                   google_color_border = ["FFFFFF","FFFFFF"];
+                   google_color_bg = "FFFFFF";
+                   google_color_link = ["B37400","B37400"];
+                   google_color_url = ["B37400","B37400"];
+                   google_color_text = ["000000","000000"];
+                   //--></script>
+                   <script type="text/javascript"
+                     src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                   </script>
+                   <!-- Google advt ends -->
+                </p>
+
+            </div>
+
+    <!-- content-wrap ends here -->
+    </div>
+
+<!-- wrap ends here -->
+</div>
+
+<!-- footer starts here -->
+<div id="footer">
+    <!-- CHANGE THE FOOTER -->
+    <p class="google">
+        <!-- Google advt starts-->
+        <br />
+        <script type="text/javascript"><!--
+                google_ad_client = "pub-2265705826025555";
+                google_ad_width = 728;
+                google_ad_height = 90;
+                google_ad_format = "728x90_as";
+                google_ad_type = "text";
+                //2007-05-13: RLRMT
+                google_ad_channel = "9459813602";
+                google_color_border = ["FFFFFF","FFFFFF"];
+                google_color_bg = "FFFFFF";
+                google_color_link = ["B37400","B37400"];
+                google_color_url = ["B37400","B37400"];
+                google_color_text = ["000000","000000"];
+                //--></script>
+        <script type="text/javascript"
+                  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+        <!-- Google advt ends -->
+    </p>
+
+    <p> &copy; 2006-2008 <strong>RubyLearning.com A Ruby Tutorial</strong>&nbsp;&nbsp;
+
+        Page Updated: 15th Aug. 20087 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://rubylearning.com/">Home</a> | <a href="http://rubylearning.com/privacy.html">Privacy</a> | <a href="http://rubylearning.com/sitemap.html">Sitemap</a> </p>
+</div>
+
+<!-- footer ends here -->
+
+<!-- SyntaxHighlighter code -->
+<script src="http://rubylearning.com/js/shCore.js" type="text/javascript"></script>
+<script src="http://rubylearning.com/js/shBrushRuby.js" type="text/javascript"></script>
+<script type="text/javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+<!-- SyntaxHighlighter code -->
+
+<!-- Hit Tail (Invisible code) -->
+<script src="http://13043.hittail.com/mlt.js" type="text/javascript"></script>
+<!-- Hit Tail (Invisible code) -->
+
+<!-- Google Analytics code -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-59044-10");
+pageTracker._trackPageview();
+</script>
+<!-- Google Analytics code ends -->
+</body>
+</html>
