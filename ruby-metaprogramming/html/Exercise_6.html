@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Ruby Metaprogramming</title>
+<meta name="keywords" content="ruby metaprogramming,ruby programming,metaprogramming" />
+<meta name="description" content="RubyLearning.org" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<link rel="stylesheet" href="static/style.css" type="text/css" media="screen" />
+<script type="text/javascript" src="static/code_highlighter.js"></script>
+<script type="text/javascript" src="static/code_highlighter_ruby.js"></script>
+<base href="http://ruby-metaprogramming.rubylearning.com/" />
+<!-- Google Analytics code -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-59044-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Analytics code ends -->
+</head>
+<body>
+<div>
+<h1>Metaprogramming in Ruby</h1>
+<p><br /><br /></p>
+<h2>Exercise 6</h2>
+
+<p>Define class Dog.<br/>
+There are three dogs named Lassie, Fido and Stimpy.</p>
+
+<p><strong>We can do the following:</strong></p>
+
+<pre><code class="ruby">p lassie.dance
+p lassie.poo
+p lassie.laugh
+puts
+p fido.dance
+p fido.poo
+p fido.laugh
+puts
+p stimpy.dance
+p stimpy.poo
+p stimpy.laugh
+</code></pre>
+
+<p><strong>Output is:</strong></p>
+
+<pre><code class="ruby">"Lassie is dancing"
+"Lassie is a smelly doggy!"
+"Lassie finds this hilarious!"
+
+"Fido don't understand dance"
+"Fido is a smelly doggy!"
+"Fido don't understand laugh"
+
+"Stimpy is dancing"
+"Stimpy don't understand poo"
+"Stimpy don't understand laugh"
+</code></pre>
+
+<p>Hints:   </p>
+
+<ul>
+<li>lassie = Dog.new('Lassie')   </li>
+<li>lassie knows <code class="ruby">dance</code> method.   </li>
+<li>fido doesn't know <code class="ruby">dance</code> method.</li>
+</ul>
+<p class="copyright">This page was last updated on 20th Dec. 2009.</p>
+</div>
+</body>
+</html>
+

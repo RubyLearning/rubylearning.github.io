@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Ruby Metaprogramming</title>
+<meta name="keywords" content="ruby metaprogramming,ruby programming,metaprogramming" />
+<meta name="description" content="RubyLearning.org" />
+<link rel="stylesheet" type="text/css" href="static/mystyle.css" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<!-- Google Analytics code -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-59044-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Analytics code ends -->
+</head>
+<body>
+<div>
+<h1>Metaprogramming in Ruby</h1>
+
+<h2>1.6 Solved Problems</h2>
+<h3>1.6.1 Problem 1  <img src="http://rubylearning.com/images/icon-flag.gif" alt="Important" title="Important" /></h3>
+<p>This example has been adapted from Dave Thomas' screencast "<a href="http://pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming">Episode 5: Nine Examples of Metaprogramming</a>".</p>
+<p>We all know that the Core Ruby course at RubyLearning.org runs for 8 weeks. Every week there is a quiz and marks are allocated out of 10. At the end of 8 weeks the student can find out his percentage score. For example, if a students scores 5,10,10,10,10,10,10,10 marks in 8 weeks i.e. his percentage score is 93.75%</p>
+<p><b>Problem Statement</b>: Every Core Ruby batch has hundreds of students. Let us assume that we have a Ruby method that does this percentage calculation and returns the same value given the same set of arguments. We don't need to go on calculating the value each time. We only need to calculate the value the first time and then somehow associate that value with that set of arguments. Then the next time it gets called, if we have the same arguments, we can use the previously stored value as the return value of this method thus bypassing the need to do the calculations again. <em>We need to develop a solution to address this problem using Metaprogramming techniques</em>.</p>
+
+<h4>1.6.1.1 Existing class and method</h4>
+<p>To start with, let us look at the existing class and method and then keep modifying it to achieve the above result.</p>
+<pre>
+class Result
+  def total(*scores)
+    percentage_calculation(*scores)
+  end
+
+  private
+
+  def percentage_calculation(*scores)
+    puts "Calculation for #{scores.inspect}"
+    scores.inject {|sum, n| sum + n } * (100.0/80.0)
+  end
+end
+
+r = Result.new
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+</pre>
+<p>In the code above, we have a <b>Result</b> class and a <b>total</b> method that takes a list of <b>scores</b> per student. The <b>scores</b> represent the marks obtained by a student in each of the 8 quizzes in the course. The private method <b>percentage_calculation</b> does the actual percentage calculation. To test this, we call the <b>total</b> method 4 times. The first two and the last two have the same set of scores. When we run our code we get the following output:</p>
+<pre>
+Calculation for [5, 10, 10, 10, 10, 10, 10, 10]
+93.75
+Calculation for [5, 10, 10, 10, 10, 10, 10, 10]
+93.75
+Calculation for [10, 10, 10, 10, 10, 10, 10, 10]
+100.0
+Calculation for [10, 10, 10, 10, 10, 10, 10, 10]
+100.0
+</pre>
+<p>Looking at the above output, we realize that we have called the <b>total</b> method 4 times and that in turn also called the <b>percentage_calculation</b> method 4 times. <span style="color:brown;">We are now going to try and reduce the number of calls to the <b>percentage_calculation</b> method</span>.</p>
+
+<h4>1.6.1.2 Normal Solution</h4>
+<p>One way to reduce the number of calls to the <b>percentage_calculation</b> method is to somehow store the previous results in memory. For this, we shall define a subclass named <b>MemoResult</b> that has a hash named <b>@mem</b> and then use the <b>@mem</b> hash in the <b>total</b> method, as shown in the modified code below:</p>
+<pre>
+class Result
+  def total(*scores)
+    percentage_calculation(*scores)
+  end
+
+  private
+
+  def percentage_calculation(*scores)
+    puts "Calculation for #{scores.inspect}"
+    scores.inject {|sum, n| sum + n } * (100.0/80.0)
+  end
+end
+
+class MemoResult &lt; Result
+  def initialize
+    @mem = {}
+  end
+  def total(*scores)
+    if @mem.has_key?(scores)
+      @mem[scores]
+    else
+      @mem[scores] = super
+    end
+  end
+end
+
+r = MemoResult.new
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+</pre>
+
+<p>The <b>Hash</b> class has a <b>has_key?</b> method that returns <b>true</b> if the given key is present in <b>@mem</b>. In the above program, if <b>has_key?</b> is <b>true</b> then we return the value available in <b>@mem</b> for that key otherwise we do the calculation by calling <b>percentage_calculation(*scores)</b> and storing the value in <b>@mem</b>. Let us see the output:</p>
+<pre>
+Calculation for [5, 10, 10, 10, 10, 10, 10, 10]
+93.75
+93.75
+Calculation for [10, 10, 10, 10, 10, 10, 10, 10]
+100.0
+100.0
+</pre>
+<p>Observe that we have saved calling the <b>percentage_calculation(*scores)</b> method for the second and fourth call to <b>r.total</b>.</p>
+
+<h4>1.6.1.3 Solution using Class.new and define_method</h4>
+<p>The <b>MemoResult</b> class above, is intimately tied to its parent <b>Result</b> class. To avoid that, let us generate this subclass dynamically using whetever we have learnt so far in <strong>Ruby Metaprogramming</strong>.</p>
+
+<p>To do that, let us write a method called <b>mem_result</b> that takes two parameters: the name of the parent class and the name of a method (the method will return the name of the class). Here's the code:</p>
+<pre>
+class Result
+  def total(*scores)
+    percentage_calculation(*scores)
+  end
+
+  private
+
+  def percentage_calculation(*scores)
+    puts "Calculation for #{scores.inspect}"
+    scores.inject {|sum, n| sum + n } * (100.0/80.0)
+  end
+end
+
+def mem_result(klass, method)
+  mem = {}
+  Class.new(klass) do
+    define_method(method) do |*args|
+      if mem.has_key?(args)
+        mem[args]
+      else
+        mem[args] = super
+      end
+    end
+  end
+end
+
+r = mem_result(Result, :total).new
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+</pre>
+<p>The output is:</p>
+<pre>
+Calculation for [5, 10, 10, 10, 10, 10, 10, 10]
+93.75
+93.75
+Calculation for [10, 10, 10, 10, 10, 10, 10, 10]
+100.0
+100.0
+</pre>
+<p>The code <b>Class.new(klass)</b> creates a new anonymous class with the given superclass <b>klass</b>. The block is used as the body of the class and contains the methods in that class. The <b>define_method</b> defines the method <b>method</b> (which is the second argument to <b>mem_result</b>). This takes the <b>method</b> arguments in <b>args</b>.</p>
+<p><b>Note</b>: We have done away with the <b>initialize</b> method and the instance variable <b>@mem</b>. Instead we use a local variable <b>mem</b> since the block is a closure and this local variable <b>mem</b> is available inside the block.</p>
+
+<h4>1.6.1.4 Solution using anonymous class</h4>
+<pre>
+class Result
+  def total(*scores)
+    percentage_calculation(*scores)
+  end
+
+  private
+
+  def percentage_calculation(*scores)
+    puts "Calculation for #{scores.inspect}"
+    scores.inject {|sum, n| sum + n } * (100.0/80.0)
+  end
+end
+
+r = Result.new
+
+# Anonymous class on object
+def r.total(*scores)
+  @mem ||= {}
+  if @mem.has_key?(scores)
+    @mem[scores]
+  else
+    @mem[scores] = super
+  end
+end
+
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+</pre>
+
+<h4>1.6.1.5 Solution using an anonymous class created on the fly</h4>
+<pre>
+class Result
+  def total(*scores)
+    percentage_calculation(*scores)
+  end
+
+  private
+
+  def percentage_calculation(*scores)
+    puts "Calculation for #{scores.inspect}"
+    scores.inject {|sum, n| sum + n } * (100.0/80.0)
+  end
+end
+
+def mem_result(obj, method)
+  obj.class.class_eval do
+    mem ||= {}
+    define_method(method) do |*args|
+      if mem.has_key?(args)
+        mem[args]
+      else
+        mem[args] = super
+      end
+    end
+  end
+end
+
+r = Result.new
+mem_result(r, :total)
+
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+</pre>
+<p>In the above code, we have written a new <b>mem_result</b> method that takes as an argument an object (<b>obj</b>) for which an anonymous class needs to be generated and the second argument being the method (<b>method</b>) to be created within this anonymous class.</p>
+<p>We had previously used <b>define_method</b> to create a method on the fly. <span style="color:brown;">The problem is that <b>define_method</b> is only defined on classes and modules and what we have here is an object. Hence we get the class of the object by <b>obj.class</b> and then use the <b>class_eval</b> and <b>define_method</b> methods on that class to add an instance method (<b>method</b>) to the class</span>. Let us run the code and check the output.</p>
+<pre>
+result.rb:21:in `total': super: no superclass method `total' (NoMethodError)
+  from result.rb:30
+</pre>
+<p>The code does not run.</p>
+<p>The line <b>mem[args] = super</b> is trying to call the <b>total</b> method of the class <b>Result</b>, from the anonymous class. <span style="color:brown;">The problem is that we have defined our <b>total</b> method directly in class <b>Result</b>. We have said <b>obj.class</b> which is class <b>Result</b> and that's not going to work. What we need to do is create an anonymous class and put our <b>total</b> method in this anonymous class. Also, our anonymous class needs to be a subclass of our class <b>Result</b></span>.</p>
+<p>Let us create our anonymous class as follows:</p>
+<pre>
+  anon = class &lt;&lt; obj
+    self
+  end
+</pre>
+<p><b>self</b> above gives us our anonymous class object. This object is then being referenced by our variable <b>anon</b>. Most rubyists would put this code in one line to indicate that they are extracting the ghost class, as follows:</p>
+<pre>
+anon = class &lt;&lt; obj; self; end
+</pre>
+<p>Having got our anonymous class object, we shall use it in our <b>class_eval</b> method, as shown in the code below:</p>
+<pre>
+class Result
+  def total(*scores)
+    percentage_calculation(*scores)
+  end
+
+  private
+
+  def percentage_calculation(*scores)
+    puts "Calculation for #{scores.inspect}"
+    scores.inject {|sum, n| sum + n } * (100.0/80.0)
+  end
+end
+
+def mem_result(obj, method)
+  anon = class &lt;&lt; obj; self; end
+  anon.class_eval do
+    mem ||= {}
+    define_method(method) do |*args|
+      if mem.has_key?(args)
+        mem[args]
+      else
+        mem[args] = super
+      end
+    end
+  end
+end
+
+r = Result.new
+mem_result(r, :total)
+
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+</pre>
+<p>Our code runs successfully, giving us the desired result.</p>
+
+<p class="pre-footer align-right">
+  <b>
+    <a href="http://ruby-metaprogramming.rubylearning.com/html/ruby_metaprogramming_1.html">&lt;Home | </a>
+    <a href="http://ruby-metaprogramming.rubylearning.com/html/ruby_metaprogramming_3.html">Prev | </a>
+    <a href="http://ruby-metaprogramming.rubylearning.com/html/ruby_metaprogramming_5.html">Next&gt;</a>
+  </b>
+</p>
+<p class="copyright"><b>Note</b>: The material in these study notes is drawn primarily from the references mentioned on the last page. Our acknowledgment and thanks to all of them.<br />This page was last updated on 16th Dec. 2009.</p>
+</div>
+</body>
+</html>

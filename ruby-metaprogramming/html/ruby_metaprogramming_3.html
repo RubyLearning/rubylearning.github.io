@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Ruby Metaprogramming</title>
+<meta name="keywords" content="ruby metaprogramming,ruby programming,metaprogramming" />
+<meta name="description" content="RubyLearning.org" />
+<link rel="stylesheet" type="text/css" href="static/mystyle.css" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<!-- Google Analytics code -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-59044-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Analytics code ends -->
+</head>
+<body>
+<div>
+<h1>Metaprogramming in Ruby</h1>
+
+<h3>1.3.6 eval</h3>
+<p>The module <b>Kernel</b> has the <b>eval()</b> method and is used to <span style="color:brown;">execute code in a string</span>. The <b>eval()</b> method can evaluate strings spanning many lines, making it possible to execute an entire program embedded in a string. <b>eval()</b> is slow - calling <b>eval()</b> effectively compiles the code in the string before executing it. But, even worse, <b>eval()</b> can be dangerous. If there's any chance that external data - stuff that comes from outside your application - can wind up inside the parameter to <b>eval()</b>, then you have a security hole, because that external data may end up containing arbitrary code that your application will blindly execute. <span style="color:brown;"><em><b>eval()</b> is now considered a method of last resort</em></span>.</p>
+<pre>
+str = "Hello"
+puts eval("str + ' Rubyist'") # => "Hello Rubyist"
+</pre>
+
+<h3>1.3.7 instance_eval, module_eval, class_eval</h3>
+<p><b>instance_eval()</b>, <b>module_eval()</b> and <b>class_eval()</b> are special types of <b>eval()</b>.</p>
+
+<h4>1.3.7.1 instance_eval  <img src="http://rubylearning.com/images/icon-flag.gif" alt="Important" title="Important" /></h4>
+<p>The class <b>Object</b> has an <b>instance_eval()</b> public method which can be called from a <span style="color:brown;">specific object</span>. It provides access to the instance variables of that object. It can be called either with a block or with a string.</p>
+<pre>
+class Rubyist
+  def initialize
+    @geek = "Matz"
+  end
+end
+obj = Rubyist.new
+# instance_eval can access obj's private methods
+# and instance variables
+obj.instance_eval do
+  puts self # => #&lt;Rubyist:0x2ef83d0&gt;
+  puts @geek # => Matz
+end
+</pre>
+<p><em>The block that you pass to <b>instance_eval( )</b>helps you dip inside an object to do something in there. You can wreak havoc on encapsulation! No data is private data anymore.</em></p>
+<p><b>instance_eval</b> can also be used to <span style="color:brown;">add <em>class methods</em></span> as shown below:</p>
+<pre>
+class Rubyist
+end
+Rubyist.instance_eval do
+  def who
+    "Geek"
+  end
+end
+puts Rubyist.who # => Geek
+</pre>
+<p>Remember our example back on <b>1.1.5 Anonymous class #4</b>? We had used <b>instance_eval</b> there.</p>
+
+<h4>1.3.7.2 module_eval, class_eval  <img src="http://rubylearning.com/images/icon-flag.gif" alt="Important" title="Important" /></h4>
+<p>The <b>module_eval</b> and <b>class_eval</b> methods operate on modules and classes rather than on objects. The <b>class_eval</b> is defined as an alias of <b>module_eval</b>.</p>
+<p>The <b>module_eval</b> and <b>class_eval</b> methods can be used to <span style="color:brown;">add and retrieve the values of class variables from <em><b>outside</b> a class</em></span>.</p>
+<pre>
+class Rubyist
+  @@geek = "Ruby's Matz"
+end
+puts Rubyist.class_eval("@@geek") # => Ruby's Matz
+</pre>
+
+<p>The <b>module_eval</b> and <b>class_eval</b> methods can also be used to <span style="color:brown;">add instance methods to a module and a class</span>. In spite of their names, <b>module_eval</b> and <b>class_eval</b> are functionally identical and each may be used with ether a module or a class.</p>
+<pre>
+class Rubyist
+end
+Rubyist.class_eval do
+  def who
+    "Geek"
+  end
+end
+obj = Rubyist.new
+puts obj.who # => Geek
+</pre>
+
+<p><b>Note</b>: <span style="color:brown;"><b>class_eval</b> defines instance methods, and <b>instance_eval</b> defines class methods.</span></p>
+
+<h3>1.3.8 class_variable_get, class_variable_set</h3>
+<p>To add or retrieve the values of class variables, the methods <b>class_variable_get</b> (this takes a symbol argument representing the variable name and it returns the variable’s value) and <b>class_variable_set</b> (this takes a symbol argument representing a variable name and a second argument which is the value to be assigned to the variable) can be used.</p>
+<pre>
+class Rubyist
+  @@geek = "Ruby's Matz"
+end
+Rubyist.class_variable_set(:@@geek, 'Matz rocks!')
+puts Rubyist.class_variable_get(:@@geek) # => Matz rocks!
+</pre>
+
+<h3>1.3.9 class_variables</h3>
+<p>To obtain a list of class variable names as an array of strings, we can use the <b>class_variables</b> method.</p>
+<pre>
+class Rubyist
+  @@geek = "Ruby's Matz"
+  @@country = "USA"
+end
+
+class Child &lt; Rubyist
+  @@city = "Nashville"
+end
+print Rubyist.class_variables # => [:@@geek, :@@country]
+puts
+p Child.class_variables # => [:@@city]
+</pre>
+<p>You will observe from the program output that the method <b>Child.class_variables</b> gives us the class variables (<b>@@city</b>) defined in the class and not the inherited ones(<b>@@geek, @@country</b>).</p>
+
+<h3>1.3.10 instance_variable_get, instance_variable_set</h3>
+<p>One can retrieve the value of instance variables using the <b>instance_variable_get</b> method.</p>
+<pre>
+class Rubyist
+  def initialize(p1, p2)
+    @geek, @country = p1, p2
+  end
+end
+obj = Rubyist.new('Matz', 'USA')
+puts obj.instance_variable_get(:@geek) # => Matz
+puts obj.instance_variable_get(:@country) # => USA
+</pre>
+<p>You can also add instance variables to classes and objects <em>after</em> they have been created using <b>instance_variable_set</b>.</p>
+<pre>
+class Rubyist
+  def initialize(p1, p2)
+    @geek, @country = p1, p2
+  end
+end
+obj = Rubyist.new('Matz', 'USA')
+puts obj.instance_variable_get(:@geek) # => Matz
+puts obj.instance_variable_get(:@country) # => USA
+obj.instance_variable_set(:@country, 'Japan')
+puts obj.inspect # => #&lt;Rubyist:0x2ef8038 @country="Japan", @geek="Matz"&gt;
+</pre>
+
+<h3>1.3.11 const_get, const_set</h3>
+<p>One can similarly get and set constants using <b>const_get</b> and <b>const_set</b>.</p>
+<p><b>const_get</b> returns the value of the named constant, as shown below:</p>
+<pre>
+puts Float.const_get(:MIN) # => 2.2250738585072e-308
+</pre>
+<p><b>const_set</b> sets the named constant to the given object, returning that object. It creates a new constant if no constant with the given name previously existed, as shown below:</p>
+<pre>
+class Rubyist
+end
+puts Rubyist.const_set("PI", 22.0/7.0) # => 3.14285714285714
+</pre>
+
+<p>As <b>const_get</b> returns the value of a constant, you could use this method to get the value of a class name and then append the new method to create a new object from that class. This could even give you a way of creating objects at runtime by prompting the user to enter class names and method names. One can create a completely new class at runtime by using <b>const_set</b>.</p>
+<pre>
+# Let us call our new class 'Rubyist'
+# (we could have prompted the user for a class name)
+class_name = "rubyist".capitalize
+Object.const_set(class_name, Class.new)
+# Let us create a method 'who'
+# (we could have prompted the user for a method name)
+class_name = Object.const_get(class_name)
+puts class_name # => Rubyist
+class_name.class_eval do
+  define_method :who do |my_arg|
+    my_arg
+  end
+end
+obj = class_name.new
+puts obj.who('Matz') # => Matz
+</pre>
+
+<h2>1.4 Bindings</h2>
+<p>Entities like local variables, instance variables, self. . . are basically <em>names bound to objects</em>. We call them <b>bindings</b>.</p>
+
+<h2>1.5 Ruby Blocks and Bindings</h2>
+<p>A Ruby block contains both the code and a set of bindings. When you define a block, it simply grabs the bindings that are there at that moment, then it carries those bindings along when you pass the block into a method.</p>
+<pre>
+def who
+  person = "Matz"
+  yield("rocks")
+end
+person = "Matsumoto"
+who do |y|
+  puts("#{person}, #{y} the world") # => Matsumoto, rocks the world
+  city = "Tokyo"
+end
+# puts city # => undefined local variable or method 'city' for main:Object (NameError)
+</pre>
+<p>Observe that the code in the block sees the <b>person</b> variable that was around when the block was defined, <em>not the</em> method's <b>person</b> variable. Hence a block captures the local bindings and carries them along with it. You can also define additional bindings inside the block, but they disappear after the block ends.</p>
+
+<p class="pre-footer align-right">
+  <b>
+    <a href="http://ruby-metaprogramming.rubylearning.com/html/ruby_metaprogramming_1.html">&lt;Home | </a>
+    <a href="http://ruby-metaprogramming.rubylearning.com/html/ruby_metaprogramming_2.html">Prev | </a>
+    <a href="http://ruby-metaprogramming.rubylearning.com/html/ruby_metaprogramming_4.html">Next&gt;</a>
+  </b>
+</p>
+<p class="copyright"><b>Note</b>: The material in these study notes is drawn primarily from the references mentioned on the last page. Our acknowledgment and thanks to all of them.<br />This page was last updated on 1st Sept. 2011.</p>
+</div>
+</body>
+</html>

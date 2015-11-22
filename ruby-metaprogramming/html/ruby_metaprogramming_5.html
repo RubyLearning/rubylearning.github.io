@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Ruby Metaprogramming</title>
+<meta name="keywords" content="ruby metaprogramming,ruby programming,metaprogramming" />
+<meta name="description" content="RubyLearning.org" />
+<link rel="stylesheet" type="text/css" href="static/mystyle.css" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<!-- Google Analytics code -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-59044-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Analytics code ends -->
+</head>
+<body>
+<div>
+<h1>Metaprogramming in Ruby</h1>
+
+<h3>1.6.2 Problem 2  <img src="http://rubylearning.com/images/icon-flag.gif" alt="Important" title="Important" /></h3>
+<p>This example has been adapted from Hal Fulton's article "<a href="http://www.devsource.com/c/a/Languages/An-Exercise-in-Metaprogramming-with-Ruby/">An Exercise in Metaprogramming with Ruby</a>".</p>
+<p>Suppose we have two CSV (comma-separated values) files with a descriptive header at the top, as follows:</p>
+
+<p>File: <b>location.txt</b></p>
+<pre>
+name,country
+"Matz", "USA"
+"Fabio Akita", "Brazil"
+"Peter Cooper", "UK"
+</pre>
+<p>File: <b>twitter.txt</b></p>
+<pre>
+twitterid,url
+"AkitaOnRails","http://www.akitaonrails.com/"
+"peterc","http://www.petercooper.co.uk/"
+</pre>
+
+<p>Let us start by writing a class and storing it in a file <b>datawrapper.rb</b>. We'll call our class <b>DataWrapper</b> and also define a <em>class method</em> called <b>wrap</b> which will take a filename as a parameter and build a class from it. The first line of the above two text files have a comma-separated list of attribute names. Furthermore, we want to treat the file as an array of data items, reading it into an array of objects.</p>
+<pre>
+# file: datawrapper.rb
+class DataWrapper
+   def self.wrap(file_name)
+     data = File.new(file_name)
+     header = data.gets.chomp
+     data.close
+     puts header # => name,country
+     # in the end we return the class name
+  end
+end
+</pre>
+
+<p>Now let's start writing a small program <b>testdatawrapper.rb</b> that uses the above. Let's read our <b>location.txt</b> file.</p>
+<pre>
+#testdatawrapper.rb
+require 'datawrapper'
+DataWrapper.wrap("location.txt")
+</pre>
+
+<p>Coming back to our <b>datawrapper.rb</b> program, let's create a new class and give it a suitable name:</p>
+<pre>
+# file: datawrapper.rb
+class DataWrapper
+  def self.wrap(file_name)
+    data = File.new(file_name)
+    header = data.gets.chomp
+    data.close
+    class_name = File.basename(file_name, ".txt").capitalize
+    klass = Object.const_set(class_name, Class.new)
+    klass # we return the class name
+  end
+end
+</pre>
+
+<p>The variable <b>klass</b> refers to our new class. If the file was called <b>location.txt</b>, the class will be named <b>Location</b>.</p>
+<p>Let us run our modified program <b>testdatawrapper.rb</b>.</p>
+<pre>
+#testdatawrapper.rb
+require 'datawrapper'
+data = DataWrapper.wrap("location.txt") # Capture return value and
+puts data # => Location
+</pre>
+
+<p>Now, let's start to add attributes to it. The first line of data is a list of names. Let's turn it into a simple array of strings by splitting on the comma character. The modified <b>datawrapper.rb</b> program is:</p>
+<pre>
+# file: datawrapper.rb
+class DataWrapper
+  def self.wrap(file_name)
+    data = File.new(file_name)
+    header = data.gets.chomp
+    data.close
+    class_name = File.basename(file_name, ".txt").capitalize
+    klass = Object.const_set(class_name, Class.new)
+    # get attribute names
+    names = header.split(",")
+    p names # => ["name", "country"]
+    klass # we return the class name
+  end
+end
+</pre>
+
+<p>Now we can use <b>class_eval</b> in the context of our new class <b>klass</b>. At the same time, we'll define an <b>initialize</b> method. Also, we shall write a <b>to_s</b> method so that we can use <b>puts</b>; and let's also <b>alias</b> that to <b>inspect</b> for convenience. The modified <b>datawrapper.rb</b> program is:</p>
+<pre>
+# file: datawrapper.rb
+class DataWrapper
+  def self.wrap(file_name)
+    data = File.new(file_name)
+    header = data.gets.chomp
+    data.close
+    class_name = File.basename(file_name, ".txt").capitalize
+    klass = Object.const_set(class_name, Class.new)
+    # get attribute names
+    names = header.split(",")
+    klass.class_eval do
+      attr_accessor *names
+      define_method(:initialize) do |*values|
+        names.each_with_index do |name, i|
+          instance_variable_set("@"+name, values[i])
+        end
+      end
+      define_method(:to_s) do
+        str = "&lt;#{self.class}:"
+        names.each {|name| str &lt;&lt; " #{name}=#{self.send(name)}" }
+        str + "&gt;"
+      end
+      alias_method :inspect, :to_s
+    end
+    klass # we return the class name
+  end
+end
+</pre>
+
+
+<p>Next, we write a class-level method that does a <b>read</b> of an entire file and returns an array of objects representing its contents. Because it's a class method, we're just adding a singleton onto an object <b>klass</b> which happens to be a class. The modified <b>datawrapper.rb</b> program is:</p>
+<pre>
+# file: datawrapper.rb
+class DataWrapper
+  def self.wrap(file_name)
+    data = File.new(file_name)
+    header = data.gets.chomp
+    data.close
+    class_name = File.basename(file_name, ".txt").capitalize
+    klass = Object.const_set(class_name, Class.new)
+    # get attribute names
+    names = header.split(",")
+    klass.class_eval do
+      attr_accessor *names
+      define_method(:initialize) do |*values|
+        names.each_with_index do |name, i|
+          instance_variable_set("@"+name, values[i])
+        end
+      end
+      define_method(:to_s) do
+        str = "&lt;#{self.class}:"
+        names.each {|name| str &lt;&lt; " #{name}=#{self.send(name)}" }
+        str + "&gt;"
+      end
+      alias_method :inspect, :to_s
+    end
+    def klass.read
+      array = []
+      data = File.new(self.to_s.downcase+".txt")
+      data.gets  # throw away header
+      data.each do |line|
+        line.chomp!
+        values = eval("[#{line}]")
+        array &lt;&lt; self.new(*values)
+      end
+      data.close
+      array
+    end
+    klass # we return the class name
+  end
+end
+</pre>
+
+<p>Let us now modify our program <b>testdatawrapper.rb</b> and test out the program <b>datawrapper.rb</b>.</p>
+<pre>
+#testdatawrapper.rb
+require 'datawrapper'
+klass = DataWrapper.wrap("location.txt")
+list = klass.read
+list.each do |location|
+  puts("#{location.name} is from the #{location.country}")
+end
+</pre>
+
+<p>Now let's look at a totally different data file i.e. <b>twitter.txt</b>. Our <b>testdatawrapper.rb</b> is as follows:</p>
+<pre>
+#testdatawrapper.rb
+require 'datawrapper'
+klass = DataWrapper.wrap("twitter.txt")
+list = klass.read
+list.each do |twitter|
+  puts("#{twitter.twitterid}'s site is #{twitter.url}")
+end
+</pre>
+
+<p>Even if we add another field to the data file, none of our code in the program <b>datawrapper.rb</b> would have to change. This is a an exercise and an example of the kind of metaprogramming that Ruby allows.</p>
+
+<h2>1.7 Scope</h2>
+
+<h2>References</h2>
+<ul>
+<li><a href="http://www.devsource.com/c/a/Languages/An-Exercise-in-Metaprogramming-with-Ruby/">An Exercise in Metaprogramming with Ruby</a>.</li>
+<li><a href="http://pragprog.com/titles/ppmetr/metaprogramming-ruby">Metaprogramming Ruby</a> - Author: Paolo Perrotta.</li>
+<li><a href="http://yehudakatz.com/2009/11/15/metaprogramming-in-ruby-its-all-about-the-self/">Metaprogramming in Ruby: It's All About the Self</a>.</li>
+<li><a href="http://pragprog.com/titles/ruby3/programming-ruby-1-9">Programming Ruby 1.9</a> - Author: Dave Thomas.</li>
+<li><a href="http://dannytatom.github.com/metaid/">Seeing Metaclasses Clearly</a>.</li>
+<li><a href="http://www.sapphiresteel.com/The-Book-Of-Ruby">The Book Of Ruby</a> - Author: Huw Collingbourne.</li>
+<li><a href="http://pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming">The Ruby Object Model and Metaprogramming screencasts with Dave Thomas</a>.</li>
+<li><a href="http://www.contextualdevelopment.com/articles/2008/ruby-singleton">Understanding Ruby Singleton Classes</a>.</li>
+</ul>
+
+<p class="pre-footer align-right">
+  <b>
+    <a href="http://ruby-metaprogramming.rubylearning.com/html/ruby_metaprogramming_1.html">&lt;Home | </a>
+    <a href="http://ruby-metaprogramming.rubylearning.com/html/ruby_metaprogramming_4.html">Prev</a>
+  </b>
+</p>
+
+<p class="copyright"><b>Note</b>: The material in these study notes is drawn primarily from the above references. Our acknowledgment and thanks to all of them.<br />This page was last updated on 16th Dec. 2009.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Ruby Metaprogramming</title>
+<meta name="keywords" content="ruby metaprogramming,ruby programming,metaprogramming" />
+<meta name="description" content="RubyLearning.org" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<link rel="stylesheet" href="html/static/style.css" type="text/css" media="screen" />
+<script type="text/javascript" src="html/static/code_highlighter.js"></script>
+<script type="text/javascript" src="html/static/code_highlighter_ruby.js"></script>
+<base href="http://ruby-metaprogramming.rubylearning.com/" />
+<!-- Google +1 button code -->
+<link rel="canonical" href="http://ruby-metaprogramming.rubylearning.com/" />
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<!-- Google Analytics code -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-59044-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Analytics code ends -->
+</head>
+<body>
+<div>
+<h1>Metaprogramming in Ruby</h1>
+                <!-- Place this tag where you want the +1 button to render -->
+				<div class="g-plusone"></div>
+				<script type="text/javascript">
+				  window.___gcfg = {
+				    lang: 'en-US'
+				  };
+
+				  (function() {
+				    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				    po.src = 'https://apis.google.com/js/plusone.js';
+				    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+				  })();
+				</script>
+
+<p><br /><br /></p>
+<h2>First Step on Ruby Metaprogramming</h2>
+<hr />
+<h2>First Week</h2>
+<p>Let's start learning Ruby Metaprogramming!</p>
+<p>Please refer our <a href="http://ruby-metaprogramming.rubylearning.com/html/ruby_metaprogramming_1.html">accompanying study notes and examples</a>.</p>
+<p><br /><br /></p>
+
+<h2>Study 0</h2>
+<p>1st, review the built-in, read-only variable <b>self</b>. Read the following articles:</p>
+<ul>
+<li><a href="http://rubylearning.com/satishtalim/ruby_self.html">self</a> - The current/default object</li>
+<li><p><a href="../html/self.html">self</a> - Quote from Programming Ruby 1.9</p></li>
+<li><p><a href="../html/when_does_self_change.html">When does self change?</a> - Quote from The Ruby Object Model</p></li>
+</ul>
+
+<p>2nd, review <b>singleton class</b>. Read the following article:</p>
+
+<ul>
+<li><a href="http://www.contextualdevelopment.com/articles/2008/ruby-singleton">Understanding Ruby Singleton Classes</a></li>
+</ul>
+
+<p>3rd, review the <b>scope of variables</b>. Read the following article:</p>
+
+<ul>
+<li><a href="http://www.techotopia.com/index.php/Ruby_Variable_Scope">Ruby Variable Scope</a></li>
+</ul>
+
+<p><br /></p>
+
+<h2>Study 1</h2>
+
+<p>To learn about the following methods read  <a href="http://www.sapphiresteel.com/The-Book-Of-Ruby">The Book of Ruby</a>, Chapter 20: Dynamic Programming.</p>
+
+<ul>
+<li>eval</li>
+<li>instance_eval</li>
+<li>class_eval (aka: module_eval)</li>
+<li>class_variable_set</li>
+<li>class_variable_get</li>
+<li>class_variables (Try it out: instance_variables)</li>
+<li>instance_variable_set (Try it out: instance_variable_get)</li>
+<li>define_method</li>
+<li>const_set</li>
+<li>const_get (Try it out: constants)</li>
+<li>Class.new (Try it out: Struct.new)</li>
+<li>binding (Try it out: lambda)</li>
+<li>send (Try it out: method)</li>
+<li>remove_method</li>
+<li>undef_method</li>
+<li>method_missing</li>
+</ul>
+
+<p><br /></p>
+
+<h2>Study 2</h2>
+
+<p>Read _why's hacking, <a href="../html/seeingMetaclassesClearly.html">Seeing Metaclasses Clearly</a> to learn about the following singleton class (metaclass)</p>
+
+<ul>
+<li>class &lt;&lt; self; self; end</li>
+</ul>
+
+<p><br /></p>
+
+<h2>Study 3</h2>
+
+<p>Read Marc-Andre Cournoyer's blog, <a href="http://macournoyer.wordpress.com/2007/07/06/extending-your-include-knowledge-of-ruby/">Extending your include knowledge of Ruby</a> to learn about the following methods.
+Also read Ruby-Doc Core API: <a href="http://www.ruby-doc.org/core/classes/Module.html#M001683">Module#included</a> and <a href="http://www.ruby-doc.org/core/classes/Module.html#M001660">Module#extended</a></p>
+
+<ul>
+<li>include</li>
+<li>extend</li>
+<li>included</li>
+<li>extended</li>
+</ul>
+
+<p><br /></p>
+
+<h2>Before Exercises</h2>
+
+<p>Watch the following presentation, <a href="http://www.rubyinside.com/scotland-on-rails-presentations-now-online-27-awesome-videos-1799.html">the Scotland on Rails conference 2009</a>, by Dave Thomas.</p>
+
+<p><a href="http://scotland-on-rails.s3.amazonaws.com/2A04_DaveThomas-SOR.mp4">The Ruby Object Model</a></p>
+
+<p><br /></p>
+
+<h2>Exercises</h2>
+
+<p>Try to do the following exercises. Let's discuss all these exercises in the relevant thread in the First Week Forum.</p>
+
+<ul>
+<li><a href="../html/Exercise_1.html">Exercise 1</a>: Get the values from outside the class.</li>
+<li><a href="../html/Exercise_2.html">Exercise 2</a>: Add your code to display 'I like metaprogramming!'</li>
+<li><a href="../html/Exercise_3.html">Exercise 3</a>: Show lots of ways to define singleton method.</li>
+<li><a href="../html/Exercise_4.html">Exercise 4</a>: Glance into Ruby inside with binding method.</li>
+<li><a href="../html/Exercise_5.html">Exercise 5</a>: Define the class without <code class="ruby">class</code> and <code class="ruby">def</code>.</li>
+</ul>
+
+<p><br /></p>
+
+<h2>Watch the video</h2>
+
+<p>Watch the Dave Thomas's presentation about Metaprogramming.</p>
+
+<p><a href="http://www.infoq.com/presentations/metaprogramming-ruby">MetaProgramming - Extending Ruby for Fun and Profit</a></p>
+
+<p>Understand these concepts:</p>
+
+<ul>
+<li>Classes are open</li>
+<li>Definitions are active</li>
+<li>All method calls have a receiver</li>
+<li>Classes are objects</li>
+</ul>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<hr/>
+
+<h2>Second Week</h2>
+<p><br /></p>
+<p>Well, let's practice how to write a tiny app with Ruby Metaprogramming techniques.</p>
+
+<p><b>Note</b>: If you have an idea in your mind. Feel free to please show us and try to do that.</p>
+
+<p><br /></p>
+
+<h2>Assignment 1</h2>
+
+<p>Define class Dog.</p>
+
+<p><br /></p>
+
+<h2>Step 1</h2>
+
+<p>There are three dogs named Lassie, Fido and Stimpy.<br />
+Look at <a href="../html/Dog_Step1.html">dog_game.rb</a>. Expected output is the following:</p>
+
+<pre><code class="ruby">"Lassie is dancing"
+"Lassie is a smelly doggy!"
+"Lassie finds this hilarious!"
+
+"Fido doesn't understand dance"
+"Fido is a smelly doggy!"
+"Fido doesn't understand laugh"
+
+"Stimpy is dancing"
+"Stimpy doesn't understand poo"
+"Stimpy doesn't understand laugh"
+</code></pre>
+
+<p>Create <b>dog.rb</b> stored the class Dog.</p>
+
+<p><strong>Hints:</strong></p>
+
+<ul>
+<li>class Dog has three methods: initialize, can, method_missing</li>
+<li>may be useful to define the static data like this:
+MSGS = {:dance => 'is dancing', :poo => 'is a smelly doggy!', :laugh => 'finds this hilarious!'}</li>
+</ul>
+
+<p><br /></p>
+
+<h2>Step 2</h2>
+
+<p>Challenge: Improve a little bit.   </p>
+
+<p>Look at <a href="../html/Dog_Step2.html">dog_game.rb</a>. Expected output is the following:</p>
+
+<pre><code class="ruby">"Lassie is dancing"
+"Lassie is a smelly doggy!"
+"Lassie finds this hilarious!"
+
+"Fido doesn't understand dance"
+"Fido is smelly."
+"Fido doesn't understand laugh"
+
+"Stimpy is dancing"
+"Stimpy doesn't understand poo"
+"Stimpy doesn't understand laugh"
+"Stimpy cried AHHHH"
+</code></pre>
+
+<p>Let's improve <b>dog.rb</b>.</p>
+
+<p><b>Hints:</b></p>
+
+<ul>
+<li>use <b>can</b> method <b>with block</b> like this: <b>stimpy.can(:cry){"#{name} cried AHHHH"}</b></li>
+<li>define the <b>name</b> method</li>
+</ul>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<h2>Assignment 2</h2>
+
+<p>Look at this simple example.</p>
+
+<pre><code class="ruby">
+class Rubyist
+  def say!
+    puts 'hello'
+  end
+end
+
+Rubyist.new.say! # => hello
+</code></pre>
+
+<p>Now suppose you want to wrap logging behavior around say!(). Look at this:</p>
+
+<pre><code class="ruby">
+class Rubyist
+  def say!
+    puts 'hello'
+  end
+
+  def say_with_log!
+    puts "Calling method..."
+    puts "hello"
+    puts "...Method called"
+  end
+
+  alias_method :say_without_log!, :say!
+  alias_method :say!, :say_with_log!
+end
+
+Rubyist.new.say!
+#=>  Calling method...
+#    hello
+#    ...Method called
+
+Rubist.new.say_without_log!
+# => hello
+</code></pre>
+
+<p><br /></p>
+
+<p>Now let's put the original definition of class Rubyist in a file, and add a counter:</p>
+
+<pre><code class="ruby">
+# rubyist.rb
+class Rubyist
+  def initialize name
+    @name = name
+    @count = 0
+  end
+
+  def say!
+    puts 'hello'
+  end
+end
+</code></pre>
+
+<p><br /></p>
+
+<p>You are asked to create two files.  The first, 'rubyist_with_count.rb', is required by the following test
+program ('test_snippet.rb').  The second, 'alias_helper.rb', which is required by 'rubyist_with_count.rb',
+contains a module that you can use here and in other Ruby programs.  You are not to change the file 'rubyist.rb'.
+
+Here's the test program and required output.</p>
+
+
+<pre><code class="ruby">
+# test_snippet.rb
+
+require 'rubyist'
+satish = Rubyist.new('Satish')
+3.times{satish.say!}
+
+puts '-' * 20
+
+require 'rubyist_with_count'
+5.times{satish.say!}
+</code></pre>
+
+<p><br /></p>
+
+<p>The expected output is this:</p>
+
+<pre>
+hello
+hello
+hello
+--------------------
+Satish(1) says hello
+Satish(2) says hello
+Satish(3) says hello
+hello
+hello
+</pre>
+
+
+<p>The two files you are asked to prepare follow.</p>
+
+<p><br /></p>
+
+<p><b>rubyist_with_count.rb</b></p>
+
+<pre><code class="ruby">
+# rubyist_with_count.rb
+
+require 'rubyist'
+require 'alias_helper'
+
+class Rubyist
+  extend RubyLearning::Module
+
+  def say_with_count!
+
+    # You can add your own code here.
+
+  end
+
+  # You can add your own code here.
+  #
+  # Call alias_helper, like this:
+  # alias_helper args do |variables|
+  #   bla-bla-bla
+  # end
+
+end
+</code></pre>
+
+<p><br /></p>
+
+<p><b>alias_helper.rb</b></p>
+
+<pre><code class="ruby">
+# alias_helper.rb
+
+module RubyLearning
+  module Module
+    def alias_helper(method, characteristic)
+
+      # Write your code here.
+
+      # 1. Your code expects that you have created a method whose name is formed from the two arguments passed to
+      #    alias_helper. In most cases, the method should be named '#{method}_with_#{characteristic}'.  For
+      #    example, if method = :shake and characteristic = 'vigor', the method should be named 'shake_with_vigor'.
+      #    The one exception to this rule is when the method ends with a punctuation mark (i.e., an exclamation mark,
+      #    question mark or equal mark).  In that case, the exclamation mark is expected to appear at the end
+      #    of the method you've defined.  For example, if method = :shake?, your method should be 'shake_with_vigor?'
+      #    (not 'shake?_with_vigor').
+      #
+      # 2. If a block is passed to alias_helper(), part of the aliased method name and a punctuation mark, if applicable,
+      #    can be passed to the block.
+      #
+      # 3. Alias methods as appropriate.
+      #
+      # 4. Make sure that, when an alias is used, it has the correct visibility (private, public or protected).
+
+    end
+  end
+end
+</code></pre>
+
+<p><b>Okay, let's discuss your code in the relevant thread in the Second Week Forum. :-D</b></p>
+
+<p>Note: Assignment 2 was updated by <b>Cary Swoveland</b>. Thanks!</p>
+
+<p><br /></p>
+
+<h1>For More Study</h1>
+<p><br /></p>
+<ul>
+<li><a href="http://ruby-metaprogramming.rubylearning.com/yugui_blog_translation_1.html">Compare Ruby Callable Objects, Part 1</a></li>
+<li><a href="http://github.com/ashbb/ruby_metaprogramming_study_note/tree/master">Ruby Metaprogramming Study Note</a> Try to hack the Sample Apps!</li>
+<li><a href="http://media.pragprog.com/titles/ppmetr/spells.pdf">Spell Book</a> The excerpt from Metaprogramming Ruby. Collection of Metaprogramming-related small snippets. Useful as a quick reference. For free!</li>
+</ul>
+
+<p><br /></p>
+
+<h2>Interesting Articles</h2>
+
+<ul>
+<li><a href="http://rubylearning.com/blog/2010/10/07/do-you-know-rubys-chainsaw-method/">Do YOU know Ruby's 'Chainsaw' method?</a></li>
+<li><a href="http://rubylearning.com/blog/2010/11/30/how-do-i-build-dsls-with-yield-and-instance_eval/">How do I build DSLs with yield and instance_eval?</a></li>
+<li><a href="http://technicalpickles.com/posts/using-method_missing-and-respond_to-to-create-dynamic-methods">Using method<em>missing and respond</em>to? to create dynamic methods</a></li>
+<li><a href="http://ola-bini.blogspot.com/search/label/metaprogramming">Ola Bini's blogs on Meta programming</a></li>
+<li><a href="http://www.rootr.net/rubyfaq.html">The Ruby Language FAQ</a></li>
+<li><a href="http://www.ruby-forum.com/topic/190407">Trying to define a 'class' without using 'class' sentence</a></li>
+<li><a href="http://juixe.com/techknow/index.php/2006/06/15/mixins-in-ruby/">Ruby Mixin Tutorial</a></li>
+<li><a href="http://www.infoq.com/articles/eval-options-in-ruby">Evaluation Options in Ruby</a></li>
+</ul>
+
+<p><br /></p>
+
+<h2>Recommended Book</h2>
+
+<p>I'd like to highly recommend this book. ;-)</p>
+
+<ul>
+<li><a href="http://www.pragprog.com/titles/ppmetr/metaprogramming-ruby">Metaprogramming Ruby</a> by <a href="http://rubylearning.com/blog/2009/07/01/interview-author-paolo-perrotta/">Paolo Perrotta</a></li>
+</ul>
+<p><br /></p>
+
+<h2>Cheat Sheet</h2>
+
+<ul>
+<li><a href="../html/cheat_sheet.html">Cheat Sheet</a>: a list of Ruby metaprogramming techniques</li>
+</ul>
+
+<p><br /><br /></p>
+
+<hr/>
+
+<p>2011.09.01 ashbb</p>
+
+<hr />
+
+<h2>P.S.</h2>
+
+<p>Thank you for reading this Ruby Metaprogramming learning guide.<br />
+If you are curious, join <strong>the Ruby Metaprogramming course</strong> on <a href="http://www.rubylearning.org/class/">RubyLearning</a>. Details are <a href="http://rubylearning.com/blog/2010/11/06/ruby-metaprogramming-course-6th-batch-learn-to-think-in-ruby/">here</a>.<br />
+See you! :-D</p>
+<p class="copyright">This page was last updated on 1st Sept. 2011.</p>
+</div>
+</body>
+</html>

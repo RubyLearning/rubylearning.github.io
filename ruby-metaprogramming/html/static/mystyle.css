@@ -1,0 +1,47 @@
+body {
+  margin-left: 12%;
+  margin-right: 12%;
+  }  
+h1 {
+  color: #2A1959;
+  border-bottom: maroon 2px solid;
+  }
+h3 {
+  color: #474B94;
+  }
+a:link {
+  color:#004E98      /* unvisited link */
+  }
+a:visited {
+color:#0000FF  /* visited link */
+  }
+a:hover {
+  color:#FF00FF  /* mouse over link */
+  }
+a:active {
+  color:#0000FF  /* selected link */
+  }
+pre {
+  border: 1px solid black;
+  border-color: #BBB #DDD #DDD #BBB;
+  margin : 2em;
+  padding : 1em;
+  line-height: 1.2;
+  background: #EEE;
+  overflow: auto;
+  }
+.align-right  { 
+  text-align: right;
+  }
+.pre-footer {
+  background-color: #FAFAFA;
+  padding: 5px; margin-top: 20px;
+  font-size: 95%;
+  }  
+p.copyright {
+  padding: 15px;
+  font-size: 10px;
+  text-align: center;
+  border-top: maroon 2px solid;
+  background: #663333:
+  }

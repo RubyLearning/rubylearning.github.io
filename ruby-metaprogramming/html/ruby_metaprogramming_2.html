@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Ruby Metaprogramming</title>
+<meta name="keywords" content="ruby metaprogramming,ruby programming,metaprogramming" />
+<meta name="description" content="RubyLearning.org" />
+<link rel="stylesheet" type="text/css" href="static/mystyle.css" />
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<!-- Google Analytics code -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-59044-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Analytics code ends -->
+</head>
+<body>
+<div>
+<h1>Metaprogramming in Ruby</h1>
+
+<h2>1.2 Calling a method</h2>
+<p>When you call a method, Ruby does two things:</p>
+<ul>
+<li>It finds the method. This is a process called <em>method lookup</em>.</li>
+<li>It executes the method. To do that, Ruby needs something called <b>self</b>.</li>
+</ul>
+
+<h3>1.2.1 Method Lookup</h3>
+<p>When you call a method, Ruby looks into the object's class and finds the method there. We need to know about two new concepts: the <em>receiver</em> and the <em>ancestors chain</em>. <span style="background-color: #FFFFCC;">The <em>receiver</em> is simply the object that you call a method on.</span></p>
+<p>For example, if you write <b>an_object.display()</b>, then <b>an_object</b> is the <em>receiver</em>. To understand the concept of an ancestors chain, just look at any Ruby class. Then imagine moving from the class into its superclass, then into the superclass's superclass, and so on until you reach <b>Object</b> (the default superclass) and then, finally, <b>BasicObject</b> (the root of the Ruby class hierarchy). <span style="background-color: #FFFFCC;">The path of classes you just traversed is called the "ancestors chain" of the class (the ancestors chain also includes modules).</span></p>
+<p>Therefore, to find a method, Ruby goes in the receiver's class, and from there it climbs the ancestors chain until it finds the method. This behavior is also called the "one step to the right, then up" rule: <span style="background-color: #FFFFCC;">Go one step to the right into the receiver's class, and then up the ancestors chain, until you find the method.</span> When you include a module in a class (or even in another module), Ruby creates an anonymous class that wraps the module, and inserts the anonymous class in the chain, just above the including class itself.</p>
+
+<h3>1.2.2 self</h3>
+<ul>
+<li><span style="background-color: #FFFFCC;">In Ruby, <b><a href="http://rubylearning.com/satishtalim/ruby_self.html">self</a></b> is a special variable that always references the <em>current object</em></span>.</li>
+<li><b>self</b> (current object) is the default receiver of method calls. This means that if I call a method and don't give an explicit receiver (I don't put something before the dot) then Ruby will always look into the object referenced by <b>self</b> for that method.</li>
+<li><b>self</b> (current object) is where instance variables are found. This means that if I write @var then it's going to go and look into the object referenced by self for that particular instance variable. It's to be noted that <span style="background-color: #FFFFCC;">instance variables are not defined by a class, they are unrelated to sub-classing and the inheritance mechanism</span>.</li>
+</ul>
+
+<p>Thus, whenever we do a method call with an explicit receiver, <b>obj</b> as shown below, then Ruby goes through the following three steps:</p>
+<pre>obj.do_method(param)</pre>
+<ul>
+<li>switch <b>self</b> to receiver (obj)</li>
+<li>look up method (do_method(param)) in <b>self</b>'s class (<span style="background-color: #FFFFCC;">objects do not store methods, only classes can</span>)</li>
+<li>invoke method (do_method(param))</li>
+</ul>
+
+<h2>1.3 Useful methods in Ruby Metaprogramming</h2>
+<h3>1.3.1 Introspection or Reflection</h3>
+<p><span style="background-color: #FFFFCC;">In Ruby it's possible to read information about a class or object at <em>runtime</em></span>. We could use some of the methods like <b>class()</b>, <b>instance_methods()</b>, <b>instance_variables()</b> to do that. For example:</p>
+<pre>
+# The code in the following class definition is executed immediately
+class Rubyist
+  # the code in the following method definition is executed later,
+  # when you eventually call the method
+  def what_does_he_do
+    @person = 'A Rubyist'
+    'Ruby programming'
+  end
+end
+an_object = Rubyist.new
+puts an_object.class # => Rubyist
+puts an_object.class.instance_methods(false) # => what_does_he_do
+an_object.what_does_he_do
+puts an_object.instance_variables # => @person
+</pre>
+<p>The <b>respond_to?</b> method is another example of <em>introspection</em> or <em>reflection</em>. You can determine in advance (before you ask the object to do something) whether the object knows how to handle the message you want to send it, by using the <b>respond_to?</b> method. This method exists for all objects; you can ask any object whether it responds to any message.</p>
+<pre>
+obj = Object.new
+if obj.respond_to?(:program)
+  obj.program
+else
+  puts "Sorry, the object doesn't understand the 'program' message."
+end
+</pre>
+
+<h3>1.3.2 send  <img src="http://rubylearning.com/images/icon-flag.gif" alt="Important" title="Important" /></h3>
+<p><b>send( )</b> is an instance method of the <b>Object</b> class. The first argument to <b>send( )</b> is the message that you're sending to the object - that is, the name of a method. You can use a string or a symbol, but symbols are preferred. Any remaining arguments are simply passed on to the method.</p>
+<pre>
+class Rubyist
+  def welcome(*args)
+    "Welcome " + args.join(' ')
+  end
+end
+obj = Rubyist.new
+puts(obj.send(:welcome, "famous", "Rubyists"))   # => Welcome famous Rubyists
+</pre>
+
+<p>With <b>send( )</b>, the name of the method that you want to call becomes just a regular argument. You can wait literally until the very last moment to decide which method to call, while the code is running.</p>
+<pre>
+class Rubyist
+end
+
+rubyist = Rubyist.new
+if rubyist.respond_to?(:also_railist)
+  puts rubyist.send(:also_railist)
+else
+  puts "No such information available"
+end
+</pre>
+<p>In the code above, if the <b>rubyist</b> object knows what to do with <b>:also_railist</b>, you hand the <b>rubyist</b> the message and let it do its thing.</p>
+
+<p><span style="background-color: #FFFFCC;">You can call any method with <b>send( )</b>, including private methods</span>.</p>
+<pre>
+class Rubyist
+  private
+  def say_hello(name)
+    "#{name} rocks!!"
+  end
+end
+obj = Rubyist.new
+puts obj.send( :say_hello, 'Matz')
+</pre>
+
+<p><b>Note</b>:</p>
+<ol>
+<li><span style="background-color: #FFFFCC;">Unlike <b>send()</b>, <b>public_send()</b> calls public methods only</span>.</li>
+<li>Similar to <b>send()</b>, we also have an instance method <b>__send()__</b> of the <b>BasicObject</b> class.</li>
+</ol>
+
+<h3>1.3.3 define_method  <img src="http://rubylearning.com/images/icon-flag.gif" alt="Important" title="Important" /></h3>
+<p>The <b>Module#define_method( )</b> is a private instance method of the class <b>Module</b>. <span style="background-color: #FFFFCC;">The <b>define_method</b> is only defined on classes and modules</span>. You can dynamically define an <em>instance method</em> in the receiver with <b>define_method( )</b>. You just need to provide a method name and a block, which becomes the method body:</p>
+<pre>
+class Rubyist
+  define_method :hello do |my_arg|
+    my_arg
+  end
+end
+obj = Rubyist.new
+puts(obj.hello('Matz')) # => Matz
+</pre>
+
+<h3>1.3.4 method_missing</h3>
+<p>When Ruby does a method look-up and can't find a particular method, it calls a method named <b>method_missing( )</b> on the original receiver. The <b>method_missing( )</b> method is passed the symbol of the non-existent method, an array of the arguments that were passed in the original call and any block passed to the original method. Ruby knows that <b>method_missing( )</b> is there, because it's a private instance method of <b>BasicObject</b> that every object inherits. The <b>BasicObject#method_missing( )</b> responds by raising a <b>NoMethodError</b>. Overriding <b>method_missing( )</b> allows you to call methods that don't really exist.</p>
+<pre>
+class Rubyist
+  def method_missing(m, *args, &amp;block)
+    str = "Called #{m} with #{args.inspect}"
+    if block_given?
+      puts str + " and also a block: #{block}"
+    else
+      puts str
+    end
+  end
+end
+
+# =&gt; Called anything with []
+Rubyist.new.anything
+# =&gt; Called anything with [3, 4] and also a block: #&lt;Proc:0xa63878@tmp.rb:12&gt;
+Rubyist.new.anything(3, 4) { something }
+</pre>
+
+<h3>1.3.5 remove_method and undef_method</h3>
+<p>To remove existing methods, you can use the <b>remove_method</b> within the scope of a given class. If a method with the same name is defined for an ancestor of that class, the ancestor class method is <em>not removed</em>. The <b>undef_method</b>, by contrast, prevents the specified class from responding to a method call even if a method with the same name is defined in one of its ancestors.</p>
+<pre>
+class Rubyist
+  def method_missing(m, *args, &amp;block)
+    puts "Method Missing: Called #{m} with #{args.inspect} and #{block}"
+  end
+
+  def hello
+    puts "Hello from class Rubyist"
+  end
+end
+
+class IndianRubyist &lt; Rubyist
+  def hello
+    puts "Hello from class IndianRubyist"
+  end
+end
+
+obj = IndianRubyist.new
+obj.hello # => Hello from class IndianRubyist
+
+class IndianRubyist
+  remove_method :hello  # removed from IndianRubyist, but still in Rubyist
+end
+obj.hello # => Hello from class Rubyist
+
+class IndianRubyist
+  undef_method :hello   # prevent any calls to 'hello'
+end
+obj.hello # => Method Missing: Called hello with [] and
+</pre>
+
+<p class="pre-footer align-right">
+  <b>
+    <a href="http://ruby-metaprogramming.rubylearning.com/html/ruby_metaprogramming_1.html">&lt;Prev | </a>
+    <a href="http://ruby-metaprogramming.rubylearning.com/html/ruby_metaprogramming_3.html">Next&gt;</a>
+  </b>
+</p>
+<p class="copyright"><b>Note</b>: The material in these study notes is drawn primarily from the references mentioned on the last page. Our acknowledgment and thanks to all of them.<br />This page was last updated on 1st Sept. 2011.</p>
+</div>
+</body>
+</html>
+
