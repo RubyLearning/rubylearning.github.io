@@ -7,7 +7,7 @@
 <meta name="keywords" content="ruby metaprogramming,ruby programming,metaprogramming" />
 <meta name="description" content="RubyLearning.org" />
 <link rel="stylesheet" type="text/css" href="static/mystyle.css" />
-<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<link rel="icon" type="image/ico" href="/images/favicon.ico" />
 <!-- Google Analytics code -->
 <script type="text/javascript">
 
@@ -42,7 +42,7 @@
 
 <h3>1.2.2 self</h3>
 <ul>
-<li><span style="background-color: #FFFFCC;">In Ruby, <b><a href="http://rubylearning.com/satishtalim/ruby_self.html">self</a></b> is a special variable that always references the <em>current object</em></span>.</li>
+<li><span style="background-color: #FFFFCC;">In Ruby, <b><a href="/satishtalim/ruby_self.html">self</a></b> is a special variable that always references the <em>current object</em></span>.</li>
 <li><b>self</b> (current object) is the default receiver of method calls. This means that if I call a method and don't give an explicit receiver (I don't put something before the dot) then Ruby will always look into the object referenced by <b>self</b> for that method.</li>
 <li><b>self</b> (current object) is where instance variables are found. This means that if I write @var then it's going to go and look into the object referenced by self for that particular instance variable. It's to be noted that <span style="background-color: #FFFFCC;">instance variables are not defined by a class, they are unrelated to sub-classing and the inheritance mechanism</span>.</li>
 </ul>
@@ -84,7 +84,7 @@ else
 end
 </pre>
 
-<h3>1.3.2 send  <img src="http://rubylearning.com/images/icon-flag.gif" alt="Important" title="Important" /></h3>
+<h3>1.3.2 send  <img src="/images/icon-flag.gif" alt="Important" title="Important" /></h3>
 <p><b>send( )</b> is an instance method of the <b>Object</b> class. The first argument to <b>send( )</b> is the message that you're sending to the object - that is, the name of a method. You can use a string or a symbol, but symbols are preferred. Any remaining arguments are simply passed on to the method.</p>
 <pre>
 class Rubyist
@@ -128,7 +128,7 @@ puts obj.send( :say_hello, 'Matz')
 <li>Similar to <b>send()</b>, we also have an instance method <b>__send()__</b> of the <b>BasicObject</b> class.</li>
 </ol>
 
-<h3>1.3.3 define_method  <img src="http://rubylearning.com/images/icon-flag.gif" alt="Important" title="Important" /></h3>
+<h3>1.3.3 define_method  <img src="/images/icon-flag.gif" alt="Important" title="Important" /></h3>
 <p>The <b>Module#define_method( )</b> is a private instance method of the class <b>Module</b>. <span style="background-color: #FFFFCC;">The <b>define_method</b> is only defined on classes and modules</span>. You can dynamically define an <em>instance method</em> in the receiver with <b>define_method( )</b>. You just need to provide a method name and a block, which becomes the method body:</p>
 <pre>
 class Rubyist

@@ -1,4 +1,4 @@
 <?php
-header("Location: http://rubylearning.com/");
+header("Location: /");
 exit();
 ?>

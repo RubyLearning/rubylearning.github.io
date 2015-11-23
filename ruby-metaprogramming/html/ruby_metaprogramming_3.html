@@ -7,7 +7,7 @@
 <meta name="keywords" content="ruby metaprogramming,ruby programming,metaprogramming" />
 <meta name="description" content="RubyLearning.org" />
 <link rel="stylesheet" type="text/css" href="static/mystyle.css" />
-<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<link rel="icon" type="image/ico" href="/images/favicon.ico" />
 <!-- Google Analytics code -->
 <script type="text/javascript">
 
@@ -38,7 +38,7 @@ puts eval("str + ' Rubyist'") # => "Hello Rubyist"
 <h3>1.3.7 instance_eval, module_eval, class_eval</h3>
 <p><b>instance_eval()</b>, <b>module_eval()</b> and <b>class_eval()</b> are special types of <b>eval()</b>.</p>
 
-<h4>1.3.7.1 instance_eval  <img src="http://rubylearning.com/images/icon-flag.gif" alt="Important" title="Important" /></h4>
+<h4>1.3.7.1 instance_eval  <img src="/images/icon-flag.gif" alt="Important" title="Important" /></h4>
 <p>The class <b>Object</b> has an <b>instance_eval()</b> public method which can be called from a <span style="color:brown;">specific object</span>. It provides access to the instance variables of that object. It can be called either with a block or with a string.</p>
 <pre>
 class Rubyist
@@ -68,7 +68,7 @@ puts Rubyist.who # => Geek
 </pre>
 <p>Remember our example back on <b>1.1.5 Anonymous class #4</b>? We had used <b>instance_eval</b> there.</p>
 
-<h4>1.3.7.2 module_eval, class_eval  <img src="http://rubylearning.com/images/icon-flag.gif" alt="Important" title="Important" /></h4>
+<h4>1.3.7.2 module_eval, class_eval  <img src="/images/icon-flag.gif" alt="Important" title="Important" /></h4>
 <p>The <b>module_eval</b> and <b>class_eval</b> methods operate on modules and classes rather than on objects. The <b>class_eval</b> is defined as an alias of <b>module_eval</b>.</p>
 <p>The <b>module_eval</b> and <b>class_eval</b> methods can be used to <span style="color:brown;">add and retrieve the values of class variables from <em><b>outside</b> a class</em></span>.</p>
 <pre>

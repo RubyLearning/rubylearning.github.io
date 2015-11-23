@@ -7,7 +7,7 @@
 <meta name="keywords" content="ruby metaprogramming,ruby programming,metaprogramming" />
 <meta name="description" content="RubyLearning.org" />
 <link rel="stylesheet" type="text/css" href="static/mystyle.css" />
-<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico" />
+<link rel="icon" type="image/ico" href="/images/favicon.ico" />
 <!-- Google Analytics code -->
 <script type="text/javascript">
 
@@ -29,7 +29,7 @@
 <h1>Metaprogramming in Ruby</h1>
 
 <h2>1.6 Solved Problems</h2>
-<h3>1.6.1 Problem 1  <img src="http://rubylearning.com/images/icon-flag.gif" alt="Important" title="Important" /></h3>
+<h3>1.6.1 Problem 1  <img src="/images/icon-flag.gif" alt="Important" title="Important" /></h3>
 <p>This example has been adapted from Dave Thomas' screencast "<a href="http://pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming">Episode 5: Nine Examples of Metaprogramming</a>".</p>
 <p>We all know that the Core Ruby course at RubyLearning.org runs for 8 weeks. Every week there is a quiz and marks are allocated out of 10. At the end of 8 weeks the student can find out his percentage score. For example, if a students scores 5,10,10,10,10,10,10,10 marks in 8 weeks i.e. his percentage score is 93.75%</p>
 <p><b>Problem Statement</b>: Every Core Ruby batch has hundreds of students. Let us assume that we have a Ruby method that does this percentage calculation and returns the same value given the same set of arguments. We don't need to go on calculating the value each time. We only need to calculate the value the first time and then somehow associate that value with that set of arguments. Then the next time it gets called, if we have the same arguments, we can use the previously stored value as the return value of this method thus bypassing the need to do the calculations again. <em>We need to develop a solution to address this problem using Metaprogramming techniques</em>.</p>
