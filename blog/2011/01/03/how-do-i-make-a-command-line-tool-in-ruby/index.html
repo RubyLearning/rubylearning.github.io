@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    How do I make a command-line tool in Ruby? // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Allen Wei">
+
+
+  <meta property="og:title" content="How do I make a command-line tool in Ruby?" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2011/01/03/how-do-i-make-a-command-line-tool-in-ruby/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2011/01/03/how-do-i-make-a-command-line-tool-in-ruby/">How do I make a command-line tool in Ruby?</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>3</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2011</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">Allen Wei</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <div>
+  <h3>
+    How do I make a command-line tool in Ruby?
+  </h3>
+  
+  <p class="update">
+    This guest post is by <strong>Allen Wei</strong>, who works as Senior Ruby On Rails Engineer for <a href="http://www.seravia.com/">Seravia</a>, in Beijing. He is very enthusiastic about Ruby. He started using Ruby after several years of using Java, .NET and never came back to them. When he has some spare time, he develops <a href="https://github.com/allenwei">Ruby gems</a>, holds tech sessions, and shares his experience in his <a href="http://www.allenwei.cn/">blog</a>. He is also a fan of BDD and TDD, using them in all his open source projects. He gains a lot from the Ruby community and hopes to give back.
+  </p>
+  
+  <h3>
+    Introduction
+  </h3>
+  
+  <p class="block">
+    <img class="alignright" src="http://rubylearning.com/images/allen_125x125.jpg" alt="Allen Wei" /> <span class="drop_cap">R</span>uby, as a dynamic language, is always used for quick processing command-line tool for its simplicity and productivity.
+  </p>
+  
+  <p>
+    This article talks about three ways to write a command-line tool.
+  </p>
+  
+  <p>
+    Before we start, there are a few things you need to know:
+  </p>
+  
+  <ol>
+    <li>
+      Put line <code>#!/usr/bin/env ruby</code> into the first line of your command-line file which will tell the shell to execute your file using Ruby (<code>#!/usr/bin/env ruby</code> is similar to simply calling <code>ruby</code> from the command line, so the same rules apply. Basically, the individual entries in the <code>$PATH</code> environment variable are checked in order, and the <code>ruby</code> that is found first is used.).
+    </li>
+    <li>
+      Make sure your file is executable, run <code>chmod u+x FILE_PATH</code>.
+    </li>
+    <li>
+      Print help text and return right exit code (0 means success, other number means fail) if the user uses it in the wrong way.
+    </li>
+  </ol>
+  
+  <p>
+    Note that other people will not be sure how to execute your command-line tool.
+  </p>
+  
+  <h3>
+    Conventions
+  </h3>
+  
+  <p>
+    I’ll use three definitions:
+  </p>
+  
+  <ol>
+    <li>
+      Command-line file name
+    </li>
+    <li>
+      Command
+    </li>
+    <li>
+      Option
+    </li>
+  </ol>
+  
+  <p>
+    For example there is a command: &#8216;server start -e development&#8217;
+  </p>
+  
+  <ol>
+    <li>
+      Command-line file name is &#8216;server&#8217;
+    </li>
+    <li>
+      Command is the first argument &#8216;start&#8217;
+    </li>
+    <li>
+      Option is the reset of argument pair &#8216;-e development&#8217;
+    </li>
+  </ol>
+  
+  <h3>
+    Let’s go
+  </h3>
+  
+  <p>
+    We shall start from a simple example: write a command-line tool to start, stop and restart the server.
+  </p>
+  
+  <h4>
+    Without any lib
+  </h4>
+  
+  <pre># server.rb
+case ARGV[0]
+when "start"
+  STDOUT.puts "called start"
+when "stop"
+  STDOUT.puts "called stop"
+when "restart"
+  STDOUT.puts "called restart"
+else
+  STDOUT.puts &lt;&lt;-EOF
+Please provide command name
+
+Usage:
+  server start
+  server stop
+  server restart
+EOF
+end
+</pre>
+  
+  <p>
+    <span class="caps">ARGV, </span>all arguments will be stored as an array in this variable.
+  </p>
+  
+  <p>
+    What if you need to pass some options?
+  </p>
+  
+  <pre># server.rb
+def parse_options
+  options = {}
+  case ARGV[1]
+  when "-e"
+    options[:e] = ARGV[2]
+  when "-d"
+    options[:d] = ARGV[2]
+  end
+  options
+end
+
+case ARGV[0]
+when "start"
+  STDOUT.puts "start on #{parse_options.inspect}"
+when "stop"
+  STDOUT.puts "stop on #{parse_options.inspect}"
+when "restart"
+  STDOUT.puts "restart on #{parse_options.inspect}"
+else
+  STDOUT.puts &lt;&lt;-EOF
+Please provide command name
+
+Usage:
+  server start
+  server stop
+  server restart
+
+  options:
+    -e ENVIRONMENT. Default: development
+    -d DEAMON, true or false. Default: true
+EOF
+end
+</pre>
+  
+  <p>
+    This code is simple but it has some disadvantages:
+  </p>
+  
+  <ul>
+    <li>
+      Writing option parser and help text in different places will bring you troubles when they are not matched.
+    </li>
+    <li>
+      Using array index to get options from <span class="caps">ARGV</span>. These magic numbers will create a maintenance problem.
+    </li>
+  </ul>
+  
+  <h4>
+    Using OptionParser
+  </h4>
+  
+  <p>
+    <a href="http://ruby-doc.org/stdlib/libdoc/optparse/rdoc/classes/OptionParser.html">OptionParser</a> is a built-in Ruby lib to help you parse arguments.
+  </p>
+  
+  <p>
+    We can refactor our code like this:
+  </p>
+  
+  <pre>require 'optparse'
+
+options = {}
+
+opt_parser = OptionParser.new do |opt|
+  opt.banner = "Usage: opt_parser COMMAND [OPTIONS]"
+  opt.separator  ""
+  opt.separator  "Commands"
+  opt.separator  "     start: start server"
+  opt.separator  "     stop: stop server"
+  opt.separator  "     restart: restart server"
+  opt.separator  ""
+  opt.separator  "Options"
+
+  opt.on("-e","--environment ENVIRONMENT","which environment you want server run") do |environment|
+    options[:environment] = environment
+  end
+
+  opt.on("-d","--daemon","runing on daemon mode?") do
+    options[:daemon] = true
+  end
+
+  opt.on("-h","--help","help") do
+    puts opt_parser
+  end
+end
+
+opt_parser.parse!
+
+case ARGV[0]
+when "start"
+  puts "call start on options #{options.inspect}"
+when "stop"
+  puts "call stop on options #{options.inspect}"
+when "restart"
+  puts "call restart on options #{options.inspect}"
+else
+  puts opt_parser
+end
+</pre>
+  
+  <p>
+    Try to execute this file without arguments; you&#8217;ll find it prints a very nice help text.
+  </p>
+  
+  <p>
+    <code>opt_parser.parse!</code> is the method extract options from <span class="caps">ARGV, </span>extracted value will be deleted from <span class="caps">ARGV.</span>
+  </p>
+  
+  <p>
+    <code>OptionParser</code> is better than that.
+  </p>
+  
+  <p>
+    You can define options value type, then <code>OptionParser</code> will convert value to the type you defined, like this:
+  </p>
+  
+  <pre>opt.on("-e","--environment ENVIRONMENT",Numeric,
+       "which environment you want server run") do |environment|
+  options[:environment] = environment
+       end
+opt.on("--delay N", Float, "Delay N seconds before executing") do |n|
+  options[:delay] = n
+end
+opt.on("-j x,y,z","--jurisdictions x,y,z", Array,
+       "which jurisdiction will start") do |jurisdictions|
+  options[:jurisdictions] = jurisdictions
+       end
+server_list = %w[a b c]
+opt.on("-s SERVERS","--servers SERVERS", server_list,
+       "which server will start between #{server_list.join(',')}") do |servers|
+  options[:servers] = servers
+       end
+</pre>
+  
+  <p>
+    You can mark whether the value of the option is mandatory.
+  </p>
+  
+  <pre># Mandatory argument.
+opts.on("-r", "--require LIBRARY",
+        "Require the LIBRARY before executing your script") do |lib|
+  options.library &lt;&lt; lib
+        end
+
+# Optional argument; multi-line description.
+opts.on("-i", "--inplace [EXTENSION]",
+        "Edit ARGV files in place",
+        "  (make backup if EXTENSION supplied)") do |ext|
+  options.inplace = true
+  options.extension = ext || ''
+  options.extension.sub!(/A.?(?=.)/, ".")  # Ensure extension begins with dot.
+        end
+</pre>
+  
+  <p>
+    For more details your can see <a href="http://ruby.about.com/od/advancedruby/a/optionparser.htm">this article</a> and refer the <a href="http://ruby-doc.org/stdlib/libdoc/optparse/rdoc/classes/OptionParser.html">Ruby rdoc</a>.
+  </p>
+  
+  <p>
+    Benefit of <code>OptionParser</code> is: we don’t need to use array index to retrieve options and we can write help text along with option definition.
+  </p>
+  
+  <p>
+    Disadvantage of <code>OptionParser</code> is: since different commands need using the same option parser, you cannot define different option parsers for different commands. To solve this problem, you can resort to <code>Thor</code>.
+  </p>
+  
+  <h4>
+    Using Thor
+  </h4>
+  
+  <p>
+    As you know <a href="https://www.github.com/wycats/thor">Thor</a> is a replacement of Rake. Let’s see how we use <code>Thor</code> to refactor our command-line tool.
+  </p>
+  
+  <pre>require 'rubygems'
+require 'thor'
+
+class ThorExample &lt; Thor
+  desc "start", "start server"
+  method_option :environment,:default =&gt; "development", :aliases =&gt; "-e",
+:desc =&gt; "which environment you want server run."
+  method_option :daemon, :type =&gt; :boolean, :default =&gt; false, :aliases =&gt; "-d",
+:desc =&gt; "running on daemon mode?"
+  def start
+    puts "start #{options.inspect}"
+  end
+
+  desc "stop" ,"stop server"
+  method_option :delay,  :default =&gt; 0, :aliases =&gt; "-w",
+:desc =&gt; "wait server finish it's job"
+  def stop
+    puts "stop"
+  end
+end
+
+ThorExample.start
+</pre>
+  
+  <ul>
+    <li>
+      <code>desc</code> defines command name and long description.
+    </li>
+    <li>
+      <code>method_option</code> defines option parser for this command.
+    </li>
+    <li>
+      <code>ThorExample.start</code> is a method to start parse argument.
+    </li>
+  </ul>
+  
+  <p>
+    Execute it without argument, the output is:
+  </p>
+  
+  <pre>Tasks:
+  thor_example help [TASK]  # Describe available tasks or one specific task
+  thor_example start        # start server
+  thor_example stop         # stop server
+</pre>
+  
+  <p>
+    Execute it with argument <code>help start</code>, you’ll get help text for command start:
+  </p>
+  
+  <pre>Usage:
+  thor_example start
+
+Options:
+  -e, [--environment=ENVIRONMENT]  # which environment you want server run.
+                                   # Default: development
+  -d, [--daemon]                   # running on daemon mode?
+
+start server
+</pre>
+  
+  <p>
+    As you can see, it’s very clean and easy to write.
+  </p>
+  
+  <p>
+    For a more detailed usage, you can visit Thor <a href="https://github.com/wycats/thor">github page</a> and its <a href="http://rdoc.info/github/wycats/thor">rdoc</a>.
+  </p>
+  
+  <h3>
+    Summary
+  </h3>
+  
+  <p>
+    Of course there are more ways to write a command-line tool. Choose what best fits your need and not the most powerful or latest one.
+  </p>
+  
+  <p>
+    All the sample code is on github <a href="https://github.com/allenwei/ruby_command_line_sample">https://github.com/allenwei/ruby_command_line_sample</a>.
+  </p>
+  
+  <p>
+    <em>I hope you found this article valuable. Feel free to ask questions and give feedback in the comments section of this post. Thanks!</em>
+  </p>
+  
+  <p>
+    <strong><em>Do also read</em> this awesome Guest Post:</strong>
+  </p>
+  
+  <ul>
+    <li>
+      <a href="http://rubylearning.com/blog/2010/12/21/being-awesome-with-the-mongodb-ruby-driver/">Being Awesome with the MongoDB Ruby Driver</a>
+    </li>
+  </ul>
+</div>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-optionparser" href="http://rubylearning.com/blog//tags/optionparser">OptionParser</a>,
+	                
+	                <a class="post-tag post-tag-programming" href="http://rubylearning.com/blog//tags/programming">programming</a>,
+	                
+	                <a class="post-tag post-tag-ruby-programming" href="http://rubylearning.com/blog//tags/ruby-programming">ruby programming</a>,
+	                
+	                <a class="post-tag post-tag-thor" href="http://rubylearning.com/blog//tags/thor">Thor</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2011/01/12/20-rubyists-to-follow-on-quora/">20&#43; Rubyists to Follow on Quora</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2010/12/22/the-5-most-popular-articles-of-2010-on-rubylearning/">The 5 Most Popular Articles of 2010 on RubyLearning</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2011\/01\/03\/how-do-i-make-a-command-line-tool-in-ruby\/';
+    var disqus_title = 'How do I make a command-line tool in Ruby?';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2011\/01\/03\/how-do-i-make-a-command-line-tool-in-ruby\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

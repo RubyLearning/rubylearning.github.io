@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Poll on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/poll/</link>
+    <description>Recent content in Poll on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Sep 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/poll/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Poll: Ruby Problems for Beginners and Prizes</title>
+      <link>http://rubylearning.com/blog/2009/09/13/poll-ruby-problems-for-beginners-and-prizes/</link>
+      <pubDate>Sun, 13 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/09/13/poll-ruby-problems-for-beginners-and-prizes/</guid>
+      <description>&lt;p&gt;Many RubyLearning participants wrote in asking RubyLearning to start a
+weekly post containing a problem to be solved using Ruby. A problem will
+be posted here every week / fortnight and anyone is free to offer their
+solution (the solution should be clear-cut, follow Ruby conventions and
+still be easy to understand) as a comment to the blog post. A small
+panel will evaluate the solutions received and decide the best amongst
+them all. The person with the best solution will be awarded a token
+prize which could be a &lt;a href=&#34;http://peepcode.com/&#34;&gt;Peepcode&lt;/a&gt; or a
+&lt;a href=&#34;http://www.pragprog.com/screencasts&#34;&gt;Pragmatic&lt;/a&gt; screencast or something
+equivalent. Maybe some sponsors could chip in with some prizes!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/ruby_challenge3.jpg&#34; alt=&#34;RPCFN&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;RubyLearning is open to this idea and will start the same provided there
+is a good response to this. There’s a single question poll below which
+please answer and what’s more important is to post your thoughts,
+suggestions etc. as comments to this blog post.&lt;/p&gt;
+
+&lt;p&gt;We do have the &lt;a href=&#34;http://rubyquiz.com/&#34;&gt;Ruby Quiz&lt;/a&gt;, a weekly programming
+challenge for Ruby programmers. What’s also needed is something for
+programmers starting off with Ruby. Maybe RubyLearning could provide
+this.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;We look forward to your response(s) and thoughts, suggestions (thoughts
+on the nature of the Ruby problem to be asked, evaluation criteria etc.)
+as comments below&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Should we start a weekly Ruby programming challenge for beginners?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Yes (96%, 339 Votes)&lt;/li&gt;
+&lt;li&gt;No (4%, 14 Votes)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Total Voters: &lt;strong&gt;353&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/blog/wp-content/plugins/wp-polls/images/loading.gif&#34; alt=&#34;Loading
+...&#34; title=&#34;Loading ...&#34; /&gt;
+ Loading
+&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Thank you for the over-whelming response to the poll. The
+poll is now closed. As the poll results suggest, RubyLearning is going
+ahead and starting off the “Ruby Programming Challenge For Newbies
+(RPCFN)” from Friday, 25th Sept. 2009. We are also getting a very
+positive response from many Ruby Gurus and Sponsors. Work on the
+&lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/&#34;&gt;RPCFN
+FAQ&lt;/a&gt;&lt;/strong&gt; is
+underway. In the meantime, we still look forward to your response(s) and
+thoughts, suggestions (thoughts on the nature of the Ruby problem to be
+asked, evaluation criteria etc.) as comments below.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Can you help RubyLearning with your suggestions?</title>
+      <link>http://rubylearning.com/blog/2008/11/15/can-you-help-rubylearning-with-your-suggestions/</link>
+      <pubDate>Sat, 15 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/11/15/can-you-help-rubylearning-with-your-suggestions/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    New Course Offerings
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    We&amp;#8217;re rapidly expanding our course offerings here at RubyLearning, trying to keep up with the enormous and ever-growing interest in &lt;strong&gt;Ruby&lt;/strong&gt;. But we need your &lt;b&gt;YOUR&lt;/b&gt; help because, as you know, Ruby is a big subject, and we&amp;#8217;d like to be sure to focus in on the areas of most interest to &lt;b&gt;you&lt;/b&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;A Note regarding the courses mentioned in the poll below&lt;/strong&gt;:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Ruby Testing and TDD&lt;/strong&gt;: (starting from the concepts of testing in general, Test::Unit and other tools are discussed. RSpec is not discussed. Suited for people trying to code test code.)
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Ruby GUI&lt;/strong&gt;: (GUI programming. Which library do you recommend &amp;#8211; Shoes, FXRuby?)
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Ruby: Git and GitHub&lt;/strong&gt;: (A short course where you study Git and GitHub. Basic operations are discussed. Publishing a gem using GitHub.)
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Ruby &amp; SQLite3 database&lt;/strong&gt;: (Learn SQLite3 using Ruby. Beneficial for those who already know another database and for those are relatively new to database itself.)
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;JRuby&lt;/strong&gt;: This course is already available, but wanted to check whether you want it.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Merb&lt;/strong&gt;: This is becoming very popular in the community.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Please take a moment to complete a brief poll about the new course offerings we&amp;#8217;re considering. &lt;strong&gt;Also, please post your suggestions as comments to this blog post&lt;/strong&gt;. It won&amp;#8217;t take more than a minute or two.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    THE POLL IS NOW CLOSED
+  &lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Poll&#34; rel=&#34;tag&#34;&gt;Poll&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby&#34; rel=&#34;tag&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby+Courses&#34; rel=&#34;tag&#34;&gt;Ruby Courses&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/The+Ruby+Programming+Language&#34; rel=&#34;tag&#34;&gt;The Ruby Programming Language&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

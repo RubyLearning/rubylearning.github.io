@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    JRuby: Caffeinated Ruby // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Satish Talim">
+
+
+  <meta property="og:title" content="JRuby: Caffeinated Ruby" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2007/04/27/jruby-caffeinated-ruby/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li><a href="#javaswinghello-rb:f7575a3bf9d3a4f52bc0f0cfdf192956">javaSwingHello.rb</a></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2007/04/27/jruby-caffeinated-ruby/">JRuby: Caffeinated Ruby</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>27</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2007</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">Satish Talim</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">jruby</a>
+				
+					<a class="post-category post-category-rails" href="http://rubylearning.com/blog//categories/rails">rails</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>Recently, <strong><a href="http://jruby.codehaus.org/">JRuby</a></strong> has been gaining more
+and more attention in the Java and Ruby communities. Java is a powerful
+platform and there are millions of lines of Java code being written each
+month, that the world will have to live with for a long time from now.
+By leveraging Java the platform with the power of the Ruby programming
+language, programmers get the best from both worlds. <em>You better not
+ignore JRuby any more!</em></p>
+
+<p><strong>What is JRuby</strong>?</p>
+
+<p><strong>JRuby</strong> is a 100% pure-Java implementation of the Ruby programming
+language that runs in the JVM. JRuby’s creators, <a href="http://www.bloglines.com/blog/ThomasEEnebo">Thomas
+Enebo</a> and <a href="http://rubylearning.com/blog/2007/04/26/interview-charles-nutter/">Charles
+Nutter</a>,
+have been hired by <a href="http://www.sun.com/">Sun</a> to work on JRuby full
+time. The current JRuby release 0.9.9 is fully compatible with Ruby
+1.8.5.</p>
+
+<p><a href="http://ola-bini.blogspot.com/">Ola Bini</a> says that &ldquo;JRuby is ready for
+prime time. Application developers should try their applications on
+JRuby NOW.&rdquo;</p>
+
+<p>So, I decided to take a quick look at JRuby and found it very easy to
+use.</p>
+
+<p><strong>Download and Setup:</strong></p>
+
+<ul>
+<li>The <a href="http://dist.codehaus.org/jruby/">JRuby distribution</a> comes as a
+tar.gz file, namely jruby-bin-0.9.9.tar.gz</li>
+<li>Uncompress the archive; you should end up with a <strong>jruby-0.9.9</strong>
+folder.</li>
+<li>In Windows, set the system environment variable <strong>JRUBY_HOME</strong> to
+C:\jruby-0.9.9 I am assuming that you have uncompressed JRuby to C:</li>
+<li>Also, set the system environment variable <strong>path</strong> to
+C:\jruby-0.9.9\bin;</li>
+<li>The JRuby distribution’s bin directory contains the jruby.bat file
+that is used to run the JRuby interpreter. Run the command <strong>jruby
+-version</strong> from the command line to test that the JRuby is working.
+On my PC, it said:\
+<strong>ruby 1.8.5 (2007-04-23 rev 3539) [x86-jruby0.9.9]</strong></li>
+</ul>
+
+<p><strong>Where to use JRuby?:</strong></p>
+
+<p>​a. <strong><em>JRuby allows Ruby programs to use Java classes</em></strong>. This is a
+powerful concept that JRuby now brings to Ruby users. My <a href="http://rubylearning.com/satishtalim/ruby_tk_tutorial.html">Ruby/Tk
+Tutorial</a> has
+a program <strong>p075hellotk1.rb</strong> that uses Ruby/Tk a graphical user
+interface. However, the documentation for Ruby/Tk is extremely poor and
+I would be comfortable in using Java Swing instead. The code in JRuby
+for the program p075hellotk1.rb can be something like this:</p>
+
+<h1 id="javaswinghello-rb:f7575a3bf9d3a4f52bc0f0cfdf192956">javaSwingHello.rb</h1>
+
+<p>require &lsquo;java&rsquo; # Line 2
+JFrame = javax.swing.JFrame
+JLabel = javax.swing.JLabel
+frame  = JFrame.new
+jlabel = JLabel.new(&ldquo;Hello World&rdquo;)
+frame.add(jlabel)
+frame.setDefaultCloseOperation(JFrame::EXIT_ON_CLOSE)
+frame.pack
+frame.setVisible(true)</p>
+
+<p>Run the above program from the command line as follows:</p>
+
+<p><strong>jruby javaSwingHello.rb</strong></p>
+
+<p>Line 2: The second line of the above program enables JRuby’s Java
+support and allows a Ruby program to use Java classes.</p>
+
+<p>​b. <strong><em>Calling JRuby from Java</em></strong>. JRuby can just as easily be called
+from Java, using either the JSR 223 Scripting for Java 6 or the <a href="http://en.wikipedia.org/wiki/Bean_Scripting_Framework">Apache
+Bean Scripting</a>
+framework. More information on this is available in the <a href="http://www.headius.com/jrubywiki/index.php/Main_Page">JRuby
+Wiki</a></p>
+
+<p>​c. <strong><em>Running Rails with JRuby</em></strong>. The advantages are obvious. To quote
+the JRuby Wiki:</p>
+
+<ul>
+<li>Gives Rails the power and functionality of Java: Virtual Machine,
+application servers, and libraries.</li>
+<li>With future JVM and JRuby improvements, JRuby may be faster than
+Matz’ Ruby Interpreter in running Rails</li>
+<li>Gets Rails in the door of Java shops by making Rails apps into
+Java-platform apps.</li>
+</ul>
+
+<p>To conclude, I am surely liking JRuby and would definitely explore it
+further. <strong>Ignore JRuby at your own peril !</strong></p>
+
+<p><strong>Resources:</strong></p>
+
+<ul>
+<li><a href="http://jruby.codehaus.org/">JRuby Home Page</a></li>
+<li><a href="http://www.headius.com/jrubywiki/index.php/Main_Page">JRuby Wiki</a></li>
+<li><a href="http://www.headius.com/jrubywiki/index.php/JRuby_on_Rails">Rails on
+JRuby</a></li>
+<li><a href="http://www.nabble.com/JRuby---User-f14107.html">JRuby Forum</a></li>
+<li><a href="http://java.sun.com/developer/technicalArticles/scripting/jruby/">JRuby and the Java
+Platform</a></li>
+</ul>
+
+<p>Go on! <strong><a href="http://rubylearning.com/blog/2007/04/27/jruby-caffeinated-ruby/">Digg
+It</a></strong> !</p>
+
+<p>Technorati Tags: <a href="http://technorati.com/tag/JRuby%3A+Caffeinated+Ruby">JRuby: Caffeinated
+Ruby</a>,
+<a href="http://technorati.com/tag/Java">Java</a>,
+<a href="http://technorati.com/tag/JRuby">JRuby</a>,
+<a href="http://technorati.com/tag/Ruby">Ruby</a></p>
+
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2007/04/29/startups.in-interview/">Startups.in Interview</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2007/04/26/interview-charles-nutter/">Interview: Charles Nutter</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2007\/04\/27\/jruby-caffeinated-ruby\/';
+    var disqus_title = 'JRuby: Caffeinated Ruby';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2007\/04\/27\/jruby-caffeinated-ruby\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

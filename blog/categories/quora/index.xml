@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quora on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/quora/</link>
+    <description>Recent content in Quora on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Jan 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/quora/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>20&#43; Rubyists to Follow on Quora</title>
+      <link>http://rubylearning.com/blog/2011/01/12/20-rubyists-to-follow-on-quora/</link>
+      <pubDate>Wed, 12 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/01/12/20-rubyists-to-follow-on-quora/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    What&amp;#8217;s Quora?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignleft&#34; title=&#34;Quora&#34; src=&#34;http://rubylearning.com/images/quora.jpg&#34; alt=&#34;Quora&#34; width=&#34;150&#34; height=&#34;66&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#34;http://www.quora.com/about/&#34;&gt;Quora&lt;/a&gt; is a continually improving collection of questions and answers created, edited, and organized by everyone who uses it. The most important thing is to have each question page become the best possible resource for someone who wants to know about the question.&amp;#8221;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Robert Scoble&lt;/b&gt;, in his article &lt;a href=&#34;http://scobleizer.com/2010/12/26/is-quora-the-biggest-blogging-innovation-in-10-years/&#34;&gt;&amp;#8220;Is Quora the biggest blogging innovation in 10 years?&amp;#8221;&lt;/a&gt; says -
+  &lt;/p&gt;
+  
+  &lt;blockquote&gt;
+    &lt;p&gt;
+      I’ve now been blogging for 10 years. Looking back we haven’t seen all that much innovation for bloggers. You have a box. You type in it. Put an image into it. And hit publish. That’s much the same as the tools I had 10 years ago.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      But now comes Quora.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      I’m really loving it. I have a hard time explaining why. I’m not the only one, either.
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;h3&gt;
+    Who&amp;#8217;s a Rubyist?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    A Rubyist is associated with or uses the Ruby programming language (this includes JRuby, Ruby on Rails, Rhodes, Shoes, Sinatra among others).
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    A list of Rubyists Using Quora
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    RubyLearning has compiled this list of over 20 &lt;em&gt;active&lt;/em&gt; Rubyists, in alphabetical order, with a link to their Quora profile. The following list is &lt;em&gt;not&lt;/em&gt; intended to be all-inclusive, but it should give you a great start to following some talented Rubyists on Quora.
+  &lt;/p&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Amr-Tamimi&#34;&gt;Amr Tamimi&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Antonio-Cangiano&#34;&gt;Antonio Cangiano&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Avdi-Grimm&#34;&gt;Avdi Grimm&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Benjamin-Kudria&#34;&gt;Benjamin Kudria&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Bradley-Grzesiak&#34;&gt;Bradley Grzesiak&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Camille-Roux&#34;&gt;Camille Roux&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Chris-Baglieri&#34;&gt;Chris Baglieri&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Dan-Croak&#34;&gt;Dan Croak&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Dennis-Theisen&#34;&gt;Dennis Theisen&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Doug-Petkanics&#34;&gt;Doug Petkanics&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Dustin-Hoffman&#34;&gt;Dustin Hoffman&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Edgar-Gonzalez&#34;&gt;Edgar Gonzalez&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Eunji-Choi&#34;&gt;Eunji Choi&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Fabio-Akita&#34;&gt;Fabio Akita&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Gautam-Rege&#34;&gt;Gautam Rege&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/George-Ornbo&#34;&gt;George Ornbo&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Guillermo-Iguaran&#34;&gt;Guillermo Iguaran&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Gustavo-Barrancos&#34;&gt;Gustavo Barrancos&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Hasham-Malik&#34;&gt;Hasham Malik&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Ho-Sheng-Hsiao&#34;&gt;Ho-Sheng Hsiao&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Ilya-Grigorik&#34;&gt;Ilya Grigorik&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Jarin-Udom&#34;&gt;Jarin Udom&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/John-Felix&#34;&gt;John Felix&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Karmen-Blake&#34;&gt;Karmen Blake&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Kevin-Bedell&#34;&gt;Kevin Bedell&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Kevin-Rood&#34;&gt;Kevin Rood&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Kyle-Neath&#34;&gt;Kyle Neath&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Mark-Richman&#34;&gt;Mark Richman&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Max-Schulze&#34;&gt;Max Schulze&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Michael-Bleigh&#34;&gt;Michael Bleigh&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Michael-Kohl&#34;&gt;Michael Kohl&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Miguel-Rodriguez-1&#34;&gt;Miguel Rodriguez&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Mike-Gehard&#34;&gt;Mike Gehard&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Milan-Dobrota&#34;&gt;Milan Dobrota&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Paul-Barry&#34;&gt;Paul Barry&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Pete-Forde&#34;&gt;Pete Forde&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Peter-Coop%C3%A8r&#34;&gt;Peter Cooper&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Piyush-Ranjan&#34;&gt;Piyush Ranjan&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Samnang-Chhun&#34;&gt;Samnang Chhun&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Satish-Talim&#34;&gt;Satish Talim&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Sean-Cribbs&#34;&gt;Sean Cribbs&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Seb-Paquet&#34;&gt;Seb Paquet&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Steve-Klabnik&#34;&gt;Steve Klabnik&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Steven-Soroka&#34;&gt;Steven Soroka&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Teng-Siong-Ong&#34;&gt;Teng Siong Ong&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Victor-Goff&#34;&gt;Victor Goff&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Vinay-Patel-1&#34;&gt;Vinay Patel&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.quora.com/Vincent-Chu&#34;&gt;Vincent Chu&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    &lt;strong&gt;Have we missed out on any &lt;em&gt;active&lt;/em&gt; Rubyists using Quora?&lt;br /&gt;You can help&lt;/strong&gt;. Please feel free to add a link to a Rubyists&amp;#8217; Quora profile. Also, do add a link to your Quora profile in the comments.
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

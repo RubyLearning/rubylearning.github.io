@@ -1,0 +1,1708 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jruby on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/jruby/</link>
+    <description>Recent content in Jruby on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Sep 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/jruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How do I run a Sinatra app using JRuby?</title>
+      <link>http://rubylearning.com/blog/2011/09/03/how-do-i-run-a-sinatra-app-using-jruby/</link>
+      <pubDate>Sat, 03 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/09/03/how-do-i-run-a-sinatra-app-using-jruby/</guid>
+      <description>&lt;div&gt;
+  &lt;h2&gt;
+    How do I run a Sinatra app using JRuby?
+  &lt;/h2&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    RubyLearning is conducting a &lt;a href=&#34;http://goo.gl/WZDl8&#34;&gt;free, online JRuby 101 course&lt;/a&gt; &amp;#8211; the first of its kind, on Google+ Some participants wanted an answer to their question &amp;#8220;&lt;strong&gt;How do I run a Sinatra app using JRuby?&lt;/strong&gt;&amp;#8221; This blog post explains the same. Read on.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Pre-requisite
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    I have a Windows XP box but the following should work on Mac and Linux-based computers too.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Ensure that you have already installed JDK 6, JRuby and set the relevant system environment variables &lt;b&gt;path&lt;/b&gt;, &lt;b&gt;classpath&lt;/b&gt;, &lt;b&gt;JAVA_HOME&lt;/b&gt; and &lt;b&gt;JRUBY_HOME&lt;/b&gt;.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Install Bundler
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;a href=&#34;http://gembundler.com/&#34;&gt;Bundler&lt;/a&gt;&lt;/strong&gt; helps prevent conflicting or missing gems and shines when it&amp;#8217;s time to configure those dependencies at install time and runtime.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    JRuby comes with a fairly loaded standard library from scratch but that does not mean there aren&amp;#8217;t other things you&amp;#8217;ll need. Almost all of them are installable as Gems. RubyGems is the premier package management tool for Ruby. It works fine with JRuby and JRuby ships with it. You use it through the gem command. We will need to run the JRuby version of the gem command and to ensure that, we use the &lt;code&gt;-S&lt;/code&gt; flag to the interpreter.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Create a project folder (say c:\jrubysinatra) on your hard-disk. Ensure that your internet connection is active. Now, open a command window in this project folder and type:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;jruby -S gem install bundler
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: This approach (&lt;code&gt;jruby -S&lt;/code&gt;) works for any Ruby command-line tool, including gem, rake, spec, and others.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Create a Gemfile
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Next, in your project folder, create a &lt;b&gt;Gemfile&lt;/b&gt;. It looks something like this:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;source &#34;http://rubygems.org&#34;
+gem &#39;sinatra&#39;
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    This Gemfile says a few things. First, it says that bundler should look for gems declared in the Gemfile at &lt;a href=&#34;http://rubygems.org/&#34;&gt;http://rubygems.org&lt;/a&gt;. You can declare multiple Rubygems sources, and bundler will look for gems in the order you declared the sources. Next, you will have to list all your applications dependencies in there. Sinatra&amp;#8217;s direct dependencies (Rack and Tilt) will, however, be automatically fetched and added by Bundler.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    To make bundler install the dependencies, in the already open command window, type:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;jruby -S bundle install
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Because all the gems in your Gemfile have dependencies of their own (and some of those have their own dependencies), running &lt;code&gt;jruby -S bundle install&lt;/code&gt; on the Gemfile above, will install quite a few gems. If any of the needed gems are already installed, Bundler will use them. After installing any needed gems to your system, bundler writes a snapshot of all the gems and versions that it installed to &lt;b&gt;Gemfile.lock&lt;/b&gt;.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Write your Sinatra app
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Create the file &lt;b&gt;&lt;a href=&#34;https://gist.github.com/1190382&#34;&gt;hellojruby.rb&lt;/a&gt;&lt;/b&gt; in the folder c:\jrubysinatra.
+  &lt;/p&gt;
+  
+  &lt;pre&gt;require &#34;rubygems&#34;
+require &#34;bundler/setup&#34;
+
+require &#34;sinatra&#34;
+
+get &#39;/hi&#39; do
+    &#34;Hello JRuby World!&#34;
+end
+&lt;/pre&gt;
+  
+  &lt;h3&gt;
+    Set up your Sinatra application to use Bundler
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    For your Sinatra application, you will need to set up bundler before trying to require any gems. At the top of the first file that your application loads (for Sinatra, the file that calls &lt;code&gt;require &#34;sinatra&#34;&lt;/code&gt;), put the following code:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;require &#34;rubygems&#34;
+require &#34;bundler/setup&#34;
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    This will automatically discover your Gemfile, and make all the gems in your Gemfile available to Ruby (in technical terms, it puts the gems &amp;#8220;on the load path&amp;#8221;). You can think of it as an adding some extra powers to require &amp;#8220;rubygems&amp;#8221;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Now that your code is available to Ruby, you can require the gems that you need. For instance, you can &lt;code&gt;require &#34;sinatra&#34;&lt;/code&gt;.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Run your Sinatra application
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    In the already open command window, type:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;jruby -S bundle exec jruby hellojruby.rb
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    In the command window, you will see:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;== Sinatra/1.2.6 has taken the stage on 4567 for development with backup from WEBrick
+[2011-09-03 07:21:17] INFO  WEBrick 1.3.1
+[2011-09-03 07:21:17] INFO  ruby 1.8.7 (2011-08-23) [java]
+[2011-09-03 07:21:17] INFO  WEBrick::HTTPServer#start: pid=5128 port=4567
+&lt;/pre&gt;
+  
+  &lt;h3&gt;
+    Access the Sinatra application
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    In your browser, visit the URL: &lt;a href=&#34;http://localhost:4567/hi&#34;&gt;http://localhost:4567/hi&lt;/a&gt; &amp;#8211; the browser shall display &amp;#8220;&lt;b&gt;Hello JRuby World!&lt;/b&gt;&amp;#8220;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    That&amp;#8217;s it for now.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    &lt;em&gt;Feel free to ask questions and give feedback in the comments section of this post.&lt;/em&gt; Fellow Rubyists, if you would like to write a guest blog post for RubyLearning email me at &lt;b&gt;satish [at] rubylearning.org&lt;/b&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Matt Aimonetti: Why on earth would you ignore Merb?</title>
+      <link>http://rubylearning.com/blog/2008/12/18/matt-aimonetti-why-on-earth-would-you-ignore-merb/</link>
+      <pubDate>Thu, 18 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/12/18/matt-aimonetti-why-on-earth-would-you-ignore-merb/</guid>
+      <description>&lt;div&gt;
+  &lt;p class=&#34;update&#34;&gt;
+    &lt;span class=&#34;drop_cap&#34;&gt;I&lt;/span&gt;f you were to ask me, I&amp;#8217;d say that &lt;strong&gt;Merb&lt;/strong&gt; has caught the fancy of Rubyists around the world and it&amp;#8217;s not just hype. Recently &lt;abbr title=&#34;RubyLearning&#34;&gt;RL&lt;/abbr&gt; conducted a &lt;a href=&#34;http://rubylearning.com/blog/2008/11/15/can-you-help-rubylearning-with-your-suggestions/&#34;&gt;poll on new course offerings&lt;/a&gt; where 1000 Rubyists (from over 140 countries) voted. Over 30% requested for an &lt;a href=&#34;http://rubylearning.com/blog/2008/12/06/introduction-to-merb-a-new-course/&#34;&gt;Introductory course on Merb&lt;/a&gt;. RL&amp;#8217;s Satish Talim caught up with &lt;strong&gt;Matt Aimonetti&lt;/strong&gt; (a serious Ruby addict and Merb core team member) to learn more about Merb.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/m_aimonetti.jpg&#34; alt=&#34;Matt Aimonetti, USA&#34; title=&#34;Matt Aimonetti, USA&#34; width=&#34;170&#34; height=&#34;184&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; Welcome, Matt and thanks for taking out time to share your thoughts. For the benefit of the readers, could you tell us something about your self?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; Hi Satish, thank you for giving me the opportunity.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    I wish I could tell you that I have been programming in lisp since I was 4. Unfortunately I can&amp;#8217;t. However, I learnt English thanks to my dad who was an accountant and put his work computer in my bedroom. I believe the first English word I saw was: &amp;#8220;ready&amp;#8221;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    I&amp;#8217;m 100% Mediterranean, born and raised in France with Italian, Spanish and North African roots. I have travelled a lot and lived in different countries. I&amp;#8217;m now located in San Diego, CA where I live with my wife.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    But I guess your readers are more interested in the &amp;#8220;Ruby-esque&amp;#8221; aspect of my life. I&amp;#8217;m part of the Merb core team and have been a contributor to many Ruby open source projects, from Rails to DataMapper without forgetting a legion or gems and plugins more or less interesting/useful. I fell in love with Ruby when I evaluated Rails for a previous employer. Since then, I have setup my own consulting company offering development and training. I&amp;#8217;m also leading a new project that I&amp;#8217;m particularly fond of: &lt;a href=&#34;http://book.merbist.com/&#34;&gt;The Merb Open Source Book&lt;/a&gt;. It&amp;#8217;s pretty exciting to work with great people from all around the world. We all have the same passion; we have people who just started using Merb, some experts and some with editorial experience.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; Recently, there has been a lot of talk about Merb. What&amp;#8217;s Merb and why is it becoming so popular in the Ruby world?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;blockquote class=&#34;right&#34;&gt;
+    &lt;p&gt;
+      Merb &amp;#8211; Ruby web framework for the enterprise
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; Merb is a Ruby framework to build web applications and web services. Merb started being developed in 2006.&lt;br /&gt; Merb is getting popular inside and outside reasons because of some of these factors:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      Merb reached the 1.0 cap
+    &lt;/li&gt;
+    &lt;li&gt;
+      Merb has a guaranteed public API
+    &lt;/li&gt;
+    &lt;li&gt;
+      Merb is truly modular and agnostic
+    &lt;/li&gt;
+    &lt;li&gt;
+      Merb is fast and cares about performances
+    &lt;/li&gt;
+    &lt;li&gt;
+      Merb tries to be closer to the Ruby language
+    &lt;/li&gt;
+    &lt;li&gt;
+      Merb is new and different
+    &lt;/li&gt;
+    &lt;li&gt;
+      Merb has a different philosophy
+    &lt;/li&gt;
+    &lt;li&gt;
+      Merb learnt from Rails
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    Of course different people are attracted to Merb for different reasons. I have started a new interview series called &lt;a href=&#34;http://merbist.com/category/meet-the-merbists/&#34;&gt;Meet the Merbists&lt;/a&gt;. I hope to interview a lot of different people and let them explain why they like Merb.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; If I wanted to learn and start using Merb, how do I do that? Can you talk about what all is being done for Merb in terms of documentation, books, tutorials and training?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; In all honesty, even though the Ruby community do a lot of things right, we really aren&amp;#8217;t good at documentation. If you look at other languages like Python and other frameworks like Code Igniter or Django, you will see a different level of documentation. The good news is that we are aware of that problem and are working on it.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    To answer your question, I would say that if you want to learn Merb, you need to start with Ruby. I heard a lot of good things about &amp;#8220;&lt;a href=&#34;http://www.amazon.com/Beginning-Ruby-Professional-Peter-Cooper/dp/1590597664/&#34;&gt;Beginning Ruby&lt;/a&gt;&amp;#8221; even though I have not read it. My personal favorite Ruby books are: &amp;#8220;&lt;a href=&#34;http://oreilly.com/catalog/9780596516178/&#34;&gt;The Ruby Programming Language&lt;/a&gt;&amp;#8221; and&lt;br /&gt; &amp;#8220;&lt;a href=&#34;http://www.amazon.com/Ruby-Way-Second-Addison-Wesley-Professional/dp/0672328844&#34;&gt;The Ruby Way&lt;/a&gt;&amp;#8220;. You can also find a lot of great resources online.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Once you feel ready to start with Merb, you can look at a few things:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://book.merbist.com/&#34;&gt;The Merb Open Source Book&lt;/a&gt;: It&amp;#8217;s available, though still a work in progress and being translated in 14 languages. It still needs a lot of work but it&amp;#8217;s a good place to start.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://wiki.merbivore.com/&#34;&gt;The Merb Wiki&lt;/a&gt;: We rewrote the wiki for Merb 1.0 and people keep on adding content daily (sample apps with code are available there).
+    &lt;/li&gt;
+    &lt;li&gt;
+      One of the Merb beta books: &lt;a href=&#34;http://my.safaribooksonline.com/9780321601636?portal=oreilly&#34;&gt;The Merb Way&lt;/a&gt; or &lt;a href=&#34;http://www.manning.com/ivey/&#34;&gt;Merb in Action&lt;/a&gt; (2 more books are coming out soon).
+    &lt;/li&gt;
+    &lt;li&gt;
+      Check the Merb documentation at &lt;a href=&#34;http://merbivore.com/documentation.html&#34;&gt;http://merbivore.com/documentation.html&lt;/a&gt; and &lt;a href=&#34;http://docsbeta.merbivore.com/&#34;&gt;http://docsbeta.merbivore.com/&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Blogs covering Merb: &lt;a href=&#34;http://merbist.com/&#34;&gt;http://merbist.com/&lt;/a&gt;, &lt;a href=&#34;http://yehudakatz.com/&#34;&gt;http://yehudakatz.com/&lt;/a&gt;, &lt;a href=&#34;http://www.merbunity.com/&#34;&gt;http://www.merbunity.com/&lt;/a&gt;, &lt;a href=&#34;http://www.merboverheard.com/&#34;&gt;http://www.merboverheard.com/&lt;/a&gt; and many more.
+    &lt;/li&gt;
+    &lt;li&gt;
+      IRC: #merb on freenode.net
+    &lt;/li&gt;
+    &lt;li&gt;
+      Twitter: follow @merbist, @merbivore, @wycats and others. Feel free to ask questions.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://peepcode.com/&#34;&gt;Peepcode&lt;/a&gt;: PDF and soon to be released screencast (rough cut available).
+    &lt;/li&gt;
+    &lt;li&gt;
+      Read the source code and check the &lt;a href=&#34;http://github.com/wycats/merb/tree/master&#34;&gt;public specs&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Read the &lt;a href=&#34;http://github.com/michaelklishin/merb-internals-handbook/tree/master&#34;&gt;Merb internals guide&lt;/a&gt; by Michael Klishin.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Watch the &lt;a href=&#34;http://merbcamp.com/video&#34;&gt;Merb Camp videos&lt;/a&gt;.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    And on top of that you have the training sessions. &lt;a href=&#34;http://rubylearning.com/blog/2008/12/06/introduction-to-merb-a-new-course/&#34;&gt;RubyLearning.org&lt;/a&gt; has a great introduction to Merb class which is really affordable. My company, &lt;a href=&#34;http://ma-agile.com/&#34;&gt;m|a agile&lt;/a&gt; offers a &lt;a href=&#34;http://merbclass.com/&#34;&gt;3-day training&lt;/a&gt; given by Yehuda and myself. At the moment we only have classes scheduled in the USA, but if there are enough requests we might try to go overseas.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; What are the advantages of Merb over similar web frameworks? Any drawbacks?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; It&amp;#8217;s always a hard question to answer. I&amp;#8217;m not going to try to convince people to switch to Merb if they are happy with the framework they use. Instead I will give you my personal and therefore a biased opinion.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    People have different needs and different ways of approaching problems. &lt;em&gt;Merb is strongly inspired by Rails but has a different approach on how the framework should work and how it relates to people&lt;/em&gt;. I believe this is the key difference between Merb and Rails.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    During an interview for &lt;a href=&#34;http://www.infoq.com/interviews/David-Hansson&#34;&gt;InfoQ.com&lt;/a&gt;, David Heinemeier Hansson the creator of Ruby on Rails said:
+  &lt;/p&gt;
+  
+  &lt;blockquote&gt;
+    &lt;p&gt;
+      I&amp;#8217;m not in this world to create Rails for you. I&amp;#8217;m in this world to create Rails for me and if you happen to like that version of Rails that I&amp;#8217;m creating for me, than you are going to have a great time. [&amp;#8230;] I don&amp;#8217;t really care whether you use Rails or not. I think it&amp;#8217;s great that we have critical mass, and I care about that; but I don&amp;#8217;t care about you as a single individual customer.
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;p&gt;
+    It&amp;#8217;s not a scoop. Rails is very opinionated and that&amp;#8217;s why it&amp;#8217;s so successful. Merb&amp;#8217;s philosophy is different: let people choose and build around a solid and small core. Merb is built around 1 single gem called merb-core. merb-core is built around Rack to allow more flexibility, it has a powerful router and knows how to deal with requests/sessions. It&amp;#8217;s up to the developer to build his own stack based on his needs. We offer some default settings to get you started:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      a very flat stack: 1 file app &amp;#8220;A la Sinatra&amp;#8221; (great for web services)
+    &lt;/li&gt;
+    &lt;li&gt;
+      a flat stack: keeps the logic in a single file, but has separate files for configuration and views (great for very simple apps)
+    &lt;/li&gt;
+    &lt;li&gt;
+      a core stack: MVC structure but without any dependencies or ORM setup. It&amp;#8217;s up to you to define what you want to use (great for custom apps using couchdb, sequel, JRuby etc&amp;#8230;)
+    &lt;/li&gt;
+    &lt;li&gt;
+      a full stack: MVC structure with DataMapper, merb auth, helpers, assets, mailer, cache, action-args, param-protection (Rich Web Applications)
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/powered-by-merb-big.png&#34; alt=&#34;Merb&#34; title=&#34;Merb - Ruby web framework for the enterprise&#34; width=&#34;128&#34; height=&#34;60&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    You can always add or remove dependencies to your app making sure you only use what you need and keep your performance to the maximum. The reason is that Merb came to the world because some people were frustrated by some limitations in Rails. It was designed for performance and to fulfill the needs of various types of developers. Merb can be really opinionated but also knows it has to deal with really opinionated developers who might disagree. It&amp;#8217;s therefore designed to let you design your own opinionated stack.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    To sum-up: Merb is great when you need a custom solution and/or when you care about performance. It shines when dealing with legacy/custom/enterprise type applications or small and efficient systems like web services.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    However, because it&amp;#8217;s so flexible it requires you to know and understand the various moving parts. That&amp;#8217;s why you might not get up and running as fast as with Rails.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; We have so many Ruby based web frameworks. On what type of projects would you use Merb?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; That&amp;#8217;s a very good question. As a consultant that&amp;#8217;s something I&amp;#8217;m being asked a lot.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Recently I&amp;#8217;ve been involved with some projects where CouchDB seemed to be really the way to go because of the complexity of the architecture and the fact that Couch was offering a very elegant solution. I did not need a full-fledge ORM like ActiveRecord, DataMapper or Sequel and I didn&amp;#8217;t feel like fighting with the framework to get it just the way I needed it. Merb was a perfect choice to adjust to the custom needs of this project.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Another project uses Merb slices (standalone apps which can be mounted in another app) for different reusable parts of the application. The slices can be customized and reused on various applications. The client saw that this had a real benefit.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Another project was getting 7-10 million requests per day. The first version of the application was written in Rails but we had to customize/optimize it so much that it was hard to support/maintain. We ended up rewriting the application with Merb (using ActiveRecord). We still had to optimize it to deal with the load but it was easier to just pick and choose what we needed. Being able to easily read the source code was also a great benefit.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Finally the merb-book is an excellent example of how to use merb without all the fluff. The book deals with different languages, including Arabic (right to left) and renders markdown content using maruku (a markdown to html/latex/pdf gem). It&amp;#8217;s simple, efficient and was written in less than 2 hours. Ultimately, the book will be exported to static HTML (using a plugin written by topfunky) and PDF (using a jruby/flying saucer plugin).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; How do you plan to support Merb over JRuby?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; As a team, &lt;span style=&#34;background-color: #FFFFCC;&#34;&gt;the merb team works pretty closely with the JRuby team&lt;/span&gt;. We micro-benchmarked JRuby and Merb on a 8 core machine and got 14,000 requests per second. That&amp;#8217;s pretty impressive! Of course, I would not expect to get these kinds of results in a production app, but that proves the potential of such a combo.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    JRuby&amp;#8217;s threading system has some great advantages and that&amp;#8217;s something Merb always valued. Of course things are not perfect yet but we do our best to fix bugs when they are reported to us. We are also planning on further optimizing Merb specifically for JRuby. We believe this is a great choice for the enterprise and we want to fully support people choosing JRuby and Merb. Expect a lot of improvements and even better support and performance.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; Are there any IDE&amp;#8217;s for Merb?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; Any IDE&amp;#8217;s for Ruby will work with Merb. However, the core team has been working with Sun&amp;#8217;s &lt;a href=&#34;http://www.netbeans.org/&#34;&gt;Netbeans team&lt;/a&gt; to add custom Merb support to their next version. Even though none of the Merb core team member use an IDE, we recognize that a lot of people, especially coming from a different background are used to IDEs and we should do our best to make their transition easier. I personally really like profiling and re-factoring tools so I wouldn&amp;#8217;t mind a light yet powerful IDE.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; Talking about Merb without talking about DataMapper, Mongrel or Erb is difficult. How much &amp;#8220;decoupling&amp;#8221; exists between Merb and DataMapper and the DataObject adapters and if in the near future whether there will be an adapter for JDBC?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; Very good question. DataMapper is an Object Relational Mapper (ORM). The goal of an ORM is to convert scalar values from a data store (a database for instance) to objects in your programming language. People with a Rails background are familiar with another ORM: ActiveRecord. DataMapper has a unified API/inteface to access adapters. MySQL, Postgres and SQLite3 adapters use DataObjects drivers. These drivers were rewritten from scratch in C to match the DataMapper API. By using this unified API, DataMapper doesn&amp;#8217;t need to hold all the logic and therefore stays simpler and easier to maintain. The problem is that people need to write adapters. The good news is that it&amp;#8217;s really easy since you have an API already defined for you.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    You can look at examples like my google video adapter or Yehuda&amp;#8217;s Salesforce adapter which were written in very few lines of code. As the Database adapters rely on C drivers, they don&amp;#8217;t run on JRuby yet. That&amp;#8217;s why the DataMapper team is working on a JDBC adapter.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Now that I have explained a bit more about DataMapper, let me address the question of decoupling. DataMapper (DM) is a separate project and even though the Merb team is often involved with DM, it is not managed by us. Merb doesn&amp;#8217;t rely on DataMapper and only the &amp;#8220;opinionated stack&amp;#8221; uses DataMapper by default. As a matter of fact, Merb supports a lot of adapters: DataMapper, Sequel, ActiveRecord, RelaxDB and can support new ones as they will be released. Once again, people have different needs and we believe they should make a choice which ORM they prefer to use.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Take YellowPages.com for instance, Lori and Jacob use and love Sequel. Lori did a presentation at MerbCamp and is actively supporting Sequel&amp;#8217;s integration in Merb. They are both also working on the Sequel section of the merb-book. Because of my involvement with CouchDB, I use CouchRest quite a lot. CouchRest is just not really an ORM per say and it works great with Merb. So really, if you don&amp;#8217;t want to, you don&amp;#8217;t have to use DataMapper.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; Is there a Merb (community) support for Windows, Linux and MacOS? Or is the framework development currently focused on just a specific operating system?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; In all honestly, I wish I could tell you that there is full support for all the platforms. Unfortunately the reality is slightly different. While we do want to support Windows, none of us use Windows daily. And if you ever tried, you know that using Ruby on Windows is painful. It&amp;#8217;s slow and not really optimized. However, thanks to people like Luis Lavena things are easier. We are working with Luis to make sure that we don&amp;#8217;t leave the Windows users behind. I really hope that soon, we will have an overall better Ruby support on windows. Apple shipping its OSX with Ruby obviously makes things easier, the core team uses MacOSX and Linux to develop and we all deploy to linux servers.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; Will Merb work as well as Rails under passenger, or will there be plans for moving forward with mod_rails? In essence, how do you expect the hosting support in the very near future to unfold for Merb? Rails took quite a while to be supported as much as it is right now, and even so it doesn&amp;#8217;t reach the same base as PHP or ASP or even Python support for hosting services.&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; This is another question we get quite often. Phusion Passenger is a great project which changed the way you deploy Ruby apps. Passenger is an apache module which simplified the life of many people and opened the door to shared hosting (it makes it easier to manage accounts according to &lt;a href=&#34;http://www.locaweb.com.br/portal.html&#34;&gt;locaweb.com.br&lt;/a&gt;). But it&amp;#8217;s more than that, the Phusion guys also worked on Ruby Enterprise Edition (REE), a patched version of Ruby designed to optimize memory usage. Merb is already setup to take advantage of the REE optimizations if you decide to use REE instead of the standard MRI. Passenger is also designed to serve all Rack based applications and therefore support Merb but also Sinatra, Ramaze, Mack etc&amp;#8230;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    However, it is true that Passenger is specifically optimized for Rails and does stuff it won&amp;#8217;t do with Merb and the other Rack based frameworks. I know of a few people deploying their merb apps on passenger and being really cool about it. However, we really hope to be able to work with the Phusion guys and specially optimize Merb for passenger. It&amp;#8217;s very important to keep things simple and I can assure you we are going to do our best to make sure Merb and Passenger work together in an optimized way.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; Any comments about Mack, Ramaze and Sinatra &amp;#8211; or any of the &amp;#8220;new&amp;#8221; MVC players in Ruby for web applications?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; I&amp;#8217;m actually really excited to see so many new frameworks. Some are not so new but people are probably a bit more open nowadays. I need to spend more time studying what they do, how they do it and why. As a team, we have spent some time looking at other frameworks, including outside the Ruby world. We learnt a lot from Django for instance. Our concept of slices is really close to their concept of &amp;#8220;applications&amp;#8221;. But what is exciting about all these frameworks is that we are all using Rack. And now Rails has joined the party.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The great advantage of Rack is that we can share adapters and we can share middlewares. The other day I was chatting with Bitsweat from the Rails core team about some really cool middleware they&amp;#8217;ve been working on. I&amp;#8217;m really happy to see that we will all be able to work on some common piece of code which we all be able to share. I&amp;#8217;m also interested in frameworks with a different perspective like Waves. I don&amp;#8217;t fully understand it yet but I&amp;#8217;m sure it will enrich our community.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; Is Merb being used by companies? Can you name a few?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; We have a &lt;a href=&#34;http://wiki.merbivore.com/about/using_merb&#34;&gt;list of people using Merb&lt;/a&gt; on the wiki. The best thing to do is to check there. Some names I have in mind would be of course Apple via Sproutcore which is used for MobileMe. Yellow Pages which now uses Merb for their service tier. I heard Wikipedia is using Merb on a small project lead by Hampton Catlin (the Haml guy). Microsoft/powerset is using Merb. I believe hulu.com used to use Merb a long time ago, but I&amp;#8217;m not sure whether they are still using it. Some other companies prefer not to mention these kind of things, but if you look for job offers you will find companies like Adobe looking for Merbists.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; What&amp;#8217;s the future of Merb?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; The best person to ask would be Yehuda Katz, Merb lead developer. Right now we are in &amp;#8220;community support mode&amp;#8221;. Now that we have released a stable API and have a solid code base, people have started using Merb and we are listening to their feedback. We are building the framework for the developers and we need to know what they need. We&amp;#8217;ve been focusing on trying to fix all the little annoyances. We are monitoring IRC and twitter to see what people complain about and we work on it. The immediate future top priorities are: Documentation and Gem dependencies. That&amp;#8217;s why I started the merb-book and Yehuda worked on a documentation app and a new optimized bundler (he also worked on RubyGems and hopefully his changes will be available in the next release).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Once this is solved we will be able to focus on Merb 1.1. Merb 1.1 will focus on a few things, mainly:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      improving the concept of slices by making any application a namespaced mountable application
+    &lt;/li&gt;
+    &lt;li&gt;
+      increase the interaction with Rack to allow more flexibility and performance
+    &lt;/li&gt;
+    &lt;li&gt;
+      push the concept of resources even further reducing duplication in your code
+    &lt;/li&gt;
+    &lt;li&gt;
+      significantly improve the performance of large route sets
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    In the long term we are also focusing on two categories of people, a bit left behind at the moment:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      the enterprise users
+    &lt;/li&gt;
+    &lt;li&gt;
+      Rapid Prototypes designers needing the simplicity of PHP and sexiness of Ruby
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    On the way to 2.0 we are also planning on working on cool Merb slices like an admin slice, a slice administrator etc..
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;RL&gt;&gt;&lt;/strong&gt; Matt, thank you for your time. Anything else you would like to add?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Matt&gt;&gt;&lt;/strong&gt; I would like to thank the rest of the core team and all the contributors, including all the translators working on the merb book. A big thanks to Matz and the Ruby core team for an awesome language, thanks to DHH and the Rails core team for pushing Ruby and creating Rails. And of course thanks to &lt;strong&gt;RubyLearning&lt;/strong&gt; for supporting the project and offering an exclusive opportunity to learn more about Merb.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;font-size: 8pt; font-family: Arial;&#34;&gt;&lt;i&gt;&lt;strong&gt;Disclaimer:&lt;/strong&gt;&lt;/i&gt;&lt;/span&gt;&lt;br /&gt;&lt;span style=&#34;font-size: 8pt; font-family: Arial;&#34;&gt;&lt;i&gt;The opinions expressed are those of Matt Aimonetti and do not necessarily reflect those of &lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/&#34;&gt;www.RubyLearning.com&lt;/a&gt;&lt;/strong&gt;.&lt;/i&gt;&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Can you help RubyLearning with your suggestions?</title>
+      <link>http://rubylearning.com/blog/2008/11/15/can-you-help-rubylearning-with-your-suggestions/</link>
+      <pubDate>Sat, 15 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/11/15/can-you-help-rubylearning-with-your-suggestions/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    New Course Offerings
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    We&amp;#8217;re rapidly expanding our course offerings here at RubyLearning, trying to keep up with the enormous and ever-growing interest in &lt;strong&gt;Ruby&lt;/strong&gt;. But we need your &lt;b&gt;YOUR&lt;/b&gt; help because, as you know, Ruby is a big subject, and we&amp;#8217;d like to be sure to focus in on the areas of most interest to &lt;b&gt;you&lt;/b&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;A Note regarding the courses mentioned in the poll below&lt;/strong&gt;:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Ruby Testing and TDD&lt;/strong&gt;: (starting from the concepts of testing in general, Test::Unit and other tools are discussed. RSpec is not discussed. Suited for people trying to code test code.)
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Ruby GUI&lt;/strong&gt;: (GUI programming. Which library do you recommend &amp;#8211; Shoes, FXRuby?)
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Ruby: Git and GitHub&lt;/strong&gt;: (A short course where you study Git and GitHub. Basic operations are discussed. Publishing a gem using GitHub.)
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Ruby &amp; SQLite3 database&lt;/strong&gt;: (Learn SQLite3 using Ruby. Beneficial for those who already know another database and for those are relatively new to database itself.)
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;JRuby&lt;/strong&gt;: This course is already available, but wanted to check whether you want it.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Merb&lt;/strong&gt;: This is becoming very popular in the community.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Please take a moment to complete a brief poll about the new course offerings we&amp;#8217;re considering. &lt;strong&gt;Also, please post your suggestions as comments to this blog post&lt;/strong&gt;. It won&amp;#8217;t take more than a minute or two.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    THE POLL IS NOW CLOSED
+  &lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Poll&#34; rel=&#34;tag&#34;&gt;Poll&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby&#34; rel=&#34;tag&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby+Courses&#34; rel=&#34;tag&#34;&gt;Ruby Courses&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/The+Ruby+Programming+Language&#34; rel=&#34;tag&#34;&gt;The Ruby Programming Language&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Best of RubyLearning Posts for Ruby Beginners</title>
+      <link>http://rubylearning.com/blog/2008/07/31/best-of-rubylearning-posts-for-ruby-beginners/</link>
+      <pubDate>Thu, 31 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/07/31/best-of-rubylearning-posts-for-ruby-beginners/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    Here&amp;#8217;s a digest of RubyLearning&amp;#8217;s best posts for Ruby beginners. These include (with the latest posts first):
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Advise:
+  &lt;/h3&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2008/07/29/david-flanagan-talks-to-rubylearning/&#34;&gt;David Flanagan talks to RubyLearning&lt;/a&gt;&lt;br /&gt;&lt;em&gt;David Flanagan is the author of the book &amp;#8220;The Ruby Programming Language&amp;#8221;. David says that his book was written to be a definitive book on the language, and is intended for those who want to learn and master the language. He also offers insights on Ruby 1.9.&lt;/em&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2008/07/21/charles-nutter-talks-to-rubylearning-participants/&#34;&gt;Charles Nutter talks to RubyLearning Participants&lt;/a&gt;&lt;br /&gt;&lt;em&gt;Charles Nutter currently works full-time as a core developer on JRuby at Sun Microsystems. He talks on how JRuby brings the Ruby and Java world closer.&lt;/em&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2008/04/29/akitaonrails-advises-a-young-ruby-beginner/&#34;&gt;&amp;#8220;AkitaOnRails&amp;#8221; Advises A Young Ruby Beginner&lt;/a&gt;&lt;br /&gt;&lt;em&gt;Fabio Akita is a Brazilian Rails enthusiast, also known online as &amp;#8220;AkitaOnRails&amp;#8221;. Here Fabio advises a 16 year young participant of the &lt;a href=&#34;http://rubylearning.org/&#34;&gt;FORPC101&lt;/a&gt; course. Advise that is valid for any Ruby beginner.&lt;/em&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2007/09/27/advice-for-ruby-beginners-1/&#34;&gt;Advise For Ruby Beginners&lt;/a&gt;&lt;br /&gt;&lt;em&gt;Ruby Gurus: &lt;strong&gt;Agnieszka Figiel&lt;/strong&gt; from Poland, &lt;strong&gt;David Black&lt;/strong&gt; from USA, &lt;strong&gt;Fabio Akita&lt;/strong&gt; from Brazil, &lt;strong&gt;Jamie van Dyke&lt;/strong&gt; from UK, &lt;strong&gt;Jamis Buck&lt;/strong&gt; from USA, &lt;strong&gt;Jens-Christian Fischer&lt;/strong&gt; from Switzerland, &lt;strong&gt;Juanjo Bazan&lt;/strong&gt; from Spain, &lt;strong&gt;Julian Tarkhanov&lt;/strong&gt; from Russia / Netherlands, &lt;strong&gt;Manik Juneja&lt;/strong&gt; from India, &lt;strong&gt;Matt Palmer&lt;/strong&gt; from Australia, &lt;strong&gt;Mislav Marohnic&lt;/strong&gt; from Croatia, &lt;strong&gt;Ola Bini&lt;/strong&gt; from Sweden, &lt;strong&gt;Pedro Custodio&lt;/strong&gt; from Portugal, &lt;strong&gt;Peter Cooper&lt;/strong&gt; from UK, &lt;strong&gt;Remco van&amp;#8217;t Veer&lt;/strong&gt; from Netherlands and &lt;strong&gt;Sau Sheong Chang&lt;/strong&gt; from Singapore give their perspective on the various questions facing the would-be Ruby developers, in a three-part series.&lt;/em&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2007/08/18/david-black-interview-talking-to-rubylearningcom/&#34;&gt;David Black Interview: Talking to RubyLearning.com&lt;/a&gt;&lt;br /&gt;&lt;em&gt;David Black author of &lt;a href=&#34;http://www.manning.com/black/&#34;&gt;Ruby for Rails&lt;/a&gt; and soon to be published book &lt;a href=&#34;http://www.manning.com/black2/&#34;&gt;The Well-Grounded Rubyist&lt;/a&gt; offers pearls of advise.&lt;/em&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;h3&gt;
+    Code:
+  &lt;/h3&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2008/05/31/a-teeny-weeny-mp3-player-using-ruby-and-shoes/&#34;&gt;A Teeny-weeny mp3 player using Ruby and Shoes&lt;/a&gt;&lt;br /&gt;&lt;em&gt;Satoshi Asakawa is a Japanese Ruby enthusiast, and an Asst. Teacher of the FORPC101 course. He walks you through building a small mp3 player using Ruby and Shoes.&lt;/em&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2008/04/25/yahoo-web-services-in-ruby/&#34;&gt;Yahoo! Web Services in Ruby&lt;/a&gt;&lt;br /&gt;&lt;em&gt;Jose Carlos Monteiro is a Portuguese Ruby enthusiast and an Asst. teacher of the FORPC101 course shows how to use Yahoo! Web Services in Ruby.&lt;/em&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2007/11/30/akitaonrails-on-anatomy-of-ruby-blocksclosures/&#34;&gt;&amp;#8220;AkitaOnRails&amp;#8221; On Anatomy of Ruby Blocks/Closures&lt;/a&gt;&lt;br /&gt;&lt;em&gt;This is one of Fabio Akita&amp;#8217;s post from his very popular series on various aspects of Ruby. Here he talks on Ruby blocks.&lt;/em&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2007/11/26/akitaonrails-on-ruby-symbols/&#34;&gt;&amp;#8220;AkitaOnRails&amp;#8221; On Ruby Symbols&lt;/a&gt;&lt;br /&gt;&lt;em&gt;This post by Fabio Akita, talks about Ruby Symbols.&lt;/em&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/JRuby&#34; rel=&#34;tag&#34;&gt;JRuby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby&#34; rel=&#34;tag&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby+Beginners&#34; rel=&#34;tag&#34;&gt;Ruby Beginners&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using ActiveRecord and JDBC with JRuby - Part 2</title>
+      <link>http://rubylearning.com/blog/2008/07/30/using-activerecord-and-jdbc-with-jruby---part-2/</link>
+      <pubDate>Wed, 30 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/07/30/using-activerecord-and-jdbc-with-jruby---part-2/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    Part 2
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+  Continuing from where we left off in Part 1 of the article &amp;#8211; &lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/blog/2008/07/28/using-activerecord-and-jdbc-with-jruby/&#34;&gt;Using ActiveRecord and JDBC with JRuby&lt;/a&gt;&lt;/strong&gt;, let us now create a database called &lt;strong&gt;students&lt;/strong&gt; and a table called &lt;strong&gt;rubyists&lt;/strong&gt; (this holds say, the names and cities of all those who have downloaded my &lt;a href=&#34;http://jruby.rubylearning.org/&#34;&gt;JRuby eBook&lt;/a&gt;). To do this, open a command window and type:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;mysql -u root&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    You should now get a mysql prompt. Next at the mysql prompt, type as follows:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;mysql&gt;create database students;&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    It will respond with:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;Query OK, 1 row affected (0.00 sec)&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Next, on the mysql prompt, type:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;mysql&gt;grant all on students.* to &#39;root&#39;@&#39;localhost&#39;;&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Next let us create our table called &lt;strong&gt;rubyists&lt;/strong&gt; by typing the following on the mysql prompt:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;mysql&gt;use students;
+drop table if exists rubyists;  
+create table rubyists (  
+   id int not null auto_increment,  
+   name varchar(100) not null,  
+   city text not null,  
+   primary key (id)  
+);&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    We are through with the database creation. Now type:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;mysql&gt;exit&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;blockquote&gt;
+    &lt;p&gt;
+      Generally speaking, managing changes to a database schema has been one of the most odious tasks for a team of developers. Most have relied on storing DDL in revision control, ever vigilant to ensure that our database creation scripts are updated and consistent with each rollout. That solution can be very clumsy in an Extreme Programming project. And because Rails encourages iterative development, it would be very easy to imagine the constant schema changes turning into nightmares. Fortunately, Migrations allows a developer to manage rollout, and rollback, of database schema changes in a controlled and consistent manner, and one that happens to feel very natural to a Rails programmer. However, Migrations is beyond the scope of this article. You can refer to these URLs for further information â€“&lt;br /&gt; &lt;a href=&#34;http://api.rubyonrails.org/classes/ActiveRecord/Migration.html&#34;&gt;http://api.rubyonrails.org/classes/ActiveRecord/Migration.html&lt;/a&gt;&lt;br /&gt; &lt;a href=&#34;http://weblog.jamisbuck.org/2005/9/27/getting-started-with-activerecord-migrations&#34;&gt;http://weblog.jamisbuck.org/2005/9/27/getting-started-with-activerecord-migrations&lt;/a&gt;&lt;br /&gt; &lt;a href=&#34;http://glu.ttono.us/articles/2005/10/27/the-joy-of-migrations&#34;&gt;http://glu.ttono.us/articles/2005/10/27/the-joy-of-migrations&lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;ActiveRecord&lt;/strong&gt; assumes that every table it handles has as its primary key an integer column called id internally, &lt;strong&gt;ActiveRecord&lt;/strong&gt; uses the value in this column to keep track of the data it has loaded from the database and to link between data in different tables.&lt;br /&gt;Now let us start writing the program &lt;strong&gt;jruby01.rb&lt;/strong&gt;
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;# jruby01.rb
+require &#39;rubygems&#39;
+require &#39;active_record&#39;
+
+ActiveRecord::Base.establish_connection(
+:adapter=&gt; &#34;jdbcmysql&#34;,
+:host =&gt; &#34;localhost&#34;,
+:database=&gt; &#34;students&#34;,
+:username =&gt; &#34;root&#34;,
+:password =&gt; &#34;&#34;
+)
+
+class Rubyist &amp;lt; ActiveRecord::Base
+end&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    So far, in the above code we are:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      Using the &lt;strong&gt;ActiveRecord&lt;/strong&gt; library, available as the &lt;strong&gt;active_record&lt;/strong&gt; gem
+    &lt;/li&gt;
+    &lt;li&gt;
+      Using the &lt;strong&gt;ActiveRecord&lt;/strong&gt; adapter namely &lt;strong&gt;jdbcmysql&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Establishing a connection to the database students Please note if you have set a password say xyz for your database then make &lt;strong&gt;:password =&gt; &amp;#8220;xyz&amp;#8221;&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Creating a class called &lt;strong&gt;Rubyist&lt;/strong&gt; When you create a subclass of &lt;strong&gt;ActiveRecord::Base&lt;/strong&gt;, you&amp;#8217;re creating something that wraps a database table. By default, &lt;strong&gt;ActiveRecord&lt;/strong&gt; assumes that the name of the table is the plural form of the name of the class.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    Next we create entries in the table without writing any SQL. If you refer the &lt;strong&gt;ActiveRecord&lt;/strong&gt; documentation, we can use the &lt;strong&gt;create&lt;/strong&gt; method of &lt;strong&gt;ActiveRecord::Base&lt;/strong&gt; (this method creates an object, and instantly saves it as a record) to do the same:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;Rubyist.create(:name =&gt; &#39;Luc Juggery&#39;, :city =&gt; &#34;Nashville, Tenessee&#34;)  
+Rubyist.create(:name =&gt; &#39;Sunil Kelkar&#39;, :city =&gt; &#34;Pune, India&#34;)  
+Rubyist.create(:name =&gt; &#39;Adam Smith&#39;, :city =&gt; &#34;San Fransisco, USA&#34;)&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    You can now query the table using &lt;strong&gt;find&lt;/strong&gt; of &lt;strong&gt;ActiveRecord::Base&lt;/strong&gt;
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;participant = Rubyist.find(:first) # returns the first object fetched by SELECT * FROM rubyists  
+puts %{#{participant.name} stays in #{participant.city}}&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    You will observe &lt;strong&gt;ActiveRecord&lt;/strong&gt; examines the database tables themselves to find out which columns are available. This is how we were able to use accessor methods for &lt;strong&gt;participant.name&lt;/strong&gt; without explicitly defining them: we defined them in the database, and &lt;strong&gt;ActiveRecord&lt;/strong&gt; picked them up.&lt;br /&gt; If you want to delete an item from the database, you can use the &lt;strong&gt;destroy&lt;/strong&gt; (Deletes the record in the database) method of &lt;strong&gt;ActiveRecord::Base&lt;/strong&gt; as shown:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;Rubyist.find(:first).destroy&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    The complete program is:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;# jruby01.rb
+require &#39;rubygems&#39;
+require &#39;active_record&#39;
+
+ActiveRecord::Base.establish_connection(
+:adapter=&gt; &#34;jdbcmysql&#34;,
+:host =&gt; &#34;localhost&#34;,
+:database=&gt; &#34;students&#34;,
+:username =&gt; &#34;root&#34;,
+:password =&gt; &#34;&#34;
+)
+
+class Rubyist &amp;lt; ActiveRecord::Base
+end
+
+Rubyist.create(:name =&gt; &#39;Mitali Talim&#39;, :city =&gt; &#34;Nashville, Tenessee&#34;)
+Rubyist.create(:name =&gt; &#39;Sunil Kelkar&#39;, :city =&gt; &#34;Pune, India&#34;)
+Rubyist.create(:name =&gt; &#39;Adam Smith&#39;, :city =&gt; &#34;San Fransisco, USA&#34;)
+
+participant = Rubyist.find(:first)
+puts %{#{participant.name} stays in #{participant.city}}
+
+Rubyist.find(:first).destroy&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Run the program from the command prompt:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;C:\jrubyprograms&gt;jruby jruby01.rb&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    The output is:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;Mitali Talim stays in Nashville, Tenessee&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;h3&gt;
+    References
+  &lt;/h3&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2008/07/21/charles-nutter-talks-to-rubylearning-participants/&#34;&gt;Charles Nutter&lt;/a&gt; Charles is an amazing guy! He eats, drinks and dreams JRuby &amp;#8211; always available to help you out. No wonder JRuby is going places.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://caboo.se/doc/classes/ActiveRecord/Base.html&#34;&gt;ActiveRecord::Base&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/ActiveRecord&#34; rel=&#34;tag&#34;&gt;ActiveRecord&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/JDBC&#34; rel=&#34;tag&#34;&gt;JDBC&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/JRuby&#34; rel=&#34;tag&#34;&gt;JRuby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/MySQL&#34; rel=&#34;tag&#34;&gt;MySQL&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby&#34; rel=&#34;tag&#34;&gt;Ruby&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using ActiveRecord and JDBC with JRuby</title>
+      <link>http://rubylearning.com/blog/2008/07/28/using-activerecord-and-jdbc-with-jruby/</link>
+      <pubDate>Mon, 28 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/07/28/using-activerecord-and-jdbc-with-jruby/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    Preamble
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    The participants of the &lt;a href=&#34;http://rubylearning.org/&#34;&gt;FORPC101&lt;/a&gt; series of courses have been requesting me for a small article related to JRuby; so here it is.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    In this article, we shall see how easy it is to connect to a database (MySQL) using ActiveRecord and a JDBC driver using JRuby.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Assumptions
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    I am assuming that you have Java 1.6, JRuby 1.1.3, MySQL installed and working.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Note
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    I am using a Windows XP box but these examples will work on a Mac or Linux box too.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    JRuby
+  &lt;/h3&gt;
+  
+  &lt;blockquote&gt;
+    &lt;p&gt;
+      For Ruby Developers, JRuby offers a deployment platform that is well understood, particular in corporations. For a Java community, JRuby is important because it offers a chance to experience a powerful language and framework while still taking advantage of Javaâ€™s excellent libraries and the ability to work in both Ruby and Java &amp;#8211; &lt;strong&gt;Martin Fowler&lt;/strong&gt;
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;h3&gt;
+    MySQL
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; is a one of the most popular open source databases around and is used by many prominent organizations from Yahoo to NASA.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    ORM and ActiveRecord
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#34;http://en.wikipedia.org/wiki/Object-relational_mapping&#34;&gt;ORM&lt;/a&gt;, stands for object-relational mapping. ORM libraries map database tables to classes. If a database has a table called orders, our program will have a class named Order. Rows in this table correspond to objects of the class &amp;#8211; a particular order is represented as an object of class Order. Within that object, attributes are used to get and set the individual columns. Our Order object has methods to get and set the amount, the sales tax, and so on.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;So an ORM layer maps tables to classes, rows to objects, and columns to attributes of those objects&lt;/strong&gt;. Class methods are used to perform table-level operations, and instance methods perform operations on the individual rows. &lt;strong&gt;Active Record is an ORM&lt;/strong&gt;.&lt;br /&gt;&lt;strong&gt;ActiveRecord&lt;/strong&gt; relieves us of the hassles of dealing with the underlying database, leaving us free to work on business logic. &lt;strong&gt;ActiveRecord&lt;/strong&gt; relies on convention over configuration. Wherever possible, &lt;strong&gt;ActiveRecord&lt;/strong&gt; guesses the correct configuration by reflecting against the data schema. When you do need a specific override, you specify the override directly in your class.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Also, &lt;strong&gt;ActiveRecord&lt;/strong&gt; assumes that:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      database table names, like variable names, have lowercase letters and underscores between the words
+    &lt;/li&gt;
+    &lt;li&gt;
+      table names are always plural
+    &lt;/li&gt;
+    &lt;li&gt;
+      files are named in lowercase with underscores
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;ActiveRecord implements some of its &lt;a href=&#34;http://www.thirdbit.net/articles/2007/08/01/10-things-you-should-know-about-method_missing/&#34;&gt;funkiest magic&lt;/a&gt;&lt;/strong&gt; with &lt;strong&gt;method_missing&lt;/strong&gt; because &lt;strong&gt;ActiveRecord::Base&lt;/strong&gt; overrides the Kernelâ€™s &lt;strong&gt;method_missing&lt;/strong&gt; method.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    RubyGems
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    JRuby comes with a fairly loaded standard library from scratch but that does not mean there arenâ€™t other things youâ€™ll need. Almost all of them are installable as Gems. RubyGems is the premier package management tool for Ruby. It works fine with JRuby and JRuby ships with it. You use it through the gem command. Now, we need to run the JRuby version of the gem command and to ensure that, we use the â€“S flag to the interpreter.&lt;br /&gt;We shall install &lt;strong&gt;ActiveRecord&lt;/strong&gt; as a freestanding gem in JRuby:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;C:\&gt;jruby -S gem install activerecord&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;h3&gt;
+    Adapter
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    In &lt;strong&gt;ActiveRecord&lt;/strong&gt; there is this concept of an adapter. Each adapter is specific for one database, so thereâ€™s a MySQL adapter, an Oracle adapter, and so on. &lt;em&gt;At the moment, there are few adapters that ship with ActiveRecord&lt;/em&gt;. &lt;br /&gt;The &lt;strong&gt;activerecord-jdbc-adapter&lt;/strong&gt; adapter is needed as it allows use of virtually any JDBC-compliant database with your JRuby application. This adapter supports:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      MySQL &amp;#8211; Complete support
+    &lt;/li&gt;
+    &lt;li&gt;
+      PostgreSQL &amp;#8211; Complete support
+    &lt;/li&gt;
+    &lt;li&gt;
+      Oracle &amp;#8211; Complete support
+    &lt;/li&gt;
+    &lt;li&gt;
+      Microsoft SQL Server &amp;#8211; Complete support except for change_column_default
+    &lt;/li&gt;
+    &lt;li&gt;
+      DB2 &amp;#8211; Complete, except for the migrations: &lt;ul&gt;
+        &lt;li&gt;
+          change_column
+        &lt;/li&gt;
+        &lt;li&gt;
+          change_column_default
+        &lt;/li&gt;
+        &lt;li&gt;
+          remove_column
+        &lt;/li&gt;
+        &lt;li&gt;
+          rename_column
+        &lt;/li&gt;
+        &lt;li&gt;
+          add_index
+        &lt;/li&gt;
+        &lt;li&gt;
+          remove_index
+        &lt;/li&gt;
+        &lt;li&gt;
+          rename_table
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    
+    &lt;li&gt;
+      FireBird &amp;#8211; Complete, except for change_column_default and rename_column
+    &lt;/li&gt;
+    &lt;li&gt;
+      Derby &amp;#8211; Complete, except for: &lt;ul&gt;
+        &lt;li&gt;
+          change_column
+        &lt;/li&gt;
+        &lt;li&gt;
+          change_column_default
+        &lt;/li&gt;
+        &lt;li&gt;
+          remove_column
+        &lt;/li&gt;
+        &lt;li&gt;
+          rename_column
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    
+    &lt;li&gt;
+      HSQLDB &amp;#8211; Complete
+    &lt;/li&gt;
+    &lt;li&gt;
+      H2 &amp;#8211; Complete
+    &lt;/li&gt;
+    &lt;li&gt;
+      SQLite3 &amp;#8211; work in progress
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    We will install the &lt;strong&gt;activerecord-jdbcxxx-adapter&lt;/strong&gt;, where xxx would be the database name, for example &lt;strong&gt;activerecord-jdbcmysql-adapter&lt;/strong&gt; for MySQL. We are going to use the adapter for a specific database (MySQL). You can install it directly and a driver gem will be installed as well.&lt;br /&gt;Other databases will require testing and likely a custom configuration module.&lt;br /&gt;Ensure that your MySQL service is running.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Open a command window and type:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&lt;code&gt;C:\&gt;jruby -S gem install activerecord-jdbcmysql-adapter&lt;/code&gt;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    From your JRuby code, you need to specify only the name of the adapter you want to use; &lt;strong&gt;ActiveRecord&lt;/strong&gt; will provide the Ruby bridge code.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The article is continued in &lt;a href=&#34;http://rubylearning.com/blog/2008/07/30/using-activerecord-and-jdbc-with-jruby-part-2/&#34;&gt;Part 2&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    References
+  &lt;/h3&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.apress.com/book/view/1590598814&#34;&gt;Practical JRuby on Rails&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://github.com/nicksieger/activerecord-jdbc-adapter/tree/master&#34;&gt;activerecord-jdbcXXX-adapter&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/ActiveRecord&#34; rel=&#34;tag&#34;&gt;ActiveRecord&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/JDBC&#34; rel=&#34;tag&#34;&gt;JDBC&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/JRuby&#34; rel=&#34;tag&#34;&gt;JRuby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby&#34; rel=&#34;tag&#34;&gt;Ruby&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Charles Nutter talks to RubyLearning Participants</title>
+      <link>http://rubylearning.com/blog/2008/07/21/charles-nutter-talks-to-rubylearning-participants/</link>
+      <pubDate>Mon, 21 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/07/21/charles-nutter-talks-to-rubylearning-participants/</guid>
+      <description>&lt;div style=&#34;float: right; margin-left: 10px; margin-bottom: 10px;&#34;&gt;
+  &lt;a href=&#34;http://rubylearning.com/images/nutter.jpg&#34; title=&#34;Charles Nutter&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/nutter.jpg&#34; alt=&#34;Charles Nutter&#34; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;p&gt;
+    On the eve of the new &lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/satishtalim/jruby_course.html&#34;&gt;JRuby Course&lt;/a&gt;&lt;/strong&gt; announced by RubyLearning, Satish Talim of RubyLearning caught up with &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Charles Nutter&lt;/span&gt;&lt;/strong&gt;, who was kind enough to spare time answering questions posed by the RubyLearning participants.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;em&gt;Charles Nutter has been a Java developer since 1996. He currently works full-time as a core developer on JRuby at Sun Microsystems. He led the open-source LiteStep project in the late 90s and started working on Ruby in the fall of 2004. Since then he has been a member of the JRuby team, helping to make it a true alternative Ruby platform. Charles blogs on Ruby and Java at &lt;a href=&#34;http://headius.blogspot.com/&#34;&gt;headius.blogspot.com&lt;/a&gt;.&lt;/em&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Satish Talim&gt;&gt;&lt;/span&gt;&lt;/strong&gt; Many of the RubyLearning course participants have a Java background and are learning Ruby. Why, according to you, must these participants also &lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/satishtalim/jruby_course.html&#34;&gt;learn JRuby&lt;/a&gt;&lt;/strong&gt;?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Charles Nutter&gt;&gt;&lt;/span&gt;&lt;/strong&gt; Java is still a great language for building high performance libraries, system code, frameworks and sometimes applications. But more and more it&amp;#8217;s not enough to just know Java. We have JRuby, Groovy, Jython, and other languages all showing new ways of looking at the classic problems facing application developers. And learning JRuby is a perfect way to keep up with where development on the Java platform is going.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Satish Talim&gt;&gt;&lt;/span&gt;&lt;/strong&gt; How should they go about acquiring knowledge and skills in JRuby?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Charles Nutter&gt;&gt;&lt;/span&gt;&lt;/strong&gt; You learn best by doing&amp;#8230;pick up pretty much any Ruby or Rails book, or go to any Ruby or Rails training session, and see if you can get through it with JRuby. And while you&amp;#8217;re doing it, start thinking about where you can take advantage of JRuby&amp;#8217;s additional features, like the ability to call Java libraries.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Satish Talim&gt;&gt;&lt;/span&gt;&lt;/strong&gt; What&amp;#8217;s the focus of JRuby?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Charles Nutter&gt;&gt;&lt;/span&gt;&lt;/strong&gt; JRuby has two focuses. First and foremost, we want to be the best Ruby implementation we can, providing the best performance, threading, and memory utilization. Second, we want to be the best JVM language we can, providing access to all the libraries you are used to as a Java developer and fitting seamlessly into your Java world.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Satish Talim&gt;&gt;&lt;/span&gt;&lt;/strong&gt; What are JRuby&amp;#8217;s long-term goals?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Charles Nutter&gt;&gt;&lt;/span&gt;&lt;/strong&gt; Long term, I see more and more Ruby developers choosing JRuby as their implementation of choice, and I see Ruby becoming a standard and common language for JVM platform developers to use. We&amp;#8217;re also planning to keep up with Ruby 1.9&amp;#8217;s new features (still in development) and always keep improving JRuby&amp;#8217;s performance and Java integration capabilities.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Satish Talim&gt;&gt;&lt;/span&gt;&lt;/strong&gt; What benefits do you think JRuby will bring to the Ruby and Java communities?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Charles Nutter&gt;&gt;&lt;/span&gt;&lt;/strong&gt; For Rubyists, we have a high performance Ruby implementation with native threading and access to everything on the Java platform. For Java developers, we have Ruby, a beautiful and powerful language that&amp;#8217;s a lot of fun to write. I think both sides get a lot out of the deal, and we&amp;#8217;re trying to make JRuby a perfect combination of the best of both worlds.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Satish Talim&gt;&gt;&lt;/span&gt;&lt;/strong&gt; Does JRuby mark the end of the road for MRI (the standard Ruby implementation)?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Charles Nutter&gt;&gt;&lt;/span&gt;&lt;/strong&gt; Certainly not&amp;#8230;and we always recommend that if MRI is good enough for their needs, there&amp;#8217;s no reason to update. But if they need better performance, native threading, libraries only available on the JVM, or other such bonuses that JRuby offers, they certainly should consider JRuby. And we&amp;#8217;re working hard to help folks make that transition when they&amp;#8217;re ready.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Satish Talim&gt;&gt;&lt;/span&gt;&lt;/strong&gt; Anything else you would like to share with the RubyLearning participants?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Charles Nutter&gt;&gt;&lt;/span&gt;&lt;/strong&gt; I&amp;#8217;m very excited to hear about more and more developers taking an interest in alternative languages on the JVM. I think it shows what we&amp;#8217;re doing with JRuby and what others are doing with Groovy and Jython and Scala is the right way to go. With help from folks like the RubyLearning participants, I think we&amp;#8217;re making a better world for developers everywhere.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:blue;&#34;&gt;Satish Talim&gt;&gt;&lt;/span&gt;&lt;/strong&gt; Thanks Charles for sharing your views with the RubyLearning participants.
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Charles+Nutter&#34; rel=&#34;tag&#34;&gt;Charles Nutter&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Interviews&#34; rel=&#34;tag&#34;&gt; Interviews&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Java&#34; rel=&#34;tag&#34;&gt; Java&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/JRuby+interview&#34; rel=&#34;tag&#34;&gt; JRuby interview&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/JRuby&#34; rel=&#34;tag&#34;&gt; JRuby&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interview with Ola Bini &amp;#8211; JRuby Core Developer</title>
+      <link>http://rubylearning.com/blog/2007/08/30/interview-with-ola-bini-</link>
+      <pubDate>Thu, 30 Aug 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/08/30/interview-with-ola-bini-</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.rubylearning.com/images/ola.jpg&#34; title=&#34;Ola Bini&#34;&gt;&lt;img src=&#34;http://www.rubylearning.com/images/ola.jpg&#34; alt=&#34;Ola
+Bini&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;RubyLearning caught up with &lt;strong&gt;&lt;a href=&#34;http://ola-bini.blogspot.com/&#34;&gt;Ola
+Bini&lt;/a&gt;&lt;/strong&gt; at Bangalore, India and talked to
+him about JRuby. Ola provides some insights for easy adoption of JRuby
+by the large pool of Java and Ruby developers in India.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hello Ola, and welcome to RubyLearning.com. Tell us something about
+your background and how you came to JRuby.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Well, I’m a programming language geek and have looked at many languages
+for a long time. I’ve used LISP since before I can remember, but Java
+have always been the language that is economically viable to use. But
+I’m not that fond of the Java language – the platform is very good, but
+the language… well. So I looked around for something better. I’ve known
+Ruby for a few years; it’s got some very nice similarities to LISP,
+Smalltalk and other very nice languages. Finally I found the JRuby
+project, realized that it would hit my sweet spot perfectly and decided
+to start helping out on it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Could you tell us some reasons on why a Ruby developer should start
+looking into JRuby?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There are several good reasons: most of the problems of Ruby 1.8 are
+actually resolved by JRuby in one way or the other. You get better
+threading semantics, native unicode, active development, easier
+extensions, very good garbage collection – and superb integration with
+Java libraries. All of these are very nice things for a Ruby developer
+since they fix deficiencies in the current MRI 1.8.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How should a person working on Ruby approach JRuby?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The first step is just to try your application out on it. If it’s a
+regular Ruby application that doesn’t use native extensions, the chance
+is very good that it will just run on JRuby. The next step – after the
+application runs – is to get ready to integrate some of the Java
+specific libraries and start using them instead. For example, theres a
+backend to REXML that uses Java libraries instead; this makes REXML much
+faster and also safer. It will also add new capabilities to REXML, like
+validation and so on. And this is with the exact same interface as
+regular REXML, so you get all this for free, just by moving. The same
+thing applies for running JRuby on Rails, and using JDBC as a back end
+connector.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;With a stable release now in hand what is your current focus and
+roadmap for JRuby?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Well, the current focus is on completing the compiler and also working
+on performance. We are not making huge changes in the functionality
+right now – instead looking at external libraries that enhance the value
+of JRuby.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Can you give some examples where JRuby is being persistently used?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Well, ThoughtWorks sells Mingle, which runs on JRuby on Rails. Sun has
+some JRuby projects. Oracle is working on JRuby projects. And there are
+many, many smaller projects being developed all around the world.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Can you tell us one area of JRuby wherein you feel there needs to be
+an improvement?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Well, the 1.0-release was focused on compatibility. The performance was
+pretty good, but now we really want to surpass MRI in performance. So
+that’s what we’re working on right now. Aside from that, documentation
+is sorely needed too. (My book, that comes out Sept. 24th, will probably
+help some with that.)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Is there a plan to have a developers tool for JRuby?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Well, right now there is a lack of development tools for Ruby itself –
+many companies are working on it though. These tools will work for JRuby
+too. I know that NetBeans are planning to add some JRuby specific things
+to their Ruby tool later on.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Can you highlight on some good mechanisms for deploying JRuby based
+applications?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s kinda hard. If you’re talking about Rails applications, using WAR
+based deployment to a Java application server is generally the best
+solution.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How is the performance and scalability aspect of JRuby?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I addressed performance above. Scalability is another thing. Generally
+JRuby takes more memory than MRI, but usually scales better due to
+better threading.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Finally, how easy it is to pickup JRuby? Any pointers?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s as easy as picking up Ruby. It’s really easy to get started, and if
+you google for the JRuby wiki, you will find lots of good information
+for getting started. Once again, my book will help here…
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks Ola for sharing your views with the RubyLearning.com members.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Interview+with+Ola+Bini+%26%238211%3B+JRuby+Core+Developer&#34;&gt;Interview with Ola Bini – JRuby Core
+Developer&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Interviews&#34;&gt;Interviews&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/JRuby&#34;&gt;JRuby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ola+Bini&#34;&gt;Ola
+Bini&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Ruby&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby+on+Rails&#34;&gt;Ruby on
+Rails&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby+Interviews&#34;&gt;Ruby
+Interviews&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JRuby Inside</title>
+      <link>http://rubylearning.com/blog/2007/07/17/jruby-inside/</link>
+      <pubDate>Tue, 17 Jul 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/07/17/jruby-inside/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.petercooper.co.uk/&#34;&gt;Peter Cooper&lt;/a&gt; has done it again! Peter
+has just launched &lt;a href=&#34;http://www.jrubyinside.com/&#34;&gt;JRuby Inside&lt;/a&gt; a new
+“sister” site to his very popular Ruby Inside. JRuby Inside focuses just
+on &lt;strong&gt;JRuby&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;About JRuby Inside, Peter says:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;JRuby Inside is not just a blog. It collates links from various
+sources, allows me (as the webmaster) to promote certain ones to posts
+or to the RSS feed, and even allows regular visitors to submit posts.
+It’s a more freeform but less demanding site than Ruby Inside, but
+hopefully will provide just as much value in a smaller niche.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Peter, the very best wishes from the Ruby and Java communities for the
+success of JRuby Inside.&lt;/p&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/JRuby&#34;&gt;JRuby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/JRuby+Inside&#34;&gt;JRuby
+Inside&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Peter+Cooper&#34;&gt;Peter
+Cooper&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Connect JRuby to MySQL using JDBC</title>
+      <link>http://rubylearning.com/blog/2007/05/05/connect-jruby-to-mysql-using-jdbc/</link>
+      <pubDate>Sat, 05 May 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/05/05/connect-jruby-to-mysql-using-jdbc/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;JRuby&lt;/strong&gt; is a 100% pure-Java implementation of the Ruby programming
+language that runs in the JVM. &lt;strong&gt;MySQL&lt;/strong&gt; is a one of the most popular
+open source databases around and is used by many prominent organizations
+from Yahoo to NASA.&lt;/p&gt;
+
+&lt;p&gt;This brief tutorial demonstrates how to &lt;em&gt;install and configure JRuby to
+connect to the MySQL database&lt;/em&gt;. The tutorial is written for beginners
+who are familiar with Java code and JDBC. Exposure to Ruby will make the
+syntax easier to follow. You don’t need any specific integrated
+development environment (IDE) or tool knowledge. Familiarity with a text
+editor and setting environment variables is required.&lt;/p&gt;
+
+&lt;p&gt;The tutorial assumes that your Java,
+&lt;a href=&#34;http://rubylearning.com/blog/2007/04/27/jruby-caffeinated-ruby/&#34;&gt;JRuby&lt;/a&gt;
+and MySQL 4.1+ environment is successfully installed and configured.&lt;/p&gt;
+
+&lt;h4 id=&#34;creating-a-database-and-user:4a5dc59b849cc41b966eefde5c9d700c&#34;&gt;Creating a Database and User&lt;/h4&gt;
+
+&lt;p&gt;Again, I am assuming that you have MySQL running and are familiar with
+the basics. Run the mysql client program from the command line (as shown
+below) so that we can execute some administration commands.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;C:/mysql/bin&amp;gt; mysql --user=root mysql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;First create a database called “ruby” within MySQL and the user is root.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mysql&amp;gt; CREATE DATABASE ruby;
+Query OK, 1 row affected (0.02 sec)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and check that it has been created using&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mysql&amp;gt; SHOW DATABASES;
++------------+
+| Database   |
++------------+
+| ruby       |
+| mysql      |
+| test       |
++------------+
+3 rows in set (0.01 sec)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let’s create a table in our database ruby&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;use ruby;
+create table student (id VARCHAR(2), name VARCHAR(20), rank VARCHAR(2));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To check whether the table has been created, type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;show tables;
++---------------------+
+| Tables_in_ruby      |
++---------------------+
+| student             |
++---------------------+
+1 row in set (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To verify your table, type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mysql&amp;gt; describe student;
++--------+----------------+------+------+-----------+--------+
+| Field  | Type           | Null | Key  | Default   | Extra  |
++--------+----------------+------+------+-----------+--------+
+| id     | char(2)        | YES  |      | NULL      |        |
+| name   | varchar(20)    | YES  |      | NULL      |        |
+| rank   | char(2)        | YES  |      | NULL      |        |
++--------+----------------+------+------+-----------+--------+
+3 rows in set (0.04 sec)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now let us insert 3 records into student table:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mysql&amp;gt; insert into student values (&#39;01&#39;, &#39;Peter&#39;, &#39;10&#39;);
+Query OK, 1 row affected (0.06 sec)
+
+mysql&amp;gt; insert into student values (&#39;02&#39;, &#39;Bruce&#39;, &#39;08&#39;);
+Query OK, 1 row affected (0.01 sec)
+
+mysql&amp;gt; insert into student values (&#39;03&#39;, &#39;Pat&#39;, &#39;06&#39;);
+Query OK, 1 row affected (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;download-type-4-pure-jdbc-driver:4a5dc59b849cc41b966eefde5c9d700c&#34;&gt;Download type 4 pure JDBC driver&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-3.1.10.zip/from/pick&#34;&gt;Download&lt;/a&gt;
+mySQL Connector/J Ver 3.1.10 or later open source JDBC driver for the
+above database. Unzip and Install the pure JDBC driver to C:/default
+folder ie. C:/mysql-connector-java-3.1.8\
+Next, copy the file mysql-connector-java-3.1.10-bin.jar to the lib
+folder of your Java installation and then add this .jar file location to
+your system environment variable classpath.&lt;/p&gt;
+
+&lt;h4 id=&#34;connect-to-mysql:4a5dc59b849cc41b966eefde5c9d700c&#34;&gt;Connect to MySQL&lt;/h4&gt;
+
+&lt;p&gt;Now that you’ve created a database and populated it with some data, your
+next task is to connect to that database using JRuby. To do so, create a
+new file named jrubyjdbc.rb. Open this file in a text editor, and enter
+the lines shown below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;require &#39;java&#39;
+
+module JavaLang
+  include_package &amp;quot;java.lang&amp;quot;
+end
+
+module JavaSql
+  include_package &#39;java.sql&#39;
+end
+
+begin
+  JavaLang::Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;).newInstance
+  conn = JavaSql::DriverManager.getConnection(&amp;quot;jdbc:mysql://127.0.0.1:3306/ruby?user=root&amp;quot;);
+  stmt = conn.createStatement
+  rs = stmt.executeQuery(&amp;quot;select name from student&amp;quot;)
+  while (rs.next) do
+    puts rs.getString(&amp;quot;name&amp;quot;)
+  end
+  rs.close
+  stmt.close
+  conn.close()
+rescue JavaLang::ClassNotFoundException
+  puts &amp;quot;ClassNotFoundException&amp;quot;
+rescue JavaSql::SQLException
+  puts &amp;quot;SQLException&amp;quot;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The code should work and you should get the output as:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;C:/rubyprograms&amp;gt;jruby jrubyjdbc.rb
+Peter
+Bruce
+Pat
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;some-code-explanation:4a5dc59b849cc41b966eefde5c9d700c&#34;&gt;Some code explanation&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create a Ruby module into which you put all the classes in java.sql.
+Because you’re using numerous classes from the java.sql package, it\
+ makes sense to include the whole package. Keep in mind that
+including the package slows your script. This use of a module is a
+convenient way to access all of these classes.&lt;/li&gt;
+&lt;li&gt;There can be name clashes between Java class names and Ruby class
+names. Class is an example of this; Java has java.lang.Class and
+Ruby also has Class. To resolve this name clash, define a Ruby
+module that includes the Java class definition.&lt;/li&gt;
+&lt;li&gt;There’s no need to declare the type of the variable named
+connection. Ruby is a dynamically typed language; therefore types
+aren’t required for variable declarations.&lt;/li&gt;
+&lt;li&gt;Class.forName and DriverManager.getConnection both throw checked
+exceptions. In Java code, the equivalent code won’t compile until
+you do something with those exceptions. Ruby doesn’t have checked
+exceptions, so you aren’t forced to handle them. However, when
+writing an application, you generally want to do something with
+exceptions if you can. Two checked exceptions could arise from your
+code: ClassNotFoundException and SQLException. Exceptions in Ruby
+are handled similarly to the Java approach. You have a block
+starting with begin instead of try and ending with end instead of }.
+Instead of catch, you use rescue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Go on! &lt;strong&gt;&lt;a href=&#34;http://digg.com/programming/Connect_JRuby_to_MySQL_using_JDBC&#34;&gt;Digg
+It&lt;/a&gt;&lt;/strong&gt; !&lt;/p&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Connect+JRuby+to+MySQL+using+JDBC&#34;&gt;Connect JRuby to MySQL using
+JDBC&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Java&#34;&gt;Java&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/JDBC&#34;&gt;JDBC&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/JRuby&#34;&gt;JRuby&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/MySQL&#34;&gt;MySQL&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Ruby&#34;&gt;Ruby&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Internationalization in JRuby</title>
+      <link>http://rubylearning.com/blog/2007/04/30/internationalization-in-jruby/</link>
+      <pubDate>Mon, 30 Apr 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/04/30/internationalization-in-jruby/</guid>
+      <description>
+
+&lt;p&gt;I have been using and teaching Java since 1995. The other day, I was
+talking to my students about Internationalization in Java.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Internationalization&lt;/em&gt; is the process of designing an application so
+that it can be adapted to various languages and regions without
+engineering changes.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Localization&lt;/em&gt; is the process of adapting software for a specific
+region or language by adding locale-specific components and
+translating text.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The following is a simple example (in Java) to demonstrate how to
+internationalize a program so that it displays text messages in the
+appropriate language. Notice that the text of the messages is not
+hardcoded.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import java.util.*;
+public class InternationalizationEx
+{
+  public static void main(String[] args)
+  {
+    String lang, country;
+    Locale cLocale;
+    ResourceBundle msg;
+
+    lang = new String(&amp;quot;de&amp;quot;);
+    country = new String(&amp;quot;DE&amp;quot;);
+
+    cLocale = new Locale(lang, country);
+    msg = ResourceBundle.getBundle(&amp;quot;MessagesBundle&amp;quot;, cLocale);
+
+    System.out.println(msg.getString(&amp;quot;greetings&amp;quot;));
+    System.out.println(msg.getString(&amp;quot;welcome&amp;quot;));
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To compile and run the above program, you need these source files:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/data/MessagesBundle.properties&#34;&gt;MessagesBundle.properties&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/data/MessagesBundle_de_DE.properties&#34;&gt;MessagesBundle_de_DE.properties&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/data/MessagesBundle_en_US.properties&#34;&gt;MessagesBundle_en_US.properties&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The internationalized program uses a language and a country code. In the
+above example the language code is de (German) and the country code is
+DE (Germany), so the program displays the messages in German:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;java InternationalizationEx
+Hallo
+HeiBen Sie Willkommen nach Indien
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the language code is en (English) and the country code is US (United
+States), the program displays the messages in English:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;java InternationalizationEx
+Hello
+Welcome to India
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The arguments passed to the getBundle method identify which properties
+file will be accessed. The first argument, MessagesBundle, refers to
+this family of properties files:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;MessagesBundle_de_DE.properties&lt;/li&gt;
+&lt;li&gt;MessagesBundle_en_US.properties&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Locale, which is the second argument of getBundle, specifies which
+of the MessagesBundle files is chosen. When the Locale was created, the
+language code and the country code were passed to its constructor. Note
+that the language and country codes follow MessagesBundle in the names
+of the properties files.&lt;/p&gt;
+
+&lt;p&gt;You may be wondering what’s the point of this post and that too about
+code in Java, whereas RubyLearning.com is a blog that talks about Ruby
+and Rails!&lt;/p&gt;
+
+&lt;h4 id=&#34;internationalization-in-jruby:0caf766d36a4b53c1e4bcfecaced5a4b&#34;&gt;Internationalization in JRuby&lt;/h4&gt;
+
+&lt;p&gt;Well, since I am currently exploring JRuby, I wanted to call these Java
+classes in Ruby using JRuby. In Ruby, one can use Masao Mutoh’s
+&lt;a href=&#34;http://www.yotabanana.com/hiki/ruby-gettext.html&#34;&gt;Ruby-GetText-Package&lt;/a&gt;
+to do the same, though personally I find it quite cumbersome to use.&lt;/p&gt;
+
+&lt;p&gt;So here’s JRuby to my rescue! The program code in JRuby is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#javaInternational.rb
+require &#39;java&#39;
+
+module JavaLang
+  include_package &amp;quot;java.lang&amp;quot;
+end
+
+ResourceBundle = java.util.ResourceBundle
+Locale = java.util.Locale
+
+lang = JavaLang::String.new(&amp;quot;de&amp;quot;)
+country = JavaLang::String.new(&amp;quot;DE&amp;quot;)
+
+cLocale = Locale.new(lang, country)
+msg = ResourceBundle.getBundle(&amp;quot;MessagesBundle&amp;quot;, cLocale)
+
+puts msg.getString(&amp;quot;greetings&amp;quot;)
+puts msg.getString(&amp;quot;welcome&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Run the program on a command prompt as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;jruby javaInternational.rb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It works! Okay, a little explanation of some of the JRuby code – There
+can be name clashes between Java class names and Ruby class names.
+String is an example of this; Java has java.util.String and Ruby also
+has Kernel::String. To resolve this name clash, define a Ruby module
+that includes the Java class definition as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;module JavaLang
+  include_package &amp;quot;java.lang&amp;quot;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you know Java and have started using Ruby, please do explore JRuby –
+you shall not be disappointed.&lt;/p&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Internationalization+in+JRuby&#34;&gt;Internationalization in
+JRuby&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/JRuby&#34;&gt;JRuby&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Java&#34;&gt;Java&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Ruby&#34;&gt;Ruby&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JRuby: Caffeinated Ruby</title>
+      <link>http://rubylearning.com/blog/2007/04/27/jruby-caffeinated-ruby/</link>
+      <pubDate>Fri, 27 Apr 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/04/27/jruby-caffeinated-ruby/</guid>
+      <description>
+
+&lt;p&gt;Recently, &lt;strong&gt;&lt;a href=&#34;http://jruby.codehaus.org/&#34;&gt;JRuby&lt;/a&gt;&lt;/strong&gt; has been gaining more
+and more attention in the Java and Ruby communities. Java is a powerful
+platform and there are millions of lines of Java code being written each
+month, that the world will have to live with for a long time from now.
+By leveraging Java the platform with the power of the Ruby programming
+language, programmers get the best from both worlds. &lt;em&gt;You better not
+ignore JRuby any more!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What is JRuby&lt;/strong&gt;?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;JRuby&lt;/strong&gt; is a 100% pure-Java implementation of the Ruby programming
+language that runs in the JVM. JRuby’s creators, &lt;a href=&#34;http://www.bloglines.com/blog/ThomasEEnebo&#34;&gt;Thomas
+Enebo&lt;/a&gt; and &lt;a href=&#34;http://rubylearning.com/blog/2007/04/26/interview-charles-nutter/&#34;&gt;Charles
+Nutter&lt;/a&gt;,
+have been hired by &lt;a href=&#34;http://www.sun.com/&#34;&gt;Sun&lt;/a&gt; to work on JRuby full
+time. The current JRuby release 0.9.9 is fully compatible with Ruby
+1.8.5.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ola-bini.blogspot.com/&#34;&gt;Ola Bini&lt;/a&gt; says that &amp;ldquo;JRuby is ready for
+prime time. Application developers should try their applications on
+JRuby NOW.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;So, I decided to take a quick look at JRuby and found it very easy to
+use.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Download and Setup:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&#34;http://dist.codehaus.org/jruby/&#34;&gt;JRuby distribution&lt;/a&gt; comes as a
+tar.gz file, namely jruby-bin-0.9.9.tar.gz&lt;/li&gt;
+&lt;li&gt;Uncompress the archive; you should end up with a &lt;strong&gt;jruby-0.9.9&lt;/strong&gt;
+folder.&lt;/li&gt;
+&lt;li&gt;In Windows, set the system environment variable &lt;strong&gt;JRUBY_HOME&lt;/strong&gt; to
+C:\jruby-0.9.9 I am assuming that you have uncompressed JRuby to C:&lt;/li&gt;
+&lt;li&gt;Also, set the system environment variable &lt;strong&gt;path&lt;/strong&gt; to
+C:\jruby-0.9.9\bin;&lt;/li&gt;
+&lt;li&gt;The JRuby distribution’s bin directory contains the jruby.bat file
+that is used to run the JRuby interpreter. Run the command &lt;strong&gt;jruby
+-version&lt;/strong&gt; from the command line to test that the JRuby is working.
+On my PC, it said:\
+&lt;strong&gt;ruby 1.8.5 (2007-04-23 rev 3539) [x86-jruby0.9.9]&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Where to use JRuby?:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​a. &lt;strong&gt;&lt;em&gt;JRuby allows Ruby programs to use Java classes&lt;/em&gt;&lt;/strong&gt;. This is a
+powerful concept that JRuby now brings to Ruby users. My &lt;a href=&#34;http://rubylearning.com/satishtalim/ruby_tk_tutorial.html&#34;&gt;Ruby/Tk
+Tutorial&lt;/a&gt; has
+a program &lt;strong&gt;p075hellotk1.rb&lt;/strong&gt; that uses Ruby/Tk a graphical user
+interface. However, the documentation for Ruby/Tk is extremely poor and
+I would be comfortable in using Java Swing instead. The code in JRuby
+for the program p075hellotk1.rb can be something like this:&lt;/p&gt;
+
+&lt;h1 id=&#34;javaswinghello-rb:f7575a3bf9d3a4f52bc0f0cfdf192956&#34;&gt;javaSwingHello.rb&lt;/h1&gt;
+
+&lt;p&gt;require &amp;lsquo;java&amp;rsquo; # Line 2
+JFrame = javax.swing.JFrame
+JLabel = javax.swing.JLabel
+frame  = JFrame.new
+jlabel = JLabel.new(&amp;ldquo;Hello World&amp;rdquo;)
+frame.add(jlabel)
+frame.setDefaultCloseOperation(JFrame::EXIT_ON_CLOSE)
+frame.pack
+frame.setVisible(true)&lt;/p&gt;
+
+&lt;p&gt;Run the above program from the command line as follows:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;jruby javaSwingHello.rb&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Line 2: The second line of the above program enables JRuby’s Java
+support and allows a Ruby program to use Java classes.&lt;/p&gt;
+
+&lt;p&gt;​b. &lt;strong&gt;&lt;em&gt;Calling JRuby from Java&lt;/em&gt;&lt;/strong&gt;. JRuby can just as easily be called
+from Java, using either the JSR 223 Scripting for Java 6 or the &lt;a href=&#34;http://en.wikipedia.org/wiki/Bean_Scripting_Framework&#34;&gt;Apache
+Bean Scripting&lt;/a&gt;
+framework. More information on this is available in the &lt;a href=&#34;http://www.headius.com/jrubywiki/index.php/Main_Page&#34;&gt;JRuby
+Wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;​c. &lt;strong&gt;&lt;em&gt;Running Rails with JRuby&lt;/em&gt;&lt;/strong&gt;. The advantages are obvious. To quote
+the JRuby Wiki:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Gives Rails the power and functionality of Java: Virtual Machine,
+application servers, and libraries.&lt;/li&gt;
+&lt;li&gt;With future JVM and JRuby improvements, JRuby may be faster than
+Matz’ Ruby Interpreter in running Rails&lt;/li&gt;
+&lt;li&gt;Gets Rails in the door of Java shops by making Rails apps into
+Java-platform apps.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To conclude, I am surely liking JRuby and would definitely explore it
+further. &lt;strong&gt;Ignore JRuby at your own peril !&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Resources:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://jruby.codehaus.org/&#34;&gt;JRuby Home Page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.headius.com/jrubywiki/index.php/Main_Page&#34;&gt;JRuby Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.headius.com/jrubywiki/index.php/JRuby_on_Rails&#34;&gt;Rails on
+JRuby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.nabble.com/JRuby---User-f14107.html&#34;&gt;JRuby Forum&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://java.sun.com/developer/technicalArticles/scripting/jruby/&#34;&gt;JRuby and the Java
+Platform&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Go on! &lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/blog/2007/04/27/jruby-caffeinated-ruby/&#34;&gt;Digg
+It&lt;/a&gt;&lt;/strong&gt; !&lt;/p&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/JRuby%3A+Caffeinated+Ruby&#34;&gt;JRuby: Caffeinated
+Ruby&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Java&#34;&gt;Java&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/JRuby&#34;&gt;JRuby&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Ruby&#34;&gt;Ruby&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

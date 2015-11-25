@@ -1,0 +1,1715 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Interview on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/interview/</link>
+    <description>Recent content in Interview on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Jan 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/interview/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Interview: Aaron Quint on Sinatra (Reprint)</title>
+      <link>http://rubylearning.com/blog/2015/01/07/interview-aaron-quint-on-sinatra-reprint/</link>
+      <pubDate>Wed, 07 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/01/07/interview-aaron-quint-on-sinatra-reprint/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: This article first appeared on 20th March 2009 but the original is not accessible; hence the reprint.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    On the eve of the first ever online &amp;#8220;&lt;strong&gt;Introduction to Sinatra&lt;/strong&gt;&amp;#8221; course, Satish Talim of RubyLearning caught up with &lt;strong&gt;Aaron Quint&lt;/strong&gt; and talked to him on &lt;strong&gt;Sinatra&lt;/strong&gt;, in this interview.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/AaronQuint.jpg&#34; alt=&#34;Aaron Quint, USA&#34; title=&#34;Aaron Quint, USA&#34; width=&#34;125&#34; height=&#34;125&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish Talim&gt;&gt;&lt;/strong&gt; Welcome, Aaron and thanks for taking out time to share your thoughts. For the benefit of the readers, could you tell us something about your self?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Aaron Quint&gt;&gt;&lt;/strong&gt; Thanks for having me! I&amp;#8217;m a freelance Ruby developer working in Brooklyn, NY. I&amp;#8217;ve been doing Ruby and Rails for a little over 3 years now, and full time for the last 2 and a half. Recently I&amp;#8217;ve been getting a lot more involved with the open source community. I really love coding in Ruby and at this point I don&amp;#8217;t think any other language has such a great community with such smart and interesting people. I blog (as much as I can) at &lt;a href=&#34;http://www.quirkey.com/blog/&#34;&gt;http://quirkey.com/blog/&lt;/a&gt;. My other passions are food and design and I work with a friend writing about this at &lt;a href=&#34;http://thescoutmag.com/&#34;&gt;http://thescoutmag.com&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;blockquote class=&#34;right&#34;&gt;
+    &lt;p&gt;
+      Sinatra&amp;#8217;s greatest strength is its flexibility
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; You have worked a lot on Rails and Sinatra. How come you got involved with Sinatra? Tell us more about this.&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Aaron&gt;&gt;&lt;/strong&gt; I heard about Sinatra when Blake Mizerany first released it. I thought it was a cool idea, but didn&amp;#8217;t really see the point. Then, in 2008 a number of people started working feverishly on making it a more elegant framework and I started to get involved. I had a sort of &amp;#8216;lightbulb&amp;#8217; moment and realized &amp;#8216;Ah! This can be really useful!&amp;#8217;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; So many Ruby-based web frameworks &amp;#8211; is this good for Ruby? Where does Sinatra fit in?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Aaron&gt;&gt;&lt;/strong&gt; I&amp;#8217;d start off by saying, that Sinatra is really less then a framework. A framework implies a lot of constraints or conventions, however, Sinatra really doesn&amp;#8217;t limit you at all. An application in Sinatra can be a single file, multiple files, or multiple files across directories (more like Rails). There&amp;#8217;s a reason that so much of the Ruby community is focused on building web applications &amp;#8211; most applications and what any of us do on computers is moving towards the web. Ruby is such an elegant language it lends itself to different people having a lot of different ideas on the best way to write web apps. I don&amp;#8217;t think of all these frameworks as being in competition, as we saw with the Rails/Merb merge, everyone is really learning and building on each other&amp;#8217;s ideas and discoveries. Sinatra&amp;#8217;s role is the tool for building web applications when you don&amp;#8217;t need any of the features or overhead of one of the more robust frameworks.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; In your recent article for the &amp;#8220;Rubyist&amp;#8221; magazine, you mention that &amp;#8220;think of Sinatra as a library creating simple HTTP based user interfaces.&amp;#8221; Can you throw more light on this aspect?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Aaron&gt;&gt;&lt;/strong&gt; Sinatra&amp;#8217;s greatest strength is that its so flexible and requires so little to get an app running. This makes it super easy to use it in existing projects. My proposal is that the community should embrace it by including it in their gems or libraries and making simple web interfaces for their code. Everyone loves the command line for its simplicity and directness, but by using Sinatra to build a simple web app to interact with your code, you can make your library much easier (and more fun) to use.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; For a person new to web development, how can one go about learning Sinatra? &lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Aaron&gt;&gt;&lt;/strong&gt; I think Sinatra is a great way to get in to Ruby web development. Its really simple so once you&amp;#8217;ve learned the basics, anything you learn beyond it is learning Ruby and is not Sinatra specific. Right now there aren&amp;#8217;t any dedicated blogs or community sites but the Sinatra homepage: &lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;http://www.sinatrarb.com&lt;/a&gt; has good documentation. If you&amp;#8217;re interested or have questions, Sinatra also has an active mailing list and irc chat room. People are usually happy to answer questions. I would also suggest just searching github for Sinatra and checking out the source of other Sinatra projects &amp;#8211; there are a lot of good open source examples.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Any plans on writing a book on Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Aaron&gt;&gt;&lt;/strong&gt; I wouldn&amp;#8217;t be against it If someone offered me the opportunity &amp;#8211; though it would be a pretty short book.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Do you have any suggestions for RubyLearning&amp;#8217;s &amp;#8220;Introduction to Sinatra&amp;#8221; course participants?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Aaron&gt;&gt;&lt;/strong&gt; Don&amp;#8217;t hesitate to ask questions on the mailing list or in irc. Also if you already have some understanding of Ruby, you should absolutely take a look at Sinatra&amp;#8217;s source. Most of it is contained in a single file and its one of the best open source examples of advanced Ruby.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Thanks Aaron for sharing your views with the &lt;strong&gt;Introduction to Sinatra&lt;sup class=&#39;footnote&#39;&gt;&lt;a href=&#39;#fn-8333-1&#39; id=&#39;fnref-8333-1&#39;&gt;1&lt;/a&gt;&lt;/sup&gt; &amp;#8221; and &amp;#8221; &lt;strong&gt;Introduction to Merb&lt;sup class=&#39;footnote&#39;&gt;&lt;a href=&#39;#fn-8333-2&#39; id=&#39;fnref-8333-2&#39;&gt;2&lt;/a&gt;&lt;/sup&gt; &amp;#8221; course participants.&lt;/span&gt;&lt;/p&gt; 
+    
+    &lt;p&gt;
+      &lt;span style=&#34;font-size: 8pt; font-family: Arial;&#34;&gt;&lt;i&gt;&lt;strong&gt;Disclaimer:&lt;/strong&gt;&lt;/i&gt;&lt;/span&gt;&lt;br /&gt;&lt;span style=&#34;font-size: 8pt; font-family: Arial;&#34;&gt;&lt;i&gt;The opinions expressed are those of Aaron Quint and do not necessarily reflect those of &lt;strong&gt;&lt;a href=&#34;http://rubylearning.org/&#34;&gt;RubyLearning.org&lt;/a&gt;&lt;/strong&gt;.&lt;/i&gt;&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&#34;alert&#34;&gt;
+      &lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; &lt;a href=&#34;http://www.1steasy.com/&#34;&gt;1st Easy Limited&lt;/a&gt; are keen to play an active role in encouraging the adoption of new development technologies, and are delighted to have been given the opportunity to support the work of Satish Talim and his team at RubyLearning. If you&amp;#8217;re a developer, or an alumni of RubyLearning and would like to test your own Sinatra apps or freshly acquired skills, you&amp;#8217;re welcome to take advantage of the free hosting trials that 1st Easy offer: simply visit the &lt;a href=&#34;http://www.1steasy.com/rubylearning.htm&#34;&gt;registration page&lt;/a&gt; and leave your details. The full-featured accounts are yours to do with as you please for one month, after which you can transfer your hard work to a paid account, or walk away with no questions asked!
+    &lt;/p&gt;&lt;/div&gt; 
+    
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&#39;footnotes&#39;&amp;gt;
+  &amp;lt;div class=&#39;footnotedivider&#39;&amp;gt;
+  &amp;lt;/div&amp;gt;
+
+  &amp;lt;ol&amp;gt;
+    &amp;lt;li id=&#39;fn-8333-1&#39;&amp;gt;
+      &amp;lt;/strong&amp;gt;&amp;lt;strong&amp;gt;Introduction to Sinatra&amp;lt;/strong&amp;gt;: Here are the &amp;lt;a href=&amp;quot;http://rubylearning.com/blog/2009/02/25/introduction-to-sinatra-a-new-course/&amp;quot;&amp;gt;course details&amp;lt;/a&amp;gt;. &amp;lt;span class=&#39;footnotereverse&#39;&amp;gt;&amp;lt;a href=&#39;#fnref-8333-1&#39;&amp;gt;&amp;amp;#8617;&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;/li&amp;gt;
+    &amp;lt;li id=&#39;fn-8333-2&#39;&amp;gt;
+      &amp;lt;/strong&amp;gt;&amp;lt;strong&amp;gt;Introduction to Merb&amp;lt;/strong&amp;gt;: Here are the &amp;lt;a href=&amp;quot;http://rubylearning.com/blog/2009/03/02/introduction-to-merb-3rd-batch/&amp;quot;&amp;gt;course details&amp;lt;/a&amp;gt;. &amp;lt;span class=&#39;footnotereverse&#39;&amp;gt;&amp;lt;a href=&#39;#fnref-8333-2&#39;&amp;gt;&amp;amp;#8617;&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;/li&amp;gt;
+  &amp;lt;/ol&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Karel Minarik: How do I learn and master Sinatra? (Reprint)</title>
+      <link>http://rubylearning.com/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/</link>
+      <pubDate>Wed, 07 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: This is reprint of the blog post that appeared on 13th July 2009, as the original is not accessible.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    Welcome to the &lt;b&gt;fourth&lt;/b&gt; installment on the &lt;abbr title=&#34;RubyLearning&#34;&gt;RL&lt;/abbr&gt; blog, of a mini series &amp;#8211; &amp;#8220;&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;&amp;#8221; &amp;#8211; by top Rubyists using &lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn and master Sinatra&lt;/em&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Karel Minarik, could you tell us something about yourself &amp;#8211; your background, where you are based?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Karel Minarik&#34; src=&#34;http://www.rubylearning.com/images/karmi_mugshot.jpg&#34; alt=&#34;Karel Minarik&#34; /&gt;&lt;strong&gt;Karel Minarik&gt;&gt;&lt;/strong&gt; I&amp;#8217;m Karel Minarik, web designer and developer living in Prague, Czech Republic. I have graduated in Philosophy, not Computer Science, which may explain why I love Ruby a lot, and why I prefer solving &amp;#8220;naming things&amp;#8221; over &amp;#8220;cache invalidation&amp;#8221; problems. I earn my bread by designing interfaces, writing Ruby, JavaScript, HTML/CSS and giving people advice or teaching them new tricks. I blog in undecipherable intervals on &lt;a href=&#34;http://www.restafari.org/&#34;&gt;Restafari.org&lt;/a&gt; and publish code regularly at &lt;a href=&#34;http://github.com/karmi/&#34;&gt;Github&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Are there any pre-requisites for a person to start learning Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Very few: you just need to know Ruby a little bit. The rest you can and will learn along the way. In fact, &lt;span style=&#34;background-color: #FFFFCC;&#34;&gt;Sinatra is wonderful teaching tool to deepen your knowledge of Ruby as a general programming language, web application architectures, HTTP and REST principles, concept of middlewares, and so on&lt;/span&gt;. As a wonderful teaching/learning tool it&amp;#8217;s truly on par with _why&amp;#8217;s Shoes.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; You should start with the &lt;a href=&#34;http://github.com/sinatra/sinatra/blob/master/README.rdoc&#34;&gt;README&lt;/a&gt;, which contains almost everything you need to know in its 500 or so lines. Then you should definitely glance over sourcecode of some Sinatra applications &amp;#8220;&lt;a href=&#34;http://www.sinatrarb.com/wild.html&#34;&gt;in the wild&lt;/a&gt;&amp;#8220;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Some of the noteworthy examples would be eg. simple website in waferbaby&amp;#8217;s &lt;a href=&#34;http://github.com/waferbaby/usesthis/tree/master&#34;&gt;usesthis&lt;/a&gt;, background processing tutorial in bmizerany&amp;#8217;s &lt;a href=&#34;http://github.com/bmizerany/sinatra-dj/tree/master&#34;&gt;sinatra-dj&lt;/a&gt;, clever use of Ruby&amp;#8217;s blocks/closures in pjhyett&amp;#8217;s &lt;a href=&#34;http://github.com/pjhyett/github-services/tree/master&#34;&gt;github-services&lt;/a&gt; or ultra minimal apps in ichverstehe&amp;#8217;s &lt;a href=&#34;http://github.com/ichverstehe/gaze/blob/master/bin/gaze&#34;&gt;gaze&lt;/a&gt; or gnugeek&amp;#8217;s &lt;a href=&#34;http://github.com/gnugeek/tophat/tree/master&#34;&gt;tophat&lt;/a&gt;. These examples really elucidate compact and minimal nature of Sinatra.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Then you should sketch something rather small and well defined: web frontend for some Ruby code you have, a web API for some of your services, &amp;#8230;
+  &lt;/p&gt;
+  
+  &lt;blockquote class=&#34;right&#34;&gt;
+    &lt;p&gt;
+      Sinatra &amp;#8211; quickly create tiny web apps and services
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular attention to?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Beginners should pay attention to Sinatra&amp;#8217;s DSL itself: helpers, filters, last_modified and etag support, etc, so they&amp;#8217;re not reinventing the mic and truly make use of it&amp;#8217;s API. More advanced programmers should focus on Rack integration, using Rack middlewares such as &lt;b&gt;Rack::Auth&lt;/b&gt; or &lt;b&gt;Rack::Mime&lt;/b&gt; in your Sinatra app and running Sinatra apps themselves as middlewares. This opens different possibilities of service integration &amp;#8211; have a look on Jon Crosby&amp;#8217;s wonderful explanation in his &lt;a href=&#34;http://mwrc2009.confreaks.com/13-mar-2009-11-05-in-a-world-of-middleware-who-needs-monolithic-applications-jon-crosby.html&#34;&gt;MWRC talk&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for a beginner? Are there areas which need improvement or need to be re-written&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Sinatra&amp;#8217;s &lt;a href=&#34;http://www.sinatrarb.com/documentation.html&#34;&gt;documentation&lt;/a&gt; is pretty extensive at the moment, covering everything from basics to testing your applications and writing extensions. It&amp;#8217;s just a bit scattered at the moment, eg. deployment is covered in the &lt;a href=&#34;http://www.sinatrarb.com/book.html#deployment&#34;&gt;Sinatra Book&lt;/a&gt; started by Chris Schneider. There&amp;#8217;s still some lack of thorough documentation about Rack integration.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord &amp;#8211; which one would you recommend to use with Sinatra and why?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; I prefer ActiveRecord for anything talking to a relational database, because of it&amp;#8217;s clever API, stability, general knowledge and large user base. Don&amp;#8217;t forget that Sinatra is nice playground for experiments with other ORM&amp;#8217;s, key/value stores, etc, though!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Is an understanding of Rack important while learning Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; No, you could start learning Sinatra completely oblivious of something called &amp;#8220;Rack&amp;#8221;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    However, you can use plethora of various &lt;a href=&#34;http://rack.rubyforge.org/doc/Rack.html&#34;&gt;bundled&lt;/a&gt; or &lt;a href=&#34;http://github.com/rack/rack-contrib&#34;&gt;third-party&lt;/a&gt; Rack middlewares very easily by simple &amp;#8216;&lt;b&gt;use Rack::Utils&lt;/b&gt;&amp;#8216; or &amp;#8216;&lt;b&gt;use Rack::Locale&lt;/b&gt;&amp;#8216; declaration for adding some advanced functionality to your application.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    And when you plan to plug Sinatra powered app into a Rails one, for instance, or want to &amp;#8220;mount&amp;#8221; various separated web applications at different endpoints, you should definitely have a detailed look on Rack itself.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; How should one hone one&amp;#8217;s skills in Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; By reading huge amounts of code available on Github. That&amp;#8217;s a sure way how to discover clever solutions and open your mind. (Be sure to include credits if you reuse some code and release your stuff, though.)
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    But the most important thing is to focus on Ruby as an expressive programming language, and to _not_ think about browser first. Think first about the domain of your application and how it translates to Ruby, not about how it should &amp;#8220;look&amp;#8221; or behave in a browser. That&amp;#8217;s very important, but comes next. And don&amp;#8217;t forget it&amp;#8217;s really easy to code test-first in Ruby and in Sinatra.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; What type of projects should a beginner work on to gain more expertise in Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Smallish apps, where Rails would force it&amp;#8217;s conventions on you or which are not primarily focused on database access. Something like cschneid&amp;#8217;s &lt;a href=&#34;http://irclogger.com/&#34;&gt;irclogger&lt;/a&gt;, quirkey&amp;#8217;s &lt;a href=&#34;http://log.quirkey.com/&#34;&gt;columnlog&lt;/a&gt; or entp&amp;#8217;s &lt;a href=&#34;http://calendaraboutnothing.com/&#34;&gt;Calendar About Nothing&lt;/a&gt; &amp;#8212; all very tight, minimal and very elegant apps.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Could you suggest some web services that a Sinatra beginner could develop himself / herself?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; The sweet spot for Sinatra is something along the lines of already mentioned apps. Some ideas I could throw in:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      An app to display metrics about your team activity in a Git repository: who commited most, who commited most lines of code, etc., leveraging power of &lt;a href=&#34;http://github.com/mojombo/grit&#34;&gt;Grit&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      A web frontend for some command-line tool like &amp;#8216;top&amp;#8217; or &amp;#8216;df&amp;#8217; for your servers.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Simple web hook for &lt;a href=&#34;http://github.com/guides/post-receive-hooks&#34;&gt;Github&amp;#8217;s post-receive hooks&lt;/a&gt;, notifiying your developer mailing-list, Jabber, deploying new code to staging server or playing a tune.
+    &lt;/li&gt;
+    &lt;li&gt;
+      More advanced example could be an app to show currently deployed versions of your applications, using small Sinatra apps on each host to emit various metrics like deployed revision and it&amp;#8217;s age, system load, etc in JSON and a Sinatra app to gather the data &amp;#8212; &amp;#8220;emulating&amp;#8221; services like NewRelic, Scout or FiveRun&amp;#8217;s Dash.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Anything else you would like to add?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Do come to the #sinatra IRC channel on Freenode when you get stuck. There&amp;#8217;s usually lots of people from different timezones, so it&amp;#8217;s very likely that we&amp;#8217;ll get you out of trouble fast. Just please read the README first and don&amp;#8217;t name your application file &amp;#8220;sinatra.rb&amp;#8221; &lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt; Have fun with Ruby and Sinatra!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Thank you Karel. In case you have any queries and/or questions, kindly post your questions here (as comments to this blog post) and Karel would be glad to answer.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Others in this series:&lt;/b&gt;
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/&#34;&gt;Corey Donohoe&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/&#34;&gt;Jeremy Evans&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2009/07/10/graham-ashton-how-do-i-learn-and-master-sinatra/&#34;&gt;Graham Ashton&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    &lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; UK based 1st Easy Limited offer Sinatra and Rails hosting running on a Phusion Passenger (mod_rails) and LAMP stack. If you want to try your hand at developing with Sinatra, why not let them arrange a &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm#try&#34;&gt;trial hosting account&lt;/a&gt; for you? You&amp;#8217;ll get to deploy your app, with full technical support from their team!
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interview: Michael Hartl, author of the Ruby on Rails Tutorial (railstutorial.org)</title>
+      <link>http://rubylearning.com/blog/2011/02/18/interview-michael-hartl-author-of-the-ruby-on-rails-tutorial-railstutorial.org/</link>
+      <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/02/18/interview-michael-hartl-author-of-the-ruby-on-rails-tutorial-railstutorial.org/</guid>
+      <description>&lt;div&gt;
+  &lt;p class=&#34;alert&#34;&gt;
+    RubyLearning participants talk to Michael Hartl the author of the Ruby on Rails Tutorial (&lt;a href=&#34;http://ruby.railstutorial.org/&#34;&gt;railstutorial.org&lt;/a&gt;).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Michael Hartl&#34; src=&#34;http://rubylearning.com/images/headshot_smaller.jpg&#34; alt=&#34;Michael Hartl&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish Talim&gt;&gt;&lt;/strong&gt; Welcome Michael and thanks for taking out time for RubyLearning. For the benefit of the readers of this blog could you please introduce yourself and tell us what you do for a living?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; Happy to be here. I&amp;#8217;m a programmer, educator, and entrepreneur. Recently, I&amp;#8217;ve been focused on making educational products and selling them online. I&amp;#8217;ve been doing web development since around 2001 and Rails development since 2005. I also have a background in academic teaching and research, principally in theoretical and computational physics.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    My current products are the Ruby on Rails Tutorial book and the Ruby on Rails Tutorial screencasts. The &lt;a href=&#34;http://railstutorial.org/ruby-on-rails-tutorial-book&#34;&gt;book is available for free online&lt;/a&gt;, for &lt;a href=&#34;http://railstutorial.org/&#34;&gt;buy as a PDF&lt;/a&gt;, and as a &lt;a href=&#34;http://amzn.to/RTbook&#34;&gt;print edition&lt;/a&gt;. The &lt;a href=&#34;http://railstutorial.org/&#34;&gt;screencasts are available for purchase&lt;/a&gt; from the Rails Tutorial website or (if you have a subscription) from Safari Books Online. I especially recommend the &lt;a href=&#34;http://railstutorial.org/&#34;&gt;Rails Tutorial PDF/screencast bundle&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Ricardo Astorquia, Spain&gt;&gt;&lt;/strong&gt; How do you get the right balance for teaching in a book for those folks that may have different backgrounds, where more details are necessary while another reader may need just a little more guidance than just a reference book?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; It&amp;#8217;s important to realize that advanced readers rarely mind a little basic material, especially if including it is a core part of your style, and that basic material helps bring the newbies up to speed. One inspiration is The Economist magazine&amp;#8217;s house style, which usually includes some information about a company or person, no matter how famous; for example, they might write &amp;#8220;General Electric, an American conglomerate&amp;#8221; or &amp;#8220;Steve Jobs, boss of Apple&amp;#8221;. I try always to include enough detail that even a beginner has a place to start if they need further information.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Vince Vincent, USA&gt;&gt;&lt;/strong&gt; Do you intend to create a sequel as new Rails versions are released? If not, what is the speediest way for a Rails developer to progress from here (aside from reading the API which many suggest)?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I plan to keep the &lt;a href=&#34;http://railstutorial.org/&#34;&gt;Ruby on Rails Tutorial&lt;/a&gt; up-to-date. The book is easy to edit, but the screencasts are trickier, so for a while I might only supplement the screencasts. Eventually, though, I anticipate having to re-cut the entire series once Rails has changed enough to justify the effort.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Imhotep Albasiel, USA&gt;&gt;&lt;/strong&gt; Would you be writing about Rails development on Windows in the future?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I am hoping to cover Rails development on Windows in future editions. Part of the issue has been the lack of a standard Windows installation method, but the new &lt;a href=&#34;http://railsinstaller.org/&#34;&gt;Rails Installer&lt;/a&gt; aims to change that, so I&amp;#8217;m optimistic that Rails development will start to take off on Windows.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Samnang Chhun, Cambodia&gt;&gt;&lt;/strong&gt; Is it important to understand Rack when learning Rails?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; Rack is a Ruby library that provides a standard interface between web frameworks and web servers. Most Ruby web frameworks, including Rails and Sinatra, use Rack, and it is certainly important in some contexts, but I think that Rack can be skipped when first learning Rails. It&amp;#8217;s really more of an intermediate-to-advanced topic.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Samnang Chhun, Cambodia&gt;&gt;&lt;/strong&gt; What should I do next to become a Rails guru?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; There are lots of great Rails resources out there, and I particularly recommend &lt;a href=&#34;http://railscasts.com/&#34;&gt;Railscasts&lt;/a&gt; by Ryan Bates. Of course, there&amp;#8217;s no substitute for writing your own application, so I suggest picking a problem that interests you and plunging ahead.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Victor Goff, USA&gt;&gt;&lt;/strong&gt; On January 25th, you were notified that your RailsTutorial was banned by a certain country. Have you cashed in on the notoriety yet!?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I&amp;#8217;m not sure being blocked by the Great Firewall of China is a big enough story to earn me much notoriety. It is weird, though, and disappointing. I guess it means I&amp;#8217;ve made the big time?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Victor Goff, USA&gt;&gt;&lt;/strong&gt; How do you manage having a publication that can be broken by updates in the gems that you use, either in the production directly, or in testing?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; This is a big lesson I learned from my first Rails book, called RailsSpace. In that book, my coauthor and I made the mistake of not using specific version numbers for the gems, but the Ruby on Rails 3 Tutorial book avoids this error. Every one of the gems in the book is tied to a particular version number, so the tutorial is (virtually) guaranteed to work as advertised. Of course, I do occasionally update the book with new gem versions, but I always test the new gems to make sure they work. (The sample application&amp;#8217;s test suite proves invaluable in this context.)
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Robin Gowin, USA&gt;&gt;&lt;/strong&gt; Where do you see Rails going, and what do you think of the Rails &amp;#8211; Merb merger?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I think Rails is off to the races now, especially with the release of Rails 3. The Rails core team and the Merb developers deserve immense credit for setting aside their differences and joining forces to make Rails 3 happen. Given how modular the core of Rails is now, I expect all kinds of great innovation in the next few years.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Mohnish Jadwani, India&gt;&gt;&lt;/strong&gt; If developers want to migrate from an application built on Rails 2 to an application built on Rails 3, what are the challenges one would face for this migration (I understand this would be an app specific question, I only want to know in generic terms). How best can this be dealt?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; Since the Rails Tutorial is aimed mainly at beginners, I didn&amp;#8217;t feel that covering the upgrade from Rails 2 to Rails 3 fit with the core philosophy of the book. Moreover, there are already lots of resources to help make the Rails 2.x to 3.x upgrade, including an e-book dedicated to this subject (Jeremy McAnally&amp;#8217;s &amp;#8220;&lt;a href=&#34;http://www.railsupgradehandbook.com/&#34;&gt;Rails 3 Upgrade Handbook&lt;/a&gt;&amp;#8220;).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Zachary S. Scott, USA&gt;&gt;&lt;/strong&gt; Do you have plans for any other Ruby (non-Rails related) project?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I am contemplating making a Ruby tutorial at some point, but no promises! I&amp;#8217;m also planning to open-source PolyTeXnic, the Ruby program I use to make the HTML and PDF versions of the book.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Zachary S. Scott, USA&gt;&gt;&lt;/strong&gt; What do you think of Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I&amp;#8217;ve only dabbled with Sinatra, but I&amp;#8217;d like to know it better. It seems very clean and elegant.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish Talim&gt;&gt;&lt;/strong&gt; Anything else you would like to add?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; Web development is hard, so don&amp;#8217;t get discouraged if you run into difficulties. All web developers run into difficulties all the time. With practice, you&amp;#8217;ll get better at powering through the problems &amp;mdash and you&amp;#8217;ll also learn that sometimes you have to give up and hack around them. &lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:-)&#34; class=&#34;wp-smiley&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Thank you Michael. In case you have any queries and/or questions, please post your questions here (as comments to this blog post) and Michael would be glad to answer.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hampton Catlin on Haml</title>
+      <link>http://rubylearning.com/blog/2010/10/12/hampton-catlin-on-haml/</link>
+      <pubDate>Tue, 12 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/10/12/hampton-catlin-on-haml/</guid>
+      <description>&lt;p&gt;Recently we asked you about ‘&lt;a href=&#34;http://rubylearning.com/blog/2010/09/28/win-a-prize-by-telling-us-about-your-top-3-most-useful-ruby-gems/&#34;&gt;Your Top 3 Most Useful Ruby
+Gems&lt;/a&gt;‘
+and you all voted &lt;strong&gt;Haml&lt;/strong&gt; to the number 3 spot. In this brief
+interview, Satish Talim of RubyLearning talks to &lt;a href=&#34;http://hamptoncatlin.com/&#34;&gt;Hampton
+Catlin&lt;/a&gt; the inventor of the &lt;a href=&#34;http://haml-lang.com/&#34;&gt;Haml markup
+language&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://hamptoncatlin.com/images/me.jpg&#34; alt=&#34;Hampton
+Catlin&#34; title=&#34;Hampton Catlin&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Welcome Hampton and thanks for taking out time for
+RubyLearning. For the benefit of the readers of this blog could you
+please introduce yourself and tell us what you do for a living?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hampton&amp;gt;&amp;gt;&lt;/strong&gt; I’m a technology hobo. I write applications, sites,
+mobile apps, and anything I can think of. Launching, launching,
+launching. Also, I work with the Wikimedia Foundation as the Lead Mobile
+Developer and am the man behind
+&lt;a href=&#34;http://en.m.wikipedia.org/&#34;&gt;m.wikipedia.org&lt;/a&gt;. Oh yeah, and I also came
+up with Haml years and years ago.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How did you get started with Ruby; what’s your
+background?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hampton&amp;gt;&amp;gt;&lt;/strong&gt; I kept hearing Ruby showing up on Slashdot around 2003.
+I finally bucked up and learned it with the original Pickaxe. I was a
+fresh-faced University drop out at the time and Rails was just coming
+out. Back then it was Rails v Nitro and the Man wasn’t taking Ruby
+seriously.&lt;/p&gt;
+
+&lt;p&gt;I then got a job at Unspace in Toronto and worked there for 3 years
+where I came up with Haml and launched a ton of sites for other people.
+I burned out and decided to start building stuff for myself. And… it
+worked!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; You are the inventor of the Haml markup language. What’s
+Haml from the perspective of a Ruby Noob?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hampton&amp;gt;&amp;gt;&lt;/strong&gt; Haml is an ERB alternative. It helps you write clean,
+structured, clear views. It’s primarily inspired by CSS and Yaml.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Where all can a Ruby Noob use Haml?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hampton&amp;gt;&amp;gt;&lt;/strong&gt; Well, first just install the gem. It doesn’t hurt
+anything. Then, I always recommend trying to change your application
+layout into Haml. It’s the one with the biggest difference as far as
+code quality. And just try to focus on the fact that its like CSS. I
+think that’s the real key to what makes it fun. “A div with the class
+‘item&amp;rsquo;” is written as &lt;code&gt;.item&lt;/code&gt;… Simple! Want something with the id “nav”…
+then its &lt;code&gt;#nav&lt;/code&gt; just like in CSS.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What’s the best way for a Ruby Noob to learn Haml?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hampton&amp;gt;&amp;gt;&lt;/strong&gt; &lt;strong&gt;Nathan Weizenbaum&lt;/strong&gt; is the primary Haml maintainer. He
+has written an excellent &lt;a href=&#34;http://haml-lang.com/&#34;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is there any book on Haml? Do you plan to write one? If
+yes, to whom is the book targeted at?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hampton&amp;gt;&amp;gt;&lt;/strong&gt; There aren’t any books on the subject… but there was
+some talk of doing one a while ago. If people want it, we’re more than
+happy to make it happen. But, I’m not so sure that people are dying for
+it. I think what would be better is front end best practices for a
+programmer using Haml. It’s amazing to see how many programmers don’t
+properly structure the front end. Be friends with your CSS-ninja!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Anything else you would like to add?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hampton&amp;gt;&amp;gt;&lt;/strong&gt; Haml isn’t for everyone. Not at all. When I first wrote
+it I wrote it for me to make sure that my views were bugfree (it
+complains a lot!) and structured semantically. Maybe you don’t care… and
+that’s fine! Maybe you like hand coding…. fine! I’m not offended. It’s
+not for everyone, but you should at least try to experience how it feels
+to code in it. That’s the most important part about a language. How do
+you *feel* when you are expressing your ideas into code. And, for me
+personally, Haml has been a total success in that respect.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Hampton. In case you have any queries and/or questions,
+please post your questions here (as comments to this blog post) and
+Hampton would be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Clojure: A Chat with Andrew Boekhoff</title>
+      <link>http://rubylearning.com/blog/2010/07/29/clojure-a-chat-with-andrew-boekhoff/</link>
+      <pubDate>Thu, 29 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/07/29/clojure-a-chat-with-andrew-boekhoff/</guid>
+      <description>&lt;p&gt;In this brief interview, Satish Talim of RubyLearning talks to &lt;strong&gt;Andrew
+Boekhoff&lt;/strong&gt;, author of
+&lt;a href=&#34;http://github.com/somnium/congomongo&#34;&gt;CongoMongo&lt;/a&gt;, a toolkit for using
+MongoDB with Clojure.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Welcome Andrew and thanks for taking out time to share
+your thoughts. What programming languages have you used seriously?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Andrew&amp;gt;&amp;gt;&lt;/strong&gt; Seriously: Ruby and Clojure. Less Seriously: C, C++, Java
+and now: Haskell, Scheme.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Why and when did you decide to start working on Clojure?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Andrew&amp;gt;&amp;gt;&lt;/strong&gt; I’ve been using Clojure for a little over a year. I had
+read Paul Graham’s essays, so I wanted to try a lisp dialect. I also
+wanted to learn what functional programming was all about. Then I
+watched Rich Hickey’s presentations on Clojure and by that point I was
+pretty much sold.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you name three features of Clojure that you like
+the most, as compared to other languages? Why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Andrew&amp;gt;&amp;gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Immutability&lt;/strong&gt;: Using immutable locals and data structures as the
+default eliminates a huge class of potential errors. I’ve never
+written as much code that worked on the first try in any other
+language. Concurrency is often mentioned as a great benefit from
+pervasive immutability — and it certainly is — but for me, the net
+reduction in complexity is what I love most.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;It’s a Lisp: It has Macros&lt;/strong&gt;: Whether its for shearing off boiler
+plate, or embedding a parser for an internal DSL, the ability to
+easily extend the syntax of the language is a uniquely expressive
+trait of the lisp family.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The immense practicality of the JVM&lt;/strong&gt;: By being hosted on the JVM,
+Clojure comes with batteries-included and can be deployed anywhere
+that Java can (almost anywhere).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; You have written a Clojure wrapper (congomongo) for the
+mongo-db java api. Can you tell us more about this wrapper? Also, why
+did you target MongoDB?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Andrew&amp;gt;&amp;gt;&lt;/strong&gt; I really like working with MongoDB. The combination of
+schema-less document storage and ad-hoc queries is fantastic. The JSON
+format fits Clojure’s data structures well, and the mongo-java-driver is
+high quality and maintained. Congomongo is fairly light-weight — its
+main goal is to make interacting with the database from Clojure
+convenient and idiomatic.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Andrew. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Andrew
+would be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dmitry Lipovoi Winner RPCFN - 10</title>
+      <link>http://rubylearning.com/blog/2010/07/06/dmitry-lipovoi-winner-rpcfn---10/</link>
+      <pubDate>Tue, 06 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/07/06/dmitry-lipovoi-winner-rpcfn---10/</guid>
+      <description>&lt;p&gt;In this brief interview, Satish Talim of RubyLearning talks to &lt;strong&gt;Dmitry Lipovoi
+of Russia&lt;/strong&gt;, winner of the tenth &lt;a href=&#34;http://rubylearning.com/blog/2010/05/25/rpcfn-business-hours-10/&#34;&gt;Ruby Programming Challenge For Newbies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/photo-for-rpcfn.jpg&#34; alt=&#34;Dmitry Lipovoi&#34; title=&#34;Dmitry Lipovoi&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Welcome Dmitry and thanks for taking out time to share
+your thoughts. For the benefit of the readers, could you tell us
+something about your self?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitry&amp;gt;&amp;gt;&lt;/strong&gt; Hey. My name is Dmitry, and I’ve been programming since I
+was 14 years old, when I made my first “Hello World” in Pascal work. I’m
+absolutely sure that programming should be fun if you’re not doing
+something wrong
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How did you get involved with Ruby programming?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitry&amp;gt;&amp;gt;&lt;/strong&gt; About one and a half years back I discovered Ryan Bates’
+RailsCasts. It was really inspiring, so I started to look at how these
+things work. That was my first Ruby experience.&lt;/p&gt;
+
+&lt;p&gt;Then I read a few articles on TDD/BDD in Ruby and that was the point of
+no return. It was so easy and natural in comparison with my Java
+experience that I haven’t stopped playing with it since then.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you name three features of Ruby that you like the
+most, as compared to other languages? Why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitry&amp;gt;&amp;gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;I like Ruby for its pure object oriented approach. I mean, for
+example Java and many other mainstream languages are more “class
+oriented”. They have classes as something special, as their main
+idea. But Ruby is different. Object is the center of the universe in
+Ruby and not class. And it’s really great.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Blocks&lt;/strong&gt;. Definitely one of the most useful things in Ruby. Maybe
+it’s not a unique feature, but it really rocks!&lt;/li&gt;
+&lt;li&gt;Although it’s not a plain feature of the language, I very much like
+Ruby’s approach to testing. The Ruby community is considered as the
+“most testing community” and I like that. Testing makes it easy to
+dig into a new project when you try to understand how things work,
+how they should be used. And almost any open source Ruby project has
+a good test suite.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How was experience of taking part in the Ruby Programming
+Challenge For Newbies (RPCFN)?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitry&amp;gt;&amp;gt;&lt;/strong&gt; It reminds me of the good old days when I participated in
+ICPC. Quite fun.&lt;/p&gt;
+
+&lt;p&gt;Actually not so many challenges judge your code. And I’m glad to see
+that for RPCFN code beauty is important.&lt;/p&gt;
+
+&lt;p&gt;Also it was nice to discover other solutions and see the different
+approaches to the problem. Some of them are really worth looking into.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; You are based in Russia. How is the Ruby and Rails
+scenario there?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitry&amp;gt;&amp;gt;&lt;/strong&gt; Unfortunately Ruby isn’t much popular here.&lt;/p&gt;
+
+&lt;p&gt;Nevertheless the community is growing little by little and I can see
+that a couple of projects, here and there, use Ruby. But it’s still
+nothing in comparison with PHP or Java.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What are your future plans?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitry&amp;gt;&amp;gt;&lt;/strong&gt; In the near future I’d like to move from Java to Ruby
+completely; dig deeper into the Rails 3 source and participate in other
+open source Ruby projects.&lt;/p&gt;
+
+&lt;p&gt;Also, I’m going to participate in Gregory Brown’s Ruby Mendicant
+University this autumn. And I would like to thank him for such an
+opportunity.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Dmitry. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Dmitry
+would be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Benoit Daloze Winner RPCFN - 9</title>
+      <link>http://rubylearning.com/blog/2010/06/01/benoit-daloze-winner-rpcfn---9/</link>
+      <pubDate>Tue, 01 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/06/01/benoit-daloze-winner-rpcfn---9/</guid>
+      <description>&lt;p&gt;In this brief interview, Satish Talim of RubyLearning talks to &lt;strong&gt;&lt;a href=&#34;http://twitter.com/pjb3&#34;&gt;Benoit
+Daloze&lt;/a&gt; of Belgium&lt;/strong&gt;, winner of the ninth &lt;a href=&#34;http://rubylearning.com/blog/2010/04/29/rpcfn-interactive-fiction-9/&#34;&gt;Ruby
+Programming Challenge For
+Newbies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/mePorto125.jpg&#34; alt=&#34;Benoit
+Daloze&#34; title=&#34;Benoit Daloze&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Welcome Benoit and thanks for taking out time to share
+your thoughts. For the benefit of the readers, could you tell us
+something about your self?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benoit&amp;gt;&amp;gt;&lt;/strong&gt; I would first like to thank RubyLearning for all they
+have done. I am a 19 year old student in first bachelor in computer
+sciences (at UCL, Louvain-la-Neuve). I am studying Java at courses, but
+I think I did more Ruby this year. Well, I just can not stop thinking
+“This would be so much better in Ruby”.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How did you get involved with Ruby programming?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benoit&amp;gt;&amp;gt;&lt;/strong&gt; I have been looking on Ruby for some years now. I met
+Ruby the first time as a scripting language in a game software when I
+was 15, and since then always wanted to know more about it. It took me
+some time to learn it, because I did not find the good resources. I feel
+I am getting more and more involved everyday, as does my knowledge of
+Ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you name three features of Ruby that you like the
+most, as compared to other languages? Why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benoit&amp;gt;&amp;gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Metaprogramming&lt;/strong&gt;: This introduces a great way to program, and
+allows you to make it even shorter. It gives me the feeling that I
+really have a control on the objects, because you can so easily
+manipulate them.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexibility&lt;/strong&gt;: Whenever you think you can mix some concepts
+together in Ruby, it just works, limitations are rare, and often out
+of imagination’s bounds. You are pretty much doing it the way you
+want, and Ruby lets you code that way.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Blocks&lt;/strong&gt;: Blocks is a entire way of expression, and the amount of
+complex methods made simple by this is awesome. Just think how you
+would do a #group_by, #each_slice or #partition in other
+languages. Most of the time it would be far more verbose and you
+would likely get a headache. Ruby has brought all the many useful
+things in the core, because it can be expressed in a simple method.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How was experience of taking part in the Ruby Programming
+Challenge For Newbies (RPCFN)?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benoit&amp;gt;&amp;gt;&lt;/strong&gt; I’m participating since the fourth challenge, and I’m
+happy to participate in these interesting challenges. It is also a great
+way to discover other’s code, often very imaginative and original. And
+coding always makes you better in the language, so it is all for the
+best!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; You are based in Belgium. How is the Ruby and Rails
+scenario there?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benoit&amp;gt;&amp;gt;&lt;/strong&gt; People have now started noticing Rails, but this activity
+is mainly driven by some specific companies. Ruby is somehow not known,
+and sadly ignored in universities. ( But I’m trying to remedy that
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+
+)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What are your future plans?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benoit&amp;gt;&amp;gt;&lt;/strong&gt; I am going to work on Rails this summer, to discover this
+part of Ruby I have not used much yet. I’m also doing some Ruby
+everyday, for my own use, just feeling happy to code with a beautiful
+language.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Benoit. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Benoit
+would be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Paul Barry Winner RPCFN - 8</title>
+      <link>http://rubylearning.com/blog/2010/04/29/paul-barry-winner-rpcfn---8/</link>
+      <pubDate>Thu, 29 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/04/29/paul-barry-winner-rpcfn---8/</guid>
+      <description>&lt;p&gt;In this brief interview, Satish Talim of RubyLearning talks to &lt;strong&gt;&lt;a href=&#34;http://twitter.com/pjb3&#34;&gt;Paul
+Barry&lt;/a&gt; of USA&lt;/strong&gt;, winner of the eighth &lt;a href=&#34;2010/04/07/rpcfn-xml-transformer---8/&#34;&gt;Ruby
+Programming Challenge For
+Newbies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/paulbarry.jpg&#34; alt=&#34;Paul
+Barry&#34; title=&#34;Paul Barry&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Welcome Paul and thanks for taking out time to share your
+thoughts. For the benefit of the readers, could you tell us something
+about your self?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul&amp;gt;&amp;gt;&lt;/strong&gt; Sure, I’m a Web Developer from Baltimore, MD. I’ve been
+doing web development for over 10 years in a variety of languages and
+frameworks including Perl, PHP, Java and Ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How did you get involved with Ruby programming?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul&amp;gt;&amp;gt;&lt;/strong&gt; I got started with Ruby programming the same way I suspect
+many other Ruby developers did, which is through Rails. At the time
+Rails hit the scene, I was pretty entrenched as a Java developer. My
+initial reaction to Rails was that it seemed to have a lot of good ideas
+in it, but I figured we could find a way to implement those idea in
+Java. The more I dug into Rails, the more I realized that it was the
+Ruby language that made the clear, powerful abstractions that make up
+Rails possible and that I could use Ruby to create useful abstractions
+in my own code as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you name three features of Ruby that you like the
+most, as compared to other languages? Why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul&amp;gt;&amp;gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Blocks&lt;/strong&gt;: The best thing about blocks is that when you first start
+using Ruby, Ruby’s block syntax gets you to start using anonymous
+functions and higher-order functions all over the place in your code
+without even realizing it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Everything is an object&lt;/strong&gt;: This is makes some aspects of the
+language simple to understand in that everything follows a few
+simple rules. String, Integers, Regexs, and most importantly
+Classes, are all just objects, just data, that you can manipulate at
+runtime.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Class definitions&lt;/strong&gt;: These are just expressions that are evaluated
+at runtime, expressions that have access to the class that is being
+defined. This allows you to create methods that when called will
+generate other methods, such as has_many in Rails.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;When you put these three features together, you have a metaprogramming
+environment that I would argue is as powerful as what Lisp macros give
+you, although I’m sure there are some hardcore Lisp programmers out
+there that would disagree with me.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How was experience of taking part in the Ruby Programming
+Challenge For Newbies (RPCFN)?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul&amp;gt;&amp;gt;&lt;/strong&gt; I’ve really enjoyed it. It’s a great exercise to come up
+with a solution to a problem and then be able to compare your solution
+to what other developers came up with. Most of the challenges so far
+have been just the right size, which is hard enough to make you think
+about it, but short enough to where you can work out an interesting
+solution without having to invest too much time in it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; You are based in Baltimore, USA. How is the Ruby and
+Rails scenario there?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul&amp;gt;&amp;gt;&lt;/strong&gt; Baltimore has a great Ruby and Rails community. Of course,
+&lt;a href=&#34;http://www.railsconf.com/&#34;&gt;RailsConf&lt;/a&gt; is coming to town, which we’re
+all excited about. Many of us that are part of the &lt;a href=&#34;http://bmoreonrails.org/&#34;&gt;B’More on Rails
+group&lt;/a&gt;, are working on various initiatives to
+make sure everyone has a great time at RailsConf. The Baltimore Ruby on
+Rails group has a bunch of smart people that meet regularly at various
+events. We’re always trying to do everything we can to help new people
+become part of the community as well. There’s also a lot of overlap with
+the DC/Northern Virginia communities which are close by and very good as
+well.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What are your future plans?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul&amp;gt;&amp;gt;&lt;/strong&gt; I’m going to Disneyland!&lt;/p&gt;
+
+&lt;p&gt;Just kidding. There is so much stuff I want to learn more about, it’s
+hard to find time for all of it. I really like where Rails is going with
+Rails 3. As much as I love Ruby, I’m also interested in other languages
+as well, especially functional ones like OCaml, Erlang, Clojure, Scala
+and Haskell. I think asynchronous IO/evented frameworks like Node.js and
+EventMachine provide a better model for building network servers.
+Technologies like XMPP and the WebSocket API that’s part of HTML5 are
+also going to be key in the next generation of real-time, connected web
+and mobile applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Paul. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Paul would
+be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dmitriy Nagirnyak Winner RPCFN - 7</title>
+      <link>http://rubylearning.com/blog/2010/04/06/dmitriy-nagirnyak-winner-rpcfn---7/</link>
+      <pubDate>Tue, 06 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/04/06/dmitriy-nagirnyak-winner-rpcfn---7/</guid>
+      <description>&lt;p&gt;In this brief interview, Satish Talim of RubyLearning talks to &lt;strong&gt;Dmitriy
+Nagirnyak of Australia&lt;/strong&gt;, winner of the seventh &lt;a href=&#34;http://rubylearning.com/blog/2010/02/23/rpcfn-broadsides-7/&#34;&gt;Ruby Programming
+Challenge For
+Newbies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/DmitiryNagirnyak.jpg&#34; alt=&#34;Dmitriy
+Nagirnyak&#34; title=&#34;Dmitriy Nagirnyak&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Welcome Dmitriy and thanks for taking out time to share
+your thoughts. For the benefit of the readers, could you tell us
+something about your self?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitriy&amp;gt;&amp;gt;&lt;/strong&gt; First of all I want to say Thanks for the opportunity
+that RubyLearning gives to people. Personally, saying Thanks to Satish
+who drives the site with passion. My name is Dmitriy (Dmytrii or just
+Dima), 27 years old guy who is a Software Engineer by profession and in
+heart. I made my first steps in IT when I was about 14 years old and
+since those days it has become my passion. Sometimes I write things in
+my &lt;a href=&#34;http://dnagir.blogspot.com/&#34;&gt;blog&lt;/a&gt;. I love to spend time with people
+(and have some beer!), play basketball and enjoy driving a car.
+Currently living in Melbourne, though originally came from Ukraine.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How did you get involved with Ruby programming?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitriy&amp;gt;&amp;gt;&lt;/strong&gt; Most of my professional career I have been a Windows,
+C# / .NET developer and, must admit: sometimes had feelings of love and
+hate about it. Though, being working for too long with mostly one
+language, it made sense for me to give a try to something new (I mean it
+– NEW – not just Java or another kind of same-style language) and give
+myself an “educational push”. After reading about different languages
+and platforms I decided that I just must go with Linux+Ruby. Ruby is one
+of not so many languages that I really “felt” and greatly sympathized
+to.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you name three features of Ruby that you like the
+most, as compared to other languages? Why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitriy&amp;gt;&amp;gt;&lt;/strong&gt; This is a bit tough question, but If I could name those
+they would probably be:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Metaprogramming – this allows to build great custom DSLs (Shoulda,
+ActiveRecord, RSpec etc etc).&lt;/li&gt;
+&lt;li&gt;Prototype-based programming – this just switches the way you think
+when comparing to more mainstream languages (C#, Java). It allows
+to do things in so much easier and better way.&lt;/li&gt;
+&lt;li&gt;Lambdas/Blocks – needles to say that this feature is probably most
+commonly used in Ruby community which also simplifies the code very
+heavily. Even though Python has similar idiom, it is not the same at
+all and lambdas/blocks are considered to be one of unique Ruby
+features.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How was experience of taking part in the Ruby Programming
+Challenge For Newbies (RPCFN)?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitriy&amp;gt;&amp;gt;&lt;/strong&gt; The broadsides challenge was very unusual in the way it
+had to be judged: Truth is in the machine. We had to write bots that
+would fight against each other. Apart from number of things I have
+learned (working with Enumerables, Arrays, Strings etc) there was an
+additional requirement set: understanding unknown opponents. So I had to
+figure out the solution that would work as “the best average”. So the
+work done for this challenge was very exciting as the challenge itself.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How is the Ruby and Rails scenario in your country
+Australia?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitriy&amp;gt;&amp;gt;&lt;/strong&gt; It doesn’t feel that Ruby is hitting mainstream yet, but
+definitely there is more and more interest in it. There are number of
+great people who drive the community. A lot of them can be found in Ruby
+On Rails Oceania group. One of the companies here in Melbourne (and
+Sydney too) that uses Ruby stack of technologies is ThoughtWorks and
+they really seem to have bright guys in there. But generally I feel like
+the more Agile-ish a company is the more it is interested in Ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What are your future plans?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitriy&amp;gt;&amp;gt;&lt;/strong&gt; Currently I am resigning from my job and planing to
+change my career to go alongside with Ruby and step away slowly from C#
+(&lt;em&gt;so I’m open to job offers&lt;/em&gt;
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+
+).\
+ It will be a hard and risky life decision. But I feel like I am ready
+to take such a challenge. Hope it will work out well for me.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Dmitriy. In case you have any queries and/or questions,
+kindly post your questions here (as comments to this blog post) and
+Dmitriy would be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rich Hickey talks to RubyLearning&#39;s Clojure Course Participants</title>
+      <link>http://rubylearning.com/blog/2010/04/06/rich-hickey-talks-to-rubylearnings-clojure-course-participants/</link>
+      <pubDate>Tue, 06 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/04/06/rich-hickey-talks-to-rubylearnings-clojure-course-participants/</guid>
+      <description>&lt;p&gt;On the eve of the first free, online “&lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/blog/2010/03/09/clojure-101-a-new-course/&#34;&gt;Clojure
+101&lt;/a&gt;&lt;/strong&gt;”
+course, Michael Kohl of RubyLearning caught up with &lt;strong&gt;Rich Hickey&lt;/strong&gt;, the
+creator of Clojure. In this interview, Rich Hickey talks to the Clojure
+101 course participants on &lt;strong&gt;Clojure&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/RichHickey.jpg&#34; alt=&#34;Rich
+Hickey&#34; title=&#34;Rich Hickey&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Welcome, Rich and thanks for taking out time for
+RubyLearning’s Clojure course participants. For their benefit, could you
+tell us something about yourself?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rich&amp;gt;&amp;gt;&lt;/strong&gt; I’m an independent professional software developer, and the
+author of Clojure. For over 2 decades, I’ve worked on a variety of
+interesting systems – scheduling, yield management, broadcast
+automation, digital audio etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Why and when did you decide to start working on Clojure?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rich&amp;gt;&amp;gt;&lt;/strong&gt; I decided I couldn’t stay interested for 2 more decades if
+I had to keep writing software in C-derived languages like C++/Java/C#.
+I guess I first committed to creating a language in 2005. I wrote
+Clojure because, having great affection for Lisp, I hadn’t been able to
+come up with a satisfying way to bridge Common Lisp and the platforms on
+which I had to deliver systems – the JVM and .Net. In addition, I’d
+decided I wanted to program in a language that was more oriented towards
+functional programming than traditional Lisps.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Many of RubyLearning’s Clojure course participants have
+a Java and or Ruby background. What, according to you, are the benefits
+to these participants after learning Clojure?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rich&amp;gt;&amp;gt;&lt;/strong&gt; I think everyone can benefit by taking a more functional
+approach to programming. The more you use immutable data and pure
+functions, in any programming language, the simpler and more robust your
+programs will be. Clojure makes that idiomatic and relatively
+approachable.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; How should our users go about acquiring knowledge and
+skills in Clojure? What’s the best approach?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rich&amp;gt;&amp;gt;&lt;/strong&gt; Everyone learns differently. I would encourage people to
+get Programming Clojure, and any other available Clojure books. Try
+things out at the REPL – the interactive learning experience is great.
+Look at code in Clojure and various libraries. and don’t miss out on the
+terrific community on the Clojure google group and #clojure IRC
+channel.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Which areas in Clojure should a would-be Clojure
+programmer concentrate on in your opinion?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rich&amp;gt;&amp;gt;&lt;/strong&gt; If you are coming from an OO background, the most
+fundamental thing is to concentrate on programming with values. Don’t
+try to replicate your mutable objects, you need them far less than you
+might think.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Do you think this free online course at RubyLearning
+will be beneficial to the Clojure community?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rich&amp;gt;&amp;gt;&lt;/strong&gt; I hope so!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; After the course, most participants would like to
+contribute their time, skills and expertise to a Clojure project but
+invariably are unaware of where and how to do so. Do you have any
+suggestions for them?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rich&amp;gt;&amp;gt;&lt;/strong&gt; Get engaged with the community on the Clojure google group,
+find libraries that are useful to you, use them, then see if you have
+something to add and coordinate with the library author.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Do you have any parting words for our Clojure course
+participants? Anything you would like to share with them?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rich&amp;gt;&amp;gt;&lt;/strong&gt; Clojure is based on the idea that programming can and
+should be much less complex. Once you get past any unfamiliarity, I hope
+you come to cherish the simplicity that underlies it.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Rich. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Rich would
+be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Amit Rathore talks to RubyLearning&#39;s Clojure Course Participants</title>
+      <link>http://rubylearning.com/blog/2010/03/18/amit-rathore-talks-to-rubylearnings-clojure-course-participants/</link>
+      <pubDate>Thu, 18 Mar 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/03/18/amit-rathore-talks-to-rubylearnings-clojure-course-participants/</guid>
+      <description>&lt;p&gt;On the eve of the first free, online “&lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/blog/2010/03/09/clojure-101-a-new-course/&#34;&gt;Clojure
+101&lt;/a&gt;&lt;/strong&gt;”
+course, Michael Kohl of RubyLearning caught up with &lt;strong&gt;Amit Rathore&lt;/strong&gt;,
+author of the forthcoming book – &lt;a href=&#34;http://www.clojureinaction.com/&#34;&gt;Clojure in
+Action&lt;/a&gt;. In this interview, Amit
+Rathore talks to the Clojure 101 course participants on &lt;strong&gt;Clojure&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/amitrathore.png&#34; alt=&#34;Amit
+Rathore&#34; title=&#34;Amit Rathore&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Welcome, Amit and thanks for taking out time for
+RubyLearning’s Clojure course participants. For their benefit, could you
+tell us something about yourself?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Amit&amp;gt;&amp;gt;&lt;/strong&gt; I’ve been programming since I was 11, and been designing
+and developing software systems in a professional setting for about ten
+years now. The last few years have seen me transition from Java to Ruby,
+along with a smattering of other languages such as Python, Scheme, and
+Smalltalk. Since late 2008, I’ve been using Clojure full-time. I’ve made
+a few open-source contributions to the Clojure community – some examples
+are data-mappers for HBase and Redis, and another one called Swarmiji
+which allows you to write distributed programs (that span multiple CPUs,
+not just multiple cores) in Clojure. I’m currently the Chief Software
+Architect at a startup called &lt;a href=&#34;http://runa.com/&#34;&gt;Runa&lt;/a&gt;, in Mountain
+View, CA. We are a provider of SaaS solutions to online e-tailers to
+enable them to provide real-time, analytics-driven promotions to their
+shoppers. More than 90% of our backend is written in Clojure.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; How did you get involved with Clojure?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Amit&amp;gt;&amp;gt;&lt;/strong&gt; As I said earlier, I’ve used Scheme on my personal projects
+from time to time. At Runa, we always knew we could benefit from using a
+Lisp for our back-end, what with all the analytics and machine-learning
+that the system needs to do. When all the scalability requirements were
+thrown in, we seriously considered using Erlang, thanks to it being
+functional and its concurrency support. It was just around then that the
+Clojure community really started taking off, and we decided to try it
+out. We’ve never looked back, and we’re extremely pleased with the
+outcome so far. Our analytics-powered, adaptive, conversion-marketing
+engine is miles ahead of any potential competition… and we can add
+features (and make sure things still work, and are as performant as
+needed) faster than any potential competition. If you have read Paul
+Graham’s essay called Beating The Averages, you know what I’m talking
+about. In Jan 2009, following our initial Clojure deployment, I started
+the &lt;a href=&#34;http://www.meetup.com/The-Bay-Area-Clojure-User-Group/&#34;&gt;Bay Area Clojure User
+Group&lt;/a&gt;. It’s
+going to host its 17th Meetup next month. It’s great to see the
+community growing, and its great being a part of it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; You are currently writing “Clojure in Action”. What can
+you tell us about the book?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Amit&amp;gt;&amp;gt;&lt;/strong&gt; When Manning Publications contacted me regarding a new
+Clojure book, they wanted something different from what was already
+available, and what they knew was in progress. When we discussed my
+Clojure experience and startup background, we came up with the concept
+of the Clojure in Action book. The idea basically resulted in a Clojure
+book that does a few things:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Teaches Clojure from first principles i.e. why are certain things
+the way they are, and how they’re better than what currently exists
+in popular languages.&lt;/li&gt;
+&lt;li&gt;Teaches a developer new to Clojure to get going after reading the
+book – it answers the “OK, what now?” question – by addressing
+issues like test-driven development, IDEs, dependency management,
+debugging/profiling, and so on.&lt;/li&gt;
+&lt;li&gt;Real-world usage for web-scale applications – from all the
+experience I’ve gleaned working with HBase, Redis, RabbitMQ, Amazon
+services, Hadoop/MapReduce, and so on.&lt;/li&gt;
+&lt;li&gt;And finally, advanced usage of macros to build DSLs (domain-specific
+languages). So readers of all levels will get something from the
+book – folks new to Clojure can get started quickly, while
+intermediate to advanced users can gain also.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Many of RubyLearning’s Clojure course participants have
+a Java and or Ruby background. What, according to you, are the benefits
+to these participants after learning Clojure?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Amit&amp;gt;&amp;gt;&lt;/strong&gt; The functional approach is just a better way to program. So
+that, in itself, is a huge learning opportunity. In the words of Eric
+Raymond, the famed hacker, “LISP is worth learning for a different
+reason — the profound enlightenment experience you will have when you
+finally get it. That experience will make you a better programmer for
+the rest of your days, even if you never actually use LISP itself a
+lot.” And the great news is that Clojure, the latest incarnation of
+LISP, is actually so usable that once you start, you will never want to
+program in any other language again. This influence includes
+meta-programming, which will especially benefit Ruby folks. On the other
+hand, it will also make developers from both the camps (especially Java)
+realize just how limiting their languages are. Actually, this is also a
+good thing.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Why do you think that such a free, online Clojure course
+at RubyLearning would be beneficial to the Clojure community?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Amit&amp;gt;&amp;gt;&lt;/strong&gt; Clojure will only succeed if more and more people adopt it.
+While it is a no-brainer once you understand what it offers in terms of
+productivity and code-quality, it has the initial problem of
+getting-the-word-out. Such a free, online course can do this quite
+effectively.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; How should they go about acquiring knowledge and skills
+in Clojure? What’s the best approach?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Amit&amp;gt;&amp;gt;&lt;/strong&gt; There is one book published so far, and several coming out.
+Those are good resources. There are plenty of tutorials online, as well
+as a ton of open-source code which can be great resources. There are
+several very active Clojure user groups around the country, and indeed
+all over the world. Also, the IRC channel is fantastic.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Which areas in Clojure should a would-be Clojure
+programmer concentrate on?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Amit&amp;gt;&amp;gt;&lt;/strong&gt; Functional programming would be an important topic. People
+coming from an imperative background have to sort of re-wire their
+brains. Another topic is “the Lisp way”, which is this idea of bottom-up
+design (as opposed to the traditional top-down approach to breaking
+things down). Creating mini-languages (fashionably called Domain
+Specific Languages these days) that allow the developer to program at a
+much higher-level of abstraction is another important design philosophy.
+These I’d say are things that take time to really “get into”… so some
+deliberate attention should be paid them. Other things, such as
+Clojure’s concurrency mechanism are also important, and yet easy to
+learn and use.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Do you have any suggestions for RubyLearning’s Clojure
+course participants? Anything you would like to share with them?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Amit&amp;gt;&amp;gt;&lt;/strong&gt; I’d just like to say this: As developers gain experience,
+they learn certain things that become guiding principles. One such thing
+is the power of abstractions. As they gain expertise of the programming
+language they’re using, they discover the natural limit to the kind of
+abstractions that their language of choice can create. They realize that
+certain things just can’t be expressed in that language. At times this
+manifests in wishing that the language had this feature or that. Lisp
+frees you from such tyranny. The parenthesis are there for a reason, and
+that reason is to make the macro system possibly. And that makes
+wonderful things happen. And Clojure is an incredible Lisp. So, stay
+with it, give it a real go, the parenthesis disappear in a few days, and
+the real power becomes apparent. And then you can never go back
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; After the course, most participants would like to
+contribute their time, skills and expertise to a Clojure project but
+invariably are unaware of where and how to do so. Could you suggest how
+this can be achieved?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Amit&amp;gt;&amp;gt;&lt;/strong&gt; There are plenty of open-source projects that add something
+to the Clojure world. GitHub is a great place to start looking, and
+there are others.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; On a final note: What do you perceive as the future of
+Clojure?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Amit&amp;gt;&amp;gt;&lt;/strong&gt; We are all craftsmen: programming languages and software
+requirements are our raw material. Given that complexity of software
+requirements is continuing to grow, it behooves us all to use better and
+better tools and languages to create the next software system. As a
+matter of fact, tomorrow’s software almost needs to be adaptive – it
+needs to learn and adjust its behavior based on things like the data
+that it sees, or patterns of usage, and so on. This kind of complexity
+needs really flexible and powerful tools on the implementation side. A
+Lisp is a natural fit for such a dynamic, demanding world. Further,
+Clojure’s functional and concurrency story is very strong – as software
+moves to clouds of multi-core CPUs, this becomes a great advantage.
+Finally, being able to leverage battle-tested Java libraries in such a
+seamless manner is another boon. I see more and more people being
+enlightened about these issues, and more and more adoption of Clojure.
+I’d be very surprised if it doesn’t become the discerning developer’s
+first choice within the next couple of years.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Amit. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Amit would
+be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Michael Fogus talks to RubyLearning - Clojure Course Participants</title>
+      <link>http://rubylearning.com/blog/2010/03/10/michael-fogus-talks-to-rubylearning---clojure-course-participants/</link>
+      <pubDate>Wed, 10 Mar 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/03/10/michael-fogus-talks-to-rubylearning---clojure-course-participants/</guid>
+      <description>&lt;p&gt;On the eve of the first free, online “&lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/blog/2010/03/09/clojure-101-a-new-course/&#34;&gt;Clojure
+101&lt;/a&gt;&lt;/strong&gt;”
+course, Michael Kohl of RubyLearning caught up with &lt;strong&gt;Michael Fogus&lt;/strong&gt;,
+author of the forthcoming book – &lt;a href=&#34;http://joyofclojure.com/&#34;&gt;The Joy of
+Clojure&lt;/a&gt;. In this interview, Michael Fogus
+talks to the Clojure 101 course participants on &lt;strong&gt;Clojure&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/fogus.jpg&#34; alt=&#34;Michael
+Fogus&#34; title=&#34;Michael Fogus&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Welcome, Fogus and thanks for taking out time for
+RubyLearning’s Clojure course participants. For their benefit, could you
+tell us something about yourself?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fogus&amp;gt;&amp;gt;&lt;/strong&gt; I am a software programmer in the Washington DC area with
+a background in Java, C, and C++ creating expert systems, hard real-time
+acquisition systems, machine vision, and distributed simulations. Over
+the past couple years I’ve been working professionally with Scala and
+Java/GWT creating web services and user interfaces. On my own time I am
+writing a book for Manning Publishing with a great hacker Chris Houser
+titled “The Joy of Clojure” due out in fall 2010. I am an official
+external contributor to the Scala language project, but have been
+grossly negligent in that respect since starting the work on the book.
+Finally, my only other claim to fame is that I am the “official”
+custodian of why the lucky stiff’s little language Potion.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; How and when did you get involved with Clojure?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fogus&amp;gt;&amp;gt;&lt;/strong&gt; Sometime around October of 2007 I stood at a crossroads. I
+had always loved Lisp having used it in undergrad and grad school and
+like many programmers of a certain generation found Paul Graham’s Lisp
+essays highly inspirational. So around that time I decided to finally
+bite the bullet and really learn *a* Lisp as deeply as I could and
+like many programmers, I decided to write my own. Actually, what I
+started writing was a dialect of Scheme in Java that was complete and
+utter rubbish, but while researching implementations of big numbers I
+came across a Sourceforge project about a language called Clojure. Well,
+soon after I scrapped my Scheme as a lost cause and instead decided to
+dig deeper into Clojure by using it to write a few pet projects; but was
+still mostly just dabbling. However, while reading through Graham’s “On
+Lisp” I thought it might be a good idea to port the examples from the
+book as a public project to elicit feedback about my style, Clojure
+idioms, etc… That exercise turned out to be a huge success for me
+because the unbelievably helpful Clojure community was the final and
+definitive selling point for the language.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.manning.com/fogus/fogus_cover150.jpg&#34; alt=&#34;The Joy of
+Clojure&#34; title=&#34;The Joy of Clojure&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; You are currently writing “The Joy of Clojure” for
+Manning Publications. What can you tell us about the book and your
+co-author Chris Houser?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fogus&amp;gt;&amp;gt;&lt;/strong&gt; There are a few Clojure books coming out including our
+own, but I think that ours stands out because it’s meant as the “next”
+book on Clojure. That is, we intend to cover not only many of the
+advanced techniques, but are also trying to develop the story of
+Clojure, or rather the “why” of Clojure. Much of what comprises Clojure
+has been done before (although there are plenty of novel ideas also),
+but the confluence of features is so well put together that we feel that
+readers can come away from a discussion of these underlying ideas a
+better programmer overall. As far as my co-author goes, Chris Houser is
+likely the most knowledgeable person in the world about Clojure not
+named Rich Hickey. It’s been a challenge keeping up with him because the
+guy is an endless fount of Clojure knowledge and eats difficult
+programming problems for breakfast. It’s very motivational for me to
+push out quality content with Houser as the co-author.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Many of RubyLearning’s Clojure course participants have
+a Java and or Ruby background. Why, in your opinion, should they learn
+Clojure?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fogus&amp;gt;&amp;gt;&lt;/strong&gt; My knowledge of Ruby is superficial at best, so I hope I
+do not speak out of turn. Having said that, I think that object-oriented
+programming languages in general tend to foster very large solution
+spaces. Another interesting point to take away from Clojure is that
+immutable data is king. Applications built with the typical
+object-oriented idioms are structured as graphs of mutable objects that
+is difficult to reason about. However, there is a mountain of
+single-threaded code written that seems to be “reasonable”. But with the
+advent of multicore CPUs replacing the perpetually rising processor
+clock speeds, the need to leverage those cores to gain application speed
+will be very important. From day one Clojure has been designed and built
+to make concurrent (and in some instances parallel) programming … well,
+not easy, because it’s still a very hard problem … possible. Right now I
+think there is no language, at least that I’m familiar with, that
+facilitates the process of writing applications using shared-memory
+concurrency quite like Clojure does.&lt;/p&gt;
+
+&lt;p&gt;More generally, Clojure favors simplicity in design and implementation,
+with the core tenet being that most problems can be viewed as some
+combination of maps, sets, and sequences rather than complex hierarchies
+of classes. As a result, Clojure is built to make the case of handling
+these abstractions very efficiently. The same efficiencies might not
+necessarily be available in either Ruby or Java, but the overarching
+goal is the same — striving for simplicity. Finally, Clojure is a
+functional programming language at its core and with many programming
+languages subsuming some subset of functional ideals, thinking
+functionally will be an important skill to cultivate moving forward.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Why do you think that such a free, online Clojure course
+at RubyLearning would be beneficial to the Clojure community?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fogus&amp;gt;&amp;gt;&lt;/strong&gt; I think so. Clojure only celebrated its 2nd birthday late
+last year, but it’s influence is already being felt throughout the
+programming landscape. For example, Clojure’s JVM cousin Scala is
+planning to adopt some of Clojure’s immutable, persistent, data
+structures for its 2.8 release. People are talking about Clojure and are
+hungry for more information, and anything that can spread information
+about its benefits is great. All the better if people can get some value
+from the proposition.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; How should interested developers go about acquiring
+knowledge and skills in Clojure? What’s the best approach?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fogus&amp;gt;&amp;gt;&lt;/strong&gt; It’s hard to say since I can only speak from my
+perspective, but keeping that in mind I say the best way is to write a
+lot of Clojure code. There is a proverb about the game Go that goes
+“Lose Your First 100 Games As Quickly As Possible”; it’s this phrase
+perfectly describes how I went about learning Clojure. Additionally, I
+can’t stress enough the fervent desire to help that pervades the Clojure
+community. I think Rich Hickey has done a great job in setting the tone
+of the community and leading by example. There is a &lt;a href=&#34;http://groups.google.com/group/clojure%20&#34;&gt;Clojure message
+group&lt;/a&gt; and an IRC channel on
+freenode.net #clojure where really smart people go to talk about
+Clojure all day long — drop by, ask questions.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Do you see any areas in the language a would-be Clojure
+programmer should concentrate on?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fogus&amp;gt;&amp;gt;&lt;/strong&gt; The immediate things that *must* be focused on are the
+immutable data structures, laziness, and functional programming styles.
+There is really no way around those, and this is a good thing because
+they will force you to think about writing code differently. However,
+aside from the things that you have no control over I would say that
+neophytes should look into the interoperability that Clojure provides
+for its host platform. In most cases people will use the Java Virtual
+Machine as the host, but there are currently projects targeting the .NET
+platform and Javascript. You can’t go wrong exploring Clojure’s
+reference types for concurrency: atoms, agents, refs, futures, promises,
+and cells (a feature currently being developed). Finally, the next
+release of Clojure will provide new features, types and protocols for
+structuring your larger codebases in abstract and powerful ways.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; After the course, most participants would like to
+contribute their time, skills and expertise to a Clojure project but
+invariably are unaware of where and how to do so. Could you suggest how
+this can be achieved?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fogus&amp;gt;&amp;gt;&lt;/strong&gt; Seriously with the onslaught of GitHub there is no longer
+an excuse not to contribute to open-source projects. Just recently
+Clojure moved into the top-20 most-popular languages on GitHub, so there
+are plenty of opportunities to contribute to many interesting Clojure
+projects.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Do you have any suggestions for RubyLearning’s Clojure
+course participants? Anything you would like to share with them?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fogus&amp;gt;&amp;gt;&lt;/strong&gt; Well, the fact that they are taking the time to work
+through the Clojure course is a good start. It’s tough to motivate
+people who are already self-motivated. I guess I’d say to keep it up.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; On a final note: What do you perceive as the future of
+Clojure?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fogus&amp;gt;&amp;gt;&lt;/strong&gt; Clojure stands as a direct call to action to both Java and
+Common Lisp, so minimally it should stimulate some growth in both. I
+also think that Clojure’s efficient persistent collection types have all
+but signaled the beginning of the end for mutable structures. More and
+more languages moving forward will adopt Clojure’s collections outright,
+or further their state of the art. Likewise, Clojure’s novel
+implementation of Software Transactional Memory system modeled on
+database principles (e.g. Multiversion Concurrency Control) for some of
+its concurrency features will likely find larger adoption in other
+languages. Finally, Clojure in its own right will continue to grow in
+popularity as the Lisp that finally breaks through into the mainstream.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Fogus. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Fogus would
+be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Stuart Halloway talks to RubyLearning&#39;s Clojure Course Participants</title>
+      <link>http://rubylearning.com/blog/2010/03/10/stuart-halloway-talks-to-rubylearnings-clojure-course-participants/</link>
+      <pubDate>Wed, 10 Mar 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/03/10/stuart-halloway-talks-to-rubylearnings-clojure-course-participants/</guid>
+      <description>&lt;p&gt;On the eve of the first free, online “&lt;strong&gt;Clojure 101&lt;/strong&gt;” course, Michael
+Kohl of RubyLearning caught up with &lt;strong&gt;Stuart Halloway&lt;/strong&gt;, author of
+&lt;a href=&#34;http://www.pragprog.com/titles/shcloj/programming-clojure&#34;&gt;Programming
+Clojure&lt;/a&gt; and
+talked to him on &lt;strong&gt;Clojure&lt;/strong&gt;, for the benefit of the &lt;a href=&#34;http://rubylearning.com/blog/2010/03/09/clojure-101-a-new-course/&#34;&gt;Clojure 101
+course&lt;/a&gt;
+participants.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/stuart_halloway.jpg&#34; alt=&#34;Stuart Halloway,
+USA&#34; title=&#34;Stuart Halloway, USA&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Welcome, Stuart and thanks for taking out time for
+RubyLearning’s Clojure course participants. For their benefit, could you
+tell us something about yourself?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Stuart&amp;gt;&amp;gt;&lt;/strong&gt; Along with Justin Gehtland, I co-founded
+&lt;a href=&#34;http://thinkrelevance.com/&#34;&gt;Relevance&lt;/a&gt;, a development shop that takes
+pride in staying near the cutting edge. We were early adopters of Ruby
+(and Rails), are are now early adopters of Clojure.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; How and when did you get involved with Clojure?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Stuart&amp;gt;&amp;gt;&lt;/strong&gt; I have been interested in Lisps for years, as a result of
+living in Emacs and reading Paul Graham and Steve Yegge. I discovered
+Clojure in early 2008, and quickly realized that it was the Lisp I had
+been looking for.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; You were closely involved with the Ruby language, what
+made you switch to Clojure?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Stuart&amp;gt;&amp;gt;&lt;/strong&gt; I still use Ruby, but it is fair to say that Clojure is
+currently my favorite general-purpose language. In short: I came for the
+Lisp, and I stayed for the fp and concurrency features.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Many of RubyLearning’s Clojure course participants have
+a Java and or Ruby background. Why, in your opinion, should they learn
+Clojure?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Stuart&amp;gt;&amp;gt;&lt;/strong&gt; Used well, Clojure will be as fast as Java, as expressive
+as Ruby, and more thread-safe and multicore-ready than either. It is
+also one of those languages that rewires your brain, and makes you a
+better programmer in other languages.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Why do you think that such a free, online Clojure course
+at RubyLearning would be beneficial to the Clojure community?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Stuart&amp;gt;&amp;gt;&lt;/strong&gt; There have already been many Ruby programmers exploring
+Clojure, and it is a natural fit. In my experience, the Ruby community
+is fearless: tell them there is a better way and they will dive in an
+see for themselves, rather than becoming defensive.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://assets0.pragprog.com/images/covers/190x228/shcloj.jpg?1236205285&#34; alt=&#34;Programming
+Clojure&#34; title=&#34;Programming Clojure&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; How should interested developers go about acquiring
+knowledge and skills in Clojure? What’s the best approach?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Stuart&amp;gt;&amp;gt;&lt;/strong&gt; Well, there’s a book.
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:-)&#34; /&gt;
+
+&lt;a href=&#34;http://www.pragprog.com/titles/shcloj/programming-clojure&#34;&gt;Programming
+Clojure&lt;/a&gt;. And
+several more books are coming. But really there is no substitute for
+trying things out. There is a lot going on in Clojure, particularly if
+you have not been exposed to functional programming, or Lisp, so you
+have to be patient and let it steep. Also, join the &lt;a href=&#34;http://groups.google.com/group/clojure/&#34;&gt;mailing
+list&lt;/a&gt;. The community is
+remarkably friendly and supportive.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael&amp;gt;&amp;gt;&lt;/strong&gt; Do you see any areas in the language a would-be Clojure
+programmer should concentrate on?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Stuart&amp;gt;&amp;gt;&lt;/strong&gt; Clojure’s approach to values, identity, and
+&lt;a href=&#34;http://clojure.org/state&#34;&gt;state&lt;/a&gt; is game-changing, and most people will
+need to spend some time with it to appreciate its power. If you haven’t
+already, definitely watch Rich’s keynote from last year’s &lt;a href=&#34;http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey&#34;&gt;JVM Languages
+Summit&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Stuart. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Stuart
+would be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Guillaume Petit Winner RPCFN - 6</title>
+      <link>http://rubylearning.com/blog/2010/02/26/guillaume-petit-winner-rpcfn---6/</link>
+      <pubDate>Fri, 26 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/02/26/guillaume-petit-winner-rpcfn---6/</guid>
+      <description>&lt;p&gt;In this brief interview, Satish Talim of RubyLearning talks to
+&lt;strong&gt;Guillaume Petit of France&lt;/strong&gt;, winner of the sixth
+&lt;a href=&#34;http://rubylearning.com/blog/2010/01/26/rpcfn-fair-distribution-6/&#34;&gt;Ruby Programming Challenge For Newbies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/guillaume_petit.jpg&#34; alt=&#34;Guillaume Petit&#34; title=&#34;Guillaume Petit&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Welcome Guillaume and thanks for taking out time to share
+your thoughts. For the benefit of the readers, could you tell us
+something about your self?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Guillaume&amp;gt;&amp;gt;&lt;/strong&gt; Thanks Satish for the opportunity. My name is
+Guillaume Petit a 26 year old nomad who sets off on a journey in the
+world of programming languages and has not come back yet! Aside from
+this, my main hobbies are reading manga, watching movies ( I am
+especially looking for great quotes ) or just stumbling on the Internet!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How did you get involved with Ruby programming?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Guillaume&amp;gt;&amp;gt;&lt;/strong&gt; It started about two years back when I discovered Ruby
+on Rails. I was more curious about this framework than Ruby itself at
+first (which I did not know), but I quickly got hooked by the language.
+Since then, I have been using Ruby for daily scripts here and there and
+continue to play with it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you name three features of Ruby that you like the
+most, as compared to other languages? Why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Guillaume&amp;gt;&amp;gt;&lt;/strong&gt; Ok, the first feature I really enjoy are &lt;strong&gt;blocks&lt;/strong&gt;.
+Blocks offer a very powerful, yet easy way to deal with loops,
+iterations and nameless functions. It’s almost natural. What is really
+interesting is that when I started using blocks, I did not really
+understand the mechanism beneath, but yet, I was able to make good use
+of them.&lt;/p&gt;
+
+&lt;p&gt;Then I would go for the elegance and agility of the syntax. It’s an
+important point for me, a language needs to be pleasant when it comes to
+writing code, and in Ruby, it’s just a breeze.&lt;/p&gt;
+
+&lt;p&gt;The last point is more a way of doing things that a plain feature, I
+think. I am talking about testing. Ruby makes it really easy to test
+your code, and the Ruby community has largely adopted this practice.
+Using Ruby really made me aware of the importance of using tests, which
+I never did before with other languages that I used; so let’s call it a
+feature for today.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How was experience of taking part in the Ruby Programming
+Challenge For Newbies (RPCFN)?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Guillaume&amp;gt;&amp;gt;&lt;/strong&gt; It was fun. I like those challenges because they make
+you think and use the language in a way you may not be familiar with.
+While resolving the problem, you learn more about the language. It’s a
+very efficient way to progress.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How is the Ruby and Rails scenario in your country
+France?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Guillaume&amp;gt;&amp;gt;&lt;/strong&gt; It’s not quite as popular as I would like it to be,
+but it’s making its way in.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What are your future plans?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Guillaume&amp;gt;&amp;gt;&lt;/strong&gt; You really hit the spot with this question since I am
+actually looking for the answer myself. I guess I will have to win the
+next challenge, this will give me some more time to answer!
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_wink.gif&#34; alt=&#34;;-)&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;More seriously, I am actually working on a Rails application to create
+and manage web surveys, and maybe I will do an iPhone version of it!&lt;/p&gt;
+
+&lt;p&gt;See you on the next challenge !&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Guillaume. In case you have any queries and/or questions,
+kindly post your questions here (as comments to this blog post) and
+Guillaume would be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Patrick McKenzie Winner RPCFN - 5</title>
+      <link>http://rubylearning.com/blog/2010/01/21/patrick-mckenzie-winner-rpcfn---5/</link>
+      <pubDate>Thu, 21 Jan 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/01/21/patrick-mckenzie-winner-rpcfn---5/</guid>
+      <description>&lt;p&gt;In this brief interview, Satish Talim of RubyLearning talks to &lt;strong&gt;Patrick
+McKenzie of Japan&lt;/strong&gt;, winner of the fifth &lt;a href=&#34;http://rubylearning.com/blog/2009/12/27/rpcfn-mazes-5/&#34;&gt;Ruby Programming Challenge For
+Newbies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/patrick-125x125.jpg&#34; alt=&#34;Patrick McKenzie&#34; title=&#34;Patrick McKenzie&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Welcome Patrick and thanks for taking out time to share
+your thoughts. For the benefit of the readers, could you tell us
+something about your self?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Patrick&amp;gt;&amp;gt;&lt;/strong&gt; Thanks Satish for the opportunity. My name is Patrick
+McKenzie and by day I work on big freaking Java web apps at a Japanese
+corporation in Nagoya. By night, I run a &lt;a href=&#34;http://www.bingocardcreator.com/&#34;&gt;small software business&lt;/a&gt;,
+which sells desktop software written in Java and a web application written in
+Ruby on Rails. I also &lt;a href=&#34;http://www.kalzumeus.com/&#34;&gt;blog&lt;/a&gt; a bit, mostly on
+business and programming topics.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How did you get involved with Ruby programming?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Patrick&amp;gt;&amp;gt;&lt;/strong&gt; About two years ago, when I was trying to make my
+business’ website a little more impressive than hand-coded HTML
+everywhere, I thought writing myself a custom CMS (content management
+system) would help me produce things my customers would like faster than
+writing them all by hand. However, since I could only do it on nights
+and weekends, I couldn’t exactly find the time to do it on the J2EE
+stack. I bought a pair of books on Ruby on Rails, fell in love with
+Ruby, and the rest is history.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you name three features of Ruby that you like the
+most, as compared to other languages? Why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Patrick&amp;gt;&amp;gt;&lt;/strong&gt; It would be hard to limit it to three, but here goes:&lt;/p&gt;
+
+&lt;p&gt;​1. A lot of Ruby code functions rather like Unix: small, discrete bits
+of code which operate together very well. For example, to read a
+property file in Ruby:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;File.readlines(&amp;quot;property.txt&amp;quot;)
+  .map {|line| line.split(&amp;quot;#&amp;quot;)[0]}
+  .map {|line| line.split(&amp;quot;=&amp;quot;)}
+  .inject({}) {|hash, couplet| hash[couplet[0]]=couplet[1]; hash}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;does all the work for you. That is a trivial example in Ruby which would
+take me almost a page to write in Java (well, assuming I wasn’t using a
+library function, but you get the drift.)&lt;/p&gt;
+
+&lt;p&gt;​2. I think the community for a language matters. The Ruby community is
+amazing and has been very generous with their time in producing OSS
+code, documentation on the Internet, and the gem infrastructure, which
+lets me get more impressive things done faster and with less pain.&lt;/p&gt;
+
+&lt;p&gt;​3. I really like having IRB and its cousin the Rails console, which
+lets me dive right in among my objects and see the world from their
+eyes, so to speak. Often when coding I have IRB open in another window
+so that I can test my assumption of what a particular bit of code would
+result in prior to using it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How was experience of taking part in the Ruby Programming
+Challenge For Newbies (RPCFN)?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Patrick&amp;gt;&amp;gt;&lt;/strong&gt; It was amazingly fun — thank you for running the
+challenge. As soon as I heard the maze solving challenge I thought
+“Well, let’s see, you can read in the maze, construct a graph from it,
+and then use breadth first search” but I thought that there would
+probably be a hundred implementations of that. So I decided to do
+something a little different and solve it with regular expressions. The
+key insight for me was that if the width of the maze is constant that
+you can write a regular expression which skips to the same column on the
+next line.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How is the Ruby and Rails scenario in your country Japan?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Patrick&amp;gt;&amp;gt;&lt;/strong&gt; My industry is currently dominated by expensive web
+applications written in Java, but I think the future for Ruby is bright.
+There is a certain deal of pride in the fact that Ruby is a Japanese
+language and probably the most well-known bit of Japanese software that
+is not a video game. My impression is that Rails is increasingly
+popular, too. I have tried to promote both internally at my company, and
+we’ve had some success with them.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What are your future plans?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Patrick&amp;gt;&amp;gt;&lt;/strong&gt; I recently made the decision to quit my day job and go
+full-time with my software business. I expect I will be developing more
+applications in Rails.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Patrick and all the very best with your software business. In
+case you have any queries and/or questions, kindly post your questions
+here (as comments to this blog post) and Patrick would be glad to
+answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>News on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/news/</link>
+    <description>Recent content in News on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Nov 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/news/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Rubyists.EU: Stairway to the European Ruby Community Integration</title>
+      <link>http://rubylearning.com/blog/2009/11/06/rubyists.eu-stairway-to-the-european-ruby-community-integration/</link>
+      <pubDate>Fri, 06 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/11/06/rubyists.eu-stairway-to-the-european-ruby-community-integration/</guid>
+      <description>&lt;p&gt;A Guest Post By &lt;a href=&#34;http://twitter.com/dream_warrior&#34;&gt;Mariela Dimitrova&lt;/a&gt;,
+&lt;a href=&#34;http://twitter.com/gusma&#34;&gt;Gustavo Malamud&lt;/a&gt; and &lt;a href=&#34;http://twitter.com/monsieur_rock&#34;&gt;Javier
+Cicchelli&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/EULogo.png&#34; alt=&#34;European Ruby Community
+Integration&#34; title=&#34;European Ruby Community Integration&#34; /&gt;
+At
+the beginning of October 2009, a project, sweeping in both scope and
+ambition, was born. Begotten out of the current integration trends in an
+ever shrinking world with porous boundaries, this initiative is an
+attempt to fill in a paradoxical void. Indeed, whereas the Internet has
+dismantled the final barriers that prevent people from promoting their
+work, sharing their knowledge, and cooperating with one another, it
+still appears to be quite difficult to establish better communication
+and keep in touch with Rubyists in Europe.&lt;/p&gt;
+
+&lt;p&gt;Driven by the idea that Ruby/Rails hackers and user groups in the Old
+Continent do have something to show and share, the &lt;a href=&#34;http://rock-n-code.com/&#34;&gt;Rock &amp;amp;
+Code&lt;/a&gt; team came up with the concept of
+&lt;a href=&#34;http://rubyists.eu/&#34;&gt;Rubyists.EU&lt;/a&gt;. In its essence, this initiative is a
+free of charge communications platform, which aims at encouraging better
+communications among communities and individual enthusiasts across
+Europe. Its brave mission is to promote awareness, enhance assistance,
+and further boost cooperation and collaboration among Ruby/Rails hackers
+and user groups in Europe. This initiative harbors the grand vision that
+in time, by forging long lasting bonds, European Rubyists could foster a
+sense of belonging to something bigger than their local communities. All
+the enthusiasts and, respectively, all the Ruby/Rails communities in
+Europe are invited and encouraged to join forces on the
+&lt;a href=&#34;http://rubyists.eu/&#34;&gt;Rubyists.EU&lt;/a&gt; arena of action and interaction.&lt;/p&gt;
+
+&lt;p&gt;This bold initiative has the potential to become a treasure trove for
+both Ruby/Rails developers and communities in Europe. Indeed, by
+partaking in &lt;strong&gt;Rubyists.EU&lt;/strong&gt;, members can attach an extra layer of
+visibility to their groups and respectively, to themselves. Enthusiastic
+hackers have the opportunity to join new communities or even found their
+own. Rubyists can share delicious details about their regular group
+meetups, bring interesting events and conferences to the attention of
+others, announce special presentations, make their groundbreaking Ruby
+advancements public, or simply publish the pioneering Ruby projects they
+are working on. Hopefully, the &lt;strong&gt;Rubyists.EU&lt;/strong&gt; initiative will grow into
+a living and breathing idea, which can precipitate the development of a
+robust Ruby community in Europe.&lt;/p&gt;
+
+&lt;p&gt;The technical specification of the Rubyists.EU platform is essentially a
+result of the perfect mix of several Open Source technologies. Before
+elaborating on the whole constitution of this platform, it should be
+pointed out that the testings are carried out by a combination of
+&lt;a href=&#34;http://rspec.info/&#34;&gt;RSpec&lt;/a&gt; + &lt;a href=&#34;http://cukes.info/&#34;&gt;Cucumber&lt;/a&gt; to handle
+both functional and integration tests. Due to the Web nature of the
+project, both &lt;a href=&#34;http://wiki.github.com/brynary/webrat&#34;&gt;Webrat&lt;/a&gt; and
+&lt;a href=&#34;http://selenium.rubyforge.org/&#34;&gt;Selenium&lt;/a&gt; are used in order to manage
+simple Hypertext interactions and the significant amount of code written
+in Javascript.&lt;/p&gt;
+
+&lt;p&gt;The Core of this platform is composed of
+&lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;Sinatra&lt;/a&gt; +
+&lt;a href=&#34;http://rack.rubyforge.org/&#34;&gt;Rack&lt;/a&gt;. &lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;Sinatra&lt;/a&gt;
+is a light-weight DSL used for quickly creating web applications in
+Ruby. It keeps a minimal set of features for developers and it is an
+excellent tool for creating small to mid-sized web applications. It is
+based on &lt;a href=&#34;http://rack.rubyforge.org/&#34;&gt;Rack&lt;/a&gt;, which as everyone probably
+knows, is a Ruby library that provides an interface between web servers
+supporting Ruby and Ruby web frameworks. Most of the underlying
+infrastructure is handled by &lt;strong&gt;Rack&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The selected database is &lt;a href=&#34;http://www.postgresql.org/&#34;&gt;PostgreSQL&lt;/a&gt;. This
+Open Source ORDBMS (Object-Relational Database Management System) was
+chosen because of its robustness, its features, and (mainly) because it
+is the default database system supported by
+&lt;a href=&#34;http://www.heroku.com/&#34;&gt;Heroku&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The connection and the operations between the Sinatra-powered core and
+the database are established by &lt;a href=&#34;http://datamapper.org/&#34;&gt;DataMapper&lt;/a&gt;.
+This is an object-relational mapping library for Ruby. &lt;strong&gt;DataMapper&lt;/strong&gt;
+has a number of excellent features. It is independent and it does not
+tie in with any particular framework. It is designed to be fast and
+efficient. One of its pros is that it often delays interaction with the
+data store and it initiates it only when it is required.&lt;/p&gt;
+
+&lt;p&gt;The Rubyists.EU platform utilizes a user interface based on the &lt;a href=&#34;http://code.google.com/apis/maps/&#34;&gt;Google
+Maps platform&lt;/a&gt;. Google provides HTML
+and Javascript APIs for their maps, which allow developers to easily
+transform a simple map into an interactive application. In addition, the
+&lt;a href=&#34;http://jquery.com/&#34;&gt;JQuery&lt;/a&gt; library is used in order to simplify and
+simultaneously AJAXify the Javascript code on the client. The AJAX
+functionality uses &lt;a href=&#34;http://json.org/&#34;&gt;JSON&lt;/a&gt; (JavaScript Object Notation)
+to marshall objects for both synchronous and asynchronous transport. The
+Google Maps standard UI is embedded in the generated HTML structure,
+defined and generated by &lt;a href=&#34;http://haml-lang.com/&#34;&gt;HAML&lt;/a&gt;. &lt;strong&gt;HAML&lt;/strong&gt; is both
+a simple markup language for templating HTML on a web page and a
+compiler of HAML-to-HTML and vice-versa. Following the same principle,
+the &lt;a href=&#34;http://sass-lang.com/&#34;&gt;SASS&lt;/a&gt; defines and generates the CSS
+representation of the website. The main purpose of developing the
+front-end this way is to secure the unobstructed separation of the HTML
+structure, the CSS representation, and the Javascript functionality.&lt;/p&gt;
+
+&lt;p&gt;As a direct consequence of the &lt;strong&gt;Sinatra&lt;/strong&gt; core, this platform already
+provides a RESTful API that allows our platform to interact with any
+existent client or system. This would allow both developers and
+communities to integrate its functionality to their own websites,
+projects, applications, etc.&lt;/p&gt;
+
+&lt;p&gt;Last, but not least, this framework is deployed in &lt;strong&gt;Heroku&lt;/strong&gt;. For those
+who still have no clue about this service, it is a Ruby-specific
+cloud-computing platform that provides specialized Ruby hosting services
+for developers. It allows developers to almost instantly deploy web
+applications on the Internet. Heroku supports Rack-based web
+applications so deploying the code on Heroku is a piece of cake. While
+this service charges for hosting, it also provides a free basic tier
+account. It should be remarked that this platform requires the intensive
+use of &lt;a href=&#34;http://git-scm.com/&#34;&gt;Git&lt;/a&gt;, a powerful decentralized SCM (Source
+Control Management) system, in order to deploy applications.&lt;/p&gt;
+
+&lt;p&gt;Currently the Rubyists.EU platform is isolated from the rest of the
+available systems out there but soon, it will be integrated with the
+existing communications platforms such as
+&lt;a href=&#34;http://twitter.com/&#34;&gt;Twitter&lt;/a&gt;, &lt;a href=&#34;http://www.facebook.com/&#34;&gt;Facebook&lt;/a&gt;,
+&lt;a href=&#34;http://www.linkedin.com/&#34;&gt;LinkedIn&lt;/a&gt;, &lt;a href=&#34;http://freenode.net/&#34;&gt;Freenode&lt;/a&gt;,
+&lt;a href=&#34;http://groups.google.com/&#34;&gt;Google Groups&lt;/a&gt;, &lt;a href=&#34;http://wave.google.com/&#34;&gt;Google
+Wave&lt;/a&gt;, and &lt;a href=&#34;http://github.com/&#34;&gt;Github&lt;/a&gt; in
+order to facilitate and ensure the transparent communications among
+Rubyists in Europe.&lt;/p&gt;
+
+&lt;p&gt;This project is being built on tests. Whenever a functionality has to be
+written or existing Ruby libraries have to be inserted into the code,
+the BDD (Behavior Driven Development) approach is used to specify how
+the piece of code should work in the platform. For those of you who are
+still unfamiliar with the BBD, it is an approach that emphasizes on the
+domain language of the problem and the interactions occurring in the
+Software Development process. It implies outside-in development: it
+starts with the either the definition of a class, a module or a user
+interface and it ends with the creation of a functional piece of code.
+Therefore, you have to design scenarios for the functionalities or
+features you want to develop and then, you simply have to follow the BDD
+process.&lt;/p&gt;
+
+&lt;p&gt;When a scenario is defined, the developer should write the tests and
+then write the necessary code to make sure that the code passes the
+tests. Then, the developer should focus on refactoring this code while
+verifying it still passes the written tests. Once you are done, you can
+move on to the next feature and so on. These scenarios guide developers
+throughout the entire development process. They force people to focus on
+writing down the tests and the required application code, and only then
+are developers allowed to move on to the next step. Developers are
+satisfied every time they pass a step successfully because they know for
+sure, which of the features they have been developed function properly.&lt;/p&gt;
+
+&lt;p&gt;Since the Rubyists.EU is an initiative designed for the whole European
+Ruby/Rails community, everybody is welcome to join in and even
+collaborate with ideas, suggestions, comments, constructive criticism
+and code. Developers can get involved by following the &lt;a href=&#34;http://github.com/rock-n-code/rubyists.eu&#34;&gt;Github
+account&lt;/a&gt; and even forking the
+source code. Some of the members of the Dutch
+&lt;a href=&#34;http://amsterdam-rb.org/&#34;&gt;Amsterdam.rb&lt;/a&gt;, the Belgium
+&lt;a href=&#34;http://wiki.rubyist.be/wiki/show/HomePage&#34;&gt;BRUG&lt;/a&gt;, the Greek
+&lt;a href=&#34;http://rubyst.es/&#34;&gt;Rubyst.es&lt;/a&gt;, and the Estonian
+&lt;a href=&#34;http://www.ruby.ee/&#34;&gt;Ruby.ee&lt;/a&gt; have already volunteered to collaborate
+on this project.&lt;/p&gt;
+
+&lt;p&gt;Rubyists can get in touch and make comments, suggestions for new
+features or propositions to improve the existing ones by subscribing to
+the &lt;a href=&#34;http://groups.google.com/group/rubyists-eu&#34;&gt;mailing list&lt;/a&gt;. In
+addition, hackers can follow the
+&lt;a href=&#34;http://twitter.com/rubyists_eu&#34;&gt;@rubyists_eu&lt;/a&gt; on Twitter, join the
+&lt;a href=&#34;http://www.facebook.com/pages/Europe/RubyistsEU/188196555796&#34;&gt;Rubyists.EU Facebook
+page&lt;/a&gt;, and
+the &lt;a href=&#34;http://http://www.linkedin.com/groups?gid=2400973&#34;&gt;Rubyists.EU group on
+LinkedIn&lt;/a&gt;.
+Furthermore, developers and enthusiasts can also chat with other
+Rubyists on the IRC channel on Freenode:
+&lt;a href=&#34;irc://irc.freenode.net/rubyists.eu&#34;&gt;#rubyists.eu&lt;/a&gt; or exchange
+enlightening information on the public &lt;a href=&#34;https://wave.google.com/wave/?pli=1#restored:wave:googlewave.com!w%252Ba39S3saqF&#34;&gt;Google Wave
+channel&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After all, the Rubyists.EU endeavor is a joint adventure that can become
+as exciting as hackers and communities in Europe want it to be.
+Hopefully, in the long run, this initiative could help eliminate the
+obstacles that prevent the smooth adoption of the Ruby language as a
+whole, and it would contribute to the development of a robust Ruby/Rails
+community in Europe.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rails Summit Latin America 2009</title>
+      <link>http://rubylearning.com/blog/2009/09/26/rails-summit-latin-america-2009/</link>
+      <pubDate>Sat, 26 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/09/26/rails-summit-latin-america-2009/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.railssummit.com.br/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/rails_summit_2009.png&#34; alt=&#34;Rails Summit Latin America
+2009&#34; title=&#34;Rails Summit Latin America 2009&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Back in 2005 there was virtually no Ruby community in Brazil. David
+Hansson himself was there, at the FISL conference, showcasing a pre-1.0
+Rails (which later became the famous 15-min blog screencast). Only 3
+years later the community grew up dramatically and in 2008, Rails
+Summit Latin America was unleashed and it was a huge success. They had more
+than 20 international speakers, more than 550 attendees in 2 full days with 2
+parallel tracks, real-time translators, coffee-break, lunch, ubiquitous wi-fi,
+and much more. They targetted a RailsConf-like event and I think they
+delivered.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/MarcosFabioWillian.jpg&#34; alt=&#34;Marcos, Fabio and Willian at the Rails Summit Latin America
+2008&#34; title=&#34;Marcos, Fabio and Willian at the Rails Summit Latin America 2008&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This year they want to repeat the success with the 2nd edition of the
+Summit. It’s going to happen at the same place, in Sao Paulo City,
+Brazil. They expect to see people through out South America.&lt;/p&gt;
+
+&lt;p&gt;Attend to celebrate Rails, get to know other Railers, increase your
+business network and, of course, learn even more about Ruby and Rails.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How can YOU take YOUR Ruby to the next level?</title>
+      <link>http://rubylearning.com/blog/2008/09/03/how-can-you-take-your-ruby-to-the-next-level/</link>
+      <pubDate>Wed, 03 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/09/03/how-can-you-take-your-ruby-to-the-next-level/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;a title=&#34;Covers Intermediate Ruby programming&#34; href=&#34;http://intermediateruby.rubylearning.org/&#34;&gt;&lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/rubybook.jpg&#34; style=&#34;border: 0px none ;&#34; alt=&#34;Covers Intermediate Ruby programming&#34; /&gt;&lt;/a&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Today I will show you how to take &lt;strong&gt;YOUR Ruby to the next level, quick and easy&lt;/strong&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span class=&#34;drop_cap&#34;&gt;J&lt;/span&gt;oin the brand new RubyLearning&amp;#8217;s &lt;strong&gt;Online Intermediate Ruby Course (POIRPC101-1I)&lt;/strong&gt; which will bridge the gap from &lt;a href=&#34;http://rubylearning.com/satishtalim/tutorial.html&#34;&gt;learning basic or core Ruby&lt;/a&gt;, by providing what it takes to use some of the more advanced Ruby Libraries (Core, standard, and additional) and providing the technical skill to apply Ruby in our soon to be announced Advanced Ruby Course (which will cover such topics as: meta-programming, design patterns and best practices (OOD, TDD, BDD)).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    After successfully teaching Core Ruby Programming to over 5000 participants from across the globe, RubyLearning now offers you this Online Intermediate Ruby Course for a month &lt;strong&gt;starting 20th Sept. 2008&lt;/strong&gt;.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    Like all RubyLearning courses, this intermediate course too would have many assistant teachers helping you all the way, solving your doubts and queries. This course is based on the &amp;#8216;&lt;strong&gt;&lt;a href=&#34;http://intermediateruby.rubylearning.org/&#34;&gt;Guide to Intermediate Ruby Programming&lt;/a&gt;&lt;/strong&gt;&amp;#8216; eBook which is available at an &lt;strong&gt;&lt;em&gt;introductory&lt;/em&gt; price of US$ 9.95&lt;/strong&gt;. The fee is being collected to help RubyLearning maintain the site, the Ruby courses, the Ruby eBooks, and also provide quality content to you.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    So what are YOU waiting for? &lt;em&gt;Reach YOUR next Ruby level&lt;/em&gt;. Purchase the &amp;#8216;Guide to Intermediate Ruby Programming&amp;#8217; eBook -&lt;br /&gt; &lt;a href=&#34;http://intermediateruby.rubylearning.org/&#34;&gt;http://intermediateruby.rubylearning.org/&lt;/a&gt;&lt;br /&gt; and join the POIRPC101-1I course for &lt;strong&gt;Free&lt;/strong&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    It&amp;#8217;s as simple as buying the eBook and joining the course for free.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    More course details
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Core Ruby Participants Testimonials -&lt;br /&gt; &lt;a href=&#34;http://rubylearning.com/other/testimonials.html&#34;&gt;http://rubylearning.com/other/testimonials.html&lt;/a&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Intermediate Ruby Course Details -&lt;br /&gt; &lt;a href=&#34;http://rubylearning.com/satishtalim/intermediate_ruby_course.html&#34;&gt;http://rubylearning.com/satishtalim/intermediate_ruby_course.html&lt;/a&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Intermediate Ruby Course Syllabus -&lt;br /&gt; &lt;a href=&#34;http://rubylearning.com/satishtalim/intermediate_ruby_syllabus.html&#34;&gt;http://rubylearning.com/satishtalim/intermediate_ruby_syllabus.html&lt;/a&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    To your success!!
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Intermediate+Ruby+Course&#34; rel=&#34;tag&#34;&gt;Intermediate Ruby Course&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby+Lessons&#34; rel=&#34;tag&#34;&gt;Ruby Lessons&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby&#34; rel=&#34;tag&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby+programming&#34; rel=&#34;tag&#34;&gt;Ruby programming&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Thanks to RubyLearning Sponsor FiveRuns</title>
+      <link>http://rubylearning.com/blog/2008/08/02/thanks-to-rubylearning-sponsor-fiveruns/</link>
+      <pubDate>Sat, 02 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/08/02/thanks-to-rubylearning-sponsor-fiveruns/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    It&amp;#8217;s time to thank RubyLearning&amp;#8217;s excellent sponsors!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#34;http://www.fiveruns.com/&#34;&gt;FiveRuns&lt;/a&gt; is a provider of Rails application (and server) monitoring services. I am including any news or developments the sponsor has had during July 2008. Two things worth mentioning here are:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      They recently introduced &lt;strong&gt;DataFabric&lt;/strong&gt; &amp;#8211; a gem they wrote to help with &lt;strong&gt;ActiveRecord&lt;/strong&gt;. One of the lingering issues they have had to deal with over the last year in the Manage service was ActiveRecordâ€™s reluctance to talk to more than one database. &lt;strong&gt;DataFabric&lt;/strong&gt; extends ActiveRecordâ€™s standard connection handling to provide two features &amp;#8211; application-level sharding and master/slave replication. For all the details read the article &amp;#8211; &lt;a href=&#34;http://blog.fiveruns.com/2008/7/9/introducing-data_fabric&#34;&gt;Introducing DataFabric&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Want to travel to Berlin for free? Then you have one week left to take part on their &amp;#8220;&lt;a href=&#34;http://blog.fiveruns.com/2008/7/10/run-your-way-to-railsconf-europe&#34;&gt;Run Your Way to RailsConf Europe&lt;/a&gt;&amp;#8221; Contest. They are giving away two tickets to RailsConf Europe (September 2 -4, 2008) &amp;#8211; airfare, hotel, and conference passes. You only need to try out their TuneUp product which they launched at RailsConf in Portland. So what are you waiting for?
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/FiveRuns&#34; rel=&#34;tag&#34;&gt;FiveRuns&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby&#34; rel=&#34;tag&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Sponsors&#34; rel=&#34;tag&#34;&gt;Sponsors&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby Study Notes Book</title>
+      <link>http://rubylearning.com/blog/2008/05/04/ruby-study-notes-book/</link>
+      <pubDate>Sun, 04 May 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/05/04/ruby-study-notes-book/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;strong&gt;The Ruby Study Notes eBook&lt;/strong&gt; has been downloaded over 14500 times. For a long time there was a constant request of creating the Ruby Study Notes in print form and finally with the help of Lulu.com, I did it!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    With 1000s of participants at the &lt;a href=&#34;http://rubylearning.org/&#34;&gt;Free Online Ruby Programming Course&lt;/a&gt;, many being from countries where the internet is painfully slow or those who do not have a continuous access to the internet; a printed book is always convenient. The printed book is reasonably priced and I sincerely hope that it becomes an asset to all those just starting to learn the Ruby programming language.
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Ruby+book&#34; rel=&#34;tag&#34;&gt;Ruby book&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby+programming+book&#34; rel=&#34;tag&#34;&gt;Ruby programming book&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby+programming&#34; rel=&#34;tag&#34;&gt;Ruby programming&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rails TakeFive Interview</title>
+      <link>http://rubylearning.com/blog/2008/03/29/rails-takefive-interview/</link>
+      <pubDate>Sat, 29 Mar 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/03/29/rails-takefive-interview/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    It was fun being interviewed by &lt;a href=&#34;http://blog.fiveruns.com/2008/3/28/rails-application-monitoring-takefive-five-questions-with-satish-talim&#34;&gt;FiveRuns Blog&lt;/a&gt;. FiveRuns exists for the express purpose of delivering affordable and radically simplified tools for monitoring applications and their supporting infrastructure with a focus on Ruby on Rails.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Every Friday, FiveRuns interviews Ruby/Rails enthusiasts and it was an honor to be amongst luminaries such as Chad Fowler, Peter Cooper, Pat Eyler to name a few.
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/FiveRuns&#34; rel=&#34;tag&#34;&gt;FiveRuns&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Rails+Interview&#34; rel=&#34;tag&#34;&gt;Rails Interview&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Rails&#34; rel=&#34;tag&#34;&gt;Rails&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby&#34; rel=&#34;tag&#34;&gt;Ruby&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby Turns 15 on 24th Feb.</title>
+      <link>http://rubylearning.com/blog/2008/02/23/ruby-turns-15-on-24th-feb./</link>
+      <pubDate>Sat, 23 Feb 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/02/23/ruby-turns-15-on-24th-feb./</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;a href=&#34;http://www.oreillynet.com/fyi/blog/2008/02/ruby_turns_15_and_other_import.html&#34;&gt;Kathryn Barrett&lt;/a&gt; reports that this month marks Rubyâ€™s 15th birthday. Yukihiro â€œMatzâ€ Matsumotoâ€“creator of Ruby confirmed that Ruby was conceptualized and named on Feb. 24, 1993. Mark your calendars. While this doesnâ€™t yet qualify Ruby as an old-timer among programming languages, itâ€™s a good indication that itâ€™s here to stay and probably doesnâ€™t deserve to be called a newcomer any more.
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Ruby+programming&#34; rel=&#34;tag&#34;&gt;Ruby programming&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby+Turns+15+on+24th+Feb.&#34; rel=&#34;tag&#34;&gt;Ruby Turns 15 on 24th Feb.&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>University of Pune: Ruby Programming</title>
+      <link>http://rubylearning.com/blog/2008/02/22/university-of-pune-ruby-programming/</link>
+      <pubDate>Fri, 22 Feb 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/02/22/university-of-pune-ruby-programming/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    With the growing popularity of the Ruby Programming language in India, the University of Pune proposes to introduce &lt;a href=&#34;http://www.unipune.ernet.in/doc/circular/AcademicCircular/RevisedSyllabus/Management/MCMNewSyllabus%5B1%5D.pdf&#34;&gt;Ruby Programming&lt;/a&gt; as part of the Masters in Computer Management (MCM) post-graduate course, from June 2008.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The University has uploaded the new syllabus on the web so that students, members of the public and experts may &lt;a href=&#34;mailto:syllabi@unipune.ernet.in&#34;&gt;post their comments&lt;/a&gt;.
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/MCM&#34; rel=&#34;tag&#34;&gt;MCM&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby+programming&#34; rel=&#34;tag&#34;&gt;Ruby programming&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/University+of+Pune&#34; rel=&#34;tag&#34;&gt;University of Pune&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/University+of+Pune%3A+Ruby+Programming&#34; rel=&#34;tag&#34;&gt;University of Pune: Ruby Programming&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Third edition of &#34;Programming Ruby&#34; now in beta</title>
+      <link>http://rubylearning.com/blog/2007/12/14/third-edition-of-programming-ruby-now-in-beta/</link>
+      <pubDate>Fri, 14 Dec 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/12/14/third-edition-of-programming-ruby-now-in-beta/</guid>
+      <description>&lt;p&gt;Dave Thomas just announced that the &lt;a href=&#34;http://pragprog.com/titles/ruby3&#34;&gt;Third
+Edition&lt;/a&gt; of the PickAxe has just
+entered beta. Each edition of the book tracks the latest Ruby release,
+and each is the definitive reference to Ruby. This third edition
+maintains that tradition, and has been updated to reflect the new
+features of Ruby 1.9.&lt;/p&gt;
+
+&lt;p&gt;In Dave’s words, here’s the plan. “I’m starting with the second edition
+text and going through it revising for 1.9 changes. So far I’m done the
+first 120 pages or so. When you look at the beta book, you’ll see some
+pages with red headers and footers, and others with gray. The red pages
+are updated content, and the gray pages are content from the second
+edition. Over time, more and more pages will turn red, until the book is
+done.&lt;/p&gt;
+
+&lt;p&gt;Matz is still making changes to 1.9 functionality. This book will track
+these changes, so that it will mirror what 1.9 becomes as we move
+towards an eventual release. We won’t go to press until Ruby has
+stabilized.”&lt;/p&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Dave+Thomas&#34;&gt;Dave Thomas&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Pickaxe&#34;&gt;Pickaxe&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Programming+Ruby&#34;&gt;Programming
+Ruby&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Ruby&#34;&gt;Ruby&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby Usage Trend in Indian Cities</title>
+      <link>http://rubylearning.com/blog/2007/11/29/ruby-usage-trend-in-indian-cities/</link>
+      <pubDate>Thu, 29 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/11/29/ruby-usage-trend-in-indian-cities/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;http://rubylearning.com/&#34;&gt;RubyLearning.com&lt;/a&gt; site has been active
+for some time now and the users of my site are normally people learning
+the Ruby programming language. For the last two years, I have been
+promoting the Ruby language in whatever way I can and have been keen
+knowing whether Ruby is catching on in India or not. With the help of
+&lt;a href=&#34;http://www.google.com/analytics/&#34;&gt;Google Analytics&lt;/a&gt;, I sat down to
+analyze the ‘&lt;strong&gt;Ruby Usage Trend in Indian Cities&lt;/strong&gt;‘.&lt;/p&gt;
+
+&lt;p&gt;Statistical purists might laugh at my sampling data but I believe that
+this data represents the trend fairly accurately. Amongst the 100’s of
+Indian Cities in my analytics data, I selected the top 20% cities that
+covered 80% of my site’s total hits during the period May to October
+2007. The cities that qualified were Chennai, Bangalore, Pune, Mumbai
+and Hyderabad in that order.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Trend Chart&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://rubylearning.com/images/ru.jpg&#34; title=&#34;Ruby Trend&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/ru.jpg&#34; alt=&#34;Ruby
+Trend&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Some Results&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Pune and Hyderabad had a slow start, but both cities have an
+increasing trend of usage. I am happy with the substantial increase
+in the usage of Ruby in Pune.&lt;/li&gt;
+&lt;li&gt;Chennai and Bangalore seem to have started cooling off – why?&lt;/li&gt;
+&lt;li&gt;I have the figures for November (so far) and Pune and Hyderabad
+continue to show a far rapid increase than previous months&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Why is there such a rapid growth in Pune and Hyderabad? Have not heard
+of any high-profile Ruby projects coming here. Lots of questions – no
+clear answers.&lt;/p&gt;
+
+&lt;p&gt;What do you think? Do you have a different perspective on this? Do post
+your viewpoint here.&lt;/p&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Bangalore&#34;&gt;Bangalore&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Chennai&#34;&gt;Chennai&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Hyderabad&#34;&gt;Hyderabad&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/India&#34;&gt;India&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Mumbai&#34;&gt;Mumbai&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Pune&#34;&gt;Pune&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Ruby&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby+Usage&#34;&gt;Ruby
+Usage&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Trends&#34;&gt;Trends&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rails Hosting In India</title>
+      <link>http://rubylearning.com/blog/2007/09/15/rails-hosting-in-india/</link>
+      <pubDate>Sat, 15 Sep 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/09/15/rails-hosting-in-india/</guid>
+      <description>&lt;p&gt;I have been asked time and again about ‘&lt;strong&gt;Rails Hosting In India&lt;/strong&gt;‘ and
+thought it best that I list down the Rails Hosts that I have heard of,
+in India.&lt;/p&gt;
+
+&lt;p&gt;Here’s the list, not in any specific order:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.speedhost.in/ruby-on-rails-hosting.html&#34;&gt;SpeedHost&lt;/a&gt; –
+SpeedHost.in provides ROR hosting on Linux servers with 2 affordable
+hosting plans.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.trafficpullz.com/web-hosting-ruby.html&#34;&gt;Traffic Pullz&lt;/a&gt; –
+a very detailed list of services available with them (related to
+Rails) has been mentioned on their site.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webserverindia.com/&#34;&gt;WebServerIndia&lt;/a&gt; – provides linux
+and windows web hosting and also offer Reseller Web Hosting Services
+in India. They support Ruby on Rails Hosting, cPanel Hosting, PHP,
+MySQL, (Support available in English and Hindi).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webhostingdelhi.com/&#34;&gt;Web Hosting Delhi&lt;/a&gt; – I believe
+that they support Ruby on Rails Hosting but I could not find a
+mention about that on their site.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.netwayweb.net/linux_reseller.php&#34;&gt;Web Hosting India&lt;/a&gt; –
+offer Rails hosting via their Linux Reseller Hosting Plan.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I agree, not many hosts but I am sure more would follow. I would
+appreciate if you could comment here about your experiences with these
+hosts and of any other host not mentioned here.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt;:
+&lt;a href=&#34;http://wiki.rubyonrails.com/rails/pages/RailsWebHosts#Asia&#34;&gt;RailsWebHosts&lt;/a&gt;
+– though most Rails hosts have been mentioned here, this url is not
+easily ‘findable’.&lt;/p&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/India&#34;&gt;India&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Rails&#34;&gt;Rails&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Rails+Hosting+In+India&#34;&gt;Rails Hosting In
+India&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Web+Hosting&#34;&gt;Web
+Hosting&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PLUG MASHUP</title>
+      <link>http://rubylearning.com/blog/2007/09/14/plug-mashup/</link>
+      <pubDate>Fri, 14 Sep 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/09/14/plug-mashup/</guid>
+      <description>&lt;p&gt;The Pune GNU/Linux Users Group have announced ‘&lt;strong&gt;PLUG MASHUP&lt;/strong&gt;‘, a
+technology event which includes a Hack-a-thon and a mashup camp to be
+held on October 13th and 14th, 2007 at Bhaskaracharya Pratishthan, Pune,
+India. The Hack-a-thon will bring together many developers and
+contributors. It will aim to generate some serious code during the
+event, in order to help grow the pool of FOSS contributors in India.&lt;/p&gt;
+
+&lt;p&gt;About 200 developers, techies, creative graphics artists from across
+India are planning to gather together at PLUG’s FOSS Mashup this October
+to hack code, network with peers and demo their wares. Ruby and Ruby on
+Rails is one of the technology stacks there.&lt;/p&gt;
+
+&lt;p&gt;Those interested can read all the details of &lt;strong&gt;&lt;a href=&#34;http://www.plug.org.in/mashup/&#34;&gt;PLUG MASHUP
+here&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/FOSS&#34;&gt;FOSS&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Hackathon&#34;&gt;Hackathon&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/PLUG&#34;&gt;PLUG&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/PLUG+MASHUP&#34;&gt;PLUG
+MASHUP&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Ruby&#34;&gt;Ruby&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Rails&#34;&gt;Rails&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Survserv: Rails based Real Time Outbreak Detection System</title>
+      <link>http://rubylearning.com/blog/2007/09/10/survserv-rails-based-real-time-outbreak-detection-system/</link>
+      <pubDate>Mon, 10 Sep 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/09/10/survserv-rails-based-real-time-outbreak-detection-system/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.rubylearning.com/images/ab.jpg&#34; title=&#34;Arindam Basu&#34;&gt;&lt;img src=&#34;http://www.rubylearning.com/images/ab.jpg&#34; alt=&#34;Arindam
+Basu&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;RubyLearning caught up with &lt;strong&gt;Arindam Basu&lt;/strong&gt; and requested him to brief
+us about &lt;strong&gt;Survserv&lt;/strong&gt;, a Rails based real time outbreak detection system
+(still in Beta).&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hello Arindam, and welcome to RubyLearning.com. Tell us something
+about your background.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I am a physician-epidemiologist-health services researcher, and I direct
+an International Research Training Program in environmental and
+occupational health related research training program in Kolkata, India,
+under the aegis of the University of California at Berkeley. I got
+interested in Ruby and Ruby on Rails about a year back while researching
+on disease surveillance and data analysis, and my background as an
+epidemiologist biostatistician helped me to use Ruby productively for my
+data analytical work. I also work as a consultant in data analysis, and
+in health-care informatics.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What is the goal of **Survserv&lt;/strong&gt;?**&lt;/p&gt;
+
+&lt;p&gt;Briefly, the goal of Survserv is to develop a web-based framework where
+anyone with a hand-held device (like a cellphone that can access the
+WWW, or a device like the simputer, etc) that can access a website or
+can SMS, can enter some basic information about specific symptoms and
+complaints to a web-database. The database will connect to a statistical
+program (I have used R for statistical computing), then use Naive
+Bayesian Classification (a related concept to how your email program
+filters spams in your mailboxes) and classify the symptoms to a number
+of disease clusters.&lt;/p&gt;
+
+&lt;p&gt;These disease clusters however, will be automatically mined for their
+spatial and temporal relationships (in other words, the database will
+also record the IP address or from where the request has come in
+addition to time stamp). Over time, a graph of the number of symptoms
+and signs will be built up, and the waves will be compared with regular
+patterns to see if an epidemic is emerging. If the system detects an
+emergent epidemic, it will send emails to respective authorities, and
+raise alerts about possible outbreaks.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Where do you think this application can be used?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This program will be useful in far and remote places where people can
+just get connected to the net and cellphones are present, but nothing
+much more than that is available, so that outbreak detections are
+typically delayed. This time lag will be cut short with this web based
+framework, if deployed. At present, the disease surveillance system is
+slow and takes about a weeks’ time for the data to be compiled and
+presented from a health center to the district level and then they get
+dumped to a major city or the state health intelligence bureau. In
+addition, these data are rarely mined (let alone real time) for
+predicting epidemics. This system will create a parallel data
+abstraction system where epidemics will be alerted real time system
+wide, and enable development of an epidemic prediction engine. The
+concept is neither novel nor unique but one that is practical and can be
+easily deployed and will likely to significantly improve on current lag
+times for disease outbreaks.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What’s the current status of the application?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I have not received any sponsorship or funding for the program. It’s
+still funded from my own funds, and being worked on my own time as and
+when I can. About 40% of the work has been done though, eg, setting up
+the database (I am using MySQL), the front end forms, the link between
+R, and routing of the graphs. The program should be usable to anyone who
+can access web.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Finally, anything else you would like to tell our readers?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This work has been selected at the Open Source Developers’ Conference in
+Brisbane, Australia (26-29 November, 2007). If anyone’s interested to
+learn more about the work, I’d be happy to explain.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks Arindam. We wish you and Survserv all the very best. You can
+contact Arindam at &lt;strong&gt;arinbasu99 [at] yahoo.com&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Arindam+Basu&#34;&gt;Arindam Basu&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Berkeley&#34;&gt;Berkeley&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Health&#34;&gt;Health&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Survserv&#34;&gt;Survserv&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Survserv%3A+Rails+based+Real+Time+Outbreak+Detection+System&#34;&gt;Survserv: Rails based
+Real Time Outbreak Detection
+System&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/University+of+California&#34;&gt;University of
+California&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/University+of+California+at+Berkeley&#34;&gt;University of California at
+Berkeley&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Ruby Logo Contest</title>
+      <link>http://rubylearning.com/blog/2007/09/03/the-ruby-logo-contest/</link>
+      <pubDate>Mon, 03 Sep 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/09/03/the-ruby-logo-contest/</guid>
+      <description>
+
+&lt;p&gt;The Ruby Association has announced ‘&lt;strong&gt;The Ruby Logo Contest&lt;/strong&gt;‘. An
+official Ruby logo is needed to promote Ruby, and therefore a contest to
+select one.&lt;/p&gt;
+
+&lt;h3 id=&#34;requirements:a2539a59ca97356d98b0c3b7bc76570c&#34;&gt;Requirements&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;it must be easily recognizable as the Ruby logo&lt;/li&gt;
+&lt;li&gt;it must look good in low resolution and in grayscale&lt;/li&gt;
+&lt;li&gt;works both with and without text `Ruby’ (can be ignored if the text
+`Ruby’ is part of the logo)&lt;/li&gt;
+&lt;li&gt;you may use the &lt;a href=&#34;http://rubyidentity.org/ruby-logo-kit.zip&#34;&gt;Ruby logo
+kit&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The deadline is 1st Oct. 2007 and the winner gets 100,000 yens and would
+be selected by Yukihiro “Matz” Matsumoto himself.&lt;/p&gt;
+
+&lt;p&gt;Why wait? &lt;a href=&#34;http://www.ruby-assn.org/logo-contest.html.en&#34;&gt;Go for it
+guys&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Ruby&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/The+Ruby+Logo+Contest&#34;&gt;The Ruby Logo
+Contest&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RubyLearning.com Forum</title>
+      <link>http://rubylearning.com/blog/2007/08/17/rubylearning.com-forum/</link>
+      <pubDate>Fri, 17 Aug 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/08/17/rubylearning.com-forum/</guid>
+      <description>&lt;p&gt;You demanded it. You have it! The RubyLearning.com
+Forum is up and running. (No longer in this form)&lt;/p&gt;
+
+&lt;p&gt;You have sub-forums related to many topics such Ruby Certification, Book
+Reviews, Events, Jobs amongst others. Register and frequent the forums.&lt;/p&gt;
+
+&lt;p&gt;Technorati Tags:
+&lt;a href=&#34;http://technorati.com/tag/RubyLearning.com&#34;&gt;RubyLearning.com&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/RubyLearning.com+Forum&#34;&gt;RubyLearning.com
+Forum&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

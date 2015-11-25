@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Follow Cost: A Sinatra app for Twitter // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="Follow Cost,Twitter,Luke Francl,Barry Hess,Merb,Sinatra, Ruby,">
+<meta name="author" content="Satish Talim">
+
+
+  <meta property="og:title" content="Follow Cost: A Sinatra app for Twitter" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2009/04/28/follow-cost-a-sinatra-app-for-twitter/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2009/04/28/follow-cost-a-sinatra-app-for-twitter/">Follow Cost: A Sinatra app for Twitter</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2009</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author" href="http://satishtalim.com" target="">Satish Talim</a></span>
+            		
+      <span class="post-author-social post-author-facebook"><a href="http://www.facebook.com/satishtalim/about" target="_blank"><i class="fa fa-facebook"></i></a></span>
+
+
+      <span class="post-author-social post-author-google-plus"><a href="https://plus.google.com/&#43;SatishTalim/about" target="_blank"><i class="fa fa-google-plus"></i></a></span>
+
+
+      <span class="post-author-social post-author-linkedin"><a href="https://www.linkedin.com/in/satishtalim" target="_blank"><i class="fa fa-linkedin"></i></a></span>
+
+
+	<span class="post-author-social post-author-twitter"><a href="http://twitter.com/IndianGuru" target="_blank"><i class="fa fa-twitter"></i></a></span>
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-sinatra" href="http://rubylearning.com/blog//categories/sinatra">Sinatra</a>
+				
+					<a class="post-category post-category-twitter" href="http://rubylearning.com/blog//categories/twitter">Twitter</a>
+				
+				</div>
+			
+
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f04%2f28%2ffollow-cost-a-sinatra-app-for-twitter%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f04%2f28%2ffollow-cost-a-sinatra-app-for-twitter%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f04%2f28%2ffollow-cost-a-sinatra-app-for-twitter%2f&title=Follow%20Cost%3a%20A%20Sinatra%20app%20for%20Twitter&summary=%3cp%3eRubyLearning%20caught%20up%20with%20%3cstrong%3eLuke%20Francl%3c%2fstrong%3e%20and%20%3cstrong%3eBarry%20Hess%3c%2fstrong%3e%20creators%0aof%20%3ca%20href%3d%22http%3a%2f%2ffollowcost.com%2f%22%3eFollow%20Cost%3c%2fa%3e%20%e2%80%93%20a%20%3cstrong%3eTwitter%3c%2fstrong%3e%20tool%20to%20help%0apeople%20decide%20if%20following%20someone%20is%20worth%20it%2c%20and%20talked%20to%20them%20about%0aFollow%20Cost%20and%20Sinatra%20in%20this%20interview.%3c%2fp%3e%0a}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Follow%20Cost%3a%20A%20Sinatra%20app%20for%20Twitter&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f04%2f28%2ffollow-cost-a-sinatra-app-for-twitter%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+
+            <p>RubyLearning caught up with <strong>Luke Francl</strong> and <strong>Barry Hess</strong> creators
+of <a href="http://followcost.com/">Follow Cost</a> – a <strong>Twitter</strong> tool to help
+people decide if following someone is worth it, and talked to them about
+Follow Cost and Sinatra in this interview.</p>
+
+<p><img src="http://www.rubylearning.com/images/luke-headshot.jpg" alt="Luke
+Francl" title="Luke Francl" />
+</p>
+
+<p><strong>Satish Talim&gt;&gt;</strong> Luke and Barry, could you tell us something about
+yourselves – your backgrounds, where both of you are based?</p>
+
+<p><strong>Luke&gt;&gt;</strong> I’m a Rails developer based in Minneapolis, USA. I worked
+as a Java developer for a number of years before making the jump to
+Ruby. I’ve been doing this for about 3 years now.</p>
+
+<p><strong>Barry&gt;&gt;</strong> I work with Ruby and Rails from a rural area, an hour
+south of Minneapolis. The start of my career was in a very corporate
+environment, mostly working with Java. I’ve been messing with Ruby for
+nearly 3 years.</p>
+
+<p><img src="http://www.rubylearning.com/images/barry_hess.jpg" alt="Barry
+Hess" title="Barry Hess" />
+</p>
+
+<p><strong>Satish&gt;&gt;</strong> Barry, you are the “Prime Hacker” at Iridesco. Tell us
+something about this.</p>
+
+<p><strong>Barry&gt;&gt;</strong> I’ve worked with <a href="http://iridesco.com/">Iridesco</a> for over
+2 years now. We’re a 4-man team: 2 founders and jacks-of-all-trade in
+New York City, a programmer in Transylvania, and me. So we’re rather
+distributed. Our primary app is <a href="http://www.getharvest.com/">Harvest</a>, a
+time tracking and invoicing app. To help us work as a distributed team,
+we built <a href="http://coopapp.com/">Co-op</a>, a sort of private, group Twitter
+that ties in with Harvest rather nicely.</p>
+
+<p>Titles always give me trouble. Am I a software engineer? Developer?
+Programmer? Without a corporate overlord to tell me I am a Programmer IV
+or some such, it becomes rather difficult. When Danny Wen, one of
+Iridesco’s co-founders, signed me up for this year’s SXSWi conference
+with the title Prime Hacker, well, I thought that title was better than
+any I had thought of!</p>
+
+<p><strong>Satish&gt;&gt;</strong> What is <strong>Follow Cost</strong>?</p>
+
+<p>Follow Cost is a tool to help people decide if following someone is
+worth it. Follow Cost will tell you how often someone tweets. Different
+people have different standards for how much is “too much” and Follow
+Cost can help you decide for yourself, but we do give a special warning
+for people who tweet more than Robert Scoble. 1/1000th of Scoble’s
+average daily output is called a “milliscoble.”</p>
+
+<p><strong>Satish&gt;&gt;</strong> What was the idea behind Follow Cost ?</p>
+
+<p><strong>Luke&gt;&gt;</strong> Barry and I and a few other Minnesota developers were on a
+road trip to the WindyCityRails conference in Chicago. We were
+complaining about how certain people just Tweet way too much, and how it
+would be cool if there was a tool to warn you before following. That was
+the genesis of Follow Cost. After I got home, I whipped up a couple
+mockups and asked Barry if he wanted to help build it.</p>
+
+<p><strong>Satish&gt;&gt;</strong> Why did you decide to use Sinatra for Follow Cost ?</p>
+
+<p>For such a simple app, Sinatra was a really good fit. Originally, Follow
+Cost did not even have a database — it queried Twitter, then page cached
+the results. But the main reason we wanted to use Sinatra was to try
+something new. (This was also our first foray into jQuery.) We’ve both
+been building Rails apps for years, and we wanted to try something else.</p>
+
+<p><strong>Satish&gt;&gt;</strong> For a person new to web development, how can Sinatra
+help?</p>
+
+<p><strong>Luke&gt;&gt;</strong> I think that Sinatra brings the power of Ruby with the
+fast-paced development of PHP. One of the things I always liked about
+PHP was that you could get something running really quickly. Just upload
+it to the server and you were all set. With Passenger, developing in
+Sinatra is very much like that, except in a nice language like Ruby
+instead of a crufty one like PHP.</p>
+
+<p><strong>Barry&gt;&gt;</strong> Sinatra allows a beginner to see results quickly. Even in
+your local environment Sinatra gets you from code to seeing something in
+the browser faster than Rails. Deploying a quick Sinatra practice app to
+a shared host like Dreamhost, which uses Passenger, is a piece of cake
+compared to when we started with Rails. In our day, we also deployed up
+hill both ways, in the snow.</p>
+
+<p><strong>Satish&gt;&gt;</strong> How can one go about learning Sinatra?</p>
+
+<p>Well, we heard there’s this <strong>RubyLearning class<sup class="footnote-ref" id="fnref:817c261728238ecf2e910c87e94bf4f0:fn-1931-1"><a rel="footnote" href="#fn:817c261728238ecf2e910c87e94bf4f0:fn-1931-1">0</a></sup>^</strong> on
+it…</p>
+
+<p>We went about it by following the <a href="http://www.sinatrarb.com/book.html">Sinatra
+book</a> and the source code. It’s nice
+that Sinatra’s source is so small because you can easily read it and
+understand it.</p>
+
+<p><strong>Satish&gt;&gt;</strong> Do you have any suggestions for RubyLearningâ€™s
+“<a href="http://rubylearning.com/blog/2009/04/07/new-sinatra-course-announced/">Introduction to
+Sinatra</a>”
+course participants?</p>
+
+<p>Pick something in Sinatra’s sweet spot — small applications that need to
+be dynamic — and have fun with it! We find Sinatra to be a perfect tool
+to tie into all the hot social network API’s out there. And remember,
+the world can always use one more app based on the Twitter API!</p>
+
+<p><em>Thank you Luke and Barry. In case you have any queries and/or
+questions, kindly post your questions here (as comments to this blog
+post) and they would be glad to answer.</em></p>
+
+<ol>
+<li><strong>Introduction to Sinatra</strong>: Here are the <a href="http://rubylearning.com/blog/2009/04/07/new-sinatra-course-announced/">course
+details</a>.
+<a href="#fnref-1931-1">↩</a></li>
+</ol>
+
+	
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f04%2f28%2ffollow-cost-a-sinatra-app-for-twitter%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f04%2f28%2ffollow-cost-a-sinatra-app-for-twitter%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f04%2f28%2ffollow-cost-a-sinatra-app-for-twitter%2f&title=Follow%20Cost%3a%20A%20Sinatra%20app%20for%20Twitter&summary=%3cp%3eRubyLearning%20caught%20up%20with%20%3cstrong%3eLuke%20Francl%3c%2fstrong%3e%20and%20%3cstrong%3eBarry%20Hess%3c%2fstrong%3e%20creators%0aof%20%3ca%20href%3d%22http%3a%2f%2ffollowcost.com%2f%22%3eFollow%20Cost%3c%2fa%3e%20%e2%80%93%20a%20%3cstrong%3eTwitter%3c%2fstrong%3e%20tool%20to%20help%0apeople%20decide%20if%20following%20someone%20is%20worth%20it%2c%20and%20talked%20to%20them%20about%0aFollow%20Cost%20and%20Sinatra%20in%20this%20interview.%3c%2fp%3e%0a}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Follow%20Cost%3a%20A%20Sinatra%20app%20for%20Twitter&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f04%2f28%2ffollow-cost-a-sinatra-app-for-twitter%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-barry-hess" href="http://rubylearning.com/blog//tags/barry-hess">Barry Hess</a>,
+	                
+	                <a class="post-tag post-tag-follow-cost" href="http://rubylearning.com/blog//tags/follow-cost">Follow Cost</a>,
+	                
+	                <a class="post-tag post-tag-luke-francl" href="http://rubylearning.com/blog//tags/luke-francl">Luke Francl</a>,
+	                
+	                <a class="post-tag post-tag-merb" href="http://rubylearning.com/blog//tags/merb">Merb</a>,
+	                
+	                <a class="post-tag post-tag-ruby" href="http://rubylearning.com/blog//tags/ruby">Ruby</a>,
+	                
+	                <a class="post-tag post-tag-sinatra" href="http://rubylearning.com/blog//tags/sinatra">Sinatra</a>,
+	                
+	                <a class="post-tag post-tag-twitter" href="http://rubylearning.com/blog//tags/twitter">Twitter</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2009/04/30/quick-questions-for-andrey-a.i.-sitnik/">Quick Questions for Andrey &#39;A.I.&#39; Sitnik</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2009/04/17/interview-author-steve-pugh/">Interview: Author Steve Pugh</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2009\/04\/28\/follow-cost-a-sinatra-app-for-twitter\/';
+    var disqus_title = 'Follow Cost: A Sinatra app for Twitter';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2009\/04\/28\/follow-cost-a-sinatra-app-for-twitter\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	
+
+  
+</body>
+</html>

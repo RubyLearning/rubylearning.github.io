@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Clojure Tips from the Experts // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Satish Talim">
+
+
+  <meta property="og:title" content="Clojure Tips from the Experts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2010/07/26/clojure-tips-from-the-experts/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#antonio-cangiano:8e2a8fa6113b13df9499ac52ecdd6e19">Antonio Cangiano</a></li>
+<li><a href="#baishampayan-ghose:8e2a8fa6113b13df9499ac52ecdd6e19">Baishampayan Ghose</a></li>
+<li><a href="#brian-carper:8e2a8fa6113b13df9499ac52ecdd6e19">Brian Carper</a></li>
+<li><a href="#craig-andera:8e2a8fa6113b13df9499ac52ecdd6e19">Craig Andera</a></li>
+<li><a href="#meikel-brandmeyer:8e2a8fa6113b13df9499ac52ecdd6e19">Meikel Brandmeyer</a></li>
+<li><a href="#michael-fogus:8e2a8fa6113b13df9499ac52ecdd6e19">Michael Fogus</a></li>
+<li><a href="#michael-kohl:8e2a8fa6113b13df9499ac52ecdd6e19">Michael Kohl</a></li>
+<li><a href="#nurullah-akkaya:8e2a8fa6113b13df9499ac52ecdd6e19">Nurullah Akkaya</a></li>
+<li><a href="#ramakrishnan-muthukrishnan:8e2a8fa6113b13df9499ac52ecdd6e19">Ramakrishnan Muthukrishnan</a></li>
+<li><a href="#stuart-sierra:8e2a8fa6113b13df9499ac52ecdd6e19">Stuart Sierra</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2010/07/26/clojure-tips-from-the-experts/">Clojure Tips from the Experts</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>26</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2010</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author" href="http://satishtalim.com" target="">Satish Talim</a></span>
+            		
+      <span class="post-author-social post-author-facebook"><a href="https://www.facebook.com/satishtalim/about" target="_blank"><i class="fa fa-facebook"></i></a></span>
+
+
+      <span class="post-author-social post-author-google-plus"><a href="https://plus.google.com/&#43;SatishTalim/about" target="_blank"><i class="fa fa-google-plus"></i></a></span>
+
+
+      <span class="post-author-social post-author-linkedin"><a href="https://www.linkedin.com/in/satishtalim" target="_blank"><i class="fa fa-linkedin"></i></a></span>
+
+
+	<span class="post-author-social post-author-twitter"><a href="http://twitter.com/IndianGuru" target="_blank"><i class="fa fa-twitter"></i></a></span>
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+				
+					<a class="post-category post-category-clojure" href="http://rubylearning.com/blog//categories/clojure">Clojure</a>
+				
+					<a class="post-category post-category-tricks" href="http://rubylearning.com/blog//categories/tricks">Tricks</a>
+				
+				</div>
+			
+
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f07%2f26%2fclojure-tips-from-the-experts%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f07%2f26%2fclojure-tips-from-the-experts%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f07%2f26%2fclojure-tips-from-the-experts%2f&title=Clojure%20Tips%20from%20the%20Experts&summary=RubyLearning%20wrote%20to%20a%20lot%20of%20experts%2c%20gathering%20their%20best%20tips%20on%20Clojure.%20The%20tips%20are%20still%20coming%20in%2c%20but%20here%20are%20some%20to%20get%20you%20started%20with.%20Feel%20free%20to%20add%20your%20own%20tips%20in%20the%20comments%20section%20or%20send%20the%20same%20to%20satishtalim%20%5bat%5d%20gmail.com.%20Enjoy%21%20Antonio%20Cangiano%20Find%20him%20on%20Twitter.%20His%20Blog.%20When%20learning%20a%20new%20programming%20language%2c%20I%20find%20Project%20Euler%20to%20be%20an%20invaluable%20source%20of%20self-contained%2c%20increasingly%20more%20challenging%20exercises.}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Clojure%20Tips%20from%20the%20Experts&url=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f07%2f26%2fclojure-tips-from-the-experts%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+
+            
+
+<p>RubyLearning wrote to a lot of experts, gathering their best tips on
+Clojure. The tips are still coming in, but here are some to get you
+started with. Feel free to add your own tips in the comments section or
+send the same to <strong>satishtalim [at] gmail.com</strong>. Enjoy!</p>
+
+<h2 id="antonio-cangiano:8e2a8fa6113b13df9499ac52ecdd6e19">Antonio Cangiano</h2>
+
+<p>Find him on <a href="http://twitter.com/acangiano">Twitter</a>. His
+<a href="http://programmingzen.com/">Blog</a>.</p>
+
+<p>When learning a new programming language, I find <a href="http://projecteuler.net/">Project
+Euler</a> to be an invaluable source of
+self-contained, increasingly more challenging exercises. By solving
+these mathematical problems in your language of choice, you’ll get some
+degree of exposure and familiarity with that language before tackling
+more complex, real world tasks.</p>
+
+<p>When you solve a problem, you gain access to a forum where you can
+compare your implementation with those of other people who may have used
+the same language as you, or a different one. Normally there is a
+variety of common (and not so common) languages used by fellow
+participants.</p>
+
+<p>Through the forum you’ll learn about more efficient algorithms and
+clever tricks, but above all you’ll get to see different ways to solve
+the same problem. It’s not hard to spot clean, concise, and idiomatic
+implementations and as a result end up learning more about the language
+you used.</p>
+
+<p>Unfortunately for Clojure beginners, the threads in the forum for many
+of the initial problems were closed a long time ago. In practice, this
+means that you can usually read solutions implemented in many
+established programming languages, including Ruby and Haskell, but you
+won’t find solutions in Clojure for most of the problems (Clojure is
+after all much newer).</p>
+
+<p>Thankfully, <a href="http://clojure-euler.wikispaces.com/">a wiki</a> which
+collects many solutions in Clojure exists. If you solve the problems
+first on your own, you can then use this resource to compare your
+approach with those of other Clojure programmers. You may discover that
+there is a better, more idiomatic way of solving a given problem.</p>
+
+<p>In short, use <a href="http://projecteuler.net/">Project Euler</a> and the <a href="http://clojure-euler.wikispaces.com/">Clojure
+Euler wiki</a> if you want to get
+some experience with Clojure’s syntax and fundamental concepts, which
+you may have only read about in books or online tutorials.</p>
+
+<hr />
+
+<h2 id="baishampayan-ghose:8e2a8fa6113b13df9499ac52ecdd6e19">Baishampayan Ghose</h2>
+
+<p>Find him on <a href="http://twitter.com/ghoseb">Twitter</a>. His
+<a href="http://github.com/ghoseb/">GitHub</a> a/c.</p>
+
+<p>It’s hard to pin point a few good tips because Clojure can do so many
+things in very nice and ingenious ways, that it’s not even funny.
+Anyway, here are a few:</p>
+
+<p><strong>Tip #1</strong>: Sort a map on multiple keys:</p>
+
+<pre><code>;;; Tip #1
+;;; A vector of maps
+(def some-maps [{:x 1 :y 2} {:x 2 :y 1} {:x 1 :y 4} {:x 2 :y 8}])
+
+;;; Sort the maps first on :x and then on :y
+
+(defn sort-maps-by
+  &quot;Sort a sequence of maps (ms) on multiple keys (ks)&quot;
+  [ms ks]
+  (sort-by #(vec (map % ks)) ms))
+
+;;; (sort-maps-by some-maps [:x :y])
+;;; output&gt; ({:x 1, :y 2} {:x 1, :y 4} {:x 2, :y 1} {:x 2, :y 8})
+</code></pre>
+
+<p><strong>Tip #2</strong>: When dealing with infinite sequences on the REPL, you can
+set the number of items to be printed:</p>
+
+<pre><code>;;; Tip #2
+;;; When you type something like (iterate inc 1) on the REPL (or any
+;;; kind of infinite, lazy sequence) the REPL will try to evaluate the
+;;; whole thing and will never finish. One way to print some parts of
+;;; an infinite sequence on the REPL is to do this on the REPL and
+;;; then try to print the sequence -
+;;; (set! *print-length* 10)
+;;; (iterate inc 1)
+;;; Which will only print the first 10 items of the above infinite
+;;; sequence -
+;;; (1 2 3 4 5 6 7 8 9 10 ...)
+;;; There is also *print-level* which can be used to determine how
+;;; nested/recursive data-structures are printed on the REPL
+</code></pre>
+
+<p><strong>Tip #3</strong>: Use of the -&gt; &amp; -&gt;&gt; threading macros:</p>
+
+<p>The -&gt; &amp; -&gt;&gt; threading macros are very useful to sometimes untangle
+nested function calls. The -&gt; macro takes a bunch of ‘forms’ and
+‘threads them’ into each other by inserting every form as the second
+item of the next form and so on. So, (-&gt;&gt; a (b c) (d e f) (g h))
+becomes (g (d (b a c) e f) h). -&gt;&gt; is similar but it puts the form as
+the last item of the next form. (-&gt;&gt; a (b c) (d e f) (g h)) then
+becomes (g h (d e f (b c a))).</p>
+
+<pre><code>(ns tips
+  ;; requires clojure 1.2 if you are on 1.1.x, use this instead
+  ;; (:require [clojure.contrib.duck-streams :as io])
+  (:require [clojure.contrib.io :as io]))
+
+;;; Tip #3
+;;; Use of the -&gt; &amp; -&gt;&gt; threading macros.
+(defn word-freq
+  &quot;Calculate a frequency map of words in a text file.&quot;
+  [f]
+  (take 20 (-&gt;&gt; f
+                io/read-lines
+                (mapcat (fn [l] (map #(.toLowerCase %) (re-seq #&quot;\w+&quot; l))))
+                (remove #{&quot;the&quot; &quot;and&quot; &quot;of&quot; &quot;to&quot; &quot;a&quot; &quot;i&quot; &quot;it&quot; &quot;in&quot; &quot;or&quot; &quot;is&quot;})
+                (reduce #(assoc %1 %2 (inc (%1 %2 0))) {})
+                (sort-by (comp - val)))))
+
+;;; Run it like this (word-freq &quot;/path/to/file.txt&quot;)
+</code></pre>
+
+<hr />
+
+<h2 id="brian-carper:8e2a8fa6113b13df9499ac52ecdd6e19">Brian Carper</h2>
+
+<p>Find him on <a href="http://twitter.com/BrianCarper">Twitter</a>. His
+<a href="http://briancarper.net/">Blog</a>.</p>
+
+<p>“Named” or “keyword” arguments for functions have some benefits over
+positional arguments:</p>
+
+<ol>
+<li>You can specify arguments in any order.</li>
+<li>The arguments are named explicitly, resulting in less room for error
+compared to positional arguments, where it’s easy to transpose two
+arguments in the list.</li>
+<li>Your function can easily provide default argument values.</li>
+</ol>
+
+<p>For a function that takes only one or two arguments, keyword arguments
+might be overkill. But the benefits of keyword arguments quickly become
+more apparent the more argumentss your function accepts.</p>
+
+<p>Clojure doesn’t have canonical support for keyword arguments. But there
+are a couple of ways you can achieve the same result.</p>
+
+<p>The first is simply to force the user to pass a hash-map explicitly.</p>
+
+<pre><code>(defn named-args-1 [foo argmap]
+ (println &quot;foo:&quot; foo
+          &quot;bar:&quot; (:bar argmap 0)
+          &quot;baz:&quot; (:baz argmap 0))
+ (println &quot;bar-given?&quot; (contains? argmap :bar)
+          &quot;baz-given?&quot; (contains? argmap :baz)))
+
+user&gt; (named-args-1 1 {:baz 2})
+foo: 1 bar: 0 baz: 2
+bar-given? false baz-given? true
+</code></pre>
+
+<p>But wrapping arguments in braces is arguably an unnecessary burden on
+users of your code. A better way is to use destructuring to allow the
+user to “flatten” the map:</p>
+
+<pre><code>(defn named-args-2 [foo &amp; args]
+ (let [argmap (apply hash-map args)
+       {:keys [bar baz]
+        :or   {bar 0 baz 0}} argmap]
+   (println &quot;foo:&quot; foo
+            &quot;bar:&quot; bar
+            &quot;baz:&quot; baz)
+   (println &quot;bar-given?&quot; (contains? argmap :bar)
+            &quot;baz-given?&quot; (contains? argmap :baz))))
+
+user&gt; (named-args-2 1 :baz 2)
+foo: 1 bar: 0 baz: 2
+bar-given? false baz-given? true
+</code></pre>
+
+<p>This is OK for the user, but verbose for the function-writer. And the
+argument list for the function is specified as “args”, giving the user
+no clue as to what keys are expected or legal.</p>
+
+<p>As of recent releases of Clojure, you can do the destructuring right in
+the function’s argument list, leading to this version:</p>
+
+<pre><code>(defn named-args-3 [foo &amp; {:keys [bar baz]
+                          :or   {bar 0 baz 0}
+                          :as   argmap}]
+ (println &quot;foo:&quot; foo
+          &quot;bar:&quot; bar
+          &quot;baz:&quot; baz)
+ (println &quot;bar-given?&quot; (contains? argmap :bar)
+          &quot;baz-given?&quot; (contains? argmap :baz)))
+
+user&gt; (named-args-3 1 :baz 2)
+foo: 1 bar: 0 baz: 2
+bar-given? false baz-given? true
+</code></pre>
+
+<p>It’s also possible to roll your own macro to do keyword arguments. See
+<strong>clojure.contrib.def/defnk</strong>, for example.</p>
+
+<hr />
+
+<h2 id="craig-andera:8e2a8fa6113b13df9499ac52ecdd6e19">Craig Andera</h2>
+
+<p>Find him on <a href="http://twitter.com/craigandera">Twitter</a>. His
+<a href="http://www.pluralsight-training.net/community/blogs/craig/">Blog</a>.</p>
+
+<p>I have two. The first one I stole from Mike Fogus: to use “,,,” as a
+placeholder in the <strong>-&gt;</strong> and <strong>-&gt;&gt;</strong> macros. Since commas are
+whitespace, they can be used as markers to indicate how the expressions
+flow through the threading macros. So, for instance, you can write:</p>
+
+<pre><code>(-&gt;&gt;
+ (iterate inc 1)
+ (map #(* 5 %) ,,,)
+ (filter odd? ,,,))
+</code></pre>
+
+<p>and the commas indicate “the previous expression will be inserted here”.</p>
+
+<p>It’s not something you should put in production code, but I found it
+enormously helpful in “getting” the -&gt; and -&gt;&gt; macros. Honestly, I
+only had to write it out this way once or twice before it clicked with
+me and I stopped using the commas altogether.</p>
+
+<p>The other tip I have, has to do with understanding when to use <strong>map</strong>,
+<strong>filter</strong>, and <strong>reduce</strong>. These three functions are where an enormous
+amount of Clojure’s power comes from, but I find that beginners (such as
+myself) sometimes have a hard time selecting which one – or which
+combination – to use. What I’ve found is that it’s helpful to think of
+these in terms of what you *have* and what you *need*:</p>
+
+<ul>
+<li>If you *have* a sequence of length n and you *need* a sequence
+of length n, use <strong>map</strong>.</li>
+<li>If you *have* a sequence of length n and you *need* a shorter
+sequence, use <strong>filter</strong>.</li>
+<li>If you *have* a sequence of length n and you *need* a scalar,
+use <strong>reduce</strong>.</li>
+</ul>
+
+<p>It seems pretty obvious when stated like that, but it has been helpful
+to me on occasion when I start to get lost in how to express a
+particular algorithm.</p>
+
+<hr />
+
+<h2 id="meikel-brandmeyer:8e2a8fa6113b13df9499ac52ecdd6e19">Meikel Brandmeyer</h2>
+
+<p>Find him on <a href="http://twitter.com/kotarak">Twitter</a>. His <a href="http://bitbucket.org/kotarak">BitBucket
+Id</a>.</p>
+
+<p>Here is my tip on <strong>atoms</strong>.</p>
+
+<p>Clojure provides a lot of facilities to tackle the complexity of
+concurrent programming. But still you have to understand the semantics
+of the underlying facilities. One of these are <strong>refs</strong>, which allow
+coordinated access to several different entities at once. However, their
+use inflicts quite a bit of ceremony. You have to invoke the STM
+machinery whenever you want to write to a <strong>ref</strong> or want a consistent
+snapshot of several <strong>refs</strong>. Also your transaction is rolled back
+should a surrounding transaction retry. This is not always what you
+want.</p>
+
+<p>In such cases, it is interesting to use an <strong>atom</strong>. They are cheaper in
+terms of overhead and don’t interact with the STM. So the retry of a
+surrounding transaction doesn’t affect them. However they are
+uncoordinated: you can’t safely update multiple <strong>atoms</strong> at once.</p>
+
+<p>What is not so well known, is the fact, that <strong>refs</strong> also coordinate
+several accesses to the *same* <strong>ref</strong>. Again, this does *not* work
+well with <strong>atoms</strong>. Consider a cache, eg. for a <strong>memoized</strong> function.</p>
+
+<pre><code>(defn memoize
+ [f]
+ (let [cache (atom {})]
+   (fn [&amp; args]
+     (when-not (contains? @cache args)
+       (swap! cache assoc args (apply f args)))
+     (get @cache args))))
+</code></pre>
+
+<p>This code uses an <strong>atom</strong> and clojure datastructures, so we have no
+problems with concurrency, right? <strong>Wrong!</strong> There are plenty of race
+conditions between the different calls to <strong>contains?</strong>, <strong>swap!</strong> and
+<strong>get</strong>. In the example, the worst thing that can happen is that we
+compute the value of the function call several times. This can already
+be quite annoying if the call is expensive in computation time and/or
+resources. But consider a more involved cache implementation which could
+also remove entries from the cache. Then the call to <strong>contains?</strong> could
+see the value, but when we call get it might already be removed.</p>
+
+<p>The problem is, that we access the atom’s contents several times and
+this is not coordinated. Contrary to <strong>refs</strong> where we could call ensure
+to – well – ensure that the <strong>ref</strong> doesn’t change under our hands.</p>
+
+<p>How to solve this problem? Well, the problem is that we touch the
+<strong>atom</strong> several times. So the solution is to touch the <strong>atom</strong> only
+once!</p>
+
+<pre><code>(defn memoize
+ [f]
+ (let [cache  (atom {})
+       update (fn [state args]
+                (if-not (contains? state args)
+                  (assoc state args (apply f args))
+                  state))]
+   (fn [&amp; args]
+     (get (swap! cache update args) args))))
+</code></pre>
+
+<p>Here we do the contains check and update in one function which will see
+a consistent view of the cache state. Note that we also use the return
+value of the <strong>swap!</strong>. Otherwise we would again have to access to the
+atom several times!</p>
+
+<p>So while Clojure provides a lot of tools to tackle the problems of a
+concurrent world, you still have to understand what the semantics of the
+different tools are. And even then you have to carefully reason about
+your code. How it behaves. Where race conditions might hide. Life is not
+easy.</p>
+
+<p><strong>Note</strong>: There are other problems to the above problem. Eg. doing
+expensive work – namely calling f – in a <strong>swap!</strong>. Please read
+<a href="http://kotka.de/blog/2010/03/memoize_done_right.html">Meikel’s blog
+post</a> on
+<strong>memoize</strong> where even more such considerations are taken into account.</p>
+
+<hr />
+
+<h2 id="michael-fogus:8e2a8fa6113b13df9499ac52ecdd6e19">Michael Fogus</h2>
+
+<p>Find him on <a href="http://twitter.com/fogus">Twitter</a>. His book <a href="http://fogus.me/">The Joy of
+Clojure</a>.</p>
+
+<p>Many macros that I write start exactly the same way:</p>
+
+<pre><code>   (defmacro a-macro [&amp; forms]
+     `'~forms)
+</code></pre>
+
+<p>Then it proceeds to be transformed into a pipeline where each piece does
+a gradual transformation of forms:</p>
+
+<pre><code>   (defn do-something [forms]
+     (frobnicate forms))
+
+   (defn do-something-else [forms]
+     (moidilize forms))
+
+   (defmacro a-macro [&amp; forms]
+     (let [forms (do-something forms)
+           forms (do-something-else forms)])
+     `'~forms)
+</code></pre>
+
+<p>This makes it easy to see the transformations occurring at each step,
+keeps my macros small, and allows me to put error handling in each of
+the transformation functions for compile-time exceptions.</p>
+
+<p>Although this is all pretty arcane as I try really really hard to avoid
+writing macros else I get beaten.</p>
+
+<hr />
+
+<h2 id="michael-kohl:8e2a8fa6113b13df9499ac52ecdd6e19">Michael Kohl</h2>
+
+<p>Find him on <a href="http://twitter.com/citizen428">Twitter</a>. His
+<a href="http://citizen428.net/">Blog</a>.</p>
+
+<p>My tip would be the <a href="http://clojure.org/reader">Clojure reader macro
+<strong>#_</strong></a> which completely ignores the next
+form. From the docs:</p>
+
+<p>“The form following <strong>#_</strong> is completely skipped by the reader. (This
+is a more complete removal than the <strong>comment</strong> macro which yields
+<strong>nil</strong>).”</p>
+
+<p>This can be immensely useful while debugging.</p>
+
+<hr />
+
+<h2 id="nurullah-akkaya:8e2a8fa6113b13df9499ac52ecdd6e19">Nurullah Akkaya</h2>
+
+<p>Find him on <a href="http://twitter.com/nakkaya">Twitter</a>. His
+<a href="http://nakkaya.com/">Blog</a>.</p>
+
+<p>My tip would be on destructuring, which allows you to pull apart data
+structures into local bindings.</p>
+
+<pre><code>     (let [[x y] [1 2]] 
+       x)
+     ;;user=&gt; 1
+
+     (let [[a b c] &quot;abc&quot;] 
+       c)
+     ;;user=&gt; \c
+
+     (let [[[x1 y1][x2 y2]] [[1 2] [3 4]]]
+       [x1 y1 x2 y2])
+     ;;user=&gt; [1 2 3 4]
+</code></pre>
+
+<p>Besides destructuring sequential things (vectors, lists, seqs, strings,
+arrays, or anything that supports nth), you can destructure maps as
+well:</p>
+
+<pre><code>     (let [{key1 :key1 key2 :key2} {:key1 5 :key2 6}] 
+       [key1 key2])
+     ;;user=&gt; [5 6]
+
+     (let [{[x1 y1] :player1 [x2 y2] :player2} {:player1 [5 6] :player2 [9 9]}] 
+       [x1 y1 x2 y2])
+     ;;user=&gt; [5 6 9 9]
+</code></pre>
+
+<p>Most of the time, your local variables has the same names as the
+keywords, Clojure provides a shortcut that saves you from typing binding
+x keyword :x over and over again:</p>
+
+<pre><code>     (let [{:keys [key1 key2]} {:key1 5 :key2 6}] 
+            [key1 key2])
+     ;;user=&gt; [5 6]
+</code></pre>
+
+<p>For more on destructuring, checkout the
+<a href="http://clojure.org/special_forms#Special%20Forms--(let[bindings*%20]%20exprs*">documentation</a>.</p>
+
+<hr />
+
+<h2 id="ramakrishnan-muthukrishnan:8e2a8fa6113b13df9499ac52ecdd6e19">Ramakrishnan Muthukrishnan</h2>
+
+<p>Find him on <a href="http://twitter.com/vu3rdd">Twitter</a>. His <a href="http://github.com/vu3rdd">GitHub
+Id</a>.</p>
+
+<p><strong>Tip #1</strong>:</p>
+
+<p>If you have a sequence and want to remove duplicates, there are
+(atleast) two ways to do it:</p>
+
+<pre><code>(vec (into #{} [1 2 2 3 4 5])) ; =&gt; [1 2 3 4 5]
+</code></pre>
+
+<p>or</p>
+
+<pre><code>(distinct [1 2 2 3 4 5]) ; =&gt; [1 2 3 4 5]
+</code></pre>
+
+<p>The second one is preferred.</p>
+
+<p><strong>Tip #2</strong>:</p>
+
+<p>In a function, if you have a list of parameters, you can do the
+following:</p>
+
+<pre><code>(defn foo [x &amp; xs]
+ (...))
+</code></pre>
+
+<p>The same can be done in anonymous functions too. What if you are using
+the abbreviated form (reader macro form) of an anonymous function? You
+can still use it by using the “%&amp;” to denote the rest of the argument as
+a list. One example of the use of this form is shown
+<a href="http://www.bestinclass.dk/index.clj/2009/10/brians-functional-brain.html">here</a>.</p>
+
+<p><strong>Tip #3</strong>: I echo Craig Andera’s opinions on <strong>map</strong>, <strong>filter</strong> and
+<strong>reduce</strong>. It is extremely important to master these three constructs.
+Especially, the way <strong>reduce</strong> can be used with hash-maps.</p>
+
+<p><strong>Tip #4</strong>: If you want to have default values for some of the input
+parameters, one way is to define functions of diferent arity.</p>
+
+<pre><code>(defn foo
+ ([] (foo &quot;bar&quot;))
+ ([s] (........)))
+</code></pre>
+
+<p>Here, when ‘foo’ is called without any arguments, we assume a default
+value of “bar”, a string as argument to the function and call foo with
+that argument.</p>
+
+<hr />
+
+<h2 id="stuart-sierra:8e2a8fa6113b13df9499ac52ecdd6e19">Stuart Sierra</h2>
+
+<p>Find him on <a href="http://twitter.com/stuartsierra">Twitter</a>. His
+<a href="http://stuartsierra.com/">Blog</a>.</p>
+
+<p>Well, I’ve said this before, but it bears saying again: Don’t write a
+macro where a function will do. Functions are more flexible: they can be
+composed and passed as values. Do not use macros solely to make the
+syntax “prettier.”</p>
+
+<hr />
+
+<p>Do you like these tips? We are eager to know your reactions as comments
+to this post.</p>
+
+	
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f07%2f26%2fclojure-tips-from-the-experts%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f07%2f26%2fclojure-tips-from-the-experts%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f07%2f26%2fclojure-tips-from-the-experts%2f&title=Clojure%20Tips%20from%20the%20Experts&summary=RubyLearning%20wrote%20to%20a%20lot%20of%20experts%2c%20gathering%20their%20best%20tips%20on%20Clojure.%20The%20tips%20are%20still%20coming%20in%2c%20but%20here%20are%20some%20to%20get%20you%20started%20with.%20Feel%20free%20to%20add%20your%20own%20tips%20in%20the%20comments%20section%20or%20send%20the%20same%20to%20satishtalim%20%5bat%5d%20gmail.com.%20Enjoy%21%20Antonio%20Cangiano%20Find%20him%20on%20Twitter.%20His%20Blog.%20When%20learning%20a%20new%20programming%20language%2c%20I%20find%20Project%20Euler%20to%20be%20an%20invaluable%20source%20of%20self-contained%2c%20increasingly%20more%20challenging%20exercises.}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Clojure%20Tips%20from%20the%20Experts&url=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f07%2f26%2fclojure-tips-from-the-experts%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-clojure" href="http://rubylearning.com/blog//tags/clojure">Clojure</a>,
+	                
+	                <a class="post-tag post-tag-clojure-tips" href="http://rubylearning.com/blog//tags/clojure-tips">Clojure Tips</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2010/07/29/clojure-a-chat-with-andrew-boekhoff/">Clojure: A Chat with Andrew Boekhoff</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2010/07/24/popular-posts-on-clojure-from-rubylearning/">Popular Posts on Clojure from RubyLearning</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2010\/07\/26\/clojure-tips-from-the-experts\/';
+    var disqus_title = 'Clojure Tips from the Experts';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2010\/07\/26\/clojure-tips-from-the-experts\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	
+
+  
+</body>
+</html>

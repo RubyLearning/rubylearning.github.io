@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Internationalization in JRuby // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Satish Talim">
+
+
+  <meta property="og:title" content="Internationalization in JRuby" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2007/04/30/internationalization-in-jruby/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#internationalization-in-jruby:0caf766d36a4b53c1e4bcfecaced5a4b">Internationalization in JRuby</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2007/04/30/internationalization-in-jruby/">Internationalization in JRuby</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2007</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">Satish Talim</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">jruby</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>I have been using and teaching Java since 1995. The other day, I was
+talking to my students about Internationalization in Java.</p>
+
+<blockquote>
+<p><em>Internationalization</em> is the process of designing an application so
+that it can be adapted to various languages and regions without
+engineering changes.</p>
+
+<p><em>Localization</em> is the process of adapting software for a specific
+region or language by adding locale-specific components and
+translating text.</p>
+</blockquote>
+
+<p>The following is a simple example (in Java) to demonstrate how to
+internationalize a program so that it displays text messages in the
+appropriate language. Notice that the text of the messages is not
+hardcoded.</p>
+
+<pre><code>import java.util.*;
+public class InternationalizationEx
+{
+  public static void main(String[] args)
+  {
+    String lang, country;
+    Locale cLocale;
+    ResourceBundle msg;
+
+    lang = new String(&quot;de&quot;);
+    country = new String(&quot;DE&quot;);
+
+    cLocale = new Locale(lang, country);
+    msg = ResourceBundle.getBundle(&quot;MessagesBundle&quot;, cLocale);
+
+    System.out.println(msg.getString(&quot;greetings&quot;));
+    System.out.println(msg.getString(&quot;welcome&quot;));
+  }
+}
+</code></pre>
+
+<p>To compile and run the above program, you need these source files:</p>
+
+<ul>
+<li><a href="http://rubylearning.com/data/MessagesBundle.properties">MessagesBundle.properties</a></li>
+<li><a href="http://rubylearning.com/data/MessagesBundle_de_DE.properties">MessagesBundle_de_DE.properties</a></li>
+<li><a href="http://rubylearning.com/data/MessagesBundle_en_US.properties">MessagesBundle_en_US.properties</a></li>
+</ul>
+
+<p>The internationalized program uses a language and a country code. In the
+above example the language code is de (German) and the country code is
+DE (Germany), so the program displays the messages in German:</p>
+
+<pre><code>java InternationalizationEx
+Hallo
+HeiBen Sie Willkommen nach Indien
+</code></pre>
+
+<p>If the language code is en (English) and the country code is US (United
+States), the program displays the messages in English:</p>
+
+<pre><code>java InternationalizationEx
+Hello
+Welcome to India
+</code></pre>
+
+<p>The arguments passed to the getBundle method identify which properties
+file will be accessed. The first argument, MessagesBundle, refers to
+this family of properties files:</p>
+
+<ul>
+<li>MessagesBundle_de_DE.properties</li>
+<li>MessagesBundle_en_US.properties</li>
+</ul>
+
+<p>The Locale, which is the second argument of getBundle, specifies which
+of the MessagesBundle files is chosen. When the Locale was created, the
+language code and the country code were passed to its constructor. Note
+that the language and country codes follow MessagesBundle in the names
+of the properties files.</p>
+
+<p>You may be wondering what’s the point of this post and that too about
+code in Java, whereas RubyLearning.com is a blog that talks about Ruby
+and Rails!</p>
+
+<h4 id="internationalization-in-jruby:0caf766d36a4b53c1e4bcfecaced5a4b">Internationalization in JRuby</h4>
+
+<p>Well, since I am currently exploring JRuby, I wanted to call these Java
+classes in Ruby using JRuby. In Ruby, one can use Masao Mutoh’s
+<a href="http://www.yotabanana.com/hiki/ruby-gettext.html">Ruby-GetText-Package</a>
+to do the same, though personally I find it quite cumbersome to use.</p>
+
+<p>So here’s JRuby to my rescue! The program code in JRuby is:</p>
+
+<pre><code>#javaInternational.rb
+require 'java'
+
+module JavaLang
+  include_package &quot;java.lang&quot;
+end
+
+ResourceBundle = java.util.ResourceBundle
+Locale = java.util.Locale
+
+lang = JavaLang::String.new(&quot;de&quot;)
+country = JavaLang::String.new(&quot;DE&quot;)
+
+cLocale = Locale.new(lang, country)
+msg = ResourceBundle.getBundle(&quot;MessagesBundle&quot;, cLocale)
+
+puts msg.getString(&quot;greetings&quot;)
+puts msg.getString(&quot;welcome&quot;)
+</code></pre>
+
+<p>Run the program on a command prompt as follows:</p>
+
+<pre><code>jruby javaInternational.rb
+</code></pre>
+
+<p>It works! Okay, a little explanation of some of the JRuby code – There
+can be name clashes between Java class names and Ruby class names.
+String is an example of this; Java has java.util.String and Ruby also
+has Kernel::String. To resolve this name clash, define a Ruby module
+that includes the Java class definition as follows:</p>
+
+<pre><code>module JavaLang
+  include_package &quot;java.lang&quot;
+end
+</code></pre>
+
+<p>If you know Java and have started using Ruby, please do explore JRuby –
+you shall not be disappointed.</p>
+
+<p>Technorati Tags: <a href="http://technorati.com/tag/Internationalization+in+JRuby">Internationalization in
+JRuby</a>,
+<a href="http://technorati.com/tag/JRuby">JRuby</a>,
+<a href="http://technorati.com/tag/Java">Java</a>,
+<a href="http://technorati.com/tag/Ruby">Ruby</a></p>
+
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2007/05/02/rails-developers-in-india-id-recommend/">Rails Developers in India, I&#39;d Recommend</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2007/04/29/startups.in-interview/">Startups.in Interview</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2007\/04\/30\/internationalization-in-jruby\/';
+    var disqus_title = 'Internationalization in JRuby';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2007\/04\/30\/internationalization-in-jruby\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

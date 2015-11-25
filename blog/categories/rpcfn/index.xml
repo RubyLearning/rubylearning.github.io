@@ -1,0 +1,2872 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rpcfn on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/rpcfn/</link>
+    <description>Recent content in Rpcfn on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Jan 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/rpcfn/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Felipe Elias Philipp Winner RPCFN - 1 (Reprint)</title>
+      <link>http://rubylearning.com/blog/2015/01/26/felipe-elias-philipp-winner-rpcfn---1-reprint/</link>
+      <pubDate>Mon, 26 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/01/26/felipe-elias-philipp-winner-rpcfn---1-reprint/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: This article first appeared on 8th Oct. 2009 but the original is not accessible; hence the reprint.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    In this brief interview, Satish Talim of RubyLearning talks to &lt;b&gt;Felipe Elias Philipp of Brazil&lt;/b&gt;, winner of the first-ever &lt;a href=&#34;http://rubylearning.com/blog/2015/01/25/rpcfn-shift-subtitle-1-reprint/&#34;&gt;Ruby Programming Challenge For Newbies&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Felipe Elias Philipp&#34; src=&#34;http://www.rubylearning.com/images/profile2-125x125.jpg&#34; alt=&#34;Felipe Elias Philipp&#34; width=&#34;125&#34; height=&#34;125&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Welcome Felipe and thanks for taking out time to share your thoughts. For the benefit of the readers, could you tell us something about your self?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Felipe&gt;&gt;&lt;/strong&gt; Thanks Satish for the opportunity. Well, about me&amp;#8230; I&amp;#8217;m a Brazilian guy, a web developer and a Mac user. I&amp;#8217;m 22 years old and I started to program at school, since I was 16. Since then, programming has become my life and I can&amp;#8217;t imagine myself doing any other thing.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; How did you get involved with Ruby programming?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Felipe&gt;&gt;&lt;/strong&gt; I discovered Ruby through Rails on a well-known website by Brazilians: iMasters. I was just amazed as it was so easy to understand the Ruby code and I could solve the problems in a very simple way. This got me very motivated and I became more interested in the subject. At that time, I was working with ASP and I was deciding whether to learn Java or .NET. By then, I had realized that Ruby was simpler and I decided to learn it.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Could you name three features of Ruby that you like the most, as compared to other languages? Why?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Felipe&gt;&gt;&lt;/strong&gt; One of the things that caught my attention was the fact that Ruby is an extremely dynamic language. The way I can open classes and add my own methods is one of the features I like most. Creating DSLs was something I had never seen before and which I found very interesting. These are some of the features I remember at the moment, although I like almost everything in the language.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; How was experience of taking part in the Ruby Programming Challenge For Newbies (RPCFN)?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Felipe&gt;&gt;&lt;/strong&gt; Despite knowing Ruby for almost two years, I had never written more than 50 lines of code. I had not found a project that motivated me to practice. However the &lt;strong&gt;RPCFN&lt;/strong&gt; aroused me! Also, I enjoyed the challenge very much. I recommend everybody to take part in the &lt;strong&gt;RPCFN&lt;/strong&gt;. Even if you know the language, there is always something new to learn. I intend to participate in all the forthcoming challenges.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; What are your future plans?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Felipe&gt;&gt;&lt;/strong&gt; I want to study Ruby and Rails deeper, and also learn other languages (Python and Erlang are already on my list). In the short ter, I intend to share whatever I learn about Ruby and about programming in general; perhaps starting my own blog or something else.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Thank you Felipe. In case you have any queries and/or questions, kindly post your questions here (as comments to this blog post) and Felipe would be glad to answer.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RPCFN: Average Arrival Time For A Flight - 2 Reprint</title>
+      <link>http://rubylearning.com/blog/2015/01/26/rpcfn-average-arrival-time-for-a-flight---2-reprint/</link>
+      <pubDate>Mon, 26 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/01/26/rpcfn-average-arrival-time-for-a-flight---2-reprint/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: This article first appeared on 8th Oct. 2009 but the original is not accessible; hence the reprint.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Ruby Programming Challenge For Newbies
+  &lt;/h3&gt;
+  
+  &lt;h4&gt;
+    RPCFN: Average Arrival Time For A Flight (#2)
+  &lt;/h4&gt;
+  
+  &lt;h5&gt;
+    By Chris Strom
+  &lt;/h5&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    Thank you for the very encouraging response to the &lt;a href=&#34;http://rubylearning.com/blog/2015/01/26/felipe-elias-philipp-winner-rpcfn-1-reprint/&#34;&gt;first-ever&lt;/a&gt; &amp;#8220;&lt;strong&gt;Ruby Programming Challenge For Newbies (RPCFN)&lt;/strong&gt;&amp;#8220;. The second Ruby challenge is from Chris Strom.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    About Chris Strom
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignleft&#34; title=&#34;Chris Strom&#34; src=&#34;http://rubylearning.com/images/chris_strom.jpg&#34; alt=&#34;Chris Strom&#34; /&gt;Chris Strom (&lt;a href=&#34;http://twitter.com/eee_c&#34;&gt;twitter&lt;/a&gt; / &lt;a href=&#34;http://japhr.blogspot.com/&#34;&gt;blog&lt;/a&gt;) in his day job, is the Director of Software Engineering for mdlogix, a small company in Baltimore, Maryland. They develop software that manages clinical research trials and associated data. They primarily code with Ruby on Rails. His background is in web development, mostly in Perl until ~2005 when he made the switch to Ruby.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Chris has this to say about the challenge:
+  &lt;/p&gt;
+  
+  &lt;blockquote&gt;
+    &lt;p&gt;
+      &lt;em&gt;RPCFN is a good idea as reading books and documentation can only take you so far when learning a new language. To really learn, you need to use the language. RPCFN provides a fabulous forum for using Ruby in the form of regular, engaging (but not arcanely difficult) challenges. Better yet, it provides feedback on how to use Ruby well, as each fortnight the best solution to a challenge is chosen. RPCFN is a wonderful introduction to the Ruby language and to the Ruby community. Welcome newbies!&lt;/em&gt;
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;h3&gt;
+    Sponsor
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#39;http://www.railsware.com/&#39;&gt;&lt;img class=&#34;alignright&#34; src=&#39;http://rubylearning.com/images/Railsware125x125.png&#39; width=&#34;125&#34; height=&#34;125&#34; style=&#34;border: 0px none ;&#34; alt=&#34;Railsware for premium-quality web applications&#34; title=&#34;Railsware for premium-quality web applications&#34; /&gt;&lt;/a&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    This fortnights programming challenge is sponsored by &lt;strong&gt;&lt;a href=&#34;http://www.railsware.com/&#34;&gt;Railsware&lt;/a&gt;&lt;/strong&gt;. Railsware is glad to support the Ruby Programming Challenge and help the Ruby community grow and get stronger.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Railsware is a product development company specializing in Ruby on Rails and UI design creating premium-quality web applications. The company works with startups and established businesses looking to build ecommerce, social networking, specialized business applications and many other products.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Prizes
+  &lt;/h3&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      The person with the best Ruby solution (if there is a tie between answers, then the one who posted first will be the winner) will be awarded any &lt;b&gt;one&lt;/b&gt; of PeepCode&amp;#8217;s &lt;a href=&#34;http://peepcode.com/screencasts/ruby-on-rails&#34;&gt;Ruby on Rails screencasts&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The other prize, selected randomly amongst the remaining working Ruby solutions, will be awarded any &lt;b&gt;one&lt;/b&gt; of BDDCasts&amp;#8217; &lt;a href=&#39;http://bddcasts.com/&#39;&gt;screencasts&lt;/a&gt;.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    The two persons who win, can&amp;#8217;t win again in the next immediate challenge but can still participate.
+  &lt;/p&gt;
+  
+  &lt;h3 style=&#34;color:#0000FF;&#34;&gt;
+    The Ruby Challenge
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#39;http://rubylearning.com/images/rubypc.jpg&#39; style=&#34;border: 0px none ;&#34; alt=&#34;RPCFN&#34; title=&#34;Ruby Programming Challenge For Newbies&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    You owe a big favor and have agreed to pick up a friend at the airport every Friday night. The airline on which your friend flies is cheap, but terrible with reporting delays and departure/arrival times. You soon realize that the 10pm flight is never on time and is usually late by more than an hour. If the plane has arrived at 11:15pm, 12:03am, 11:30pm, 11:23pm and 11:48pm, what is the average arrival time?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Does the solution still work if your friend changes to a flight arriving 6 hours later? What about 12 hours later?
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Program Output
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    The output should look something like this when run from the console:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&gt;&gt; average_time_of_day([&#34;11:51pm&#34;, &#34;11:56pm&#34;, &#34;12:01am&#34;, &#34;12:06am&#34;, &#34;12:11am&#34;])
+=&gt; &#34;12:01am&#34;
+
+&gt;&gt; average_time_of_day([&#34;6:41am&#34;, &#34;6:51am&#34;, &#34;7:01am&#34;])
+=&gt; &#34;6:51am&#34;
+&lt;/pre&gt;
+  
+  &lt;h4&gt;
+    Hint
+  &lt;/h4&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      Your digital ways will not help you, time of day is cyclical.
+    &lt;/li&gt;
+    &lt;li&gt;
+      You may need to use the &lt;b&gt;Math&lt;/b&gt; and &lt;b&gt;Time&lt;/b&gt; classes.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Requirements&lt;/b&gt;: This has to be a pure Ruby script, using only the Ruby Standard Libraries (meaning, no external Gems). You &lt;b&gt;do not&lt;/b&gt; need to build a gem for this. Pure Ruby code is all that is needed.
+  &lt;/p&gt;
+  
+  &lt;h3 style=&#34;color:#0000FF;&#34;&gt;
+    How to Enter the Challenge
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Read the &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6&#34;&gt;Challenge Rules&lt;/a&gt;. By participating in this challenge, you agree to be bound by these Challenge Rules. &lt;b&gt;It&amp;#8217;s free and &lt;a href=&#34;http://rubylearning.com/blog/wp-login.php?action=register&#34;&gt;registration&lt;/a&gt; is optional&lt;/b&gt;. You can enter the challenge just by posting the following as a comment to this blog post:
+  &lt;/p&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      Your name:
+    &lt;/li&gt;
+    &lt;li&gt;
+      Email address (will not be published):
+    &lt;/li&gt;
+    &lt;li&gt;
+      Brief description of what you do (will not be published):
+    &lt;/li&gt;
+    &lt;li&gt;
+      Country of Residence:
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/#rpc5&#34;&gt;GIST URL of your Solution&lt;/a&gt; (i.e. Ruby code) with explanation and / or test cases:
+    &lt;/li&gt;
+    &lt;li&gt;
+      Code works with Ruby 1.8 / 1.9 / Both:
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      As soon as we receive your GIST URL, we will fork your submission. This means that your solution is frozen and accepted. Please be sure that is the solution you want, as it is now recorded in time and is the version that will be evaluated.
+    &lt;/li&gt;
+    &lt;li&gt;
+      All solutions posted would be hidden to allow participants to come up with their own solutions.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;b&gt;You should post your entries before midnight of 18th Oct. 2009 (Indian Standard Time). No new solutions will be accepted from 19th to 22nd Oct. 2009.&lt;/b&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      On Monday, 19th Oct. 2009 all the solutions will be thrown open for everyone to see and comment upon.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The winning entries will be announced on this blog on 22nd Oct. The winners will be sent their prizes by email.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;h3&gt;
+    More details on the RPCFN?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Please refer to the &lt;b&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/&#34;&gt;RPCFN FAQ&lt;/a&gt;&lt;/b&gt; for answers to the following questions:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc1&#34;&gt;What Is The Ruby Programming Challenge For Newbies (RPCFN)?&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc2&#34;&gt;How does RPCFN benefit you?&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6&#34;&gt;Challenge Rules&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc3&#34;&gt;Best Solution&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc4&#34;&gt;Can I Submit A Ruby Programming Challenge Topic?&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;h3&gt;
+    Donations
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    RPCFN is entirely financed by RubyLearning and sometimes sponsors, so if you enjoy solving Ruby problems and would like to give something back by helping with the running costs then any donations are gratefully received.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Acknowledgements
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Special thanks to:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://japhr.blogspot.com/&#34;&gt;Chris Strom&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Sponsor &lt;a href=&#34;http://www.railsware.com/&#34;&gt;Railsware&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Jeff Schoolcraft of &lt;a href=&#34;http://bddcasts.com/&#34;&gt;BDDCasts&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The RubyLearning team, namely Dave Lilley (New Zealand), Jeff Savin (Canada), &lt;a href=&#34;http://citizen428.net/&#34;&gt;Michael Kohl&lt;/a&gt; (Austria), Peter Crawford (Italy), Satoshi Asakawa (Japan) and Victor Goff (USA).
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://giordano.scalzo.biz/2009/10/10/entering-rpcfn-2/&#34;&gt;Giordano Scalzo&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://jonathanjulian.com/2009/10/i-just-entered-rpcfn-2/&#34;&gt;Jonathan Julian&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.loicpaillotin.com/2009/10/getting-back-in-shape.html&#34;&gt;Loïc Paillotin&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;h3&gt;
+    Questions?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Contact Satish Talim at &lt;a href=&#34;mailto:satish.talim@gmail.com&#34;&gt;satish.talim@gmail.com&lt;/a&gt; OR if you have any doubts / questions about the challenge (the current problem statement), please post them as comments to this post and the author will reply asap.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    The Participants
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    There are two categories of participants. Some are vying for the prizes and some are participating for the fun of it.
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    In the competition
+  &lt;/h4&gt;
+  
+  &lt;ol&gt;
+    &lt;li style=&#34;color:#0000FF;&#34;&gt;
+      Othmane Benkirane, Morocco &amp;#8211; declared winner
+    &lt;/li&gt;
+    &lt;li&gt;
+      Tisho Georgiev, Bulgaria
+    &lt;/li&gt;
+    &lt;li&gt;
+      Pete Campbell, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Jonathan Julian, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Antonio, Canada
+    &lt;/li&gt;
+    &lt;li&gt;
+      Robison WR Santos, Brazil
+    &lt;/li&gt;
+    &lt;li&gt;
+      Ricardo Duarte, Brazil
+    &lt;/li&gt;
+    &lt;li&gt;
+      Paul Barry, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Haris Amin, USA
+    &lt;/li&gt;
+    &lt;li style=&#34;color:#0000FF;&#34;&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2009/10/22/charles-feduke-winner-rpcfn-2/&#34;&gt;Charles Feduke&lt;/a&gt;, USA &amp;#8211; declared winner
+    &lt;/li&gt;
+    &lt;li&gt;
+      Oliver, UK
+    &lt;/li&gt;
+    &lt;li&gt;
+      Bryan Liles, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Gunther Diemant, Germany
+    &lt;/li&gt;
+    &lt;li&gt;
+      Valério Farias, Brazil
+    &lt;/li&gt;
+    &lt;li&gt;
+      Vikas Maskeri, India
+    &lt;/li&gt;
+    &lt;li&gt;
+      Jiren Patel, India
+    &lt;/li&gt;
+    &lt;li&gt;
+      Stefan, Germany
+    &lt;/li&gt;
+    &lt;li&gt;
+      Ahmed Al Hafoudh, Slovakia
+    &lt;/li&gt;
+    &lt;li&gt;
+      Tom Voltz, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      David Jenkins, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Michael Lang, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Thiago Fernandes Massa, Brazil
+    &lt;/li&gt;
+    &lt;li&gt;
+      Tim Rand, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Milan Dobrota, Serbia
+    &lt;/li&gt;
+    &lt;li&gt;
+      Mike Hodgson, Canada
+    &lt;/li&gt;
+    &lt;li&gt;
+      Brad O&amp;#8217;Connor, Australia
+    &lt;/li&gt;
+    &lt;li&gt;
+      Giordano Scalzo, Italy
+    &lt;/li&gt;
+    &lt;li&gt;
+      Rainer Thiel, New Zealand
+    &lt;/li&gt;
+    &lt;li&gt;
+      Todd Huss, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Pankaj Sisodiya, India
+    &lt;/li&gt;
+    &lt;li&gt;
+      Loïc Paillotin, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Chuck Ha, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Josh Baxley, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Javier Blanco Gutiérrez, Spain
+    &lt;/li&gt;
+    &lt;li&gt;
+      Sogo Ohta, Japan
+    &lt;/li&gt;
+    &lt;li&gt;
+      Daniel Wanek, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Himansu Desai, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      John McDonald, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Ben Miller, UK
+    &lt;/li&gt;
+    &lt;li&gt;
+      Sriram Varahan, India
+    &lt;/li&gt;
+    &lt;li&gt;
+      Conner Peirce, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Ben Marini, USA
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;h4&gt;
+    Just for Fun
+  &lt;/h4&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      Michael Kohl, Austria
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubyinside.com/&#34;&gt;Peter Cooper, UK&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;h3 style=&#34;color:#0000FF;&#34;&gt;
+    The Winners
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#39;http://rubylearning.com/images/winner_icon_1.png&#39; style=&#34;border: 0px none ;&#34; alt=&#34;Winners&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Congratulations to the winners of this Ruby Challenge. They are:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;b&gt;Charles Feduke&lt;/b&gt; from USA (his &lt;a href=&#34;https://gist.github.com/5b371226faf83af50d7e&#34;&gt;Ruby Challenge solution&lt;/a&gt;) &amp;#8211; the person with the best Ruby solution. He wins any &lt;b&gt;one&lt;/b&gt; of PeepCode&amp;#8217;s &lt;a href=&#34;http://peepcode.com/screencasts/ruby-on-rails&#34;&gt;Ruby on Rails screencasts&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;b&gt;Othmane Benkirane&lt;/b&gt; from Morocco (his &lt;a href=&#34;http://gist.github.com/205002&#34;&gt;Ruby Challenge solution&lt;/a&gt;) &amp;#8211; selected randomly amongst the remaining working Ruby solutions. He wins any &lt;b&gt;one&lt;/b&gt; of BDDCasts’ &lt;a href=&#39;http://bddcasts.com/&#39;&gt;screencasts&lt;/a&gt;.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;h3&gt;
+    Previous Challenge
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#34;http://rubylearning.com/blog/2015/01/25/rpcfn-shift-subtitle-1-reprint/&#34;&gt;RPCFN: Shift Subtitle (#1)&lt;/a&gt; by Fabio Akita.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Next Challenge
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#34;http://rubylearning.com/blog/2009/10/30/rpcfn-short-circuit-3/&#34;&gt;RPCFN: Short Circuit (#3)&lt;/a&gt; by Gautam Rege.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignleft&#34; src=&#39;http://rubylearning.com/images/update.jpg&#39; style=&#34;border: 0px none ;&#34; alt=&#34;Update&#34; title=&#34;Update&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;b&gt;This Challenge is now closed&lt;/b&gt;. &lt;b&gt;Chris Strom&lt;/b&gt; has a &lt;a href=&#34;https://gist.github.com/4f6807eef49064027a3c&#34;&gt;working solution to this problem&lt;/a&gt;. This is not a &amp;#8220;perfect&amp;#8221; or the sole &amp;#8220;correct&amp;#8221; solution, but just one way of doing it.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Chris Strom has written a blog post that talks about the &lt;a href=&#34;http://japhr.blogspot.com/2009/10/newbie-feedback.html&#34;&gt;most common &amp;#8220;issues&amp;#8221; faced by Ruby beginners&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The (#3) challenge by &lt;b&gt;Gautam Rege, India&lt;/b&gt; is scheduled for 1st Nov. 2009.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The (#4) challenge by &lt;b&gt;Michael Kohl, Austria&lt;/b&gt; is scheduled for 1st Dec. 2009.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The (#5) challenge by &lt;b&gt;&lt;a href=&#34;http://rubyinside.com/&#34;&gt;Peter Cooper&lt;/a&gt;, UK&lt;/b&gt; is scheduled for 1st Jan. 2010.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RPCFN: Ruby Programming Challenge For Newbies (Reprint)</title>
+      <link>http://rubylearning.com/blog/2015/01/25/rpcfn-ruby-programming-challenge-for-newbies-reprint/</link>
+      <pubDate>Sun, 25 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/01/25/rpcfn-ruby-programming-challenge-for-newbies-reprint/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    RPCFN: Ruby Programming Challenge For Newbies
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: This article first appeared on 20th Sept. 2009 but the original is not accessible; hence the reprint.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    After a &lt;a href=&#34;http://rubylearning.com/blog/2015/01/13/poll-ruby-problems-for-beginners-and-prizes-reprint/&#34;&gt;very encouraging response to our poll&lt;/a&gt; from YOU, the readers of the &lt;abbr title=&#34;RubyLearning&#34;&gt;RL&lt;/abbr&gt; blog, RL is happy to announce the first-ever &lt;b&gt;fortnightly&lt;/b&gt; (every 14 days) &amp;#8220;&lt;strong&gt;Ruby Programming Challenge For Newbies (RPCFN)&lt;/strong&gt;&amp;#8221; that starts on &lt;b&gt;Friday, 25th Sept. 2009&lt;/b&gt;.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    What Is The RPCFN?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#39;http://rubylearning.com/images/rubypc.jpg&#39; style=&#34;border: 0px none ;&#34; alt=&#34;RPCFN&#34; title=&#34;Ruby Programming Challenge For Newbies&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The RPCFN is a fortnightly (every 14 days) programming challenge for &lt;strong&gt;Ruby Newbies&lt;/strong&gt; in the spirit of the &lt;a href=&#34;http://rubyquiz.com/&#34;&gt;Ruby Quiz&lt;/a&gt;. A new RPCFN will be posted on this &lt;a href=&#34;http://rubylearning.com/blog/&#34;&gt;RubyLearning blog&lt;/a&gt; every alternate Friday, starting 25th Sept. 2009. The contest is open to individuals only and you are invited to contribute solution(s) and/or discussion(s) as comments to the respective blog post. 13 days after the RPCFN is posted (i.e. on a Thursday), all the solutions will be thrown open for everyone to see and comment upon. The next day i.e. Friday, the cycle begins again. The Ruby working solution(s) should be clear-cut, follow Ruby conventions and still be easy to understand.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    How does RPCFN benefit you?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#34;http://rubylearning.com/blog/2009/07/15/chris-strom-how-do-i-learn-and-master-sinatra/&#34;&gt;Chris Strom&lt;/a&gt; (&lt;a title=&#34;twitter&#34; href=&#34;http://twitter.com/eee_c&#34;&gt;twitter&lt;/a&gt;&amp;nbsp;/&amp;nbsp;&lt;a title=&#34;blog&#34; href=&#34;http://japhr.blogspot.com&#34;&gt;blog&lt;/a&gt;) is one of the problem setters for the RPCFN and has this to say:
+  &lt;/p&gt;
+  
+  &lt;blockquote&gt;
+    &lt;p&gt;
+      RPCFN is a good idea as reading books and documentation can only take you so far when learning a new language. To really learn, you need to use the language. RPCFN provides a fabulous forum for using Ruby in the form of regular, engaging (but not arcanely difficult) challenges. Better yet, it provides feedback on how to use Ruby well, as each fortnight the best solution to a challenge is chosen. RPCFN is a wonderful introduction to the Ruby language and to the Ruby community. Welcome newbies!
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;h3&gt;
+    How to Enter
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    It&amp;#8217;s free. You can enter the challenge by posting the following as a comment to the Ruby challenge blog post that will appear every alternate Friday, starting 25th Sept. 2009:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      Your name:
+    &lt;/li&gt;
+    &lt;li&gt;
+      Email address:
+    &lt;/li&gt;
+    &lt;li&gt;
+      URL of your 125&amp;#215;125 real photo (optional):
+    &lt;/li&gt;
+    &lt;li&gt;
+      Brief description of what you do:
+    &lt;/li&gt;
+    &lt;li&gt;
+      Country of Residence:
+    &lt;/li&gt;
+    &lt;li&gt;
+      Your Solution (i.e. Ruby code):
+    &lt;/li&gt;
+    &lt;li&gt;
+      Explanation (if any):
+    &lt;/li&gt;
+    &lt;li&gt;
+      Test cases (if any):
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: All solutions posted would be hidden to allow users to come up with their own solutions. The solutions will be revealed only after a winner is chosen.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Notification
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    The winning entries will be announced on this blog. The winners will be sent their prizes by email.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Prizes
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    There will normally be two prizes (though we reserve the right to change this for each challenge). One prize will be awarded for the best solution (if there is a tie between answers, then the one who posted first will be the winner) and the other will be decided by randomly selecting one person from all the remaining working solutions for that fortnight (14 days). If a person wins he/she can’t win again in the next, immediate challenge but can still participate. Prizes can range from small cash rewards to free PDFs &amp;#8211; whatever the sponsors of the challenge have offered.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Sponsors
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Any individual or companies interested in sponsoring the fortnightly event are welcome. Please contact Satish Talim at &lt;a href=&#34;mailto:satish.talim@gmail.com&#34;&gt;satish.talim@gmail.com&lt;/a&gt;
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Donations
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    RPCFN is entirely financed by RubyLearning and sometimes sponsors, so if you enjoy solving Ruby problems and would like to give something back by helping with the running costs then any donations are gratefully received.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Acknowledgements
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Special thanks to the RubyLearning team, namely &lt;a href=&#34;http://citizen428.net/&#34;&gt;Michael Kohl&lt;/a&gt; (Austria), Peter Crawford (Italy), Satoshi Asakawa (Japan) and Victor Goff (USA).
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Questions?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Contact Satish Talim at &lt;a href=&#34;mailto:satish.talim@gmail.com&#34;&gt;satish.talim@gmail.com&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RPCFN: Shift Subtitle Reprint</title>
+      <link>http://rubylearning.com/blog/2015/01/25/rpcfn-shift-subtitle-reprint/</link>
+      <pubDate>Sun, 25 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/01/25/rpcfn-shift-subtitle-reprint/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    Ruby Programming Challenge For Newbies
+  &lt;/h3&gt;
+  
+  &lt;h4&gt;
+    RPCFN: Shift Subtitle (#1)
+  &lt;/h4&gt;
+  
+  &lt;h5&gt;
+    By Fabio Akita
+  &lt;/h5&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: This article first appeared on 24th Sept. 2009 but the original is not accessible; hence the reprint.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    After a &lt;a href=&#34;http://rubylearning.com/blog/2015/01/13/poll-ruby-problems-for-beginners-and-prizes-reprint/&#34;&gt;very encouraging response to our poll&lt;/a&gt; from YOU, the readers of the &lt;abbr title=&#34;RubyLearning&#34;&gt;RL&lt;/abbr&gt; blog, RL is happy to announce the first-ever &lt;b&gt;fortnightly&lt;/b&gt; ( bi-weekly / every 14 days) &amp;#8220;&lt;strong&gt;Ruby Programming Challenge For Newbies (RPCFN)&lt;/strong&gt;&amp;#8221; in Ruby. Thanks to YOU, the Ruby community, people like Fabio Akita and companies like Locaweb who make all of this possible.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    About Fabio Akita
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignleft&#34; title=&#34;Fabio Akita&#34; src=&#34;http://www.rubylearning.com/images/akita.jpg&#34; alt=&#34;Fabio Akita&#34; /&gt;&lt;strong&gt;Fabio Akita&lt;/strong&gt; is a Brazilian Rails enthusiast, also known online as &amp;#8220;AkitaOnRails&amp;#8221;. He regularly write posts on his own &lt;a href=&#34;http://www.akitaonrails.com/&#34;&gt;blog&lt;/a&gt; and had published the very first book tailored for the Brazilian audience called &amp;#8220;Repensando a Web com Rails&amp;#8221;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    He is now a full-time Ruby on Rails developer working as Project Manager at &lt;a href=&#34;http://www.locaweb.com/default.html?utm_campaign=Rails&amp;utm_source=rubylearning&amp;utm_medium=quadrado&#34;&gt;Locaweb&lt;/a&gt;, Brazil. He&amp;#8217;s also the creator of the &amp;#8220;&lt;a href=&#34;http://www.railssummit.com.br/&#34;&gt;Rails Summit Latin America&lt;/a&gt;&amp;#8220;, the largest international Rails event in South America.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Fabio has this to say about the challenge:
+  &lt;/p&gt;
+  
+  &lt;blockquote&gt;
+    &lt;p&gt;
+      &lt;em&gt;If you&amp;#8217;re learning a new language such as Ruby, it is important that you practice it. And the best way to start is by scratching your own itch. Anything goes. It&amp;#8217;s not unusual to start by writing simple command line scripts to help out your everyday routine. That&amp;#8217;s why I thought of a very trivial exercise in the first challenge. It should demand that you know the basics for a variety of Ruby subjects such as regular expressions, file manipulation, time calculation and so on. The only way to achieve mastery is by practice. So let&amp;#8217;s get started!&lt;/em&gt;
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;h3&gt;
+    Sponsor
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#39;http://www.1steasy.com/ruby-on-rails.htm&#39;&gt;&lt;img class=&#34;alignright&#34; src=&#39;http://rubylearning.com/images/rubylearning125.gif&#39; width=&#34;125&#34; height=&#34;125&#34; style=&#34;border: 0px none ;&#34; alt=&#34;UK based Passenger Hosting&#34; title=&#34;UK based Passenger Hosting&#34; /&gt;&lt;/a&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;a href=&#34;http://www.1steasy.com/&#34;&gt;1st Easy Limited&lt;/a&gt;&lt;/strong&gt; are delighted to have been given the opportunity to support the work of Satish Talim and his team at RubyLearning.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Taking part in the Ruby Programming Challenge? You’re welcome to take advantage of the free &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm&#34;&gt;Ruby on Rails hosting trials&lt;/a&gt; that 1st Easy offer: simply register your details, and a full-featured account is yours to do with as you please for one month. Once the trial is over, you can transfer your work to a paid account, or walk away with no questions asked!
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Prizes
+  &lt;/h3&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      The person with the best Ruby solution (if there is a tie between answers, then the one who posted first will be the winner) will be awarded any &lt;b&gt;one&lt;/b&gt; of PeepCode&amp;#8217;s &lt;a href=&#34;http://peepcode.com/screencasts/ruby-on-rails&#34;&gt;Ruby on Rails screencasts&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The other prize, selected randomly amongst the remaining working Ruby solutions, will be awarded any &lt;b&gt;one&lt;/b&gt; of Pragmatic&amp;#8217;s &lt;a href=&#39;http://www.pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming&#39;&gt;The Ruby Object Model and Metaprogramming&lt;/a&gt; screencasts.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    The two persons who win, can&amp;#8217;t win again in the next immediate challenge but can still participate.
+  &lt;/p&gt;
+  
+  &lt;h3 style=&#34;color:#0000FF;&#34;&gt;
+    The Ruby Challenge
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#39;http://rubylearning.com/images/rubypc.jpg&#39; style=&#34;border: 0px none ;&#34; alt=&#34;RPCFN&#34; title=&#34;Ruby Programming Challenge For Newbies&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Difficulty&lt;/b&gt;: Ruby beginner.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Goals&lt;/b&gt;: Basic control over Ruby elements, specially command line scripting.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Description&lt;/b&gt;: There are several ways to subtitle a movie nowadays, and one of the most well known format is the SubRip format (&lt;a href=&#34;http://en.wikipedia.org/wiki/SubRip&#34;&gt;http://en.wikipedia.org/wiki/SubRip&lt;/a&gt;). It has entries like these:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;645
+01:31:51,210 --&gt; 01:31:54,893
+the government is implementing a new policy...
+
+646
+01:31:54,928 --&gt; 01:31:57,664
+In connection with a dramatic increase
+in crime in certain neighbourhoods,
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Each line has an increasing integer identification, then comes the time range (start and end time) in the format &amp;#8220;hours:minutes:seconds,milliseconds&amp;#8221;. The decimal separator used is the comma. Finally there are the subtitles themselves and a line break marks the end of an entry.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Sometimes the timing is shifted for a small amount, 2 or 3 seconds. Then comes the trouble when you need to shift everything a few seconds back or ahead.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The goal is to create a small command line script in Ruby that will read an SRT file, and output another one with the new calculated times.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    So, for example, if I want to shift everything 2,500 (2 seconds and 500 milliseconds) ahead, I would start with this:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;01:32:04,283 --&gt; 01:32:07,769
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    and end up with:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;01:32:06,783 --&gt; 01:32:10,269
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    The command line should accept arguments such as:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;shift_subtitle --operation add --time 02,110 input_file output_file
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    This means &amp;#8220;&amp;#45;&amp;#45;operation&amp;#8221; can accept either &amp;#8216;add&amp;#8217; or &amp;#8216;sub&amp;#8217; to add or subtract times. The &amp;#8220;&amp;#45;&amp;#45;time&amp;#8221; will accept the amount of time to shift in the format 11,222 where &amp;#8220;11&amp;#8221; is the amount of seconds and &amp;#8220;222&amp;#8221; the amount of milliseconds.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Requirements&lt;/b&gt;: This has to be a pure Ruby script, using only the Ruby Standard Libraries (meaning, no external Gems).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    It has to implement &amp;#8220;optparse&amp;#8221; to parse the command line arguments.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    As an observation, bear in mind that the first thing that you might attempt will look like this:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;a = Time.at(04,283)
+b = a + 2.500
+puts b.usec
+=&gt; 500283
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    This is wrong, the proper result should&amp;#8217;ve been &amp;#8220;783&amp;#8221; (as in the example in the previous section). So it means that you will have to find another way out.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Extras (Optional)&lt;/b&gt;: If you want:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      It would be interesting to exercise the process of a Gem creation. So you would have to package your script.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Another thing that would be good is to have RSpec unit tests covering your code, to exercise software development best practices.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;(Note that the above two points are optional and not a requirement).&lt;/b&gt;
+  &lt;/p&gt;
+  
+  &lt;h3 style=&#34;color:#0000FF;&#34;&gt;
+    How to Enter the Challenge
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;It&amp;#8217;s free and registration is not required&lt;/b&gt;. You can enter the challenge just by posting the following as a comment to this blog post:
+  &lt;/p&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      Your name:
+    &lt;/li&gt;
+    &lt;li&gt;
+      Email address (will not be published):
+    &lt;/li&gt;
+    &lt;li&gt;
+      Brief description of what you do (will not be published):
+    &lt;/li&gt;
+    &lt;li&gt;
+      Country of Residence:
+    &lt;/li&gt;
+    &lt;li&gt;
+      Your Solution (i.e. Ruby code): Prefix your code with &lt;pre&gt; tag and suffix it with &lt;/pre&gt; tag.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Code works with Ruby 1.8 / 1.9 / Both:
+    &lt;/li&gt;
+    &lt;li&gt;
+      Explanation (if any):
+    &lt;/li&gt;
+    &lt;li&gt;
+      Test cases (if any):
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      You may provide the URL of your source code, in case it is hosted on GitHub.
+    &lt;/li&gt;
+    &lt;li&gt;
+      All solutions posted would be hidden to allow users to come up with their own solutions.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;b&gt;You should post your entries before midnight of 4th Oct. 2009 (Indian Standard Time). No new solutions will be accepted from 5th to 8th Oct. 2009.&lt;/b&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      On Monday, 5th Oct. 2009 all the solutions will be thrown open for everyone to see and comment upon.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The winning entries will be announced on this blog. The winners will be sent their prizes by email.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;h3&gt;
+    More details on the RPCFN?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Please refer to the &lt;b&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/&#34;&gt;RPCFN FAQ&lt;/a&gt;&lt;/b&gt; for answers to the following questions:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc1&#34;&gt;What Is The Ruby Programming Challenge For Newbies (RPCFN)?&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc2&#34;&gt;How does RPCFN benefit you?&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc3&#34;&gt;Best Solution&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc4&#34;&gt;Can I Submit A Ruby Programming Challenge Topic?&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;h3&gt;
+    Donations
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    RPCFN is entirely financed by RubyLearning and sometimes sponsors, so if you enjoy solving Ruby problems and would like to give something back by helping with the running costs then any donations are gratefully received.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Acknowledgements
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Special thanks to:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.akitaonrails.com/&#34;&gt;Fabio Akita&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Sponsor &lt;a href=&#34;http://www.1steasy.com/&#34;&gt;1st Easy Limited&lt;/a&gt;, U.K.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The RubyLearning team, namely &lt;a href=&#34;http://citizen428.net/&#34;&gt;Michael Kohl&lt;/a&gt; (Austria), Peter Crawford (Italy), Satoshi Asakawa (Japan) and Victor Goff (USA).
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.rubyinside.com.br/participe-do-desafio-do-ruby-learning-e-concorra-a-premios-2227&#34;&gt;Ruby Inside, Brazil&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://ruby.about.com/b/2009/10/02/have-you-tried-the-ruby-programming-challenge-for-newbies-yet.htm&#34;&gt;Amanda and Michael&amp;#8217;s Ruby Blog&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://redshinythings.blogspot.com/2009/10/ruby-challenge.html&#34;&gt;Adrian&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.deploymentzone.com/2009/09/29/temp-files-and-ruby-1-8-6-on-windows/&#34;&gt;Charles Feduke&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://blog.kreusch.com.br/post/199158389/my-ruby-programming-challenge-for-newbies-1-entry&#34;&gt;Fabio Kreusch&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.fernandoquadro.com.br/html/2009/09/25/desafio-ruby-learning-participe-e-concorra-a-premios/&#34;&gt;Fernando Quadro&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://charpcfn.wordpress.com/2009/10/06/shift-subtitle-results/&#34;&gt;It&amp;#8217;s so shiny&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://blog.foxxtrot.net/2009/09/ruby-programming-challenge-for-newbies.html&#34;&gt;Jeff Craig&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;h3&gt;
+    Questions?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Contact Satish Talim at &lt;a href=&#34;mailto:satish.talim@gmail.com&#34;&gt;satish.talim@gmail.com&lt;/a&gt; OR if you have any doubts / questions about the challenge (the current problem statement), please post them as comments to this post and the author will reply asap.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    The Participants
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    There are two categories of participants. Some are vying for the prize and some are participating for the fun of it. The participants were:
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    In the competition
+  &lt;/h4&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      Felipe Giotto, Brazil
+    &lt;/li&gt;
+    &lt;li&gt;
+      Eduardo, Brazil
+    &lt;/li&gt;
+    &lt;li style=&#34;color:#0000FF;&#34;&gt;
+      Kalle Lindström, Sweden &amp;#8211; declared winner
+    &lt;/li&gt;
+    &lt;li&gt;
+      Robison WR Santos, Brazil
+    &lt;/li&gt;
+    &lt;li&gt;
+      Aldric, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Akshay Gupta, India
+    &lt;/li&gt;
+    &lt;li&gt;
+      Fabio Kreusch, Brazil
+    &lt;/li&gt;
+    &lt;li&gt;
+      Chris Jones, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Chuck Ha, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Milan Dobrota, Serbia
+    &lt;/li&gt;
+    &lt;li&gt;
+      Parag Shah, India
+    &lt;/li&gt;
+    &lt;li&gt;
+      Hugo Figueiredo, Brazil
+    &lt;/li&gt;
+    &lt;li&gt;
+      John McDonald, USA
+    &lt;/li&gt;
+    &lt;li style=&#34;color:#0000FF;&#34;&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2009/10/08/felipe-elias-philipp-winner-rpcfn-1/&#34;&gt;Felipe Elias Philipp&lt;/a&gt;, Brazil &amp;#8211; declared winner
+    &lt;/li&gt;
+    &lt;li&gt;
+      Charles Feduke, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Hari Rajagopal, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Brad O&amp;#8217;Connor, Australia
+    &lt;/li&gt;
+    &lt;li&gt;
+      Oliver, UK
+    &lt;/li&gt;
+    &lt;li&gt;
+      Jacob Lichner, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Todd Huss, USA
+    &lt;/li&gt;
+    &lt;li&gt;
+      Antonio, Canada
+    &lt;/li&gt;
+    &lt;li&gt;
+      Sriram Varahan, India
+    &lt;/li&gt;
+    &lt;li&gt;
+      Giordano Scalzo, Italy
+    &lt;/li&gt;
+    &lt;li&gt;
+      Phil Kates, USA
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;h4&gt;
+    Just for Fun
+  &lt;/h4&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      Michael Kohl, Austria
+    &lt;/li&gt;
+    &lt;li&gt;
+      Rodrigo Rosenfeld Rosas, Brazil
+    &lt;/li&gt;
+    &lt;li&gt;
+      Dominik Honnef, Germany
+    &lt;/li&gt;
+    &lt;li&gt;
+      Mike Hodgson, Canada
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;h3 style=&#34;color:#0000FF;&#34;&gt;
+    The Winners
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#39;http://rubylearning.com/images/winner_icon_1.png&#39; style=&#34;border: 0px none ;&#34; alt=&#34;Winners&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Congratulations to the winners of this Ruby Challenge. They are:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;b&gt;Felipe Elias Philipp&lt;/b&gt; from Brazil (his &lt;a href=&#34;http://github.com/felipeelias/shift_subtitle&#34;&gt;Ruby Challenge solution&lt;/a&gt;) &amp;#8211; the person with the best Ruby solution. He wins any &lt;b&gt;one&lt;/b&gt; of PeepCode&amp;#8217;s &lt;a href=&#34;http://peepcode.com/screencasts/ruby-on-rails&#34;&gt;Ruby on Rails screencasts&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;b&gt;Kalle Lindström&lt;/b&gt; from Sweden (his &lt;a href=&#34;https://gist.github.com/fa3ec5afe7b19d22c44a&#34;&gt;Ruby Challenge solution&lt;/a&gt;) &amp;#8211; selected randomly amongst the remaining working Ruby solutions. He wins any &lt;b&gt;one&lt;/b&gt; of Pragmatic&amp;#8217;s &lt;a href=&#39;http://www.pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming&#39;&gt;The Ruby Object Model and Metaprogramming&lt;/a&gt; screencasts.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;h3&gt;
+    Next Challenge
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#34;http://rubylearning.com/blog/2015/01/26/rpcfn-average-arrival-time-for-a-flight-2-reprint/&#34;&gt;RPCFN: Average Arrival Time For A Flight (#2)&lt;/a&gt; by Chris Strom.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignleft&#34; src=&#39;http://rubylearning.com/images/update.jpg&#39; style=&#34;border: 0px none ;&#34; alt=&#34;Update&#34; title=&#34;Update&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;b&gt;The Challenge is now closed&lt;/b&gt;. &lt;b&gt;Fabio Akita&lt;/b&gt; has a &lt;a href=&#34;http://github.com/akitaonrails/Shift-Subtitle&#34;&gt;working solution to this problem&lt;/a&gt;. This is not a &amp;#8220;perfect&amp;#8221; or the sole &amp;#8220;correct&amp;#8221; solution, but just one way of doing it. Fabio is thankful to &lt;b&gt;Satoshi Asakawa&lt;/b&gt; for using one of his ideas in this implementation.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Poll: Ruby Problems for Beginners and Prizes (Reprint)</title>
+      <link>http://rubylearning.com/blog/2015/01/13/poll-ruby-problems-for-beginners-and-prizes-reprint/</link>
+      <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/01/13/poll-ruby-problems-for-beginners-and-prizes-reprint/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: This article first appeared on 13th Sept. 2009 but the original is not accessible; hence the reprint.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Poll: Ruby Problems for Beginners and Prizes
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;span class=&#34;drop_cap&#34;&gt;M&lt;/span&gt;any RubyLearning participants wrote in asking RubyLearning to start a weekly post containing a problem to be solved using Ruby. A problem will be posted here every week / fortnight and anyone is free to offer their solution (the solution should be clear-cut, follow Ruby conventions and still be easy to understand) as a comment to the blog post. A small panel will evaluate the solutions received and decide the best amongst them all. The person with the best solution will be awarded a token prize which could be a &lt;a href=&#34;http://peepcode.com/&#34;&gt;Peepcode&lt;/a&gt; or a &lt;a href=&#34;http://www.pragprog.com/screencasts&#34;&gt;Pragmatic&lt;/a&gt; screencast or something equivalent. Maybe some sponsors could chip in with some prizes!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#39;http://rubylearning.com/images/ruby_challenge3.jpg&#39; style=&#34;border: 0px none ;&#34; alt=&#34;RPCFN&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    RubyLearning is open to this idea and will start the same provided there is a good response to this. There&amp;#8217;s a single question poll below which please answer and &lt;span style=&#34;background-color: #FFFFCC;&#34;&gt;what&amp;#8217;s more important is to post your thoughts, suggestions etc. as comments to this blog post&lt;/span&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    We do have the &lt;a href=&#34;http://rubyquiz.com/&#34;&gt;Ruby Quiz&lt;/a&gt;, a weekly programming challenge for Ruby programmers. What&amp;#8217;s also needed is something for programmers starting off with Ruby. Maybe RubyLearning could provide this.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;em&gt;We look forward to your response(s) and thoughts, suggestions (thoughts on the nature of the Ruby problem to be asked, evaluation criteria etc.) as comments below&lt;/em&gt;.
+  &lt;/p&gt;
+  
+  &lt;div id=&#34;polls-3&#34; class=&#34;wp-polls&#34;&gt;
+    &lt;p style=&#34;text-align: center;&#34;&gt;
+      &lt;strong&gt;Should we start a weekly Ruby programming challenge for beginners?&lt;/strong&gt;
+    &lt;/p&gt;
+    
+    &lt;div id=&#34;polls-3-ans&#34; class=&#34;wp-polls-ans&#34;&gt;
+      &lt;ul class=&#34;wp-polls-ul&#34;&gt;
+        &lt;li&gt;
+          Yes &lt;small&gt;(96%, 339 Votes)&lt;/small&gt;&lt;div class=&#34;pollbar&#34; style=&#34;width: 96%;&#34; title=&#34;Yes (96% | 339 Votes)&#34;&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        
+        &lt;li&gt;
+          No &lt;small&gt;(4%, 14 Votes)&lt;/small&gt;&lt;div class=&#34;pollbar&#34; style=&#34;width: 4%;&#34; title=&#34;No (4% | 14 Votes)&#34;&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      
+      &lt;p style=&#34;text-align: center;&#34;&gt;
+        Total Voters: &lt;strong&gt;353&lt;/strong&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+    
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;input type=&amp;quot;hidden&amp;quot; id=&amp;quot;poll_3_nonce&amp;quot; name=&amp;quot;wp-polls-nonce&amp;quot; value=&amp;quot;0296a03fc3&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;polls-3-loading&#34; class=&#34;wp-polls-loading&#34;&gt;
+    &lt;img src=&#34;http://rubylearning.com/blog/wp-content/plugins/wp-polls/images/loading.gif&#34; width=&#34;16&#34; height=&#34;16&#34; alt=&#34;Loading ...&#34; title=&#34;Loading ...&#34; class=&#34;wp-polls-image&#34; /&gt;&amp;nbsp;Loading &amp;hellip;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p class=&#34;note&#34;&gt;
+    &lt;strong&gt;&lt;span style=&#34;color:red;&#34;&gt;Update:&lt;/span&gt;&lt;/strong&gt; Thank you for the over-whelming response to the poll. The poll is now closed. As the poll results suggest, RubyLearning is going ahead and starting off the &amp;#8220;Ruby Programming Challenge For Newbies (RPCFN)&amp;#8221; from Friday, 25th Sept. 2009. We are also getting a very positive response from many Ruby Gurus and Sponsors. Work on the &lt;b&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/&#34;&gt;RPCFN FAQ&lt;/a&gt;&lt;/b&gt; is underway. In the meantime, we still look forward to your response(s) and thoughts, suggestions (thoughts on the nature of the Ruby problem to be asked, evaluation criteria etc.) as comments below.
+  &lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RPCFN: Japanese Mosaic Problem - 14</title>
+      <link>http://rubylearning.com/blog/2010/10/01/rpcfn-japanese-mosaic-problem---14/</link>
+      <pubDate>Fri, 01 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/10/01/rpcfn-japanese-mosaic-problem---14/</guid>
+      <description>
+
+&lt;h2 id=&#34;ruby-programming-challenge-for-newbies:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;Ruby Programming Challenge For Newbies&lt;/h2&gt;
+
+&lt;h3 id=&#34;rpcfn-japanese-mosaic-problem-14:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;RPCFN: Japanese Mosaic Problem (#14)&lt;/h3&gt;
+
+&lt;p&gt;&amp;ndash; By Joseph Wilk&lt;/p&gt;
+
+&lt;h2 id=&#34;about-joseph-wilk:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;About Joseph Wilk&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/josephwilk.jpeg&#34; alt=&#34;Joseph
+Wilk&#34; title=&#34;Joseph Wilk&#34; /&gt;
+
+Joseph Wilk is a member of the core development team for Cucumber. He
+has been developing for the web for over 10 years
+in both big and small companies and as an entrepreneur. After stints working
+with Java and Python he finally found Ruby. He now spends his time in-between
+eating Cucumbers working at Songkick.com. Having more fun than is healthy
+working as a Software Gardener building web systems, working on open source
+projects and giving talks around the world about testing. He suffers from test
+obsession and has given up hope of any treatment.&lt;/p&gt;
+
+&lt;p&gt;Joseph Wilk has this to say about the challenge:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The Japanese Mosaic problem is a logic puzzle based on a grid with the
+cells potentially containing numbers ranging 0 to 9. The numbers
+reflect for a cell how many of its neighbours and itself are shaded
+in. The fun aspect of these problems is once solved you end up with
+some pretty ASCII art. You’re challenge is to write an algorithm to
+solve any mosaic puzzle. The challenge provides the opportunity to
+explore data structures to represent the problem space and looking at
+how we can navigate the structure in search of a solution. There are
+lots of opportunities to also think about the efficiency in searching
+for a solution. A Cucumber feature has already been written for you
+with lots of scenarios exploring through examples the rules of the
+Japanese Mosaic problem. If you are not familiar with Cucumber
+checkout &lt;a href=&#34;http://cukes.info/&#34;&gt;http://cukes.info/&lt;/a&gt;. This Cucumber
+feature is both your specification and your executable tests. You’re
+mission is to get all the Scenarios passing. There are many ways to
+solve the problem and I look forward to seeing how people tackle these
+in the different languages. Good luck and safe Cuking.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;prizes:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;Prizes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The participant with the best Ruby solution (if there is a tie
+between answers, then the one who posted first will be the winner)
+will be awarded any &lt;strong&gt;one&lt;/strong&gt; of PeepCode’s &lt;a href=&#34;http://peepcode.com/screencasts/ruby-on-rails&#34;&gt;Ruby on Rails
+screencasts&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;From the remaining working Ruby solutions, three participants would
+be selected randomly and each one would be awarded any &lt;strong&gt;one&lt;/strong&gt; of
+Pragmatic’s &lt;a href=&#34;http://www.pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming&#34;&gt;The Ruby Object Model and
+Metaprogramming&lt;/a&gt;
+screencasts.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The four persons who win, can’t win again in the next immediate
+challenge but can still participate.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-ruby-challenge:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;&lt;em&gt;The Ruby Challenge&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/rubypc.jpg&#34; alt=&#34;RPCFN&#34; title=&#34;Ruby Programming Challenge For Newbies&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;the-challenge:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;The Challenge&lt;/h3&gt;
+
+&lt;p&gt;All the instructions and the code to get you started are in a Github
+repository:
+&lt;a href=&#34;http://github.com/josephwilk/japanese-mosaic-logic-puzzle&#34;&gt;http://github.com/josephwilk/japanese-mosaic-logic-puzzle&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-enter-the-challenge:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;&lt;em&gt;How to Enter the Challenge&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;Read the &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6&#34;&gt;Challenge
+Rules&lt;/a&gt;.
+By participating in this challenge, you agree to be bound by these
+Challenge Rules. &lt;strong&gt;It’s free and
+&lt;a href=&#34;http://rubylearning.com/blog/wp-login.php?action=register&#34;&gt;registration&lt;/a&gt;
+is optional&lt;/strong&gt;. You can enter the challenge just by posting the following
+as a comment to this blog post:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Your name:&lt;/li&gt;
+&lt;li&gt;Country of Residence:&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/#rpc5&#34;&gt;GIST URL of your
+Solution&lt;/a&gt;
+(i.e. Ruby code) with explanation and / or test cases:&lt;/li&gt;
+&lt;li&gt;Code works with Ruby 1.8 / 1.9 / Both:&lt;/li&gt;
+&lt;li&gt;Email address (will not be published):&lt;/li&gt;
+&lt;li&gt;Brief description of what you do (will not be published):&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;As soon as we receive your GIST URL, we will fork your submission.
+This means that your solution is frozen and accepted. Please be sure
+that is the solution you want, as it is now recorded in time and is
+the version that will be evaluated.&lt;/li&gt;
+&lt;li&gt;All solutions posted would be hidden to allow participants to come
+up with their own solutions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You should post your entries before midnight of 31st Oct. 2010
+(Indian Standard Time). No new solutions will be accepted from 1st
+Nov. onwards.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;On 1st Nov. 2010 all the solutions will be thrown open for everyone
+to see and comment upon.&lt;/li&gt;
+&lt;li&gt;The winning entries will be announced on this blog in the first week
+of Nov. 2010. The winners will be sent their prizes by email.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;more-details-on-the-rpcfn:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;More details on the RPCFN?&lt;/h2&gt;
+
+&lt;p&gt;Please refer to the &lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/&#34;&gt;RPCFN
+FAQ&lt;/a&gt;&lt;/strong&gt; for
+answers to the following questions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc1&#34;&gt;What Is The Ruby Programming Challenge For Newbies
+(RPCFN)?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc2&#34;&gt;How does RPCFN benefit
+you?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6&#34;&gt;Challenge
+Rules&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc3&#34;&gt;Best
+Solution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc4&#34;&gt;Can I Submit A Ruby Programming Challenge
+Topic?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;donations:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;Donations&lt;/h2&gt;
+
+&lt;p&gt;RPCFN is entirely financed by RubyLearning and sometimes sponsors, so if
+you enjoy solving Ruby problems and would like to give something back by
+helping with the running costs then any donations are gratefully
+received.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.pledgie.com/campaigns/12553&#34;&gt;&lt;img src=&#34;http://www.pledgie.com/campaigns/12553.png?skin_name=chrome&#34; alt=&#34;Click here to lend your support to: Support RubyLearning With Some
+Love and make a donation at www.pledgie.com
+!&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;acknowledgements:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;Acknowledgements&lt;/h2&gt;
+
+&lt;p&gt;Special thanks to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.josephwilk.net/&#34;&gt;Joseph Wilk&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://github.com/&#34;&gt;GitHub&lt;/a&gt;, for giving us access to a private
+repository on GitHub to store all the submitted solutions.&lt;/li&gt;
+&lt;li&gt;The RubyLearning team.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;questions:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;Questions?&lt;/h2&gt;
+
+&lt;p&gt;Contact Satish Talim at satish [dot] talim [at] gmail.com OR if you have
+any doubts / questions about the challenge (the current problem
+statement), please post them as comments to this post and the author
+will reply asap.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-participants:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;The Participants&lt;/h2&gt;
+
+&lt;h3 id=&#34;in-the-competition:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;In the competition&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Manuel Korfmann&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-winner:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;&lt;em&gt;The Winner&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/winner_icon_1.png&#34; alt=&#34;Winners&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Congratulations to the winner of this Ruby Challenge. He is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Manuel Korfmann&lt;/strong&gt; who was the only submitter and winner of this
+final challenge.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;previous-challenge:0fcf6c84ac723c3ced2d89621ea3b712&#34;&gt;Previous Challenge&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://rubylearning.com/blog/2010/08/31/rpcfn-economics-101-13/&#34;&gt;RPCFN: Economics 101
+(#13)&lt;/a&gt;
+by Dr. Bruce Scharlau.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: All the previous challenges, sponsors and winners can be seen
+on the &lt;a href=&#34;http://ruby-challenge.rubylearning.org/&#34;&gt;Ruby Programming Challenge for
+Newbies&lt;/a&gt; page.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Programming Challenge for Newbies in Clojure and Python too?</title>
+      <link>http://rubylearning.com/blog/2010/09/02/programming-challenge-for-newbies-in-clojure-and-python-too/</link>
+      <pubDate>Thu, 02 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/09/02/programming-challenge-for-newbies-in-clojure-and-python-too/</guid>
+      <description>
+
+&lt;h2 id=&#34;programming-challenge-for-newbies-in-clojure-and-python-too:7050656c8ff6592bfe712a9a911d0369&#34;&gt;Programming Challenge for Newbies in Clojure and Python too?&lt;/h2&gt;
+
+&lt;p&gt;RubyLearning has been conducting the monthly Ruby Programming Challenge
+for Newbies for over a year now and so far 12 challenges have been
+completed. The 13th challenge is in progress. All this was possible due
+to the extensive support we got from
+&lt;a href=&#34;http://ruby-challenge.rubylearning.org/&#34;&gt;Rubyists&lt;/a&gt; across the world.
+Also, you all indicated that &lt;a href=&#34;http://rubylearning.com/blog/2010/08/09/do-you-want-us-to-continue-with-the-ruby-challenge-for-newbies/&#34;&gt;we continue with these
+challenges&lt;/a&gt;
+in the months to come.&lt;/p&gt;
+
+&lt;p&gt;Recently, my colleague &lt;a href=&#34;http://blog.dhananjaynene.com/&#34;&gt;Dhananjay Nene&lt;/a&gt;
+posted a &lt;a href=&#34;http://codeblog.dhananjaynene.com/2010/09/code-kata-ruby-programming-challenge-for-newbies-in-python/&#34;&gt;Python based
+solution&lt;/a&gt;
+to the 13th Ruby challenge. While discussing the solution it struck me
+that it would help Clojure and Python Newbies, if we opened up these
+challenges in these languages too. Dhananjay and some of my Clojure
+colleagues are interested in evaluating the submitted solutions in
+Clojure and Python and maybe we could start the challenges from Oct.
+2010.&lt;/p&gt;
+
+&lt;p&gt;Clojure and Python enthusiasts – interested? What Do you Think? What is
+Your Opinion? Please share in the comments below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/update.jpg&#34; alt=&#34;Update&#34; title=&#34;Update&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3rd Sept.&lt;/strong&gt; Thanks for the very encouraging response. Based on the
+feedback received so far, we have decided the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;We will start the challenges for Clojure, Python and Ruby from &lt;strong&gt;1st
+Oct. 2010&lt;/strong&gt;. We will call these “&lt;strong&gt;Programming Challenge for
+Newbies&lt;/strong&gt;” and host it on this blog till end Dec. 2010. If the
+response is encouraging, we can host the challenges on different
+domains.&lt;/li&gt;
+&lt;li&gt;We will have separate panels to evaluate the solutions. One each for
+Clojure, Python and Ruby.&lt;/li&gt;
+&lt;li&gt;We will keep separate prizes for the 3 languages (and hopefully
+would find some sponsors).&lt;/li&gt;
+&lt;li&gt;The challenge problem setters (fixed till Dec. 2010) would be told
+that the problem should be solvable in all languages and
+specifically Clojure, Python and Ruby. This means that the problem
+setter should not set a problem that needs to be solved by some
+specific language feature.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RPCFN: Economics 101 - 13</title>
+      <link>http://rubylearning.com/blog/2010/08/31/rpcfn-economics-101---13/</link>
+      <pubDate>Tue, 31 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/08/31/rpcfn-economics-101---13/</guid>
+      <description>
+
+&lt;h2 id=&#34;ruby-programming-challenge-for-newbies:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;Ruby Programming Challenge For Newbies&lt;/h2&gt;
+
+&lt;h3 id=&#34;rpcfn-economics-101-13:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;RPCFN: Economics 101 (#13)&lt;/h3&gt;
+
+&lt;p&gt;&amp;ndash; By Dr. Bruce Scharlau&lt;/p&gt;
+
+&lt;h2 id=&#34;about-dr-bruce-scharlau:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;About Dr. Bruce Scharlau&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/self-head-final_thumb1.png&#34; alt=&#34;Dr. Bruce
+Scharlau&#34; title=&#34;Dr. Bruce Scharlau&#34; /&gt;
+
+In Dr. Bruce’s own words: “I’ve been using and teaching Ruby since
+trying out the cookbook example in the summer of 2006. As soon as I saw
+how much easier it all was with Ruby and Rails, I was hooked. I now try
+to do as much with Ruby as I can with my teaching and own work. It’s a
+joy to code with Ruby compared to using other languages, which don’t
+seem as intuitive by comparison. When I’m not busy working, then I try
+to spend time with the family, or get out sailing.”&lt;/p&gt;
+
+&lt;p&gt;Dr. Bruce has this to say about the challenge:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The challenge is useful for newbies as a way to extend their skills in
+a useful manner. They will learn how they solved the problem, and also
+gain from seeing how others solved the problem too. We all start from
+different places when we solve problems, so the ‘obvious’ solution to
+you, might not occur to someone else who has a different experience of
+Ruby. This is why it’s good to share examples and code together when
+possible too.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;prizes:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;Prizes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The participant with the best Ruby solution (if there is a tie
+between answers, then the one who posted first will be the winner)
+will be awarded any &lt;strong&gt;one&lt;/strong&gt; of PeepCode’s &lt;a href=&#34;http://peepcode.com/screencasts/ruby-on-rails&#34;&gt;Ruby on Rails
+screencasts&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;From the remaining working Ruby solutions, three participants would
+be selected randomly and each one would be awarded any &lt;strong&gt;one&lt;/strong&gt; of
+Pragmatic’s &lt;a href=&#34;http://www.pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming&#34;&gt;The Ruby Object Model and
+Metaprogramming&lt;/a&gt;
+screencasts.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The four persons who win, can’t win again in the next immediate
+challenge but can still participate.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-ruby-challenge:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;The Ruby Challenge&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/rubypc.jpg&#34; alt=&#34;RPCFN&#34; title=&#34;Ruby Programming Challenge For Newbies&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;the-challenge:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;The Challenge&lt;/h3&gt;
+
+&lt;p&gt;As a developer it helps to be able to understand a client’s perspective
+and to build suitable applications to help them in their field. This
+means knowing a bit about the world. We’ll help this background
+knowledge by doing looking at some economic data, and also testing our
+XML parsing skills.&lt;/p&gt;
+
+&lt;p&gt;The file &lt;a href=&#34;http://rubylearning.com/data/cia-1996.zip&#34;&gt;cia-1996.xml&lt;/a&gt; is
+the data from the CIA World Factbook of 1996 in XML format. It has
+details about 260 countries across five continents. Your challenge,
+should you choose to accept it, is to uncover the following details
+buried within this file:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;What is the population of the country with the most people? Yes, we
+know it’s China, but just how many people lived there in 1996?&lt;/li&gt;
+&lt;li&gt;What are the five countries with the highest inflation rates, and
+what were those rates in 1996?&lt;/li&gt;
+&lt;li&gt;What are the six continents in the file and which countries belong
+to which continent? Can you also produce them in alphabetical order?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Once you’ve worked out how to do part (2), then you can do anything with
+this file; all you need is a bit of time. Knowing how to do (2) you
+could then do (3) without too much effort.&lt;/p&gt;
+
+&lt;p&gt;You can use any XML library. I used REXML as it’s already there if you
+have Ruby installed; so don’t need to worry about any gem installs. You
+may also want to look at how REXML uses XPath.&lt;/p&gt;
+
+&lt;p&gt;Submit your solution of your code, which includes a test file that
+answers the three questions.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-enter-the-challenge:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;How to Enter the Challenge&lt;/h2&gt;
+
+&lt;p&gt;Read the &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6&#34;&gt;Challenge
+Rules&lt;/a&gt;.
+By participating in this challenge, you agree to be bound by these
+Challenge Rules. &lt;strong&gt;It’s free and
+&lt;a href=&#34;http://rubylearning.com/blog/wp-login.php?action=register&#34;&gt;registration&lt;/a&gt;
+is optional&lt;/strong&gt;. You can enter the challenge just by posting the following
+as a comment to this blog post:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Your name:&lt;/li&gt;
+&lt;li&gt;Country of Residence:&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/#rpc5&#34;&gt;GIST URL of your
+Solution&lt;/a&gt;
+(i.e. Ruby code) with explanation and / or test cases:&lt;/li&gt;
+&lt;li&gt;Code works with Ruby 1.8 / 1.9 / Both:&lt;/li&gt;
+&lt;li&gt;Email address (will not be published):&lt;/li&gt;
+&lt;li&gt;Brief description of what you do (will not be published):&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;As soon as we receive your GIST URL, we will fork your submission.
+This means that your solution is frozen and accepted. Please be sure
+that is the solution you want, as it is now recorded in time and is
+the version that will be evaluated.&lt;/li&gt;
+&lt;li&gt;All solutions posted would be hidden to allow participants to come
+up with their own solutions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You should post your entries before midnight of 27th Sept. 2010
+(Indian Standard Time). No new solutions will be accepted from 28th
+Sept. onwards.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;On 28th Sept. 2010 all the solutions will be thrown open for
+everyone to see and comment upon.&lt;/li&gt;
+&lt;li&gt;The winning entries will be announced on this blog before 30th Sept.
+
+&lt;ol&gt;
+&lt;li&gt;The winners will be sent their prizes by email.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;more-details-on-the-rpcfn:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;More details on the RPCFN?&lt;/h2&gt;
+
+&lt;p&gt;Please refer to the &lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/&#34;&gt;RPCFN
+FAQ&lt;/a&gt;&lt;/strong&gt; for
+answers to the following questions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc1&#34;&gt;What Is The Ruby Programming Challenge For Newbies
+(RPCFN)?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc2&#34;&gt;How does RPCFN benefit
+you?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6&#34;&gt;Challenge
+Rules&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc3&#34;&gt;Best
+Solution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc4&#34;&gt;Can I Submit A Ruby Programming Challenge
+Topic?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;donations:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;Donations&lt;/h2&gt;
+
+&lt;p&gt;RPCFN is entirely financed by RubyLearning and sometimes sponsors, so if
+you enjoy solving Ruby problems and would like to give something back by
+helping with the running costs then any donations are gratefully
+received.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.pledgie.com/campaigns/12553&#34;&gt;&lt;img src=&#34;http://www.pledgie.com/campaigns/12553.png?skin_name=chrome&#34; alt=&#34;Click here to lend your support to: Support RubyLearning With Some
+Love and make a donation at www.pledgie.com
+!&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;acknowledgements:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;Acknowledgements&lt;/h2&gt;
+
+&lt;p&gt;Special thanks to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://twitter.com/scharlau&#34;&gt;Dr. Bruce Scharlau&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://github.com/&#34;&gt;GitHub&lt;/a&gt;, for giving us access to a private
+repository on GitHub to store all the submitted solutions.&lt;/li&gt;
+&lt;li&gt;The RubyLearning team.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;questions:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;Questions?&lt;/h2&gt;
+
+&lt;p&gt;Contact Satish Talim at &lt;a href=&#34;mailto:satish.talim@gmail.com&#34;&gt;satish [dot] talim [at]
+gmail.com&lt;/a&gt; OR if you have any doubts /
+questions about the challenge (the current problem statement), please
+post them as comments to this post and the author will reply asap.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-participants:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;The Participants&lt;/h2&gt;
+
+&lt;p&gt;There are two categories of participants. Some are vying for the prizes
+and some are participating for the fun of it.&lt;/p&gt;
+
+&lt;h3 id=&#34;in-the-competition:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;In the competition&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Dmytrii Nagirniak, Australia&lt;/li&gt;
+&lt;li&gt;Kirill Shchepelin, Russia&lt;/li&gt;
+&lt;li&gt;Lukasz Hanuszczak, Poland&lt;/li&gt;
+&lt;li&gt;Rick DeNatale, USA&lt;/li&gt;
+&lt;li&gt;David Lake, England&lt;/li&gt;
+&lt;li&gt;Julio C. Villasante, Cuba&lt;/li&gt;
+&lt;li&gt;Dan Wanek, USA&lt;/li&gt;
+&lt;li&gt;Matthew Dahl, USA&lt;/li&gt;
+&lt;li&gt;Mark Tabler, USA&lt;/li&gt;
+&lt;li&gt;Kalle Lindström, Sweden&lt;/li&gt;
+&lt;li&gt;Chris Jones, USA&lt;/li&gt;
+&lt;li&gt;Tamas Szabo, Australia&lt;/li&gt;
+&lt;li&gt;Adrian Castillo, Mexico&lt;/li&gt;
+&lt;li&gt;Norman E. White, USA&lt;/li&gt;
+&lt;li&gt;Himansu Desai, USA&lt;/li&gt;
+&lt;li&gt;Samnang Chhun, Cambodia&lt;/li&gt;
+&lt;li&gt;Predrag Bradaric, Serbia&lt;/li&gt;
+&lt;li&gt;Jonathan, Mexico&lt;/li&gt;
+&lt;li&gt;Christopher Fortenberry, USA&lt;/li&gt;
+&lt;li&gt;Brad O’Connor, Australia&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;just-for-fun:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;Just for Fun&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Casimir Saternos, USA&lt;/li&gt;
+&lt;li&gt;Paul McKibbin, U.K.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;the-winners:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;The Winners&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/winner_icon_1.png&#34; alt=&#34;Winners&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Congratulations to the winners of this Ruby Challenge. They are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Dmytrii Nagirniak&lt;/strong&gt; from Australia (his &lt;a href=&#34;https://gist.github.com/a8c86e12d7bf7afff3a7&#34;&gt;Ruby Challenge
+solution&lt;/a&gt;) – the
+person with the best and most creative Ruby solution. He wins any
+&lt;strong&gt;one&lt;/strong&gt; of PeepCode’s &lt;a href=&#34;http://peepcode.com/screencasts/ruby-on-rails&#34;&gt;Ruby on Rails
+screencasts&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Adrian Castillo&lt;/strong&gt; from Mexico, &lt;strong&gt;Dan Wanek&lt;/strong&gt; from USA and &lt;strong&gt;Kalle
+Lindström&lt;/strong&gt; from Sweden win any &lt;strong&gt;one&lt;/strong&gt; of Pragmatic’s &lt;a href=&#34;http://www.pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming&#34;&gt;The Ruby
+Object Model and Metaprogramming
+screencasts&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;previous-challenge:f089d8f5eba55bb85257b3868a9c9c4e&#34;&gt;Previous Challenge&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://rubylearning.com/blog/2010/07/31/rpcfn-cycle-tracks-12/&#34;&gt;RPCFN: Cycle Tracks
+(#12)&lt;/a&gt;
+by David Griffiths.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: All the previous challenges, sponsors and winners can be seen
+on the &lt;a href=&#34;http://ruby-challenge.rubylearning.org/&#34;&gt;Ruby Programming Challenge for
+Newbies&lt;/a&gt; page.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/update.jpg&#34; alt=&#34;Update&#34; title=&#34;Update&#34; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This challenge is now closed.&lt;/li&gt;
+&lt;li&gt;The (#14) challenge by &lt;strong&gt;Joseph Wilk, U.K.&lt;/strong&gt; is scheduled for Oct.
+2010.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Do YOU want us to continue with the Ruby Challenge for Newbies?</title>
+      <link>http://rubylearning.com/blog/2010/08/09/do-you-want-us-to-continue-with-the-ruby-challenge-for-newbies/</link>
+      <pubDate>Mon, 09 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/08/09/do-you-want-us-to-continue-with-the-ruby-challenge-for-newbies/</guid>
+      <description>&lt;p&gt;RubyLearning has been conducting the monthly Ruby Programming Challenge
+for Newbies for over a year now and so far 11 challenges have been
+completed. The 12th Challenge is in progress. All this was possible due
+to the extensive support we got from
+&lt;a href=&#34;http://ruby-challenge.rubylearning.org/&#34;&gt;Rubyists&lt;/a&gt; across the world.&lt;/p&gt;
+
+&lt;p&gt;However today, probably due to lack of time or other commitments, not
+many experienced Rubyists are willing to set a Ruby challenge for the
+newbies? So, what do we do with the newer challenges? Do we dis-continue
+with the challenges? Do we change it from monthly to as an when? What
+are &lt;em&gt;your&lt;/em&gt; suggestions?&lt;/p&gt;
+
+&lt;p&gt;Newbies, do you find the challenge interesting and useful – what are
+&lt;em&gt;your&lt;/em&gt; thoughts?&lt;/p&gt;
+
+&lt;p&gt;In the meantime, are you interested in setting a Ruby challenge for the
+newbies? If so, do email me at &lt;strong&gt;satishtalim [at] gmail.com&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Do post &lt;em&gt;your&lt;/em&gt; thoughts and suggestions. I am hopeful that we would be
+able to continue with the challenges.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/update.jpg&#34; alt=&#34;Update&#34; title=&#34;Update&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;11th Aug.&lt;/strong&gt; Based on the feedback received, I have decided to continue
+with the Ruby Challenges. However, these challenges may not be monthly
+but as and when. It’s now up to the Ruby community to help me out with
+setting the challenges. Let’s do it!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RPCFN: Cycle Tracks - 12</title>
+      <link>http://rubylearning.com/blog/2010/07/31/rpcfn-cycle-tracks---12/</link>
+      <pubDate>Sat, 31 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/07/31/rpcfn-cycle-tracks---12/</guid>
+      <description>
+
+&lt;h2 id=&#34;ruby-programming-challenge-for-newbies:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;Ruby Programming Challenge For Newbies&lt;/h2&gt;
+
+&lt;h3 id=&#34;rpcfn-cycle-tracks-12:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;RPCFN: Cycle Tracks (#12)&lt;/h3&gt;
+
+&lt;p&gt;&amp;ndash; By David Griffiths&lt;/p&gt;
+
+&lt;p&gt;Today, we complete one year of &lt;strong&gt;Ruby Programming Challenge for
+Newbies&lt;/strong&gt;. RubyLearning is grateful to all the Ruby experts and
+participants who have actively helped make these challenges interesting
+and popular.&lt;/p&gt;
+
+&lt;h2 id=&#34;about-david-griffiths:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;About David Griffiths&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/Dg_on_beach.png&#34; alt=&#34;David Griffiths&#34; title=&#34;David Griffiths&#34; /&gt;
+
+In David’s own words: “I’m an agile developer, writer and trainer based
+in the UK. I used to write a monthly Java development column and I’ve
+used and taught agile methods to companies around the UK. But I’ve been
+writing code since I was 12 years old. I worked with Java from the alpha
+release in the 90s. A lot of things on the client side as well as a lot
+of enterprise stuff. But everything changed for me when I got an early
+copy of Bruce Tate’s Up and Running with Ruby on Rails. I found myself
+in Boston for 3 days with nothing else to do. And anyone who’s been to
+Boston knows that it’s famous for two things: coffee and book shops. So
+I got a copy of Tate’s book and a laptop and spent three days burying
+myself deep into Rails and consuming more caffeine than was probably
+wise. It was incredible. Here was a way of doing things with a few
+simple commands, that would have taken 19 classes, an enterprise
+container and 3-400 lines of XML in Java. An old professor once told me
+“The profound is always simple” – and Rails was the living embodiment of
+that. I was hooked. It really hasn’t been the same since.”&lt;/p&gt;
+
+&lt;h2 id=&#34;prizes:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;Prizes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The participant with the best Ruby solution (if there is a tie
+between answers, then the one who posted first will be the winner)
+will be awarded any &lt;strong&gt;one&lt;/strong&gt; of PeepCode’s &lt;a href=&#34;http://peepcode.com/screencasts/ruby-on-rails&#34;&gt;Ruby on Rails
+screencasts&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;From the remaining working Ruby solutions, three participants would
+be selected randomly and each one would be awarded any &lt;strong&gt;one&lt;/strong&gt; of
+Pragmatic’s &lt;a href=&#34;http://www.pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming&#34;&gt;The Ruby Object Model and
+Metaprogramming&lt;/a&gt;
+screencasts.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The four persons who win, can’t win again in the next immediate
+challenge but can still participate.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-ruby-challenge:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;The Ruby Challenge&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/rubypc.jpg&#34; alt=&#34;RPCFN&#34; title=&#34;Ruby Programming Challenge For Newbies&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;the-challenge:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;The Challenge&lt;/h3&gt;
+
+&lt;p&gt;The entire challenge details are available
+&lt;a href=&#34;http://rubylearning.com/data/hfrails_prog_challenge_without_solution.pdf&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ensure that you submit both the solutions – see pages 2 and 3.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-enter-the-challenge:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;How to Enter the Challenge&lt;/h2&gt;
+
+&lt;p&gt;Read the &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6&#34;&gt;Challenge
+Rules&lt;/a&gt;.
+By participating in this challenge, you agree to be bound by these
+Challenge Rules. &lt;strong&gt;It’s free and
+&lt;a href=&#34;http://rubylearning.com/blog/wp-login.php?action=register&#34;&gt;registration&lt;/a&gt;
+is optional&lt;/strong&gt;. You can enter the challenge just by posting the following
+as a comment to this blog post:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Your name:&lt;/li&gt;
+&lt;li&gt;Country of Residence:&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/#rpc5&#34;&gt;GIST URL of your
+Solution&lt;/a&gt;
+(i.e. Ruby code) with explanation and / or test cases:&lt;/li&gt;
+&lt;li&gt;Code works with Ruby 1.8 / 1.9 / Both:&lt;/li&gt;
+&lt;li&gt;Email address (will not be published):&lt;/li&gt;
+&lt;li&gt;Brief description of what you do (will not be published):&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;As soon as we receive your GIST URL, we will fork your submission.
+This means that your solution is frozen and accepted. Please be sure
+that is the solution you want, as it is now recorded in time and is
+the version that will be evaluated.&lt;/li&gt;
+&lt;li&gt;All solutions posted would be hidden to allow participants to come
+up with their own solutions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You should post your entries before midnight of 29th Aug. 2010
+(Indian Standard Time). No new solutions will be accepted from 30th
+Aug. onwards.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;On 30th Aug. 2010 all the solutions will be thrown open for everyone
+to see and comment upon.&lt;/li&gt;
+&lt;li&gt;The winning entries will be announced on this blog before 5th Sept.
+
+&lt;ol&gt;
+&lt;li&gt;The winners will be sent their prizes by email.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;more-details-on-the-rpcfn:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;More details on the RPCFN?&lt;/h2&gt;
+
+&lt;p&gt;Please refer to the &lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/&#34;&gt;RPCFN
+FAQ&lt;/a&gt;&lt;/strong&gt; for
+answers to the following questions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc1&#34;&gt;What Is The Ruby Programming Challenge For Newbies
+(RPCFN)?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc2&#34;&gt;How does RPCFN benefit
+you?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6&#34;&gt;Challenge
+Rules&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc3&#34;&gt;Best
+Solution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc4&#34;&gt;Can I Submit A Ruby Programming Challenge
+Topic?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;donations:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;Donations&lt;/h2&gt;
+
+&lt;p&gt;RPCFN is entirely financed by RubyLearning and sometimes sponsors, so if
+you enjoy solving Ruby problems and would like to give something back by
+helping with the running costs then any donations are gratefully
+received.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.pledgie.com/campaigns/12553&#34;&gt;&lt;img src=&#34;http://www.pledgie.com/campaigns/12553.png?skin_name=chrome&#34; alt=&#34;Click here to lend your support to: Support RubyLearning With Some
+Love and make a donation at www.pledgie.com
+!&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;acknowledgements:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;Acknowledgements&lt;/h2&gt;
+
+&lt;p&gt;Special thanks to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/05/20/interview-author-david-griffiths/&#34;&gt;David
+Griffiths&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://github.com/&#34;&gt;GitHub&lt;/a&gt;, for giving us access to a private
+repository on GitHub to store all the submitted solutions.&lt;/li&gt;
+&lt;li&gt;The RubyLearning team.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;questions:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;Questions?&lt;/h2&gt;
+
+&lt;p&gt;Contact Satish Talim at &lt;a href=&#34;mailto:satish.talim@gmail.com&#34;&gt;satish [dot] talim [at]
+gmail.com&lt;/a&gt; OR if you have any doubts /
+questions about the challenge (the current problem statement), please
+post them as comments to this post and the author will reply asap.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-participants:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;The Participants&lt;/h2&gt;
+
+&lt;p&gt;There are two categories of participants. Some are vying for the prizes
+and some are participating for the fun of it.&lt;/p&gt;
+
+&lt;h3 id=&#34;in-the-competition:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;In the competition&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Alex Chateau, Latvia&lt;/li&gt;
+&lt;li&gt;Kirill Shchepelin, Russia&lt;/li&gt;
+&lt;li&gt;Sebastian Rabuini, Argentina&lt;/li&gt;
+&lt;li&gt;Santosh Wadghule, India&lt;/li&gt;
+&lt;li&gt;Juan Gomez, USA&lt;/li&gt;
+&lt;li&gt;Julio C. Villasante, Cuba&lt;/li&gt;
+&lt;li&gt;Paul McKibbin, UK&lt;/li&gt;
+&lt;li&gt;Viktor Nemes, Hungary&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;just-for-fun:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;Just for Fun&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Dmytrii Nagirniak, Australia&lt;/li&gt;
+&lt;li&gt;Benoit Daloze, Belgium&lt;/li&gt;
+&lt;li&gt;Cary Swoveland, Canada&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;the-winners:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;The Winners&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/winner_icon_1.png&#34; alt=&#34;Winners&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Congratulations to the winners of this Ruby Challenge. They are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Alex Chateau&lt;/strong&gt; from Latvia (his &lt;a href=&#34;http://gist.github.com/502083&#34;&gt;Ruby Challenge
+solution&lt;/a&gt;) – the person with the best
+and most creative Ruby solution. He wins any &lt;strong&gt;one&lt;/strong&gt; of PeepCode’s
+&lt;a href=&#34;http://peepcode.com/screencasts/ruby-on-rails&#34;&gt;Ruby on Rails
+screencasts&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sebastian Rabuini&lt;/strong&gt; from Argentina, &lt;strong&gt;Julio C. Villasante&lt;/strong&gt; from
+Cuba and &lt;strong&gt;Paul McKibbin&lt;/strong&gt; from UK win any &lt;strong&gt;one&lt;/strong&gt; of Pragmatic’s
+&lt;a href=&#34;http://www.pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming&#34;&gt;The Ruby Object Model and Metaprogramming
+screencasts&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;previous-challenge:b2c907ad955563ed31a21c8fbea68a5b&#34;&gt;Previous Challenge&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://rubylearning.com/blog/2010/06/28/rpcfn-the-game-of-life-11/&#34;&gt;RPCFN: The Game of Life
+(#11)&lt;/a&gt;
+by Elise Huard.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: All the previous challenges, sponsors and winners can be seen
+on the &lt;a href=&#34;http://ruby-challenge.rubylearning.org/&#34;&gt;Ruby Programming Challenge for
+Newbies&lt;/a&gt; page.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/update.jpg&#34; alt=&#34;Update&#34; title=&#34;Update&#34; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This challenge is now closed.&lt;/li&gt;
+&lt;li&gt;The (#13) challenge by &lt;strong&gt;Bruce Scharlau, U.K.&lt;/strong&gt; is scheduled for
+Sept. 2010.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dmitry Lipovoi Winner RPCFN - 10</title>
+      <link>http://rubylearning.com/blog/2010/07/06/dmitry-lipovoi-winner-rpcfn---10/</link>
+      <pubDate>Tue, 06 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/07/06/dmitry-lipovoi-winner-rpcfn---10/</guid>
+      <description>&lt;p&gt;In this brief interview, Satish Talim of RubyLearning talks to &lt;strong&gt;Dmitry Lipovoi
+of Russia&lt;/strong&gt;, winner of the tenth &lt;a href=&#34;http://rubylearning.com/blog/2010/05/25/rpcfn-business-hours-10/&#34;&gt;Ruby Programming Challenge For Newbies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/photo-for-rpcfn.jpg&#34; alt=&#34;Dmitry Lipovoi&#34; title=&#34;Dmitry Lipovoi&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Welcome Dmitry and thanks for taking out time to share
+your thoughts. For the benefit of the readers, could you tell us
+something about your self?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitry&amp;gt;&amp;gt;&lt;/strong&gt; Hey. My name is Dmitry, and I’ve been programming since I
+was 14 years old, when I made my first “Hello World” in Pascal work. I’m
+absolutely sure that programming should be fun if you’re not doing
+something wrong
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How did you get involved with Ruby programming?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitry&amp;gt;&amp;gt;&lt;/strong&gt; About one and a half years back I discovered Ryan Bates’
+RailsCasts. It was really inspiring, so I started to look at how these
+things work. That was my first Ruby experience.&lt;/p&gt;
+
+&lt;p&gt;Then I read a few articles on TDD/BDD in Ruby and that was the point of
+no return. It was so easy and natural in comparison with my Java
+experience that I haven’t stopped playing with it since then.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you name three features of Ruby that you like the
+most, as compared to other languages? Why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitry&amp;gt;&amp;gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;I like Ruby for its pure object oriented approach. I mean, for
+example Java and many other mainstream languages are more “class
+oriented”. They have classes as something special, as their main
+idea. But Ruby is different. Object is the center of the universe in
+Ruby and not class. And it’s really great.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Blocks&lt;/strong&gt;. Definitely one of the most useful things in Ruby. Maybe
+it’s not a unique feature, but it really rocks!&lt;/li&gt;
+&lt;li&gt;Although it’s not a plain feature of the language, I very much like
+Ruby’s approach to testing. The Ruby community is considered as the
+“most testing community” and I like that. Testing makes it easy to
+dig into a new project when you try to understand how things work,
+how they should be used. And almost any open source Ruby project has
+a good test suite.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How was experience of taking part in the Ruby Programming
+Challenge For Newbies (RPCFN)?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitry&amp;gt;&amp;gt;&lt;/strong&gt; It reminds me of the good old days when I participated in
+ICPC. Quite fun.&lt;/p&gt;
+
+&lt;p&gt;Actually not so many challenges judge your code. And I’m glad to see
+that for RPCFN code beauty is important.&lt;/p&gt;
+
+&lt;p&gt;Also it was nice to discover other solutions and see the different
+approaches to the problem. Some of them are really worth looking into.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; You are based in Russia. How is the Ruby and Rails
+scenario there?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitry&amp;gt;&amp;gt;&lt;/strong&gt; Unfortunately Ruby isn’t much popular here.&lt;/p&gt;
+
+&lt;p&gt;Nevertheless the community is growing little by little and I can see
+that a couple of projects, here and there, use Ruby. But it’s still
+nothing in comparison with PHP or Java.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What are your future plans?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmitry&amp;gt;&amp;gt;&lt;/strong&gt; In the near future I’d like to move from Java to Ruby
+completely; dig deeper into the Rails 3 source and participate in other
+open source Ruby projects.&lt;/p&gt;
+
+&lt;p&gt;Also, I’m going to participate in Gregory Brown’s Ruby Mendicant
+University this autumn. And I would like to thank him for such an
+opportunity.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Dmitry. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Dmitry
+would be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RPCFN: The Game of Life - 11</title>
+      <link>http://rubylearning.com/blog/2010/06/28/rpcfn-the-game-of-life---11/</link>
+      <pubDate>Mon, 28 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/06/28/rpcfn-the-game-of-life---11/</guid>
+      <description>
+
+&lt;h2 id=&#34;ruby-programming-challenge-for-newbies:e0608a6dca83920138665ce75d54ea38&#34;&gt;Ruby Programming Challenge For Newbies&lt;/h2&gt;
+
+&lt;h3 id=&#34;rpcfn-the-game-of-life-11:e0608a6dca83920138665ce75d54ea38&#34;&gt;RPCFN: The Game of Life (#11)&lt;/h3&gt;
+
+&lt;h4 id=&#34;by-elise-huard:e0608a6dca83920138665ce75d54ea38&#34;&gt;By Elise Huard&lt;/h4&gt;
+
+&lt;h2 id=&#34;about-elise-huard:e0608a6dca83920138665ce75d54ea38&#34;&gt;About Elise Huard&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/pic1-125.jpg&#34; alt=&#34;Elise
+Huard&#34; title=&#34;Elise Huard&#34; /&gt;
+&lt;strong&gt;Elise
+Huard&lt;/strong&gt; is based in Brussels, Belgium and is the owner of Jabberwocky, a
+solutions company mostly focused on Rails. She has worked with a few
+other technologies before falling in love with Rails and Ruby about 3
+years ago and going freelance to work with Ruby full time. She
+contributes to open source projects as much as she can, and has given
+talks at a few Ruby and Rails conferences. She’s a jack of all trades,
+loves reading, tinkering, food, travel, learning, and people out of the
+ordinary.&lt;/p&gt;
+
+&lt;p&gt;Elise has this to say about the challenge:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;This challenge consists in implementing the game of life. This is a
+problem that is simple to understand, but requires some thought to
+implement correctly. Tests will help you spot your own reasoning
+fallacies. And of course, every hacker has to have implemented the
+game of life at least once
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;our-awesome-sponsor:e0608a6dca83920138665ce75d54ea38&#34;&gt;Our Awesome Sponsor&lt;/h2&gt;
+
+&lt;p&gt;This monthly programming challenge is sponsored by &lt;strong&gt;Backup My App&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://backupmyapp.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/banner1.gif&#34; alt=&#34;Backup My
+App&#34; title=&#34;Backup My App&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Backup My App&lt;/strong&gt; is an automatic backup service for Ruby on Rails
+applications. You simply install the plugin to your Rails application
+and they handle the rest of the process. They store backup history for
+several weeks and you can restore any of them automatically. Try out
+their 1 GB plan for free. &lt;a href=&#34;http://backupmyapp.com/&#34;&gt;Backup My App&lt;/a&gt; has
+sponsored this challenge and is proud to make this contribution to the
+Ruby community.&lt;/p&gt;
+
+&lt;h2 id=&#34;prizes:e0608a6dca83920138665ce75d54ea38&#34;&gt;Prizes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The participant with the best Ruby solution (if there is a tie
+between answers, then the one who posted first will be the winner)
+will be awarded any &lt;strong&gt;one&lt;/strong&gt; of PeepCode’s &lt;a href=&#34;http://peepcode.com/screencasts/ruby-on-rails&#34;&gt;Ruby on Rails
+screencasts&lt;/a&gt; and a
+free 10 GB account for a year from &lt;a href=&#34;http://backupmyapp.com/&#34;&gt;Backup My
+App&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;From the remaining working Ruby solutions, three participants would
+be selected randomly and each one would be awarded any &lt;strong&gt;one&lt;/strong&gt; of
+Pragmatic’s &lt;a href=&#34;http://www.pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming&#34;&gt;The Ruby Object Model and
+Metaprogramming&lt;/a&gt;
+screencasts.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;All the participants in this challenge (except the participant
+with the best Ruby solution) will get a free 5 GB account for 6
+months from &lt;a href=&#34;http://backupmyapp.com/&#34;&gt;Backup My App&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The four persons who win, can’t win again in the next immediate
+challenge but can still participate.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-ruby-challenge:e0608a6dca83920138665ce75d54ea38&#34;&gt;&lt;em&gt;The Ruby Challenge&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/rubypc.jpg&#34; alt=&#34;RPCFN&#34; title=&#34;Ruby Programming Challenge For Newbies&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;the-challenge:e0608a6dca83920138665ce75d54ea38&#34;&gt;The Challenge&lt;/h3&gt;
+
+&lt;p&gt;The entire challenge details are available at:
+&lt;a href=&#34;http://github.com/elisehuard/game_of_life&#34;&gt;http://github.com/elisehuard/game_of_life&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-enter-the-challenge:e0608a6dca83920138665ce75d54ea38&#34;&gt;&lt;em&gt;How to Enter the Challenge&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;Read the &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6&#34;&gt;Challenge
+Rules&lt;/a&gt;.
+By participating in this challenge, you agree to be bound by these
+Challenge Rules. &lt;strong&gt;It’s free and
+&lt;a href=&#34;http://rubylearning.com/blog/wp-login.php?action=register&#34;&gt;registration&lt;/a&gt;
+is optional&lt;/strong&gt;. You can enter the challenge just by posting the following
+as a comment to this blog post:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Your name:&lt;/li&gt;
+&lt;li&gt;Country of Residence:&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/#rpc5&#34;&gt;GIST URL of your
+Solution&lt;/a&gt;
+(i.e. Ruby code) with explanation and / or test cases:&lt;/li&gt;
+&lt;li&gt;Code works with Ruby 1.8 / 1.9 / Both:&lt;/li&gt;
+&lt;li&gt;Email address (will not be published):&lt;/li&gt;
+&lt;li&gt;Brief description of what you do (will not be published):&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;As soon as we receive your GIST URL, we will fork your submission.
+This means that your solution is frozen and accepted. Please be sure
+that is the solution you want, as it is now recorded in time and is
+the version that will be evaluated.&lt;/li&gt;
+&lt;li&gt;All solutions posted would be hidden to allow participants to come
+up with their own solutions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You should post your entries before midnight of 2nd Aug. 2010
+(Indian Standard Time). No new solutions will be accepted from 3rd
+Aug. onwards.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;On 3rd Aug. 2010 all the solutions will be thrown open for everyone
+to see and comment upon.&lt;/li&gt;
+&lt;li&gt;The winning entries will be announced on this blog before 10th Aug.
+
+&lt;ol&gt;
+&lt;li&gt;The winners will be sent their prizes by email.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;more-details-on-the-rpcfn:e0608a6dca83920138665ce75d54ea38&#34;&gt;More details on the RPCFN?&lt;/h2&gt;
+
+&lt;p&gt;Please refer to the &lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/&#34;&gt;RPCFN
+FAQ&lt;/a&gt;&lt;/strong&gt; for
+answers to the following questions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc1&#34;&gt;What Is The Ruby Programming Challenge For Newbies
+(RPCFN)?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc2&#34;&gt;How does RPCFN benefit
+you?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6&#34;&gt;Challenge
+Rules&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc3&#34;&gt;Best
+Solution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc4&#34;&gt;Can I Submit A Ruby Programming Challenge
+Topic?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;donations:e0608a6dca83920138665ce75d54ea38&#34;&gt;Donations&lt;/h2&gt;
+
+&lt;p&gt;RPCFN is entirely financed by RubyLearning and sometimes sponsors, so if
+you enjoy solving Ruby problems and would like to give something back by
+helping with the running costs then any donations are gratefully
+received.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.pledgie.com/campaigns/415&#34;&gt;&lt;img src=&#34;http://www.pledgie.com/campaigns/415.png?skin_name=chrome&#34; alt=&#34;Click here to lend your support to: Support RubyLearning With Some
+Love and make a donation at www.pledgie.com
+!&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;acknowledgements:e0608a6dca83920138665ce75d54ea38&#34;&gt;Acknowledgements&lt;/h2&gt;
+
+&lt;p&gt;Special thanks to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://twitter.com/elise_huard&#34;&gt;Elise Huard&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Sponsors &lt;strong&gt;Backup My App&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://github.com/&#34;&gt;GitHub&lt;/a&gt;, for giving us access to a private
+repository on GitHub to store all the submitted solutions.&lt;/li&gt;
+&lt;li&gt;The RubyLearning team.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;questions:e0608a6dca83920138665ce75d54ea38&#34;&gt;Questions?&lt;/h2&gt;
+
+&lt;p&gt;Contact Satish Talim at &lt;a href=&#34;mailto:satish.talim@gmail.com&#34;&gt;satish [dot] talim [at]
+gmail.com&lt;/a&gt; OR if you have any doubts /
+questions about the challenge (the current problem statement), please
+post them as comments to this post and the author will reply asap.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-participants:e0608a6dca83920138665ce75d54ea38&#34;&gt;The Participants&lt;/h2&gt;
+
+&lt;p&gt;There are two categories of participants. Some are vying for the prizes
+and some are participating for the fun of it.&lt;/p&gt;
+
+&lt;h3 id=&#34;in-the-competition:e0608a6dca83920138665ce75d54ea38&#34;&gt;In the competition&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Dominik Masur, Germany&lt;/li&gt;
+&lt;li&gt;Sergey Kruk, Russian Federation&lt;/li&gt;
+&lt;li&gt;Mark Mba Wright, USA&lt;/li&gt;
+&lt;li&gt;Andrew Cox, U.K.&lt;/li&gt;
+&lt;li&gt;Julio C. Villasante, Cuba&lt;/li&gt;
+&lt;li&gt;Nils Riedemann, USA&lt;/li&gt;
+&lt;li&gt;Valério Farias, Brazil&lt;/li&gt;
+&lt;li&gt;Christopher Fortenberry, USA&lt;/li&gt;
+&lt;li&gt;Falk Pauser, Germany&lt;/li&gt;
+&lt;li&gt;Sam Johnson, Australia&lt;/li&gt;
+&lt;li&gt;Brad O’Connor, Australia&lt;/li&gt;
+&lt;li&gt;Michael Klaus, Germany&lt;/li&gt;
+&lt;li&gt;Dmytrii Nagirniak, Australia&lt;/li&gt;
+&lt;li&gt;Milan Dobrota, USA&lt;/li&gt;
+&lt;li&gt;Steve Hindmarch, UK&lt;/li&gt;
+&lt;li&gt;Nithin Bekal, India&lt;/li&gt;
+&lt;li&gt;Zachary Becker, USA&lt;/li&gt;
+&lt;li&gt;Benoit Daloze, Belgium&lt;/li&gt;
+&lt;li&gt;Tanzeeb Khalili, Canada&lt;/li&gt;
+&lt;li&gt;Cary Swoveland, Canada&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;just-for-fun:e0608a6dca83920138665ce75d54ea38&#34;&gt;Just for Fun&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Trevor Fountain, U.K.&lt;/li&gt;
+&lt;li&gt;William Crawford, USA&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;the-winners:e0608a6dca83920138665ce75d54ea38&#34;&gt;&lt;em&gt;The Winners&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/winner_icon_1.png&#34; alt=&#34;Winners&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Congratulations to the winners of this Ruby Challenge. They are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Benoit Daloze&lt;/strong&gt; from Belgium (his &lt;a href=&#34;http://github.com/eregon/game_of_life&#34;&gt;Ruby Challenge
+solution&lt;/a&gt;) – the person with
+the best and most creative Ruby solution. He wins any &lt;strong&gt;one&lt;/strong&gt; of
+PeepCode’s &lt;a href=&#34;http://peepcode.com/screencasts/ruby-on-rails&#34;&gt;Ruby on Rails
+screencasts&lt;/a&gt; and a
+free 10 GB account for a year from &lt;a href=&#34;http://backupmyapp.com/&#34;&gt;Backup My
+App&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Steve Hindmarch&lt;/strong&gt; from UK, &lt;strong&gt;Leonardo Bessa&lt;/strong&gt; from Brazil and
+&lt;strong&gt;Tanzeeb Khalili&lt;/strong&gt; from Canada win any &lt;strong&gt;one&lt;/strong&gt; of Pragmatic’s &lt;a href=&#34;http://www.pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming&#34;&gt;The
+Ruby Object Model and Metaprogramming
+screencasts&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;All the participants in this challenge (except Benoit Daloze who
+gets a free 10 GB account for a year) will get a free 5 GB account
+for 6 months from &lt;a href=&#34;http://backupmyapp.com/&#34;&gt;Backup My App&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;previous-challenge:e0608a6dca83920138665ce75d54ea38&#34;&gt;Previous Challenge&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://rubylearning.com/blog/2010/05/25/rpcfn-business-hours-10/&#34;&gt;RPCFN: Business Hours
+(#10)&lt;/a&gt;
+by Ryan Bates.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: All the previous challenges, sponsors and winners can be seen
+on the &lt;a href=&#34;http://ruby-challenge.rubylearning.org/&#34;&gt;Ruby Programming Challenge for
+Newbies&lt;/a&gt; page.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/update.jpg&#34; alt=&#34;Update&#34; title=&#34;Update&#34; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This challenge is now closed.&lt;/li&gt;
+&lt;li&gt;The (#12) challenge by &lt;strong&gt;David Griffiths, USA&lt;/strong&gt; is scheduled for
+Aug. 2010.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Benoit Daloze Winner RPCFN - 9</title>
+      <link>http://rubylearning.com/blog/2010/06/01/benoit-daloze-winner-rpcfn---9/</link>
+      <pubDate>Tue, 01 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/06/01/benoit-daloze-winner-rpcfn---9/</guid>
+      <description>&lt;p&gt;In this brief interview, Satish Talim of RubyLearning talks to &lt;strong&gt;&lt;a href=&#34;http://twitter.com/pjb3&#34;&gt;Benoit
+Daloze&lt;/a&gt; of Belgium&lt;/strong&gt;, winner of the ninth &lt;a href=&#34;http://rubylearning.com/blog/2010/04/29/rpcfn-interactive-fiction-9/&#34;&gt;Ruby
+Programming Challenge For
+Newbies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/mePorto125.jpg&#34; alt=&#34;Benoit
+Daloze&#34; title=&#34;Benoit Daloze&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Welcome Benoit and thanks for taking out time to share
+your thoughts. For the benefit of the readers, could you tell us
+something about your self?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benoit&amp;gt;&amp;gt;&lt;/strong&gt; I would first like to thank RubyLearning for all they
+have done. I am a 19 year old student in first bachelor in computer
+sciences (at UCL, Louvain-la-Neuve). I am studying Java at courses, but
+I think I did more Ruby this year. Well, I just can not stop thinking
+“This would be so much better in Ruby”.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How did you get involved with Ruby programming?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benoit&amp;gt;&amp;gt;&lt;/strong&gt; I have been looking on Ruby for some years now. I met
+Ruby the first time as a scripting language in a game software when I
+was 15, and since then always wanted to know more about it. It took me
+some time to learn it, because I did not find the good resources. I feel
+I am getting more and more involved everyday, as does my knowledge of
+Ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you name three features of Ruby that you like the
+most, as compared to other languages? Why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benoit&amp;gt;&amp;gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Metaprogramming&lt;/strong&gt;: This introduces a great way to program, and
+allows you to make it even shorter. It gives me the feeling that I
+really have a control on the objects, because you can so easily
+manipulate them.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexibility&lt;/strong&gt;: Whenever you think you can mix some concepts
+together in Ruby, it just works, limitations are rare, and often out
+of imagination’s bounds. You are pretty much doing it the way you
+want, and Ruby lets you code that way.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Blocks&lt;/strong&gt;: Blocks is a entire way of expression, and the amount of
+complex methods made simple by this is awesome. Just think how you
+would do a #group_by, #each_slice or #partition in other
+languages. Most of the time it would be far more verbose and you
+would likely get a headache. Ruby has brought all the many useful
+things in the core, because it can be expressed in a simple method.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How was experience of taking part in the Ruby Programming
+Challenge For Newbies (RPCFN)?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benoit&amp;gt;&amp;gt;&lt;/strong&gt; I’m participating since the fourth challenge, and I’m
+happy to participate in these interesting challenges. It is also a great
+way to discover other’s code, often very imaginative and original. And
+coding always makes you better in the language, so it is all for the
+best!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; You are based in Belgium. How is the Ruby and Rails
+scenario there?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benoit&amp;gt;&amp;gt;&lt;/strong&gt; People have now started noticing Rails, but this activity
+is mainly driven by some specific companies. Ruby is somehow not known,
+and sadly ignored in universities. ( But I’m trying to remedy that
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+
+)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What are your future plans?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benoit&amp;gt;&amp;gt;&lt;/strong&gt; I am going to work on Rails this summer, to discover this
+part of Ruby I have not used much yet. I’m also doing some Ruby
+everyday, for my own use, just feeling happy to code with a beautiful
+language.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Benoit. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Benoit
+would be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RPCFN: Business Hours - 10</title>
+      <link>http://rubylearning.com/blog/2010/05/25/rpcfn-business-hours---10/</link>
+      <pubDate>Tue, 25 May 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/05/25/rpcfn-business-hours---10/</guid>
+      <description>
+
+&lt;h2 id=&#34;ruby-programming-challenge-for-newbies:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;Ruby Programming Challenge For Newbies&lt;/h2&gt;
+
+&lt;h3 id=&#34;rpcfn-business-hours-10:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;RPCFN: Business Hours (#10)&lt;/h3&gt;
+
+&lt;h4 id=&#34;by-ryan-bates:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;By Ryan Bates&lt;/h4&gt;
+
+&lt;h2 id=&#34;about-ryan-bates:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;About Ryan Bates&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/ryan_bates.jpg&#34; alt=&#34;Ryan
+Bates&#34; title=&#34;Ryan Bates&#34; /&gt;
+&lt;strong&gt;Ryan
+Bates&lt;/strong&gt; has been involved in web development since 1998. In 2005 he
+started working professionally with Ruby and Rails and is now best known
+for his work on &lt;a href=&#34;http://railscasts.com/&#34;&gt;Railscasts&lt;/a&gt;, the free Ruby on
+Rails screencast series.&lt;/p&gt;
+
+&lt;p&gt;Ryan has this to say about the challenge:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Sometimes when working in a structured framework environment such as
+Rails it is easy to forget about the fundamentals of Ruby and how to
+organize code. The majority of this challenge could be done in one
+large method, but I encourage you to focus on readability through
+refactoring. This challenge also exercises working with times and
+iterations.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;our-awesome-sponsor:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;Our Awesome Sponsor&lt;/h2&gt;
+
+&lt;p&gt;This monthly programming challenge is sponsored by &lt;strong&gt;Backup My App&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://backupmyapp.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/banner1.gif&#34; alt=&#34;Backup My
+App&#34; title=&#34;Backup My App&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Backup My App&lt;/strong&gt; is an automatic backup service for Ruby on Rails
+applications. You simply install the plugin to your Rails application
+and they handle the rest of the process. They store backup history for
+several weeks and you can restore any of them automatically. Try out
+their 1 GB plan for free. &lt;a href=&#34;http://backupmyapp.com/&#34;&gt;Backup My App&lt;/a&gt; has
+sponsored this challenge and is proud to make this contribution to the
+Ruby community.&lt;/p&gt;
+
+&lt;h2 id=&#34;prizes:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;Prizes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The participant with the best Ruby solution (if there is a tie
+between answers, then the one who posted first will be the winner)
+will be awarded any &lt;strong&gt;one&lt;/strong&gt; of PeepCode’s &lt;a href=&#34;http://peepcode.com/screencasts/ruby-on-rails&#34;&gt;Ruby on Rails
+screencasts&lt;/a&gt; and a
+free 10 GB account for a year from &lt;a href=&#34;http://backupmyapp.com/&#34;&gt;Backup My
+App&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;From the remaining working Ruby solutions, three participants would
+be selected randomly and each one would be awarded any &lt;strong&gt;one&lt;/strong&gt; of
+Pragmatic’s &lt;a href=&#34;http://www.pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming&#34;&gt;The Ruby Object Model and
+Metaprogramming&lt;/a&gt;
+screencasts.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;All the participants in this challenge (except the participant
+with the best Ruby solution) will get a free 5 GB account for 6
+months from &lt;a href=&#34;http://backupmyapp.com/&#34;&gt;Backup My App&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The four persons who win, can’t win again in the next immediate
+challenge but can still participate.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-ruby-challenge:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;The Ruby Challenge&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/rubypc.jpg&#34; alt=&#34;RPCFN&#34; title=&#34;Ruby Programming Challenge For Newbies&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;the-challenge:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;The Challenge&lt;/h3&gt;
+
+&lt;p&gt;Chunky Bacon Begone is a dry-cleaning company known for its speedy
+service. It guarantees to dry-clean anything within two business hours
+or less. The problem is, when the customer drops off the clothes, he
+needs to know what time they are guaranteed to be done.&lt;/p&gt;
+
+&lt;p&gt;It is your job to write a Ruby script which will determine the
+guaranteed time given a business hour schedule. You must create a class
+called &lt;strong&gt;BusinessHours&lt;/strong&gt; which allows one to define the opening and
+closing time for each day. It should provide the following interface:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hours = BusinessHours.new(&amp;quot;9:00 AM&amp;quot;, &amp;quot;3:00 PM&amp;quot;)
+hours.update :fri, &amp;quot;10:00 AM&amp;quot;, &amp;quot;5:00 PM&amp;quot;
+hours.update &amp;quot;Dec 24, 2010&amp;quot;, &amp;quot;8:00 AM&amp;quot;, &amp;quot;1:00 PM&amp;quot;
+hours.closed :sun, :wed, &amp;quot;Dec 25, 2010&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;strong&gt;update&lt;/strong&gt; method should change the opening and closing time for a
+given day. The &lt;strong&gt;closed&lt;/strong&gt; method should specify which days the shop is
+not open. Notice days can either be a symbol for week days or a string
+for specific dates. Any given day can only have one opening time and one
+closing time — there are no off-hours in the middle of the day.&lt;/p&gt;
+
+&lt;p&gt;A method called &lt;strong&gt;calculate_deadline&lt;/strong&gt; should determine the resulting
+business time given a time interval (in seconds) along with a starting
+time (as a string). The returned object should be an instance of
+&lt;strong&gt;Time&lt;/strong&gt;. Here are some examples:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hours.calculate_deadline(2*60*60, &amp;quot;Jun 7, 2010 9:10 AM&amp;quot;) # =&amp;gt; Mon Jun 07 11:10:00 2010
+hours.calculate_deadline(15*60, &amp;quot;Jun 8, 2010 2:48 PM&amp;quot;) # =&amp;gt; Thu Jun 10 09:03:00 2010
+hours.calculate_deadline(7*60*60, &amp;quot;Dec 24, 2010 6:45 AM&amp;quot;) # =&amp;gt; Mon Dec 27 11:00:00 2010
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the first example the time interval is 2 hours (7,200 seconds). Since
+the 2 hours fall within business hours the day does not change and the
+interval is simply added to the starting time.&lt;/p&gt;
+
+&lt;p&gt;In the second line an interval of 15 minutes (900 seconds) is used. The
+starting time is 12 minutes before closing time which leaves 3 minutes
+remaining to be added to the next business day. The next day is
+Wednesday and therefore closed, so the resulting time is 3 minutes after
+opening on the following day.&lt;/p&gt;
+
+&lt;p&gt;The last example is 7 hours (25200 seconds) which starts before opening
+on Dec 24th. There are only 5 business hours on Dec 24th which leaves 2
+hours remaining for the next business day. The next two days are closed
+(Dec 25th and Sunday) therefore the deadline is not until 2 hours after
+opening on Dec 27th.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tip&lt;/strong&gt;: Use &lt;strong&gt;Time.parse&lt;/strong&gt; to generate a Time from a string. You may
+need to &lt;strong&gt;require “time”&lt;/strong&gt; in order to do this.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;: This has to be a pure Ruby script, using only the Ruby
+Standard Libraries (meaning, no external Gems, libraries). You do not
+need to build a gem for this. Pure Ruby code is all that is needed. Ryan
+will mostly be judging by the beauty of your code as long as it
+satisfies his test case.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-enter-the-challenge:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;How to Enter the Challenge&lt;/h2&gt;
+
+&lt;p&gt;Read the &lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6&#34;&gt;Challenge
+Rules&lt;/a&gt;.
+By participating in this challenge, you agree to be bound by these
+Challenge Rules. &lt;strong&gt;It’s free and
+&lt;a href=&#34;http://rubylearning.com/blog/wp-login.php?action=register&#34;&gt;registration&lt;/a&gt;
+is optional&lt;/strong&gt;. You can enter the challenge just by posting the following
+as a comment to this blog post:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Your name:&lt;/li&gt;
+&lt;li&gt;Country of Residence:&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/#rpc5&#34;&gt;GIST URL of your
+Solution&lt;/a&gt;
+(i.e. Ruby code) with explanation and / or test cases:&lt;/li&gt;
+&lt;li&gt;Code works with Ruby 1.8 / 1.9 / Both:&lt;/li&gt;
+&lt;li&gt;Email address (will not be published):&lt;/li&gt;
+&lt;li&gt;Brief description of what you do (will not be published):&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;As soon as we receive your GIST URL, we will fork your submission.
+This means that your solution is frozen and accepted. Please be sure
+that is the solution you want, as it is now recorded in time and is
+the version that will be evaluated.&lt;/li&gt;
+&lt;li&gt;All solutions posted would be hidden to allow participants to come
+up with their own solutions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You should post your entries before midnight of 27th June 2010
+(Indian Standard Time). No new solutions will be accepted from 28th
+June onwards.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;On 28th June 2010 all the solutions will be thrown open for everyone
+to see and comment upon.&lt;/li&gt;
+&lt;li&gt;The winning entries will be announced on this blog before 30th June
+
+&lt;ol&gt;
+&lt;li&gt;The winners will be sent their prizes by email.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;more-details-on-the-rpcfn:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;More details on the RPCFN?&lt;/h2&gt;
+
+&lt;p&gt;Please refer to the &lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/&#34;&gt;RPCFN
+FAQ&lt;/a&gt;&lt;/strong&gt; for
+answers to the following questions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc1&#34;&gt;What Is The Ruby Programming Challenge For Newbies
+(RPCFN)?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc2&#34;&gt;How does RPCFN benefit
+you?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6&#34;&gt;Challenge
+Rules&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc3&#34;&gt;Best
+Solution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc4&#34;&gt;Can I Submit A Ruby Programming Challenge
+Topic?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;donations:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;Donations&lt;/h2&gt;
+
+&lt;p&gt;RPCFN is entirely financed by RubyLearning and sometimes sponsors, so if
+you enjoy solving Ruby problems and would like to give something back by
+helping with the running costs then any donations are gratefully
+received.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.pledgie.com/campaigns/415&#34;&gt;&lt;img src=&#34;http://www.pledgie.com/campaigns/415.png?skin_name=chrome&#34; alt=&#34;Click here to lend your support to: Support RubyLearning With Some
+Love and make a donation at www.pledgie.com
+!&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;acknowledgements:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;Acknowledgements&lt;/h2&gt;
+
+&lt;p&gt;Special thanks to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://railscasts.com/&#34;&gt;Ryan Bates&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Sponsors &lt;strong&gt;Backup My App&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://github.com/&#34;&gt;GitHub&lt;/a&gt;, for giving us access to a private
+repository on GitHub to store all the submitted solutions.&lt;/li&gt;
+&lt;li&gt;The RubyLearning team.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;questions:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;Questions?&lt;/h2&gt;
+
+&lt;p&gt;Contact Satish Talim at &lt;a href=&#34;mailto:satish.talim@gmail.com&#34;&gt;satish [dot] talim [at]
+gmail.com&lt;/a&gt; OR if you have any doubts /
+questions about the challenge (the current problem statement), please
+post them as comments to this post and the author will reply asap.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-participants:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;The Participants&lt;/h2&gt;
+
+&lt;p&gt;There are two categories of participants. Some are vying for the prizes
+and some are participating for the fun of it.&lt;/p&gt;
+
+&lt;h3 id=&#34;in-the-competition:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;In the competition&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Simon Menke, Belgium&lt;/li&gt;
+&lt;li&gt;Colin Casey, Canada&lt;/li&gt;
+&lt;li&gt;Stephane Tang, France&lt;/li&gt;
+&lt;li&gt;Juan Villanelo, Chile&lt;/li&gt;
+&lt;li&gt;Vasko Zdravevski, USA&lt;/li&gt;
+&lt;li&gt;Sebastián Rabuini, Argentina&lt;/li&gt;
+&lt;li&gt;Dmitry Lipovoi, Russia&lt;/li&gt;
+&lt;li&gt;Andy Vanasse, USA&lt;/li&gt;
+&lt;li&gt;Cary Swoveland, Canada&lt;/li&gt;
+&lt;li&gt;Jeremy Peterson, USA&lt;/li&gt;
+&lt;li&gt;Paul Mucur, UK&lt;/li&gt;
+&lt;li&gt;Delbert Mitten, USA&lt;/li&gt;
+&lt;li&gt;Theo Mills, USA&lt;/li&gt;
+&lt;li&gt;Rémy Coutable, France&lt;/li&gt;
+&lt;li&gt;James Silberbauer, South Africa&lt;/li&gt;
+&lt;li&gt;Michael Cramm, Canada&lt;/li&gt;
+&lt;li&gt;Christopher Fortenberry, USA&lt;/li&gt;
+&lt;li&gt;Tanzeeb Khalili, Canada&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;just-for-fun:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;Just for Fun&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;James Edward Gray II, USA&lt;/li&gt;
+&lt;li&gt;Eric Hutzelman, USA&lt;/li&gt;
+&lt;li&gt;Benoit Daloze, Belgium&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;the-winners:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;The Winners&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/winner_icon_1.png&#34; alt=&#34;Winners&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Congratulations to the winners of this Ruby Challenge. They are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Dmitry Lipovoi&lt;/strong&gt; from Russia (his &lt;a href=&#34;https://gist.github.com/e9c0da1a6e92dd12cbc7&#34;&gt;Ruby Challenge
+solution&lt;/a&gt;) – the
+person with the best and most creative Ruby solution. He wins any
+&lt;strong&gt;one&lt;/strong&gt; of PeepCode’s &lt;a href=&#34;http://peepcode.com/screencasts/ruby-on-rails&#34;&gt;Ruby on Rails
+screencasts&lt;/a&gt; and a
+free 10 GB account for a year from &lt;a href=&#34;http://backupmyapp.com/&#34;&gt;Backup My
+App&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Michael Cramm&lt;/strong&gt; from Canada, &lt;strong&gt;Cary Swoveland&lt;/strong&gt; from Canada and
+&lt;strong&gt;Jeremy Peterson&lt;/strong&gt; from USA win any &lt;strong&gt;one&lt;/strong&gt; of Pragmatic’s &lt;a href=&#34;http://www.pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming&#34;&gt;The
+Ruby Object Model and Metaprogramming
+screencasts&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;All the participants in this challenge (except Dmitry Lipovoi who
+gets a free 10 GB account for a year) will get a free 5 GB account
+for 6 months from &lt;a href=&#34;http://backupmyapp.com/&#34;&gt;Backup My App&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;previous-challenge:63a55f72cc65fa1b4e6ced04b48f1f88&#34;&gt;Previous Challenge&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://rubylearning.com/blog/2010/04/29/rpcfn-interactive-fiction-9/&#34;&gt;RPCFN: Interactive Fiction
+(#9)&lt;/a&gt;
+by Avdi Grimm.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: All the previous challenges, sponsors and winners can be seen
+on the &lt;a href=&#34;http://ruby-challenge.rubylearning.org/&#34;&gt;Ruby Programming Challenge for
+Newbies&lt;/a&gt; page.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/update.jpg&#34; alt=&#34;Update&#34; title=&#34;Update&#34; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This challenge is now closed.&lt;/li&gt;
+&lt;li&gt;All the solutions have been tested and the results are available
+&lt;a href=&#34;http://github.com/IndianGuru/RPCFN10&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The (#11) challenge by &lt;strong&gt;Elise Huard, Belgium&lt;/strong&gt; is scheduled for
+1st July 2010.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Paul Barry Winner RPCFN - 8</title>
+      <link>http://rubylearning.com/blog/2010/04/29/paul-barry-winner-rpcfn---8/</link>
+      <pubDate>Thu, 29 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/04/29/paul-barry-winner-rpcfn---8/</guid>
+      <description>&lt;p&gt;In this brief interview, Satish Talim of RubyLearning talks to &lt;strong&gt;&lt;a href=&#34;http://twitter.com/pjb3&#34;&gt;Paul
+Barry&lt;/a&gt; of USA&lt;/strong&gt;, winner of the eighth &lt;a href=&#34;2010/04/07/rpcfn-xml-transformer---8/&#34;&gt;Ruby
+Programming Challenge For
+Newbies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/paulbarry.jpg&#34; alt=&#34;Paul
+Barry&#34; title=&#34;Paul Barry&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Welcome Paul and thanks for taking out time to share your
+thoughts. For the benefit of the readers, could you tell us something
+about your self?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul&amp;gt;&amp;gt;&lt;/strong&gt; Sure, I’m a Web Developer from Baltimore, MD. I’ve been
+doing web development for over 10 years in a variety of languages and
+frameworks including Perl, PHP, Java and Ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How did you get involved with Ruby programming?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul&amp;gt;&amp;gt;&lt;/strong&gt; I got started with Ruby programming the same way I suspect
+many other Ruby developers did, which is through Rails. At the time
+Rails hit the scene, I was pretty entrenched as a Java developer. My
+initial reaction to Rails was that it seemed to have a lot of good ideas
+in it, but I figured we could find a way to implement those idea in
+Java. The more I dug into Rails, the more I realized that it was the
+Ruby language that made the clear, powerful abstractions that make up
+Rails possible and that I could use Ruby to create useful abstractions
+in my own code as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you name three features of Ruby that you like the
+most, as compared to other languages? Why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul&amp;gt;&amp;gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Blocks&lt;/strong&gt;: The best thing about blocks is that when you first start
+using Ruby, Ruby’s block syntax gets you to start using anonymous
+functions and higher-order functions all over the place in your code
+without even realizing it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Everything is an object&lt;/strong&gt;: This is makes some aspects of the
+language simple to understand in that everything follows a few
+simple rules. String, Integers, Regexs, and most importantly
+Classes, are all just objects, just data, that you can manipulate at
+runtime.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Class definitions&lt;/strong&gt;: These are just expressions that are evaluated
+at runtime, expressions that have access to the class that is being
+defined. This allows you to create methods that when called will
+generate other methods, such as has_many in Rails.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;When you put these three features together, you have a metaprogramming
+environment that I would argue is as powerful as what Lisp macros give
+you, although I’m sure there are some hardcore Lisp programmers out
+there that would disagree with me.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How was experience of taking part in the Ruby Programming
+Challenge For Newbies (RPCFN)?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul&amp;gt;&amp;gt;&lt;/strong&gt; I’ve really enjoyed it. It’s a great exercise to come up
+with a solution to a problem and then be able to compare your solution
+to what other developers came up with. Most of the challenges so far
+have been just the right size, which is hard enough to make you think
+about it, but short enough to where you can work out an interesting
+solution without having to invest too much time in it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; You are based in Baltimore, USA. How is the Ruby and
+Rails scenario there?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul&amp;gt;&amp;gt;&lt;/strong&gt; Baltimore has a great Ruby and Rails community. Of course,
+&lt;a href=&#34;http://www.railsconf.com/&#34;&gt;RailsConf&lt;/a&gt; is coming to town, which we’re
+all excited about. Many of us that are part of the &lt;a href=&#34;http://bmoreonrails.org/&#34;&gt;B’More on Rails
+group&lt;/a&gt;, are working on various initiatives to
+make sure everyone has a great time at RailsConf. The Baltimore Ruby on
+Rails group has a bunch of smart people that meet regularly at various
+events. We’re always trying to do everything we can to help new people
+become part of the community as well. There’s also a lot of overlap with
+the DC/Northern Virginia communities which are close by and very good as
+well.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What are your future plans?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul&amp;gt;&amp;gt;&lt;/strong&gt; I’m going to Disneyland!&lt;/p&gt;
+
+&lt;p&gt;Just kidding. There is so much stuff I want to learn more about, it’s
+hard to find time for all of it. I really like where Rails is going with
+Rails 3. As much as I love Ruby, I’m also interested in other languages
+as well, especially functional ones like OCaml, Erlang, Clojure, Scala
+and Haskell. I think asynchronous IO/evented frameworks like Node.js and
+EventMachine provide a better model for building network servers.
+Technologies like XMPP and the WebSocket API that’s part of HTML5 are
+also going to be key in the next generation of real-time, connected web
+and mobile applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Paul. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Paul would
+be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

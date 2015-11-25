@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Jruby // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="">
+
+
+  <meta property="og:title" content="Jruby" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/categories/jruby/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="http://rubylearning.com/blog/categories/jruby/index.xml" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2011/09/03/how-do-i-run-a-sinatra-app-using-jruby/">How do I run a Sinatra app using JRuby?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>3</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://satishtalim.com">Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">JRuby</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-sinatra" href="http://rubylearning.com/blog//categories/sinatra">Sinatra</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	How do I run a Sinatra app using JRuby? RubyLearning is conducting a free, online JRuby 101 course &#8211; the first of its kind, on Google+ Some participants wanted an answer to their question &#8220;How do I run a Sinatra app using JRuby?&#8221; This blog post explains the same. Read on. Pre-requisite I have a Windows XP box but the following should work on Mac and Linux-based computers too. Ensure that you have already installed JDK 6, JRuby and set the relevant system environment variables path, classpath, JAVA_HOME and JRUBY_HOME.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2011/09/03/how-do-i-run-a-sinatra-app-using-jruby/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/12/18/matt-aimonetti-why-on-earth-would-you-ignore-merb/">Matt Aimonetti: Why on earth would you ignore Merb?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://satishtalim.com">Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>17 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">JRuby</a>
+      					
+					        <a class="post-category post-category-rails" href="http://rubylearning.com/blog//categories/rails">Rails</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	If you were to ask me, I&#8217;d say that Merb has caught the fancy of Rubyists around the world and it&#8217;s not just hype. Recently RL conducted a poll on new course offerings where 1000 Rubyists (from over 140 countries) voted. Over 30% requested for an Introductory course on Merb. RL&#8217;s Satish Talim caught up with Matt Aimonetti (a serious Ruby addict and Merb core team member) to learn more about Merb.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/12/18/matt-aimonetti-why-on-earth-would-you-ignore-merb/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/11/15/can-you-help-rubylearning-with-your-suggestions/">Can you help RubyLearning with your suggestions?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">JRuby</a>
+      					
+					        <a class="post-category post-category-poll" href="http://rubylearning.com/blog//categories/poll">Poll</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-training" href="http://rubylearning.com/blog//categories/training">Training</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	New Course Offerings We&#8217;re rapidly expanding our course offerings here at RubyLearning, trying to keep up with the enormous and ever-growing interest in Ruby. But we need your YOUR help because, as you know, Ruby is a big subject, and we&#8217;d like to be sure to focus in on the areas of most interest to you. A Note regarding the courses mentioned in the poll below: Ruby Testing and TDD: (starting from the concepts of testing in general, Test::Unit and other tools are discussed.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/11/15/can-you-help-rubylearning-with-your-suggestions/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/07/31/best-of-rubylearning-posts-for-ruby-beginners/">Best of RubyLearning Posts for Ruby Beginners</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>31</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">JRuby</a>
+      					
+					        <a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">Popular</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Here&#8217;s a digest of RubyLearning&#8217;s best posts for Ruby beginners. These include (with the latest posts first): Advise: David Flanagan talks to RubyLearning David Flanagan is the author of the book &#8220;The Ruby Programming Language&#8221;. David says that his book was written to be a definitive book on the language, and is intended for those who want to learn and master the language. He also offers insights on Ruby 1.9. Charles Nutter talks to RubyLearning Participants Charles Nutter currently works full-time as a core developer on JRuby at Sun Microsystems.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/07/31/best-of-rubylearning-posts-for-ruby-beginners/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/07/30/using-activerecord-and-jdbc-with-jruby---part-2/">Using ActiveRecord and JDBC with JRuby - Part 2</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">jruby</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p><div>
+  <h3>
+    Part 2
+  </h3></p>
+
+<p><p>
+  Continuing from where we left off in Part 1</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/07/30/using-activerecord-and-jdbc-with-jruby---part-2/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/07/28/using-activerecord-and-jdbc-with-jruby/">Using ActiveRecord and JDBC with JRuby</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">jruby</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p><div>
+  <h3>
+    Preamble
+  </h3></p>
+
+<p><p>
+    The participants of the <a href="http://rubylearning.org/">FORPC101</a> series of courses have been requesting me for a small article related to JRuby; so here it is.
+  </p></p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/07/28/using-activerecord-and-jdbc-with-jruby/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/07/21/charles-nutter-talks-to-rubylearning-participants/">Charles Nutter talks to RubyLearning Participants</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>21</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">JRuby</a>
+      					
+					        <a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">Popular</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	On the eve of the new JRuby Course announced by RubyLearning, Satish Talim of RubyLearning caught up with Charles Nutter, who was kind enough to spare time answering questions posed by the RubyLearning participants. Charles Nutter has been a Java developer since 1996. He currently works full-time as a core developer on JRuby at Sun Microsystems. He led the open-source LiteStep project in the late 90s and started working on Ruby in the fall of 2004.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/07/21/charles-nutter-talks-to-rubylearning-participants/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2007/08/30/interview-with-ola-bini-">Interview with Ola Bini &amp;#8211; JRuby Core Developer</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2007</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://satishtalim.com">Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">interview</a>
+      					
+					        <a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">jruby</a>
+      					
+					        <a class="post-category post-category-rails" href="http://rubylearning.com/blog//categories/rails">rails</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p><a href="http://www.rubylearning.com/images/ola.jpg" title="Ola Bini"><img src="http://www.rubylearning.com/images/ola.jpg" alt="Ola
+Bini" />
+</a></p>
+
+<p><em>RubyLearning caught up with <strong><a href="http://ola-bini.blogspot.com/">Ola
+Bini</a></strong> at Bangalore, India and talked to
+him about JRuby. Ola provides some insights for easy adoption of JRuby
+by the large pool of Java and Ruby developers in India.</em></p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2007/08/30/interview-with-ola-bini-"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2007/07/17/jruby-inside/">JRuby Inside</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>17</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2007</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">jruby</a>
+      					
+					        <a class="post-category post-category-news" href="http://rubylearning.com/blog//categories/news">news</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p><a href="http://www.petercooper.co.uk/">Peter Cooper</a> has done it again! Peter
+has just launched <a href="http://www.jrubyinside.com/">JRuby Inside</a> a new
+“sister” site to his very popular Ruby Inside. JRuby Inside focuses just
+on <strong>JRuby</strong>.</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2007/07/17/jruby-inside/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2007/05/05/connect-jruby-to-mysql-using-jdbc/">Connect JRuby to MySQL using JDBC</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2007</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">jruby</a>
+      					
+					        <a class="post-category post-category-rails" href="http://rubylearning.com/blog//categories/rails">rails</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p><strong>JRuby</strong> is a 100% pure-Java implementation of the Ruby programming
+language that runs in the JVM. <strong>MySQL</strong> is a one of the most popular
+open source databases around and is used by many prominent organizations
+from Yahoo to NASA.</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2007/05/05/connect-jruby-to-mysql-using-jdbc/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2007/04/30/internationalization-in-jruby/">Internationalization in JRuby</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2007</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">jruby</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>I have been using and teaching Java since 1995. The other day, I was
+talking to my students about Internationalization in Java.</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2007/04/30/internationalization-in-jruby/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2007/04/27/jruby-caffeinated-ruby/">JRuby: Caffeinated Ruby</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>27</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2007</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-jruby" href="http://rubylearning.com/blog//categories/jruby">jruby</a>
+      					
+					        <a class="post-category post-category-rails" href="http://rubylearning.com/blog//categories/rails">rails</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>Recently, <strong><a href="http://jruby.codehaus.org/">JRuby</a></strong> has been gaining more
+and more attention in the Java and Ruby communities. Java is a powerful
+platform and there are millions of lines of Java code being written each
+month, that the world will have to live with for a long time from now.
+By leveraging Java the platform with the power of the Ruby programming
+language, programmers get the best from both worlds. <em>You better not
+ignore JRuby any more!</em></p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2007/04/27/jruby-caffeinated-ruby/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+  
+</body>
+</html>

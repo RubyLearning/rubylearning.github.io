@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Graham Ashton: How do I learn and master Sinatra? // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Satish Talim">
+
+
+  <meta property="og:title" content="Graham Ashton: How do I learn and master Sinatra?" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2009/07/10/graham-ashton-how-do-i-learn-and-master-sinatra/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2009/07/10/graham-ashton-how-do-i-learn-and-master-sinatra/">Graham Ashton: How do I learn and master Sinatra?</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>10</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2009</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author" href="http://satishtalim.com" target="">Satish Talim</a></span>
+            		
+      <span class="post-author-social post-author-facebook"><a href="http://www.facebook.com/rubylearning" target="_blank"><i class="fa fa-facebook"></i></a></span>
+
+
+      <span class="post-author-social post-author-google-plus"><a href="https://plus.google.com/&#43;SatishTalim/about" target="_blank"><i class="fa fa-google-plus"></i></a></span>
+
+
+      <span class="post-author-social post-author-linkedin"><a href="https://www.linkedin.com/in/satishtalim" target="_blank"><i class="fa fa-linkedin"></i></a></span>
+
+
+	<span class="post-author-social post-author-twitter"><a href="http://twitter.com/IndianGuru" target="_blank"><i class="fa fa-twitter"></i></a></span>
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+				
+					<a class="post-category post-category-learn-sinatra" href="http://rubylearning.com/blog//categories/learn-sinatra">Learn Sinatra</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-sinatra" href="http://rubylearning.com/blog//categories/sinatra">Sinatra</a>
+				
+				</div>
+			
+
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f07%2f10%2fgraham-ashton-how-do-i-learn-and-master-sinatra%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f07%2f10%2fgraham-ashton-how-do-i-learn-and-master-sinatra%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f07%2f10%2fgraham-ashton-how-do-i-learn-and-master-sinatra%2f&title=Graham%20Ashton%3a%20How%20do%20I%20learn%20and%20master%20Sinatra%3f&summary=%3cp%3eWelcome%20to%20the%20%3cstrong%3ethird%3c%2fstrong%3e%20installment%20on%20the%20RL%20blog%2c%20of%20a%20mini%20series%20%e2%80%93%0a%e2%80%9c%3cstrong%3eHow%20do%20I%20learn%20and%20master%20Sinatra%3f%3c%2fstrong%3e%e2%80%9d%20%e2%80%93%20by%20top%20Rubyists%20using%0a%3cem%3eSinatra%3c%2fem%3e.%20The%20interview%20series%20will%20provide%20insight%20and%20commentary%20from%0athese%20notable%20%3cem%3eSinatra%3c%2fem%3e%20developers%2c%20with%20the%20goal%20of%20facilitating%20and%0aproviding%20answers%20to%20the%20questions%20Ruby%20beginners%20face%20on%20%3cem%3ehow%20to%20learn%0aand%20master%20Sinatra%3c%2fem%3e.%3c%2fp%3e%0a}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Graham%20Ashton%3a%20How%20do%20I%20learn%20and%20master%20Sinatra%3f&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f07%2f10%2fgraham-ashton-how-do-i-learn-and-master-sinatra%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+
+            <p>Welcome to the <strong>third</strong> installment on the RL blog, of a mini series –
+“<strong>How do I learn and master Sinatra?</strong>” – by top Rubyists using
+<em>Sinatra</em>. The interview series will provide insight and commentary from
+these notable <em>Sinatra</em> developers, with the goal of facilitating and
+providing answers to the questions Ruby beginners face on <em>how to learn
+and master Sinatra</em>.</p>
+
+<p><strong>Satish&gt;&gt;</strong> Graham Ashton, could you tell us something about yourself
+– your background, where you are based?</p>
+
+<p><img src="http://www.rubylearning.com/images/graham-ashton.jpeg" alt="Graham
+Ashton" title="Graham Ashton" />
+<strong>Graham
+Ashton&gt;&gt;</strong> I’m <a href="http://grahamashton.net/">Graham Ashton</a>. When I first
+got involved in web development I taught myself Perl. It served me well
+for five years, but I felt there had to be a better way. I picked up
+Python and loved it, and set about finding a full time Python job.
+Another five years later I found my way to Ruby, Rails and eventually
+Sinatra. I’m now working in London developing web applications as a
+freelancer. I’m mainly using Ruby at the moment, but I’m still keeping
+my eye in with Python.</p>
+
+<p><strong>Satish&gt;&gt;</strong> Are there any pre-requisites for a person to start
+learning Sinatra?</p>
+
+<p><strong>Graham&gt;&gt;</strong> I think it’s well worth having a basic grasp of the
+programming language before you pick up a framework. The first time I
+tried Rails I didn’t know any Ruby and couldn’t tell the Rails magic
+apart from the Ruby magic. I found it much easier to learn Rails after
+spending a day or two getting familiar with the Ruby syntax. Sinatra
+doesn’t really do magic (which is great, and appeals to the Python fan
+within me), but I still think it’s well worth having a good grasp of
+Ruby.</p>
+
+<p>Otherwise, the only thing I’d recommend is a good understanding of the
+basics of HTTP (GET, POST, etc.). Sinatra feels like a pretty thin layer
+on top of HTTP.</p>
+
+<p><strong>Satish&gt;&gt;</strong> How should one start learning Sinatra?</p>
+
+<p><strong>Graham&gt;&gt;</strong> It may be a cliche, but I’d start with the
+<a href="http://www.sinatrarb.com/intro.html">README</a>. It’s a fairly succinct
+summary of what you can do with Sinatra, and will bring you up to speed
+on what’s possible. You can refer back to the README or the <a href="http://www.sinatrarb.com/book.html">Sinatra
+book</a> for more details later. I hear
+the book is still a work in progress, but I found it very useful when I
+was starting out.</p>
+
+<p>Once you’ve skim read some docs just get stuck in and start trying to
+make stuff. Don’t skimp on the
+<a href="http://www.sinatrarb.com/testing.html">testing</a>; it’s pretty easy to do
+and is just as important to learn as the main Sinatra API.</p>
+
+<blockquote>
+<p>Sinatra – quickly create tiny web apps and services</p>
+</blockquote>
+
+<p><strong>Satish&gt;&gt;</strong> Which area of Sinatra should a beginner pay particular
+attention to?</p>
+
+<p><strong>Graham&gt;&gt;</strong> That’s a tricky question. Sinatra is so simple that no
+part stands out as being worthy of attention. Just make sure you write
+tests and you’ll be fine.</p>
+
+<p><strong>Satish&gt;&gt;</strong> Is the official documentation on Sinatra good enough for
+a beginner? Are there areas which need improvement or need to be
+re-written</p>
+
+<p><strong>Graham&gt;&gt;</strong> I think it’s good enough, yes. That’s how I learnt
+Sinatra and I managed to write a complete app without resorting to
+digging into the code. I hear that the book will be getting some work
+done on it in future, but I’m not really up to speed on it’s
+deficencies.</p>
+
+<p><strong>Satish&gt;&gt;</strong> Sequel, DataMapper, ActiveRecord – which one would you
+recommend to use with Sinatra and why?</p>
+
+<p><strong>Graham&gt;&gt;</strong> I’d say you should use whichever is most suitable to your
+task, that you’re familiar with, or interested in learning. Sinatra
+doesn’t have a preference.</p>
+
+<p><img src="http://rubylearning.com/images/sinatralogo.jpg" alt="Sinatra
+Icon" title="Sinatra micro-framework" />
+</p>
+
+<p><strong>Satish&gt;&gt;</strong> Is an understanding of Rack important while learning
+Sinatra? Why? Which area of Rack should one be really comfortable with?</p>
+
+<p><strong>Graham&gt;&gt;</strong> Understanding Rack certainly isn’t a pre-requisite. To
+deploy a Sinatra application you typically need to write yourself a Rack
+config file, but there are plenty of examples online that you could
+download if you wanted to.</p>
+
+<p>Having said all that, Rack is pretty simple, very cool, and well worth
+reading up on. Check out how to chain various Rack components together
+using the <strong>Rack::Builder</strong> DSL (there’s an example in the RDoc).</p>
+
+<p><strong>Satish&gt;&gt;</strong> How should one hone one’s skills in Sinatra?</p>
+
+<p><strong>Graham&gt;&gt;</strong> Make stuff. Deploy it. Repeat.</p>
+
+<p><strong>Satish&gt;&gt;</strong> What type of projects should a beginner work on to gain
+more expertise in Sinatra?</p>
+
+<p><strong>Graham&gt;&gt;</strong> When I’m learning a new technology I find that I progress
+faster if I’m really motivated to release whatever it is I’m working on.
+So make stuff that interests you or excites you. Development is a
+creative process, and should be fun.</p>
+
+<p><strong>Satish&gt;&gt;</strong> Could you suggest some web services that a Sinatra
+beginner could develop himself / herself?</p>
+
+<p><strong>Graham&gt;&gt;</strong> If you’ve got an existing site that you’ve already
+implemented with another technology, consider porting it to Sinatra
+(it’s a great way to compare and contrast different approaches). Have
+you got a personal web page or blog? They’re easy to make in Sinatra,
+and once you’ve got total control of your site using something as simple
+as Sinatra you really can do anything you like with it.</p>
+
+<p>That’s exactly what I did when I built
+<a href="http://effectif.com/nesta">Nesta</a> (I had previously been running
+Mephisto). You could just use Nesta but you’ll learn more if you write
+your own site from scratch. There are plenty of alternatives to Nesta
+out there, such as <a href="http://github.com/karmi/marley/tree/master">Marley</a>
+(which inspired me to make Nesta) or the code for
+<a href="http://github.com/toolmantim/toolmantim/tree/master">toolmantim.com</a>.</p>
+
+<p><strong>Satish&gt;&gt;</strong> Anything else you would like to add?</p>
+
+<p><strong>Graham&gt;&gt;</strong> Take half an hour out to learn HAML and SASS. The syntax
+is so simple, it’ll be well worth the investment.</p>
+
+<p><em>Thank you Graham. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Graham
+would be glad to answer.</em></p>
+
+<p><strong>Others in this series:</strong></p>
+
+<ul>
+<li><a href="http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/">Corey Donohoe</a></li>
+<li><a href="http://rubylearning.com/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/">Jeremy Evans</a></li>
+</ul>
+
+<p><strong><em>Post supported by 1st Easy Limited</em>:</strong> UK based 1st Easy Limited
+offer Sinatra and Rails hosting running on a Phusion Passenger
+(mod_rails) and LAMP stack. If you want to try your hand at developing
+with Sinatra, why not let them arrange a <a href="http://www.1steasy.com/ruby-on-rails.htm#try">trial hosting
+account</a> for you? You’ll
+get to deploy your app, with full technical support from their team!</p>
+
+	
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f07%2f10%2fgraham-ashton-how-do-i-learn-and-master-sinatra%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f07%2f10%2fgraham-ashton-how-do-i-learn-and-master-sinatra%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f07%2f10%2fgraham-ashton-how-do-i-learn-and-master-sinatra%2f&title=Graham%20Ashton%3a%20How%20do%20I%20learn%20and%20master%20Sinatra%3f&summary=%3cp%3eWelcome%20to%20the%20%3cstrong%3ethird%3c%2fstrong%3e%20installment%20on%20the%20RL%20blog%2c%20of%20a%20mini%20series%20%e2%80%93%0a%e2%80%9c%3cstrong%3eHow%20do%20I%20learn%20and%20master%20Sinatra%3f%3c%2fstrong%3e%e2%80%9d%20%e2%80%93%20by%20top%20Rubyists%20using%0a%3cem%3eSinatra%3c%2fem%3e.%20The%20interview%20series%20will%20provide%20insight%20and%20commentary%20from%0athese%20notable%20%3cem%3eSinatra%3c%2fem%3e%20developers%2c%20with%20the%20goal%20of%20facilitating%20and%0aproviding%20answers%20to%20the%20questions%20Ruby%20beginners%20face%20on%20%3cem%3ehow%20to%20learn%0aand%20master%20Sinatra%3c%2fem%3e.%3c%2fp%3e%0a}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Graham%20Ashton%3a%20How%20do%20I%20learn%20and%20master%20Sinatra%3f&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f07%2f10%2fgraham-ashton-how-do-i-learn-and-master-sinatra%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-graham-ashton" href="http://rubylearning.com/blog//tags/graham-ashton">Graham Ashton</a>,
+	                
+	                <a class="post-tag post-tag-learning-sinatra" href="http://rubylearning.com/blog//tags/learning-sinatra">Learning Sinatra</a>,
+	                
+	                <a class="post-tag post-tag-ruby-programming" href="http://rubylearning.com/blog//tags/ruby-programming">ruby programming</a>,
+	                
+	                <a class="post-tag post-tag-sinatra" href="http://rubylearning.com/blog//tags/sinatra">Sinatra</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2009/07/13/karel-minarik-how-do-i-learn-and-master-sinatra/">Karel Minarik: How do I learn and master Sinatra?</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/">Jeremy Evans: How do I learn and master Sinatra?</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2009\/07\/10\/graham-ashton-how-do-i-learn-and-master-sinatra\/';
+    var disqus_title = 'Graham Ashton: How do I learn and master Sinatra?';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2009\/07\/10\/graham-ashton-how-do-i-learn-and-master-sinatra\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	
+
+  
+</body>
+</html>

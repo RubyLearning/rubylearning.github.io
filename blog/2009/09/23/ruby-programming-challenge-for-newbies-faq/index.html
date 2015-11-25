@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Ruby Programming Challenge for Newbies FAQ // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Satish Talim">
+
+
+  <meta property="og:title" content="Ruby Programming Challenge for Newbies FAQ" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2009/09/23/ruby-programming-challenge-for-newbies-faq/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+		<div id="nav-to-top">
+			<span class="decorative-marker">//</span><a href="#top">To Top</a>
+		</div>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#what-is-the-ruby-programming-challenge-for-newbies-rpcfn:52ed284153bb8e28f4a16f8d92381bd4">What Is The Ruby Programming Challenge For Newbies (RPCFN)?</a></li>
+<li><a href="#how-does-rpcfn-benefit-you:52ed284153bb8e28f4a16f8d92381bd4">How does RPCFN benefit you?</a></li>
+<li><a href="#how-to-enter-the-challenge:52ed284153bb8e28f4a16f8d92381bd4">How to Enter the Challenge</a></li>
+<li><a href="#source-code-on-gist:52ed284153bb8e28f4a16f8d92381bd4">Source Code on GIST</a></li>
+<li><a href="#challenge-rules:52ed284153bb8e28f4a16f8d92381bd4">Challenge Rules</a></li>
+<li><a href="#notification:52ed284153bb8e28f4a16f8d92381bd4">Notification</a></li>
+<li><a href="#best-solution:52ed284153bb8e28f4a16f8d92381bd4">Best Solution</a></li>
+<li><a href="#prizes:52ed284153bb8e28f4a16f8d92381bd4">Prizes</a></li>
+<li><a href="#can-i-submit-a-ruby-programming-challenge-topic:52ed284153bb8e28f4a16f8d92381bd4">Can I Submit A Ruby Programming Challenge Topic?</a></li>
+<li><a href="#can-i-make-a-donation:52ed284153bb8e28f4a16f8d92381bd4">Can I make a donation?</a></li>
+<li><a href="#questions:52ed284153bb8e28f4a16f8d92381bd4">Questions?</a>
+<ul>
+<li><a href="#share-this-sd-title:52ed284153bb8e28f4a16f8d92381bd4">Share this: {.sd-title}</a></li>
+<li><a href="#popular-posts:52ed284153bb8e28f4a16f8d92381bd4">Popular Posts</a></li>
+<li><a href="#popular-ruby-ebooks:52ed284153bb8e28f4a16f8d92381bd4">Popular Ruby eBooks</a></li>
+<li><a href="#rubylearning-on-google:52ed284153bb8e28f4a16f8d92381bd4">RubyLearning on Google+</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2009/09/23/ruby-programming-challenge-for-newbies-faq/">Ruby Programming Challenge for Newbies FAQ</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>23</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2009</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author" href="http://satishtalim.com" target="">Satish Talim</a></span>
+            		
+      <span class="post-author-social post-author-facebook"><a href="http://www.facebook.com/satishtalim/about" target="_blank"><i class="fa fa-facebook"></i></a></span>
+
+
+      <span class="post-author-social post-author-google-plus"><a href="https://plus.google.com/&#43;SatishTalim/about" target="_blank"><i class="fa fa-google-plus"></i></a></span>
+
+
+      <span class="post-author-social post-author-linkedin"><a href="https://www.linkedin.com/in/satishtalim" target="_blank"><i class="fa fa-linkedin"></i></a></span>
+
+
+	<span class="post-author-social post-author-twitter"><a href="http://twitter.com/IndianGuru" target="_blank"><i class="fa fa-twitter"></i></a></span>
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-challenge" href="http://rubylearning.com/blog//categories/challenge">challenge</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+				
+				</div>
+			
+
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f09%2f23%2fruby-programming-challenge-for-newbies-faq%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f09%2f23%2fruby-programming-challenge-for-newbies-faq%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f09%2f23%2fruby-programming-challenge-for-newbies-faq%2f&title=Ruby%20Programming%20Challenge%20for%20Newbies%20FAQ&summary=What%20Is%20The%20Ruby%20Programming%20Challenge%20For%20Newbies%20%28RPCFN%29%3f%20The%20RPCFN%20is%20a%20monthly%20programming%20challenge%20for%20Ruby%20Newbies%20in%20the%20spirit%20of%20the%20Ruby%20Quiz.%20A%20new%20RPCFN%20will%20be%20posted%20on%20the%20RubyLearning%20blog%20every%201st%20of%20the%20month%20%28normally%29.%20The%20contest%20is%20open%20to%20individuals%20only%20and%20you%20are%20invited%20to%20contribute%20solution%28s%29%20and%2for%20discussion%28s%29%20as%20comments%20to%20the%20respective%20blog%20post.%20All%20solutions%20posted%20would%20be%20hidden%20to%20allow%20users%20to%20come%20up%20with%20their%20own%20solutions.}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Ruby%20Programming%20Challenge%20for%20Newbies%20FAQ&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f09%2f23%2fruby-programming-challenge-for-newbies-faq%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+
+            
+
+<h2 id="what-is-the-ruby-programming-challenge-for-newbies-rpcfn:52ed284153bb8e28f4a16f8d92381bd4">What Is The Ruby Programming Challenge For Newbies (RPCFN)?</h2>
+
+<p>The RPCFN is a monthly programming challenge for <strong>Ruby Newbies</strong> in the
+spirit of the <a href="http://rubyquiz.com/">Ruby Quiz</a>.
+A new RPCFN will be posted on the <a href="http://rubylearning.com/blog/">RubyLearning blog</a>
+every 1st of the month (normally). The contest is open to individuals
+only and you are invited to contribute solution(s) and/or discussion(s)
+as comments to the respective blog post. All solutions posted would be
+hidden to allow users to come up with their own solutions. On the 21st
+of the month, all the solutions will be thrown open for everyone to see
+and comment upon. No new solutions will be accepted from 21st onwards.
+The cycle begins again on the 1st of the following month. The Ruby
+working solution(s) should be clear-cut, follow Ruby conventions and
+still be easy to understand.</p>
+
+<h2 id="how-does-rpcfn-benefit-you:52ed284153bb8e28f4a16f8d92381bd4">How does RPCFN benefit you?</h2>
+
+<p><a href="http://rubylearning.com/blog/2009/07/15/chris-strom-how-do-i-learn-and-master-sinatra/">Chris
+Strom</a>
+(<a href="http://twitter.com/eee_c" title="twitter">twitter</a> / <a href="https://web.archive.org/web/20140427193020/http://japhr.blogspot.com/" title="blog">blog</a>)
+is one of the problem setters for the RPCFN and has this to say:</p>
+
+<blockquote>
+<p>RPCFN is a good idea as reading books and documentation can only take
+you so far when learning a new language. To really learn, you need to
+use the language. RPCFN provides a fabulous forum for using Ruby in
+the form of regular, engaging (but not arcanely difficult) challenges.
+Better yet, it provides feedback on how to use Ruby well, as each
+fortnight the best solution to a challenge is chosen. RPCFN is a
+wonderful introduction to the Ruby language and to the Ruby community.
+Welcome newbies!</p>
+</blockquote>
+
+<h2 id="how-to-enter-the-challenge:52ed284153bb8e28f4a16f8d92381bd4">How to Enter the Challenge</h2>
+
+<p>Read the <a href="http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6">Challenge
+Rules</a>
+located at the bottom of this page. By participating in this challenge,
+you agree to be bound by these Challenge Rules. <strong>The Ruby Challenge is
+free and
+<a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/wp-login.php?action=register">registration</a>
+is optional</strong>. You can enter the challenge by posting the following as a
+comment to the Ruby Challenge blog post (this appears on the 1st of
+every month):</p>
+
+<ul>
+<li>Your name:</li>
+<li>Country of Residence:</li>
+<li><a href="http://rubylearning.com/blog/ruby-programming-challenge-faq/#rpc5">GIST URL of your
+Solution</a>
+(i.e. Ruby code) with explanation and / or test cases:</li>
+<li>Code works with Ruby 1.8 / 1.9 / Both:</li>
+<li>Email address (will not be published):</li>
+<li>Brief description of what you do (will not be published):</li>
+</ul>
+
+<h2 id="source-code-on-gist:52ed284153bb8e28f4a16f8d92381bd4">Source Code on GIST</h2>
+
+<ul>
+<li>Open your browser and type the URL:
+<a href="https://web.archive.org/web/20140427193020/https://gist.github.com/">https://gist.github.com/</a></li>
+<li>You should see a screen as shown below:</li>
+</ul>
+
+<p><img src="./Ruby%20Programming%20Challenge%20For%20Newbies%20FAQ_files/gist.png" alt="GIST" />
+</p>
+
+<p><a href="https://web.archive.org/web/20140427193020/http://www.rubylearning.com/images/gist.png">Click for a larger
+image</a>.</p>
+
+<ul>
+<li>1. Under Options, click on Private.</li>
+<li>2. Select the Language as Ruby</li>
+<li>3. Paste you Ruby Challenge Source Code along with explanation in
+the window.</li>
+<li>4. Name this file with your first and last name. Ex. satishtalim.rb</li>
+<li>5. Ensure that the “Private” box is checked before you finally click
+on the Paste button.</li>
+<li>A new screen loads up with a new private URL. This is the GIST URL
+of your Ruby Challenge Solution.</li>
+</ul>
+
+<h2 id="challenge-rules:52ed284153bb8e28f4a16f8d92381bd4">Challenge Rules</h2>
+
+<p>To participate in the RPCFN, you must be at least 18 years old. The
+Challenge is open to individuals.</p>
+
+<p>Each entrant shall indemnify, defend, and hold RubyLearning harmless
+from any third party claims arising from or related to that entrant’s
+participation in the Challenge. In no event shall RubyLearning be liable
+to an entrant for acts or omissions arising out of or related to the
+Challenge or that entrant’s participation in the Challenge.</p>
+
+<p>Odds of winning depend on the number and quality of entries received.
+All taxes, including income taxes, are the sole responsibility of
+winners. No prize substitution is permitted. Winner(s) may be required
+to verify their entry.</p>
+
+<h2 id="notification:52ed284153bb8e28f4a16f8d92381bd4">Notification</h2>
+
+<p>The winning entries will be announced on the <a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/">RubyLearning
+blog</a>.
+The winners will be sent their prizes by email.</p>
+
+<h2 id="best-solution:52ed284153bb8e28f4a16f8d92381bd4">Best Solution</h2>
+
+<p><img src="./Ruby%20Programming%20Challenge%20For%20Newbies%20FAQ_files/idea.png" alt="Best
+Solution" />
+</p>
+
+<p>The author of the RPCFN for the particular month will decide the best
+solution, with some help from RubyLearning. This panel shall have the
+sole authority and discretion to select the award recipient(s).</p>
+
+<h2 id="prizes:52ed284153bb8e28f4a16f8d92381bd4">Prizes</h2>
+
+<p>There will normally be two prizes (though we reserve the right to change
+this for each challenge). One prize will go for the best solution (if
+there is a tie between answers, then the one who posted first will be
+the winner) and the other will be decided by randomly selecting one
+person from all the remaining working solutions for that month. If a
+person wins he/she can’t win again in the next, immediate challenge but
+can still participate. Prizes can range from small cash rewards to free
+pdfs – whatever the sponsors of the challenge have offered.</p>
+
+<h2 id="can-i-submit-a-ruby-programming-challenge-topic:52ed284153bb8e28f4a16f8d92381bd4">Can I Submit A Ruby Programming Challenge Topic?</h2>
+
+<p><strong>Please do!</strong> Ruby Programming Challenge depends on community support.
+The challenge problem statement should be easily understood by Ruby
+newbies but complex enough for it to be fun
+<img src="./Ruby%20Programming%20Challenge%20For%20Newbies%20FAQ_files/icon_wink.gif" alt=";-)" />
+
+Let the challenge be both obvious and.. challenging. A hard combo! This
+is obviously vague, so use your best judgment. Send all submissions to
+<a href="mailto:satish.talim@gmail.com">Satish Talim</a>. Feel free to submit as
+often as you like.</p>
+
+<h2 id="can-i-make-a-donation:52ed284153bb8e28f4a16f8d92381bd4">Can I make a donation?</h2>
+
+<p><strong>Absolutely!</strong> RPCFN is entirely financed by RubyLearning and sometimes
+sponsors, so if you have enjoyed the problems and would like to give
+something back by helping with the running costs then any donations are
+gratefully received.</p>
+
+<p><a href="https://web.archive.org/web/20140427193020/http://www.pledgie.com/campaigns/415"><img src="./Ruby%20Programming%20Challenge%20For%20Newbies%20FAQ_files/415.png" alt="Click here to lend your support to: Support RubyLearning With Some
+Love and make a donation at www.pledgie.com
+!" />
+</a></p>
+
+<h2 id="questions:52ed284153bb8e28f4a16f8d92381bd4">Questions?</h2>
+
+<p>Contact Satish Talim at
+<a href="mailto:satish.talim@gmail.com">satish.talim@gmail.com</a></p>
+
+<p>Posted by <strong>Satish Talim</strong></p>
+
+<h3 id="share-this-sd-title:52ed284153bb8e28f4a16f8d92381bd4">Share this: {.sd-title}</h3>
+
+<ul>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/ruby-programming-challenge-faq/?share=google-plus-1" title="Click to share on Google+">Google</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/ruby-programming-challenge-faq/?share=twitter" title="Click to share on Twitter">Twitter</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/ruby-programming-challenge-faq/?share=facebook" title="Share on Facebook">Facebook</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/ruby-programming-challenge-faq/?share=linkedin" title="Click to share on LinkedIn">LinkedIn</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/ruby-programming-challenge-faq/?share=pinterest" title="Click to share on Pinterest">Pinterest</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/ruby-programming-challenge-faq/?share=reddit" title="Click to share on Reddit">Reddit</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/ruby-programming-challenge-faq/?share=stumbleupon" title="Click to share on StumbleUpon">StumbleUpon</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/ruby-programming-challenge-faq/?share=email" title="Click to email this to a friend">Email</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/ruby-programming-challenge-faq/#print" title="Click to print">Print</a></li>
+<li></li>
+</ul>
+
+<p><a href="https://web.archive.org/web/20140427193020/http://twitter.com/IndianGuru"><img src="./Ruby%20Programming%20Challenge%20For%20Newbies%20FAQ_files/twitter-ani.gif" alt="Follow me on Twitter to communicate and stay
+connected" title="Follow me on Twitter to communicate and stay connected" />
+</a></p>
+
+<p>Comments on this entry are closed.</p>
+
+<p>{ 16 trackbacks }</p>
+
+<ul>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2009/09/13/poll-ruby-problems-for-beginners-and-prizes/">Poll: Ruby Problems for Beginners and
+Prizes</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2009/09/24/rpcfn-shift-subtitle-1/">RPCFN: Shift Subtitle
+(#1)</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2009/10/08/rpcfn-average-arrival-time-for-a-flight-2/">RPCFN: Average Arrival Time For A Flight
+(#2)</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2009/10/30/rpcfn-short-circuit-3/">RPCFN: Short Circuit
+(#3)</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2009/11/26/rpcfn-rubyfun-4/">RPCFN: Ruby**Fun
+(#4)</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2009/12/27/rpcfn-mazes-5/">RPCFN: Mazes
+(#5)</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2010/01/26/rpcfn-fair-distribution-6/">RPCFN: Fair Distribution
+(#6)</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2010/02/23/rpcfn-broadsides-7/">RPCFN: Broadsides
+(#7)</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2010/04/07/rpcfn-xml-transformer-8/">RPCFN: XML Transformer
+(#8)</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2010/04/29/rpcfn-interactive-fiction-9/">RPCFN: Interactive Fiction
+(#9)</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2010/05/25/rpcfn-business-hours-10/">RPCFN: Business Hours
+(#10)</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2010/06/28/rpcfn-the-game-of-life-11/">RPCFN: The Game of Life
+(#11)</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://programming.thatcomputerscience.info/computer-programming/rpcfn-the-game-of-life-11/">The Art of Computer Programming Coding is a Lifestyle Choice »
+RPCFN: The Game of Life
+(#11)</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2010/08/31/rpcfn-economics-101-13/">RPCFN: Economics 101
+(#13)</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2010/10/01/rpcfn-japanese-mosaic-problem-14/">RPCFN: Japanese Mosaic Problem
+(#14)</a></li>
+
+<li><p><a href="https://web.archive.org/web/20140427193020/http://code2relax.wordpress.com/2012/10/06/list-of-programming-challenge-sites-for-skill-improvements/">List of Programming Challenge Sites for Skill Improvements « Code
+to
+Relax</a></p></li>
+
+<li><h3 id="popular-posts:52ed284153bb8e28f4a16f8d92381bd4">Popular Posts</h3>
+
+<ul>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2011/10/02/do-you-know-how-to-write-an-internal-dsl-in-ruby/" title="Do you know how to write an internal DSL in Ruby?">Do you know how to write an internal DSL in
+Ruby?</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/" title="How do I keep multiple Ruby projects separate?">How do I keep multiple Ruby projects
+separate?</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2010/12/15/getting-started-with-heroku/" title="Getting started with Heroku">Getting started with
+Heroku</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2010/11/23/dont-know-metaprogramming-in-ruby/" title="Don’t Know Metaprogramming In Ruby?">Don’t Know Metaprogramming In
+Ruby?</a></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/2010/11/08/do-you-know-resque/" title="Do YOU know Resque?">Do YOU know
+Resque?</a></li>
+</ul></li>
+
+<li><h3 id="popular-ruby-ebooks:52ed284153bb8e28f4a16f8d92381bd4">Popular Ruby eBooks</h3>
+
+<ul>
+<li><a href="https://web.archive.org/web/20140427193020/http://www.amazon.com/gp/product/B00BECCKYM/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B00BECCKYM&amp;linkCode=as2&amp;tag=satishtalimsw-20">How Do I Create And Publish My First Ruby
+Gem?</a><img src="./Ruby%20Programming%20Challenge%20For%20Newbies%20FAQ_files/ir" alt="" />
+
+
+<ul>
+<li>US\$ \$0.91</li>
+</ul></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://www.amazon.com/gp/product/B00B7VN8IC/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B00B7VN8IC&amp;linkCode=as2&amp;tag=satishtalimsw-20">Programming the Web with
+Ruby</a><img src="./Ruby%20Programming%20Challenge%20For%20Newbies%20FAQ_files/ir(1" alt="" />
+)
+
+<ul>
+<li>US\$ 4.60</li>
+</ul></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://www.amazon.com/gp/product/B0062X2I68/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B0062X2I68&amp;linkCode=as2&amp;tag=satishtalimsw-20">The Ultimate Guide to Ruby
+Programming</a><img src="./Ruby%20Programming%20Challenge%20For%20Newbies%20FAQ_files/ir(2" alt="" />
+)
+
+<ul>
+<li>US\$ 6.44</li>
+</ul></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/using-git-github-ebook/">Using Git &amp;
+GitHub</a>
+
+<ul>
+<li>US\$ 5</li>
+</ul></li>
+<li><a href="https://web.archive.org/web/20140427193020/http://rubylearning.com/blog/introduction-to-sinatra-ebook/">Introduction to
+Sinatra</a>-
+US\$ 9.95</li>
+</ul></li>
+
+<li><h3 id="rubylearning-on-google:52ed284153bb8e28f4a16f8d92381bd4">RubyLearning on Google+</h3>
+
+<p><a href="https://web.archive.org/web/20140427193020/https://plus.google.com/104011292189143717925/?prsrc=3"><img src="./Ruby%20Programming%20Challenge%20For%20Newbies%20FAQ_files/gplus-64.png" alt="Google+" />
+</a></p></li>
+</ul>
+
+	
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f09%2f23%2fruby-programming-challenge-for-newbies-faq%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f09%2f23%2fruby-programming-challenge-for-newbies-faq%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f09%2f23%2fruby-programming-challenge-for-newbies-faq%2f&title=Ruby%20Programming%20Challenge%20for%20Newbies%20FAQ&summary=What%20Is%20The%20Ruby%20Programming%20Challenge%20For%20Newbies%20%28RPCFN%29%3f%20The%20RPCFN%20is%20a%20monthly%20programming%20challenge%20for%20Ruby%20Newbies%20in%20the%20spirit%20of%20the%20Ruby%20Quiz.%20A%20new%20RPCFN%20will%20be%20posted%20on%20the%20RubyLearning%20blog%20every%201st%20of%20the%20month%20%28normally%29.%20The%20contest%20is%20open%20to%20individuals%20only%20and%20you%20are%20invited%20to%20contribute%20solution%28s%29%20and%2for%20discussion%28s%29%20as%20comments%20to%20the%20respective%20blog%20post.%20All%20solutions%20posted%20would%20be%20hidden%20to%20allow%20users%20to%20come%20up%20with%20their%20own%20solutions.}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Ruby%20Programming%20Challenge%20for%20Newbies%20FAQ&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f09%2f23%2fruby-programming-challenge-for-newbies-faq%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-satish-talim" href="http://rubylearning.com/blog//tags/satish-talim">Satish Talim</a>,
+	                
+	                <a class="post-tag post-tag-challenge" href="http://rubylearning.com/blog//tags/challenge">challenge</a>,
+	                
+	                <a class="post-tag post-tag-ruby" href="http://rubylearning.com/blog//tags/ruby">ruby</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2009/09/24/rpcfn-shift-subtitle-1/">RPCFN: Shift Subtitle 1</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2009/09/20/rpcfn-ruby-programming-challenge-for-newbies/">RPCFN: Ruby Programming Challenge For Newbies</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2009\/09\/23\/ruby-programming-challenge-for-newbies-faq\/';
+    var disqus_title = 'Ruby Programming Challenge for Newbies FAQ';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2009\/09\/23\/ruby-programming-challenge-for-newbies-faq\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+		<script type="text/javascript">
+			onscroll = function() {
+			  var toTopVisible = false;
+			  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			  if (scrollTop > 1000) {
+			    if (!toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'block';
+			    }
+			  } else {
+			    if (scrollTop < 1000 || toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'none';
+			    }
+			  }
+			};
+		</script>
+	
+
+	
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	
+
+  
+</body>
+</html>

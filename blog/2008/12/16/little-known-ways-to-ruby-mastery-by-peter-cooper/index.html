@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Little Known Ways to Ruby Mastery by Peter Cooper // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Satish Talim">
+
+
+  <meta property="og:title" content="Little Known Ways to Ruby Mastery by Peter Cooper" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2008/12/16/little-known-ways-to-ruby-mastery-by-peter-cooper/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2008/12/16/little-known-ways-to-ruby-mastery-by-peter-cooper/">Little Known Ways to Ruby Mastery by Peter Cooper</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>16</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2008</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">Satish Talim</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+				
+					<a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <div>
+  <h3>
+    A weekly series from the Ruby Masters
+  </h3>
+  
+  <p class="update">
+    Welcome to the next installment of the weekly interview series on the <abbr title="RubyLearning">RL</abbr> blog &#8211; &#8220;<strong>Path to Ruby Mastery</strong>&#8221; &#8211; by top trainers and developers in the <strong>Ruby community</strong>, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions <strong>Ruby beginners</strong> face. We welcome your suggestions for interviewees and questions. Look for a new post every Tuesday!
+  </p>
+  
+  <p>
+    <img class="alignright" src="http://rubylearning.com/images/petercooper.jpg" alt="Peter Cooper, UK" title="Peter Cooper, UK" width="102" height="127" />
+  </p>
+  
+  <p>
+    <span class="drop_cap">T</span>his week, we&#8217;re happy to have <strong>Peter Cooper</strong> from UK.
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Satish Talim>></strong> Welcome, Peter and thanks for taking out time to share your thoughts. For the benefit of the readers, could you tell us something about your self?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> I&#8217;m Peter Cooper &#8211; perhaps best known as the editor of <a href="http://www.rubyinside.com/">Ruby Inside</a>, the most popular Ruby and Rails news blog. I&#8217;m also author of Beginning Ruby, published by Apress, a book for novice Ruby developers. I&#8217;m 27, live in the north of England, and am married (sorry ladies!)
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Willian Molinari, Brazil>></strong> How should one go about learning the Ruby language? What material (books, eBooks, online tutorials etc.) would you recommend?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> I hate to show bias, but I would be a fool not to recommend my own book, <strong>Beginning Ruby</strong>. I admit I was quite hesitant to do so when I released it, but it now has 21 5-star reviews on Amazon.com, so it must be doing something right! I would also recommend &#8220;The Ruby Way&#8221; by Hal Fulton for those who are somewhat familiar with Ruby on the surface but want to learn more. Third, &#8220;The Ruby Programming Language&#8221; by David Flanagan and Matz himself is a great reference book.
+  </p>
+  
+  <p>
+    In terms of online learning, <strong>RubyLearning</strong> is, of course, a great resource! Satish runs some great free courses that you should sign up for right away (well, when they&#8217;re active anyway!)
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Keith Brady, Australia>></strong> What are the pros and cons of Ruby that are beingdiscussed in the development community and what is your opinion on that?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> I&#8217;ve been conducting a long-term poll on Ruby Inside into what people consider the biggest concern with Ruby and &#8220;performance&#8221; is way out in the lead. Ruby&#8217;s performance deficiencies (when compared to, say, Perl, Python, or Java) are well publicized and understood, and while performance is rarely of importance in the sort of applications Ruby developers produce, it&#8217;s a hard deficiency to ignore. Ruby 1.9 doesn&#8217;t provide an order of magnitude of performance increases, but it&#8217;s a step in the right direction, and the work that the JRuby and Rubinius teams are doing on performance should, at least, help with the complaints in the near future.
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Dennis Theisen, Germany>></strong> Could you name three features of Ruby that you like the most, as compared to other languages? Why?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> I find Ruby to be an extremely consistent language. Once you know the syntax, it&#8217;s not too hard to guess how to achieve certain things, even if the way you discover isn&#8217;t particularly the best way. There&#8217;s more than one way to do almost everything, and that&#8217;s a good thing (though Python developers would argue otherwise!) I also like the community &#8211; it&#8217;s very proactive and progressive in using new media, including social media, blogging, podcasting, etc, and this helps keep the language vibrant. Third, I love that Ruby doesn&#8217;t lock you in to a certain programming paradigm. You can totally ignore object orientation if you want. You can do things in a functional way, an imperative way &#8211; you can mock the ways other languages work quite easily if and when you want to.
+  </p>
+  
+  <p>
+    p><span style="color:#CC3333;"><strong>Willian Molinari, Brazil>></strong> What has been your biggest challenge while working with Ruby?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> Constantly moving goalposts. Source control, for example. Early on CVS was still popular, then it was Subversion, now it&#8217;s Git &#8211; who knows what next? The Rails API went through a good couple of years where a significant new development or change was raised every month or two. Ruby as a language is a lot slower to move, but new principles and &#8220;patterns&#8221; are coming along all the time. Be prepared to always be learning when you&#8217;re developing with Ruby!
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Jerry Anning, USA>></strong> What best practices are most important for a new Ruby programmer to learn and understand?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> As I said before, the goalposts are constantly moving, so while it&#8217;s not a specific Ruby practice, make sure you&#8217;re always flexible, always reading, and keeping up with what&#8217;s going on. A lot of developments won&#8217;t apply to you, but there are so many new ways of thinking about Ruby coming along that it pays to keep attention. For example, prolific Rubyist WhyTheLuckyStiff has just proposed <a href="http://hackety.org/2008/10/06/mixingOurWayOutOfInstanceEval.html">an alternative to using instance_eval</a>.
+  </p>
+  
+  <p>
+    Other than flexibility, it seems to be very important to Rubyists to be familiar with source control, test driven development, and agile development practices. I&#8217;ve never seen a community of developers stand behind principles like test driven development so much as in the Ruby and Rails communities. A recent survey by Hampton Catlin shows that 85% of the 1200 Rubyists surveyed use test driven development &#8220;often&#8221; or more. I&#8217;m personally not a giant fan, but if you want to keep up with the Joneses, get involved.
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Jerry Anning, USA>></strong> Can you recommend things to study after learning Core Ruby, including different frameworks, gems and external libraries?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> Once you&#8217;ve learned the basics, I think that taking a look through the more obscure and powerful areas of Ruby is essential. Get a book like The Ruby Way by Hal Fulton (or even The Rails Way by Obie Fernandez if your focus is more on Rails) and learn about metaprogramming, how Ruby&#8217;s object orientation model works, and so forth. You might not use half of the knowledge you gain, but it&#8217;ll make you a more savvy Ruby developer.
+  </p>
+  
+  <p>
+    Secondly, become familiar with what libraries are available, what use cases they cover, and how to get hold of them. <a href="http://www.rubyflow.com/">RubyFlow</a>, a community driven Ruby news site, is a good way to keep up with library releases and the like, as is the <a href="http://rubyforge.org/">RubyForge front page</a>. Google is great at keeping track too, so if you want a Ruby library that can generate graphs, for example, just Google for &#8220;ruby graphs&#8221; and you&#8217;ll find something. I am constantly surprised by the number and quality of Ruby libraries out there. There&#8217;s almost something for everything.
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Satish Talim>></strong> Most beginners in Ruby, would like to contribute their time, skills and expertise to a project but invariably are unaware of where and how to do so. Could you suggest some?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> At the minimum, beginners can trawl the Ruby blogs looking for things they find interesting and leave comments encouraging the author. Just getting support can make a big difference to some developers. Beyond that, beginners can help the Ruby cause by blogging about their own progress with the language. The more people who blog about Ruby the better! Start to develop libraries that you see a need for and share them with others. Once you know how to produce a library by yourself, you&#8217;ll be in a better position to get involved with helping others with theirs.
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Keith Brady, Australia>></strong> What types of applications are currently being developed in Ruby and what changes do you foresee over the next year or two?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> Generally speaking, the same sorts of applications are being developed in Ruby right now as in most other programming languages. Ruby is just one solution amongst many, after all, and while it has garnered a reputation for being particularly good for rapid Web application development, people are doing much the same with Django and Python, CakePHP and PHP, and Microsoft&#8217;s alternatives right now.
+  </p>
+  
+  <p>
+    One change that could occur could be the increasing use of JRuby &#8211; especially to develop and deploy specialized applications for enterprise clients. With the perceived risk of third-party cloud computing and hosting, many companies are keen to have applications hosted internally, which often restricts developers to using a Java stack. JRuby makes it reasonably trivial to deploy a Ruby / Rails application within a Java shop, and I suspect customized app development for enterprises will become a big deal soon once the passion for consumer-focused Web apps wears off.
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Victor Goff, USA>></strong> How do you see the market for Ruby Programmers in the work place, and do you see it as primarily tied to Rails and Web related work? Do you see trends in administration or other work? Whatâ€™s the future for Ruby?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> It&#8217;s very up and down. The economic crisis is not going to help in this regard, but the Ruby and Rails scenes have seen a hiring blitz over the past year or so. Most of the jobs are in the United States, however, and primarily focused around San Francisco and New York. Given these cities reputations for progressive technology companies, it&#8217;s not a big surprise. Most vacancies I&#8217;m familiar with are for Rails developers rather than Ruby developers per-se, although strong experience with Ruby is becoming more important.
+  </p>
+  
+  <p>
+    While the offline job market is quite location specific, there are quite a few opportunities to work remotely / online in a freelance capacity. There are still a lot of people looking to have Web applications developed quickly and at a decent rate.
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Michael Uplawski, Germany>></strong> According to you, what is a comfortable size of a Ruby/Rails-project? Why?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> It depends on the development methodology, team size, and testing strategy (if any). Even a 1000 line project could become a management nightmare given the wrong team of developers, a lack of source control, and a poor development strategy. Likewise, a 100,000 line project could flow very smoothly with the right practices in place. It&#8217;s a case of the old 5 P&#8217;s: &#8220;Proper Planning Prevents Poor Performance!&#8221;
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Michael Uplawski, Germany>></strong> Having spent some years in the I.T. industry and coming to Ruby from a different background, how do I recognize Ruby&#8217;s limitations so as to suggest a different language in such cases?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> That&#8217;s as much a gut decision as an informed one. Once you&#8217;ve been using Ruby for a while you quickly become familiar with its strengths and shortcomings. That said, there are always people ready to push the barriers. No-one would have seriously considered writing a compiler in Ruby several years ago, but now a few people are doing just that. Added to this is that Ruby&#8217;s limitations are changing (though slowly). While lack of performance is a big deal in many scenarios with Ruby 1.8, Ruby 1.9 presents slightly less of a problem on that front.
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Dennis Theisen, Germany>></strong> Do you think Ruby is ready to be used in &#8220;Enterprise applications&#8221;? Kindly justify your answer.</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> Ruby is already used in &#8220;enterprise&#8221; applications. &#8220;Enterprise&#8221; has a rather vague and almost meaningless definition, although some developers still believe that it refers to a specific genre of software. Ruby is already used within companies and settings within those companies that would generally be called &#8220;enterprise&#8221; such as Oracle&#8217;s use of Ruby in one of their community sites. JRuby (the Java implementation of Ruby) has helped a lot in this regard, as JRuby allows Ruby (and therefore Rails) applications to run on the regular Java stacks that enterprises are familiar with.
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Satish Talim>></strong> What can / should job candidates (for Ruby) do to distinguish themselves from their competition?<br /><strong>Note</strong>: The candidate has done his/her homework on the company that they are interviewing with. The candidate understands what they&#8217;re looking for, and the candidate is prepared to show them that he/she fits the bill, based on the candidate&#8217;s skills and experience. What else can the candidate do, to set themselves apart from other equally well-qualified and well-prepared candidates?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> Bring ancillary skills to the table. If you have an understanding of a particular industry, certain business processes, complementary technologies, financial experience, or similar, you can get a big advantage when applying for certain jobs. There&#8217;s always room for &#8220;pure&#8221; programmers, but in my experience the companies hiring Ruby developers are looking for more rounded applicants who have a wider range of experience. Perhaps the most significant ancillary skill is a good command of English (or whatever the local spoken language is). You need to be able to document your code, your tests, and communicate with other developers &#8211; so spoken and written language skills are paramount.
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Satish Talim>></strong> Do you have any other suggestions for these participants (would-be Ruby developers)?</span>
+  </p>
+  
+  <p>
+    <strong>Peter>></strong> Experiment and when you hit problems, don&#8217;t immediately panic or seek help. Track down line by line what&#8217;s going on, keep an eye on variables (even using lots of &#8220;puts&#8221; statements if you need to!) and figure out exactly where things are going wrong. Every problem you solve on your own helps cement your knowledge and helps develop your problem solving skills further.
+  </p>
+  
+  <p>
+    <span style="color:#CC3333;"><strong>Satish Talim>></strong> Thanks Peter for sharing your views with the RubyLearning participants.</span>
+  </p>
+  
+  <p class="note">
+    On 23rd Dec. we talk to <strong>Yehuda Katz</strong> from USA.
+  </p>
+  
+  <p>
+    <span style="font-size: 8pt; font-family: Arial;"><i><strong>Disclaimer:</strong></i></span><br /><span style="font-size: 8pt; font-family: Arial;"><i>The opinions expressed are those of Peter Cooper and do not necessarily reflect those of <strong><a href="http://rubylearning.com/">www.RubyLearning.com</a></strong>.</i></span>
+  </p>
+  
+  <p>
+    <strong>The Path to Ruby Mastery Series (So Far)</strong>:
+  </p>
+  
+  <ul>
+    <li>
+      #1: <a href="http://rubylearning.com/blog/2008/09/23/little-known-ways-to-ruby-mastery-by-jamie-van-dyke/">Jamie van Dyke</a>
+    </li>
+    <li>
+      #2: <a href="http://rubylearning.com/blog/2008/09/30/little-known-ways-to-ruby-mastery-by-james-edward-gray-ii/">James Edward Gray II</a>
+    </li>
+    <li>
+      #3: <a href="http://rubylearning.com/blog/2008/10/07/little-known-ways-to-ruby-mastery-by-dr-nic-williams/">Dr Nic Williams</a>
+    </li>
+    <li>
+      #4: <a href="http://rubylearning.com/blog/2008/10/14/little-known-ways-to-ruby-mastery-by-stuart-halloway/">Stuart Halloway</a>
+    </li>
+    <li>
+      #5: <a href="http://rubylearning.com/blog/2008/10/21/little-known-ways-to-ruby-mastery-by-jay-fields/">Jay Fields</a>
+    </li>
+    <li>
+      #6: <a href="http://rubylearning.com/blog/2008/10/28/little-known-ways-to-ruby-mastery-by-chris-osullivan/">Chris O&#8217;Sullivan</a>
+    </li>
+    <li>
+      #7: <a href="http://rubylearning.com/blog/2008/11/04/little-known-ways-to-ruby-mastery-by-guy-naor/">Guy Naor</a>
+    </li>
+    <li>
+      #8: <a href="http://rubylearning.com/blog/2008/11/11/little-known-ways-to-ruby-mastery-by-jonathan-conway/">Jonathan Conway</a>
+    </li>
+    <li>
+      #9: <a href="http://rubylearning.com/blog/2008/11/18/little-known-ways-to-ruby-mastery-by-ian-dees/">Ian Dees</a>
+    </li>
+    <li>
+      #10: <a href="http://rubylearning.com/blog/2008/11/25/little-known-ways-to-ruby-mastery-by-bruce-tate/">Bruce Tate</a>
+    </li>
+    <li>
+      #11: <a href="http://rubylearning.com/blog/2008/12/02/little-known-ways-to-ruby-mastery-by-ezra-zygmuntowicz/">Ezra Zygmuntowicz</a>
+    </li>
+    <li>
+      #12: <a href="http://rubylearning.com/blog/2008/12/09/little-known-ways-to-ruby-mastery-by-chris-matthieu/">Chris Matthieu</a>
+    </li>
+  </ul>
+</div>
+
+<p>Technorati Tags: <a href="http://technorati.com/tag/Interviews" rel="tag">Interviews</a>, <a href="http://technorati.com/tag/Little+Known+Ways+to+Ruby+Mastery" rel="tag">Little Known Ways to Ruby Mastery</a>, <a href="http://technorati.com/tag/Ruby" rel="tag">Ruby</a>, <a href="http://technorati.com/tag/Ruby+Beginners%26%238217%3B+Questions" rel="tag">Ruby Beginners&#8217; Questions</a>, <a href="http://technorati.com/tag/Peter+Cooper" rel="tag">Peter Cooper</a>, <a href="http://technorati.com/tag/The+Ruby+Programming+Language" rel="tag">The Ruby Programming Language</a></p>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-interviews" href="http://rubylearning.com/blog//tags/interviews">interviews</a>,
+	                
+	                <a class="post-tag post-tag-little-known-ways-to-ruby-mastery" href="http://rubylearning.com/blog//tags/little-known-ways-to-ruby-mastery">Little Known Ways to Ruby Mastery</a>,
+	                
+	                <a class="post-tag post-tag-peter-cooper" href="http://rubylearning.com/blog//tags/peter-cooper">Peter Cooper</a>,
+	                
+	                <a class="post-tag post-tag-ruby" href="http://rubylearning.com/blog//tags/ruby">Ruby</a>,
+	                
+	                <a class="post-tag post-tag-ruby-beginners-questions" href="http://rubylearning.com/blog//tags/ruby-beginners-questions">Ruby Beginners&#39; Questions</a>,
+	                
+	                <a class="post-tag post-tag-the-ruby-programming-language" href="http://rubylearning.com/blog//tags/the-ruby-programming-language">The Ruby Programming Language</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2008/12/17/indian-rubyists-to-follow-on-twitter/">Indian Rubyists to follow on Twitter</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2008/12/15/top-ruby-merbists-to-follow-on-twitter/">Top Ruby Merbists to follow on Twitter</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2008\/12\/16\/little-known-ways-to-ruby-mastery-by-peter-cooper\/';
+    var disqus_title = 'Little Known Ways to Ruby Mastery by Peter Cooper';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2008\/12\/16\/little-known-ways-to-ruby-mastery-by-peter-cooper\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

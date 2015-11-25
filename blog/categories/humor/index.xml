@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Humor on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/humor/</link>
+    <description>Recent content in Humor on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Apr 2008 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/humor/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Looking for 1001 Ways to Promote my Ruby eBook</title>
+      <link>http://rubylearning.com/blog/2008/04/22/looking-for-1001-ways-to-promote-my-ruby-ebook/</link>
+      <pubDate>Tue, 22 Apr 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2008/04/22/looking-for-1001-ways-to-promote-my-ruby-ebook/</guid>
+      <description>&lt;p&gt;I have come up
+with some ideas. Some zany, impractical and okay maybe a bit stupid..
+but some are simple, fun and easy to do. Will you help me come up with
+even more? Any idea is acceptable … this is just a &lt;strong&gt;&lt;em&gt;fun brainstorming
+session&lt;/em&gt;&lt;/strong&gt; &amp;lt;!&amp;ndash;more-&amp;gt; to spread the book as far and as wide as it can go! Leave
+&lt;a href=&#34;http://rubylearning.com/download/downloads.html&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/eBook5.jpg&#34; alt=&#34;Ruby eBook&#34; title=&#34;Ruby eBook&#34; /&gt;
+&lt;/a&gt;I am looking for ways to promote my &lt;a href=&#34;http://rubylearning.com/download/downloads.html&#34;&gt;Free Ruby eBook&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;your comments below (you will have to register to do that…..which is
+safe, simple and allows you to make comments for other posts as well)..
+but if you don’t want to do that…. (there are a lot of loops to jump
+through)… just send me an Email with your idea. and I will add your
+comments to the list!&lt;/p&gt;
+
+&lt;p&gt;Okay.. so I leeched a little from Sister Patricia Proctor but hey that’s
+just flattery, don’t you think? Sister Patricia Proctor, author of &lt;em&gt;101
+Inspirational Stories of the Power of Prayer&lt;/em&gt;, shared 101 ideas for
+marketing her book with the readers of her blog. Since posting that
+list, a number of readers have sent her almost 20 more ways — good ways
+— to market her book.&lt;/p&gt;
+
+&lt;p&gt;Okay.. let’s get serious. Please help me make this list!&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Make a screen-saver&lt;/li&gt;
+&lt;li&gt;Tell friends&lt;/li&gt;
+&lt;li&gt;Announce on radio and TV&lt;/li&gt;
+&lt;li&gt;Share on Craig’s list&lt;/li&gt;
+&lt;li&gt;Buy a billboard&lt;/li&gt;
+&lt;li&gt;Make T-shirts&lt;/li&gt;
+&lt;li&gt;Decorate a bus&lt;/li&gt;
+&lt;li&gt;Make bookmarks – leave everywhere&lt;/li&gt;
+&lt;li&gt;Add a line in all emails&lt;/li&gt;
+&lt;li&gt;Banner on web page&lt;/li&gt;
+&lt;li&gt;Promote via Peepcode (by Ryan)&lt;/li&gt;
+&lt;li&gt;Make News-Suggestions to print-magazines (by &lt;a href=&#34;http://www.uplawski.de/&#34;&gt;Michael
+Uplawski&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Translate to Japanese and ask Matz for a testimonial&lt;/li&gt;
+&lt;li&gt;Make a screencast â€œRuby in 5 minutesâ€? and put it on YouTube (by
+Chris Porter)&lt;/li&gt;
+&lt;li&gt;Send out a press release to all the top Ruby blogs / podcasts (by
+Chris Porter)&lt;/li&gt;
+&lt;li&gt;Add it as a prize for all the Hackfest winners at
+&lt;a href=&#34;http://workingwithrails.com/hackfest/&#34;&gt;WWR&lt;/a&gt; (by
+&lt;a href=&#34;http://rubylearning.com/blog/2007/09/27/advice-for-ruby-beginners-1/&#34;&gt;Juanjo&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Streak across a morning news show while waving your book in the
+airâ€¦ (by &lt;a href=&#34;http://blog.skiptree.com/&#34;&gt;Tim Kadom&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>7 Things You Can Do With Ruby</title>
+      <link>http://rubylearning.com/blog/2007/05/22/7-things-you-can-do-with-ruby/</link>
+      <pubDate>Tue, 22 May 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/05/22/7-things-you-can-do-with-ruby/</guid>
+      <description>&lt;p&gt;So you want to do something with &lt;strong&gt;Ruby&lt;/strong&gt; but think there’s not much you
+can do? Rubbish!&lt;/p&gt;
+
+&lt;p&gt;Below is a list of just &lt;strong&gt;7 things you can do with Ruby&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Name your daughter or puppy Ruby&lt;/strong&gt; – &lt;a href=&#34;http://www.rubyinside.com/ruby-becomes-4th-most-popular-girls-name-in-the-uk-341.html#comments&#34;&gt;Peter
+Cooper&lt;/a&gt;
+reports that Ruby has become the 4th most popular name in the UK!
+&lt;a href=&#34;http://autopilotmarketing.com/&#34;&gt;Dan Kubb&lt;/a&gt; named his puppy Ruby.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Draw Cartoons for Ruby&lt;/strong&gt; – whytheluckstiff popularized Ruby with
+his excellent cartooning ability in his book &lt;a href=&#34;http://poignantguide.net/ruby/&#34;&gt;Why’s (Poignant) Guide
+to Ruby&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Become Famous using Ruby&lt;/strong&gt; – Build a ‘killer’ application using
+Ruby like &lt;a href=&#34;http://www.indicthreads.com/interviews/390/ruby_on_rails_java_web_application.html&#34;&gt;David
+Hansson&lt;/a&gt;
+did with ‘Ruby on Rails’.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Write a book on Ruby&lt;/strong&gt; – &lt;a href=&#34;http://www.oreilly.com/catalog/0976694093/index.html&#34;&gt;Bruce
+Tate&lt;/a&gt;, &lt;a href=&#34;http://www.manning.com/black/&#34;&gt;David
+Black&lt;/a&gt;, &lt;a href=&#34;http://www.samspublishing.com/bookstore/product.asp?isbn=0672328844&amp;amp;rl=1&#34;&gt;Hal
+Fulton&lt;/a&gt;,
+&lt;a href=&#34;http://www.pragmaticprogrammer.com/titles/fr_quiz/index.html&#34;&gt;James Edward Gray
+II&lt;/a&gt;,
+&lt;a href=&#34;http://www.apress.com/book/bookDisplay.html?bID=10244&#34;&gt;Peter
+Cooper&lt;/a&gt; to
+name a few, have done it. If you have the knack and the knowledge,
+write one.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Build a business around Ruby&lt;/strong&gt; –
+&lt;a href=&#34;http://peerant.com/technology/index.php?Itemid=3&#34;&gt;Peerant&lt;/a&gt; amongst
+hundreds of other companies are doing it. Why not you?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Have fun&lt;/strong&gt; – My &lt;a href=&#34;http://rubylearning.com/&#34;&gt;RubyLearning.com&lt;/a&gt;
+site’s motto is – ‘Ruby helps programmers have more fun…’ Why not?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Blog about Ruby&lt;/strong&gt; – And finally like me, if you have nothing
+better to do, blog about Ruby!&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;In conclusion:&lt;/strong&gt; I could go on and on (and I probably will)…&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; The 7 Things can easily become 10 or 25 or 50 Things -&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Teach Ruby&lt;/strong&gt; – Like I do at the University level.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Start a RUG&lt;/strong&gt; – I started a Ruby User Group –
+&lt;a href=&#34;http://tech.groups.yahoo.com/group/puneruby/&#34;&gt;PuneRuby&lt;/a&gt;. The
+experience has been satisfying.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Monetize your Ruby site/blog&lt;/strong&gt; – I use &lt;a href=&#34;http://www.google.com/ads/&#34;&gt;Google
+Adsense&lt;/a&gt;. Atleast it covers my domain
+and hosting costs!&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/7+Things+You+Can+Do+With+Ruby&#34;&gt;7 Things You Can Do With
+Ruby&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Humor&#34;&gt;Humor&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Ruby&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://technorati.com/tag/Ruby+on+Rails&#34;&gt;Ruby on
+Rails&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,3128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ruby Masters on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/ruby-masters/</link>
+    <description>Recent content in Ruby Masters on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Jan 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/ruby-masters/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Corey Donohoe: How do I learn and master Sinatra?</title>
+      <link>http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/</link>
+      <pubDate>Wed, 07 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: We are re-printing this blog post that appeared on 6th July 2009, as the original post is not accessible.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    Welcome to the &lt;b&gt;first&lt;/b&gt; installment on the &lt;abbr title=&#34;RubyLearning&#34;&gt;RL&lt;/abbr&gt; blog, of a mini series &amp;#8211; &amp;#8220;&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;&amp;#8221; &amp;#8211; by top Rubyists using &lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn and master Sinatra&lt;/em&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Corey Donohoe, could you tell us something about yourself &amp;#8211; your background, where you are based?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Corey Donohoe&#34; src=&#34;http://rubylearning.com/images/CoreyDonohoe.jpg&#34; alt=&#34;Corey Donohoe&#34; /&gt;&lt;strong&gt;Corey Donohoe&gt;&gt;&lt;/strong&gt; I&amp;#8217;m &lt;a href=&#34;http://atmos.org/&#34;&gt;Corey Donohoe&lt;/a&gt;. I&amp;#8217;m based out of Boulder, Colorado &amp;#8211; USA. My background is in computer science and system administration though I prefer hacking to either of those labels. I&amp;#8217;m a pretty normal dude, I enjoy cycling, music, coffee, micro brews, and all the other awesomeness that my home state has to offer. I&amp;#8217;ve been working for &lt;a href=&#34;http://www.engineyard.com/&#34;&gt;Engine Yard&lt;/a&gt; since March of &amp;#8217;07 doing everything from app support to internal development. I&amp;#8217;m currently 1/2 of our internal integrations team.
+  &lt;/p&gt;
+  
+  &lt;blockquote class=&#34;right&#34;&gt;
+    &lt;p&gt;
+      Sinatra&amp;#8217;s greatest strength is its flexibility
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Are there any pre-requisites for a person to start learning Sinatra&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; There aren&amp;#8217;t any hardcore prerequisites per se; Ruby and experience in a Ruby web framework is a plus. HTTP verbs play a huge role in Sinatra, as well as things like query and post params. If you get those concepts you can hit the ground running.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; Learn Sinatra incrementally. If you have new business requirements try to think about things like &amp;#8220;how would i implement this in Sinatra?&amp;#8221; Take the time to figure that requirement out in Sinatra then throw the solution out! When the time comes to use Sinatra for something you&amp;#8217;ll have a much more broad understanding of the framework and you&amp;#8217;ll hit fewer blockers.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular attention to?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; Understanding the difference between &lt;b&gt;Sinatra::Base&lt;/b&gt; and &lt;b&gt;Sinatra::Default&lt;/b&gt; is definitely something a Sinatra beginner should focus on early. &lt;b&gt;Sinatra::Base&lt;/b&gt; is for writing Rack middleware, and &lt;b&gt;Sinatra::Default&lt;/b&gt; is normally for writing Rack applications. Learning the modular style app development is really useful as well as using the register method to include pieces of functionality. Getting a handle on those concepts will expose you to the rest of Sinatra, which is relatively intuitive.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for a beginner? Are there areas which need improvement or need to be re-written&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; The Sinatra documentation is well done and I can generally find answers to my questions just by referencing the docs. There&amp;#8217;s always #sinatra on freenode or the Sinatra book on github if you need additional help too. There&amp;#8217;s plenty of pretty well tested examples on github using Sinatra, hancock and integrity come to mind.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord &amp;#8211; which one would you recommend to use with Sinatra and why?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; I use DataMapper exclusively. It was a bumpy ride a year ago but these days it&amp;#8217;s acceptable for production use. We interface with more than just relational databases and the ability to keep a consistent model syntax across various data sources is really attractive to us. Realistically I feel like I spend less time fighting my framework when I&amp;#8217;m using DataMapper so it&amp;#8217;s the clear choice. The one place I wouldn&amp;#8217;t use dm in would be a join heavy relational environment; ActiveRecord is way better at that.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Is an understanding of Rack important while learning Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; You don&amp;#8217;t need a solid understanding of Rack to get a Sinatra up and running, but you&amp;#8217;ll be missing out on a lot of the power. It&amp;#8217;s extremely beneficial to take the time to learn how the &lt;b&gt;Rack::Builder&lt;/b&gt; works as well as the usage of the &lt;b&gt;use/map/run&lt;/b&gt; commands in that context. The modularity of Rack really becomes apparent and you&amp;#8217;ll find yourself using Sinatra more effectively.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; How should one hone one&amp;#8217;s skills in Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; Read code, write test code, write code. All of the awesome testing frameworks available for Ruby are available to Sinatra. If you don&amp;#8217;t write tests it might be a good way to familiarize yourself with testing best practices without the overheard of a larger framework.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; What type of projects should a beginner work on to gain more expertise in Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; &lt;span style=&#34;background-color: #FFFFCC;&#34;&gt;A beginner would benefit from writing something completely API driven as a first project&lt;/span&gt;. So many people couple databases with dynamic web applications but it&amp;#8217;s kind of liberating to just be an intermediary service. Twitter apps are pretty trivial to implement and can teach you a lot. They also expose you to a pretty large userbase to solicit feedback.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Could you suggest some web services that a Sinatra beginner could develop himself / herself?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; &lt;span style=&#34;background-color: #FFFFCC;&#34;&gt;Web services are great targets for introducing Sinatra into your workplace&lt;/span&gt;. Identify a pain point in your organization and put a small app in front of it. It doesn&amp;#8217;t have to replace something overnight but it&amp;#8217;s a great way to sneak functionality in at work. Once you have a few of these built you start to reap the benefits of microapps and web services.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Anything else you would like to add?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; &lt;span style=&#34;background-color: #FFFFCC;&#34;&gt;Learning Sinatra is the best thing you can do while we all wait for Rails 3 to land&lt;/span&gt;. The middleware you write will be able to be dropped right into your Rails 3 applications so it&amp;#8217;s not like you&amp;#8217;re wasting time. We&amp;#8217;re starting to build really modular systems using Sinatra by building APIs into those systems. I think a lot of people would benefit from breaking their monolith apps down into microapps and Sinatra is a great way to do it.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    People looking for a template might want to investigate the singem gem. It has basic templates for twitter apps or regular webservices. All of them are bootstrapped for testing with cucumber+rspec.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Thank you Corey. In case you have any queries and/or questions, kindly post your questions here (as comments to this blog post) and Corey would be glad to answer.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    &lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; UK based 1st Easy Limited offer Sinatra and Rails hosting running on a Phusion Passenger (mod_rails) and LAMP stack. If you want to try your hand at developing with Sinatra, why not let them arrange a &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm#try&#34;&gt;trial hosting account&lt;/a&gt; for you? You&amp;#8217;ll get to deploy your app, with full technical support from their team!
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Karel Minarik: How do I learn and master Sinatra? (Reprint)</title>
+      <link>http://rubylearning.com/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/</link>
+      <pubDate>Wed, 07 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: This is reprint of the blog post that appeared on 13th July 2009, as the original is not accessible.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    Welcome to the &lt;b&gt;fourth&lt;/b&gt; installment on the &lt;abbr title=&#34;RubyLearning&#34;&gt;RL&lt;/abbr&gt; blog, of a mini series &amp;#8211; &amp;#8220;&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;&amp;#8221; &amp;#8211; by top Rubyists using &lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn and master Sinatra&lt;/em&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Karel Minarik, could you tell us something about yourself &amp;#8211; your background, where you are based?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Karel Minarik&#34; src=&#34;http://www.rubylearning.com/images/karmi_mugshot.jpg&#34; alt=&#34;Karel Minarik&#34; /&gt;&lt;strong&gt;Karel Minarik&gt;&gt;&lt;/strong&gt; I&amp;#8217;m Karel Minarik, web designer and developer living in Prague, Czech Republic. I have graduated in Philosophy, not Computer Science, which may explain why I love Ruby a lot, and why I prefer solving &amp;#8220;naming things&amp;#8221; over &amp;#8220;cache invalidation&amp;#8221; problems. I earn my bread by designing interfaces, writing Ruby, JavaScript, HTML/CSS and giving people advice or teaching them new tricks. I blog in undecipherable intervals on &lt;a href=&#34;http://www.restafari.org/&#34;&gt;Restafari.org&lt;/a&gt; and publish code regularly at &lt;a href=&#34;http://github.com/karmi/&#34;&gt;Github&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Are there any pre-requisites for a person to start learning Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Very few: you just need to know Ruby a little bit. The rest you can and will learn along the way. In fact, &lt;span style=&#34;background-color: #FFFFCC;&#34;&gt;Sinatra is wonderful teaching tool to deepen your knowledge of Ruby as a general programming language, web application architectures, HTTP and REST principles, concept of middlewares, and so on&lt;/span&gt;. As a wonderful teaching/learning tool it&amp;#8217;s truly on par with _why&amp;#8217;s Shoes.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; You should start with the &lt;a href=&#34;http://github.com/sinatra/sinatra/blob/master/README.rdoc&#34;&gt;README&lt;/a&gt;, which contains almost everything you need to know in its 500 or so lines. Then you should definitely glance over sourcecode of some Sinatra applications &amp;#8220;&lt;a href=&#34;http://www.sinatrarb.com/wild.html&#34;&gt;in the wild&lt;/a&gt;&amp;#8220;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Some of the noteworthy examples would be eg. simple website in waferbaby&amp;#8217;s &lt;a href=&#34;http://github.com/waferbaby/usesthis/tree/master&#34;&gt;usesthis&lt;/a&gt;, background processing tutorial in bmizerany&amp;#8217;s &lt;a href=&#34;http://github.com/bmizerany/sinatra-dj/tree/master&#34;&gt;sinatra-dj&lt;/a&gt;, clever use of Ruby&amp;#8217;s blocks/closures in pjhyett&amp;#8217;s &lt;a href=&#34;http://github.com/pjhyett/github-services/tree/master&#34;&gt;github-services&lt;/a&gt; or ultra minimal apps in ichverstehe&amp;#8217;s &lt;a href=&#34;http://github.com/ichverstehe/gaze/blob/master/bin/gaze&#34;&gt;gaze&lt;/a&gt; or gnugeek&amp;#8217;s &lt;a href=&#34;http://github.com/gnugeek/tophat/tree/master&#34;&gt;tophat&lt;/a&gt;. These examples really elucidate compact and minimal nature of Sinatra.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Then you should sketch something rather small and well defined: web frontend for some Ruby code you have, a web API for some of your services, &amp;#8230;
+  &lt;/p&gt;
+  
+  &lt;blockquote class=&#34;right&#34;&gt;
+    &lt;p&gt;
+      Sinatra &amp;#8211; quickly create tiny web apps and services
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular attention to?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Beginners should pay attention to Sinatra&amp;#8217;s DSL itself: helpers, filters, last_modified and etag support, etc, so they&amp;#8217;re not reinventing the mic and truly make use of it&amp;#8217;s API. More advanced programmers should focus on Rack integration, using Rack middlewares such as &lt;b&gt;Rack::Auth&lt;/b&gt; or &lt;b&gt;Rack::Mime&lt;/b&gt; in your Sinatra app and running Sinatra apps themselves as middlewares. This opens different possibilities of service integration &amp;#8211; have a look on Jon Crosby&amp;#8217;s wonderful explanation in his &lt;a href=&#34;http://mwrc2009.confreaks.com/13-mar-2009-11-05-in-a-world-of-middleware-who-needs-monolithic-applications-jon-crosby.html&#34;&gt;MWRC talk&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for a beginner? Are there areas which need improvement or need to be re-written&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Sinatra&amp;#8217;s &lt;a href=&#34;http://www.sinatrarb.com/documentation.html&#34;&gt;documentation&lt;/a&gt; is pretty extensive at the moment, covering everything from basics to testing your applications and writing extensions. It&amp;#8217;s just a bit scattered at the moment, eg. deployment is covered in the &lt;a href=&#34;http://www.sinatrarb.com/book.html#deployment&#34;&gt;Sinatra Book&lt;/a&gt; started by Chris Schneider. There&amp;#8217;s still some lack of thorough documentation about Rack integration.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord &amp;#8211; which one would you recommend to use with Sinatra and why?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; I prefer ActiveRecord for anything talking to a relational database, because of it&amp;#8217;s clever API, stability, general knowledge and large user base. Don&amp;#8217;t forget that Sinatra is nice playground for experiments with other ORM&amp;#8217;s, key/value stores, etc, though!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Is an understanding of Rack important while learning Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; No, you could start learning Sinatra completely oblivious of something called &amp;#8220;Rack&amp;#8221;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    However, you can use plethora of various &lt;a href=&#34;http://rack.rubyforge.org/doc/Rack.html&#34;&gt;bundled&lt;/a&gt; or &lt;a href=&#34;http://github.com/rack/rack-contrib&#34;&gt;third-party&lt;/a&gt; Rack middlewares very easily by simple &amp;#8216;&lt;b&gt;use Rack::Utils&lt;/b&gt;&amp;#8216; or &amp;#8216;&lt;b&gt;use Rack::Locale&lt;/b&gt;&amp;#8216; declaration for adding some advanced functionality to your application.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    And when you plan to plug Sinatra powered app into a Rails one, for instance, or want to &amp;#8220;mount&amp;#8221; various separated web applications at different endpoints, you should definitely have a detailed look on Rack itself.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; How should one hone one&amp;#8217;s skills in Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; By reading huge amounts of code available on Github. That&amp;#8217;s a sure way how to discover clever solutions and open your mind. (Be sure to include credits if you reuse some code and release your stuff, though.)
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    But the most important thing is to focus on Ruby as an expressive programming language, and to _not_ think about browser first. Think first about the domain of your application and how it translates to Ruby, not about how it should &amp;#8220;look&amp;#8221; or behave in a browser. That&amp;#8217;s very important, but comes next. And don&amp;#8217;t forget it&amp;#8217;s really easy to code test-first in Ruby and in Sinatra.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; What type of projects should a beginner work on to gain more expertise in Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Smallish apps, where Rails would force it&amp;#8217;s conventions on you or which are not primarily focused on database access. Something like cschneid&amp;#8217;s &lt;a href=&#34;http://irclogger.com/&#34;&gt;irclogger&lt;/a&gt;, quirkey&amp;#8217;s &lt;a href=&#34;http://log.quirkey.com/&#34;&gt;columnlog&lt;/a&gt; or entp&amp;#8217;s &lt;a href=&#34;http://calendaraboutnothing.com/&#34;&gt;Calendar About Nothing&lt;/a&gt; &amp;#8212; all very tight, minimal and very elegant apps.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Could you suggest some web services that a Sinatra beginner could develop himself / herself?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; The sweet spot for Sinatra is something along the lines of already mentioned apps. Some ideas I could throw in:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      An app to display metrics about your team activity in a Git repository: who commited most, who commited most lines of code, etc., leveraging power of &lt;a href=&#34;http://github.com/mojombo/grit&#34;&gt;Grit&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      A web frontend for some command-line tool like &amp;#8216;top&amp;#8217; or &amp;#8216;df&amp;#8217; for your servers.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Simple web hook for &lt;a href=&#34;http://github.com/guides/post-receive-hooks&#34;&gt;Github&amp;#8217;s post-receive hooks&lt;/a&gt;, notifiying your developer mailing-list, Jabber, deploying new code to staging server or playing a tune.
+    &lt;/li&gt;
+    &lt;li&gt;
+      More advanced example could be an app to show currently deployed versions of your applications, using small Sinatra apps on each host to emit various metrics like deployed revision and it&amp;#8217;s age, system load, etc in JSON and a Sinatra app to gather the data &amp;#8212; &amp;#8220;emulating&amp;#8221; services like NewRelic, Scout or FiveRun&amp;#8217;s Dash.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Anything else you would like to add?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Do come to the #sinatra IRC channel on Freenode when you get stuck. There&amp;#8217;s usually lots of people from different timezones, so it&amp;#8217;s very likely that we&amp;#8217;ll get you out of trouble fast. Just please read the README first and don&amp;#8217;t name your application file &amp;#8220;sinatra.rb&amp;#8221; &lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt; Have fun with Ruby and Sinatra!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Thank you Karel. In case you have any queries and/or questions, kindly post your questions here (as comments to this blog post) and Karel would be glad to answer.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Others in this series:&lt;/b&gt;
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/&#34;&gt;Corey Donohoe&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/&#34;&gt;Jeremy Evans&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2009/07/10/graham-ashton-how-do-i-learn-and-master-sinatra/&#34;&gt;Graham Ashton&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    &lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; UK based 1st Easy Limited offer Sinatra and Rails hosting running on a Phusion Passenger (mod_rails) and LAMP stack. If you want to try your hand at developing with Sinatra, why not let them arrange a &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm#try&#34;&gt;trial hosting account&lt;/a&gt; for you? You&amp;#8217;ll get to deploy your app, with full technical support from their team!
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How do I benchmark Ruby code?</title>
+      <link>http://rubylearning.com/blog/2013/06/19/how-do-i-benchmark-ruby-code/</link>
+      <pubDate>Wed, 19 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2013/06/19/how-do-i-benchmark-ruby-code/</guid>
+      <description>
+
+&lt;p&gt;This guest post is by Jesse Storimer. Hes the author of &lt;a href=&#34;http://www.jstorimer.com/products/working-with-unix-processes&#34;&gt;Working With Unix Processes&lt;/a&gt;,
+a gentle introduction to Unix system programming for Ruby programmers.
+Jesse has been programming Ruby since joining Shopify in 2008 and is
+still going strong, always looking for a chance to dig lower down into
+the stack. He lives way in the backwoods of southern Ontario, Canada
+with his wife and two daughters. Jesse blogs at
+&lt;a href=&#34;http://jstorimer.com/&#34;&gt;jstorimer.com&lt;/a&gt; and has authored a few &lt;a href=&#34;http://www.jstorimer.com/books&#34;&gt;other books&lt;/a&gt; for Ruby developers.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/jessestorimer.jpg&#34; alt=&#34;Jesse Storimer&#34; /&gt;
+
+&lt;strong&gt;S&lt;/strong&gt;o you&amp;rsquo;ve got some Ruby code and you want to make it faster. Maybe
+youve already got a new implementation in mind, or maybe youre still
+cooking that up. But how do you make &lt;em&gt;certain&lt;/em&gt; that your new
+implementation is faster?&lt;/p&gt;
+
+&lt;p&gt;Science, of course! Rubys standard library comes with a benchmarking
+library fit for measuring the execution time of your Ruby code. The
+&lt;code&gt;Benchmark&lt;/code&gt; module offers several different ways for you to benchmark
+your code. I&amp;rsquo;ll take you through the different options and their use
+cases.&lt;/p&gt;
+
+&lt;h2 id=&#34;getting-started:a88b551e347b89fbc8c0ddb2dc31561e&#34;&gt;Getting started&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;Benchmark&lt;/code&gt; module is in the standard library, so you don&amp;rsquo;t need to
+install any gems to get it. Heres the &lt;a href=&#34;http://www.ruby-doc.org/stdlib-2.0/libdoc/benchmark/rdoc/Benchmark.html&#34;&gt;documentation from the standard library&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The simplest way to measure your Ruby code is with &lt;code&gt;Benchmark.measure&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/01_code.rb?embed=t&#34;&gt;&lt;/script&gt;
+&lt;a href=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/01_code.rb&#34;&gt;Code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This will return something that looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/01_result.txt?embed=t&#34;&gt;&lt;/script&gt;
+&lt;a href=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/01_result.txt&#34;&gt;Code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;With no context, these might look like magic numbers. Here&amp;rsquo;s what they
+mean:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/benchmark-breakdown.jpg&#34; alt=&#34;Benchmark numbers breakdown&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Generally, the number farthest to the right is the most important one.
+It tells how long it actually took to perform the operation. If youre
+curious about why the clock time is so high, the other numbers can help
+you drill down to see if youre spending time in system functions or your
+own code.&lt;/p&gt;
+
+&lt;p&gt;Now that you know what those magic numbers mean, we can move on to the
+core &lt;code&gt;Benchmark&lt;/code&gt; API. The truth is that I rarely use the &lt;code&gt;measure&lt;/code&gt;
+method on its own. It only prints the benchmark for a single block of
+code. The most common way to use &lt;code&gt;Benchmark&lt;/code&gt; is to compare the execution
+time of different approaches to the same problem.&lt;/p&gt;
+
+&lt;p&gt;Benchmark has some built-in methods for this exact purpose.&lt;/p&gt;
+
+&lt;h2 id=&#34;benchmark-bm:a88b551e347b89fbc8c0ddb2dc31561e&#34;&gt;&lt;code&gt;Benchmark#bm&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;This method lets you define several blocks of code to benchmark, then
+prints the results side-by-side in the same format you saw earlier.&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/02_code.rb?embed=t&#34;&gt;&lt;/script&gt;
+&lt;a href=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/02_code.rb&#34;&gt;Code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This will print the following result:&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/02_result.txt?embed=t&#34;&gt;&lt;/script&gt;
+&lt;a href=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/02_result.txt&#34;&gt;Code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice that this is the same format I outlined earlier, but now you have
+little hints about each of the numbers.&lt;/p&gt;
+
+&lt;p&gt;The core API here is this:&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/03_core_example.rb?embed=t&#34;&gt;&lt;/script&gt;
+&lt;a href=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/03_core_example.rb&#34;&gt;Code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You call the &lt;code&gt;Benchmark#bm&lt;/code&gt; method passing a block. The block variable
+is a special object provided by &lt;code&gt;Benchmark&lt;/code&gt;. It gives you a &lt;code&gt;report&lt;/code&gt;
+method that you call with the block of code that you want to measure.
+&lt;code&gt;Benchmark&lt;/code&gt; then runs both blocks of code and prints their execution
+times side-by-side.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;A note about iterations:&lt;/em&gt; Often, when doing benchmarks that test code
+that executes very quickly, you need to do many iterations to see a
+meaningful number. In this case, I did 100,000 iterations of each
+variant just to get the execution time up to half a second so I could
+grasp the difference.&lt;/p&gt;
+
+&lt;h2 id=&#34;labels:a88b551e347b89fbc8c0ddb2dc31561e&#34;&gt;Labels&lt;/h2&gt;
+
+&lt;p&gt;In that last benchmark, I buried some comments in the source that said
+what each block of code was doing. Thats not so helpful when looking at
+the results! &lt;code&gt;Benchmark&lt;/code&gt; allows you to pass in a label to the &lt;code&gt;report&lt;/code&gt;
+method that will be printed along with the results.&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/f4c734192682d7576b3ff804bfbb1271a16ae250/2013/06/19/how-do-i-benchmark-ruby-code/04_benchmark_labels.rb?embed=t&#34;&gt;&lt;/script&gt;
+&lt;a href=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/04_benchmark_labels.rb&#34;&gt;Code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ive now removed the comments describing the blocks and pass them in to
+the &lt;code&gt;report&lt;/code&gt; method as an argument. Now the output describes itself:&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/04_benchmark_results_padding.txt?embed=t&#34;&gt;&lt;/script&gt;
+&lt;a href=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/04_benchmark_results_padding.txt&#34;&gt;Code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s one more important change I made in that last example that may
+have gone unnoticed. I passed &lt;code&gt;27&lt;/code&gt; as an argument to the &lt;code&gt;Benchmark.bm&lt;/code&gt;
+method. This signifies how much padding the header labels should have in
+the result output. If you pass labels to &lt;code&gt;report&lt;/code&gt;, but dont set this
+value high enough, your output wont line up properly.&lt;/p&gt;
+
+&lt;p&gt;Lets see an example with no argument passed to &lt;code&gt;Benchmark.bm&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/04_benchmark_results_no_padding.txt?embed=t&#34;&gt;&lt;/script&gt;
+&lt;a href=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/04_benchmark_results_no_padding.txt&#34;&gt;Code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Thats certainly not right. Make sure you pass a value thats greater than
+the length of your longest label. Thats the happy path.&lt;/p&gt;
+
+&lt;h2 id=&#34;benchmark-bmbm:a88b551e347b89fbc8c0ddb2dc31561e&#34;&gt;Benchmark#bmbm&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;Benchmark#bm&lt;/code&gt; you just saw is really the core of &lt;code&gt;Benchmark&lt;/code&gt;, but
+theres one more method I should mention: &lt;code&gt;Benchmark#bmbm&lt;/code&gt;. Thats right
+its the same method name, repeated twice.&lt;/p&gt;
+
+&lt;p&gt;Sometimes, with a benchmark that creates a lot of objects, the results
+start to get skewed because of interactions with Rubys memory allocation
+or garbage collection routines. When creating a lot of objects, one
+block may need to run garbage collector, while the other doesnt; or just
+one block may get stuck with the cost of allocating more memory for Ruby
+to use.&lt;/p&gt;
+
+&lt;p&gt;In this case, the benchmark can produce unbalanced results. This is when
+you want to use &lt;code&gt;Benchmark#bmbm&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The method name is suitable because it actually benchmarks your blocks
+of code twice. First, it runs the code as a ‘rehearsal to force any
+initialization that needs to happen, then it forces the GC to run, then
+it runs the benchmark again ‘for real. This ensures that the system is
+fully initialized and the benchmark is fair.&lt;/p&gt;
+
+&lt;p&gt;This last example benchmark allocates a lot of objects. When this runs
+at the rehearsal stage, Ruby has to allocate more memory to make room
+for all the objects. Then when the ‘real benchmark happens, the memory
+is already available and just the actual implementation is tested.&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/05_benchmark_bmbm.rb?embed=t&#34;&gt;&lt;/script&gt;
+&lt;a href=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/05_benchmark_bmbm.rb&#34;&gt;Code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;And here&amp;rsquo;s the result:&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/05_benchmark_bmbm_results.txt?embed=t&#34;&gt;&lt;/script&gt;
+&lt;a href=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/c40eadba0e5256e0c5c27f538315222c2e5d290f/2013/06/19/how-do-i-benchmark-ruby-code/05_benchmark_bmbm_results.txt&#34;&gt;Code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice the discrepancy between the rehearsal and the benchmark! Thanks
+&lt;code&gt;bmbm&lt;/code&gt;!&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion:a88b551e347b89fbc8c0ddb2dc31561e&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;When you want to try your hand at speeding up some of your Ruby code,
+make sure that you measure, measure, measure to prove that your new
+implementation is faster than the old one. This great little
+benchmarking library ships with Ruby right in the standard library, so
+theres no excuses!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;I hope you found this article valuable. Feel free to ask questions and
+give feedback in the comments section of this post. Thanks!&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby Matrix, the Forgotten Library</title>
+      <link>http://rubylearning.com/blog/2013/04/04/ruby-matrix-the-forgotten-library/</link>
+      <pubDate>Thu, 04 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2013/04/04/ruby-matrix-the-forgotten-library/</guid>
+      <description>&lt;div&gt;
+  &lt;h2&gt;
+    Ruby Matrix, the Forgotten Library
+  &lt;/h2&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    This guest post is contributed by &lt;b&gt;Matthew Kirk&lt;/b&gt;, who is a partner at &lt;a href=&#39;http://modulus7.com/&#39; title=&#39;Modulus 7&#39;&gt;Modulus 7&lt;/a&gt;, specializing in software development and strategy. The basis of his career has been around utilizing science to improve businesses. He has spoken at technology conferences around the world and in his spare time, he enjoys traveling and adding to his 2000+ vinyl record collection.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; height=&#34;125&#34; width=&#34;125&#34; src=&#34;http://rubylearning.com/images/Matt_Kirk_small.jpg&#34; alt=&#34;Matthew Kirk&#34; /&gt; &lt;span class=&#34;drop_cap&#34;&gt;R&lt;/span&gt;emember matrices from math class? No not the movie, but the rectangular array of numbers. While you might not see it often, Ruby has a matrix implementation that is well tested and allows you to accomplish tough calculations quickly.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    While I won&amp;#8217;t be able to teach you everything there is to be known about matrices, we will cover how to use matrices within Ruby as well as some quirks and their major selling points. By the end of this I hope that you delve deeper into learning about matrices and use them in your next project.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    What are matrices?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    A matrix according to Wikipedia is a rectangular array of numbers. Used heavily in math, matrices are all over languages like R and Matlab. They can be a great way to store numerical data and simplify many difficult and tedious problems. Instead of solving systems of equations matrices can simplify these into one equation.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    In terms of how Ruby implements matrices, Ruby stores all matrix rows into one big array. The only requirement is that the arrays are of the same dimension. So for each row that is added to a matrix each one must be of the same size.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Just like arrays, matrices are zero indexed meaning that the first row is index 0 and the first column is index 0. Unlike arrays though you have to have two indexes to get to an element:
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Making matrices:
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Some quirks:
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    The &lt;code&gt;Matrix&lt;/code&gt; library has some quirks. The &lt;code&gt;Matrix&lt;/code&gt; class allows non-numerical data to go into itself. This could be useful for storing things like symbols in a more x, y format but render most of the matrix functions useless.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    For instance:
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Another quirk to be aware of: &lt;code&gt;Matrix[*rows]&lt;/code&gt; does not copy the rows objects but instead points to it. To avoid this use &lt;code&gt;Matrix.rows(rows)&lt;/code&gt; or &lt;code&gt;Matrix.columns(columns)&lt;/code&gt;. Implementation wise &lt;code&gt;Matrix[*rows]&lt;/code&gt; calls the function &lt;code&gt;Matrix.rows(rows, copy = false)&lt;/code&gt;.
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Iterating over matrices:
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    How do you iterate over a matrix? Most likely you would think that matrices read left to right top to bottom. And that’s true. But there are other cases as well.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    In total there are 7 ways to iterate over a Matrix in ruby:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;code&gt;:all&lt;/code&gt; This reads left to right top to bottom. This is the default case when you type &lt;code&gt;matrix.each&lt;/code&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;code&gt;:diagonal&lt;/code&gt;: This only reads the diagonal elements or row index == column index
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;code&gt;&amp;#58;off_diagonal&lt;/code&gt;: This will read everything not on the diagonal or row index != column index
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;code&gt;&amp;#58;lower&lt;/code&gt;: This reads the lower triangle of the matrix or row index &lt;= column index
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;code&gt;:strict_lower&lt;/code&gt;: this is more strict and reads only row index &lt; column index
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;code&gt;:strict_upper&lt;/code&gt;: this is a strict upper triangle and is row index &gt; column index
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;code&gt;:upper&lt;/code&gt;: row index &gt;= column index
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    An example:
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Example: Parabola with matrix:
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    Imagine you want to fit a curve through three points. If you remember math class you might remember that you can do this by fitting a quadratic. For instance lets say we want a line that goes through (1,2) (3, 5.5) and (6, 6). To solve this we would write the equations:
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img src=&#34;http://rubylearning.com/images/mathe1.jpg&#34; alt=&#34;Math equation&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The way to solve this would usually involve lots of algebra and substitutions. While it&amp;#8217;s easy to solve this in the case where we already know the numbers it is difficult to come up with a general solution (try it I dare you).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Instead of worrying about solving this using non-matrix algebra we can solve it using matrix algebra. The first step is to rewrite the above system into this form:
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img src=&#34;http://rubylearning.com/images/mathe2.jpg&#34; alt=&#34;Math equation&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    To make it even easier to solve we would rewrite this as Ax = b. To solve this we would take the inverse of A and then multiply both sides by that. Which would yield:
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img src=&#34;http://rubylearning.com/images/mathe3.jpg&#34; alt=&#34;Math equation&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Now that we know this, we can easily solve this using Ruby with the following formula.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    While it&amp;#8217;s close it won&amp;#8217;t be correct unless you use &lt;code&gt;Rational&lt;/code&gt;. Ruby&amp;#8217;s matrix library graciously utilizes functions that preserve precision. You would expect most libraries to convert to floats but ruby does not.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    For instance you can change the above function call to:
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Whenever possible try to preserve the precision!
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    The general case, fitting an n-power polynomial to n points:
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    Up above we only fit this curve to 3 points. But what about 4 or 15 points? This would be quite simple to do and would only require a little bit of modification:
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Conclusion:
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    While you might not use matrices every day, they can be useful to solve problems involving systems of equations. Ruby has a robust &lt;code&gt;matrix&lt;/code&gt; library that can be useful in finding solutions to these types of problems. Next time you want to fit a curve keep in mind matrices might be the best way to go!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    For more information about matrices I recommend reading Wikipedia articles. There are lots of math professors who spend hours updating them tediously. If they are too confusing, think about picking up a book on matrix algebra like &lt;a href=&#34;http://ow.ly/jJ9JA&#34;&gt;Matrix Computations&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;em&gt;&lt;b&gt;Feel free to ask questions and give feedback in the comments section of this post&lt;/b&gt;. Thanks!&lt;/em&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Questions on Ruby? Ask An Expert at RubyLearning</title>
+      <link>http://rubylearning.com/blog/2011/11/24/questions-on-ruby-ask-an-expert-at-rubylearning/</link>
+      <pubDate>Thu, 24 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/11/24/questions-on-ruby-ask-an-expert-at-rubylearning/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    Questions on Ruby? Ask An Expert at RubyLearning
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;span class=&#34;drop_cap&#34;&gt;R&lt;/span&gt;ubyLearning is happy to announce the start of a series of blog posts titled &amp;#8220;Ask An Expert&amp;#8221;. We are assembling experts in various areas of Ruby programming who will answer your questions as a blog post here.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    To begin with, some of the experts who have agreed to answer your questions are:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      Gautam Rege on &lt;b&gt;Ruby with MongoDB, Mongo, MongoMapper and Mongoid&lt;/b&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Gonçalo Silva on &lt;b&gt;Ruby/Rails performance&lt;/b&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Sau Sheong Chang on &lt;b&gt;Sinatra&lt;/b&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Sethupathi Asokan on the Ruby &lt;b&gt;&lt;a href=&#34;http://rubygems.org/gems/devise&#34;&gt;devise gem&lt;/a&gt;&lt;/b&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Staffan Nöteberg on &lt;b&gt;Ruby regex&lt;/b&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Steve Klabnik on &lt;b&gt;Testing in Ruby&lt;/b&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    I am sure there are more Ruby experts to follow.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    Please feel free to ask your questions on the topics mentioned above, as comments to this blog post. We will put up these questions to the experts who will answer them here as a separate blog post, provided there are at least 7-8 questions per topic. If not, they would answer your questions directly as comments.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Here&amp;#8217;s some information about our experts:
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignleft&#34; src=&#34;http://rubylearning.com/images/gautamrege.jpg&#34; alt=&#34;Gautam Rege&#34; /&gt; &lt;strong&gt;Gautam Rege&lt;/strong&gt; is a Director and Co-founder of &lt;a href=&#34;http://joshsoftware.com/&#34;&gt;Josh Software Private Limited&lt;/a&gt; a Pune based software company that specializes in Ruby related services and product development. He is currently busy writing the book &amp;#8220;Ruby and MongoDB Web Development Beginners Guide&amp;#8221;.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/Goncalo_Silva_125x125.jpg&#34; alt=&#34;Gonçalo Silva&#34; /&gt; &lt;strong&gt;Gonçalo Silva&lt;/strong&gt;, is a full-time Ruby on Rails developer at &lt;a href=&#34;http://escolinhas.pt/&#34;&gt;escolinhas.pt&lt;/a&gt; and has participated in the Ruby Summer of Code 2010. He loves and contributes to many open-source projects, being a fan of Linux, Ruby and Android. He likes to call himself a hacker, but that&amp;#8217;s just an excuse for being in front of the computer all the time. Oh, and he tweets at &lt;a href=&#34;http://twitter.com/goncalossilva&#34;&gt;@goncalossilva&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignleft&#34; src=&#34;http://www.rubylearning.com/images/sau.jpg&#34; title=&#34;Sau Sheong Chang&#34; alt=&#34;Sau Sheong Chang&#34; /&gt; &lt;b&gt;Sau Sheong Chang&lt;/b&gt;, is currently the Director of the Applied Cloud Computing Lab, in HP Labs Singapore. Prior to this he was the CTO of Garena Online, one of the largest game publishing provider in Southeast Asia and before that, the Engineering Director for Yahoo! Southeast Asia. All in all, he has more than 15 years of application development experience, mostly web application and in the past 5 years, mostly in Ruby. He published a book &lt;a href=&#39;http://www.packtpub.com/ruby-on-rails-web-mashup-projects/book&#39;&gt;Ruby on Rails Web Mashups&lt;/a&gt; in 2008 and recently published a new book &lt;a href=&#39;https://www.packtpub.com/cloning-internet-applications-with-ruby/book?mid=180810kku84u&amp;utm_source=blog.saush.com&amp;utm_medium=affiliate&amp;utm_content=authorsite&amp;utm_campaign=mdb_004315&#39;&gt;Cloning Internet applications with Ruby&lt;/a&gt; in August 2010. He is active in the Ruby community in Singapore, where he is currently living, being one of the pioneers in &lt;a href=&#39;http://groups.google.com.sg/group/singapore-rb&#39;&gt;Singapore Ruby Brigade&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/sethu.jpg&#34; alt=&#34;Sethupathi Asokan&#34; /&gt; &lt;strong&gt;Sethupathi Asokan&lt;/strong&gt; is a Director and Co-founder of &lt;a href=&#34;http://joshsoftware.com/&#34;&gt;Josh Software Private Limited&lt;/a&gt; a Pune based software company that specializes in Ruby related services and product development.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignleft&#34; src=&#34;http://rubylearning.com/images/staffan.jpg&#34; alt=&#34;Staffan Nöteberg&#34; /&gt; &lt;strong&gt;&lt;a href=&#34;http://www.staffannoteberg.com/&#34;&gt;Staffan Nöteberg&lt;/a&gt;&lt;/strong&gt; wrote the critically acclaimed productivity book Pomodoro Technique Illustrated. He knows the regex (regular expressions) stack all the way from the automata theory base up to the newest regex idioms. And he&amp;#8217;s proficient in Oniguruma – the Ruby regex engine.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/steve_cropped.jpg&#34; alt=&#34;Steve Klabnik&#34; /&gt; &lt;strong&gt;&lt;a href=&#34;http://www.linkedin.com/in/steveklabnik&#34;&gt;Steve Klabnik&lt;/a&gt;&lt;/strong&gt;, is a software craftsman, writer, and former startup CTO. Steve tries to keep his Ruby consulting hours down so that he can focus on maintaining &lt;a href=&#34;http://hackety-hack.com/&#34;&gt;Hackety Hack&lt;/a&gt; and being a core member of &lt;a href=&#34;http://shoesrb.com/&#34;&gt;Team Shoes&lt;/a&gt;, as well as writing regularly for multiple blogs.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    &lt;b&gt;Please support RubyLearning&lt;/b&gt;: Buy the Kindle version of the &lt;a href=&#34;http://www.amazon.com/gp/product/B0062X2I68/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;tag=satishtalimsw-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399373&amp;creativeASIN=B0062X2I68&#34;&gt;The Ultimate Guide to Ruby Programming&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.com/e/ir?t=satishtalimsw-20&amp;l=as2&amp;o=1&amp;a=B0062X2I68&amp;camp=217145&amp;creative=399373&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt; eBook on Amazon.
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Performance Testing Rails Applications: How To?</title>
+      <link>http://rubylearning.com/blog/2011/08/14/performance-testing-rails-applications-how-to/</link>
+      <pubDate>Sun, 14 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/08/14/performance-testing-rails-applications-how-to/</guid>
+      <description>&lt;div&gt;
+  &lt;h2&gt;
+    Performance Testing Rails Applications: How To?
+  &lt;/h2&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    This guest post is by &lt;strong&gt;Gonçalo Silva&lt;/strong&gt;, who is a full-time Ruby on Rails developer at &lt;a href=&#34;http://escolinhas.pt/&#34;&gt;escolinhas.pt&lt;/a&gt; and has participated in the Ruby Summer of Code 2010. He loves and contributes to many open-source projects, being a fan of Linux, Ruby and Android. He likes to call himself a hacker, but that&amp;#8217;s just an excuse for being in front of the computer all the time. Oh, and he tweets at &lt;a href=&#34;http://twitter.com/goncalossilva&#34;&gt;@goncalossilva&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/Goncalo_Silva_125x125.jpg&#34; alt=&#34;Gonçalo Silva&#34; /&gt; &lt;span class=&#34;drop_cap&#34;&gt;R&lt;/span&gt;ails 3.1 is just around the corner, and it brings enhanced performance testing tools. Let&amp;#8217;s have a look at this often overlooked feature of our web application framework of choice.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    This isn&amp;#8217;t new
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Rails has had built-in performance testing tools since version 2.2. Originally developed by &lt;a href=&#34;https://github.com/rails/rails/commit/eab71208db1afead6803501c8d51d77625e5ad6e&#34;&gt;Jeremy Kemper&lt;/a&gt;, these allowed developers to test the performance of their applications by writing integration tests which could be benchmarked and profiled under &lt;em&gt;MRI&lt;/em&gt;. He later introduced two scripts &amp;#8211; &lt;code&gt;benchmarker&lt;/code&gt; and &lt;code&gt;profiler&lt;/code&gt; &amp;#8211; which were great to quickly benchmark or profile small snippets of code.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Actually, this is kind of new
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    I came across these tools during last year&amp;#8217;s &lt;em&gt;Ruby Summer of Code&lt;/em&gt;. I remember feeling astonished and bit ashamed about not having played with them before. I couldn&amp;#8217;t use them at their full potential because of the lack of full support for &lt;em&gt;YARV&lt;/em&gt; (or &lt;em&gt;MRI 1.9&lt;/em&gt;), so I set off fixing that. While working on it, I&amp;#8217;ve made a list of other things these tools lacked, that I wanted to implement after &lt;em&gt;RSoC&lt;/em&gt;, namely: &amp;#8211; &lt;em&gt;Rubinius&lt;/em&gt; support &amp;#8211; &lt;em&gt;JRuby&lt;/em&gt; support &amp;#8211; Test configurability &amp;#8211; Decoupling &lt;code&gt;benchmarker&lt;/code&gt; and &lt;code&gt;profiler&lt;/code&gt; from &lt;em&gt;RubyProf&lt;/em&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Everything listed above is now implemented. Rails 3.1 will ship with these improvements and we&amp;#8217;ll no longer have excuses for not using these great tools Rails provides for all of us.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Why you should care
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    The web should be fast. Response times are a key factor in user experience and there is very limited patience for slow websites. Ruby interpreters aren&amp;#8217;t famous for being performant and our beloved framework &lt;a href=&#34;http://www.youtube.com/watch?v=kWOAHIpmLAI&amp;feature=player_detailpage#t=2058s&#34;&gt;isn&amp;#8217;t known for getting faster with new releases&lt;/a&gt;. Nevertheless, we want our websites to be fast and responsive, and buying tons of hardware isn&amp;#8217;t always an available choice &amp;#8211; we need our code to be fast. We &lt;strong&gt;should&lt;/strong&gt; care.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    How does this work?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Rails&amp;#8217; performance testing tools allow you to quickly detect performance bottlenecks. As a rule of thumb, use benchmarking to detect the problem and then use profiling to understand it. Profiling provides in-depth information about your code and what it&amp;#8217;s doing, but it lacks the speed and simplicity of benchmarking.
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Patching your Ruby interpreter
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    You can skip this section if you&amp;#8217;re a &lt;em&gt;Rubinius&lt;/em&gt;/&lt;em&gt;JRuby&lt;/em&gt;/&lt;em&gt;REE&lt;/em&gt; user.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    If you&amp;#8217;re an MRI/YARV user, you&amp;#8217;ll need a patched interpreter to access all available metrics. Before you run off, let me tell you that it&amp;#8217;s &lt;strong&gt;very&lt;/strong&gt; simple to install a patched Ruby interpreter nowadays. Thanks to Wayne, the author of &lt;em&gt;&lt;a href=&#34;https://rvm.beginrescueend.com/&#34;&gt;RVM&lt;/a&gt;&lt;/em&gt;, all you need to do is to specify an additional flag when installing your interpreter, like this: &lt;code&gt;rvm install 1.9.2 --patch gcdata&lt;/code&gt; Or, if you&amp;#8217;re still using 1.8 (really?): &lt;code&gt;rvm install 1.8.7 --patch ruby187gc&lt;/code&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    That&amp;#8217;s all, folks. You now have a patched Ruby interpreter. If you want, you can have your patched interpreter side by side with your regular one, by simply assigning a name to it:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;rvm install 1.9.2 --patch gcdata --name perf
+rvm 1.9.2-perf  # my patched interpreter
+rvm 1.9.2       # my regular interpreter&lt;/pre&gt;
+  
+  &lt;p&gt;
+    And that&amp;#8217;s it.
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Editing your Gemfile
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    You can skip this section if you&amp;#8217;re using &lt;em&gt;Rubinius&lt;/em&gt;/&lt;em&gt;JRuby&lt;/em&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    If you&amp;#8217;re not, you&amp;#8217;ll need to add &lt;a href=&#34;http://github.com/wycats/ruby-prof/commits/master&#34;&gt;RubyProf&lt;/a&gt; to your &lt;em&gt;Gemfile&lt;/em&gt;:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;gem &#39;ruby-prof&#39;, :git =&amp;gt; &#39;git://github.com/wycats/ruby-prof.git&#39;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Don&amp;#8217;t forget to remove this from your &lt;em&gt;Gemfile&lt;/em&gt; and re-run &lt;code&gt;bundle install&lt;/code&gt; if you intend to switch to &lt;em&gt;Rubinius&lt;/em&gt; or &lt;em&gt;JRuby&lt;/em&gt;.
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Performance tests
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    In order to use these tools, you&amp;#8217;ll need to write performance tests. These tests are just like integration tests, except that the point is not to assert anything. They&amp;#8217;ll just run the code that you want to see benchmarked/profiled.
+  &lt;/p&gt;
+  
+  &lt;h5&gt;
+    Generating
+  &lt;/h5&gt;
+  
+  &lt;p&gt;
+    As expected, Rails does this stuff for you. Just run:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;script/rails generate performance_test example&lt;/pre&gt;
+  
+  &lt;p&gt;
+    And a new file will be placed in &lt;code&gt;test/performance/example_test.rb&lt;/code&gt; containing the default test:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;require &#39;test_helper&#39;
+require &#39;rails/performance_test_help&#39;
+class ExampleTest &amp;lt; ActionDispatch::PerformanceTest
+  # Refer to the documentation for all available options
+  # self.profile_options = { :runs =&amp;gt; 5, :metrics =&amp;gt; [:wall_time, :memory]
+  #                          &amp;#58;output =&amp;gt; &#39;tmp/performance&#39;, :formats =&amp;gt; [:flat] }
+
+  def test_homepage
+    get &#39;/&#39;
+  end
+end&lt;/pre&gt;
+  
+  &lt;h5&gt;
+    Editing
+  &lt;/h5&gt;
+  
+  &lt;p&gt;
+    Since &lt;code&gt;ActionDispatch::PerformanceTest&lt;/code&gt; inherits from &lt;code&gt;ActionDispatch::IntegrationTest&lt;/code&gt;, you can use &lt;a href=&#34;http://guides.rubyonrails.org/testing.html#helpers-available-for-integration-tests&#34;&gt;all available helpers for integration tests&lt;/a&gt; in your performance tests. For instance, if you wanted a test for your login action you could use:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;class LoginTest &amp;lt; ActionDispatch::PerformanceTest
+  fixtures :users
+  self.profile_options = { :metrics =&amp;gt; [:wall_time, :memory] }
+
+  def test_login
+    post_via_redirect &#34;/login&#34;, :username =&amp;gt; users(:youruser).username, :password =&amp;gt; users(:youruser).password
+  end
+end&lt;/pre&gt;
+  
+  &lt;h5&gt;
+    Tweaking
+  &lt;/h5&gt;
+  
+  &lt;p&gt;
+    Starting with Rails 3.1, performance tests can be configured. As you&amp;#8217;ve probably figured out from the aforeshown &lt;code&gt;LoginTest&lt;/code&gt;, all you need to do is to specify an optional hash of options to use when benchmarking/profiling. You can use &lt;strong&gt;one set of options for each class&lt;/strong&gt;. Not all options are available to all interpreters, especially the ones related with profiling. Metric/output availability for each interpreter will be shown below. You can skip this section and come back later, after grasping the whole concept. You&amp;#8217;ll also be able to check it out on &lt;a href=&#34;http://guides.rubyonrails.org/performance_testing.html&#34;&gt;Rails&amp;#8217; performance testing guide&lt;/a&gt; once 3.1 comes out.
+  &lt;/p&gt;
+  
+  &lt;h6&gt;
+    Metric availability
+  &lt;/h6&gt;
+&lt;/div&gt;
+
+&lt;div style=&#34;width: image 669 px;font-size: 80%;text-align: left&#34;&gt;
+  Benchmarking&lt;br /&gt; &lt;img style=&#34;padding-bottom: 0.5em&#34; src=&#34;http://rubylearning.com/images/Screen Shot 2011-08-14 at 2.58.31 AM.png&#34; alt=&#34;Benchmarking&#34; width=&#34;669&#34; /&gt;
+&lt;/div&gt;
+
+&lt;div style=&#34;width: image 667 px;font-size: 80%;text-align: left&#34;&gt;
+  Profiling&lt;br /&gt; &lt;img style=&#34;padding-bottom: 0.5em&#34; src=&#34;http://rubylearning.com/images/Screen Shot 2011-08-14 at 2.58.53 AM.png&#34; alt=&#34;Profiling&#34; width=&#34;667&#34; /&gt;
+&lt;/div&gt;
+
+&lt;div style=&#34;width: image 281 px;font-size: 80%;text-align: left&#34;&gt;
+  Output availability&lt;br /&gt; &lt;img style=&#34;padding-bottom: 0.5em&#34; src=&#34;http://rubylearning.com/images/Screen Shot 2011-08-14 at 2.59.20 AM.png&#34; alt=&#34;Output availability&#34; width=&#34;281&#34; /&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;h5&gt;
+    Running
+  &lt;/h5&gt;
+  
+  &lt;p&gt;
+    Finally, it&amp;#8217;s time to run your tests. Let&amp;#8217;s start with benchmarking:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;rake test:benchmark&lt;/pre&gt;
+  
+  &lt;p&gt;
+    And the output should be similar to this:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;ExampleTest:
+ExampleTest#test_homepage (16 ms warmup)
+           wall_time: 0 ms
+              memory: 17 KB
+             objects: 195
+             gc_runs: 0
+             gc_time: 0 ms
+ homepage (0.75s)
+
+LoginTest:
+LoginTest#test_login (92 ms warmup)
+           wall_time: 10 ms
+              memory: 180 KB
+ login (0.44s)
+
+Finished in 1.193759 seconds.&lt;/pre&gt;
+  
+  &lt;p&gt;
+    If any result disappoints you, profile it:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;rake test:profile TEST=test/performance/login_test.rb&lt;/pre&gt;
+  
+  &lt;p&gt;
+    And you should get a similar output:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;LoginTest:
+LoginTest#test_login (105 ms warmup)
+           wall_time: 69 ms
+              memory: 2.4 KB
+ login (5.02s)&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Profiling will give you much more information than what&amp;#8217;s printed on your terminal.
+  &lt;/p&gt;
+  
+  &lt;h5&gt;
+    Reviewing results
+  &lt;/h5&gt;
+  
+  &lt;p&gt;
+    By default, performance tests store their results in &lt;code&gt;tmp/performance&lt;/code&gt; (although it can be changed by specifying a value for &lt;code&gt;&amp;#58;output&lt;/code&gt; in the &lt;code&gt;profile_options&lt;/code&gt; hash). For benchmarks, this is pretty straightforward: it stores one &lt;em&gt;CSV&lt;/em&gt; per metric (&lt;code&gt;LoginTest#test_login_memory.csv&lt;/code&gt;, for instance) with the results as time goes by.
+  &lt;/p&gt;
+  
+  &lt;pre&gt;measurement,created_at,app,rails,ruby,platform
+183222,2011-08-10T18:15:09Z,,3.1.0.rc5,ruby-1.9.2.290,i686-linux
+216344,2011-08-11T14:37:59Z,,3.1.0.rc5,ruby-1.9.2.290,i686-linux
+(...)&lt;/pre&gt;
+  
+  &lt;p&gt;
+    When profiling, however, the result files are extremely important. They contain the juicy details of your test runs. Similarly to benchmarking results, there will be one file per metric. There are, however, multiple formats available, specially if you&amp;#8217;re using RubyProf (and consequently &lt;em&gt;MRI&lt;/em&gt;/&lt;em&gt;REE&lt;/em&gt;/&lt;em&gt;YARV&lt;/em&gt;). These formats can range from messy flat text files to awesome HTML stack traces, and they will provide valuable input when spotting bottlenecks.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The scope of this article is not to explore RubyProf&amp;#8217;s available output formats, but you should &lt;a href=&#34;http://ruby-prof.rubyforge.org/&#34;&gt;have a look at the available printers&lt;/a&gt;. However, keep in mind that RubyProf supports more metrics and output formats than &lt;em&gt;Rubinius&lt;/em&gt;/&lt;em&gt;JRuby&lt;/em&gt;&amp;#8216;s profilers. These can only measure wall time when profiling, and will only print their results in Flat/Graph text formats.
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div style=&#34;width: image 686 px;font-size: 80%;text-align: center&#34;&gt;
+  &lt;img style=&#34;padding-bottom: 0.5em&#34; src=&#34;http://rubylearning.com/images/ruby-prof_html_stack_printer.png&#34; alt=&#34;RubyProf&#39;s HTML stack printer&#34; width=&#34;686&#34; /&gt;&lt;br /&gt; RubyProf&amp;#8217;s HTML stack printer
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;h4&gt;
+    Quick tests
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    Performance tests are great, but they can be inconvenient when all you want is to quickly test a small snippet of code. For this, Rails provides two command line tools: &lt;code&gt;benchmarker&lt;/code&gt; and &lt;code&gt;profiler&lt;/code&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Open your terminal and run:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;rails benchmarker &#39;User.all&#39;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    And it will work as if you had created a performance test and put that code in it. Very simple, right? Another example:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;rails profiler &#39;User.all&#39; &#39;User.find_by_login(&#34;goncalossilva&#34;)&#39; --runs 3 --metrics cpu_time,memory # profiling memory won&#39;t work under Rubinius/JRuby (benchmarking memory will!)&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Two things pop up from this code snippet: you can run multiple tests in a single command and you can specify options as you would with normal performance tests.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    To get a glimpse at all available options, run:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;rails benchmarker --help rails profiler --help&lt;/pre&gt;
+  
+  &lt;h3&gt;
+    What can be done with this?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    A lot of things can be accomplished with these tools. First and foremost, you can assess the performance of your application by benchmarking certain parts, either through tests or simple snippets of code. After finding potential bottlenecks, you can use profiling to gain a greater insight into what&amp;#8217;s happening and how it can be improved.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    There are other useful tasks that can be done with these tools. You could, for instance, compare the performance of different interpreters on your application:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;    rvm 1.9.2
+    rails benchmarker &#39;MyModel.slow_method&#39; &#39;get &#34;/&#34;&#39; --metrics wall_time,memory
+    rvm ree
+    rails benchmarker &#39;MyModel.slow_method&#39; &#39;get &#34;/&#34;&#39; --metrics wall_time,memory
+    rvm rubinius
+    rails benchmarker &#39;MyModel.slow_method&#39; &#39;get &#34;/&#34;&#39; --metrics wall_time,memory
+    rvm jruby
+    rails benchmarker &#39;MyModel.slow_method&#39; &#39;get &#34;/&#34;&#39; --metrics wall_time,memory&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Now you&amp;#8217;ll know which interpreter takes less/more time/memory when it&amp;#8217;s opening your homepage/running &lt;code&gt;MyModel.slow_method&lt;/code&gt;.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Giving it a try
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    If you&amp;#8217;ve come this far, now you know how to use these powerful tools. Try playing with them: I&amp;#8217;m sure you&amp;#8217;ll find valuable information about your applications&amp;#8217; performance, and potentially spot some easily fixable bottlenecks. With little effort, your application will be faster, you will be prouder and your users will be happier!
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    &lt;em&gt;Feel free to ask questions and give feedback in the comments section of this post.&lt;/em&gt; Gonçalo has also written a guest blog post for RubyLearning before, titled &amp;#8211; &amp;#8220;&lt;a href=&#34;http://rubylearning.com/blog/2010/12/14/ruby-gems-%E2%80%94-what-why-and-how/&#34;&gt;Ruby gems &amp;#8212; what, why and how&lt;/a&gt;&amp;#8220;. Fellow Rubyists, if you would like to write a guest blog post for RubyLearning write to &lt;b&gt;satish [at] rubylearning.org&lt;/b&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How do I test my code with Minitest?</title>
+      <link>http://rubylearning.com/blog/2011/07/28/how-do-i-test-my-code-with-minitest/</link>
+      <pubDate>Thu, 28 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/07/28/how-do-i-test-my-code-with-minitest/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    How do I test my code with Minitest?
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    This guest post is by &lt;strong&gt;&lt;a href=&#34;https://github.com/steveklabnik&#34;&gt;Steve Klabnik&lt;/a&gt;&lt;/strong&gt;, who is a software craftsman, writer, and former startup CTO. Steve tries to keep his Ruby consulting hours down so that he can focus on maintaining &lt;a href=&#34;http://hackety-hack.com/&#34;&gt;Hackety Hack&lt;/a&gt; and being a core member of Team Shoes, as well as writing regularly for multiple blogs.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/steve_cropped.jpg&#34; alt=&#34;Steve Klabnik&#34; /&gt; &lt;span class=&#34;drop_cap&#34;&gt;P&lt;/span&gt;rogramming is an interesting activity. Everyone has their favorite&amp;nbsp;metaphor that really explains what programming means to them. Well, I&amp;nbsp;have a few, but here&amp;#8217;s one: Programming is all about automation. You&amp;#8217;re&amp;nbsp;really just getting the computer to automatically do work that you know&amp;nbsp;how to do, but don&amp;#8217;t want to do over and over again.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    When I realized this, it made me look for other things that I do that&amp;nbsp;could be automated. I don&amp;#8217;t like repeating myself over and over and over&amp;nbsp;again. That&amp;#8217;s boring! Well, there&amp;#8217;s one particular task that&amp;#8217;s related&amp;nbsp;to programming that&amp;#8217;s easily made automatic, and that&amp;#8217;s testing that&amp;nbsp;your software works!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Does this story sound familiar? You run your program, try a few&amp;nbsp;different inputs, check the outputs, and see that they&amp;#8217;re right. Then,&amp;nbsp;you make some changes in your code, and you&amp;#8217;d like to see if they work&amp;nbsp;or not, so you fire up Ruby and try those inputs again. That repetition&amp;nbsp;should stick out. There has to be a better way.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Luckily, there is! Ruby has fantastic tools that let you set up tests&amp;nbsp;for your code that you can run automatically. You can save yourself tons&amp;nbsp;of time and effort by letting the computer run thousands of tests every&amp;nbsp;time you make a change to your code. And it&amp;#8217;ll never get tired and&amp;nbsp;accidentally type in a 2 when you mean to type 3&amp;#8230; Many people take&amp;nbsp;this one step farther. They find testing so important and so helpful&amp;nbsp;that they actually write the tests before they write the code! I won&amp;#8217;t&amp;nbsp;expound on the virtues of &amp;#8220;test driven development&amp;#8221; in this post, but&amp;nbsp;it&amp;#8217;s actually easier to write the tests first, once you get some&amp;nbsp;practice at it. So, let&amp;#8217;s pick a tiny bit of code to work on, and I&amp;#8217;ll&amp;nbsp;show you how to test it using Ruby&amp;#8217;s built-in testing library, minitest.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    For this exercise, let&amp;#8217;s do something simple, so we can focus on the&amp;nbsp;tests. We&amp;#8217;ll make a Ruby class called CashRegister. It&amp;#8217;ll have a bunch&amp;nbsp;of features, but here&amp;#8217;s the first two methods we&amp;#8217;ll need:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      The register will have a scan method that takes in a price, and&amp;nbsp;records it.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The register will have a total method that shows the current total of&amp;nbsp;all the prices that have been scanned so far.
+    &lt;/li&gt;
+    &lt;li&gt;
+      If no prices have been scanned, the total should be zero.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The register will have a clear method that clears the register of all&amp;nbsp;scanned items. The total should go back to zero again.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    Seems simple, right? You might even know how to code this already.&amp;nbsp;Sometimes, intermediate programmers practice coding problems that are&amp;nbsp;easy, just to focus on how to write good tests, or to work on getting&amp;nbsp;the perfect design. We call these kinds of problems &amp;#8216;kata.&amp;#8217; It&amp;#8217;s a&amp;nbsp;martial arts thing.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Anyway, enough about all of this! Let&amp;#8217;s dig in to minitest. It already&amp;nbsp;comes with Ruby 1.9, but if you&amp;#8217;re still using 1.8, you can install it&amp;nbsp;with &amp;#8216;&lt;code&gt;gem install minitest&lt;/code&gt;.&amp;#8217; After doing so, open up a new file,&amp;nbsp;register.rb, and put this in it:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;require &#39;minitest/autorun&#39;
+
+class TestCashRegister &amp;lt; MiniTest::Unit::TestCase
+  def setup
+    @register = CashRegister.new
+  end
+  def test_default_is_zero
+    assert_equal 0, @register.total
+  end
+end&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Okay! There&amp;#8217;s a lot going on here. Let&amp;#8217;s take it line by line. On the first line, we have a &amp;#8216;require.&amp;#8217; The autorun part of minispec includes everything you need to run your tests, automatically. All we need to do to run our tests is to type ruby register.rb, and they&amp;#8217;ll run and check our code. But let&amp;#8217;s look at the rest of the file before we do that. The next thing we do is set up a class that inherits from one of minitest&amp;#8217;s base classes. That&amp;#8217;s how minitest works, by running a series of TestCases. It also lets you group similar tests together, and split different ones up into multiple files.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Anyway, enough organizational stuff. In this class, we have two methods: the first is the setup method. This runs before each test, and allows us to prepare for the test we want to run. In this case, we want a new CashRegister each time, and we&amp;#8217;ll store it in a variable. Now we don&amp;#8217;t have to repeat our setup over and over again&amp;#8230; it&amp;#8217;s just automatic!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Finally, we get down to business, with the &lt;code&gt;test_default_is_zero&lt;/code&gt; method. Minitest will run any method that starts with test_ as a test. In that method, we use the &lt;code&gt;assert_equal&lt;/code&gt; method with two arguments. &lt;code&gt;assert_equal&lt;/code&gt; is where it all happens, by comparing 0 to our register&amp;#8217;s total, and it will complain if they&amp;#8217;re not equal.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Okay, so we have our first test. Rock! You might be tempted to start implementing our CashRegister class, but wait! Let&amp;#8217;s try running the tests first. We know they&amp;#8217;ll fail, because we don&amp;#8217;t even have a CashRegister yet! But if we run the tests before writing code, the error messages will tell us what we need to do next. The tests will guide us through the implementation of our class. So, as I mentioned earlier, we can run the tests by doing this:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;$ ruby register.rb&lt;/pre&gt;
+  
+  &lt;p&gt;
+    We get this as output:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;Loaded suite register
+Started
+E
+Finished in 0.000853 seconds.
+
+1) Error:
+test_default_is_zero(TestRegister):
+NameError: uninitialized constant TestRegister::CashRegister
+register.rb:5:in `setup&#39;
+
+1 tests, 0 assertions, 0 failures, 1 errors, 0 skips
+
+Test run options: --seed 36463&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Whoah! Okay, so you can see that we had one test, one error. Since we know classes are constants in Ruby, we know that the uninitialized constant error means we haven&amp;#8217;t defined our class yet! So let&amp;#8217;s do that. Go ahead and stick in an empty class at the bottom:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;class CashRegister
+end&lt;/pre&gt;
+  
+  &lt;p&gt;
+    And run the tests again. You should see this:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;1) Error:
+test_default_is_zero(TestRegister):
+NoMethodError: undefined method `total&#39; for #&amp;lt;CashRegister:0x00000101032a80&amp;gt;
+register.rb:9:in `test_default_is_zero&#39;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Progress! Now it says we don&amp;#8217;t have a total method. So let&amp;#8217;s define an empty one. Modify the class like this:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;class CashRegister
+  def total
+  end
+end&lt;/pre&gt;
+  
+  &lt;p&gt;
+    And run the tests again. Another failure:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;1) Failure:
+test_default_is_zero(TestRegister) [register.rb:9]:
+Expected 0, not nil.&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Okay! No more syntax errors, just the wrong result. Let&amp;#8217;s keep it as simple as possible, and fill out a nice and easy total method:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;def total
+  0
+end&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Now, you may be saying, &amp;#8220;Steve, that doesn&amp;#8217;t calculate a total!&amp;#8221; Well, you&amp;#8217;re right. It doesn&amp;#8217;t. But our tests aren&amp;#8217;t yet asking to calculate a total, they&amp;#8217;re just asking for a default. If we want a total, we should write a test that actually demonstrates adding it up. But we have fulfilled objective #3, so we&amp;#8217;re doing good! Now, let&amp;#8217;s work on objective #2, since we sorta feel like the total method is lying about what it&amp;#8217;s supposed to do. In order to add up the items that were scanned, we need to scan them in the first place! Objective #1 says that this method should be called scan, so let&amp;#8217;s write a test. Put it in your test class with the test_default_is_zero method:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;def test_total_calculation
+  @register.scan 1
+  @register.scan 2
+  assert_equal 3, @register.total
+end&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Make sense? We want to scan two things in, and then check that the total is correct. Let&amp;#8217;s run our tests!
+  &lt;/p&gt;
+  
+  &lt;pre&gt;Loaded suite register
+Started
+.E
+Finished in 0.000921 seconds.
+
+1) Error:
+test_total_calculation(TestRegister):
+NoMethodError: undefined method `scan&#39; for #&amp;lt;CashRegister:0x00000101031838&amp;gt;
+register.rb:13:in `test_total_calculation&#39;
+
+2 tests, 1 assertions, 0 failures, 1 errors, 0 skips
+
+Test run options: --seed 54501&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Okay! See that &amp;#8216;.E&amp;#8217; up there? That graphically shows that we had one test passing, and one test with an error. Our first test still works, but our second is failing because we don&amp;#8217;t have a scan method. Add an empty one to our CashRegister class, and run again:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;1) Error:
+test_total_calculation(TestRegister):
+ArgumentError: wrong number of arguments (1 for 0)
+register.rb:24:in `scan&#39;
+register.rb:13:in `test_total_calculation&#39;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Whoops! It takes an argument. Let&amp;#8217;s add that: def scan(price). Run the tests!
+  &lt;/p&gt;
+  
+  &lt;pre&gt;1) Failure:
+test_total_calculation(TestRegister) [register.rb:15]:
+Expected 3, not 0.&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Okay! This sounds more like what we expected. Our total method just returns zero all the time! Let&amp;#8217;s think about this for a minute. We need to have scan add the price to a list of scanned prices. So we&amp;#8217;d better have it do that:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;def scan(item)
+  @items &amp;lt;&amp;lt; item
+end&lt;/pre&gt;
+  
+  &lt;p&gt;
+    But if you run the tests, you&amp;#8217;ll see this:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;1) Error:
+test_total_calculation(TestRegister):
+NoMethodError: undefined method `&amp;lt;&amp;lt;&#39; for nil:NilClass
+register.rb:25:in `scan&#39;
+register.rb:13:in `test_total_calculation&#39;&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Oops! @items is undefined. Let&amp;#8217;s make it be an empty array, when we create our register:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;def initialize
+  @items = []
+end&lt;/pre&gt;
+  
+  &lt;p&gt;
+    And run the tests:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;1) Failure:
+test_total_calculation(TestRegister) [register.rb:15]:
+Expected 3, not 0.&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Okay! We&amp;#8217;re back to our original failure. But we&amp;#8217;ve made some progress: now that we have an actual list of items, we&amp;#8217;re in a position to make our total method work. Also, at each step, even though one test was failing, the other was still passing, so we know that we didn&amp;#8217;t break our default functionality while we were working on getting a real total going.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Now, we&amp;#8217;re in a better place to calculate the total:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;def total
+  @items.inject(0) {|sum, item| sum += item }
+end&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Or, if you want to make it even shorter:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;def total
+  @items.inject(0, &amp;:+)
+end&lt;/pre&gt;
+  
+  &lt;p&gt;
+    If you&amp;#8217;re not familiar with &lt;code&gt;Enumerable#inject&lt;/code&gt;, it takes a list of somethings and turns it into a single something by means of a function, in a block. So in this case, we can keep a running sum of all items, and then add the price of each one to the sum. Done! Run your tests:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;Started
+..
+Finished in 0.000762 seconds.
+
+2 tests, 2 assertions, 0 failures, 0 errors, 0 skips&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Woo hoo! We&amp;#8217;re done! Our total can now be calculated. Great job!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Now, here&amp;#8217;s a challenge, to see if you&amp;#8217;ve really learned this stuff: write a test for a new method, clear, that clears the total. That&amp;#8217;s objective #4 we talked about above.
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Other parts of minitest
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    This has been a mini intro to minitest and using it to test your code. There are other methods in the &lt;code&gt;assert&lt;/code&gt; family, too, like &lt;code&gt;assert_match&lt;/code&gt;, which takes a regular expression and tries to match it against something. There&amp;#8217;s the &lt;code&gt;refute&lt;/code&gt; family of tests, which are the opposite of &lt;code&gt;assert&lt;/code&gt;:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;assert true #=&amp;gt; pass
+refute true #=&amp;gt; fail&lt;/pre&gt;
+  
+  &lt;p&gt;
+    There are also other tools that make minitest useful, like mocks, benchmark tests, and the RSpec-style &amp;#8216;spec&amp;#8217; syntax. Those will have to wait until later! If you&amp;#8217;d like to learn about them now, check out &lt;a href=&#34;https://github.com/seattlerb/minitest&#34;&gt;the source code on GitHub.&lt;/a&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Happy testing!
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    &lt;em&gt;I hope you found this article valuable. Feel free to ask questions and give feedback in the comments section of this post.&lt;/em&gt; Also, do check out Steve&amp;#8217;s other article: &amp;#8220;&lt;a href=&#34;http://rubylearning.com/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/&#34;&gt;How do I keep multiple Ruby projects separate?&lt;/a&gt;&amp;#8221; on RubyLearning. Thanks!
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How Can We Develop For Tomorrow&#39;s Needs?</title>
+      <link>http://rubylearning.com/blog/2011/07/27/how-can-we-develop-for-tomorrows-needs/</link>
+      <pubDate>Wed, 27 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/07/27/how-can-we-develop-for-tomorrows-needs/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    How Can We Develop For Tomorrow&amp;#8217;s Needs?
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    This guest post is by &lt;strong&gt;James Schorr&lt;/strong&gt;, who has been developing software since 1999. He is the owner of an IT consulting company, &lt;a href=&#34;https://enspirenconsulting.com&#34;&gt;Enspiren IT Consulting, LLC&lt;/a&gt;.  He lives with his lovely wife, Tara, and their children in Kansas City, Missouri. James spends a lot of time writing code in many languages, doing IT security audits, and has a passion for Ruby on Rails in particular. He also loves spending time with his family, playing chess, going to the shooting range, hiking, fishing, and investing. His professional profile is on &lt;a href=&#34;http://www.linkedin.com/in/jamesschorr&#34;&gt;LinkedIn&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; alt=&#34;James M. Schorr&#34; src=&#34;http://rubylearning.com/images/James_Schorr.png&#34; width=&#34;125&#34; height=&#34;125&#34; /&gt; &lt;span class=&#34;drop_cap&#34;&gt;T&lt;/span&gt;he average developer is often forced to get code out the door as quickly as possible, primarily due to unrealistic deadlines and budgets. As a result, the quality and future expandability of software is greatly harmed. Software is now used in medical machinery, our vehicles, power plants, stock markets, aircraft, weapons, etc&amp;#8230; As software becomes more and more critical in our lives, the need to think long-term is becoming increasingly critical.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Obviously, the quickest way is almost always not the best way. I hope to give some practical steps to those involved in software development that will help in the development of stable, long-lasting software. A proper strategy session involving the below steps can help save a lot of wasted time and money.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Quality, future-resilient software is tough to define, but reveals itself when it does what it’s supposed to without unpleasant surprises, handles unpredictable user input and system issues in gracious, non-devastating ways, and, in general, makes the user’s life easier. The tough part is that user’s needs and systems change. How do we engineer for tomorrow’s needs?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The keys to successfully developing long-term software are:
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Establishing the Purpose&lt;/strong&gt;: What is the point of the software? Do the needs that it are anticipated to be met look as though they will be the same core needs in the foreseeable future? In other words, will the main needs be met by this software and can we easily build out from there? If not, we need to keep the anticipated future needs in mind as we &amp;#8220;scope&amp;#8221; out the architecture of the project and provide &amp;#8220;space&amp;#8221; for them.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Choosing the &amp;#8220;Stack&amp;#8221;&lt;/strong&gt;: (what technologies, languages, etc&amp;#8230; will be used). The stack should be chosen carefully, based upon:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;strong&gt;proven stability&lt;/strong&gt;. For example, it may be &amp;#8220;cool&amp;#8221; but unwise to write the software in the latest-and-greatest language. I&amp;#8217;ve seen instances where a language/framework is chosen strictly due to its current popularity. This is typically a recipe for disaster, as those who go (and enjoy) that route typically move on to the next greatest thing, leaving code behind for non-fad-following developers to handle.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;current in-house knowledge&lt;/strong&gt;. For instance, maybe our developers love and know Ruby, should we really force them to write an app in VB? Or perhaps it is a Microsoft-shop, are time and funds available to facilitate the learning-on-the-fly of non-MS technologies? I don’t believe that it is ever appropriate to write mission critical software using a language/framework that is unfamiliar to the developers. There are times, however, where the software is so mission-critical and matches a language’s abilities to the point where it makes sense to pull in new talent. It can be argued that software can be written in almost any language, that the language itself doesn’t matter much. But sometimes it really does, both in terms of expressiveness and developer satisfaction (note: I still contend that a happy developer is a good developer, or at least becoming one).
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;infrastructure requirements&lt;/strong&gt;. Do we have the hardware and network necessary to &lt;em&gt;decently&lt;/em&gt; support the software and its anticipated usage? Disk space, memory requirements, OS, network speed, etc&amp;#8230; All of these matter, a lot. It&amp;#8217;s best to always plan for 2-3x the anticipated usage. For instance, for a web app, if we anticipate 1k users, let&amp;#8217;s build for 2-3k users, with built-in monitoring of the resources being used and a plan of how to scale up quickly when we hit a &amp;#8220;soft&amp;#8221; threshold.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Planning&lt;/strong&gt;:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Architectural Drawing&lt;/strong&gt;: I&amp;#8217;m a big fan of having at least the &amp;#8220;skeleton&amp;#8221; of the project drawn out, particularly on a white-board (I’m a bit old-school, I know). It doesn&amp;#8217;t have to be a fancy diagram or complicated UML diagram, just a simple drawing; the more understandable, the better. This high-level overview provides guidance when we&amp;#8217;re deep into code, as we can look up and see if we’re on track (as it&amp;#8217;s all too easy to go down a code &amp;#8220;rabbit trail&amp;#8221; if we&amp;#8217;re not careful). It is counterproductive, however, to draw out every little detail, as this will stifle creativity and overwhelm us while we’re writing code (we just won’t look at the diagram then).
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Establish Deadlines&lt;/strong&gt;: we do need to know the deadlines. It&amp;#8217;s best, in my opinion, to have several small deadlines with a semi-flexible final deadline. This helps us keep on track and measure our progress little by little. As we hit the small deadlines, our confidence builds, which then improves our productivity and, in general, our code quality.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Using Available Expertise Wisely&lt;/strong&gt;: does it make sense to assign Bob, the awesome Python programmer, to doing CSS and Bill, the great designer, to slinging code? Obviously not (I have seen some managers try this, though), we may lose both team members or end up with Google copy-and-paste code and animated GIFs in our Project. Cross-training is a nice and potentially valuable concept, but it should be done outside of a software project with its accompanying deadlines. Future minor features might provide a better opportunity ground for cross-training. If Bob&amp;#8217;s swamped, maybe we need to find him some decent help. &lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Determine the Deployment Strategy&lt;/strong&gt;(for both during and after the Project): &lt;ul&gt;
+        &lt;li&gt;
+          code should be checked into our version control system prior to any deployments.
+        &lt;/li&gt;
+        &lt;li&gt;
+          maybe we should only deploy code after business hours after alerting such-and-such a group. If our project has any possibility of negatively impacting others, notification is not only kind, but often necessary, especially for large changes.
+        &lt;/li&gt;
+        &lt;li&gt;
+          a rollback strategy must &lt;em&gt;always&lt;/em&gt; be in place. This strategy must be easily understandable with simple steps, so that little, if any interpretation by support staff, needs to be done in the &amp;#8220;heat of the moment&amp;#8221; support calls. Even if our developers are top-notch, until code gets into Production, we &lt;em&gt;cannot&lt;/em&gt; be 100% sure that it will not need to be rolled back. This is why major companies often have to release an update quickly after a major release. Some things just can&amp;#8217;t be easily discovered until they’re released into &amp;#8220;the wild&amp;#8221;.
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Building with Expansion in Mind&lt;/strong&gt;:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      One of the wonderful aspects of developing software is also its most dangerous aspect: flexibility. A feature or component can often be written in different ways. There typically are only one or two best ways, though. It can be very difficult to determine, unless one steps back from the project and thinks it through. Well-known software principles help a great deal with this, but come up short if they are not &amp;#8220;placed up against&amp;#8221; the anticipated needs of the future (in other words, if we don&amp;#8217;t understand where we&amp;#8217;re going, our code will still be awful even if we follow DRY, OOP, GOF, etc&amp;#8230;). As much as possible, this needs to be done not by the developer but by someone outside the code, so to speak, perhaps a technical team lead, etc&amp;#8230;
+    &lt;/li&gt;
+    &lt;li&gt;
+      When adding core features, we need to at least take a few moments to think through possible future implications of what we’re doing. For example, our Component A is currently parsing JSON from website B using C credentials. Component D depends upon Component A’s data. Wouldn&amp;#8217;t it make sense to have these in an encrypted setting field somewhere to make it easy to change in the future? If Component A&amp;#8217;s data was slightly different, would Component B &amp;#8220;blow up&amp;#8221;? Maybe we can abstract all of this a bit?
+    &lt;/li&gt;
+    &lt;li&gt;
+      Avoiding Spaghetti-Code: proper design and a commitment to sticking to the design in the future helps to prevent our code from such entanglement. In other words, we need to commit to never, ever quickly throwing code in to the project, as this leads to &amp;#8220;spaghetti-code&amp;#8221;. Of course, there may be the exceedingly rare occasions, where we may need to do such a stop-gap measure due to an emergency, but we must then learn from our mistake and commit to re-engineering that portion of the code properly.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Data Safety&lt;/strong&gt;:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      As we depend more and more upon data, it&amp;#8217;s becoming increasingly important that we do our best to have automated backups, which are then checked frequently by a &lt;em&gt;person&lt;/em&gt;. This cannot be emphasized heavily enough. All too often, properly designed backups can stop working without anyone noticing until it is too late.
+    &lt;/li&gt;
+    &lt;li&gt;
+      If encryption is used: &lt;ul&gt;
+        &lt;li&gt;
+          the encryption keys need to be stored off-site in at least 2 secure places. Imagine if we lost our server(s), our office burned down, our VPS provider goes offline, etc&amp;#8230;- even if we had backups, could we get to the raw data if needed? No one wants to start over from scratch.
+        &lt;/li&gt;
+        &lt;li&gt;
+          Does the encryption depend upon a certain cipher? If so, what is the game plan for when that cipher is cracked someday? How easy will it be for us to move to a new cipher?
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    
+    &lt;li&gt;
+      Does our data depend upon a specific version? For instance, maybe database X version Y can open the data but no other versions can. Do we have a backup of that version to access the data if needed? Better yet, this reveals a key flaw in our design. Our data should not be heavily dependent upon any software version.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Would our data be understandable if a new developer 10 years from now is assigned to work with it? For instance, if a column for a user’s API Key is called usrscr_ak12, we may understand it, but it&amp;#8217;s not future-proof (a better term may be &amp;#8220;future-resilient&amp;#8221;, since nothing is truly future-proof). Such obfuscation attempts provide little security, as if someone can get that far (to the data), we&amp;#8217;ve lost the security &amp;#8220;battle&amp;#8221; anyhow. Data should be clearly understood by those who can access it.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Can our data be exported easily when the software that we&amp;#8217;re lovingly developing now someday gets decommissioned? All software will eventually get replaced by something better. How easily can our data be decoupled from our application?
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Pin-pointing Possible &amp;#8220;Dominoes&amp;#8221;&lt;/strong&gt; in our project and code-base (e.g. if A happens, does it affect B, which then affects C, etc&amp;#8230;, these can be like dominoes). Amazon&amp;#8217;s recent AWS issues in 2011 revealed the criticality of this step. The more time that we spend anticipating what can go wrong, the more we can establish quick steps to both prevent such issues and to mitigate possible damage. At the bare minimum, the possible &amp;#8220;dominoes&amp;#8221; and recommended quick steps need to be written down somewhere. This can greatly help to expedite future troubleshooting.
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Our Software&lt;/strong&gt;: We must try to anticipate, as much as possible, what the interdependencies are in our project and its surrounding infrastructure. These dependencies should be in written form and re-reviewed as further functionality is added to the software in the future (e.g. ITIL Change Management).
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Dependent Software&lt;/strong&gt;: What software or systems will depend upon our software? When our system goes down, will other software be slamming our system asking for a response?
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Dependent Systems&lt;/strong&gt;: if we saturate our network, is our software designed to &amp;#8220;back-off&amp;#8221; and retry after an appropriate, randomized delay?
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    Obviously, none of the above can be done overnight. If even some of the above is done, however, the chance of our software having a longer-lasting, positive impact will be greater. I recommend that the start of each project have at least a 3-5 days dedicated to going through these steps. Gathering input from the teams of people who are responsible for various components (e.g. clients/end users, network, sysadmins, developers of other dependent software, etc&amp;#8230;) will be invaluable. The payoff will be great.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    &lt;em&gt;I hope you found this article valuable. Feel free to ask questions and give feedback in the comments section of this post.&lt;/em&gt; Also, do check out James&amp;#8217; other article: &amp;#8220;&lt;a href=&#34;http://rubylearning.com/blog/2010/10/18/do-you-enjoy-your-code-quality/&#34;&gt;Do You Enjoy Your Code Quality?&lt;/a&gt;&amp;#8221; on RubyLearning. Thanks!
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cryptography Or: How I Learned to Stop Worrying, and Love AES</title>
+      <link>http://rubylearning.com/blog/2011/07/18/cryptography-or-how-i-learned-to-stop-worrying-and-love-aes/</link>
+      <pubDate>Mon, 18 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/07/18/cryptography-or-how-i-learned-to-stop-worrying-and-love-aes/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    Cryptography Or: How I Learned to Stop Worrying, and Love AES
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    This guest post is by &lt;strong&gt;Phillip Gawlowski&lt;/strong&gt;, who is living in the German wilderness of Oberberg near Cologne. Phillip spends his time writing Ruby as a hobby just for fun. He tries to make life a little easier for himself and for others when he is crazy enough to release his code as open source. He&amp;#8217;s neither famous nor rich, but likes it that way (most of the time). He blogs his musings at &lt;a href=&#34;http://phgaw.posterous.com/&#34;&gt;his blog&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/pg_mugshot.jpg&#34; alt=&#34;Phillip Gawlowski&#34; /&gt; &lt;span class=&#34;drop_cap&#34;&gt;A&lt;/span&gt; friend gave you the plans for Dr. Blofeld&amp;#8217;s newest Doomsday Device. Over the engine noise of his Aston-Martin, he tells you: &amp;#8220;Send this to offers@universal-exports.co.uk, and make sure it arrives there intact!&amp;#8221;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    All you have is a laptop, wonky Internet access, and Ruby. What to do?
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    AES For Safety, SHA2 For Integrity
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    You now have two goals:
+  &lt;/p&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      Make the Doomsday Device plans unreadable, and
+    &lt;/li&gt;
+    &lt;li&gt;
+      Ensure that the data has arrived at its destination without error.
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;p&gt;
+    Fortunately, Ruby provides an API to &lt;a href=&#34;http://openssl.org/&#34;&gt;OpenSSL&lt;/a&gt;, a well-tested, widely used library and set of tools used for encryption of all kinds, and includes its own implementations of several cryptographic hashes.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    In this article we will use &lt;a href=&#34;http://en.wikipedia.org/wiki/Advanced_Encryption_Standard&#34;&gt;AES&lt;/a&gt; for de- and encryption, and &lt;a href=&#34;http://en.wikipedia.org/wiki/Secure_Hash_Algorithm&#34;&gt;SHA&lt;/a&gt;2 to hash data.
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Using SHA2
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    Like many things, Ruby makes creating crypto-hashes easy:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;require &#39;digest/sha2&#39;
+sha256 = Digest::SHA2.new(256)
+sha256.digest(&#34;Bond, James Bond&#34;)&lt;/pre&gt;
+  
+  &lt;p&gt;
+    The &lt;code&gt;SHA2#new&lt;/code&gt; call provides us with the bit length we want our hash to have. SHA2 exists in two variants: 256, also called SHA256, and 512, called SHA512. A longer key length takes longer to calculate, but is also more accurate, and much more difficult to attack with a rainbow table or other cryptanalysis.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Once we have our SHA object, we pass a String of data into the &lt;code&gt;#digest&lt;/code&gt; to have the hash of this data returned as a String.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    You can call the &lt;code&gt;#digest&lt;/code&gt; method directly when you are working with MD5 or SHA1:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;require &#39;digest/MD5&#39;
+Digest::MD5.digest &#34;Bond, James Bond&#34;&lt;/pre&gt;
+  
+  &lt;h4&gt;
+    The Advanced Encryption Standard
+  &lt;/h4&gt;
+  
+  &lt;h5&gt;
+    Theory
+  &lt;/h5&gt;
+  
+  &lt;p&gt;
+    As AES is a so-called symmetric-key block cipher, it operates on chunks of data, called blocks, and applies the provided key to this block to create de- and encrypted output. The use of the same key for encryption and decryption is what makes the cipher symmetric. Conversely, asymmetrical ciphers use different keys for decryption and encryption, usually a private key known only to the recipient to decrypt, and a public key known to anyone to encrypt. SSH, SSL/TLS and PGP are examples for this kind of cipher.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The AES family has three modes of operation: 128 bit, 192 bit, and 256 bit. Just as with SHA2, you&amp;#8217;ll find AES-128, or AES-256 being used to describe the particular block size that can be used.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The downside to this approach is that the same key is used for each block of data, which weakens the encryption (the same data is encrypted in the same way!). The solution is to use a so called &amp;#8220;mode of operation&amp;#8221;, which scrambles the cipher so that it becomes indistinguishable from noise.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    A full discussion of methods of operation and their strengths and weaknesses would go well beyond the scope of this article, however.
+  &lt;/p&gt;
+  
+  &lt;h5&gt;
+    &amp;#8230;And Practice
+  &lt;/h5&gt;
+  
+  &lt;p&gt;
+    Now let&amp;#8217;s take a look at Ruby&amp;#8217;s encryption API:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;require &#39;openssl&#39;
+require &#39;digest/sha2&#39;
+
+payload = &#34;Plans for Blofeld&#39;s newest Doomsday Device. This is top secret!&#34;
+sha256 = Digest::SHA2.new(256)
+aes = OpenSSL::Cipher.new(&#34;AES-256-CFB&#34;)
+iv = rand.to_s
+key = sha256.digest(&#34;Bond, James Bond&#34;)
+
+aes.encrypt
+aes.key = key
+aes.iv = iv
+encrypted_data = aes.update(payload) + aes.final
+
+puts encrypted_data&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Since Ruby&amp;#8217;s OpenSSL API is pretty straight forward (and so is the OpenSSL API, if you would like to use OpenSSL in C code), we will only discuss what&amp;#8217;s really important.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;code&gt;OpenSSL::Cipher.new(&#34;AES-256-CFB&#34;)&lt;/code&gt; sets up an AES object, with a block size of 256 bits and the CFB mode of operation. To find out which ciphers are supported, &lt;code&gt;OpenSSL::Cipher.ciphers&lt;/code&gt; allows you to interrogate the class for which ciphers are understood.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The &lt;code&gt;iv&lt;/code&gt; variable stores our random Initialization Vector, random data to seed the mode of operation to ensure that each 256 bit block is encrypted uniquely, and thus (hopefully) indistinguishable from noise.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    We also take advantage of SHA2&amp;#8217;s 256 bit variant to generate a 256 bit password from a simpler password. AES expects the encryption key to be as long as a block of data, and since creating a 256 bit password from hand is pretty difficult, we let the computer do the job. When used in production, you most likely want to add a salt to the hash, or use a user&amp;#8217;s already hashed password.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    With the &lt;code&gt;#decrypt&lt;/code&gt; and &lt;code&gt;#encrypt&lt;/code&gt; methods, we put our AES object into the proper state. Behind the scenes, this initializes OpenSSL&amp;#8217;s encryption engine. &lt;em&gt;These two method calls are required before any other method call!&lt;/em&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Last but definitely not least, the &lt;code&gt;#update&lt;/code&gt; and &lt;code&gt;#final&lt;/code&gt; methods are where the encryption actually happens. The more data you have, the longer the chunks, and the more complex the cipher, the longer this will take. The &lt;code&gt;#final&lt;/code&gt; method does the same as &lt;code&gt;#update&lt;/code&gt;, but ads padding to a chunk to bring it up to the required block size.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    In case you make a mistake, or want to do another round of encryption or decryption, the &lt;code&gt;#reset&lt;/code&gt; method can reset a Cipher object.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Decryption works pretty much the same as encryption, except that we pass the encrypted data to the &lt;code&gt;#update&lt;/code&gt;-method:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;aes.decrypt
+aes.key = key
+aes.iv = iv
+puts aes.update(encrypted) + aes.final&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Note, however, that both the key and the IV must be the same, and thus have to be stored or transmitted to the recipient of the encrypted data!
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Verifying Integrity
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    As we&amp;#8217;ve already seen, a hashing algorithm can turn data of arbitrary length into a fixed length, unique stream of bytes. This can function as password storage, to generate securer keys for encryption, or, since the output of a hash algorithm is deterministic (it&amp;#8217;s always the same for the same input) as an integrity check.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    If you&amp;#8217;ve downloaded a Linux distribution or other software, you have already seen this, in the form of MD5 digests, with which you can verify that a download is complete and error free, like on &lt;a href=&#34;http://www.ruby-lang.org/en/downloads&#34;&gt;Ruby&amp;#8217;s homepage&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    We will do the same with our encrypted data, as a poor man&amp;#8217;s &lt;a href=&#34;http://en.wikipedia.org/wiki/Message_authentication_codes&#34;&gt;message authentication code&lt;/a&gt;&amp;#8211;a technique in cryptography to ensure that a message has not been tampered with:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;poor_mans_mac = sha2.digest(encrypted)&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Now all that&amp;#8217;s left is to send an email to James&amp;#8217; employer with the Doomsday Device plans, and to give them a call to give them the IV and key.
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Closing Remarks
+  &lt;/h4&gt;
+  
+  &lt;h5&gt;
+    Think of the Future
+  &lt;/h5&gt;
+  
+  &lt;p&gt;
+    Security is not a state, it is a process. You should write your security-aware code in such a way that you don&amp;#8217;t depend on a particular cryptographic algorithm. Ruby&amp;#8217;s API (and OpenSSL&amp;#8217;s own API) wrap encryption abstractly, so that you can swap out the algorithm you use at any time. This is also necessary for hashing algorithms: While there are no feasible attacks against SHA2 yet, the &lt;a href=&#34;http://en.wikipedia.org/wiki/Cryptanalysis&#34;&gt;cryptanalysis&lt;/a&gt; only gets better over time, as the histories of MD5 and DES show.
+  &lt;/p&gt;
+  
+  &lt;h5&gt;
+    Schneier&amp;#8217;s Law
+  &lt;/h5&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#34;http://www.schneier.com/blog/archives/2011/04/schneiers_law.html&#34;&gt;Schneier&amp;#8217;s Law&lt;/a&gt; states that &amp;#8220;any person can invent a security system so clever that she or he can&amp;#8217;t think of how to break it.&amp;#8221; This is why Ruby&amp;#8217;s developers use OpenSSL to do encryption, a widely tested and certified (in some variants!) cryptographic library, instead of writing their own library.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    A mistake in your implementation can compromise your and your customer&amp;#8217;s data, since so called &amp;#8220;&lt;a href=&#34;http://en.wikipedia.org/wiki/Side-channel_attack&#34;&gt;side channel attack&lt;/a&gt;&amp;#8221; are used as a matter of course to attack cryptography.
+  &lt;/p&gt;
+  
+  &lt;h5&gt;
+    Encryption Does Not Mean You Are Safe
+  &lt;/h5&gt;
+  
+  &lt;p&gt;
+    It is important, and I cannot stress this enough, that you do not store encrypted data and the keys to access it on the same machine (ideally, you don&amp;#8217;t store these things on the same network!), or do your encryption and decryption on the same machine that you store you encrypted data on. Whole libraries have been filled with books on how to design a secure system, from hardware to software. Above all, security is a &lt;em&gt;mindset&lt;/em&gt;, and you have to be properly paranoid to secure your data &lt;em&gt;and&lt;/em&gt; access to this data. Sooner or later, if you deploy, or are about to deploy, security relevant code have your code tested by outsiders. Penetration testing is worth your while.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Asymmetric encryption has been invented to solve one problem with encryption: It is not necessary for such a cipher to transmit the key. However, they have their own set of trade offs (key trust, and computational efficiency, among others).
+  &lt;/p&gt;
+  
+  &lt;h5&gt;
+    The Safest Data is No Data
+  &lt;/h5&gt;
+  
+  &lt;p&gt;
+    Like the fastest code is no code at all, if you don&amp;#8217;t store data you don&amp;#8217;t absolutely, positively have to store, don&amp;#8217;t even bother with it. What you don&amp;#8217;t have can&amp;#8217;t be compromised.
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Conclusion
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    This article is nothing but a superficial introduction to encryption in Ruby. There are dozens of standards and regulations that govern this vast topic. However, I have tried my best to give you, fellow Rubyists, enough knowledge about this topic for you to know which questions you should ask, which is, in the end, much more important than the code itself. Now go forth, and hash an encrypt and decrypt, and, above all, have fun doing it!
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    &lt;em&gt;I hope you found this article valuable. Feel free to ask questions and give feedback in the comments section of this post. Thanks!&lt;/em&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Throw, Catch, Raise, Rescue- I&#39;m so confused!</title>
+      <link>http://rubylearning.com/blog/2011/07/12/throw-catch-raise-rescue--im-so-confused/</link>
+      <pubDate>Tue, 12 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/07/12/throw-catch-raise-rescue--im-so-confused/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    Throw, Catch, Raise, Rescue&amp;#8230; I&amp;#8217;m so confused!
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    This guest post is by &lt;strong&gt;Avdi Grimm&lt;/strong&gt;, who is the author of &amp;#8220;&lt;strong&gt;&lt;a href=&#34;http://exceptionalruby.com/&#34;&gt;Exceptional Ruby&lt;/a&gt;&lt;/strong&gt;&amp;#8220;, an in-depth guide to exceptions and failure handling in Ruby. &lt;em&gt;RubyLearning readers can get a $3 discount on the book by using code &lt;strong&gt;RUBYLEARN&lt;/strong&gt;&lt;/em&gt;. Avdi has been hacking Ruby code for 10 years, and is still loving it. He is chief aeronaut at &lt;a href=&#34;http://shiprise.net/&#34;&gt;ShipRise&lt;/a&gt;, a consultancy specializing in sustainable software development and in helping geographically dispersed teams work more effectively. He lives in southern Pennsylvania with his wife and four children, and in his copious spare time blogs and podcasts at &lt;a href=&#34;http://avdi.org/devblog/&#34;&gt;Virtuous Code&lt;/a&gt; and &lt;a href=&#34;http://wideteams.com/&#34;&gt;WideTeams.com&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Old keywords, new meanings
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/avdig.jpg&#34; alt=&#34;Avdi Grimm&#34; /&gt; &lt;span class=&#34;drop_cap&#34;&gt;O&lt;/span&gt;ne of the aspects of Ruby that often confuses newbies coming from other languages is the fact that it has both &lt;code&gt;throw&lt;/code&gt; and &lt;code&gt;catch&lt;/code&gt; and &lt;code&gt;raise&lt;/code&gt; and &lt;code&gt;rescue&lt;/code&gt; statements. In this article I&amp;#8217;ll try and clear up that confusion.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    If you’re familiar with Java, C#, PHP, or C++, you are probably used to using &lt;code&gt;try&lt;/code&gt;, &lt;code&gt;catch&lt;/code&gt;, and &lt;code&gt;throw&lt;/code&gt; for exception handling. You use &lt;code&gt;try&lt;/code&gt; to delineate the block in which you expect an exception may occur. You use &lt;code&gt;catch&lt;/code&gt; to specify what to do when an exception is raised. And you use &lt;code&gt;throw&lt;/code&gt; to raise an exception yourself.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    You&amp;#8217;ve probably noticed that Ruby has &lt;code&gt;throw&lt;/code&gt; and &lt;code&gt;catch&lt;/code&gt;&amp;#8230; but they don&amp;#8217;t seem to be used the way you&amp;#8217;re used to in other languages! And there are also these &amp;#8220;&lt;code&gt;begin&lt;/code&gt;&amp;#8220;, &amp;#8220;&lt;code&gt;raise&lt;/code&gt;&amp;#8221; and &amp;#8220;&lt;code&gt;rescue&lt;/code&gt;&amp;#8221; statements that seem to do the same thing. What&amp;#8217;s going on here?
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Getting out fast
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    If you’ve done much programming in another language like Java, you may have noticed that exceptions are sometimes used for non-error situations. &amp;#8220;exceptions for control flow&amp;#8221; is a technique developers sometimes turn to when they want an &amp;#8220;early escape&amp;#8221; from a particular path of execution.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    For instance, imagine some code that scrapes a series of web pages, looking for one that contains a particular text string.
+  &lt;/p&gt;
+  
+  &lt;pre&gt;def show_rank_for(target, query)
+  rank = nil
+  each_google_result_page(query, 6) do |page, page_index|
+    each_google_result(page) do |result, result_index|
+      if result.text.include?(target)
+        rank = (page_index * 10) + result_index
+      end
+    end
+  end
+  puts &#34;#{target} is ranked #{rank} for search &#39;#{query}&#39;&#34;
+end
+
+show_rank_for(&#34;avdi.org&#34;, &#34;nonesuch&#34;)&lt;/pre&gt;
+  
+  &lt;p&gt;
+    (For brevity, I&amp;#8217;ve excluded the definitions of the &lt;code&gt;#each_google_result_page&lt;/code&gt; and &lt;code&gt;#each_google_result&lt;/code&gt; methods. You can view the full source at &lt;a href=&#34;https://gist.github.com/1075364&#34;&gt;https://gist.github.com/1075364&lt;/a&gt;.)
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Fetching pages and parsing them is time-consuming. What if the target text is found on page 2? This code will keep right on going until it hits the max number of result pages (here specified as 6).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    It would be nice if we could end the search as soon as we find a matching result. We might think to use the &lt;code&gt;break&lt;/code&gt; keyword, which &amp;#8220;breaks out&amp;#8221; of a loop&amp;#8217;s execution. But &lt;code&gt;break&lt;/code&gt; only breaks out of the immediately surrounding loop, and here we have a loop inside another loop.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    This is a situation where we might come up with the idea of using an exception to break out of the two levels of looping. But exceptions are supposed to be for unexpected failures, and finding the results we were looking for is neither unexpected, nor a failure! What to do?
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Throwing Ruby a fast ball
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Ruby has given us a tool for just this situation. Unlike in other languages, Ruby&amp;#8217;s &lt;code&gt;throw&lt;/code&gt; and &lt;code&gt;catch&lt;/code&gt; are not used for exceptions. Instead, they provide a way to terminate execution early when no further work is needed. Their behavior is very similar to that of exceptions, but they are intended for very different situations.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Let&amp;#8217;s look at how we can use &lt;code&gt;catch&lt;/code&gt; and &lt;code&gt;throw&lt;/code&gt; to end the web search as soon as we find a result:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;def show_rank_for(target, query)
+  rank = catch(:rank) {
+    each_google_result_page(query, 6) do |page, page_index|
+      each_google_result(page) do |result, result_index|
+        if result.text.include?(target)
+          throw :rank, (page_index * 10) + result_index
+        end
+      end
+    end
+    &#34;&amp;lt;not found&amp;gt;&#34;
+  }
+  puts &#34;#{target} is ranked #{rank} for search &#39;#{query}&#39;&#34;
+end&lt;/pre&gt;
+  
+  &lt;p&gt;
+    This time we&amp;#8217;ve wrapped the whole search in a &lt;code&gt;catch{...}&lt;/code&gt; block. We tell the &lt;code&gt;catch&lt;/code&gt; block what symbol to catch, in this case &lt;code&gt;:rank&lt;/code&gt;. When the result we are looking for is found, instead of setting a variable we throw the symbol &lt;code&gt;:rank&lt;/code&gt;. We also give &lt;code&gt;throw&lt;/code&gt; a second parameter, the search result &lt;code&gt;:rank&lt;/code&gt;. This second parameter is the throw&amp;#8217;s &amp;#8220;payload&amp;#8221;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The &lt;code&gt;throw&lt;/code&gt; &amp;#8220;throws&amp;#8221; execution up to the &lt;code&gt;catch&lt;/code&gt; block, breaking out of all the intervening blocks and method calls. Because we gave the &lt;code&gt;throw&lt;/code&gt; and &lt;code&gt;catch&lt;/code&gt; the same symbol (&lt;code&gt;:rank&lt;/code&gt;), the &lt;code&gt;catch&lt;/code&gt; block is matched to the &lt;code&gt;throw&lt;/code&gt; and the thrown symbol is &amp;#8220;caught&amp;#8221;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The rank value that we gave as a payload to throw now becomes the return value of the &lt;code&gt;catch&lt;/code&gt; block. We assign the result value to a variable, and proceed normally.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    What if the search string is never found, and &lt;code&gt;throw&lt;/code&gt; is never called? In that case, the loops will finish, and the return value of the &lt;code&gt;catch&lt;/code&gt; block will be the value of the last statement in the block. We provide a default value (&amp;#8220;&lt;not found&gt;&amp;#8221;) for just this possibility.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    catch and throw in the real world
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    The &lt;a href=&#34;http://rack.rubyforge.org/&#34;&gt;Rack&lt;/a&gt; and &lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;Sinatra&lt;/a&gt; projects provide a great example of how &lt;code&gt;throw&lt;/code&gt; and &lt;code&gt;catch&lt;/code&gt; can be used to terminate execution early. Sinatra&amp;#8217;s &lt;code&gt;#last_modified&lt;/code&gt; method looks at the HTTP headers supplied by the client and, if they indicate the client already has the most recent version of the page, immediately ends the action and returns a &amp;#8220;Not modified&amp;#8221; code. Any expensive processing that would have been incurred by executing the full action is avoided.
+  &lt;/p&gt;
+  
+  &lt;pre&gt;get &#39;/foo&#39; do
+  last_modified some_timestamp
+  # ...expensive GET logic...
+end&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Here&amp;#8217;s a simplified version of the &lt;code&gt;#last_modified&lt;/code&gt; implementation. Note that it throws the &lt;code&gt;:halt&lt;/code&gt; symbol. Rack catches this symbol, and uses the supplied response to immediately reply to the HTTP client. This works no matter how many levels deep in method calls the &lt;code&gt;throw&lt;/code&gt; was invoked.
+  &lt;/p&gt;
+  
+  &lt;pre&gt;def last_modified(time)
+  response[&#39;Last-Modified&#39;] = time
+  if request.env[&#39;HTTP_IF_MODIFIED_SINCE&#39;] &amp;gt; time
+    throw :halt, response
+  end
+end&lt;/pre&gt;
+  
+  &lt;p&gt;
+    The way Rack uses &lt;code&gt;catch/throw&lt;/code&gt; illustrates an important point: the &lt;code&gt;throw&lt;/code&gt; call does not have to be in the same method as the &lt;code&gt;catch&lt;/code&gt; block.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Conclusion
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Ruby is a language that tries to anticipate your needs as a programmer. One common need is a way to terminate execution early when we find there is no further work to be done. Unlike in some languages, where we would have to either abuse the exception mechanism or use multiple loop breaks and method returns to achieve the same effect, Ruby provides us with the &lt;code&gt;catch&lt;/code&gt; and &lt;code&gt;throw&lt;/code&gt; mechanism to quickly and cleanly make an early escape. This leaves &lt;code&gt;begin/raise/rescue&lt;/code&gt; free to be used for errors, and nothing else.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    &lt;em&gt;I hope you found this article valuable. Feel free to ask questions and give feedback in the comments section of this post. Thanks!&lt;/em&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How do I smell Ruby code?</title>
+      <link>http://rubylearning.com/blog/2011/03/01/how-do-i-smell-ruby-code/</link>
+      <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/03/01/how-do-i-smell-ruby-code/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    How do I smell Ruby code?
+  &lt;/h3&gt;
+  
+  &lt;h4&gt;
+    Understanding the worst of code
+  &lt;/h4&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    This guest post is by &lt;strong&gt;&lt;a href=&#34;http://www.linkedin.com/in/timonv&#34;&gt;Timon Vonk&lt;/a&gt;&lt;/strong&gt;, who is a self-employed Ruby enthusiast and standard nerd with an edge. He has worked with Ruby for several years, but is well-known with many other (programming) languages. Also likes martial arts, loud music, varying quantities of booze and a good scotch.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Introduction
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/TimonVonk.jpg&#34; alt=&#34;Timon Vonk&#34; title=&#34;Timon Vonk&#34; /&gt; &lt;span class=&#34;drop_cap&#34;&gt;W&lt;/span&gt;riting bad code isn&amp;#8217;t a bad thing. Not understanding the problem you&amp;#8217;re trying to solve any better after having written that piece of code is. Fortunately, that happens far less often. In this article I hope to give a better understanding of Ruby code by going into Ruby specific code smells. We&amp;#8217;ll start with some simple examples that are common in all programming languages – they just need to be covered – and then dive into some Ruby specific smells.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    So what is that smell?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    The term was coined in the 90s by Kent Beck on WardsWiki (one of the first wikis around) and has been popularized ever since. A code smell is a hunch, not necessarily measurable, that the code you&amp;#8217;re looking at can be improved in some way. This process of improvement is called refactoring, as you might know. And as far as refactoring is concerned, there is no time like now, don&amp;#8217;t leave open ends; it’s a bad habit.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    The Basics
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Let us give a quick rundown on the more basic code smells:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      Duplicated code, if you see any, is almost always a bad thing. We&amp;#8217;ll get into this part a little later.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Multiple method / class responsibility is always a bad thing. Try factoring out your solution in multiple methods. It will make you&amp;#8217;re code more readable and a lot better maintainable. Large methods and classes are a dead giveaway for this as well.
+    &lt;/li&gt;
+    &lt;li&gt;
+      A class should never use more methods from other classes than from itself. Why is it even there?
+    &lt;/li&gt;
+    &lt;li&gt;
+      A child class should always honor the contract of the parent class, i.e., be a kind of that class. Check out the Liskov substitution principle for more information.
+    &lt;/li&gt;
+    &lt;li&gt;
+      If a class hardly does anything, why is it there?
+    &lt;/li&gt;
+    &lt;li&gt;
+      Does your solution have a more simple approach? Complexity can be a reason of pride for some – if not most – coders, but too much makes it terrible to understand, especially later on.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Non-descriptive or too long identifiers or names are a good sign that either you can&amp;#8217;t define the responsibility of the code, or you have a hard time with naming conventions.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    Simple, easy smells should give a good start on fine tuning your code. However, every language has its own specific quirks. Let us take a look at Ruby.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Calling eval on user input or unchecked code
+  &lt;/h3&gt;
+  
+  &lt;pre&gt;input = &#34;&#39;rm -rf /&#39;&#34;
+klass =  eval input
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Of course this is bad. I hope it doesn&amp;#8217;t need any explanation. Try not to use &lt;tt&gt;eval&lt;/tt&gt;, but &lt;tt&gt;instance_eval&lt;/tt&gt; instead. And if you use either, make sure that the code you eval is secure &amp;#8212; never eval user input directly.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Nested blocks without added value
+  &lt;/h3&gt;
+  
+  &lt;pre&gt;array = [[&#34;banana&#34;, &#34;apple&#34;],[&#34;pineapple&#34;,&#34;beer&#34;]]
+# And I want to call reverse on each element, I could do
+array.collect { |sub_array| sub_array.collect { |subsub_array| subsub_array.reverse }}
+# But this is much nicer
+array.collect { |sa| sa.collect(&amp;:reverse) }
+# =&gt; [[&#34;ananab&#34;, &#34;elppa&#34;],[&#34;elppaenip&#34;,&#34;reeb&#34;]]
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    The reason is simple enough. Your code is more readable, and that&amp;#8217;s what we all want. So what about nested multi-line blocks? Check it out, big chance your solution is the root of this particular evil.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Code similarity
+  &lt;/h3&gt;
+  
+  &lt;pre&gt;def post_to_site(data)
+  url = build_url(data)
+  response = RestClient.post(url)
+end
+
+def get_from_site(data)
+  url = build_url(data)
+  response = RestClient.get(url)
+end
+
+def delete_from_site(data)
+  url = build_url(data)
+  response = RestClient.delete(url)
+end
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    You can easily solve this lump of code by introducing some meta-programming:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;def  response_from_site(data, method = :get)
+  url = build_url(data)
+  response = RestClient.public_send(method, url)
+end
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    This gives you a clean, nicer method. And it&amp;#8217;s readable too! Isn&amp;#8217;t that nice?
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Long, repetitive and cluttering statements
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Often enough you have similar parameters that call similar methods. For instance, you might need to check on some parameter and call the associated method. Or even simpler, you might need to check if a certain user input matches your criteria. I prefer a simple rule of thumb, if you&amp;#8217;re working with any sort of collection or set, the functional approach is always cleaner, more simple and most definitely faster. The point is not to dictate when and whether you should prefer the functional approach, just that you understand that long lines of repetitive clutter screw up your code.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Take the following example:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;input = &#34;english&#34;
+case input
+when &#34;english&#34;
+  puts &#34;English, ***, do you speak it?&#34;
+when &#34;french&#34;
+  puts &#34;Baguette!&#34;
+when &#34;dutch&#34;
+  puts &#34;I only smoke *** when it&#39;s free.&#34;
+else
+  puts &#34;Dunno&#34;
+end
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    You can imagine in complex applications that this goes on and on. I actually see it happen a lot and it’s not necessarily bad. However, it’s hard to maintain and in more complex situations it can get really hard to read through. I&amp;#8217;ve seen loads of Rails applications where they use just this to check on a particular parameter. Really ugly!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Since it seems like you&amp;#8217;re white listing, one way to solve it would be to use a hash with input:result.
+  &lt;/p&gt;
+  
+  &lt;pre&gt;whitelist = {
+  &#34;english&#34; =&amp;gt; &#34;English, ***, do you speak it?&#34;,
+  &#34;french&#34; =&amp;gt; &#34;Baguette!&#34;,
+  &#34;dutch&#34; =&amp;gt; &#34;I only smoke *** when it&#39;s free.&#34;,
+  &#34;other&#34; =&amp;gt; &#34;Dunno.&#34;
+}
+
+if whitelist.has_key?(input)
+  puts whitelist[input]
+else
+  puts whitelist[other]
+end
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    It&amp;#8217;s always important to be proud of the code you write. It really helps if it doesn&amp;#8217;t smell. And I hope this article helped you do that.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;em&gt;Feel free to ask questions and give feedback in the comments section of this post. Thanks!&lt;/em&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;You might want to read a related article&lt;/b&gt;:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2010/11/08/how-does-your-code-smell/&#34;&gt;How does your code smell?&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interview: Michael Hartl, author of the Ruby on Rails Tutorial (railstutorial.org)</title>
+      <link>http://rubylearning.com/blog/2011/02/18/interview-michael-hartl-author-of-the-ruby-on-rails-tutorial-railstutorial.org/</link>
+      <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/02/18/interview-michael-hartl-author-of-the-ruby-on-rails-tutorial-railstutorial.org/</guid>
+      <description>&lt;div&gt;
+  &lt;p class=&#34;alert&#34;&gt;
+    RubyLearning participants talk to Michael Hartl the author of the Ruby on Rails Tutorial (&lt;a href=&#34;http://ruby.railstutorial.org/&#34;&gt;railstutorial.org&lt;/a&gt;).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Michael Hartl&#34; src=&#34;http://rubylearning.com/images/headshot_smaller.jpg&#34; alt=&#34;Michael Hartl&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish Talim&gt;&gt;&lt;/strong&gt; Welcome Michael and thanks for taking out time for RubyLearning. For the benefit of the readers of this blog could you please introduce yourself and tell us what you do for a living?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; Happy to be here. I&amp;#8217;m a programmer, educator, and entrepreneur. Recently, I&amp;#8217;ve been focused on making educational products and selling them online. I&amp;#8217;ve been doing web development since around 2001 and Rails development since 2005. I also have a background in academic teaching and research, principally in theoretical and computational physics.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    My current products are the Ruby on Rails Tutorial book and the Ruby on Rails Tutorial screencasts. The &lt;a href=&#34;http://railstutorial.org/ruby-on-rails-tutorial-book&#34;&gt;book is available for free online&lt;/a&gt;, for &lt;a href=&#34;http://railstutorial.org/&#34;&gt;buy as a PDF&lt;/a&gt;, and as a &lt;a href=&#34;http://amzn.to/RTbook&#34;&gt;print edition&lt;/a&gt;. The &lt;a href=&#34;http://railstutorial.org/&#34;&gt;screencasts are available for purchase&lt;/a&gt; from the Rails Tutorial website or (if you have a subscription) from Safari Books Online. I especially recommend the &lt;a href=&#34;http://railstutorial.org/&#34;&gt;Rails Tutorial PDF/screencast bundle&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Ricardo Astorquia, Spain&gt;&gt;&lt;/strong&gt; How do you get the right balance for teaching in a book for those folks that may have different backgrounds, where more details are necessary while another reader may need just a little more guidance than just a reference book?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; It&amp;#8217;s important to realize that advanced readers rarely mind a little basic material, especially if including it is a core part of your style, and that basic material helps bring the newbies up to speed. One inspiration is The Economist magazine&amp;#8217;s house style, which usually includes some information about a company or person, no matter how famous; for example, they might write &amp;#8220;General Electric, an American conglomerate&amp;#8221; or &amp;#8220;Steve Jobs, boss of Apple&amp;#8221;. I try always to include enough detail that even a beginner has a place to start if they need further information.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Vince Vincent, USA&gt;&gt;&lt;/strong&gt; Do you intend to create a sequel as new Rails versions are released? If not, what is the speediest way for a Rails developer to progress from here (aside from reading the API which many suggest)?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I plan to keep the &lt;a href=&#34;http://railstutorial.org/&#34;&gt;Ruby on Rails Tutorial&lt;/a&gt; up-to-date. The book is easy to edit, but the screencasts are trickier, so for a while I might only supplement the screencasts. Eventually, though, I anticipate having to re-cut the entire series once Rails has changed enough to justify the effort.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Imhotep Albasiel, USA&gt;&gt;&lt;/strong&gt; Would you be writing about Rails development on Windows in the future?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I am hoping to cover Rails development on Windows in future editions. Part of the issue has been the lack of a standard Windows installation method, but the new &lt;a href=&#34;http://railsinstaller.org/&#34;&gt;Rails Installer&lt;/a&gt; aims to change that, so I&amp;#8217;m optimistic that Rails development will start to take off on Windows.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Samnang Chhun, Cambodia&gt;&gt;&lt;/strong&gt; Is it important to understand Rack when learning Rails?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; Rack is a Ruby library that provides a standard interface between web frameworks and web servers. Most Ruby web frameworks, including Rails and Sinatra, use Rack, and it is certainly important in some contexts, but I think that Rack can be skipped when first learning Rails. It&amp;#8217;s really more of an intermediate-to-advanced topic.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Samnang Chhun, Cambodia&gt;&gt;&lt;/strong&gt; What should I do next to become a Rails guru?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; There are lots of great Rails resources out there, and I particularly recommend &lt;a href=&#34;http://railscasts.com/&#34;&gt;Railscasts&lt;/a&gt; by Ryan Bates. Of course, there&amp;#8217;s no substitute for writing your own application, so I suggest picking a problem that interests you and plunging ahead.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Victor Goff, USA&gt;&gt;&lt;/strong&gt; On January 25th, you were notified that your RailsTutorial was banned by a certain country. Have you cashed in on the notoriety yet!?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I&amp;#8217;m not sure being blocked by the Great Firewall of China is a big enough story to earn me much notoriety. It is weird, though, and disappointing. I guess it means I&amp;#8217;ve made the big time?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Victor Goff, USA&gt;&gt;&lt;/strong&gt; How do you manage having a publication that can be broken by updates in the gems that you use, either in the production directly, or in testing?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; This is a big lesson I learned from my first Rails book, called RailsSpace. In that book, my coauthor and I made the mistake of not using specific version numbers for the gems, but the Ruby on Rails 3 Tutorial book avoids this error. Every one of the gems in the book is tied to a particular version number, so the tutorial is (virtually) guaranteed to work as advertised. Of course, I do occasionally update the book with new gem versions, but I always test the new gems to make sure they work. (The sample application&amp;#8217;s test suite proves invaluable in this context.)
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Robin Gowin, USA&gt;&gt;&lt;/strong&gt; Where do you see Rails going, and what do you think of the Rails &amp;#8211; Merb merger?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I think Rails is off to the races now, especially with the release of Rails 3. The Rails core team and the Merb developers deserve immense credit for setting aside their differences and joining forces to make Rails 3 happen. Given how modular the core of Rails is now, I expect all kinds of great innovation in the next few years.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Mohnish Jadwani, India&gt;&gt;&lt;/strong&gt; If developers want to migrate from an application built on Rails 2 to an application built on Rails 3, what are the challenges one would face for this migration (I understand this would be an app specific question, I only want to know in generic terms). How best can this be dealt?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; Since the Rails Tutorial is aimed mainly at beginners, I didn&amp;#8217;t feel that covering the upgrade from Rails 2 to Rails 3 fit with the core philosophy of the book. Moreover, there are already lots of resources to help make the Rails 2.x to 3.x upgrade, including an e-book dedicated to this subject (Jeremy McAnally&amp;#8217;s &amp;#8220;&lt;a href=&#34;http://www.railsupgradehandbook.com/&#34;&gt;Rails 3 Upgrade Handbook&lt;/a&gt;&amp;#8220;).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Zachary S. Scott, USA&gt;&gt;&lt;/strong&gt; Do you have plans for any other Ruby (non-Rails related) project?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I am contemplating making a Ruby tutorial at some point, but no promises! I&amp;#8217;m also planning to open-source PolyTeXnic, the Ruby program I use to make the HTML and PDF versions of the book.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Zachary S. Scott, USA&gt;&gt;&lt;/strong&gt; What do you think of Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I&amp;#8217;ve only dabbled with Sinatra, but I&amp;#8217;d like to know it better. It seems very clean and elegant.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish Talim&gt;&gt;&lt;/strong&gt; Anything else you would like to add?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; Web development is hard, so don&amp;#8217;t get discouraged if you run into difficulties. All web developers run into difficulties all the time. With practice, you&amp;#8217;ll get better at powering through the problems &amp;mdash and you&amp;#8217;ll also learn that sometimes you have to give up and hack around them. &lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:-)&#34; class=&#34;wp-smiley&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Thank you Michael. In case you have any queries and/or questions, please post your questions here (as comments to this blog post) and Michael would be glad to answer.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How do I make a command-line tool in Ruby?</title>
+      <link>http://rubylearning.com/blog/2011/01/03/how-do-i-make-a-command-line-tool-in-ruby/</link>
+      <pubDate>Mon, 03 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/01/03/how-do-i-make-a-command-line-tool-in-ruby/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    How do I make a command-line tool in Ruby?
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    This guest post is by &lt;strong&gt;Allen Wei&lt;/strong&gt;, who works as Senior Ruby On Rails Engineer for &lt;a href=&#34;http://www.seravia.com/&#34;&gt;Seravia&lt;/a&gt;, in Beijing. He is very enthusiastic about Ruby. He started using Ruby after several years of using Java, .NET and never came back to them. When he has some spare time, he develops &lt;a href=&#34;https://github.com/allenwei&#34;&gt;Ruby gems&lt;/a&gt;, holds tech sessions, and shares his experience in his &lt;a href=&#34;http://www.allenwei.cn/&#34;&gt;blog&lt;/a&gt;. He is also a fan of BDD and TDD, using them in all his open source projects. He gains a lot from the Ruby community and hopes to give back.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Introduction
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/allen_125x125.jpg&#34; alt=&#34;Allen Wei&#34; /&gt; &lt;span class=&#34;drop_cap&#34;&gt;R&lt;/span&gt;uby, as a dynamic language, is always used for quick processing command-line tool for its simplicity and productivity.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    This article talks about three ways to write a command-line tool.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Before we start, there are a few things you need to know:
+  &lt;/p&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      Put line &lt;code&gt;#!/usr/bin/env ruby&lt;/code&gt; into the first line of your command-line file which will tell the shell to execute your file using Ruby (&lt;code&gt;#!/usr/bin/env ruby&lt;/code&gt; is similar to simply calling &lt;code&gt;ruby&lt;/code&gt; from the command line, so the same rules apply. Basically, the individual entries in the &lt;code&gt;$PATH&lt;/code&gt; environment variable are checked in order, and the &lt;code&gt;ruby&lt;/code&gt; that is found first is used.).
+    &lt;/li&gt;
+    &lt;li&gt;
+      Make sure your file is executable, run &lt;code&gt;chmod u+x FILE_PATH&lt;/code&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Print help text and return right exit code (0 means success, other number means fail) if the user uses it in the wrong way.
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;p&gt;
+    Note that other people will not be sure how to execute your command-line tool.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Conventions
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    I’ll use three definitions:
+  &lt;/p&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      Command-line file name
+    &lt;/li&gt;
+    &lt;li&gt;
+      Command
+    &lt;/li&gt;
+    &lt;li&gt;
+      Option
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;p&gt;
+    For example there is a command: &amp;#8216;server start -e development&amp;#8217;
+  &lt;/p&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      Command-line file name is &amp;#8216;server&amp;#8217;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Command is the first argument &amp;#8216;start&amp;#8217;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Option is the reset of argument pair &amp;#8216;-e development&amp;#8217;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;h3&gt;
+    Let’s go
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    We shall start from a simple example: write a command-line tool to start, stop and restart the server.
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Without any lib
+  &lt;/h4&gt;
+  
+  &lt;pre&gt;# server.rb
+case ARGV[0]
+when &#34;start&#34;
+  STDOUT.puts &#34;called start&#34;
+when &#34;stop&#34;
+  STDOUT.puts &#34;called stop&#34;
+when &#34;restart&#34;
+  STDOUT.puts &#34;called restart&#34;
+else
+  STDOUT.puts &amp;lt;&amp;lt;-EOF
+Please provide command name
+
+Usage:
+  server start
+  server stop
+  server restart
+EOF
+end
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    &lt;span class=&#34;caps&#34;&gt;ARGV, &lt;/span&gt;all arguments will be stored as an array in this variable.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    What if you need to pass some options?
+  &lt;/p&gt;
+  
+  &lt;pre&gt;# server.rb
+def parse_options
+  options = {}
+  case ARGV[1]
+  when &#34;-e&#34;
+    options[:e] = ARGV[2]
+  when &#34;-d&#34;
+    options[:d] = ARGV[2]
+  end
+  options
+end
+
+case ARGV[0]
+when &#34;start&#34;
+  STDOUT.puts &#34;start on #{parse_options.inspect}&#34;
+when &#34;stop&#34;
+  STDOUT.puts &#34;stop on #{parse_options.inspect}&#34;
+when &#34;restart&#34;
+  STDOUT.puts &#34;restart on #{parse_options.inspect}&#34;
+else
+  STDOUT.puts &amp;lt;&amp;lt;-EOF
+Please provide command name
+
+Usage:
+  server start
+  server stop
+  server restart
+
+  options:
+    -e ENVIRONMENT. Default: development
+    -d DEAMON, true or false. Default: true
+EOF
+end
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    This code is simple but it has some disadvantages:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      Writing option parser and help text in different places will bring you troubles when they are not matched.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Using array index to get options from &lt;span class=&#34;caps&#34;&gt;ARGV&lt;/span&gt;. These magic numbers will create a maintenance problem.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;h4&gt;
+    Using OptionParser
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#34;http://ruby-doc.org/stdlib/libdoc/optparse/rdoc/classes/OptionParser.html&#34;&gt;OptionParser&lt;/a&gt; is a built-in Ruby lib to help you parse arguments.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    We can refactor our code like this:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;require &#39;optparse&#39;
+
+options = {}
+
+opt_parser = OptionParser.new do |opt|
+  opt.banner = &#34;Usage: opt_parser COMMAND [OPTIONS]&#34;
+  opt.separator  &#34;&#34;
+  opt.separator  &#34;Commands&#34;
+  opt.separator  &#34;     start: start server&#34;
+  opt.separator  &#34;     stop: stop server&#34;
+  opt.separator  &#34;     restart: restart server&#34;
+  opt.separator  &#34;&#34;
+  opt.separator  &#34;Options&#34;
+
+  opt.on(&#34;-e&#34;,&#34;--environment ENVIRONMENT&#34;,&#34;which environment you want server run&#34;) do |environment|
+    options[:environment] = environment
+  end
+
+  opt.on(&#34;-d&#34;,&#34;--daemon&#34;,&#34;runing on daemon mode?&#34;) do
+    options[:daemon] = true
+  end
+
+  opt.on(&#34;-h&#34;,&#34;--help&#34;,&#34;help&#34;) do
+    puts opt_parser
+  end
+end
+
+opt_parser.parse!
+
+case ARGV[0]
+when &#34;start&#34;
+  puts &#34;call start on options #{options.inspect}&#34;
+when &#34;stop&#34;
+  puts &#34;call stop on options #{options.inspect}&#34;
+when &#34;restart&#34;
+  puts &#34;call restart on options #{options.inspect}&#34;
+else
+  puts opt_parser
+end
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Try to execute this file without arguments; you&amp;#8217;ll find it prints a very nice help text.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;code&gt;opt_parser.parse!&lt;/code&gt; is the method extract options from &lt;span class=&#34;caps&#34;&gt;ARGV, &lt;/span&gt;extracted value will be deleted from &lt;span class=&#34;caps&#34;&gt;ARGV.&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;code&gt;OptionParser&lt;/code&gt; is better than that.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    You can define options value type, then &lt;code&gt;OptionParser&lt;/code&gt; will convert value to the type you defined, like this:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;opt.on(&#34;-e&#34;,&#34;--environment ENVIRONMENT&#34;,Numeric,
+       &#34;which environment you want server run&#34;) do |environment|
+  options[:environment] = environment
+       end
+opt.on(&#34;--delay N&#34;, Float, &#34;Delay N seconds before executing&#34;) do |n|
+  options[:delay] = n
+end
+opt.on(&#34;-j x,y,z&#34;,&#34;--jurisdictions x,y,z&#34;, Array,
+       &#34;which jurisdiction will start&#34;) do |jurisdictions|
+  options[:jurisdictions] = jurisdictions
+       end
+server_list = %w[a b c]
+opt.on(&#34;-s SERVERS&#34;,&#34;--servers SERVERS&#34;, server_list,
+       &#34;which server will start between #{server_list.join(&#39;,&#39;)}&#34;) do |servers|
+  options[:servers] = servers
+       end
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    You can mark whether the value of the option is mandatory.
+  &lt;/p&gt;
+  
+  &lt;pre&gt;# Mandatory argument.
+opts.on(&#34;-r&#34;, &#34;--require LIBRARY&#34;,
+        &#34;Require the LIBRARY before executing your script&#34;) do |lib|
+  options.library &amp;lt;&amp;lt; lib
+        end
+
+# Optional argument; multi-line description.
+opts.on(&#34;-i&#34;, &#34;--inplace [EXTENSION]&#34;,
+        &#34;Edit ARGV files in place&#34;,
+        &#34;  (make backup if EXTENSION supplied)&#34;) do |ext|
+  options.inplace = true
+  options.extension = ext || &#39;&#39;
+  options.extension.sub!(/A.?(?=.)/, &#34;.&#34;)  # Ensure extension begins with dot.
+        end
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    For more details your can see &lt;a href=&#34;http://ruby.about.com/od/advancedruby/a/optionparser.htm&#34;&gt;this article&lt;/a&gt; and refer the &lt;a href=&#34;http://ruby-doc.org/stdlib/libdoc/optparse/rdoc/classes/OptionParser.html&#34;&gt;Ruby rdoc&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Benefit of &lt;code&gt;OptionParser&lt;/code&gt; is: we don’t need to use array index to retrieve options and we can write help text along with option definition.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Disadvantage of &lt;code&gt;OptionParser&lt;/code&gt; is: since different commands need using the same option parser, you cannot define different option parsers for different commands. To solve this problem, you can resort to &lt;code&gt;Thor&lt;/code&gt;.
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Using Thor
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    As you know &lt;a href=&#34;https://www.github.com/wycats/thor&#34;&gt;Thor&lt;/a&gt; is a replacement of Rake. Let’s see how we use &lt;code&gt;Thor&lt;/code&gt; to refactor our command-line tool.
+  &lt;/p&gt;
+  
+  &lt;pre&gt;require &#39;rubygems&#39;
+require &#39;thor&#39;
+
+class ThorExample &amp;lt; Thor
+  desc &#34;start&#34;, &#34;start server&#34;
+  method_option :environment,:default =&amp;gt; &#34;development&#34;, :aliases =&amp;gt; &#34;-e&#34;,
+:desc =&amp;gt; &#34;which environment you want server run.&#34;
+  method_option :daemon, :type =&amp;gt; :boolean, :default =&amp;gt; false, :aliases =&amp;gt; &#34;-d&#34;,
+:desc =&amp;gt; &#34;running on daemon mode?&#34;
+  def start
+    puts &#34;start #{options.inspect}&#34;
+  end
+
+  desc &#34;stop&#34; ,&#34;stop server&#34;
+  method_option :delay,  :default =&amp;gt; 0, :aliases =&amp;gt; &#34;-w&#34;,
+:desc =&amp;gt; &#34;wait server finish it&#39;s job&#34;
+  def stop
+    puts &#34;stop&#34;
+  end
+end
+
+ThorExample.start
+&lt;/pre&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;code&gt;desc&lt;/code&gt; defines command name and long description.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;code&gt;method_option&lt;/code&gt; defines option parser for this command.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;code&gt;ThorExample.start&lt;/code&gt; is a method to start parse argument.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    Execute it without argument, the output is:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;Tasks:
+  thor_example help [TASK]  # Describe available tasks or one specific task
+  thor_example start        # start server
+  thor_example stop         # stop server
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Execute it with argument &lt;code&gt;help start&lt;/code&gt;, you’ll get help text for command start:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;Usage:
+  thor_example start
+
+Options:
+  -e, [--environment=ENVIRONMENT]  # which environment you want server run.
+                                   # Default: development
+  -d, [--daemon]                   # running on daemon mode?
+
+start server
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    As you can see, it’s very clean and easy to write.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    For a more detailed usage, you can visit Thor &lt;a href=&#34;https://github.com/wycats/thor&#34;&gt;github page&lt;/a&gt; and its &lt;a href=&#34;http://rdoc.info/github/wycats/thor&#34;&gt;rdoc&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Summary
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Of course there are more ways to write a command-line tool. Choose what best fits your need and not the most powerful or latest one.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    All the sample code is on github &lt;a href=&#34;https://github.com/allenwei/ruby_command_line_sample&#34;&gt;https://github.com/allenwei/ruby_command_line_sample&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;em&gt;I hope you found this article valuable. Feel free to ask questions and give feedback in the comments section of this post. Thanks!&lt;/em&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;em&gt;Do also read&lt;/em&gt; this awesome Guest Post:&lt;/strong&gt;
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2010/12/21/being-awesome-with-the-mongodb-ruby-driver/&#34;&gt;Being Awesome with the MongoDB Ruby Driver&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Being Awesome with the MongoDB Ruby Driver</title>
+      <link>http://rubylearning.com/blog/2010/12/21/being-awesome-with-the-mongodb-ruby-driver/</link>
+      <pubDate>Tue, 21 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/12/21/being-awesome-with-the-mongodb-ruby-driver/</guid>
+      <description>
+
+&lt;p&gt;This guest post is by &lt;strong&gt;Ethan Gunderson&lt;/strong&gt;, who is a software developer
+living in Chicago. By day he is a developer at
+&lt;a href=&#34;http://obtiva.com/&#34;&gt;Obtiva&lt;/a&gt;, where he helps clients deliver projects
+and be more awesome. By night, he is part of the
+&lt;a href=&#34;http://gathers.us/&#34;&gt;gathers.us&lt;/a&gt; team, a co-organizer of
+&lt;a href=&#34;http://chicagodb.gathers.us/&#34;&gt;ChicagoDB&lt;/a&gt;, and contributes when he can
+to the &lt;a href=&#34;http://www.mongodb.org/&#34;&gt;MongoDB&lt;/a&gt; community. You can find him at
+&lt;a href=&#34;http://ethangunderson.com/&#34;&gt;ethangunderson.com&lt;/a&gt;, or on Twitter as
+&lt;a href=&#34;http://twitter.com/ethangunderson&#34;&gt;@ethangunderson&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/avatar-small.png&#34; alt=&#34;Ethan Gunderson&#34; title=&#34;Ethan Gunderson&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;being-awesome-with-the-mongodb-ruby-driver:2d7f6484087abfae6190d42a20271830&#34;&gt;Being Awesome with the MongoDB Ruby Driver&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.mongodb.org/&#34;&gt;MongoDB&lt;/a&gt; is fast becoming one of the more
+popular and widely used NoSQL databases, and rightfully so. Its flexible
+key/value store, powerful query language and sexy scaling options is
+enough to piqué any developers interest. While most Ruby developers may
+jump right into the warm embrace of the Active Record replacements
+Mongoid and MongoMapper, that often robs developers of a valuable
+learning experience.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://www.mongodb.org/display/DOCS/Ruby+Language+Center&#34;&gt;MongoDB Ruby
+driver&lt;/a&gt; is not
+only simple to use, but it will get you familiar with how queries look
+and how they operate. Armed with this knowledge, moving into an
+&lt;a href=&#34;http://en.wikipedia.org/wiki/Object-relational_mapping&#34;&gt;ORM&lt;/a&gt; becomes
+much easier. You&amp;rsquo;ll not only be able to understand what is abstracted
+away, but you&amp;rsquo;ll be able to spot bad and inefficient generated queries,
+making performance troubleshooting a snap. To help you hit the ground
+running, we&amp;rsquo;ll be building up some of common queries you would find in a
+common blog. Let&amp;rsquo;s get started!&lt;/p&gt;
+
+&lt;h3 id=&#34;installation:2d7f6484087abfae6190d42a20271830&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;Since the driver is just a gem, installation is simple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(sudo) gem install mongo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There is one more piece to install, bson_ext. Essentially, this is a
+collection of C extensions used to increase the speed of serialization.
+While this is optional, I recommend that you install it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(sudo) gem install bson_ext
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that we have everything installed that we need, lets hop into some
+code and see what we can do.&lt;/p&gt;
+
+&lt;h3 id=&#34;getting-started:2d7f6484087abfae6190d42a20271830&#34;&gt;Getting Started&lt;/h3&gt;
+
+&lt;p&gt;First things first, we need a database connection. For the sake of
+simplicity, we&amp;rsquo;ll be using localhost with the default port.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;require &#39;mongo&#39;
+include Mongo
+
+db = Connection.new.db(&#39;ruby-learning&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The next thing we&amp;rsquo;ll need is a place to store all of our posts. Let&amp;rsquo;s go
+ahead and get a post collection started.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;posts = db.collection(&#39;posts&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That&amp;rsquo;s it! If you notice, there are two things we *didn&amp;rsquo;t* do that are
+kind of cool: we didn&amp;rsquo;t create the database or the collection. In fact,
+neither still exist at the database level, and won&amp;rsquo;t until we insert
+some data.&lt;/p&gt;
+
+&lt;h3 id=&#34;inserting-updating-documents:2d7f6484087abfae6190d42a20271830&#34;&gt;Inserting &amp;amp; Updating Documents&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s get our blog rolling with a high quality post.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;new_post = { :title =&amp;gt; &amp;quot;RubyLearning.com, its awesome&amp;quot;, :content =&amp;gt; &amp;quot;This is a pretty sweet way to learn Ruby&amp;quot;, :created_on =&amp;gt; Time.now }
+post_id = posts.insert(new_post)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, what did we just do? MongoDB stores its data as key/value pairs,
+which maps nicely to Ruby&amp;rsquo;s Hash. After creating a hash with our data,
+we inserted it into the posts collection, and in return, we received the
+&lt;a href=&#34;http://www.mongodb.org/display/DOCS/Object+IDs&#34;&gt;ObjectId&lt;/a&gt; for the post
+from MongoDB. Pretty simple, right? It&amp;rsquo;s just as simple to update that
+document as well.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;post = Posts.find( :_id =&amp;gt; post_id ).first
+post[:author] = &amp;quot;Ethan Gunderson&amp;quot;
+posts.update( { :_id =&amp;gt; post_id }, post )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Using the ObjectId we got back from our insert query, we find that same
+document again. After changing the data as we see fit, we issue an
+update query. An update query takes two arguments, the first one is
+conditions used to find the document (just the ObjectId in our case),
+and the second is the data.&lt;/p&gt;
+
+&lt;p&gt;While this works, it&amp;rsquo;s kind of silly if you think about it. We query the
+database for our document, change a small amount of information, and
+insert the entire document again. There&amp;rsquo;s gotta be a better way!
+Luckily, there is. MongoDB has the concept of &lt;a href=&#34;http://www.mongodb.org/display/DOCS/Advanced+Queries&#34;&gt;Query
+Operators&lt;/a&gt;. One of
+these operators is &lt;code&gt;$set&lt;/code&gt;, which allows you to, as I&amp;rsquo;m sure you can
+guess, set the value of an attribute.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;posts.update( { :_id =&amp;gt; post_id }, &#39;$set&#39; =&amp;gt; { :author =&amp;gt; &#39;Ethan Gunderson&#39; } )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here, we supply our find conditions, similarly to our previous update,
+but instead of supplying the entire document, we just set the values we
+wish to change. Now, instead of having to issue two queries against the
+database, we can accomplish the same task in one query, and less code to
+boot.&lt;/p&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s take care of the post index page next.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;posts = Posts.find
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you run this, you&amp;rsquo;ll probably notice a problem. Most of the time,
+blogs list their posts in descending order. Let&amp;rsquo;s change our query to
+account for this.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;posts.find.sort( [[&#39;_id&#39;, -1]] )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This query has a couple of interesting points. Firstly, note that we are
+sorting on id. Since MongoDB&amp;rsquo;s ObjectId&amp;rsquo;s contain a timestamp, we can
+accurately sort based on that. This effectively removes the need for a
+created_at timestamp as well! Secondly, the sort parameter must always
+take an array of array, even if there is only one field you are sorting
+on.&lt;/p&gt;
+
+&lt;p&gt;So, that wasn&amp;rsquo;t so hard, but pretty naïve. What happens when we have
+1,000 posts? We don&amp;rsquo;t want to torture our visitors with a ridiculous
+page load time, so let&amp;rsquo;s trim that back.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;posts.find.sort( [[&#39;_id&#39;, -1]] ).limit(5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Again, this was pretty simple, and by now you should be noticing a
+pattern. Building up relatively complex queries is just a matter of
+chaining methods together. To further this example, here&amp;rsquo;s a query
+showing a theoretical pagination query.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;posts.find.sort( [[&#39;_id&#39;, -1]] ).limit(5).skip(5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;tags:2d7f6484087abfae6190d42a20271830&#34;&gt;Tags&lt;/h3&gt;
+
+&lt;p&gt;Another common element to blogs is the concept of tags. To accomplish
+this in our example, we&amp;rsquo;ll be adding an array of tags to our blog post.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;post = Posts.find( :_id =&amp;gt; post_id ).first
+post[:tags] = [&#39;mongo&#39;, &#39;nosql&#39;, &#39;awesome&#39;] 
+posts.update( { :_id =&amp;gt; post_id }, post )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now lets find a post based on a specific tag.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;posts.find( :tags =&amp;gt; &#39;mongo&#39; )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It really doesn&amp;rsquo;t get more simple than that, folks. Now that the basic
+implementation is out-of-the-way, how do we find posts that match more
+than one tag? To accomplish this, we&amp;rsquo;ll be using another Query Operator
+called &lt;code&gt;$all&lt;/code&gt;. As you can imagine, the &lt;code&gt;$all&lt;/code&gt; operator specifies that
+selected documents contain all the elements in the supplied array.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;posts.find( :tags =&amp;gt; { &#39;$all&#39; =&amp;gt; [&#39;mongo&#39;, &#39;awesome&#39;] } ) 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To round out our tags feature, let&amp;rsquo;s build a query that will list all
+the unique tags in our system. There are a couple of ways to skin this
+particular cat, since we don&amp;rsquo;t need to do any aggregation, and it needs
+to be performant, we&amp;rsquo;ll be using &lt;code&gt;distinct&lt;/code&gt;. Though, if we needed to
+also produce a count of tag occurrences, Map/Reduce may be a better
+option.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;posts.distinct(&#39;tags&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;indexing:2d7f6484087abfae6190d42a20271830&#34;&gt;Indexing&lt;/h3&gt;
+
+&lt;p&gt;Now that our blog is starting to grow in complexity, we&amp;rsquo;ll need to start
+thinking about adding proper indexes. If you notice in our tags
+implementation, we&amp;rsquo;re now querying on an attribute that is not indexed.
+Let&amp;rsquo;s fix that.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;posts.create_index(&#39;tags&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And there we have it. In a relatively short amount of time, we&amp;rsquo;ve built
+up a lot of the common queries you would see in a standard blog. While
+I&amp;rsquo;ve only touched the surface of what you can accomplish with the
+MongoDB Ruby driver, I hope that I&amp;rsquo;ve shown you it&amp;rsquo;s power. I&amp;rsquo;ve
+included some more learning material and references below to continue
+your learning. &lt;em&gt;Of course, if you have any questions, feel free to ask
+questions and give feedback in the comments section of this post.
+Thanks!&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;references:2d7f6484087abfae6190d42a20271830&#34;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chicagoruby/MongoDB_Koans&#34;&gt;MongoDB Ruby Koans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://api.mongodb.org/ruby/current/_index.html&#34;&gt;MongoDB Ruby
+Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How do I keep multiple Ruby projects separate?</title>
+      <link>http://rubylearning.com/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/</link>
+      <pubDate>Mon, 20 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/</guid>
+      <description>
+
+&lt;h2 id=&#34;how-do-i-keep-multiple-ruby-projects-separate:e46ce811565e3df9611640804f7d8d1e&#34;&gt;How do I keep multiple Ruby projects separate?&lt;/h2&gt;
+
+&lt;p&gt;This guest post is by &lt;strong&gt;&lt;a href=&#34;https://github.com/steveklabnik&#34;&gt;Steve
+Klabnik&lt;/a&gt;&lt;/strong&gt;, who is a software
+craftsman, writer, and former startup CTO. Steve tries to keep his Ruby
+consulting hours down so that he can focus on maintaining &lt;a href=&#34;http://hackety-hack.com/&#34;&gt;Hackety
+Hack&lt;/a&gt; and being a core member of Team Shoes,
+as well as writing regularly for multiple blogs.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/steve_cropped.jpg&#34; alt=&#34;Steve Klabnik&#34; /&gt;
+ If
+you’re anything like me, you’re already starting a new project
+immediately after wrapping up the last one. There just aren’t enough
+hours in the day to code up all the crazy ideas I have floating around
+in my head. Often, these ideas are the result of checking out some fun
+new gem, GitHub project, or even a different Ruby. Real quickly, a
+problem develops: what happens when these projects interfere with one
+another? What if I want to use Ruby 1.8.7 for an older project, Ruby
+1.8.5 for a legacy application, Ruby 1.9.2 for the latest and greatest,
+and JRuby to use an interesting Ruby library? Luckily, there are a few
+things that you can do to isolate your different projects from one
+another, and some settings for that will make them quite painless to
+use. There are three main things that can go wrong when you try to use
+different sets of tools on a per-project basis: conflicts between Ruby
+versions, conflicts between gems, and forgetting which tools you use on
+which project.&lt;/p&gt;
+
+&lt;h2 id=&#34;ruby-version-conflicts:e46ce811565e3df9611640804f7d8d1e&#34;&gt;Ruby Version Conflicts&lt;/h2&gt;
+
+&lt;p&gt;This is the biggest and most painful kind of problem. If you want to use
+Ruby 1.8 for one project and Ruby 1.9 for another, you have a problem.
+If you’re using Linux, for example, your package manager may see that
+both ruby18 and ruby19 fulfill a ‘ruby’ dependency, and so it won’t let
+you have them both installed side by side. The solution isn’t pretty:
+install different Rubies from source. This gets ugly really quickly,
+because it’s easy to forget where you’ve compiled different Rubies, and
+having software outside of your package manager isn’t a great answer. If
+you’re on OS X or Windows, you skip right past the package manager
+problem and straight to the source ‘solution.’ This is no good!&lt;/p&gt;
+
+&lt;p&gt;Luckily, there’s an awesome project by Wayne E. Seguin named
+&lt;a href=&#34;http://rvm.beginrescueend.com/&#34;&gt;rvm&lt;/a&gt;. rvm is sort of like a package
+manager for Ruby. If you’d like to install both Ruby 1.8.7 and 1.9.2,
+just type this in:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rvm install 1.8.7
+$ rvm install 1.9.2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It’ll go fetch the Ruby source code, compile it, and get you all set up.
+To use a specific Ruby, you can type ‘use&amp;rsquo;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rvm use 1.8.7
+$ ruby -v
+ruby 1.8.7 (2010-08-16 patchlevel 302) [i686-darwin10.4.0]
+$ rvm use 1.9.2
+$ ruby -v
+ruby 1.9.2p0 (2010-08-18 revision 29036) [x86_64-darwin10.4.0]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Neat! You can even get other Ruby versions:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rvm install jruby
+$ rvm install rbx
+$ rvm install macruby
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can see a full list of these with ‘rvm list known’. For a full list
+of everything that rvm can do, as well as installation instructions,
+visit &lt;a href=&#34;http://rvm.beginrescueend.com/&#34;&gt;the rvm website.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;gem-conflicts:e46ce811565e3df9611640804f7d8d1e&#34;&gt;Gem Conflicts&lt;/h2&gt;
+
+&lt;p&gt;Once you’ve gotten your Rubies straight, you can still have conflicts
+between different gems that your project needs. One project uses Rails
+2.3.8, another uses Rails 3… It gets worse when you have certain gems
+installed only as a dependency, and you don’t know exactly which one is
+correct:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem list | grep net-ssh
+net-ssh (2.0.23, 2.0.4, 1.1.4)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;rvm has a neat feature called ‘gemsets.’ They let you create separate
+sets of gems per Ruby you have installed. This allows you to isolate
+each application, giving it its own set of gems. Check it out:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem list
+
+*** LOCAL GEMS ***
+
+aasm (2.1.5)
+abstract (1.0.0)
+acl9 (0.12.0)
+*snip*
+
+$ rvm gemset create new-gemset
+$ rvm use 1.9.2@new-gemset
+$ gem list
+
+*** LOCAL GEMS ***
+
+$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cool stuff! As you can see, use an ‘@’ symbol to tell rvm which gemset
+you’d like to use. Now we’ve isolated each project’s gems from each
+other. There is, however, a much more complicated kind of conflicts that
+can occur between gems. This happens when two gems have interlocking
+dependencies.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example of this from the past: ActionPack 2.3.5 requires Rack
+=1.0.0, which is the newest version. Unicorn requires Rack &amp;gt;1.0.0. Rack
+releases a new version, 1.1.0. Now, when starting up a Rails
+application, the unicorn gem is loaded first, so it loads the newest
+version of the gem that works, which is rack-1.1.0. Then rails loads,
+and it loads actionpack, which tries to load rack. It needs =1.0.1, but
+sees that 1.1.0 has already been loaded, and throws this ugly, ugly
+error:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Gem::LoadError: can&#39;t activate rack (~&amp;gt; 1.0.0, runtime)
+for [&amp;quot;actionpack-2.3.5&amp;quot;], already activated rack-1.1.0
+for [&amp;quot;unicorn&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There’s a set of versions here that works, but the way that the gems are
+loaded means that it doesn’t. The problem is that at the time that
+unicorn loads, it can’t possibly know that you’re planning on loading a
+different version of rack somewhere down the line. What we really need
+is a tool that knows about all of our dependencies, and can calculate
+the graph of all of our requirements, and figure out which versions of
+everything we need, and then only place those versions on the
+\$LOAD_PATH. Luckily, such a project exists:
+&lt;a href=&#34;http://gembundler.com/&#34;&gt;bundler&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To use bundler, you first need to make a file named ‘Gemfile’ in the
+root of your project directory. This file looks something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;source &amp;quot;http://rubygems.org&amp;quot;
+
+gem &amp;quot;rails&amp;quot;, &amp;quot;~&amp;gt;3.0.0&amp;quot;
+
+group :development do
+  gem &#39;sqlite3-ruby&#39;, :require =&amp;gt; &#39;sqlite3&#39;
+end
+
+group :production do
+  gem &amp;quot;pg&amp;quot;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first line tells Bundler where to look for gems. The second line
+says that we want to use the ‘rails’ gem, and we want any version that’s
+at least 3.0.0 but less than 3.1.0. Finally, the other lines show
+‘groups’ of gems: in development, we want to use sqlite3-ruby, and we
+need to require it via the name ‘sqlite3′, but we want to use Postgres
+in production. To install these gems, just:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ bundle install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Bundler gets all the information that it needs on all the gems, figures
+out what versions of everything work together, and then installs the
+right versions. It then creates a Gemfile.lock file that holds all of
+this information. It’s just a simple YAML file, you can open it up and
+see the specifics. You’ll want to add the Gemfile and Gemfile.lock into
+your version control, so that anyone else that’s developing with you can
+also get the same gem versions.&lt;/p&gt;
+
+&lt;p&gt;To use the gems in your bundle, just use these two lines:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;require &amp;quot;rubygems&amp;quot;
+require &amp;quot;bundler/setup&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;From there, whenever you require a gem, it’ll be the version from the
+bundle. If you want Bundler to automatically require all of your gems
+for you, just ‘&lt;code&gt;Bundler.require&lt;/code&gt;‘ and it’ll require the default group of
+gems.&lt;/p&gt;
+
+&lt;p&gt;Rails 3 automatically comes with a Gemfile and bundler support right out
+of the box. If you want to use Bundler with Rails 2.3, check out &lt;a href=&#34;http://gembundler.com/rails23.html&#34;&gt;the
+Bundler site&lt;/a&gt; for setup
+instructions.&lt;/p&gt;
+
+&lt;p&gt;The combination of gemsets and Bundler will make sure that you don’t
+have any nasty gem conflicts. Gemsets keep your projects isolated from
+each other, and Bundler keeps your gems’ versions from interfering with
+each other. The two work really well together.&lt;/p&gt;
+
+&lt;h2 id=&#34;i-can-t-remember-which-tool-i-used:e46ce811565e3df9611640804f7d8d1e&#34;&gt;I can’t remember which tool I used!&lt;/h2&gt;
+
+&lt;p&gt;All of these rubies and gemsets can get confusing. Luckily, rvm has an
+awesome feature to take care of this, too: .rvmrc files. If you put a
+file named ‘.rvmrc’ in your project’s root directory, when you enter the
+project, it’ll switch your Ruby version (and gemset) automatically. It’s
+really easy to use, too. Just put the command you’d use to switch in the
+file. For example, in the Hackety Hack website project, I have the
+following
+&lt;a href=&#34;https://github.com/hacketyhack/hackety-hack.com/blob/master/.rvmrc&#34;&gt;.rvmrc&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rvm 1.8.7@hackety-hack.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Astute readers will notice that I left off the ‘use,’ rvm defaults to
+‘use’ if you don’t give it a different command. Check it out:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ruby -v
+ruby 1.9.2p0 (2010-08-18 revision 29036) [x86_64-darwin10.4.0]
+$ cd hackety-hack.com
+$ ruby -v
+ruby 1.8.7 (2010-08-16 patchlevel 302) [i686-darwin10.4.0]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Super cool. Now you’ll never forget which Ruby you were using, and you
+don’t even need to switch manually. This is one of the first things that
+I do when I start a new project in Ruby: Pick a Ruby version, make a
+gemset with the same name as the project, and set up an .rvmrc. It’s
+saved me hours of time and headaches.&lt;/p&gt;
+
+&lt;h2 id=&#34;multiple-projects-super-simple:e46ce811565e3df9611640804f7d8d1e&#34;&gt;Multiple projects: super simple&lt;/h2&gt;
+
+&lt;p&gt;rvm is a fantastic tool to help solve your multiple-ruby woes. It really
+does make using multiple kinds of Ruby really, really easy. And Bundler
+makes sure that your gems play nice togther. It’s a great time to be a
+Rubyist.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;I hope you found this article valuable. Feel free to ask questions and
+give feedback in the comments section of this post. Thanks!&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

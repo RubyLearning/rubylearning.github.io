@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Gem Sawyer, Modern Day Ruby Warrior // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Nick Quaranto">
+
+
+  <meta property="og:title" content="Gem Sawyer, Modern Day Ruby Warrior" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2010/10/06/gem-sawyer-modern-day-ruby-warrior/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#gem-sawyer-modern-day-ruby-warrior:7ab90da559713cea5bd9a21785630b9d">Gem Sawyer, Modern Day Ruby Warrior</a></li>
+<li><a href="#what-s-in-a-gem:7ab90da559713cea5bd9a21785630b9d">What&rsquo;s in a gem?</a></li>
+<li><a href="#how-do-i-make-a-gem:7ab90da559713cea5bd9a21785630b9d">How do I make a gem?</a></li>
+<li><a href="#exit-the-warrior-today-s-gem-sawyer:7ab90da559713cea5bd9a21785630b9d">Exit the warrior, today&rsquo;s Gem Sawyer</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2010/10/06/gem-sawyer-modern-day-ruby-warrior/">Gem Sawyer, Modern Day Ruby Warrior</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>6</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2010</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">Nick Quaranto</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>This guest post is contributed by <strong><a href="http://twitter.com/qrush">Nick
+Quaranto</a></strong>, a web developer at
+<a href="http://thoughtbot.com/">Thoughtbot</a> in Boston, MA. Nick maintains
+<a href="http://rubygems.org/">RubyGems.org</a> and he&rsquo;s a proud to be a part of
+the Ruby community. He cut his teeth on classic ASP and ASP.NET at
+first, but discovered Ruby on Rails through his university and dove in
+head first. Nick pretends he&rsquo;s a bassist with famous prog rock bands
+when not coding.</p>
+
+<p><img src="http://en.gravatar.com/userimage/938917/6d1a54abf9a4ee9d6fd682c193ec2edc.png?size=125" alt="Nick
+Quaranto" />
+</p>
+
+<h2 id="gem-sawyer-modern-day-ruby-warrior:7ab90da559713cea5bd9a21785630b9d">Gem Sawyer, Modern Day Ruby Warrior</h2>
+
+<p>You&rsquo;re using <a href="http://rubygems.org/">RubyGems</a> on a daily basis when
+programming with Ruby, but how do they work? Gems are now a ubiquitous
+part of the Ruby developer&rsquo;s toolkit. If you&rsquo;re fresh to Ruby and
+haven&rsquo;t really learned what RubyGems can do for you yet, you&rsquo;re about to
+find out!</p>
+
+<h2 id="what-s-in-a-gem:7ab90da559713cea5bd9a21785630b9d">What&rsquo;s in a gem?</h2>
+
+<p>Ruby! Lots of it. Gems are just a simple format for publishing and
+sharing Ruby code. Let&rsquo;s explore a simple one, and one of my favorites,
+<a href="http://rubygems.org/gems/jekyll">jekyll</a>. First, let&rsquo;s see if the gem
+exists. We could go to RubyGems.org to do this, but the <code>gem</code> command
+has a lot of built-in searching commands.</p>
+
+<pre><code>% gem list jekyll -r
+
+*** REMOTE GEMS ***
+
+jekyll (0.7.0)
+jekyll-epub (0.0.3)
+jekyll-localization (0.0.6)
+....
+</code></pre>
+
+<p>This command will ask the remote source (the <code>-r</code> flag specifies this)
+if there&rsquo;s any gems available under that name. By default this looks at
+RubyGems.org, but it could be any URL. Next, let&rsquo;s get the gem on our
+system:</p>
+
+<pre><code>% gem install jekyll
+Successfully installed jekyll-0.7.0
+1 gem installed
+
+% gem unpack jekyll
+Unpacked gem: '/private/tmp/jekyll-0.7.0'
+</code></pre>
+
+<p>These two commands downloaded the gem and unzipped it from a compressed
+state in a new folder from my current directory. The directory structure
+here is common to all gems. I&rsquo;ve ignored a lot of the files here, but
+here&rsquo;s the basics of the internals.</p>
+
+<pre><code>jekyll-0.7.0 % tree -L 2
+.
++-- History.txt
++-- LICENSE
++-- README.textile
++-- Rakefile
++-- bin
+¦   +-- jekyll
++-- features
++-- jekyll.gemspec
++-- lib
+¦   +-- jekyll
+¦   +-- jekyll.rb
++-- test
+</code></pre>
+
+<p>There&rsquo;s a few administrative files here, such as the <code>README</code> and code
+license. Hopefully you&rsquo;ll see those in every gem, along with a decent
+changelog or history. Most gems have a <code>Rakefile</code> which can run tests
+and perform other automation tasks as well. This gem is pretty well
+tested, so the test files are included in both the <code>test</code> directory for
+<a href="http://github.com/thoughtbot/shoulda">shoulda</a> and a <code>features</code>
+directory for <a href="http://cukes.info/">cucumber</a> tests.</p>
+
+<p>The meat of a gem really begins with <code>lib</code> directory. RubyGems really
+just manages your Ruby load path, or how your ruby code is found by the
+<code>require</code> statement. When you <code>require</code> a gem, really you&rsquo;re just
+placing that gem&rsquo;s <code>lib</code> directory onto your <code>$LOAD_PATH</code>. Let&rsquo;s try
+this out in IRB and get some help from the pretty_print library
+included with Ruby. Passing <code>-r</code> to <code>irb</code> will automatically <code>require</code> a
+library when loaded.</p>
+
+<pre><code>% irb -rpp
+&gt;&gt; pp $LOAD_PATH
+[&quot;/Users/qrush/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8&quot;,
+ &quot;/Users/qrush/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/i686-darwin10.3.1&quot;,
+ &quot;/Users/qrush/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby&quot;,
+ &quot;/Users/qrush/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/vendor_ruby/1.8&quot;,
+ &quot;/Users/qrush/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/vendor_ruby/1.8/i686-darwin10.3.1&quot;,
+ &quot;/Users/qrush/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/vendor_ruby&quot;,
+ &quot;/Users/qrush/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8&quot;,
+ &quot;/Users/qrush/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/i686-darwin10.3.1&quot;,
+ &quot;.&quot;]
+</code></pre>
+
+<p>By default we have just a few system directories on our load path and
+the Ruby standard libraries. If we were to run <code>require 'rake'</code> right
+now, it would fail, because RubyGems isn&rsquo;t loaded yet.</p>
+
+<pre><code>% irb -rpp
+&gt;&gt; require 'rake'
+LoadError: no such file to load -- rake
+        from (irb):2:in `require'
+        from (irb):2
+&gt;&gt; require 'rubygems'
+=&gt; true
+&gt;&gt; require 'rake'
+=&gt; true
+&gt;&gt; pp $LOAD_PATH[0..1]
+[&quot;/Users/qrush/.rvm/gems/ree-1.8.7-2010.02/gems/rake-0.8.7/bin&quot;,
+ &quot;/Users/qrush/.rvm/gems/ree-1.8.7-2010.02/gems/rake-0.8.7/lib&quot;]
+</code></pre>
+
+<p>Once we&rsquo;ve required rake, then RubyGems automatically drops the bin and
+lib directories onto the <code>$LOAD_PATH</code>. Boom! The <code>bin</code> directory is used
+for creating executables that use your gem&rsquo;s code, such as <code>rake</code>. These
+are completely optional and you could have multiple per gem if you
+wanted.</p>
+
+<p>That&rsquo;s basically it for what&rsquo;s in a gem. Drop Ruby code into <code>lib</code>, name
+a Ruby file the same as your gem (so for jekyll, <code>jekyll.rb</code>) and it&rsquo;s
+loaded by RubyGems.</p>
+
+<p>The <code>lib</code> directory normally contains only one <code>.rb</code> file on the top
+directory, and then another folder with the same name as the gem with
+more code in it. Jekyll has plenty, and Rake does too. Before you go any
+further with this article, download your favorite gem, <code>gem unpack</code> it,
+and take a peek around.</p>
+
+<h2 id="how-do-i-make-a-gem:7ab90da559713cea5bd9a21785630b9d">How do I make a gem?</h2>
+
+<p>Creating and publishing your own gem is simple thanks to the tools baked
+right into RubyGems. Let&rsquo;s make a simple &ldquo;hello world&rdquo; gem, and feel
+free to play along at home! This is really as simple as it gets.</p>
+
+<p>I started with just one Ruby file for my &ldquo;hola&rdquo; gem, and the gemspec.</p>
+
+<pre><code>% tree
+.
++-- hola.gemspec
++-- lib
+    +-- hola.rb
+</code></pre>
+
+<p>The code inside of <code>lib/hola.rb</code> is pretty bare bones, we just want to
+see some output.</p>
+
+<pre><code>% cat lib/hola.rb
+class Hola
+  def self.hi
+    puts &quot;Hello world!&quot;
+  end
+end
+</code></pre>
+
+<p>The gemspec defines what&rsquo;s in the gem, who made it, and the version of
+the gem. It&rsquo;s also your interface to RubyGems.org, all of the
+information you see on a gem page (like
+<a href="http://rubygems.org/gems/jekyll">jekyll&rsquo;s</a>) comes from the gemspec.</p>
+
+<pre><code>% cat hola.gemspec
+Gem::Specification.new do |s|
+  s.name        = 'hola'
+  s.version     = '0.0.0'
+  s.date        = '2010-10-03'
+  s.summary     = &quot;Hola!&quot;
+  s.description = &quot;A simple hello world gem&quot;
+  s.authors     = [&quot;Nick Quaranto&quot;]
+  s.email       = 'nick@quaran.to'
+  s.homepage    = 'http://rubygems.org/gems/hola'
+  s.files       = [&quot;lib/hola.rb&quot;]
+end
+</code></pre>
+
+<p>Look familiar? The gemspec is also Ruby, so you could wrap scripts to
+generate the file names and bump the version number. Once we have our
+gemspec, we have to build a gem from it. We can then install it locally
+to test it out.</p>
+
+<pre><code>% gem build hola.gemspec
+  Successfully built RubyGem
+  Name: hola
+  Version: 0.0.0
+  File: hola-0.0.0.gem
+
+% gem install ./hola-0.0.0.gem
+Successfully installed hola-0.0.0
+1 gem installed
+</code></pre>
+
+<p>Of course, our smoke test isn&rsquo;t over yet: Let&rsquo;s require our gem and use
+it!</p>
+
+<pre><code>% irb -rubygems
+&gt;&gt; require 'hola'
+=&gt; true
+&gt;&gt; Hola.hi
+Hello world!
+</code></pre>
+
+<p>Hola now needs to be shared with the rest of the Ruby community.
+Publishing your gem out to RubyGems.org only takes one command, granted
+you have an account on the site. Once you&rsquo;re signed up, then you can
+push out a gem.</p>
+
+<pre><code>% gem push hola-0.0.0.gem
+Enter your RubyGems.org credentials.
+Don't have an account yet? Create one at http://rubygems.org/sign_up
+   Email:   nick@quaran.to
+   Password:
+Signed in.
+Pushing gem to RubyGems.org...
+Successfully registered gem: hola (0.0.0)
+</code></pre>
+
+<p>In just a few moments (usually a minute), your gem will be available for
+installation by anyone.</p>
+
+<pre><code>% gem list -r hola
+
+*** REMOTE GEMS ***
+
+hola (0.0.0)
+
+% gem install hola
+Successfully installed hola-0.0.0
+1 gem installed
+</code></pre>
+
+<p>It&rsquo;s really that easy to share code with Ruby and RubyGems.</p>
+
+<h2 id="exit-the-warrior-today-s-gem-sawyer:7ab90da559713cea5bd9a21785630b9d">Exit the warrior, today&rsquo;s Gem Sawyer</h2>
+
+<p>With this basic understanding of the RubyGems ecosystem on your system,
+I hope you&rsquo;ll be the next developer to share your creations with others
+on RubyGems.org. For a more detailed explanation of how to build and
+deploy a gem, check out <a href="http://railscasts.com/episodes/183-gemcutter-jeweler">this
+railscast</a>.</p>
+
+<p><em>Have <strong>you</strong> written any Ruby gems? Why don&rsquo;t you share them with us?
+Let us know in the comments section of this post. Thanks!</em></p>
+
+<p><strong><em>Do read</em> these awesome Guest Posts:</strong></p>
+
+<ul>
+<li><a href="http://rubylearning.com/blog/2010/10/05/outside-in-development/">An Introduction to Outside-in
+Development</a></li>
+<li><a href="http://rubylearning.com/blog/2010/10/04/ruby-forensics/">Ruby
+Forensics</a></li>
+<li><a href="http://rubylearning.com/blog/2010/10/01/an-introduction-to-eventmachine-and-how-to-avoid-callback-spaghetti/">An introduction to eventmachine, and how to avoid callback
+spaghetti</a></li>
+<li><a href="http://rubylearning.com/blog/2010/09/30/the-testing-mindset/">The Testing
+Mindset</a></li>
+<li><a href="http://rubylearning.com/blog/2010/09/29/an-introduction-to-desktop-apps-with-ruby/">An Introduction to Desktop Apps with
+Ruby</a></li>
+<li><a href="http://rubylearning.com/blog/2010/09/28/the-ruby-movement/">The Ruby
+movement</a></li>
+<li><a href="http://rubylearning.com/blog/2010/09/27/almost-everything-is-an-object-and-everything-is-almost-an-object/">Almost everything is an object (and everything is almost an
+object!)</a></li>
+<li><a href="http://rubylearning.com/blog/2010/09/24/so-youre-new-to-ruby/">So&hellip; you&rsquo;re new to
+Ruby!</a></li>
+<li><a href="http://rubylearning.com/blog/2010/09/23/incorporating-web-apis-to-spark-computer-programming-exercises/">Incorporating Web APIs to spark computer programming
+exercises</a></li>
+<li><a href="http://rubylearning.com/blog/2010/09/22/14-ways-to-have-fun-coding-ruby/">14 Ways To Have Fun Coding
+Ruby</a></li>
+<li><a href="http://rubylearning.com/blog/2010/09/21/writing-modular-web-applications-with-rack/">Writing modular web applications with
+Rack</a></li>
+<li><a href="http://rubylearning.com/blog/2010/09/20/how-to-learn-ruby-or-any-programming-language/">How to Learn Ruby (or any programming
+language)</a></li>
+</ul>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-gem-sawyer-modern-day-ruby-warrior" href="http://rubylearning.com/blog//tags/gem-sawyer-modern-day-ruby-warrior">Gem Sawyer Modern Day Ruby Warrior</a>,
+	                
+	                <a class="post-tag post-tag-nick-quaranto" href="http://rubylearning.com/blog//tags/nick-quaranto">Nick Quaranto</a>,
+	                
+	                <a class="post-tag post-tag-programming" href="http://rubylearning.com/blog//tags/programming">programming</a>,
+	                
+	                <a class="post-tag post-tag-ruby" href="http://rubylearning.com/blog//tags/ruby">Ruby</a>,
+	                
+	                <a class="post-tag post-tag-ruby-beginners" href="http://rubylearning.com/blog//tags/ruby-beginners">Ruby Beginners</a>,
+	                
+	                <a class="post-tag post-tag-ruby-for-noobs" href="http://rubylearning.com/blog//tags/ruby-for-noobs">Ruby for Noobs</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2010/10/07/do-you-know-rubys-chainsaw-method/">Do YOU know Ruby&#39;s &#34;Chainsaw&#34; method?</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2010/10/05/an-introduction-to-outside-in-development/">An Introduction to Outside-in Development</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2010\/10\/06\/gem-sawyer-modern-day-ruby-warrior\/';
+    var disqus_title = 'Gem Sawyer, Modern Day Ruby Warrior';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2010\/10\/06\/gem-sawyer-modern-day-ruby-warrior\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

@@ -1,0 +1,2391 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Learn Sinatra on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/learn-sinatra/</link>
+    <description>Recent content in Learn Sinatra on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Jan 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/learn-sinatra/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>What are the Twelve Rules of Sinatra? (Reprint)</title>
+      <link>http://rubylearning.com/blog/2015/01/24/what-are-the-twelve-rules-of-sinatra-reprint/</link>
+      <pubDate>Sat, 24 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/01/24/what-are-the-twelve-rules-of-sinatra-reprint/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: This article first appeared on 19th July. 2009 but the original is not accessible; hence the reprint.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    The Twelve Rules of Sinatra
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;update center&#34;&gt;
+    &lt;strong&gt;The Twelve Rules of Sinatra: &lt;a href=&#34;http://rubylearning.com/data/Sinatra12Rules.pdf&#34;&gt;Download this as a Free Report&lt;/a&gt;.&lt;/strong&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Recently, I was reading Scott Adams&amp;#8217; (of Dilbert fame) blog post &amp;#8220;&lt;a href=&#34;http://www.dilbert.com/blog/entry/rule_of_twelve&#34;&gt;Rule of Twelve&lt;/a&gt;&amp;#8221; where he stated:
+  &lt;/p&gt;
+  
+  &lt;blockquote&gt;
+    &lt;p&gt;
+      The Rule of Twelve states that if you know twelve concepts about a given topic you will look like an expert to people who only know two or three. If you learn more than twelve concepts about a topic, the value of each additional one drops off considerably. Allow me to be the first to confess that twelve is not a magic and inviolable number.
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;p&gt;
+    He also wrote a follow-up post to support his statement: &amp;#8220;&lt;a href=&#34;http://www.dilbert.com/blog/entry/twelve_rules_of_energy_efficient_building/&#34;&gt;Twelve Rules of Energy Efficient Building&lt;/a&gt;&amp;#8220;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    This made me wonder, could we apply the same &amp;#8220;Rule of Twelve&amp;#8221; to &lt;strong&gt;Sinatra&lt;/strong&gt;?
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Jeremy Evans&#34; src=&#34;http://rubylearning.com/images/jeremy-125.jpg&#34; alt=&#34;Jeremy Evans&#34; /&gt;Here is &lt;strong&gt;&lt;a href=&#34;http://code.jeremyevans.net/&#34;&gt;Jeremy Evans&amp;#8217;&lt;/a&gt;&lt;/strong&gt; take on this:
+  &lt;/p&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      Just like Rails, keep your controller/actions simple, and put most of your business logic in your models. This makes testing and code reuse easier.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Also like Rails, avoid excess logic in your views. Add helper methods that the views call to keep the views clean.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Unlike Rails, read the Sinatra source. The main part is a single file that&amp;#8217;s around 1000 lines of quite understandable Ruby code. Just reading it will probably make you a better programmer.
+    &lt;/li&gt;
+    &lt;li&gt;
+      If you have a problem that you think other people probably have (e.g. a Rails-like flash), look first for a Rack middleware that handles it, rather than recreating the wheel.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Untested code will probably break sooner than later, so if you want the code to work in the future, write tests.
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Well, Jeremy has set the ball rolling. &lt;b&gt;What&amp;#8217;s your take on this?&lt;/b&gt; Kindly post your thoughts as comments to this blog post. Looking forward to some interesting read.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Corey Donohoe: How do I learn and master Sinatra?</title>
+      <link>http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/</link>
+      <pubDate>Wed, 07 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: We are re-printing this blog post that appeared on 6th July 2009, as the original post is not accessible.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    Welcome to the &lt;b&gt;first&lt;/b&gt; installment on the &lt;abbr title=&#34;RubyLearning&#34;&gt;RL&lt;/abbr&gt; blog, of a mini series &amp;#8211; &amp;#8220;&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;&amp;#8221; &amp;#8211; by top Rubyists using &lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn and master Sinatra&lt;/em&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Corey Donohoe, could you tell us something about yourself &amp;#8211; your background, where you are based?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Corey Donohoe&#34; src=&#34;http://rubylearning.com/images/CoreyDonohoe.jpg&#34; alt=&#34;Corey Donohoe&#34; /&gt;&lt;strong&gt;Corey Donohoe&gt;&gt;&lt;/strong&gt; I&amp;#8217;m &lt;a href=&#34;http://atmos.org/&#34;&gt;Corey Donohoe&lt;/a&gt;. I&amp;#8217;m based out of Boulder, Colorado &amp;#8211; USA. My background is in computer science and system administration though I prefer hacking to either of those labels. I&amp;#8217;m a pretty normal dude, I enjoy cycling, music, coffee, micro brews, and all the other awesomeness that my home state has to offer. I&amp;#8217;ve been working for &lt;a href=&#34;http://www.engineyard.com/&#34;&gt;Engine Yard&lt;/a&gt; since March of &amp;#8217;07 doing everything from app support to internal development. I&amp;#8217;m currently 1/2 of our internal integrations team.
+  &lt;/p&gt;
+  
+  &lt;blockquote class=&#34;right&#34;&gt;
+    &lt;p&gt;
+      Sinatra&amp;#8217;s greatest strength is its flexibility
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Are there any pre-requisites for a person to start learning Sinatra&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; There aren&amp;#8217;t any hardcore prerequisites per se; Ruby and experience in a Ruby web framework is a plus. HTTP verbs play a huge role in Sinatra, as well as things like query and post params. If you get those concepts you can hit the ground running.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; Learn Sinatra incrementally. If you have new business requirements try to think about things like &amp;#8220;how would i implement this in Sinatra?&amp;#8221; Take the time to figure that requirement out in Sinatra then throw the solution out! When the time comes to use Sinatra for something you&amp;#8217;ll have a much more broad understanding of the framework and you&amp;#8217;ll hit fewer blockers.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular attention to?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; Understanding the difference between &lt;b&gt;Sinatra::Base&lt;/b&gt; and &lt;b&gt;Sinatra::Default&lt;/b&gt; is definitely something a Sinatra beginner should focus on early. &lt;b&gt;Sinatra::Base&lt;/b&gt; is for writing Rack middleware, and &lt;b&gt;Sinatra::Default&lt;/b&gt; is normally for writing Rack applications. Learning the modular style app development is really useful as well as using the register method to include pieces of functionality. Getting a handle on those concepts will expose you to the rest of Sinatra, which is relatively intuitive.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for a beginner? Are there areas which need improvement or need to be re-written&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; The Sinatra documentation is well done and I can generally find answers to my questions just by referencing the docs. There&amp;#8217;s always #sinatra on freenode or the Sinatra book on github if you need additional help too. There&amp;#8217;s plenty of pretty well tested examples on github using Sinatra, hancock and integrity come to mind.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord &amp;#8211; which one would you recommend to use with Sinatra and why?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; I use DataMapper exclusively. It was a bumpy ride a year ago but these days it&amp;#8217;s acceptable for production use. We interface with more than just relational databases and the ability to keep a consistent model syntax across various data sources is really attractive to us. Realistically I feel like I spend less time fighting my framework when I&amp;#8217;m using DataMapper so it&amp;#8217;s the clear choice. The one place I wouldn&amp;#8217;t use dm in would be a join heavy relational environment; ActiveRecord is way better at that.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Is an understanding of Rack important while learning Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; You don&amp;#8217;t need a solid understanding of Rack to get a Sinatra up and running, but you&amp;#8217;ll be missing out on a lot of the power. It&amp;#8217;s extremely beneficial to take the time to learn how the &lt;b&gt;Rack::Builder&lt;/b&gt; works as well as the usage of the &lt;b&gt;use/map/run&lt;/b&gt; commands in that context. The modularity of Rack really becomes apparent and you&amp;#8217;ll find yourself using Sinatra more effectively.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; How should one hone one&amp;#8217;s skills in Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; Read code, write test code, write code. All of the awesome testing frameworks available for Ruby are available to Sinatra. If you don&amp;#8217;t write tests it might be a good way to familiarize yourself with testing best practices without the overheard of a larger framework.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; What type of projects should a beginner work on to gain more expertise in Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; &lt;span style=&#34;background-color: #FFFFCC;&#34;&gt;A beginner would benefit from writing something completely API driven as a first project&lt;/span&gt;. So many people couple databases with dynamic web applications but it&amp;#8217;s kind of liberating to just be an intermediary service. Twitter apps are pretty trivial to implement and can teach you a lot. They also expose you to a pretty large userbase to solicit feedback.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Could you suggest some web services that a Sinatra beginner could develop himself / herself?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; &lt;span style=&#34;background-color: #FFFFCC;&#34;&gt;Web services are great targets for introducing Sinatra into your workplace&lt;/span&gt;. Identify a pain point in your organization and put a small app in front of it. It doesn&amp;#8217;t have to replace something overnight but it&amp;#8217;s a great way to sneak functionality in at work. Once you have a few of these built you start to reap the benefits of microapps and web services.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Anything else you would like to add?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Corey&gt;&gt;&lt;/strong&gt; &lt;span style=&#34;background-color: #FFFFCC;&#34;&gt;Learning Sinatra is the best thing you can do while we all wait for Rails 3 to land&lt;/span&gt;. The middleware you write will be able to be dropped right into your Rails 3 applications so it&amp;#8217;s not like you&amp;#8217;re wasting time. We&amp;#8217;re starting to build really modular systems using Sinatra by building APIs into those systems. I think a lot of people would benefit from breaking their monolith apps down into microapps and Sinatra is a great way to do it.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    People looking for a template might want to investigate the singem gem. It has basic templates for twitter apps or regular webservices. All of them are bootstrapped for testing with cucumber+rspec.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Thank you Corey. In case you have any queries and/or questions, kindly post your questions here (as comments to this blog post) and Corey would be glad to answer.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    &lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; UK based 1st Easy Limited offer Sinatra and Rails hosting running on a Phusion Passenger (mod_rails) and LAMP stack. If you want to try your hand at developing with Sinatra, why not let them arrange a &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm#try&#34;&gt;trial hosting account&lt;/a&gt; for you? You&amp;#8217;ll get to deploy your app, with full technical support from their team!
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Karel Minarik: How do I learn and master Sinatra? (Reprint)</title>
+      <link>http://rubylearning.com/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/</link>
+      <pubDate>Wed, 07 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: This is reprint of the blog post that appeared on 13th July 2009, as the original is not accessible.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    Welcome to the &lt;b&gt;fourth&lt;/b&gt; installment on the &lt;abbr title=&#34;RubyLearning&#34;&gt;RL&lt;/abbr&gt; blog, of a mini series &amp;#8211; &amp;#8220;&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;&amp;#8221; &amp;#8211; by top Rubyists using &lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn and master Sinatra&lt;/em&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Karel Minarik, could you tell us something about yourself &amp;#8211; your background, where you are based?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Karel Minarik&#34; src=&#34;http://www.rubylearning.com/images/karmi_mugshot.jpg&#34; alt=&#34;Karel Minarik&#34; /&gt;&lt;strong&gt;Karel Minarik&gt;&gt;&lt;/strong&gt; I&amp;#8217;m Karel Minarik, web designer and developer living in Prague, Czech Republic. I have graduated in Philosophy, not Computer Science, which may explain why I love Ruby a lot, and why I prefer solving &amp;#8220;naming things&amp;#8221; over &amp;#8220;cache invalidation&amp;#8221; problems. I earn my bread by designing interfaces, writing Ruby, JavaScript, HTML/CSS and giving people advice or teaching them new tricks. I blog in undecipherable intervals on &lt;a href=&#34;http://www.restafari.org/&#34;&gt;Restafari.org&lt;/a&gt; and publish code regularly at &lt;a href=&#34;http://github.com/karmi/&#34;&gt;Github&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Are there any pre-requisites for a person to start learning Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Very few: you just need to know Ruby a little bit. The rest you can and will learn along the way. In fact, &lt;span style=&#34;background-color: #FFFFCC;&#34;&gt;Sinatra is wonderful teaching tool to deepen your knowledge of Ruby as a general programming language, web application architectures, HTTP and REST principles, concept of middlewares, and so on&lt;/span&gt;. As a wonderful teaching/learning tool it&amp;#8217;s truly on par with _why&amp;#8217;s Shoes.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; You should start with the &lt;a href=&#34;http://github.com/sinatra/sinatra/blob/master/README.rdoc&#34;&gt;README&lt;/a&gt;, which contains almost everything you need to know in its 500 or so lines. Then you should definitely glance over sourcecode of some Sinatra applications &amp;#8220;&lt;a href=&#34;http://www.sinatrarb.com/wild.html&#34;&gt;in the wild&lt;/a&gt;&amp;#8220;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Some of the noteworthy examples would be eg. simple website in waferbaby&amp;#8217;s &lt;a href=&#34;http://github.com/waferbaby/usesthis/tree/master&#34;&gt;usesthis&lt;/a&gt;, background processing tutorial in bmizerany&amp;#8217;s &lt;a href=&#34;http://github.com/bmizerany/sinatra-dj/tree/master&#34;&gt;sinatra-dj&lt;/a&gt;, clever use of Ruby&amp;#8217;s blocks/closures in pjhyett&amp;#8217;s &lt;a href=&#34;http://github.com/pjhyett/github-services/tree/master&#34;&gt;github-services&lt;/a&gt; or ultra minimal apps in ichverstehe&amp;#8217;s &lt;a href=&#34;http://github.com/ichverstehe/gaze/blob/master/bin/gaze&#34;&gt;gaze&lt;/a&gt; or gnugeek&amp;#8217;s &lt;a href=&#34;http://github.com/gnugeek/tophat/tree/master&#34;&gt;tophat&lt;/a&gt;. These examples really elucidate compact and minimal nature of Sinatra.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Then you should sketch something rather small and well defined: web frontend for some Ruby code you have, a web API for some of your services, &amp;#8230;
+  &lt;/p&gt;
+  
+  &lt;blockquote class=&#34;right&#34;&gt;
+    &lt;p&gt;
+      Sinatra &amp;#8211; quickly create tiny web apps and services
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular attention to?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Beginners should pay attention to Sinatra&amp;#8217;s DSL itself: helpers, filters, last_modified and etag support, etc, so they&amp;#8217;re not reinventing the mic and truly make use of it&amp;#8217;s API. More advanced programmers should focus on Rack integration, using Rack middlewares such as &lt;b&gt;Rack::Auth&lt;/b&gt; or &lt;b&gt;Rack::Mime&lt;/b&gt; in your Sinatra app and running Sinatra apps themselves as middlewares. This opens different possibilities of service integration &amp;#8211; have a look on Jon Crosby&amp;#8217;s wonderful explanation in his &lt;a href=&#34;http://mwrc2009.confreaks.com/13-mar-2009-11-05-in-a-world-of-middleware-who-needs-monolithic-applications-jon-crosby.html&#34;&gt;MWRC talk&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for a beginner? Are there areas which need improvement or need to be re-written&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Sinatra&amp;#8217;s &lt;a href=&#34;http://www.sinatrarb.com/documentation.html&#34;&gt;documentation&lt;/a&gt; is pretty extensive at the moment, covering everything from basics to testing your applications and writing extensions. It&amp;#8217;s just a bit scattered at the moment, eg. deployment is covered in the &lt;a href=&#34;http://www.sinatrarb.com/book.html#deployment&#34;&gt;Sinatra Book&lt;/a&gt; started by Chris Schneider. There&amp;#8217;s still some lack of thorough documentation about Rack integration.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord &amp;#8211; which one would you recommend to use with Sinatra and why?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; I prefer ActiveRecord for anything talking to a relational database, because of it&amp;#8217;s clever API, stability, general knowledge and large user base. Don&amp;#8217;t forget that Sinatra is nice playground for experiments with other ORM&amp;#8217;s, key/value stores, etc, though!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Is an understanding of Rack important while learning Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; No, you could start learning Sinatra completely oblivious of something called &amp;#8220;Rack&amp;#8221;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    However, you can use plethora of various &lt;a href=&#34;http://rack.rubyforge.org/doc/Rack.html&#34;&gt;bundled&lt;/a&gt; or &lt;a href=&#34;http://github.com/rack/rack-contrib&#34;&gt;third-party&lt;/a&gt; Rack middlewares very easily by simple &amp;#8216;&lt;b&gt;use Rack::Utils&lt;/b&gt;&amp;#8216; or &amp;#8216;&lt;b&gt;use Rack::Locale&lt;/b&gt;&amp;#8216; declaration for adding some advanced functionality to your application.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    And when you plan to plug Sinatra powered app into a Rails one, for instance, or want to &amp;#8220;mount&amp;#8221; various separated web applications at different endpoints, you should definitely have a detailed look on Rack itself.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; How should one hone one&amp;#8217;s skills in Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; By reading huge amounts of code available on Github. That&amp;#8217;s a sure way how to discover clever solutions and open your mind. (Be sure to include credits if you reuse some code and release your stuff, though.)
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    But the most important thing is to focus on Ruby as an expressive programming language, and to _not_ think about browser first. Think first about the domain of your application and how it translates to Ruby, not about how it should &amp;#8220;look&amp;#8221; or behave in a browser. That&amp;#8217;s very important, but comes next. And don&amp;#8217;t forget it&amp;#8217;s really easy to code test-first in Ruby and in Sinatra.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; What type of projects should a beginner work on to gain more expertise in Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Smallish apps, where Rails would force it&amp;#8217;s conventions on you or which are not primarily focused on database access. Something like cschneid&amp;#8217;s &lt;a href=&#34;http://irclogger.com/&#34;&gt;irclogger&lt;/a&gt;, quirkey&amp;#8217;s &lt;a href=&#34;http://log.quirkey.com/&#34;&gt;columnlog&lt;/a&gt; or entp&amp;#8217;s &lt;a href=&#34;http://calendaraboutnothing.com/&#34;&gt;Calendar About Nothing&lt;/a&gt; &amp;#8212; all very tight, minimal and very elegant apps.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Could you suggest some web services that a Sinatra beginner could develop himself / herself?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; The sweet spot for Sinatra is something along the lines of already mentioned apps. Some ideas I could throw in:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      An app to display metrics about your team activity in a Git repository: who commited most, who commited most lines of code, etc., leveraging power of &lt;a href=&#34;http://github.com/mojombo/grit&#34;&gt;Grit&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      A web frontend for some command-line tool like &amp;#8216;top&amp;#8217; or &amp;#8216;df&amp;#8217; for your servers.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Simple web hook for &lt;a href=&#34;http://github.com/guides/post-receive-hooks&#34;&gt;Github&amp;#8217;s post-receive hooks&lt;/a&gt;, notifiying your developer mailing-list, Jabber, deploying new code to staging server or playing a tune.
+    &lt;/li&gt;
+    &lt;li&gt;
+      More advanced example could be an app to show currently deployed versions of your applications, using small Sinatra apps on each host to emit various metrics like deployed revision and it&amp;#8217;s age, system load, etc in JSON and a Sinatra app to gather the data &amp;#8212; &amp;#8220;emulating&amp;#8221; services like NewRelic, Scout or FiveRun&amp;#8217;s Dash.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Anything else you would like to add?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Karel&gt;&gt;&lt;/strong&gt; Do come to the #sinatra IRC channel on Freenode when you get stuck. There&amp;#8217;s usually lots of people from different timezones, so it&amp;#8217;s very likely that we&amp;#8217;ll get you out of trouble fast. Just please read the README first and don&amp;#8217;t name your application file &amp;#8220;sinatra.rb&amp;#8221; &lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt; Have fun with Ruby and Sinatra!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Thank you Karel. In case you have any queries and/or questions, kindly post your questions here (as comments to this blog post) and Karel would be glad to answer.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Others in this series:&lt;/b&gt;
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/&#34;&gt;Corey Donohoe&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/&#34;&gt;Jeremy Evans&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://rubylearning.com/blog/2009/07/10/graham-ashton-how-do-i-learn-and-master-sinatra/&#34;&gt;Graham Ashton&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    &lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; UK based 1st Easy Limited offer Sinatra and Rails hosting running on a Phusion Passenger (mod_rails) and LAMP stack. If you want to try your hand at developing with Sinatra, why not let them arrange a &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm#try&#34;&gt;trial hosting account&lt;/a&gt; for you? You&amp;#8217;ll get to deploy your app, with full technical support from their team!
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sinatra: Some Questions from Ruby Newbies</title>
+      <link>http://rubylearning.com/blog/2013/08/14/sinatra-some-questions-from-ruby-newbies/</link>
+      <pubDate>Wed, 14 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2013/08/14/sinatra-some-questions-from-ruby-newbies/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    Darren Jones in his excellent book &lt;a href=&#34;http://www.amazon.com/gp/product/0987332147/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0987332147&amp;linkCode=as2&amp;tag=satishtalimsw-20&#34;&gt;Jump Start Sinatra&lt;/a&gt; says &amp;#8220;&lt;em&gt;Since its release in 2007, Sinatra has quickly gained in popularity in the Ruby web community due to its elegant simplicity and classy syntax. Everybody who uses it falls in love with its elegant simplicity and classy syntax&lt;/em&gt;.&amp;#8221;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    RubyLearning will be conducting a &amp;#8220;free&amp;#8221; (i.e. pay if you like) &lt;a href=&#34;http://rubylearning.com/blog/2013/08/14/a-free-online-course-on-sinatra/&#34;&gt;online course on Sinatra&lt;/a&gt; from 7th Sept. 2013 and many of the would-be participants (mostly Ruby newbies) would have a plethora of questions related to Sinatra.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Satish Talim&lt;/strong&gt; of RubyLearning.org talked to Ruby Gurus Andy Lindeman, Carlo Pecchia, Dan Mayer, Darren Jones, Nathan Esquenazi and Sudarshan Shubakar to answer some of the would-be participant&amp;#8217;s questions.
+  &lt;/p&gt;
+  
+  &lt;hr align=&#34;center&#34; width=&#34;70%&#34; /&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#0060C0;&#34;&gt;&lt;b&gt;Satish&lt;/b&gt;&gt;&gt; A warm welcome to you all. For the benefit of the would-be Sinatra course participants, could each one of you tell us something about your self?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignleft&#34; title=&#34;Andy Lindeman&#34; src=&#34;http://rubylearning.com/images/andylindeman.jpg&#34; alt=&#34;Andy Lindeman&#34; /&gt;&lt;b&gt;Andy&lt;/b&gt;&gt;&gt; I am a software generalist focused on web and mobile. I like open source and work primarily on RSpec. I work at Big Nerd Ranch, primarily writing web application backends in Ruby and Rails. I dabble a good bit: currently Objective C/iOS, Clojure, Erlang, and client-side JavaScript frameworks are on my radar. I like working on open source and meeting new folks in the community.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Carlo Pecchia&#34; src=&#34;http://rubylearning.com/images/carlopecchia.jpg&#34; alt=&#34;Carlo Pecchia&#34; /&gt;&lt;b&gt;Carlo&lt;/b&gt;&gt;&gt; &lt;a href=&#34;http://carlopecchia.eu/&#34;&gt;I am&lt;/a&gt; an IT engineer mainly interested on agile methodologies and &amp;#8220;good practices&amp;#8221; for developing large and complex systems. I am also interested in web architectures and emerging programming languages.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignleft&#34; title=&#34;Dan Mayer&#34; src=&#34;http://www.rubylearning.com/images/danmayer.jpg&#34; alt=&#34;Dan Mayer&#34; /&gt;&lt;b&gt;Dan&lt;/b&gt;&gt;&gt; I am a tech lead on the LivingSocial consumer web team. I have been developing Ruby applications since 2007 and often work with both Rails and Sinatra. I believe in trying to keep code small, and breaking applications up into logical components and services. My thoughts on development can be found on &lt;a href=&#34;http://mayerdan.com/&#34;&gt;http://mayerdan.com&lt;/a&gt;. I am on twitter as &lt;a href=&#34;https://twitter.com/danmayer&#34;&gt;@danmayer&lt;/a&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Darren Jones&#34; src=&#34;http://www.rubylearning.com/images/darrenjones.jpg&#34; alt=&#34;Darren Jones&#34; /&gt;&lt;b&gt;Darren&lt;/b&gt;&gt;&gt; &lt;a href=&#34;http://daz4126.com/&#34;&gt;I am&lt;/a&gt; the author of &lt;a href=&#34;http://www.amazon.com/gp/product/0987332147/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0987332147&amp;linkCode=as2&amp;tag=satishtalimsw-20&#34;&gt;Jump Start Sinatra&lt;/a&gt;, a short book that helps you to get up to speed with Sinatra over a weekend, published by Sitepoint. I have been using Sinatra since 2009 and used it to build the &lt;a href=&#34;http://cardsinthecloud.com/&#34;&gt;Cards in the Cloud&lt;/a&gt; website. I live in Manchester in the UK where I teach Mathematics and enjoy playing water polo.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignleft&#34; title=&#34;Nathan Esquenazi&#34; src=&#34;http://www.rubylearning.com/images/nathanesquenazi.jpg&#34; alt=&#34;Nathan Esquenazi&#34; /&gt;&lt;b&gt;Nathan&lt;/b&gt;&gt;&gt; I am one of the creators of the &lt;a href=&#34;http://www.padrinorb.com/&#34;&gt;Padrino framework&lt;/a&gt;, enabling powerful extensions to the Sinatra core and the co-founder of &lt;a href=&#34;http://thecodepath.com/&#34;&gt;CodePath&lt;/a&gt;, providing practical training to engineers interested in learning mobile development.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Sudarshan Shubakar&#34; src=&#34;http://www.rubylearning.com/images/sudarshanshubakar.jpg&#34; alt=&#34;Sudarshan Shubakar&#34; width=&#34;115&#34; height=&#34;115&#34; /&gt;&lt;b&gt;Sudarshan&lt;/b&gt;&gt;&gt; I am a software developer based out of Pune, India. I enjoy working with design principles and patterns, learning new programming languages and a bit of open source development. I am majorly a Java developer for the past 11 years and have recently started working on Ruby out of interest.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#0060C0;&#34;&gt;&lt;b&gt;Satish&lt;/b&gt;&gt;&gt; What is Sinatra best suited for?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Andy&lt;/b&gt;&gt;&gt; Simple web apps, especially those that are mostly APIs or only have a few views.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Carlo&lt;/b&gt;&gt;&gt; Sinatra is an &amp;#8220;essential&amp;#8221; framework for Ruby based web application. Talking about &amp;#8220;web app&amp;#8221; the point of reference is &amp;#8211; without any doubt &amp;#8211; RubyOnRails (RoR): Sinatra is lightweight compared to it. You have less features, but also less stuff to digest to start with. Personally I&amp;#8217;ve used Sinatra (and I was really satisfied by it) for apps where data complexity and user interactions are not critical points (in my case: internal enterprise app).
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Dan&lt;/b&gt;&gt;&gt; Sinatra is great for smaller applications and apis. Sinatra fits really well when there is a limited front end which uses a lot less of the standard view layer helpers and other features common in Rails. I have personally found that Sinatra is best for APIs and micro sites. If an application with a significant front end is going to be developed, it is often best to start with rails as you will start to home grow and try to replace many common features of rails with your own bad implementations. Finally people often forget how much rails helps in terms of basic security precautions, making it harder to make common mistakes. There is a well known Ruby community quote that I can&amp;#8217;t find attribution for, &amp;#8220;every Ruby web framework eventually becomes a horrible bad and buggy implementation of rails&amp;#8221;.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Darren&lt;/b&gt;&gt;&gt; Putting your Ruby code onto the web! At its heart Sinatra is essentially just a wrapper for making it easy to deal with HTTP requests and responses by providing some very nice helper methods. This means that it is suited for anything that you can write in Ruby. It can handle small projects brilliantly but is also great for larger projects too.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Nathan&lt;/b&gt;&gt;&gt; Sinatra is incredibly well-suited for building REST APIs for mobile clients as well as web back-end services that are paired with modern javascript frameworks like Backbone, AngularJS, Ember, et al.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Sudarshan&lt;/b&gt;&gt;&gt; The Sinatra book &lt;a href=&#34;http://sinatra-book.gittr.com/#introduction&#34;&gt;introduction&lt;/a&gt; says it best by these statements:&lt;br /&gt;* In Sinatra, you can write short ad hoc applications or mature, larger application with the same easiness.&lt;br /&gt;* Sinatra really shines when used for experiments and application mock-ups or for creating a quick interface for your code.&lt;br /&gt;My take on this is that Sinatra gets you started quickly on whatever problem you are trying to solve (with a web/URL based solution) quickly. There is hardly a learning curve and you can have a meaningful implementation of your solution within no time.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Another point where Sinatra is most useful is when you would like finer control over how your application is organized. This &lt;a href=&#34;http://stackoverflow.com/questions/3068114/what-is-the-limit-of-sinatra&#34;&gt;discussion on stackoverflow.com&lt;/a&gt; provides some good inputs on how Sinatra compares to Rails. As one person says in this discussion, there is no limit to what you can do with it.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#0060C0;&#34;&gt;&lt;b&gt;Satish&lt;/b&gt;&gt;&gt; I am a Ruby newbie and if I learn Sinatra, does that help me with Ruby on Rails?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Andy&lt;/b&gt;&gt;&gt; I think it depends on exactly how much you know.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    For folks with little background on programming or web application development at all, I think it&amp;#8217;s a great fit. There&amp;#8217;s not very much &amp;#8220;magic&amp;#8221; and it&amp;#8217;s easy to get up and running quickly.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Carlo&lt;/b&gt;&gt;&gt; Sure! Learning Sinatra gives you all the details about how HTTP protocol is handled; how routing works; how to manage your models; how to talk with a Data Base (noSQL are welcome too); how a template system has to be used; and so on. My suggestion is: start with Sinatra, and *then* consider RoR for &amp;#8220;not small&amp;#8221; projects.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Dan&lt;/b&gt;&gt;&gt; Learning Sinatra is a great way to begin to learn Rails. It will definitely help you learn Rails as it helps you learn Ruby basics as well as common Ruby web development practices. In many ways it is a smaller and simpler way to learn to work with a web framework, which is excellent. I find while this is great for learning, it leads to a less natural project structure and uncommon patterns for larger applications. Actually learning some of the basic web development concepts first in Sinatra would help one to understand why these concepts exist and why they are bit more complicated in Rails.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Darren&lt;/b&gt;&gt;&gt; A little, but it is more useful for improving your Ruby. I think that it would help you understand some of the &amp;#8216;magic&amp;#8217; that Rails does in the background as you have a lot more control with Sinatra.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Nathan&lt;/b&gt;&gt;&gt; Sinatra is an excellent introduction to the Ruby language and to web development. Sinatra has a remarkably short learning curve and as such allows for new developers to tinkering with web apps of all sorts with minimal overhead or confusion. The distinct advantage of learning Sinatra while you are developing your Ruby acumen is that Sinatra is very explicit and simple allowing the expressiveness of Ruby itself to shine through.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Sudarshan&lt;/b&gt;&gt;&gt; Hmm, will Sinatra help one learn Ruby on Rails&amp;#8230; probably not in an obvious manner. However my understanding is that if one tries to build a well-structured MVC application with Sinatra, one would find it easier to appreciate what Rails offers out of the box and why it mandates what it does.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    With Sinatra there is almost no mandate apart from the dsl syntax itself. So you are free to organize your application any way you like.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    If you are trying to learn Rails while you are developing your pet application, my understanding is that you may find it slightly difficult because you may need to deviate from your problem domain to understand the framework. This probably isn&amp;#8217;t true if you are just trying to learn Rails with just a mock application.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    With Sinatra, like I&amp;#8217;ve already mentioned, there is hardly a learning curve and you stay focused on your problem domain.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#0060C0;&#34;&gt;&lt;b&gt;Satish&lt;/b&gt;&gt;&gt; How much Ruby do I have to cover in order to start learning Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Andy&lt;/b&gt;&gt;&gt; I think it again depends on what an individual developer&amp;#8217;s background is.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Developers who are new to Ruby but know other object-oriented languages will likely pick up enough Ruby to be proficient very quickly.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Other developers may need more basics about the structure and basic syntax and semantics of programming languages first.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    That said, I think you could pair a lot of the learning: while introducing a Sinatra concept, also introduce some Ruby concepts.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Carlo&lt;/b&gt;&gt;&gt; At the very beginning &amp;#8220;not too much&amp;#8221;, but if and when you want to code seriously you have to dirty your hands. There is no escape! &lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:-)&#34; class=&#34;wp-smiley&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Dan&lt;/b&gt;&gt;&gt; I would make sure to cover some Ruby basics firsts:
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    * Running a ruby script&lt;br /&gt;* variables&lt;br /&gt;* method calls&lt;br /&gt;* basic data structures (array, hashes, strings, and numericals)
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    After making sure those basics are understood, I think you could get into Sinatra specifics. It would also likely help to have a basic knowledge of html, CSS, and possibly JSON, if you are planning to cover api endpoints.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Darren&lt;/b&gt;&gt;&gt; Not much at all to get started. But the more Ruby you know, the better your Sinatra applications will be. As I mentioned in my answer to question 1, Sinatra apps are basically just Ruby apps put on the web, so the standard of your Sinatra app will be directly linked to how much Ruby you know. The Sinatra source code is written in Ruby and a great exercise is to read through it (it&amp;#8217;s only around 2000 lines and very well commented). This will help to improve your Ruby skills and help you to understand how Sinatra works.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Nathan&lt;/b&gt;&gt;&gt; Sinatra is entirely built using idiomatic ruby constructs and patterns. That said you can start tinkering with Sinatra well before you have a strong grasp on Ruby. I would recommend taking the time to first familiarize yourself with the basic ruby constructs and then you can quickly dive in and learn by doing.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Sudarshan&lt;/b&gt;&gt;&gt; Have you seen &lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;http://www.sinatrarb.com/&lt;/a&gt; !!:)
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    I needed a beginner&amp;#8217;s level knowledge of Ruby to start using Sinatra.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    However, when you are learning a new language like Ruby and using something like Sinatra to do so, it is important to understand where the domain of the framework starts blurring and your problem domain begins to shine.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    So you may need to understand Ruby much deeper to efficiently solve the actual problem that you are working on.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#0060C0;&#34;&gt;&lt;b&gt;Satish&lt;/b&gt;&gt;&gt; How important is it for me to know Rack while learning Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Andy&lt;/b&gt;&gt;&gt; I think Rack is pretty simple for experienced developers to understand, but understanding why it&amp;#8217;s needed and how it fits is a bit more abstract and difficult. I don&amp;#8217;t think new developers need to understand Rack while learning Sinatra.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Carlo&lt;/b&gt;&gt;&gt; Rack is a very basic and important component, don&amp;#8217;t be afraid by it. I strongly encourage you to take half a day to study it: it&amp;#8217;s time well invested.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Dan&lt;/b&gt;&gt;&gt; While Rack is great, I think it could likely be skipped over at the beginning to allow new users to just think in terms of a Sinatra request and response cycle. It might be a good thing to cover a bit further into the lessons, but to help users get to the first goal to dynamically add information to a page, I don&amp;#8217;t believe knowledge of Rack is really necessary.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Darren&lt;/b&gt;&gt;&gt; I don&amp;#8217;t think you need to know much about Rack, except that Sinatra (and most other Ruby frameworks) uses it extensively in the background. Once you get more confident with Sinatra then you can start to dig a bit deeper into how Rack runs the show in the background, but it isn&amp;#8217;t essential when you first start.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Nathan&lt;/b&gt;&gt;&gt; Rack is the web-server interface that underlies web development in Ruby. Learning about Rack and Rack middleware development will give the developer an insightful look under the hood at how the request/response model of the web interacts in ruby-based web libraries.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Sudarshan&lt;/b&gt;&gt;&gt; It is possible to write simple Sinatra apps in the classic style without using Rack. However as your app begins to gather a bit of complexity, you will want to shift to the Modular style. Here&amp;#8217;s where Rack will help you organize your app better. This is of course apart from the benefit of web server abstraction Rack inherently provides.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#0060C0;&#34;&gt;&lt;b&gt;Satish&lt;/b&gt;&gt;&gt; While developing Sinatra apps which style (Modular or Classic) should I use?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Andy&lt;/b&gt;&gt;&gt; If the audience is beginners, I&amp;#8217;d start with classic because you have to keep very little context in your head. As the audience becomes more experienced, move toward a more modular approach.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Carlo&lt;/b&gt;&gt;&gt; It depends roughly on your application &amp;#8220;size&amp;#8221;. Modular style gives you more maintainable and readable code. Anyway start with Classic and then when your app grows up, consider switching to Modular style.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Dan&lt;/b&gt;&gt;&gt; I think for teaching beginners, the Classic style is simpler to understand and would be quicker to get students to the learn / reward cycle. Sinatra apps that grow large, is where the modular approach has many advantages. For larger apis, the modular approach is definitely the way to go, but often I find when you are really utilizing that approach it would make sense to just have a full Rails app. I haven&amp;#8217;t ended up building out to many very large Sinatra applications so there might be other advice on this point.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Darren&lt;/b&gt;&gt;&gt; It doesn&amp;#8217;t matter at all. I really like the fact that the Classic style allows you to get started really quickly and build apps with all the code in just a single file. The modular style makes it easier to organize large applications and is a good approach if you are working in teams as each module can be developed independently of the other. Modular apps also make it easier to reuse and share code in other projects.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Nathan&lt;/b&gt;&gt;&gt; While tinkering around learning Sinatra or for extremely simple apps, use classic. For writing middle-wares and production applications, I recommend using Modular. Modular is more explicit and I prefer having my Sinatra apps contained within an explicit class of my choosing. I don&amp;#8217;t see many benefits to using the classic style.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;b&gt;Sudarshan&lt;/b&gt;&gt;&gt; When you are starting to learn Sinatra, I would recommend using the classic style to get a feel of how things work. If you are building a meaningful application of even moderate complexity, the Modular style will help you keep your code organized. Once you are familiar with the Modular style of organizing your Sinatra app, you may be able to work with the Modular style with ease from the word go.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    &lt;em&gt;Well, we have set the ball rolling. &lt;b&gt;What&amp;#8217;s your take on this?&lt;/b&gt; Kindly post your thoughts as comments to this blog post. Looking forward to some interesting read.&lt;/em&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cookie-based Sessions in Sinatra</title>
+      <link>http://rubylearning.com/blog/2009/09/30/cookie-based-sessions-in-sinatra/</link>
+      <pubDate>Wed, 30 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/09/30/cookie-based-sessions-in-sinatra/</guid>
+      <description>
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/jjcicchelli.jpg&#34; alt=&#34;Julio Javier
+Cicchelli&#34; title=&#34;Julio Javier Cicchelli&#34; /&gt;
+
+This is a guest post from &lt;strong&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/20/julio-javier-cicchelli-how-do-i-learn-and-master-sinatra/&#34;&gt;Julio Javier
+Cicchelli&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;cookie-based-sessions-in-sinatra:50fe63ccfb779c42b11d499d9f56357c&#34;&gt;Cookie-based Sessions in Sinatra&lt;/h2&gt;
+
+&lt;p&gt;Hi there everybody! My name is &lt;a href=&#34;http://twitter.com/monsieur_rock&#34;&gt;Javier
+Cicchelli&lt;/a&gt; and I am the Software
+Engineer of the technological pride and joy of the Red Light District in
+Amsterdam, the Netherlands: &lt;a href=&#34;http://rock-n-code.com&#34;&gt;Rock &amp;amp; Code&lt;/a&gt;. I
+have been vested with the distinct authority to shed some light on the
+concept of &lt;em&gt;Cookie&lt;/em&gt;. The purpose of this article is to teach you how to
+concoct the explosive digital mixture that would enable you to use
+cookies for sessions within your &lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;Sinatra&lt;/a&gt;
+applications. Piece of cake, right? Before I move to the nitty-gritty of
+cookies in Sinatra, I want to cover the mandatory theoretical basics.
+So, I invite you to sit back and enjoy this slow and easy software ride.
+By the end of that piece, you will be asking for cookies at the nearest
+bakery!&lt;/p&gt;
+
+&lt;h2 id=&#34;what-are-cookies:50fe63ccfb779c42b11d499d9f56357c&#34;&gt;What are Cookies?&lt;/h2&gt;
+
+&lt;p&gt;According to the Computer Science definition, a &lt;em&gt;cookie&lt;/em&gt;, which is also
+known as an &lt;em&gt;HTTP cookie&lt;/em&gt;, a &lt;em&gt;tracking cookie&lt;/em&gt;, or a &lt;em&gt;browser cookie&lt;/em&gt;,
+is a piece of text, no bigger than 4 kilobytes, which is stored on the
+user&amp;rsquo;s computer by a web server via a web browser. It is a key-value
+pair structure, which is designed to retain specific information such as
+user preferences, user authentication, shopping carts, demographics,
+sessions, or any other data used by a website. This mechanism, which was
+developed by &lt;a href=&#34;http://netscape.aol.com/&#34;&gt;Netscape&lt;/a&gt; in the distant 1994,
+provides a way to receive information from a web server and to send it
+back from the web browser absolutely unchanged. This system complements
+the stateless nature of the HTTP protocol as it provides enough memory
+to store pieces of information during HTTP transactions.&lt;/p&gt;
+
+&lt;p&gt;When you try to access a web site, your web browser connects to a web
+server and it sends a request for the respective page. Then the web
+server replies by sending the requested content and it simultaneously
+stores a new cookie on your computer. Every time the web browser
+requests web pages from the web server, it always sends the respective
+cookies back to the web server. The process takes place as described, if
+the web browser supports cookies and the user allows their usage. Only
+the web server can modify one or more of the cookie values. Then it
+sends them to the web browser upon replying to a specific request.&lt;/p&gt;
+
+&lt;p&gt;According to the &lt;a href=&#34;http://rfc.dotsrc.org/rfc/rfc2965.html&#34;&gt;RFC2965
+specification&lt;/a&gt;, cookies are case
+insensitive. A set of defined properties is inherent to the cookie
+structure. Those properties include an expiration date, a path and a
+domain. The first attribute requires a date defined in &lt;em&gt;Wdy, DD-Mon-YYYY
+HH:MM:SS GMT&lt;/em&gt; format. The rest of the cookie characteristics require a
+path and/or a domain defined as a string. Let&amp;rsquo;s take a look at this
+example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Cookie: key0=value0; ...; keyX=valueX; expires=Wed, 23-Sep-2009 23:59:59 GMT; path=/; domain=.yoursite.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When the expiration date is defined, your cookie will be &amp;ldquo;persistent&amp;rdquo; as
+it will reoccur in different sessions until the set expiration date has
+been reached. If the expiration date has not been defined in the cookie,
+it will occur until the end of your current session or when you close
+your web browser. If the path and/or the domain attributes have been
+defined in your cookie, then the web server limits the scope of the
+cookie to that specific domain, sub-domain or path.&lt;/p&gt;
+
+&lt;h2 id=&#34;cookies-and-sinatra:50fe63ccfb779c42b11d499d9f56357c&#34;&gt;Cookies and Sinatra&lt;/h2&gt;
+
+&lt;p&gt;Having clarified the basics, we can proceed to the next level. Prepare
+to learn how to implement cookie-based sessions in the Sinatra web
+framework. You do not have to install any extra Ruby gem.&lt;/p&gt;
+
+&lt;p&gt;Get ready to rumble! First and foremost, you have to decide on the
+session strategy your Sinatra application will use in order to send to
+the web browser only those relevant pieces of information that your
+application requires. As I have already explained, this information
+depends on the kind of application you want to develop and on the
+functionalities you want to offer to your users. Then you have to enable
+the cookie based session function in Sinatra. Finally, after enabling
+the cookie-based support, you have to implement the designed session
+strategy in your application. Regardless of how you want to develop your
+application, you must always test your code in order to verify that it
+works as expected and validate that it satisfies all the given
+requirements. Throughout the remainder of this article, I will look at
+the existing methods that provides Sinatra for using sessions based on
+cookies.&lt;/p&gt;
+
+&lt;h2 id=&#34;a-simple-example:50fe63ccfb779c42b11d499d9f56357c&#34;&gt;A Simple Example&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take it slow and easy. I will commence with a very simple example.
+I will write a cookie version of the famous &amp;ldquo;Hello World&amp;rdquo; example. Here
+I will use the cookie functions included in the Sinatra framework in
+order to demonstrate how to use them. In the following example, I will
+explain how to enable the session support in your Sinatra application
+and I will show you how to create a key-value pair inside the session.
+So, let&amp;rsquo;s rock &amp;amp; code!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;require &#39;rubygems&#39;
+require &#39;sinatra&#39;
+
+enable :sessions
+
+get &#39;/&#39; do
+  session[&amp;quot;value&amp;quot;] ||= &amp;quot;Hello world!&amp;quot;
+  &amp;quot;The cookie you&#39;ve created contains the value: #{session[&amp;quot;value&amp;quot;]}&amp;quot;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;a-slightly-bigger-example:50fe63ccfb779c42b11d499d9f56357c&#34;&gt;A Slightly Bigger Example&lt;/h2&gt;
+
+&lt;p&gt;Now that you have a basic idea of how cookies work in Sinatra, you are
+ready to move to the next level. I will write a more complex example,
+which will consist of a tiny web application, which will ask the user to
+identify. In this example, I will use the session support provided by
+Sinatra in order to implement non-persistent cookies. Note that I am
+using the technique I resorted to in the previous example. I simply
+tuned it to the logic of this application.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;require &#39;rubygems&#39;
+require &#39;sinatra&#39;
+require &#39;haml&#39;
+
+enable :sessions
+
+get &#39;/&#39; do
+  session[&amp;quot;user&amp;quot;] ||= nil
+  haml :index
+end
+
+get &#39;/introduction&#39; do
+  haml :introduction
+end
+
+post &#39;/introduction&#39; do
+  session[&amp;quot;user&amp;quot;] = params[:name]
+  redirect &#39;/&#39;
+end
+
+get &#39;/bye&#39; do
+  session[&amp;quot;user&amp;quot;] = nil
+  haml :bye
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;a-final-example:50fe63ccfb779c42b11d499d9f56357c&#34;&gt;A Final Example&lt;/h2&gt;
+
+&lt;p&gt;The last example will demonstrate how to directly manage cookies through
+the &lt;em&gt;request&lt;/em&gt; and &lt;em&gt;response&lt;/em&gt; singletons provided by Sinatra. You will
+see in the following example that the previously described process
+involving the use cookies is clearly implemented. This technique is
+recommended when your application requires to use persistent and/or
+scoped cookies. In this example, the application uses two persistent
+cookies, which expire at the same time, in order to store and manage
+different configuration data. Unfortunately, due to a bug on the cookie
+management that I still have to investigate, I cannot test how the
+application responds to the scope of the different cookies it has
+created.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;require &#39;rubygems&#39;
+require &#39;sinatra&#39;
+require &#39;haml&#39;
+
+get &#39;/&#39; do
+  @@expiration_date = Time.now + (60 * 2) \
+  unless request.cookies.key?(&#39;some_options&#39;) &amp;amp;&amp;amp; request.cookies.key?(&#39;other_options&#39;)
+  haml :index
+end
+
+get &#39;/some_options&#39; do
+  @some_cookie = request.cookies[&amp;quot;some_options&amp;quot;]
+  haml :some_options
+end
+
+post &#39;/some_options&#39; do  
+  response.set_cookie(&#39;some_options&#39;, :value =&amp;gt; cookie_values(params), :expires =&amp;gt; @@expiration_date)
+  redirect &#39;/&#39;
+end
+
+get &#39;/other_options&#39; do
+  @other_cookie = request.cookies[&amp;quot;other_options&amp;quot;]
+  haml :other_options
+end
+
+post &#39;/other_options&#39; do
+  response.set_cookie(&#39;other_options&#39;, :value =&amp;gt; cookie_values(params),:expires =&amp;gt; @@expiration_date)
+  redirect &#39;/&#39;
+end
+
+helpers do
+  def cookie_values(parameters)
+    values = {}
+    parameters.each do |key, value|
+      case key
+      when &#39;options&#39;
+        values[value] = true
+      else
+        values[key] = true
+      end
+    end
+    values
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I would like to stress that Sinatra does allow developers to use
+directly &lt;a href=&#34;http://rack.rubyforge.org/&#34;&gt;Rack&lt;/a&gt; to manage cookie through the
+&lt;em&gt;Rack::Session::Cookie&lt;/em&gt; middleware. Yet, I desisted from discussing this
+method because of its complexity. Furthermore, I have not elaborated on
+the existence of other alternatives to this storage mechanism. After
+all, I have to leave some room for upcoming articles I can present you
+with. Do not allow my deliberate slips to limit your curiosity! Be
+inquisitive! You can see the source code on
+&lt;a href=&#34;http://gist.github.com/205962&#34;&gt;Github&lt;/a&gt;, of all the relevant examples.
+So go ahead and rock &amp;amp; code!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Blake Mizerany: How do I learn and master Sinatra?</title>
+      <link>http://rubylearning.com/blog/2009/08/11/blake-mizerany-how-do-i-learn-and-master-sinatra/</link>
+      <pubDate>Tue, 11 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/08/11/blake-mizerany-how-do-i-learn-and-master-sinatra/</guid>
+      <description>&lt;p&gt;Welcome to the &lt;strong&gt;last&lt;/strong&gt; installment on the RL blog, of a mini series &amp;ndash;
+&amp;ldquo;&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;&amp;rdquo; &amp;ndash; by top Rubyists using
+&lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from
+these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and
+providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn
+and master Sinatra&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Blake Mizerany, could you tell us something about
+yourself &amp;ndash; your background, where you are based?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/blake_mizerany.jpg&#34; alt=&#34;Blake
+Mizerany&#34; title=&#34;Blake Mizerany&#34; /&gt;
+&lt;strong&gt;Blake
+Mizerany&amp;gt;&amp;gt;&lt;/strong&gt; I&amp;rsquo;m one of the many Mad-Scientiests at Heroku. I started
+the Sinatra project in September of &amp;lsquo;07. I create useless, and sometimes
+useful, things out of Ruby, Erlang, and sometimes C.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Are there any pre-requisites for a person to start
+learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Blake&amp;gt;&amp;gt;&lt;/strong&gt; Be prepared to throw out what the big frameworks taught
+you and be prepared to learn what they hide from you. It&amp;rsquo;s not
+difficult.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Would you suggest that a beginner learns Sinatra before
+learning Ruby on Rails? Why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Blake&amp;gt;&amp;gt;&lt;/strong&gt; Absolutely. When you learn a large framework first, you&amp;rsquo;re
+introduced to an abundance of ideas, constraints, and magic. Worst of
+all, they start you with a pattern. In the case of Rails, that&amp;rsquo;s MVC.
+MVC doesn&amp;rsquo;t fit most web-applications from the start or at all. You&amp;rsquo;re
+doing yourself a disservice starting with it. Back into patterns, never
+start with them. Don&amp;rsquo;t think you&amp;rsquo;ll win that big bet on the golf course
+just because you bought that \$10,000 set of golf clubs.
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_wink.gif&#34; alt=&#34;;)&#34; /&gt;
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sinatra &amp;ndash; quickly create tiny web apps and services&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Any features of Sinatra that you consider awesome?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Blake&amp;gt;&amp;gt;&lt;/strong&gt; Sinatra features that I consider awesome are:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;The community&lt;/strong&gt;. I&amp;rsquo;ve met so many bright people on the mailing
+list and in IRC. Including those I work with at Heroku today. These
+people are fantastic and always willing to help. Drop in anytime.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;halt and pass&lt;/strong&gt;. See the README.
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sinatra::Base&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Blake&amp;gt;&amp;gt;&lt;/strong&gt; Read the README. It has *everything* you need to start.
+Use Heroku to deploy.&lt;/p&gt;
+
+&lt;p&gt;Then learn Rack. Understand how Rack works. Write basic apps in Rack.
+Write a simple peice of middleware.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular
+attention to?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Blake&amp;gt;&amp;gt;&lt;/strong&gt; It&amp;rsquo;s not a MVC framework that starts you with CRUD. You
+can separate your concerns how you like. Don&amp;rsquo;t start using it they way
+you would use a MVC framework. You *can* use it like a MVC framework;
+but it will make you a better person to keep things simpler until you
+need those abstractions.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for
+a beginner? Are there areas which need improvement or need to be
+re-written&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Blake&amp;gt;&amp;gt;&lt;/strong&gt; Yes. The README is a fantastic place to start.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord &amp;ndash; which one would you
+recommend to use with Sinatra and why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Blake&amp;gt;&amp;gt;&lt;/strong&gt; Any. When I do use a SQL database, which is rare these
+days, I use Sequel because it&amp;rsquo;s light on memory and dependencies (see
+&lt;a href=&#34;http://github.com/rtomayko/sinatra-sequel/tree/master&#34;&gt;http://github.com/rtomayko/sinatra-sequel/tree/master&lt;/a&gt;).
+It just always works. I&amp;rsquo;ll use ActiveRecord (AR) when I have something
+CRUD&amp;rsquo;y that I know is CRUD&amp;rsquo;y; AR is awesome at that.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra
+Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is an understanding of Rack important while learning
+Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Blake&amp;gt;&amp;gt;&lt;/strong&gt; You don&amp;rsquo;t need to know Rack to learn Sinatra. It would
+behoove you to understand it to ensure you get the most out of Sinatra.
+Rack is the foundation of Sinatra.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one hone one&amp;rsquo;s skills in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Blake&amp;gt;&amp;gt;&lt;/strong&gt; Read the source. It&amp;rsquo;s less than 1,200 LOC. Thanks to the
+all the great contributions, it&amp;rsquo;s a fantastic example of how to get a
+ton of features out of Ruby with little, clean, pretty Ruby code.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What type of projects should a beginner work on to gain
+more expertise in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Blake&amp;gt;&amp;gt;&lt;/strong&gt; Build a JSON web service. Build a small blog. Build a url
+shortner. Any of those will get your feet wet. You&amp;rsquo;ll see how Sinatra
+gets you going quickly and how it can grow to great heights to fit most
+of your needs as a framework.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Blake. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Blake would
+be glad to answer.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Others in this series:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/&#34;&gt;Corey
+Donohoe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/&#34;&gt;Jeremy
+Evans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/10/graham-ashton-how-do-i-learn-and-master-sinatra/&#34;&gt;Graham
+Ashton&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/&#34;&gt;Karel
+Minarik&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/15/chris-strom-how-do-i-learn-and-master-sinatra/&#34;&gt;Chris
+Strom&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/17/nick-plante-how-do-i-learn-and-master-sinatra/&#34;&gt;Nick
+Plante&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/20/julio-javier-cicchelli-how-do-i-learn-and-master-sinatra/&#34;&gt;Julio Javier
+Cicchelli&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/21/carlos-gabaldon-how-do-i-learn-and-master-sinatra/&#34;&gt;Carlos
+Gabaldon&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Carlos Gabaldon: How do I learn and master Sinatra?</title>
+      <link>http://rubylearning.com/blog/2009/07/21/carlos-gabaldon-how-do-i-learn-and-master-sinatra/</link>
+      <pubDate>Tue, 21 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/07/21/carlos-gabaldon-how-do-i-learn-and-master-sinatra/</guid>
+      <description>&lt;p&gt;Welcome to the &lt;strong&gt;eight&lt;/strong&gt; installment on the RL blog, of a mini series –
+“&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;” – by top Rubyists using
+&lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from
+these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and
+providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn
+and master Sinatra&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Carlos Gabaldon, could you tell us something about
+yourself – your background, where you are based?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/Carlos_Gabaldon_125.jpg&#34; alt=&#34;Carlos
+Gabaldon&#34; title=&#34;Carlos Gabaldon&#34; /&gt;
+&lt;strong&gt;Carlos
+Gabaldon&amp;gt;&amp;gt;&lt;/strong&gt; I’m &lt;a href=&#34;http://carlosgabaldon.com/&#34;&gt;Carlos Gabaldon&lt;/a&gt;. I have
+been in software development for over 10 years. I am currently working
+as a software architect for the Apollo Group, Inc. I am based in
+Chandler, AZ. I have experience in multiple languages and platforms: C,
+C++, C#, Java, Small Talk, Lisp, Erlang, Ruby, Objective-C, Python, and
+PHP on Linux, FreeBSD, and Windows.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Are there any pre-requisites for a person to start
+learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Carlos&amp;gt;&amp;gt;&lt;/strong&gt; A basic understanding of Ruby and HTTP are very helpful.
+Since Sinatra is essentially a DSL on top of Rack, which is just an
+abstraction layer for dealing with HTTP, understanding Ruby’s
+implementation of blocks, closures, and hashes will make working with
+Sinatra a little more straight forward.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Carlos&amp;gt;&amp;gt;&lt;/strong&gt; The best way to learn is to download the latest version
+of &lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;Sinatra&lt;/a&gt; and read the documentation to
+get your first app running. The docs are great way to start learning.
+After you have gone through all the examples, I suggest building your
+sample application, that will allow you to explore all the various
+aspects of Sinatra. By building a blog or some type of social web app it
+will force you to learn how to do things like authentication,
+authorization, session management, and database interaction. Also,
+spelunking the &lt;a href=&#34;http://github.com/sinatra/sinatra/tree/master&#34;&gt;source
+code&lt;/a&gt; on GitHub is a
+great way to learn the internals.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sinatra – quickly create tiny web apps and services&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular
+attention to?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Carlos&amp;gt;&amp;gt;&lt;/strong&gt; For a beginner I would suggest focusing on understanding
+Routes, Handlers, Views, Helpers, Authentication, and Models. These are
+the core things required to build most basic web applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for
+a beginner? Are there areas which need improvement or need to be
+re-written&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Carlos&amp;gt;&amp;gt;&lt;/strong&gt; The official docs are great for a beginner to learn
+Sinatra. The &lt;a href=&#34;http://www.sinatrarb.com/book.html&#34;&gt;Sinatra book&lt;/a&gt; looks
+very promising once it is complete, it just needs more people like
+myself contributing to the completion.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord – which one would you
+recommend to use with Sinatra and why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Carlos&amp;gt;&amp;gt;&lt;/strong&gt; It depends on your background. If you are coming to
+Sinatra from the Rails community you will most likely be more
+comfortable with ActiveRecord; like wise if you are coming from Merb you
+will be more familiar with DataMapper, since it is used pretty heavily
+in that community. For basic little web applications I think any of the
+above ORM’s are great. I personally really like Sequel and DataMapper
+since they give you much more control over your table and object
+mappings as well as your custom SQL. ActiveRecord abstracts to much of
+the SQL for my tastes which makes optimization of SQL queries very
+difficult. If someone plans to build a high performance web site using
+Sinatra or any other web framework I would recommend against using any
+ORM – you want to have a lot of control over your SQL, you do not want
+the join queries being generated by an ORM.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra
+Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is an understanding of Rack important while learning
+Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Carlos&amp;gt;&amp;gt;&lt;/strong&gt; I do not feel an understanding of Rack is important for
+someone learning Sinatra. Once you have a solid understanding of
+Sinatra, then learning Rack will help one with building middleware.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one hone one’s skills in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Carlos&amp;gt;&amp;gt;&lt;/strong&gt; Build a lot of different types of web apps, learn Ruby,
+study Sinatra’s source code, and read great sites like yours.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What type of projects should a beginner work on to gain
+more expertise in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Carlos&amp;gt;&amp;gt;&lt;/strong&gt; Blogs, Community Sites, really anything.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you suggest some web services that a Sinatra
+beginner could develop himself / herself?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Carlos&amp;gt;&amp;gt;&lt;/strong&gt; I would suggest building social integration type services
+on top of the Twitter or Facebook api’s. There is a lot of great open
+web service api’s out there to some great communities, building services
+that can integrate various communities is always cool.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Anything else you would like to add?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Carlos&amp;gt;&amp;gt;&lt;/strong&gt; Sinatra is a great Ruby DSL which makes it a lot of fun
+to build cool web applications. But this is possible, because Ruby is a
+great language for building DSL’s and Rack makes it easy to build web
+frameworks. I suggest that mastering Ruby and learning more about Rack
+are the next steps after getting comfortable with Sinatra.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Carlos. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Carlos
+would be glad to answer.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Others in this series:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/&#34;&gt;Corey Donohoe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/&#34;&gt;Jeremy Evans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/10/graham-ashton-how-do-i-learn-and-master-sinatra/&#34;&gt;Graham Ashton&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/&#34;&gt;Karel Minarik&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/15/chris-strom-how-do-i-learn-and-master-sinatra/&#34;&gt;Chris Strom&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/17/nick-plante-how-do-i-learn-and-master-sinatra/&#34;&gt;Nick Plante&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/20/julio-javier-cicchelli-how-do-i-learn-and-master-sinatra/&#34;&gt;Julio Javier Cicchelli&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; UK based 1st Easy Limited
+offer Sinatra and Rails hosting running on a Phusion Passenger
+(mod_rails) and LAMP stack. If you want to try your hand at developing
+with Sinatra, why not let them arrange a &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm#try&#34;&gt;trial hosting
+account&lt;/a&gt; for you? You’ll
+get to deploy your app, with full technical support from their team!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Julio Javier Cicchelli: How do I learn and master Sinatra?</title>
+      <link>http://rubylearning.com/blog/2009/07/20/julio-javier-cicchelli-how-do-i-learn-and-master-sinatra/</link>
+      <pubDate>Mon, 20 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/07/20/julio-javier-cicchelli-how-do-i-learn-and-master-sinatra/</guid>
+      <description>&lt;p&gt;Welcome to the &lt;strong&gt;seventh&lt;/strong&gt; installment on the RL blog, of a mini series
+– “&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;” – by top Rubyists using
+&lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from
+these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and
+providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn
+and master Sinatra&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Julio Javier Cicchelli, could you tell us something about
+yourself – your background, where you are based?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/jjcicchelli.jpg&#34; alt=&#34;Julio Javier
+Cicchelli&#34; title=&#34;Julio Javier Cicchelli&#34; /&gt;
+&lt;strong&gt;Julio
+Javier Cicchelli&amp;gt;&amp;gt;&lt;/strong&gt; Hey everybody! I am Julio Javier Cicchelli and I
+have currently set an anchor in the (in)famous Red Light District in
+Amsterdam, the Netherlands. I was born in Buenos Aires and I spent the
+formative years of my life there. Six years ago, I decided to set sail
+for Europe. I first reached France. Two years ago I decided to head for
+the Netherlands.&lt;/p&gt;
+
+&lt;p&gt;Initially I planned to become an architect as this is the profession
+that runs in the family. Yet I was meant for other things. One day, I
+discovered the incredible &lt;a href=&#34;http://en.wikipedia.org/wiki/Commodore_64&#34;&gt;Commodore
+C64K&lt;/a&gt;. This proved to mark a
+watershed in my life. As a result of my academic and personal pursuits,
+I have become a devoted Software Engineer, who is passionate about the
+Software development process. I have also developed “unholy” love for
+Information Systems and Software. My interest in music and arts
+propelled me to seek for the parallels between these disciplines and
+Software Engineering. As a result, I consider Software to be yet another
+form of expression. Indeed, because of the uniqueness of each piece of
+software developed, I equate the process of software creation to a
+modern form of craftsmanship. This unorthodox attitude towards the way
+of truly experiencing the Software Development lies at the very core of
+my newly-founded Software company &lt;a href=&#34;http://rock-n-code.com/&#34;&gt;Rock &amp;amp;
+Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Even though my life seems to be deeply rooted in the domain of computers
+and source code, I also love those simple joys that make our lives
+worthwhile. I am always eager to meet interesting people, to discover
+new fascinating cultures, and to visit new places. I am also a music
+junkie, a wannabe musician and artist, a passionate concertgoer, a party
+person, an incurable dreamer, and a vocal social activist. At the end,
+all I want is to live my life to the fullest.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Are there any pre-requisites for a person to start
+learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Julio&amp;gt;&amp;gt;&lt;/strong&gt; I do not think there are any pre-requisite for all those
+who are keen on learning Sinatra. Fortunately, the Sinatra DSL has been
+designed in such a way that it is almost intuitive and easy to grasp and
+follow, by developers of different ranks. Nevertheless, a basic
+knowledge of Ruby and Rack could save you lots of time. It will also
+save you some undesirable headaches. Yet, all those who are new to the
+programming language and its evil ways should be able to catch up
+simultaneously with both Ruby and Sinatra.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Julio&amp;gt;&amp;gt;&lt;/strong&gt; If you are an absolute beginner, do not panic. I strongly
+recommend that you read the core Sinatra documentation. You must pay
+special attention to the &lt;a href=&#34;http://www.sinatrarb.com/intro.html&#34;&gt;README&lt;/a&gt;
+and the &lt;a href=&#34;http://www.sinatrarb.com/faq.html&#34;&gt;FAQ&lt;/a&gt;. The
+&lt;a href=&#34;http://www.sinatrarb.com/book.html&#34;&gt;book&lt;/a&gt; is another must read. If you
+want to expand your knowledge of the framework even further, you can
+review the screencasts and the presentations available on the website.
+Finally you can browse through the
+&lt;a href=&#34;http://www.rubyinside.com/sinatra-29-links-and-resources-for-a-quicker-easier-way-to-build-webapps-1371.html&#34;&gt;resources&lt;/a&gt;.
+Be bold and do not be afraid to try out the example code that you will
+encounter while reading!&lt;/p&gt;
+
+&lt;p&gt;If you are a developer of some experience, I’d also recommend that you
+read the &lt;a href=&#34;http://github.com/sinatra/sinatra/tree/master&#34;&gt;source code&lt;/a&gt;.
+Since this framework is basically a very well written DSL of about 2000
+lines, the code should pose no problems. It is easy to read and
+understand. The benefits of reading it are plenty. First and foremost,
+studying this code would give you a more profound insight of how this
+framework works intimately with Rack. In the mean time, it will teach
+you how to write a DSL properly. In addition, you can find plenty of
+real-life applications and their respective source code on the &lt;a href=&#34;http://www.sinatrarb.com/wild.html&#34;&gt;In the
+Wild&lt;/a&gt; and &lt;a href=&#34;http://www.sinatrarb.com/extensions-wild.html&#34;&gt;Extensions in the
+Wild&lt;/a&gt; sections of the
+documentation page. They are also posted on
+&lt;a href=&#34;https://github.com/&#34;&gt;Github&lt;/a&gt;. So, if you are looking for more realistic
+examples, this is your haven!&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sinatra – quickly create tiny web apps and services&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular
+attention to?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Julio&amp;gt;&amp;gt;&lt;/strong&gt; Since Sinatra is very straight-forward, a newbie does not
+have to devote extra attention to any particular areas. What really
+matters is that a developer should grasp its concepts and be aware of
+the possibilities that this framework can offer. From there on, every
+developer can make a singular use of it. How he or she is going to do it
+depends on external factors such as the kind of software problem that
+has to be solved, his or her vision, preferences, methodologies and
+practices of writing Software.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for
+a beginner? Are there areas which need improvement or need to be
+re-written&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Julio&amp;gt;&amp;gt;&lt;/strong&gt; As I have already stated, the official documentation is
+the pivotal gateway that guarantees the right of passage to the Sinatra
+world. I believe it can fully satiate the initial hunger for knowledge
+of any starter. When I was a novice, I studied the documentation very
+carefully. This allowed me to eventually master it. In addition, I
+consider this documentation to be exemplary because it is simple, pithy,
+and full of useful examples for all the dilettantes. Certainly, there is
+plenty of room for improvement. There are certain parts that are either
+incomplete or still unwritten and probably unexplored. One of its
+drawbacks is that it is only available in English. This could prove to
+be a nuisance for all the developers who are still not comfortable with
+English. Hopefully, those weaknesses and insufficiencies will be
+addressed in the near future.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord – which one would you
+recommend to use with Sinatra and why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Julio&amp;gt;&amp;gt;&lt;/strong&gt; I highly recommend that developers use
+&lt;a href=&#34;http://datamapper.org/doku.php&#34;&gt;DataMapper&lt;/a&gt; when they are working on
+projects that involve some sort of a data base (not only relational
+databases). This ORM has certain characteristics such as eager loading,
+laziness, performance, and Ruby-like syntax that I particularly favor.
+It is also very simple to use. Please be aware that I am somehow biased.
+Although I have used ActiveRecord, I have never used or explored the
+approach proposed by Sequel.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra
+Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is an understanding of Rack important while learning
+Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Julio&amp;gt;&amp;gt;&lt;/strong&gt; A basic knowledge of &lt;a href=&#34;http://rack.rubyforge.org/&#34;&gt;Rack&lt;/a&gt;
+could be extremely useful during the process of learning Sinatra because
+it allows you to consider the vast project possibilities this framework
+has to offer. Moreover, exploring the intimate relationship between
+these two technologies enables you to write simple, modular and powerful
+applications. Taking into account that Rack has become the backbone of
+any Web framework written in Ruby, Rack-compatible applications are
+guaranteed to work with any Rack-supported framework. It only takes one
+Rack to rule them all!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one hone one’s skills in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Julio&amp;gt;&amp;gt;&lt;/strong&gt; There is nothing more exciting than pushing the limits of
+your knowledge even further. In order to succeed in doing this, you have
+to be intrepid. Do not be afraid of transforming your ideas into neat
+(or not so neat) lines of code. Even if your task appears to be
+daunting, do not give up! Carry on until you complete your projects.
+Study carefully the concepts and the approach to write applications
+proposed by Sinatra. Then go with the flow and start coding. In cases of
+a writer’s block, do not despair. Never forget the reason why Internet
+has become such a popular tool. It abounds with documentation,
+interactive examples, and of course, billions of blogs, forums, and
+chats, where kind people are genuinely willing to help you out with your
+development quest. So go ahead, write some applications and have lots of
+fun at the same time.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What type of projects should a beginner work on to gain
+more expertise in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Julio&amp;gt;&amp;gt;&lt;/strong&gt; It is entirely up to the beginners to decide. There are
+plenty of applications that they can actually write. My sole piece of
+advice to all the explorers out there is to be self-centered for just a
+moment and ask themselves the following question: “What is the
+application I actually need?”. Certainly the answers to that question
+will vary from a personal website, to a blog system or an application
+that allows you to manage your finances, your record or DVD collection,
+etc. In conclusion, just do what you really want but remember to write
+it as a Sinatra application. If you are proud of what you have
+developed, brag about it by showing it to other developers around the
+world!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you suggest some web services that a Sinatra
+beginner could develop himself / herself?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Julio&amp;gt;&amp;gt;&lt;/strong&gt; Let the starters play again! They are numerous services
+that they can implement. Consider this to be a gradual process. If you
+have just created you first Sinatra application, congratulations, you
+are in. Now, in order to make it even more attractive, try to modify it
+by adding a RESTful APl if you have not done so already! Make your
+application respond to any delivery format you like and… there was
+light! Now your application can provide information as a web service in
+XML, JSON, HTML or ever CSV to any client. Of course you will have to
+develop the client that will consume the API as well. The cool part is
+that the client can be almost any kind of Software you can possibly
+imagine: it could be a mysterious command-line application, a typical
+web admin user interface, a web application, a desktop application, a
+smart phone application etc. The choice is yours!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Anything else you would like to add?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Julio&amp;gt;&amp;gt;&lt;/strong&gt; It is incredible how much you can accomplish with so
+little. Arm yourselves with personal motivation, incessant curiosity,
+and an avid desire to explore this tiny Ruby framework. You will be
+surprised by the plethora of possibilities that it can offer. Do not
+waste this chance girls and boys! You will learn lots of interesting
+stuff if you go this way. I cannot promise you instant fame and fortune
+but I assure you, it is a whole lot of fun!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Julio. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Julio would
+be glad to answer.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Others in this series:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/&#34;&gt;Corey
+Donohoe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/&#34;&gt;Jeremy
+Evans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/10/graham-ashton-how-do-i-learn-and-master-sinatra/&#34;&gt;Graham
+Ashton&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/&#34;&gt;Karel
+Minarik&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/15/chris-strom-how-do-i-learn-and-master-sinatra/&#34;&gt;Chris
+Strom&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/17/nick-plante-how-do-i-learn-and-master-sinatra/&#34;&gt;Nick
+Plante&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; UK based 1st Easy Limited
+offer Sinatra and Rails hosting running on a Phusion Passenger
+(mod_rails) and LAMP stack. If you want to try your hand at developing
+with Sinatra, why not let them arrange a &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm#try&#34;&gt;trial hosting
+account&lt;/a&gt; for you? You’ll
+get to deploy your app, with full technical support from their team!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Nick Plante: How do I learn and master Sinatra?</title>
+      <link>http://rubylearning.com/blog/2009/07/17/nick-plante-how-do-i-learn-and-master-sinatra/</link>
+      <pubDate>Fri, 17 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/07/17/nick-plante-how-do-i-learn-and-master-sinatra/</guid>
+      <description>&lt;p&gt;Welcome to the &lt;strong&gt;sixth&lt;/strong&gt; installment on the RL blog, of a mini series –
+“&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;” – by top Rubyists using
+&lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from
+these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and
+providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn
+and master Sinatra&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Nick Plante, could you tell us something about yourself –
+your background, where you are based?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/nap.jpg&#34; alt=&#34;Nick
+Plante&#34; title=&#34;Nick Plante&#34; /&gt;
+&lt;strong&gt;Nick
+Plante&amp;gt;&amp;gt;&lt;/strong&gt; I’m Nick Plante, a freelance web app developer living in
+Portsmouth, NH — USA. I’ve been doing application development
+professionally for quite some time, but I don’t think I really ever
+enjoyed it all that much until I found Ruby, which was about 3 years ago
+now. I do client work for startups and small businesses and we work on
+incubating our own projects too. I’m also involved in a bunch of
+community stuff such as working as an organizer for the Rails Rumble
+event. In my spare time, I enjoy film, comics, travel, loud droning
+music, racquetball and mountain biking.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Are there any pre-requisites for a person to start
+learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick&amp;gt;&amp;gt;&lt;/strong&gt; A basic understanding of HTTP verbs would be useful. It
+would certainly help to have a firm grasp on Ruby too. But honestly,
+it’s not really that important. Writing a Sinatra application is a good
+way to learn Ruby itself, if you’re focused on web-based projects. It’s
+not large enough to be overly complex or unwieldy, and is easily
+understood. For example, I’d recommend that a person learn Sinatra
+before attempting to use Rails for a project, and for a lot of people,
+Rails is their first experience with Ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick&amp;gt;&amp;gt;&lt;/strong&gt; Start by looking at the Sinatra official site; the README
+there is well written and very brief, and will teach you most of what
+you need to know. Sinatra isn’t a huge framework with all sorts of
+esoteric methods, so it’s easy to get started. I’d next suggest that you
+check out the list of Sinatra applications “in the wild”; many of these
+are open source (including several of my own projects).&lt;/p&gt;
+
+&lt;p&gt;I’m a firm believer that the best way to learn a framework is to find
+practical small-scope examples to look at, and there are plenty of these
+for Sinatra now — just check GitHub. Once you understand the basics,
+pick something you’re interested in that’s relatively minimalist and
+start coding. The docs and the community are there to help you when and
+if you need help.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sinatra – quickly create tiny web apps and services&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular
+attention to?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick&amp;gt;&amp;gt;&lt;/strong&gt; Start with the basics; Sinatra’s RESTful syntax is a joy to
+work with. Stay practical. Once you’ve got that down, spend some time
+playing around with Rack itself. Understand how it works and how you can
+write and use middleware.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for
+a beginner? Are there areas which need improvement or need to be
+re-written&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick&amp;gt;&amp;gt;&lt;/strong&gt; I think it’s fine. The micro-site / README is a great read
+and the Sinatra book is another option. Since Sinatra is relatively
+unopinionated about your choice of ORM, templating language, testing
+framework, javascript library, etc — you’ll get to make your own choices
+about what you use. The documentation there will probably be worse than
+Sinatra’s own ;-).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord – which one would you
+recommend to use with Sinatra and why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick&amp;gt;&amp;gt;&lt;/strong&gt; Whichever one you personally like the best, or are most
+familiar with. I’m a big fan of DataMapper for several reasons, although
+it’s documentation (see previous question) admittedly leaves a bit to be
+desired. If you’ve already got a background with Rails, ActiveRecord
+might be a better place to start. Use what you know and learn one new
+thing at a time. Once you’re comfortable with Sinatra try experimenting
+with something different to see how it works for you.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra
+Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is an understanding of Rack important while learning
+Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick&amp;gt;&amp;gt;&lt;/strong&gt; I don’t think you really need to know much of anything
+about Rack to start using Sinatra, other than how to write a rackup file
+(which is easy and well documented; you can pretty much copy and paste).
+However, if you do know Rack you’ve got a lot of advantages, and I’d
+recommend learning it. There’s some really powerful middleware out there
+like Rack::Cache that can save you from reinventing the wheel when you
+need the extras that aren’t already baked-in.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one hone one’s skills in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick&amp;gt;&amp;gt;&lt;/strong&gt; Practice makes perfect. Pick an idea you’re interested in
+and build it. You can also learn a lot by looking at other peoples’
+work.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What type of projects should a beginner work on to gain
+more expertise in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick&amp;gt;&amp;gt;&lt;/strong&gt; Small ones that do one simple task and do it well. Focus on
+writing tight elegant code that leverages Sinatra’s RESTful DSL. Don’t
+forget to use Rack::Test to write tests for your application.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you suggest some web services that a Sinatra
+beginner could develop himself / herself?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick&amp;gt;&amp;gt;&lt;/strong&gt; Write a minimalist time tracker or a pastebin service or
+something else similarly small in scope. Sinatra is great for creating
+micro-apps; maybe spend some time thinking about how you could leverage
+the Twitter API. Also, consider building services that are entirely web
+APIs and don’t need a traditional HTML frontend. Sinatra really excels
+for that sort of thing.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Anything else you would like to add?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick&amp;gt;&amp;gt;&lt;/strong&gt; Whatever you do, just remember to have fun doing it. We’re
+all better developers when we’re working with technologies and tools
+that we enjoy, and creating things that we’re personally passionate
+about. For me, working on Sinatra-based apps is a lot of fun. It’s not
+the right choice for everything, and I definitely favor Rails for
+certain types of applications, but for creating small clean micro-apps
+it’s hard to beat imo.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Nick. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Nick would
+be glad to answer.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Others in this series:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/&#34;&gt;Corey
+Donohoe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/&#34;&gt;Jeremy
+Evans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/10/graham-ashton-how-do-i-learn-and-master-sinatra/&#34;&gt;Graham
+Ashton&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/&#34;&gt;Karel
+Minarik&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/15/chris-strom-how-do-i-learn-and-master-sinatra/&#34;&gt;Chris
+Strom&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; UK based 1st Easy Limited
+offer Sinatra and Rails hosting running on a Phusion Passenger
+(mod_rails) and LAMP stack. If you want to try your hand at developing
+with Sinatra, why not let them arrange a &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm#try&#34;&gt;trial hosting
+account&lt;/a&gt; for you? You’ll
+get to deploy your app, with full technical support from their team!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chris Strom: How do I learn and master Sinatra?</title>
+      <link>http://rubylearning.com/blog/2009/07/15/chris-strom-how-do-i-learn-and-master-sinatra/</link>
+      <pubDate>Wed, 15 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/07/15/chris-strom-how-do-i-learn-and-master-sinatra/</guid>
+      <description>&lt;p&gt;Welcome to the &lt;strong&gt;fifth&lt;/strong&gt; installment on the RL blog, of a mini series –
+“&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;” – by top Rubyists using
+&lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from
+these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and
+providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn
+and master Sinatra&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Chris Strom, could you tell us something about yourself –
+your background, where you are based?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/chris_strom.jpg&#34; alt=&#34;Chris
+Strom&#34; title=&#34;Chris Strom&#34; /&gt;
+&lt;strong&gt;Chris
+Strom&amp;gt;&amp;gt;&lt;/strong&gt; My name is Chris Strom. In my day job, I am the Director of
+Software Engineering for mdlogix, a small company in Baltimore,
+Maryland. We develop software that manages clinical research trials and
+associated data. We primarily code with Ruby on Rails.&lt;/p&gt;
+
+&lt;p&gt;My background is in web development, mostly in Perl until ~2005 when I
+made the switch to Ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Are there any pre-requisites for a person to start
+learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chris&amp;gt;&amp;gt;&lt;/strong&gt; There are no prerequisites to getting started with
+Sinatra. A basic understanding of Ruby and HTTP will serve you well,
+especially as applications become more complicated.&lt;/p&gt;
+
+&lt;p&gt;Sinatra is pretty unique in my experience in that it can handle
+extremely basic web applications, but is more than capable of handling a
+decent amount of complexity. It is good for the beginner, but capable
+enough for the pro. It is good for prototyping simple applications, but
+can support complexity as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chris&amp;gt;&amp;gt;&lt;/strong&gt; Learn Sinatra by playing!&lt;/p&gt;
+
+&lt;p&gt;Imagine small apps (data aggregation, simple API proxies, silly games)
+and then implement them. Sinatra makes it easy. Go on… do it!&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sinatra – quickly create tiny web apps and services&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular
+attention to?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chris&amp;gt;&amp;gt;&lt;/strong&gt; Beginners should pay attention to the HTTP verbs at the
+start of action blocks (i.e. the “get” in “get ‘/foo’ do …”). Simple
+applications will be all GETs, but as you become more proficient you
+will need to use POST and others.&lt;/p&gt;
+
+&lt;p&gt;Don’t overlook helpers and templating. Neither are required but their
+effective use can significantly cut down on the amount of code in your
+Sinatra actions. This will make the application easier to read and
+easier to maintain.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for
+a beginner? Are there areas which need improvement or need to be
+re-written&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chris&amp;gt;&amp;gt;&lt;/strong&gt; The official documentation is excellent.&lt;/p&gt;
+
+&lt;p&gt;Any time I find myself wondering, “how would you go about accomplishing
+that in Sinatra?”, the documentation has a nice, concise answer, with
+links to further reading as necessary.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord – which one would you
+recommend to use with Sinatra and why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chris&amp;gt;&amp;gt;&lt;/strong&gt; I do not believe that I have ever used a full blown ORM
+with Sinatra. If I find myself thinking in ORM terms, I generally use
+Rails. If I am using a data store at all, it is usually one or two
+tables, which sqlite handles nicely. For more complex data structures, I
+use CouchDB, for which CouchRest works quite well.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra
+Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is an understanding of Rack important while learning
+Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chris&amp;gt;&amp;gt;&lt;/strong&gt; No. Sinatra does an exceptional job of hiding Rack from
+the developer. It is there as your skill and need evolves, but
+developers can accomplish 95% of what they need to do without any
+understanding of Rack.&lt;/p&gt;
+
+&lt;p&gt;The only area of Rack with which you need to be really comfortable is\
+ the one that you need in order to get you current work done.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one hone one’s skills in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chris&amp;gt;&amp;gt;&lt;/strong&gt; Developing applications. Sinatra makes it easy! Look for
+small things that can be collected / reported on.&lt;/p&gt;
+
+&lt;p&gt;Blog about it. It is amazing how many things you think that you
+understand that blogging about it will tell you that you don’t.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What type of projects should a beginner work on to gain
+more expertise in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chris&amp;gt;&amp;gt;&lt;/strong&gt; Beginners should work with projects with as few
+requirements as possible. The closer to pure Sinatra you can get, the
+better. Once you have your bearings, then you can introduce things like
+templating or ORM layers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you suggest some web services that a Sinatra
+beginner could develop himself / herself?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chris&amp;gt;&amp;gt;&lt;/strong&gt; I would recommend starting with non-DB applications.
+Building something on top of an existing service with well established
+APIs, such as Twitter / Flickr would be a nice place to start.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Anything else you would like to add?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chris&amp;gt;&amp;gt;&lt;/strong&gt; Do not underestimate the importance of testing. The
+temptation with something as seemingly simple as Sinatra is to forgo
+testing and just dive straight into the code. This might be OK on very
+simple applications, but anything of moderate complexity requires
+testing to prevent silly mistakes from compounding into huge ones.&lt;/p&gt;
+
+&lt;p&gt;Sinatra makes testing easy. Sinatra wants you to test. Don’t disappoint
+Sinatra.&lt;/p&gt;
+
+&lt;p&gt;As always, if you write your tests before your code, your code will be
+be cleaner, more robust and easier to maintain.&lt;/p&gt;
+
+&lt;p&gt;My last bit of advice is to not program by coincidence. Sinatra is very
+powerful — so much so that, at times, you will find that things just
+seem to work. Always take some time to understand why things work like
+they do in Sinatra — Sinatra rewards curiosity.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Chris. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Chris would
+be glad to answer.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Others in this series:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/&#34;&gt;Corey
+Donohoe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/&#34;&gt;Jeremy
+Evans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/10/graham-ashton-how-do-i-learn-and-master-sinatra/&#34;&gt;Graham
+Ashton&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/&#34;&gt;Karel
+Minarik&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; UK based 1st Easy Limited
+offer Sinatra and Rails hosting running on a Phusion Passenger
+(mod_rails) and LAMP stack. If you want to try your hand at developing
+with Sinatra, why not let them arrange a &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm#try&#34;&gt;trial hosting
+account&lt;/a&gt; for you? You’ll
+get to deploy your app, with full technical support from their team!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Karel Minarik: How do I learn and master Sinatra?</title>
+      <link>http://rubylearning.com/blog/2009/07/13/karel-minarik-how-do-i-learn-and-master-sinatra/</link>
+      <pubDate>Mon, 13 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/07/13/karel-minarik-how-do-i-learn-and-master-sinatra/</guid>
+      <description>&lt;p&gt;Welcome to the &lt;strong&gt;fourth&lt;/strong&gt; installment on the RL blog, of a mini series –
+“&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;” – by top Rubyists using
+&lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from
+these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and
+providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn
+and master Sinatra&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Karel Minarik, could you tell us something about yourself
+– your background, where you are based?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/karmi_mugshot.jpg&#34; alt=&#34;Karel
+Minarik&#34; title=&#34;Karel Minarik&#34; /&gt;
+&lt;strong&gt;Karel
+Minarik&amp;gt;&amp;gt;&lt;/strong&gt; I’m Karel Minarik, web designer and developer living in
+Prague, Czech Republic. I have graduated in Philosophy, not Computer
+Science, which may explain why I love Ruby a lot, and why I prefer
+solving “naming things” over “cache invalidation” problems. I earn my
+bread by designing interfaces, writing Ruby, JavaScript, HTML/CSS and
+giving people advice or teaching them new tricks. I blog in
+undecipherable intervals on &lt;a href=&#34;http://www.restafari.org/&#34;&gt;Restafari.org&lt;/a&gt;
+and publish code regularly at &lt;a href=&#34;http://github.com/karmi/&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Are there any pre-requisites for a person to start
+learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Karel&amp;gt;&amp;gt;&lt;/strong&gt; Very few: you just need to know Ruby a little bit. The
+rest you can and will learn along the way. In fact, Sinatra is wonderful
+teaching tool to deepen your knowledge of Ruby as a general programming
+language, web application architectures, HTTP and REST principles,
+concept of middlewares, and so on. As a wonderful teaching/learning tool
+it’s truly on par with _why’s Shoes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Karel&amp;gt;&amp;gt;&lt;/strong&gt; You should start with the
+&lt;a href=&#34;http://github.com/sinatra/sinatra/blob/master/README.rdoc&#34;&gt;README&lt;/a&gt;,
+which contains almost everything you need to know in its 500 or so
+lines. Then you should definitely glance over sourcecode of some Sinatra
+applications “&lt;a href=&#34;http://www.sinatrarb.com/wild.html&#34;&gt;in the wild&lt;/a&gt;“.&lt;/p&gt;
+
+&lt;p&gt;Some of the noteworthy examples would be eg. simple website in
+waferbaby’s
+&lt;a href=&#34;http://github.com/waferbaby/usesthis/tree/master&#34;&gt;usesthis&lt;/a&gt;, background
+processing tutorial in bmizerany’s
+&lt;a href=&#34;http://github.com/bmizerany/sinatra-dj/tree/master&#34;&gt;sinatra-dj&lt;/a&gt;, clever
+use of Ruby’s blocks/closures in pjhyett’s
+&lt;a href=&#34;http://github.com/pjhyett/github-services/tree/master&#34;&gt;github-services&lt;/a&gt;
+or ultra minimal apps in ichverstehe’s
+&lt;a href=&#34;http://github.com/ichverstehe/gaze/blob/master/bin/gaze&#34;&gt;gaze&lt;/a&gt; or
+gnugeek’s &lt;a href=&#34;http://github.com/gnugeek/tophat/tree/master&#34;&gt;tophat&lt;/a&gt;. These
+examples really elucidate compact and minimal nature of Sinatra.&lt;/p&gt;
+
+&lt;p&gt;Then you should sketch something rather small and well defined: web
+frontend for some Ruby code you have, a web API for some of your
+services, …&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sinatra – quickly create tiny web apps and services&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular
+attention to?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Karel&amp;gt;&amp;gt;&lt;/strong&gt; Beginners should pay attention to Sinatra’s DSL itself:
+helpers, filters, last_modified and etag support, etc, so they’re not
+reinventing the mic and truly make use of it’s API. More advanced
+programmers should focus on Rack integration, using Rack middlewares
+such as &lt;strong&gt;Rack::Auth&lt;/strong&gt; or &lt;strong&gt;Rack::Mime&lt;/strong&gt; in your Sinatra app and running
+Sinatra apps themselves as middlewares. This opens different
+possibilities of service integration – have a look on Jon Crosby’s
+wonderful explanation in his &lt;a href=&#34;http://mwrc2009.confreaks.com/13-mar-2009-11-05-in-a-world-of-middleware-who-needs-monolithic-applications-jon-crosby.html&#34;&gt;MWRC
+talk&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for
+a beginner? Are there areas which need improvement or need to be
+re-written&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Karel&amp;gt;&amp;gt;&lt;/strong&gt; Sinatra’s
+&lt;a href=&#34;http://www.sinatrarb.com/documentation.html&#34;&gt;documentation&lt;/a&gt; is pretty
+extensive at the moment, covering everything from basics to testing your
+applications and writing extensions. It’s just a bit scattered at the
+moment, eg. deployment is covered in the &lt;a href=&#34;http://www.sinatrarb.com/book.html#deployment&#34;&gt;Sinatra
+Book&lt;/a&gt; started by Chris
+Schneider. There’s still some lack of thorough documentation about Rack
+integration.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord – which one would you
+recommend to use with Sinatra and why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Karel&amp;gt;&amp;gt;&lt;/strong&gt; I prefer ActiveRecord for anything talking to a relational
+database, because of it’s clever API, stability, general knowledge and
+large user base. Don’t forget that Sinatra is nice playground for
+experiments with other ORM’s, key/value stores, etc, though!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra
+Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is an understanding of Rack important while learning
+Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Karel&amp;gt;&amp;gt;&lt;/strong&gt; No, you could start learning Sinatra completely oblivious
+of something called “Rack”.&lt;/p&gt;
+
+&lt;p&gt;However, you can use plethora of various
+&lt;a href=&#34;http://rack.rubyforge.org/doc/Rack.html&#34;&gt;bundled&lt;/a&gt; or
+&lt;a href=&#34;http://github.com/rack/rack-contrib&#34;&gt;third-party&lt;/a&gt; Rack middlewares very
+easily by simple ‘&lt;strong&gt;use Rack::Utils&lt;/strong&gt;‘ or ‘&lt;strong&gt;use Rack::Locale&lt;/strong&gt;‘
+declaration for adding some advanced functionality to your application.&lt;/p&gt;
+
+&lt;p&gt;And when you plan to plug Sinatra powered app into a Rails one, for
+instance, or want to “mount” various separated web applications at
+different endpoints, you should definitely have a detailed look on Rack
+itself.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one hone one’s skills in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Karel&amp;gt;&amp;gt;&lt;/strong&gt; By reading huge amounts of code available on Github.
+That’s a sure way how to discover clever solutions and open your mind.
+(Be sure to include credits if you reuse some code and release your
+stuff, though.)&lt;/p&gt;
+
+&lt;p&gt;But the most important thing is to focus on Ruby as an expressive
+programming language, and to _not_ think about browser first. Think
+first about the domain of your application and how it translates to
+Ruby, not about how it should “look” or behave in a browser. That’s very
+important, but comes next. And don’t forget it’s really easy to code
+test-first in Ruby and in Sinatra.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What type of projects should a beginner work on to gain
+more expertise in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Karel&amp;gt;&amp;gt;&lt;/strong&gt; Smallish apps, where Rails would force it’s conventions on
+you or which are not primarily focused on database access. Something
+like cschneid’s &lt;a href=&#34;http://irclogger.com/&#34;&gt;irclogger&lt;/a&gt;, quirkey’s
+&lt;a href=&#34;http://log.quirkey.com/&#34;&gt;columnlog&lt;/a&gt; or entp’s &lt;a href=&#34;http://calendaraboutnothing.com/&#34;&gt;Calendar About
+Nothing&lt;/a&gt; — all very tight, minimal and
+very elegant apps.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you suggest some web services that a Sinatra
+beginner could develop himself / herself?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Karel&amp;gt;&amp;gt;&lt;/strong&gt; The sweet spot for Sinatra is something along the lines of
+already mentioned apps. Some ideas I could throw in:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;An app to display metrics about your team activity in a Git
+repository: who commited most, who commited most lines of code,
+etc., leveraging power of &lt;a href=&#34;http://github.com/mojombo/grit&#34;&gt;Grit&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A web frontend for some command-line tool like ‘top’ or ‘df’ for
+your servers.&lt;/li&gt;
+&lt;li&gt;Simple web hook for &lt;a href=&#34;http://github.com/guides/post-receive-hooks&#34;&gt;Github’s post-receive
+hooks&lt;/a&gt;, notifiying your
+developer mailing-list, Jabber, deploying new code to staging server
+or playing a tune.&lt;/li&gt;
+&lt;li&gt;More advanced example could be an app to show currently deployed
+versions of your applications, using small Sinatra apps on each host
+to emit various metrics like deployed revision and it’s age, system
+load, etc in JSON and a Sinatra app to gather the data — “emulating”
+services like NewRelic, Scout or FiveRun’s Dash.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Anything else you would like to add?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Karel&amp;gt;&amp;gt;&lt;/strong&gt; Do come to the #sinatra IRC channel on Freenode when you
+get stuck. There’s usually lots of people from different timezones, so
+it’s very likely that we’ll get you out of trouble fast. Just please
+read the README first and don’t name your application file “sinatra.rb”
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+
+Have fun with Ruby and Sinatra!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Karel. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Karel would
+be glad to answer.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Others in this series:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/06/how-do-i-learn-and-master-sinatra/&#34;&gt;Corey
+Donohoe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/&#34;&gt;Jeremy
+Evans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/10/graham-ashton-how-do-i-learn-and-master-sinatra/&#34;&gt;Graham
+Ashton&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; UK based 1st Easy Limited
+offer Sinatra and Rails hosting running on a Phusion Passenger
+(mod_rails) and LAMP stack. If you want to try your hand at developing
+with Sinatra, why not let them arrange a &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm#try&#34;&gt;trial hosting
+account&lt;/a&gt; for you? You’ll
+get to deploy your app, with full technical support from their team!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Graham Ashton: How do I learn and master Sinatra?</title>
+      <link>http://rubylearning.com/blog/2009/07/10/graham-ashton-how-do-i-learn-and-master-sinatra/</link>
+      <pubDate>Fri, 10 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/07/10/graham-ashton-how-do-i-learn-and-master-sinatra/</guid>
+      <description>&lt;p&gt;Welcome to the &lt;strong&gt;third&lt;/strong&gt; installment on the RL blog, of a mini series –
+“&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;” – by top Rubyists using
+&lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from
+these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and
+providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn
+and master Sinatra&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Graham Ashton, could you tell us something about yourself
+– your background, where you are based?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/graham-ashton.jpeg&#34; alt=&#34;Graham
+Ashton&#34; title=&#34;Graham Ashton&#34; /&gt;
+&lt;strong&gt;Graham
+Ashton&amp;gt;&amp;gt;&lt;/strong&gt; I’m &lt;a href=&#34;http://grahamashton.net/&#34;&gt;Graham Ashton&lt;/a&gt;. When I first
+got involved in web development I taught myself Perl. It served me well
+for five years, but I felt there had to be a better way. I picked up
+Python and loved it, and set about finding a full time Python job.
+Another five years later I found my way to Ruby, Rails and eventually
+Sinatra. I’m now working in London developing web applications as a
+freelancer. I’m mainly using Ruby at the moment, but I’m still keeping
+my eye in with Python.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Are there any pre-requisites for a person to start
+learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graham&amp;gt;&amp;gt;&lt;/strong&gt; I think it’s well worth having a basic grasp of the
+programming language before you pick up a framework. The first time I
+tried Rails I didn’t know any Ruby and couldn’t tell the Rails magic
+apart from the Ruby magic. I found it much easier to learn Rails after
+spending a day or two getting familiar with the Ruby syntax. Sinatra
+doesn’t really do magic (which is great, and appeals to the Python fan
+within me), but I still think it’s well worth having a good grasp of
+Ruby.&lt;/p&gt;
+
+&lt;p&gt;Otherwise, the only thing I’d recommend is a good understanding of the
+basics of HTTP (GET, POST, etc.). Sinatra feels like a pretty thin layer
+on top of HTTP.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graham&amp;gt;&amp;gt;&lt;/strong&gt; It may be a cliche, but I’d start with the
+&lt;a href=&#34;http://www.sinatrarb.com/intro.html&#34;&gt;README&lt;/a&gt;. It’s a fairly succinct
+summary of what you can do with Sinatra, and will bring you up to speed
+on what’s possible. You can refer back to the README or the &lt;a href=&#34;http://www.sinatrarb.com/book.html&#34;&gt;Sinatra
+book&lt;/a&gt; for more details later. I hear
+the book is still a work in progress, but I found it very useful when I
+was starting out.&lt;/p&gt;
+
+&lt;p&gt;Once you’ve skim read some docs just get stuck in and start trying to
+make stuff. Don’t skimp on the
+&lt;a href=&#34;http://www.sinatrarb.com/testing.html&#34;&gt;testing&lt;/a&gt;; it’s pretty easy to do
+and is just as important to learn as the main Sinatra API.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sinatra – quickly create tiny web apps and services&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular
+attention to?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graham&amp;gt;&amp;gt;&lt;/strong&gt; That’s a tricky question. Sinatra is so simple that no
+part stands out as being worthy of attention. Just make sure you write
+tests and you’ll be fine.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for
+a beginner? Are there areas which need improvement or need to be
+re-written&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graham&amp;gt;&amp;gt;&lt;/strong&gt; I think it’s good enough, yes. That’s how I learnt
+Sinatra and I managed to write a complete app without resorting to
+digging into the code. I hear that the book will be getting some work
+done on it in future, but I’m not really up to speed on it’s
+deficencies.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord – which one would you
+recommend to use with Sinatra and why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graham&amp;gt;&amp;gt;&lt;/strong&gt; I’d say you should use whichever is most suitable to your
+task, that you’re familiar with, or interested in learning. Sinatra
+doesn’t have a preference.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra
+Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is an understanding of Rack important while learning
+Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graham&amp;gt;&amp;gt;&lt;/strong&gt; Understanding Rack certainly isn’t a pre-requisite. To
+deploy a Sinatra application you typically need to write yourself a Rack
+config file, but there are plenty of examples online that you could
+download if you wanted to.&lt;/p&gt;
+
+&lt;p&gt;Having said all that, Rack is pretty simple, very cool, and well worth
+reading up on. Check out how to chain various Rack components together
+using the &lt;strong&gt;Rack::Builder&lt;/strong&gt; DSL (there’s an example in the RDoc).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one hone one’s skills in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graham&amp;gt;&amp;gt;&lt;/strong&gt; Make stuff. Deploy it. Repeat.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What type of projects should a beginner work on to gain
+more expertise in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graham&amp;gt;&amp;gt;&lt;/strong&gt; When I’m learning a new technology I find that I progress
+faster if I’m really motivated to release whatever it is I’m working on.
+So make stuff that interests you or excites you. Development is a
+creative process, and should be fun.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you suggest some web services that a Sinatra
+beginner could develop himself / herself?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graham&amp;gt;&amp;gt;&lt;/strong&gt; If you’ve got an existing site that you’ve already
+implemented with another technology, consider porting it to Sinatra
+(it’s a great way to compare and contrast different approaches). Have
+you got a personal web page or blog? They’re easy to make in Sinatra,
+and once you’ve got total control of your site using something as simple
+as Sinatra you really can do anything you like with it.&lt;/p&gt;
+
+&lt;p&gt;That’s exactly what I did when I built
+&lt;a href=&#34;http://effectif.com/nesta&#34;&gt;Nesta&lt;/a&gt; (I had previously been running
+Mephisto). You could just use Nesta but you’ll learn more if you write
+your own site from scratch. There are plenty of alternatives to Nesta
+out there, such as &lt;a href=&#34;http://github.com/karmi/marley/tree/master&#34;&gt;Marley&lt;/a&gt;
+(which inspired me to make Nesta) or the code for
+&lt;a href=&#34;http://github.com/toolmantim/toolmantim/tree/master&#34;&gt;toolmantim.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Anything else you would like to add?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graham&amp;gt;&amp;gt;&lt;/strong&gt; Take half an hour out to learn HAML and SASS. The syntax
+is so simple, it’ll be well worth the investment.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Graham. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Graham
+would be glad to answer.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Others in this series:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/&#34;&gt;Corey Donohoe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/&#34;&gt;Jeremy Evans&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; UK based 1st Easy Limited
+offer Sinatra and Rails hosting running on a Phusion Passenger
+(mod_rails) and LAMP stack. If you want to try your hand at developing
+with Sinatra, why not let them arrange a &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm#try&#34;&gt;trial hosting
+account&lt;/a&gt; for you? You’ll
+get to deploy your app, with full technical support from their team!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Jeremy Evans: How do I learn and master Sinatra?</title>
+      <link>http://rubylearning.com/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/</link>
+      <pubDate>Wed, 08 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/07/08/jeremy-evans-how-do-i-learn-and-master-sinatra/</guid>
+      <description>&lt;p&gt;Welcome to the &lt;strong&gt;second&lt;/strong&gt; installment on the RL blog, of a mini series –
+“&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;” – by top Rubyists using
+&lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from
+these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and
+providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn
+and master Sinatra&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Jeremy Evans, could you tell us something about yourself
+– your background, where you are based?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/jeremy-125.jpg&#34; alt=&#34;Jeremy
+Evans&#34; title=&#34;Jeremy Evans&#34; /&gt;
+&lt;strong&gt;Jeremy
+Evans&amp;gt;&amp;gt;&lt;/strong&gt; I am &lt;a href=&#34;http://code.jeremyevans.net/&#34;&gt;Jeremy Evans&lt;/a&gt; and I do
+computer work for the government in Sacramento, CA, USA. I’ve been using
+Ruby since 2004.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Are there any pre-requisites for a person to start
+learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jeremy&amp;gt;&amp;gt;&lt;/strong&gt; I think you need a basic understanding of Ruby syntax,
+but once you have that you can pretty much dive right in. Sinatra is
+simple enough to understand that not much else should be required.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jeremy&amp;gt;&amp;gt;&lt;/strong&gt; I’d recommend reading the documentation on the Sinatra
+website, especially the README, FAQ, and the Sinatra Book.&lt;/p&gt;
+
+&lt;p&gt;After that, just start coding an application, referring to those
+documentation sources and the RDoc API documentation.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sinatra – quickly create tiny web apps and services&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular
+attention to?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jeremy&amp;gt;&amp;gt;&lt;/strong&gt; I’m not sure a beginner should focus on a particular
+aspect. The focus should depend on the application the programmer wants
+to create.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for
+a beginner? Are there areas which need improvement or need to be
+re-written&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jeremy&amp;gt;&amp;gt;&lt;/strong&gt; This is hard for me to say, as I was already fairly
+experienced with Ruby when I started learning Sinatra (and there wasn’t
+nearly as much documentation back then), but I think the introductory
+documentation is good enough for a beginner.&lt;/p&gt;
+
+&lt;p&gt;If there is one aspect of the documentation that could be improved, I
+think it’s that the RDoc API documentation could be more complete, as
+some methods are undocumented.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord – which one would you
+recommend to use with Sinatra and why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jeremy&amp;gt;&amp;gt;&lt;/strong&gt; As I’m the maintainer of
+&lt;a href=&#34;http://sequel.rubyforge.org/&#34;&gt;Sequel&lt;/a&gt;, I’m obviously biased towards
+Sequel, at least if you are using an SQL database. If you are using a
+non-SQL database and want ORM-like behavior that the native adapter
+doesn’t provide, DataMapper may be a good choice. If you want to use
+ActiveRecord, you need to make sure your application is single threaded,
+or use a Rack middleware to clean up the connection pool manually.&lt;/p&gt;
+
+&lt;p&gt;I think Sequel and Sinatra are a good fit for each other as they both
+are simple and flexible. Both allow you to accomplish a lot with not
+much code.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra
+Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is an understanding of Rack important while learning
+Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jeremy&amp;gt;&amp;gt;&lt;/strong&gt; I think an understanding of Rack is helpful, but not
+required. Learning how Rack works, especially how you can use middleware
+to reuse common code between applications (even if they use different
+frameworks), is definitely worth the small amount of time it takes.
+However, if you just want to learn Sinatra basics, I wouldn’t focus on
+learning Rack first.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one hone one’s skills in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jeremy&amp;gt;&amp;gt;&lt;/strong&gt; Like everything else in programming, once you have the
+basics, the best way to improve your skills is to practice. With
+Sinatra, the best way to practice is to think of a web
+site/application/service that you want to create, and use Sinatra to
+create it. As you code, you’ll probably come across situations where you
+know what result you want, but not how to get there. That’s when you
+need to do some research in the API docs or the source code. If you are
+still unsure after doing some research, jump on the #sinatra IRC
+channel and ask questions there.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What type of projects should a beginner work on to gain
+more expertise in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jeremy&amp;gt;&amp;gt;&lt;/strong&gt; Start with a small project. I’d recommend a basic web
+site with a few pages, but the important thing is to pick something that
+interests you.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you suggest some web services that a Sinatra
+beginner could develop himself / herself?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jeremy&amp;gt;&amp;gt;&lt;/strong&gt; A fairly simple one would be a proxy service where the
+user can provide a URL and the Sinatra web service could retrieve the
+page and return it to the user. A beginner would need to do some
+research on Ruby’s standard library (&lt;strong&gt;net/http&lt;/strong&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:284a482d6d3bf50ce89a22eb538b8ab8:fn-2574-1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:284a482d6d3bf50ce89a22eb538b8ab8:fn-2574-1&#34;&gt;0&lt;/a&gt;&lt;/sup&gt;^ or
+&lt;strong&gt;open-uri&lt;/strong&gt;), but the Sinatra code for a simple proxy service should
+only be a few lines.&lt;/p&gt;
+
+&lt;p&gt;Another web service that a beginning Sinatra user could create would be
+a URL shortener&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:284a482d6d3bf50ce89a22eb538b8ab8:fn-2574-2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:284a482d6d3bf50ce89a22eb538b8ab8:fn-2574-2&#34;&gt;0&lt;/a&gt;&lt;/sup&gt;^.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Anything else you would like to add?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jeremy&amp;gt;&amp;gt;&lt;/strong&gt; The best way to learn is to have fun doing so, so pick
+projects that interest you.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Jeremy. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Jeremy
+would be glad to answer.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Others in this series:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/&#34;&gt;Corey
+Donohoe&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; UK based 1st Easy Limited
+offer Sinatra and Rails hosting running on a Phusion Passenger
+(mod_rails) and LAMP stack. If you want to try your hand at developing
+with Sinatra, why not let them arrange a &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm#try&#34;&gt;trial hosting
+account&lt;/a&gt; for you? You’ll
+get to deploy your app, with full technical support from their team!&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Read 14.20 A Real-World HTTP Client from the &lt;strong&gt;Ruby Cookbook&lt;/strong&gt;.
+&lt;a href=&#34;#fnref-2574-1&#34;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Read &lt;a href=&#34;http://blog.saush.com/2009/04/clone-tinyurl-in-40-lines-of-ruby-code/&#34;&gt;Clone TinyURL in 40 lines of Ruby
+code&lt;/a&gt;.
+&lt;a href=&#34;#fnref-2574-2&#34;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How do I learn and master Sinatra?</title>
+      <link>http://rubylearning.com/blog/2009/07/06/how-do-i-learn-and-master-sinatra/</link>
+      <pubDate>Mon, 06 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/07/06/how-do-i-learn-and-master-sinatra/</guid>
+      <description>&lt;p&gt;Welcome to the &lt;strong&gt;first&lt;/strong&gt; installment on the RL blog, of a mini series –
+“&lt;strong&gt;How do I learn and master Sinatra?&lt;/strong&gt;” – by top Rubyists using
+&lt;em&gt;Sinatra&lt;/em&gt;. The interview series will provide insight and commentary from
+these notable &lt;em&gt;Sinatra&lt;/em&gt; developers, with the goal of facilitating and
+providing answers to the questions Ruby beginners face on &lt;em&gt;how to learn
+and master Sinatra&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Corey Donohoe, could you tell us something about yourself
+– your background, where you are based?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/CoreyDonohoe.jpg&#34; alt=&#34;Corey
+Donohoe&#34; title=&#34;Corey Donohoe&#34; /&gt;
+&lt;strong&gt;Corey
+Donohoe&amp;gt;&amp;gt;&lt;/strong&gt; I’m &lt;a href=&#34;http://atmos.org/&#34;&gt;Corey Donohoe&lt;/a&gt;. I’m based out of
+Boulder, Colorado – USA. My background is in computer science and system
+administration though I prefer hacking to either of those labels. I’m a
+pretty normal dude, I enjoy cycling, music, coffee, micro brews, and all
+the other awesomeness that my home state has to offer. I’ve been working
+for &lt;a href=&#34;http://www.engineyard.com/&#34;&gt;Engine Yard&lt;/a&gt; since March of ’07 doing
+everything from app support to internal development. I’m currently &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;
+of our internal integrations team.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sinatra’s greatest strength is its flexibility&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Are there any pre-requisites for a person to start
+learning Sinatra&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Corey&amp;gt;&amp;gt;&lt;/strong&gt; There aren’t any hardcore prerequisites per se; Ruby and
+experience in a Ruby web framework is a plus. HTTP verbs play a huge
+role in Sinatra, as well as things like query and post params. If you
+get those concepts you can hit the ground running.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one start learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Corey&amp;gt;&amp;gt;&lt;/strong&gt; Learn Sinatra incrementally. If you have new business
+requirements try to think about things like “how would i implement this
+in Sinatra?” Take the time to figure that requirement out in Sinatra
+then throw the solution out! When the time comes to use Sinatra for
+something you’ll have a much more broad understanding of the framework
+and you’ll hit fewer blockers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Which area of Sinatra should a beginner pay particular
+attention to?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Corey&amp;gt;&amp;gt;&lt;/strong&gt; Understanding the difference between &lt;strong&gt;Sinatra::Base&lt;/strong&gt; and
+&lt;strong&gt;Sinatra::Default&lt;/strong&gt; is definitely something a Sinatra beginner should
+focus on early. &lt;strong&gt;Sinatra::Base&lt;/strong&gt; is for writing Rack middleware, and
+&lt;strong&gt;Sinatra::Default&lt;/strong&gt; is normally for writing Rack applications. Learning
+the modular style app development is really useful as well as using the
+register method to include pieces of functionality. Getting a handle on
+those concepts will expose you to the rest of Sinatra, which is
+relatively intuitive.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra
+Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is the official documentation on Sinatra good enough for
+a beginner? Are there areas which need improvement or need to be
+re-written&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Corey&amp;gt;&amp;gt;&lt;/strong&gt; The Sinatra documentation is well done and I can generally
+find answers to my questions just by referencing the docs. There’s
+always #sinatra on freenode or the Sinatra book on github if you need
+additional help too. There’s plenty of pretty well tested examples on
+github using Sinatra, hancock and integrity come to mind.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Sequel, DataMapper, ActiveRecord – which one would you
+recommend to use with Sinatra and why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Corey&amp;gt;&amp;gt;&lt;/strong&gt; I use DataMapper exclusively. It was a bumpy ride a year
+ago but these days it’s acceptable for production use. We interface with
+more than just relational databases and the ability to keep a consistent
+model syntax across various data sources is really attractive to us.
+Realistically I feel like I spend less time fighting my framework when
+I’m using DataMapper so it’s the clear choice. The one place I wouldn’t
+use dm in would be a join heavy relational environment; ActiveRecord is
+way better at that.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Is an understanding of Rack important while learning
+Sinatra? Why? Which area of Rack should one be really comfortable with?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Corey&amp;gt;&amp;gt;&lt;/strong&gt; You don’t need a solid understanding of Rack to get a
+Sinatra up and running, but you’ll be missing out on a lot of the power.
+It’s extremely beneficial to take the time to learn how the
+&lt;strong&gt;Rack::Builder&lt;/strong&gt; works as well as the usage of the &lt;strong&gt;use/map/run&lt;/strong&gt;
+commands in that context. The modularity of Rack really becomes apparent
+and you’ll find yourself using Sinatra more effectively.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; How should one hone one’s skills in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Corey&amp;gt;&amp;gt;&lt;/strong&gt; Read code, write test code, write code. All of the awesome
+testing frameworks available for Ruby are available to Sinatra. If you
+don’t write tests it might be a good way to familiarize yourself with
+testing best practices without the overheard of a larger framework.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What type of projects should a beginner work on to gain
+more expertise in Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Corey&amp;gt;&amp;gt;&lt;/strong&gt; A beginner would benefit from writing something completely
+API driven as a first project. So many people couple databases with
+dynamic web applications but it’s kind of liberating to just be an
+intermediary service. Twitter apps are pretty trivial to implement and
+can teach you a lot. They also expose you to a pretty large userbase to
+solicit feedback.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Could you suggest some web services that a Sinatra
+beginner could develop himself / herself?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Corey&amp;gt;&amp;gt;&lt;/strong&gt; Web services are great targets for introducing Sinatra
+into your workplace. Identify a pain point in your organization and put
+a small app in front of it. It doesn’t have to replace something
+overnight but it’s a great way to sneak functionality in at work. Once
+you have a few of these built you start to reap the benefits of
+microapps and web services.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Anything else you would like to add?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Corey&amp;gt;&amp;gt;&lt;/strong&gt; Learning Sinatra is the best thing you can do while we all
+wait for Rails 3 to land. The middleware you write will be able to be
+dropped right into your Rails 3 applications so it’s not like you’re
+wasting time. We’re starting to build really modular systems using
+Sinatra by building APIs into those systems. I think a lot of people
+would benefit from breaking their monolith apps down into microapps and
+Sinatra is a great way to do it.&lt;/p&gt;
+
+&lt;p&gt;People looking for a template might want to investigate the singem gem.
+It has basic templates for twitter apps or regular webservices. All of
+them are bootstrapped for testing with cucumber+rspec.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Corey. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Corey would
+be glad to answer.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; UK based 1st Easy Limited
+offer Sinatra and Rails hosting running on a Phusion Passenger
+(mod_rails) and LAMP stack. If you want to try your hand at developing
+with Sinatra, why not let them arrange a &lt;a href=&#34;http://www.1steasy.com/ruby-on-rails.htm#try&#34;&gt;trial hosting
+account&lt;/a&gt; for you? You’ll
+get to deploy your app, with full technical support from their team!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

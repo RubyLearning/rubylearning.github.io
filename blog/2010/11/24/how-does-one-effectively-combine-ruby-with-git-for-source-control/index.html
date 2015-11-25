@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    How does one effectively combine Ruby with Git for source control? // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Erik Andrejko">
+
+
+  <meta property="og:title" content="How does one effectively combine Ruby with Git for source control?" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2010/11/24/how-does-one-effectively-combine-ruby-with-git-for-source-control/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#introduction:10709d8bee3506fb8072390f5f84b3d9">Introduction</a></li>
+<li><a href="#use-feature-branches:10709d8bee3506fb8072390f5f84b3d9">Use Feature Branches</a></li>
+<li><a href="#rewrite-to-keep-your-commits-clean:10709d8bee3506fb8072390f5f84b3d9">Rewrite to Keep Your Commits Clean</a></li>
+<li><a href="#ruby-and-git-play-well-together:10709d8bee3506fb8072390f5f84b3d9">Ruby and Git play well together</a></li>
+<li><a href="#when-something-goes-wrong:10709d8bee3506fb8072390f5f84b3d9">When Something Goes Wrong</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2010/11/24/how-does-one-effectively-combine-ruby-with-git-for-source-control/">How does one effectively combine Ruby with Git for source control?</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2010</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">Erik Andrejko</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>This guest post is by <strong>Erik Andrejko</strong>, a software developer living in
+San Francisco who spends his days working on web applications and
+solving data mining and machine learning problems integrating Ruby,
+Clojure and Java. When not spending time with his family, he blogs about
+web development and user experience at
+<a href="http://railsillustrated.com/">railsillustrated.com</a> and can found on
+Twitter at <a href="http://twitter.com/#!/eandrejko">@eandrejko</a>.</p>
+
+<h2 id="introduction:10709d8bee3506fb8072390f5f84b3d9">Introduction</h2>
+
+<p><img src="http://rubylearning.com/images/ErikAndrejko.jpg" alt="Erik
+Andrejko" title="Erik Andrejko" />
+</p>
+
+<p>Source control is one of the primary tools of a developer’s toolbox and
+can be one of the most powerful. Git is one of the most popular source
+control systems used by Ruby developers and one of the most powerful
+available. Following good Ruby development practices, such as good use
+of unit tests, and disciplined code organization allow one to easily
+make use of some of most powerful features of Git. With good habits,
+Ruby and Git are a potent combination.</p>
+
+<p>This article assumes some basic familiarity with Git concepts and
+commands and discusses effective use of Git with Ruby projects. Git can
+take some time to learn well, a good introduction can be found at
+<a href="http://gitref.org/">gitref.org</a> and the canonical comprehensive
+reference can be found at <a href="http://progit.org/book/">Pro Git</a>.</p>
+
+<h2 id="use-feature-branches:10709d8bee3506fb8072390f5f84b3d9">Use Feature Branches</h2>
+
+<p>Git is remarkably capable of creating separate development branches and
+later merging those branches. A good developer can use this to their
+advantage by using feature branches. A feature branch is a branch of the
+codebase used to implement a single feature.</p>
+
+<p>To create a feature branch in Git just create a branch:</p>
+
+<pre><code class="language-bash">git checkout -b feature
+</code></pre>
+
+<p>Once you get into the habit of using feature branches it is not uncommon
+to have many of them simultaneously, so it is helpful to name the
+feature branch with some descriptive name.</p>
+
+<p>Doing your development work on a feature branch provides many benefits:</p>
+
+<ul>
+<li>You can develop the feature over time and switch back to the master
+branch at any time to have a known good version of the code.</li>
+<li>You can abandon the feature at any time without having to carefully
+revert a partial implementation.</li>
+<li>You can change your commits on the feature branch before committing
+them to the master branch.</li>
+</ul>
+
+<p>When the feature is complete you can move the commits to the master
+branch with either a <code>git merge</code>:</p>
+
+<pre><code class="language-bash">git checkout master
+git merge feature
+</code></pre>
+
+<p>or alternatively with a <code>git rebase</code>, depending on how you prefer the
+history to be maintained:</p>
+
+<pre><code class="language-bash">git checkout master
+git rebase feature
+</code></pre>
+
+<p>When doing a merge, an additional commit will be created on the master
+branch which will show that two branches have merged at that point. Thus
+the history will forever reflect the existence of your feature branch.
+Some developers prefer to avoid having these merge commits in the
+history. To avoid these additional merge commits use <code>git rebase</code>
+instead, which will move the commits from the feature branch onto the
+master branch without creating an additional commit keeping the history
+of the master branch linear.</p>
+
+<h2 id="rewrite-to-keep-your-commits-clean:10709d8bee3506fb8072390f5f84b3d9">Rewrite to Keep Your Commits Clean</h2>
+
+<p>When using a feature branch it is generally a good practice to take the
+opportunity to rewrite the commits before placing them on the master
+branch. Generally, changing commits is often discouraged in Git and many
+Git guides advise against changing history by rewriting commits. This is
+good advice, as rewriting commits on a shared branch will cause
+headaches for other developers. However, on your private feature branch
+you can change any commits you like before they become published on the
+master branch.</p>
+
+<p>To rewrite your commits, from the <code>feature</code> branch use <code>git rebase</code> with
+the <code>--interactive</code> flag:</p>
+
+<pre><code class="language-bash">git rebase --interactive master
+</code></pre>
+
+<p>which will start an interactive rebase. Using an interactive rebase will
+enable you to:</p>
+
+<ul>
+<li>Merge commits together (known as squashing).</li>
+<li>Change the order of the commits.</li>
+<li>Change the content of commits and their messages.</li>
+</ul>
+
+<p>Another important task before publishing your feature branch is to
+ensure that all the unit tests pass after each commit. As we shall see
+later, this will make it easier to use another powerful feature of Git.</p>
+
+<h2 id="ruby-and-git-play-well-together:10709d8bee3506fb8072390f5f84b3d9">Ruby and Git play well together</h2>
+
+<p>There is one disadvantage to using feature branches instead of just
+placing all commits on master: merge conflicts. Generally Git is very
+adept of avoiding merge conflicts but some conflicts are unavoidable.</p>
+
+<p>For example, suppose that on the feature branch we add the <code>has_coupon?</code>
+method to the <code>User</code> class:</p>
+
+<pre><code class="language-ruby">class User
+  def name
+   @name
+  end
+
+  def has_coupon?
+    !coupons.empty?
+  end
+end
+</code></pre>
+
+<p>If on the master branch, another developer were to also add a method to
+<code>User</code> after the <code>name</code> method there will be a merge conflict when
+merging or rebasing the feature branch onto the master branch. This type
+of merge conflict often occurs when classes get large and are often
+changed. o prevent this kind of conflict use Ruby modules to organize
+the methods in the <code>User</code> class.</p>
+
+<p>On the feature branch change the <code>User</code> object as follows:</p>
+
+<pre><code class="language-ruby">class User
+  include CouponMethods
+
+  def name
+   @name
+  end
+end
+</code></pre>
+
+<p>and add a new file <code>coupon_methods.rb</code> containing the new methods:</p>
+
+<pre><code class="language-ruby">module CouponMethods
+  def has_coupon?
+    !coupons.empty?
+  end
+end
+</code></pre>
+
+<p>Since we have added a new file with we will likely avoid any merge
+conflict if another new methods are added to <code>User</code> in the master
+branch. Of course, if two developers both add <code>include</code> statements to
+the top of the <code>User</code> class there will again be a merge conflict.
+However fixing a conflict which involves only a single line is easier
+than a conflict involving many lines of method definitions.</p>
+
+<p>Ruby is flexible enough to use a pattern that guarantees no merge
+conflicts. If we change <code>coupon_methods.rb</code> to:</p>
+
+<pre><code class="language-ruby">module CouponMethods
+  def has_coupon?
+    !coupons.empty?
+  end
+end
+User.send(:include, CouponMethods)
+</code></pre>
+
+<p>then there <em>cannot</em> be a merge conflict as no two developers will change
+the same file. Generally, it may not be a good practice to extend the
+<code>User</code> object in this way. It does illustrate that Ruby can be made to
+play very well with Git when the need arises.</p>
+
+<p>Using submodules to extend classes in a unobtrustive way is particularly
+useful when modifying third-party code. In these cases avoiding merge
+conflicts is particularly important as it is usually more difficult to
+resolve the conflict when the other developer is not readily available
+to help or when test coverage is lacking. By modifying third-party code
+in Ruby ouside of the original source files you can avoid the need to
+resolve any merge conflicts when updating that third-party code.
+Typically in these cases a good suite of units tests testing both the
+original third part code and the modified code is essential to ensure
+that the behavior of the updated third-party code with your changes
+stays the same.</p>
+
+<h2 id="when-something-goes-wrong:10709d8bee3506fb8072390f5f84b3d9">When Something Goes Wrong</h2>
+
+<p>Bugs are inevitable and Git has several features designed to help
+debugging. When a bug is discovered, the first place to look to find the
+commit that introduces the bug is to use <code>git log</code> to look for modified
+files and search for the obvious candidates.</p>
+
+<p>The <code>git log --stat</code> command will show each commit message together with
+a list of files modified by that commit.</p>
+
+<pre><code class="language-sh">git log --stat
+</code></pre>
+
+<p>If you want to isolate the output of <code>git log --stat</code> to a particular
+subdirectory or file, you can provide a path:</p>
+
+<pre><code class="language-sh">git log --stat lib/
+</code></pre>
+
+<p>It is preferable to avoid adding bugs in the first place and Git has
+some tools to help. In Ruby it is common to use descriptive method names
+in place of comments in the source code. Commit messages provide an
+alternative source of comments for each source file. To see the commits
+which are responsible for the current state of every line of code in a
+particular file use the <code>git blame</code> command.</p>
+
+<pre><code class="language-sh">git blame lib/user.rb
+</code></pre>
+
+<p>The first column of the output will be the SHA of the commit. To view
+the commit message for this commit pass the SHA to <code>git log</code> which will
+show the commit message at the top of the log:</p>
+
+<pre><code class="language-sh">git log 1d35a63e 
+</code></pre>
+
+<p>Often, the commit message will provide very useful information about the
+intent behind a particular line of code.</p>
+
+<p>Sometimes the source of a bug is not found in the expected place. In
+this case finding the commit which introduces a bug can be difficult.
+Fortunately git provides a tool which can be incredibly useful and is
+guaranteed to find the commit which introduced the bug: <code>git bisect</code>.
+The <code>git bisect</code> command is designed to perform a binary search of the
+commit history to find the first ‘bad’ commit. To start a bisect,
+checkout the commit which is known to contain the bug, mark this as
+‘bad’, check out <em>any</em> commit known not to have the bug and mark this as
+‘good&rsquo;:</p>
+
+<pre><code class="language-sh">git checkout known_bad_commit
+git bisect start
+git bisect bad
+git checkout known_good_commit
+git bisect good
+</code></pre>
+
+<p>After marking a commit as ‘good’, Git will start a binary search of the
+commit history between the ‘good’ and ‘bad’ commit by checking out a
+series of commits. After each checkout, mark the commit as ‘good’ or
+‘bad’ with the <code>git bisect</code> command. Eventually Git will report the
+first ‘bad’ commit along with its commit message. Once completing the
+bisect you can restore Git to its original state by running
+<code>git bisect reset</code>. Alternatively if you make a mistake marking a
+particular commit or otherwise want to start over you can also use
+<code>git bisect reset</code>.</p>
+
+<p>Bisecting a long-range of commits can be time-consuming and fortunately
+this process can be automated. If you are using good testing practices,
+you will likely start after identifying the bug by adding a failing
+test. You can use this failing test to run git bisect automatically
+using <code>git bisect run</code>:</p>
+
+<pre><code class="language-sh">git checkout known_bad_commit
+git bisect start
+git bisect bad
+git checkout know_good_commit
+git bisect good
+git bisect run ruby test/unit/unit_test.rb
+</code></pre>
+
+<p>Using <code>git bisect run</code> will checkout a series of commits and run
+<code>ruby test/unit/unit_test.rb</code> after each checkout. If the test passes
+the commit will be marked ‘good’, if it fails the commit will be marked
+‘bad’. Assuming that you simply edit <code>test/unit/unit_test.rb</code> you may
+run into trouble if any of the intermediate commits also change
+<code>test/unit/unit_test.rb</code> as Git may not be able to resolve the conflict.
+In this case, you can temporarily add the failing test to a new file
+before using <code>git bisect run</code>.</p>
+
+<p>It is should now be clear why it is important to keep the unit tests
+running after each commit. If not, using <code>git bisect run</code> may find the
+wrong commit.</p>
+
+<p>Any program can be used with <code>git bisect run</code>, not just a Ruby test. For
+some bugs it may not be possible to add a failing test because not
+enough information about the source of the bug is known. In this case,
+as long as the bug can be detected by some automated means you can still
+use <code>git bisect run</code> to find it. To use any Ruby program with
+<code>git bisect run</code> use the <code>exit</code> method to pass the correct state back to
+Git. f the test passes: use <code>exit(0)</code> to exit the Ruby program and
+indicate to <code>git bisect run</code> the commit is ‘good’, if the test fails use
+<code>exit(1)</code> to exit the Ruby program and indicate to <code>git bisect run</code> that
+the commit is bad.</p>
+
+<p>Git bisect is one of the best features of Git and has been used to find
+some difficult to trace bugs. Even better, by automating the search with
+<code>git bisect run</code>, no matter where the bug was introduced, it will be
+found.</p>
+
+<p><em>I hope you found this article valuable. Feel free to ask questions and
+give feedback in the comments section of this post. Thanks!</em></p>
+
+<p>If you are new to Git then the <a href="http://rubylearning.com/blog/using-git-github-ebook/">Using Git &amp;
+GitHub</a> eBook
+would be useful to you.</p>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-git" href="http://rubylearning.com/blog//tags/git">Git</a>,
+	                
+	                <a class="post-tag post-tag-programming" href="http://rubylearning.com/blog//tags/programming">programming</a>,
+	                
+	                <a class="post-tag post-tag-ruby-programming" href="http://rubylearning.com/blog//tags/ruby-programming">ruby programming</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2010/11/30/how-do-i-build-dsls-with-yield-and-instance_eval/">How do I build DSLs with yield and instance_eval?</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2010/11/23/dont-know-metaprogramming-in-ruby/">Don&#39;t Know Metaprogramming In Ruby?</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2010\/11\/24\/how-does-one-effectively-combine-ruby-with-git-for-source-control\/';
+    var disqus_title = 'How does one effectively combine Ruby with Git for source control?';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2010\/11\/24\/how-does-one-effectively-combine-ruby-with-git-for-source-control\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

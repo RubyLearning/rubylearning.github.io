@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Being Awesome with the MongoDB Ruby Driver // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Ethan Gunderson">
+
+
+  <meta property="og:title" content="Being Awesome with the MongoDB Ruby Driver" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2010/12/21/being-awesome-with-the-mongodb-ruby-driver/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#being-awesome-with-the-mongodb-ruby-driver:2d7f6484087abfae6190d42a20271830">Being Awesome with the MongoDB Ruby Driver</a>
+<ul>
+<li><a href="#installation:2d7f6484087abfae6190d42a20271830">Installation</a></li>
+<li><a href="#getting-started:2d7f6484087abfae6190d42a20271830">Getting Started</a></li>
+<li><a href="#inserting-updating-documents:2d7f6484087abfae6190d42a20271830">Inserting &amp; Updating Documents</a></li>
+<li><a href="#tags:2d7f6484087abfae6190d42a20271830">Tags</a></li>
+<li><a href="#indexing:2d7f6484087abfae6190d42a20271830">Indexing</a></li>
+<li><a href="#references:2d7f6484087abfae6190d42a20271830">References</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2010/12/21/being-awesome-with-the-mongodb-ruby-driver/">Being Awesome with the MongoDB Ruby Driver</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>21</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2010</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author" href="http://twitter.com/ethangunderson" target="">Ethan Gunderson</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>This guest post is by <strong>Ethan Gunderson</strong>, who is a software developer
+living in Chicago. By day he is a developer at
+<a href="http://obtiva.com/">Obtiva</a>, where he helps clients deliver projects
+and be more awesome. By night, he is part of the
+<a href="http://gathers.us/">gathers.us</a> team, a co-organizer of
+<a href="http://chicagodb.gathers.us/">ChicagoDB</a>, and contributes when he can
+to the <a href="http://www.mongodb.org/">MongoDB</a> community. You can find him at
+<a href="http://ethangunderson.com/">ethangunderson.com</a>, or on Twitter as
+<a href="http://twitter.com/ethangunderson">@ethangunderson</a>.</p>
+
+<p><img src="http://rubylearning.com/images/avatar-small.png" alt="Ethan Gunderson" title="Ethan Gunderson" />
+</p>
+
+<h2 id="being-awesome-with-the-mongodb-ruby-driver:2d7f6484087abfae6190d42a20271830">Being Awesome with the MongoDB Ruby Driver</h2>
+
+<p><a href="http://www.mongodb.org/">MongoDB</a> is fast becoming one of the more
+popular and widely used NoSQL databases, and rightfully so. Its flexible
+key/value store, powerful query language and sexy scaling options is
+enough to piqué any developers interest. While most Ruby developers may
+jump right into the warm embrace of the Active Record replacements
+Mongoid and MongoMapper, that often robs developers of a valuable
+learning experience.</p>
+
+<p>The <a href="http://www.mongodb.org/display/DOCS/Ruby+Language+Center">MongoDB Ruby
+driver</a> is not
+only simple to use, but it will get you familiar with how queries look
+and how they operate. Armed with this knowledge, moving into an
+<a href="http://en.wikipedia.org/wiki/Object-relational_mapping">ORM</a> becomes
+much easier. You&rsquo;ll not only be able to understand what is abstracted
+away, but you&rsquo;ll be able to spot bad and inefficient generated queries,
+making performance troubleshooting a snap. To help you hit the ground
+running, we&rsquo;ll be building up some of common queries you would find in a
+common blog. Let&rsquo;s get started!</p>
+
+<h3 id="installation:2d7f6484087abfae6190d42a20271830">Installation</h3>
+
+<p>Since the driver is just a gem, installation is simple:</p>
+
+<pre><code>(sudo) gem install mongo
+</code></pre>
+
+<p>There is one more piece to install, bson_ext. Essentially, this is a
+collection of C extensions used to increase the speed of serialization.
+While this is optional, I recommend that you install it.</p>
+
+<pre><code>(sudo) gem install bson_ext
+</code></pre>
+
+<p>Now that we have everything installed that we need, lets hop into some
+code and see what we can do.</p>
+
+<h3 id="getting-started:2d7f6484087abfae6190d42a20271830">Getting Started</h3>
+
+<p>First things first, we need a database connection. For the sake of
+simplicity, we&rsquo;ll be using localhost with the default port.</p>
+
+<pre><code>require 'mongo'
+include Mongo
+
+db = Connection.new.db('ruby-learning')
+</code></pre>
+
+<p>The next thing we&rsquo;ll need is a place to store all of our posts. Let&rsquo;s go
+ahead and get a post collection started.</p>
+
+<pre><code>posts = db.collection('posts')
+</code></pre>
+
+<p>That&rsquo;s it! If you notice, there are two things we *didn&rsquo;t* do that are
+kind of cool: we didn&rsquo;t create the database or the collection. In fact,
+neither still exist at the database level, and won&rsquo;t until we insert
+some data.</p>
+
+<h3 id="inserting-updating-documents:2d7f6484087abfae6190d42a20271830">Inserting &amp; Updating Documents</h3>
+
+<p>Let&rsquo;s get our blog rolling with a high quality post.</p>
+
+<pre><code>new_post = { :title =&gt; &quot;RubyLearning.com, its awesome&quot;, :content =&gt; &quot;This is a pretty sweet way to learn Ruby&quot;, :created_on =&gt; Time.now }
+post_id = posts.insert(new_post)
+</code></pre>
+
+<p>So, what did we just do? MongoDB stores its data as key/value pairs,
+which maps nicely to Ruby&rsquo;s Hash. After creating a hash with our data,
+we inserted it into the posts collection, and in return, we received the
+<a href="http://www.mongodb.org/display/DOCS/Object+IDs">ObjectId</a> for the post
+from MongoDB. Pretty simple, right? It&rsquo;s just as simple to update that
+document as well.</p>
+
+<pre><code>post = Posts.find( :_id =&gt; post_id ).first
+post[:author] = &quot;Ethan Gunderson&quot;
+posts.update( { :_id =&gt; post_id }, post )
+</code></pre>
+
+<p>Using the ObjectId we got back from our insert query, we find that same
+document again. After changing the data as we see fit, we issue an
+update query. An update query takes two arguments, the first one is
+conditions used to find the document (just the ObjectId in our case),
+and the second is the data.</p>
+
+<p>While this works, it&rsquo;s kind of silly if you think about it. We query the
+database for our document, change a small amount of information, and
+insert the entire document again. There&rsquo;s gotta be a better way!
+Luckily, there is. MongoDB has the concept of <a href="http://www.mongodb.org/display/DOCS/Advanced+Queries">Query
+Operators</a>. One of
+these operators is <code>$set</code>, which allows you to, as I&rsquo;m sure you can
+guess, set the value of an attribute.</p>
+
+<pre><code>posts.update( { :_id =&gt; post_id }, '$set' =&gt; { :author =&gt; 'Ethan Gunderson' } )
+</code></pre>
+
+<p>Here, we supply our find conditions, similarly to our previous update,
+but instead of supplying the entire document, we just set the values we
+wish to change. Now, instead of having to issue two queries against the
+database, we can accomplish the same task in one query, and less code to
+boot.</p>
+
+<p>Now let&rsquo;s take care of the post index page next.</p>
+
+<pre><code>posts = Posts.find
+</code></pre>
+
+<p>If you run this, you&rsquo;ll probably notice a problem. Most of the time,
+blogs list their posts in descending order. Let&rsquo;s change our query to
+account for this.</p>
+
+<pre><code>posts.find.sort( [['_id', -1]] )
+</code></pre>
+
+<p>This query has a couple of interesting points. Firstly, note that we are
+sorting on id. Since MongoDB&rsquo;s ObjectId&rsquo;s contain a timestamp, we can
+accurately sort based on that. This effectively removes the need for a
+created_at timestamp as well! Secondly, the sort parameter must always
+take an array of array, even if there is only one field you are sorting
+on.</p>
+
+<p>So, that wasn&rsquo;t so hard, but pretty naïve. What happens when we have
+1,000 posts? We don&rsquo;t want to torture our visitors with a ridiculous
+page load time, so let&rsquo;s trim that back.</p>
+
+<pre><code>posts.find.sort( [['_id', -1]] ).limit(5)
+</code></pre>
+
+<p>Again, this was pretty simple, and by now you should be noticing a
+pattern. Building up relatively complex queries is just a matter of
+chaining methods together. To further this example, here&rsquo;s a query
+showing a theoretical pagination query.</p>
+
+<pre><code>posts.find.sort( [['_id', -1]] ).limit(5).skip(5)
+</code></pre>
+
+<h3 id="tags:2d7f6484087abfae6190d42a20271830">Tags</h3>
+
+<p>Another common element to blogs is the concept of tags. To accomplish
+this in our example, we&rsquo;ll be adding an array of tags to our blog post.</p>
+
+<pre><code>post = Posts.find( :_id =&gt; post_id ).first
+post[:tags] = ['mongo', 'nosql', 'awesome'] 
+posts.update( { :_id =&gt; post_id }, post )
+</code></pre>
+
+<p>Now lets find a post based on a specific tag.</p>
+
+<pre><code>posts.find( :tags =&gt; 'mongo' )
+</code></pre>
+
+<p>It really doesn&rsquo;t get more simple than that, folks. Now that the basic
+implementation is out-of-the-way, how do we find posts that match more
+than one tag? To accomplish this, we&rsquo;ll be using another Query Operator
+called <code>$all</code>. As you can imagine, the <code>$all</code> operator specifies that
+selected documents contain all the elements in the supplied array.</p>
+
+<pre><code>posts.find( :tags =&gt; { '$all' =&gt; ['mongo', 'awesome'] } ) 
+</code></pre>
+
+<p>To round out our tags feature, let&rsquo;s build a query that will list all
+the unique tags in our system. There are a couple of ways to skin this
+particular cat, since we don&rsquo;t need to do any aggregation, and it needs
+to be performant, we&rsquo;ll be using <code>distinct</code>. Though, if we needed to
+also produce a count of tag occurrences, Map/Reduce may be a better
+option.</p>
+
+<pre><code>posts.distinct('tags')
+</code></pre>
+
+<h3 id="indexing:2d7f6484087abfae6190d42a20271830">Indexing</h3>
+
+<p>Now that our blog is starting to grow in complexity, we&rsquo;ll need to start
+thinking about adding proper indexes. If you notice in our tags
+implementation, we&rsquo;re now querying on an attribute that is not indexed.
+Let&rsquo;s fix that.</p>
+
+<pre><code>posts.create_index('tags')
+</code></pre>
+
+<p>And there we have it. In a relatively short amount of time, we&rsquo;ve built
+up a lot of the common queries you would see in a standard blog. While
+I&rsquo;ve only touched the surface of what you can accomplish with the
+MongoDB Ruby driver, I hope that I&rsquo;ve shown you it&rsquo;s power. I&rsquo;ve
+included some more learning material and references below to continue
+your learning. <em>Of course, if you have any questions, feel free to ask
+questions and give feedback in the comments section of this post.
+Thanks!</em></p>
+
+<h3 id="references:2d7f6484087abfae6190d42a20271830">References</h3>
+
+<ul>
+<li><a href="https://github.com/chicagoruby/MongoDB_Koans">MongoDB Ruby Koans</a></li>
+<li><a href="http://api.mongodb.org/ruby/current/_index.html">MongoDB Ruby
+Documentation</a></li>
+</ul>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-mongodb" href="http://rubylearning.com/blog//tags/mongodb">MongoDB</a>,
+	                
+	                <a class="post-tag post-tag-mongodb-ruby-driver" href="http://rubylearning.com/blog//tags/mongodb-ruby-driver">MongoDB Ruby Driver</a>,
+	                
+	                <a class="post-tag post-tag-programming" href="http://rubylearning.com/blog//tags/programming">programming</a>,
+	                
+	                <a class="post-tag post-tag-ruby-programming" href="http://rubylearning.com/blog//tags/ruby-programming">ruby programming</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2010/12/22/the-5-most-popular-articles-of-2010-on-rubylearning/">The 5 Most Popular Articles of 2010 on RubyLearning</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/">How do I keep multiple Ruby projects separate?</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2010\/12\/21\/being-awesome-with-the-mongodb-ruby-driver\/';
+    var disqus_title = 'Being Awesome with the MongoDB Ruby Driver';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2010\/12\/21\/being-awesome-with-the-mongodb-ruby-driver\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

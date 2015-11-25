@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    RPCFN: Interactive Fiction - 9 // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Satish Talim">
+
+
+  <meta property="og:title" content="RPCFN: Interactive Fiction - 9" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2010/04/29/rpcfn-interactive-fiction---9/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#ruby-programming-challenge-for-newbies:101a0fd07fb9ac057411d33bbe1211b5">Ruby Programming Challenge For Newbies</a>
+<ul>
+<li><a href="#rpcfn-interactive-fiction-9:101a0fd07fb9ac057411d33bbe1211b5">RPCFN: Interactive Fiction (#9)</a></li>
+</ul></li>
+<li><a href="#about-avdi-grimm:101a0fd07fb9ac057411d33bbe1211b5">About Avdi Grimm</a></li>
+<li><a href="#our-awesome-sponsors:101a0fd07fb9ac057411d33bbe1211b5">Our Awesome Sponsors</a></li>
+<li><a href="#prizes:101a0fd07fb9ac057411d33bbe1211b5">Prizes</a></li>
+<li><a href="#the-ruby-challenge:101a0fd07fb9ac057411d33bbe1211b5">The Ruby Challenge</a>
+<ul>
+<li><a href="#the-challenge:101a0fd07fb9ac057411d33bbe1211b5">The Challenge</a></li>
+</ul></li>
+<li><a href="#how-to-enter-the-challenge:101a0fd07fb9ac057411d33bbe1211b5">How to Enter the Challenge</a></li>
+<li><a href="#more-details-on-the-rpcfn:101a0fd07fb9ac057411d33bbe1211b5">More details on the RPCFN?</a></li>
+<li><a href="#donations:101a0fd07fb9ac057411d33bbe1211b5">Donations</a></li>
+<li><a href="#acknowledgements:101a0fd07fb9ac057411d33bbe1211b5">Acknowledgements</a></li>
+<li><a href="#questions:101a0fd07fb9ac057411d33bbe1211b5">Questions?</a></li>
+<li><a href="#the-participants:101a0fd07fb9ac057411d33bbe1211b5">The Participants</a>
+<ul>
+<li><a href="#in-the-competition:101a0fd07fb9ac057411d33bbe1211b5">In the competition</a></li>
+<li><a href="#just-for-fun:101a0fd07fb9ac057411d33bbe1211b5">Just for Fun</a></li>
+</ul></li>
+<li><a href="#the-winners:101a0fd07fb9ac057411d33bbe1211b5">The Winners</a></li>
+<li><a href="#previous-challenge:101a0fd07fb9ac057411d33bbe1211b5">Previous Challenge</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2010/04/29/rpcfn-interactive-fiction---9/">RPCFN: Interactive Fiction - 9</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>29</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2010</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author" href="http://satishtalim.com" target="">Satish Talim</a></span>
+            		
+      <span class="post-author-social post-author-facebook"><a href="https://www.facebook.com/satishtalim/about" target="_blank"><i class="fa fa-facebook"></i></a></span>
+
+
+      <span class="post-author-social post-author-google-plus"><a href="https://plus.google.com/&#43;SatishTalim/about" target="_blank"><i class="fa fa-google-plus"></i></a></span>
+
+
+      <span class="post-author-social post-author-linkedin"><a href="https://www.linkedin.com/in/satishtalim" target="_blank"><i class="fa fa-linkedin"></i></a></span>
+
+
+	<span class="post-author-social post-author-twitter"><a href="http://twitter.com/IndianGuru" target="_blank"><i class="fa fa-twitter"></i></a></span>
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">beginners</a>
+				
+					<a class="post-category post-category-rpcfn" href="http://rubylearning.com/blog//categories/rpcfn">rpcfn</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+				
+				</div>
+			
+
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f04%2f29%2frpcfn-interactive-fiction---9%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f04%2f29%2frpcfn-interactive-fiction---9%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f04%2f29%2frpcfn-interactive-fiction---9%2f&title=RPCFN%3a%20Interactive%20Fiction%20-%209&summary=Ruby%20Programming%20Challenge%20For%20Newbies%20RPCFN%3a%20Interactive%20Fiction%20%28%239%29%20%26ndash%3b%20By%20Avdi%20Grimm%20About%20Avdi%20Grimm%20Avdi%20Grimm%20is%20a%20husband%2c%20father%2c%20software%20cultivator%20living%20in%20southern%20Pennsylvania%2c%20USA.%20He%20has%20been%20been%20working%20with%20the%20Ruby%20language%20for%20almost%20ten%20years%2c%20and%20is%20still%20finding%20new%20reasons%20to%20love%20it.%20He%20is%20the%20author%20of%20NullDB%2c%20Hammertime%2c%20AlterEgo%2c%20HookR%20and%20numerous%20other%20Rubygems%20and%20has%20contributed%20code%20to%20Gemcutter%2c%20UtilityBelt%2c%20the%20DataMapper%2fSimpleDB%20adapter%2c%20and%20other%20projects.}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=RPCFN%3a%20Interactive%20Fiction%20-%209&url=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f04%2f29%2frpcfn-interactive-fiction---9%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+
+            
+
+<h2 id="ruby-programming-challenge-for-newbies:101a0fd07fb9ac057411d33bbe1211b5">Ruby Programming Challenge For Newbies</h2>
+
+<h3 id="rpcfn-interactive-fiction-9:101a0fd07fb9ac057411d33bbe1211b5">RPCFN: Interactive Fiction (#9)</h3>
+
+<p>&ndash; By Avdi Grimm</p>
+
+<h2 id="about-avdi-grimm:101a0fd07fb9ac057411d33bbe1211b5">About Avdi Grimm</h2>
+
+<p><img src="http://rubylearning.com/images/avdi.jpg" alt="Avdi Grimm" title="Avdi Grimm" />
+Avdi
+Grimm is a husband, father, software cultivator living in southern
+Pennsylvania, USA. He has been been working with the Ruby language for
+almost ten years, and is still finding new reasons to love it. He is the
+author of <a href="http://github.com/nulldb/nulldb">NullDB</a>,
+<a href="http://www.rubyinside.com/hammertime-ruby-interactive-error-console-2942.html">Hammertime</a>,
+<a href="http://github.com/avdi/alter-ego">AlterEgo</a>,
+<a href="http://github.com/avdi/hookr">HookR</a> and <a href="http://github.com/avdi">numerous other
+Rubygems</a> and has contributed code to Gemcutter,
+UtilityBelt, the DataMapper/SimpleDB adapter, and other projects. He
+writes about Ruby and software development at his blog <a href="http://avdi.org/devblog/">Virtuous
+Code</a>.</p>
+
+<p>Avdi has this to say about the challenge:</p>
+
+<blockquote>
+<p><em>One of the hardest parts of getting started with a new programming
+language is picking problems to practice on. The problems need to be
+difficult enough to give you an opportunity to apply the features of
+the language, but small enough to complete in a reasonable amount of
+time. RPCFN is a great way to find practice problems which have been
+scoped to that “just right” size by experienced Rubyists. Complete
+these challenges and you will be sure to gain confidence and
+proficiency in the Ruby language.</em></p>
+</blockquote>
+
+<h2 id="our-awesome-sponsors:101a0fd07fb9ac057411d33bbe1211b5">Our Awesome Sponsors</h2>
+
+<p>This monthly programming challenge is co-sponsored by <strong>ELC
+Technologies</strong> and <strong>Backup My App</strong>.</p>
+
+<p><a href="http://web.elctech.com/"><img src="http://rubylearning.com/images/elc-banner-3.jpg" alt="A leading software development firm based in Santa Barbara,
+California" title="A leading software development firm based in Santa Barbara, California" />
+</a></p>
+
+<p>Founded in 1991, <strong><a href="http://web.elctech.com/">ELC Technologies</a></strong>
+delivers the value of next-generation Web technologies to today’s
+businesses, harnessing the power of mobile applications, cloud
+computing, and software as a service (SaaS). ELC Technologies’
+leadership in agile software development processes has brought success
+to business-critical implementations for clients ranging from Cisco to
+Tribune Interactive to LiveNation. The company is a worldwide leader in
+Ruby on Rails development and has pioneered dynamic language development
+across multiple platforms. Short iterations, demos early and often, and
+constant client communication regarding vision and progress are all part
+of the ELC promise and what makes them such a valuable development
+partner for Global 2000 companies.</p>
+
+<p>ELC Technologies is headquartered in Santa Barbara, California.</p>
+
+<p><a href="http://backupmyapp.com/"><img src="http://rubylearning.com/images/banner1.gif" alt="Backup My
+App" title="Backup My App" />
+</a></p>
+
+<p><strong>Backup My App</strong> is an automatic backup service for Ruby on Rails
+applications. You simply install the plugin to your Rails application
+and they handle the rest of the process. They store backup history for
+several weeks and you can restore any of them automatically. Try out
+their 1 GB plan for free. <a href="http://backupmyapp.com/">Backup My App</a> has
+co-sponsored this challenge and is proud to make this contribution to
+the Ruby community.</p>
+
+<h2 id="prizes:101a0fd07fb9ac057411d33bbe1211b5">Prizes</h2>
+
+<ul>
+<li>The participant with the best Ruby solution (if there is a tie
+between answers, then the one who posted first will be the winner)
+will be awarded any <strong>one</strong> of PeepCode’s <a href="http://peepcode.com/screencasts/ruby-on-rails">Ruby on Rails
+screencasts</a> and a
+free 10 GB account for a year from <a href="http://backupmyapp.com/">Backup My
+App</a>.</li>
+<li>From the remaining working Ruby solutions, three participants would
+be selected randomly and each one would be awarded any <strong>one</strong> of
+Pragmatic’s <a href="http://www.pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming">The Ruby Object Model and
+Metaprogramming</a>
+screencasts.</li>
+<li><strong>All the participants in this challenge (except the participant
+with the best Ruby solution) will get a free 5 GB account for 6
+months from <a href="http://backupmyapp.com/">Backup My App</a></strong>.</li>
+</ul>
+
+<p>The four persons who win, can’t win again in the next immediate
+challenge but can still participate.</p>
+
+<h2 id="the-ruby-challenge:101a0fd07fb9ac057411d33bbe1211b5">The Ruby Challenge</h2>
+
+<p><img src="http://rubylearning.com/images/rubypc.jpg" alt="RPCFN" title="Ruby Programming Challenge For Newbies" />
+</p>
+
+<h3 id="the-challenge:101a0fd07fb9ac057411d33bbe1211b5">The Challenge</h3>
+
+<p>The entire challenge details are available at:
+<a href="http://github.com/avdi/rpcfn-interactive-fiction">http://github.com/avdi/rpcfn-interactive-fiction</a>.</p>
+
+<h2 id="how-to-enter-the-challenge:101a0fd07fb9ac057411d33bbe1211b5">How to Enter the Challenge</h2>
+
+<p>Read the <a href="http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6">Challenge
+Rules</a>.
+By participating in this challenge, you agree to be bound by these
+Challenge Rules. <strong>It’s free and
+<a href="http://rubylearning.com/blog/wp-login.php?action=register">registration</a>
+is optional</strong>. You can enter the challenge just by posting the following
+as a comment to this blog post:</p>
+
+<ol>
+<li>Your name:</li>
+<li>Country of Residence:</li>
+<li><a href="http://rubylearning.com/blog/ruby-programming-challenge-faq/#rpc5">GIST URL of your
+Solution</a>
+(i.e. Ruby code) with explanation and / or test cases:</li>
+<li>Code works with Ruby 1.8 / 1.9 / Both:</li>
+<li>Email address (will not be published):</li>
+<li>Brief description of what you do (will not be published):</li>
+</ol>
+
+<p><strong>Note</strong>:</p>
+
+<ul>
+<li>As soon as we receive your GIST URL, we will fork your submission.
+This means that your solution is frozen and accepted. Please be sure
+that is the solution you want, as it is now recorded in time and is
+the version that will be evaluated.</li>
+<li>All solutions posted would be hidden to allow participants to come
+up with their own solutions.</li>
+<li><strong>You should post your entries before midnight of 24th May 2010
+(Indian Standard Time). No new solutions will be accepted from 25th
+May onwards.</strong></li>
+<li>On 25th May 2010 all the solutions will be thrown open for everyone
+to see and comment upon.</li>
+<li>The winning entries will be announced on this blog before 30th May
+
+<ol>
+<li>The winners will be sent their prizes by email.</li>
+</ol></li>
+</ul>
+
+<h2 id="more-details-on-the-rpcfn:101a0fd07fb9ac057411d33bbe1211b5">More details on the RPCFN?</h2>
+
+<p>Please refer to the <strong><a href="http://rubylearning.com/blog/ruby-programming-challenge-faq/">RPCFN
+FAQ</a></strong> for
+answers to the following questions:</p>
+
+<ul>
+<li><a href="http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc1">What Is The Ruby Programming Challenge For Newbies
+(RPCFN)?</a></li>
+<li><a href="http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc2">How does RPCFN benefit
+you?</a></li>
+<li><a href="http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc6">Challenge
+Rules</a></li>
+<li><a href="http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc3">Best
+Solution</a></li>
+<li><a href="http://rubylearning.com/blog/ruby-programming-challenge-faq/index.php#rpc4">Can I Submit A Ruby Programming Challenge
+Topic?</a></li>
+</ul>
+
+<h2 id="donations:101a0fd07fb9ac057411d33bbe1211b5">Donations</h2>
+
+<p>RPCFN is entirely financed by RubyLearning and sometimes sponsors, so if
+you enjoy solving Ruby problems and would like to give something back by
+helping with the running costs then any donations are gratefully
+received.</p>
+
+<p><a href="http://www.pledgie.com/campaigns/415"><img src="http://www.pledgie.com/campaigns/415.png?skin_name=chrome" alt="Click here to lend your support to: Support RubyLearning With Some
+Love and make a donation at www.pledgie.com
+!" />
+</a></p>
+
+<h2 id="acknowledgements:101a0fd07fb9ac057411d33bbe1211b5">Acknowledgements</h2>
+
+<p>Special thanks to:</p>
+
+<ul>
+<li><a href="http://avdi.org/devblog/">Avdi Grimm</a>.</li>
+<li>Sponsors <strong>ELC Technologies</strong> and <strong>Backup My App</strong>.</li>
+<li><a href="http://github.com/">GitHub</a>, for giving us access to a private
+repository on GitHub to store all the submitted solutions.</li>
+<li>The RubyLearning team.</li>
+</ul>
+
+<h2 id="questions:101a0fd07fb9ac057411d33bbe1211b5">Questions?</h2>
+
+<p>Contact Satish Talim at <a href="mailto:satish.talim@gmail.com">satish [dot] talim [at]
+gmail.com</a> OR if you have any doubts /
+questions about the challenge (the current problem statement), please
+post them as comments to this post and the author will reply asap.</p>
+
+<h2 id="the-participants:101a0fd07fb9ac057411d33bbe1211b5">The Participants</h2>
+
+<p>There are two categories of participants. Some are vying for the prizes
+and some are participating for the fun of it.</p>
+
+<h3 id="in-the-competition:101a0fd07fb9ac057411d33bbe1211b5">In the competition</h3>
+
+<ol>
+<li>Aldric Giacomoni, USA</li>
+<li>Benoit Daloze, Belgium</li>
+<li>James Martin, Australia</li>
+</ol>
+
+<h3 id="just-for-fun:101a0fd07fb9ac057411d33bbe1211b5">Just for Fun</h3>
+
+<ol>
+<li>Tanzeeb Khalili, Canada</li>
+<li>Vojto Rinik, Slovakia</li>
+</ol>
+
+<h2 id="the-winners:101a0fd07fb9ac057411d33bbe1211b5">The Winners</h2>
+
+<p><img src="http://rubylearning.com/images/winner_icon_1.png" alt="Winners" />
+</p>
+
+<p>Congratulations to the winners of this Ruby Challenge. They are:</p>
+
+<ul>
+<li><strong>Benoit Daloze</strong> from Belgium (his <a href="https://gist.github.com/56114e98b2109df8865a">Ruby Challenge
+solution</a>) – the
+person with the best and most creative Ruby solution. He wins any
+<strong>one</strong> of PeepCode’s <a href="http://peepcode.com/screencasts/ruby-on-rails">Ruby on Rails
+screencasts</a> and a
+free 10 GB account for a year from <a href="http://backupmyapp.com/">Backup My
+App</a>.</li>
+<li><strong>Aldric Giacomoni</strong> from USA and <strong>James Martin</strong> from Australia
+win any <strong>one</strong> of Pragmatic’s <a href="http://www.pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming">The Ruby Object Model and
+Metaprogramming
+screencasts</a>.</li>
+<li><strong>All the participants in this challenge (except Benoit Daloze who
+gets a free 10 GB account for a year) will get a free 5 GB account
+for 6 months from <a href="http://backupmyapp.com/">Backup My App</a></strong>.</li>
+</ul>
+
+<h2 id="previous-challenge:101a0fd07fb9ac057411d33bbe1211b5">Previous Challenge</h2>
+
+<p><a href="http://rubylearning.com/blog/2010/04/07/rpcfn-xml-transformer-8/">RPCFN: XML Transformer
+(#8)</a>
+by Jamie van Dyke.</p>
+
+<p><strong>Note</strong>: All the previous challenges, sponsors and winners can be seen
+on the <a href="http://ruby-challenge.rubylearning.org/">Ruby Programming Challenge for
+Newbies</a> page.</p>
+
+<p><img src="http://rubylearning.com/images/update.jpg" alt="Update" title="Update" />
+</p>
+
+<ul>
+<li>This challenge is now closed.</li>
+<li>The (#10) challenge by <strong>Ryan Bates, USA</strong> is scheduled for 1st
+June 2010.</li>
+</ul>
+
+	
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f04%2f29%2frpcfn-interactive-fiction---9%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f04%2f29%2frpcfn-interactive-fiction---9%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f04%2f29%2frpcfn-interactive-fiction---9%2f&title=RPCFN%3a%20Interactive%20Fiction%20-%209&summary=Ruby%20Programming%20Challenge%20For%20Newbies%20RPCFN%3a%20Interactive%20Fiction%20%28%239%29%20%26ndash%3b%20By%20Avdi%20Grimm%20About%20Avdi%20Grimm%20Avdi%20Grimm%20is%20a%20husband%2c%20father%2c%20software%20cultivator%20living%20in%20southern%20Pennsylvania%2c%20USA.%20He%20has%20been%20been%20working%20with%20the%20Ruby%20language%20for%20almost%20ten%20years%2c%20and%20is%20still%20finding%20new%20reasons%20to%20love%20it.%20He%20is%20the%20author%20of%20NullDB%2c%20Hammertime%2c%20AlterEgo%2c%20HookR%20and%20numerous%20other%20Rubygems%20and%20has%20contributed%20code%20to%20Gemcutter%2c%20UtilityBelt%2c%20the%20DataMapper%2fSimpleDB%20adapter%2c%20and%20other%20projects.}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=RPCFN%3a%20Interactive%20Fiction%20-%209&url=http%3a%2f%2frubylearning.com%2fblog%2f2010%2f04%2f29%2frpcfn-interactive-fiction---9%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-avdi-grimm" href="http://rubylearning.com/blog//tags/avdi-grimm">avdi grimm</a>,
+	                
+	                <a class="post-tag post-tag-programming" href="http://rubylearning.com/blog//tags/programming">programming</a>,
+	                
+	                <a class="post-tag post-tag-rpcfn" href="http://rubylearning.com/blog//tags/rpcfn">rpcfn</a>,
+	                
+	                <a class="post-tag post-tag-ruby" href="http://rubylearning.com/blog//tags/ruby">ruby</a>,
+	                
+	                <a class="post-tag post-tag-ruby-programming-challenge-for-newbies" href="http://rubylearning.com/blog//tags/ruby-programming-challenge-for-newbies">ruby programming challenge for newbies</a>,
+	                
+	                <a class="post-tag post-tag-the-ruby-programming-language" href="http://rubylearning.com/blog//tags/the-ruby-programming-language">the ruby programming language</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2010/04/29/paul-barry-winner-rpcfn---8/">Paul Barry Winner RPCFN - 8</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2010/04/15/20-clojurians-to-follow-on-twitter/">20&#43; Clojurians to Follow on Twitter</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2010\/04\/29\/rpcfn-interactive-fiction---9\/';
+    var disqus_title = 'RPCFN: Interactive Fiction - 9';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2010\/04\/29\/rpcfn-interactive-fiction---9\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	
+
+  
+</body>
+</html>

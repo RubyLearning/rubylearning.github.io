@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    How do I keep multiple Ruby projects separate? // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Steve Klabnik">
+
+
+  <meta property="og:title" content="How do I keep multiple Ruby projects separate?" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#how-do-i-keep-multiple-ruby-projects-separate:e46ce811565e3df9611640804f7d8d1e">How do I keep multiple Ruby projects separate?</a></li>
+<li><a href="#ruby-version-conflicts:e46ce811565e3df9611640804f7d8d1e">Ruby Version Conflicts</a></li>
+<li><a href="#gem-conflicts:e46ce811565e3df9611640804f7d8d1e">Gem Conflicts</a></li>
+<li><a href="#i-can-t-remember-which-tool-i-used:e46ce811565e3df9611640804f7d8d1e">I can’t remember which tool I used!</a></li>
+<li><a href="#multiple-projects-super-simple:e46ce811565e3df9611640804f7d8d1e">Multiple projects: super simple</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/">How do I keep multiple Ruby projects separate?</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>20</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2010</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">Steve Klabnik</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+				
+					<a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">Popular</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<h2 id="how-do-i-keep-multiple-ruby-projects-separate:e46ce811565e3df9611640804f7d8d1e">How do I keep multiple Ruby projects separate?</h2>
+
+<p>This guest post is by <strong><a href="https://github.com/steveklabnik">Steve
+Klabnik</a></strong>, who is a software
+craftsman, writer, and former startup CTO. Steve tries to keep his Ruby
+consulting hours down so that he can focus on maintaining <a href="http://hackety-hack.com/">Hackety
+Hack</a> and being a core member of Team Shoes,
+as well as writing regularly for multiple blogs.</p>
+
+<p><img src="http://rubylearning.com/images/steve_cropped.jpg" alt="Steve Klabnik" />
+ If
+you’re anything like me, you’re already starting a new project
+immediately after wrapping up the last one. There just aren’t enough
+hours in the day to code up all the crazy ideas I have floating around
+in my head. Often, these ideas are the result of checking out some fun
+new gem, GitHub project, or even a different Ruby. Real quickly, a
+problem develops: what happens when these projects interfere with one
+another? What if I want to use Ruby 1.8.7 for an older project, Ruby
+1.8.5 for a legacy application, Ruby 1.9.2 for the latest and greatest,
+and JRuby to use an interesting Ruby library? Luckily, there are a few
+things that you can do to isolate your different projects from one
+another, and some settings for that will make them quite painless to
+use. There are three main things that can go wrong when you try to use
+different sets of tools on a per-project basis: conflicts between Ruby
+versions, conflicts between gems, and forgetting which tools you use on
+which project.</p>
+
+<h2 id="ruby-version-conflicts:e46ce811565e3df9611640804f7d8d1e">Ruby Version Conflicts</h2>
+
+<p>This is the biggest and most painful kind of problem. If you want to use
+Ruby 1.8 for one project and Ruby 1.9 for another, you have a problem.
+If you’re using Linux, for example, your package manager may see that
+both ruby18 and ruby19 fulfill a ‘ruby’ dependency, and so it won’t let
+you have them both installed side by side. The solution isn’t pretty:
+install different Rubies from source. This gets ugly really quickly,
+because it’s easy to forget where you’ve compiled different Rubies, and
+having software outside of your package manager isn’t a great answer. If
+you’re on OS X or Windows, you skip right past the package manager
+problem and straight to the source ‘solution.’ This is no good!</p>
+
+<p>Luckily, there’s an awesome project by Wayne E. Seguin named
+<a href="http://rvm.beginrescueend.com/">rvm</a>. rvm is sort of like a package
+manager for Ruby. If you’d like to install both Ruby 1.8.7 and 1.9.2,
+just type this in:</p>
+
+<pre><code>$ rvm install 1.8.7
+$ rvm install 1.9.2
+</code></pre>
+
+<p>It’ll go fetch the Ruby source code, compile it, and get you all set up.
+To use a specific Ruby, you can type ‘use&rsquo;:</p>
+
+<pre><code>$ rvm use 1.8.7
+$ ruby -v
+ruby 1.8.7 (2010-08-16 patchlevel 302) [i686-darwin10.4.0]
+$ rvm use 1.9.2
+$ ruby -v
+ruby 1.9.2p0 (2010-08-18 revision 29036) [x86_64-darwin10.4.0]
+</code></pre>
+
+<p>Neat! You can even get other Ruby versions:</p>
+
+<pre><code>$ rvm install jruby
+$ rvm install rbx
+$ rvm install macruby
+</code></pre>
+
+<p>You can see a full list of these with ‘rvm list known’. For a full list
+of everything that rvm can do, as well as installation instructions,
+visit <a href="http://rvm.beginrescueend.com/">the rvm website.</a></p>
+
+<h2 id="gem-conflicts:e46ce811565e3df9611640804f7d8d1e">Gem Conflicts</h2>
+
+<p>Once you’ve gotten your Rubies straight, you can still have conflicts
+between different gems that your project needs. One project uses Rails
+2.3.8, another uses Rails 3… It gets worse when you have certain gems
+installed only as a dependency, and you don’t know exactly which one is
+correct:</p>
+
+<pre><code>$ gem list | grep net-ssh
+net-ssh (2.0.23, 2.0.4, 1.1.4)
+</code></pre>
+
+<p>rvm has a neat feature called ‘gemsets.’ They let you create separate
+sets of gems per Ruby you have installed. This allows you to isolate
+each application, giving it its own set of gems. Check it out:</p>
+
+<pre><code>$ gem list
+
+*** LOCAL GEMS ***
+
+aasm (2.1.5)
+abstract (1.0.0)
+acl9 (0.12.0)
+*snip*
+
+$ rvm gemset create new-gemset
+$ rvm use 1.9.2@new-gemset
+$ gem list
+
+*** LOCAL GEMS ***
+
+$
+</code></pre>
+
+<p>Cool stuff! As you can see, use an ‘@’ symbol to tell rvm which gemset
+you’d like to use. Now we’ve isolated each project’s gems from each
+other. There is, however, a much more complicated kind of conflicts that
+can occur between gems. This happens when two gems have interlocking
+dependencies.</p>
+
+<p>Here’s an example of this from the past: ActionPack 2.3.5 requires Rack
+=1.0.0, which is the newest version. Unicorn requires Rack &gt;1.0.0. Rack
+releases a new version, 1.1.0. Now, when starting up a Rails
+application, the unicorn gem is loaded first, so it loads the newest
+version of the gem that works, which is rack-1.1.0. Then rails loads,
+and it loads actionpack, which tries to load rack. It needs =1.0.1, but
+sees that 1.1.0 has already been loaded, and throws this ugly, ugly
+error:</p>
+
+<pre><code>Gem::LoadError: can't activate rack (~&gt; 1.0.0, runtime)
+for [&quot;actionpack-2.3.5&quot;], already activated rack-1.1.0
+for [&quot;unicorn&quot;]
+</code></pre>
+
+<p>There’s a set of versions here that works, but the way that the gems are
+loaded means that it doesn’t. The problem is that at the time that
+unicorn loads, it can’t possibly know that you’re planning on loading a
+different version of rack somewhere down the line. What we really need
+is a tool that knows about all of our dependencies, and can calculate
+the graph of all of our requirements, and figure out which versions of
+everything we need, and then only place those versions on the
+\$LOAD_PATH. Luckily, such a project exists:
+<a href="http://gembundler.com/">bundler</a>.</p>
+
+<p>To use bundler, you first need to make a file named ‘Gemfile’ in the
+root of your project directory. This file looks something like this:</p>
+
+<pre><code>source &quot;http://rubygems.org&quot;
+
+gem &quot;rails&quot;, &quot;~&gt;3.0.0&quot;
+
+group :development do
+  gem 'sqlite3-ruby', :require =&gt; 'sqlite3'
+end
+
+group :production do
+  gem &quot;pg&quot;
+end
+</code></pre>
+
+<p>The first line tells Bundler where to look for gems. The second line
+says that we want to use the ‘rails’ gem, and we want any version that’s
+at least 3.0.0 but less than 3.1.0. Finally, the other lines show
+‘groups’ of gems: in development, we want to use sqlite3-ruby, and we
+need to require it via the name ‘sqlite3′, but we want to use Postgres
+in production. To install these gems, just:</p>
+
+<pre><code>$ bundle install
+</code></pre>
+
+<p>Bundler gets all the information that it needs on all the gems, figures
+out what versions of everything work together, and then installs the
+right versions. It then creates a Gemfile.lock file that holds all of
+this information. It’s just a simple YAML file, you can open it up and
+see the specifics. You’ll want to add the Gemfile and Gemfile.lock into
+your version control, so that anyone else that’s developing with you can
+also get the same gem versions.</p>
+
+<p>To use the gems in your bundle, just use these two lines:</p>
+
+<pre><code>require &quot;rubygems&quot;
+require &quot;bundler/setup&quot;
+</code></pre>
+
+<p>From there, whenever you require a gem, it’ll be the version from the
+bundle. If you want Bundler to automatically require all of your gems
+for you, just ‘<code>Bundler.require</code>‘ and it’ll require the default group of
+gems.</p>
+
+<p>Rails 3 automatically comes with a Gemfile and bundler support right out
+of the box. If you want to use Bundler with Rails 2.3, check out <a href="http://gembundler.com/rails23.html">the
+Bundler site</a> for setup
+instructions.</p>
+
+<p>The combination of gemsets and Bundler will make sure that you don’t
+have any nasty gem conflicts. Gemsets keep your projects isolated from
+each other, and Bundler keeps your gems’ versions from interfering with
+each other. The two work really well together.</p>
+
+<h2 id="i-can-t-remember-which-tool-i-used:e46ce811565e3df9611640804f7d8d1e">I can’t remember which tool I used!</h2>
+
+<p>All of these rubies and gemsets can get confusing. Luckily, rvm has an
+awesome feature to take care of this, too: .rvmrc files. If you put a
+file named ‘.rvmrc’ in your project’s root directory, when you enter the
+project, it’ll switch your Ruby version (and gemset) automatically. It’s
+really easy to use, too. Just put the command you’d use to switch in the
+file. For example, in the Hackety Hack website project, I have the
+following
+<a href="https://github.com/hacketyhack/hackety-hack.com/blob/master/.rvmrc">.rvmrc</a>:</p>
+
+<pre><code>rvm 1.8.7@hackety-hack.com
+</code></pre>
+
+<p>Astute readers will notice that I left off the ‘use,’ rvm defaults to
+‘use’ if you don’t give it a different command. Check it out:</p>
+
+<pre><code>$ ruby -v
+ruby 1.9.2p0 (2010-08-18 revision 29036) [x86_64-darwin10.4.0]
+$ cd hackety-hack.com
+$ ruby -v
+ruby 1.8.7 (2010-08-16 patchlevel 302) [i686-darwin10.4.0]
+</code></pre>
+
+<p>Super cool. Now you’ll never forget which Ruby you were using, and you
+don’t even need to switch manually. This is one of the first things that
+I do when I start a new project in Ruby: Pick a Ruby version, make a
+gemset with the same name as the project, and set up an .rvmrc. It’s
+saved me hours of time and headaches.</p>
+
+<h2 id="multiple-projects-super-simple:e46ce811565e3df9611640804f7d8d1e">Multiple projects: super simple</h2>
+
+<p>rvm is a fantastic tool to help solve your multiple-ruby woes. It really
+does make using multiple kinds of Ruby really, really easy. And Bundler
+makes sure that your gems play nice togther. It’s a great time to be a
+Rubyist.</p>
+
+<p><em>I hope you found this article valuable. Feel free to ask questions and
+give feedback in the comments section of this post. Thanks!</em></p>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-bundler" href="http://rubylearning.com/blog//tags/bundler">Bundler</a>,
+	                
+	                <a class="post-tag post-tag-programming" href="http://rubylearning.com/blog//tags/programming">programming</a>,
+	                
+	                <a class="post-tag post-tag-ruby-programming" href="http://rubylearning.com/blog//tags/ruby-programming">ruby programming</a>,
+	                
+	                <a class="post-tag post-tag-rvm" href="http://rubylearning.com/blog//tags/rvm">rvm</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2010/12/21/being-awesome-with-the-mongodb-ruby-driver/">Being Awesome with the MongoDB Ruby Driver</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2010/12/18/rubyists-and-companies-i-am-thankful-for-in-2010/">Rubyists and Companies I am thankful for in 2010</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2010\/12\/20\/how-do-i-keep-multiple-ruby-projects-separate\/';
+    var disqus_title = 'How do I keep multiple Ruby projects separate?';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2010\/12\/20\/how-do-i-keep-multiple-ruby-projects-separate\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

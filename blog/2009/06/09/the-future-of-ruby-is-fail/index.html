@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    The Future of Ruby is Fail! // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="The Future of Ruby is Fail!,Ruby Programming,Ruby Interviews,Pune,India,">
+<meta name="author" content="Satish Talim">
+
+
+  <meta property="og:title" content="The Future of Ruby is Fail!" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2009/06/09/the-future-of-ruby-is-fail/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#the-future-of-ruby-is-fail:f1cc04954d56997687c319f15df949e6">The Future of Ruby is Fail!</a>
+<ul>
+<li><a href="#preamble:f1cc04954d56997687c319f15df949e6">Preamble</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2009/06/09/the-future-of-ruby-is-fail/">The Future of Ruby is Fail!</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>9</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2009</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author" href="http://satishtalim.com" target="">Satish Talim</a></span>
+            		
+      <span class="post-author-social post-author-facebook"><a href="https://www.facebook.com/satishtalim/about" target="_blank"><i class="fa fa-facebook"></i></a></span>
+
+
+      <span class="post-author-social post-author-google-plus"><a href="https://plus.google.com/&#43;SatishTalim/about" target="_blank"><i class="fa fa-google-plus"></i></a></span>
+
+
+      <span class="post-author-social post-author-linkedin"><a href="https://www.linkedin.com/in/satishtalim" target="_blank"><i class="fa fa-linkedin"></i></a></span>
+
+
+	<span class="post-author-social post-author-twitter"><a href="http://twitter.com/IndianGuru" target="_blank"><i class="fa fa-twitter"></i></a></span>
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+				
+					<a class="post-category post-category-rails" href="http://rubylearning.com/blog//categories/rails">Rails</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-ruby-on-rails" href="http://rubylearning.com/blog//categories/ruby-on-rails">Ruby on Rails</a>
+				
+				</div>
+			
+
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f06%2f09%2fthe-future-of-ruby-is-fail%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f06%2f09%2fthe-future-of-ruby-is-fail%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f06%2f09%2fthe-future-of-ruby-is-fail%2f&title=The%20Future%20of%20Ruby%20is%20Fail%21&summary=The%20Future%20of%20Ruby%20is%20Fail%21%20Preamble%20Thanks%20to%20Ilya%20Grigorik%20for%20initiating%20the%20discussion%20in%20the%20Indian%20Ruby%20%2f%20Rails%20community%20around%20the%20premise%20%e2%80%9cFuture%20of%20Ruby%20is%20Fail%e2%80%9d%20%28yes%2c%20somewhat%20tongue%20in%20cheek%2c%20but%20also%20serious%29%2c%20trying%20to%20get%20a%20feel%20for%20the%20concerns%20in%20the%20community.%20The%20focus%20of%20this%20discussion%20would%20be%20on%20the%20Indian%20market%20%2f%20geographical%20area.%20RubyLearning%20is%20pleased%20to%20have%20with%20us%2c%20Ruby%20%2f%20Rails%20Gurus%20from%20Pune%2c%20India%3a%20Ashutosh%20Ambekar%20from%20Persistent%20Systems%20Ltd.%2c%20Devendra%20Deshmukh%20from%20e-Zest%2c%20Gautam%20Rege%20from%20Josh%20Software%20Pvt.}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=The%20Future%20of%20Ruby%20is%20Fail%21&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f06%2f09%2fthe-future-of-ruby-is-fail%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+
+            
+
+<h2 id="the-future-of-ruby-is-fail:f1cc04954d56997687c319f15df949e6">The Future of Ruby is Fail!</h2>
+
+<h3 id="preamble:f1cc04954d56997687c319f15df949e6">Preamble</h3>
+
+<p><em>Thanks to <a href="http://www.igvita.com/">Ilya Grigorik</a> for initiating the
+discussion in the Indian Ruby / Rails community around the premise
+“Future of Ruby is Fail” (yes, somewhat tongue in cheek, but also
+serious), trying to get a feel for the concerns in the community. The
+focus of this discussion would be on the Indian market / geographical
+area.</em></p>
+
+<p><em>RubyLearning is pleased to have with us, Ruby / Rails Gurus from Pune,
+India: <strong>Ashutosh Ambekar</strong> from Persistent Systems Ltd., <strong>Devendra
+Deshmukh</strong> from e-Zest, <strong>Gautam Rege</strong> from Josh Software Pvt. Ltd.,
+<strong>Nick Adams</strong> from SapnaSolutions Pvt. Ltd. and <strong>Shabbir Merchant</strong>
+from Pragmatic Technology Solutions.</em></p>
+
+<hr />
+
+<p><strong>Q: The title of this blog post is controversial but many in the
+community are talking about it. What’s your quick reaction to this
+statement?</strong></p>
+
+<p><img src="http://www.rubylearning.com/images/rege.jpg" alt="Gautam
+Rege" title="Gautam Rege" />
+<strong>Gautam
+Rege&gt;&gt;</strong> Since you asked for my quick reaction, my answer is an
+emphatic “No, Ruby rocks!”. However, the thought did send a shiver down
+my spine! The reason put in one simple word – passion. Can a passion
+really die?
+<img src="http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif" alt=":)" />
+
+Given the “Indian perspective”, the industry is adapting to Ruby, but
+slowly. A lot of companies are looking at Ruby with a fresh outlook than
+one which is dismissive in nature. It is going to take some time before
+Ruby becomes as popular as Java and .NET applications but my gut feeling
+tells me – its only a matter of time ! Sethupathi Asokan, my colleague
+who co-founded Josh Software with me feels that Ruby will ride on the
+Rails popularity. There are more takers for Rails and hence Ruby, than
+the other way round. So, as Rails gets popular, Ruby lives on!</p>
+
+<p><img src="http://www.rubylearning.com/images/shabbir.png" alt="Shabbir
+Merchant" title="Shabbir Merchant" />
+<strong>Shabbir
+Merchant&gt;&gt;</strong> I think 3-5 years is a long time, but I already see that
+Ruby and Rails, although a popular platform in North America/Europe, has
+failed to gain traction in the Indian Market place. But I think I do not
+completely agree that it will fail completely but what can happen is
+that it will not penetrate the market, the way Java has done. I think
+mass penetration will not happen unless big companies like IBM, HP, Sun
+endorse it in a big way. Currently they are heavily invested in Java and
+a move to Ruby would be very challenging.</p>
+
+<p><img src="http://www.rubylearning.com/images/Ashutosh.png" alt="Ashutosh
+Ambekar" title="Ashutosh Ambekar" />
+<strong>Ashutosh
+Ambekar&gt;&gt;</strong> No! Ruby won’t fail. It has been around for 10 years and
+still being actively developed. Ruby 1.9.x recently came out and is
+showing best performance numbers. Likes of Sun Microsystems and
+Microsoft are rolling in millions of dollars on their version of Ruby
+(which will adhere to “standard” Ruby). I have observed that software
+shops in the US considering Ruby (in some flavor) for developing their
+enterprise applications. With support from larger ISVs and programmer
+community bringing in frameworks based on Ruby (Ruby on Rails, Sinatra
+etc), I do not think Ruby will fail, it will evolve and will fuel rapid
+application development using meta-programming.</p>
+
+<p><img src="http://www.rubylearning.com/images/NickAdams.png" alt="Nick
+Adams" title="Nick Adams" />
+<strong>Nick
+Adams&gt;&gt;</strong> My first reaction would be to ask: ‘What do we mean by
+fail?’. I think if we mean a failure for Ruby to gain traction and
+massive uptake, perhaps. It is generally the case that for wide scale
+adoption of any new technology, big business needs to adopt it. This is
+unlikely for a number of reasons. However, I believe Ruby continues to
+see growth in many other areas, notably in web application development.
+I do not sense a failure for Ruby in the short or medium term. My quick
+reaction is surprise that there is talk in the community of a ‘fail’!</p>
+
+<p><img src="http://www.rubylearning.com/images/Deven.jpg" alt="Devendra
+Deshmukh" title="Devendra Deshmukh" />
+<strong>Devendra
+Deshmukh&gt;&gt;</strong> Very innovative and thought provocative blog post title.
+I believe Ruby won’t fail in the next 3-5 years but it will undergo
+substantial changes to get rid of current technology limitations. Ruby
+has inevitably became one of the top two or three strategic choices for
+start-ups and early stage web 2.0 and social applications. But since,
+other programming frameworks and tool-sets are learning Ruby’s lessons
+and unless we see cohesive actions from the Ruby Community, it looks
+like Ruby will get some serious competition in next 1-2 years.
+Improvement on Scalability, performance, security and deployment may
+help Ruby to maintain its leadership amongst its peers and competition
+as well. While reading various community posts, I am certainly seeing
+positive actions towards future.</p>
+
+<p><strong>Q: Imagine for a moment that in the long run Ruby did ‘fail’, what in
+your opinion would have been the causes of this failure?</strong></p>
+
+<p><strong>Gautam Rege&gt;&gt;</strong> Adaptability and Availability of resources. I was
+arguing about the choice of technology for web-based banking software
+with a close associate of mine, who sits pretty high up in the technical
+think tank of a leading bank in India. I was told in no uncertain terms
+that .NET ASP, C# would be the choice of technology. Aghast at the
+response, I retorted saying that ‘whatever you build, I can build better
+and faster in Rails’. He said calmly – ‘I don’t deny YOUR skills, but
+what will we do when you are not around?’. There are hordes of .NET
+resources available in India from zillions of technical institutes who
+are churning out .NET and Java professionals. I don’t mean to say that
+.NET, C# are more popular but the more commonly taught languages are
+the ones which people in India tend to adapt to. There are a lot of
+people who know .NET, C# than Ruby. Currently, the situation is
+improving but it will be some time before large corporations adapt to
+Ruby. Having said this, currently the Indian market is flooded with Java
+and .NET resources and it is a fact that a lot of multi-tiered critical
+applications are built on these platforms and not Ruby. When anyone
+adapts to Ruby, they have to be sure of a supply of Ruby professionals.
+Solution, you may ask: We need to get Ruby taught in schools !</p>
+
+<p><strong>Shabbir Merchant&gt;&gt;</strong> I think if Ruby fails, the failure of Ruby
+could be attributed to multiple reasons. I think the most important one
+could be fragmentation of the community in terms of using different VMs
+or even due to different Ruby web frameworks. We have already seen this
+in the case of Rails and Merb. But thankfully this has been resolved by
+the merger. But such situations could arise again. The huge success of
+Java platform I think is that they have good leadership in place and a
+community process for single VM. Another reason for the failure could be
+attributed to the rapid changes in the framework which are sometimes
+essential but leaves lot of legacy things to be migrated. Another
+potential reason could be our inability to attract and make it easier
+for developers coming from Java/.Net/PHP world to move to Ruby.</p>
+
+<p><strong>Ashutosh Ambekar&gt;&gt;</strong> Too many choices each competing for the market
+place with their own “customization” over standard Ruby. Programmers may
+find it difficult to choose and stick to a flavor for long, or may give
+it up all together for another “stable” alternative. Functional
+programming languages become popular sooner with frameworks (like Lift
+etc.) which may be considered to be more scalable, secure, robust by
+software architects.</p>
+
+<p><strong>Nick Adams&gt;&gt;</strong> If Ruby were to fail (lost traction or suffered
+quality issues), it might be due to over dilution of the core developer
+community, resulting in some serious problems with its implementation.
+This might lead to developers switching their applications to another
+simple OO language with similar capabilities, such as Python. This was
+the fear of many, including Zed Shaw when he rather publicly declared
+his loss of faith in the Rails community and shortly after Ruby.</p>
+
+<p><strong>Devendra Deshmukh&gt;&gt;</strong> Failure will be certainly attributed to
+technology limitations mentioned earlier and divisive Ruby community.
+But the key factor would be emergence of better competitive framework. I
+think it is a possibility in the long run. This new framework may be
+derived from Ruby but supported by strong community or enterprise
+organizations like IBM or Sun.</p>
+
+<p><strong>Q: How is the Ruby market different in India than in say USA/Canada?</strong></p>
+
+<p><strong>Gautam Rege&gt;&gt;</strong> The Indian market is the still a conservative one –
+people will not accept new things unless they see it working ‘somewhere
+else’. Bigger corporations take time in adapting to new technology and
+considering the man-power availability in India, prefer to keep an IT
+development team in-house. SMEs (Small and Medium-sized enterprises) are
+far more adaptable and open to newer solutions if they are robust and
+cost-effective. This is where I foresee (and hope) Rails making it big !
+SMEs can benefit a lot from products and applications using Ruby. And
+this shall have its chain-reaction: Bigger corporations seeing this
+change shall start looking at Ruby. Technical and Training institutes in
+turn, seeing the need for Ruby shall start introducing it in their
+curriculum. Sethu (as he popularly called) feels that today there are
+more people fluent in Python, Perl and PHP than in Ruby. Is there a fear
+of ‘Yet another scripting language to learn?’
+<img src="http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif" alt=":)" />
+
+So, adaptability is a slow but steady process.</p>
+
+<p><strong>Shabbir Merchant&gt;&gt;</strong> I have executed some projects for Indian
+clients and for them the cost of development and impatience outweighs
+speed of development and all the goodies which Ruby/Rails brings with
+it. Good Rails developers who cam deliver practical applications come at
+a higher cost compared to a PHP/.Net/Java developers. Also, I have found
+that even small clients prefer to develop and maintain applications
+within their respective organizations instead of outsourcing it. Hence
+when they decide on developing an application it is easier for them to
+find a .Net/Java developer as their numbers are large.</p>
+
+<p><strong>Ashutosh Ambekar&gt;&gt;</strong> The main difference is that you need to educate
+the Indian VP engineering / decision maker about what Ruby (on Rails) is
+and how it will help them, giving them examples of the success stories
+(in the west). US/Canadian customers come with their homework and ask
+you to develop a solution using Ruby (on Rails). There are Indian
+startups whom I worked with and agreed on using Ruby (on Rails) but
+these are very few. Majority of the Indian software market still finds
+comfort in .NET/Java world – and for obvious reason – Ruby skills are
+still scarce to find in India. In the USA/Canada Ruby is being adopted
+at a faster pace – in the enterprise software area as well. It will be a
+while before this trend hits India as well.</p>
+
+<p><strong>Nick Adams&gt;&gt;</strong> I believe Ruby is a language of creativity. It makes
+doing otherwise complicated things simple, so you can throw together
+brilliant ideas elegantly and in fewer lines. I am yet to see creative
+development work taking off in India. Currently the core market for Ruby
+and frameworks such as Rails in India is rapid prototyping for US lead
+ideas, or outsourcing existing projects. Perhaps as use of the web in
+India increases, we may see this change.</p>
+
+<p><strong>Devendra Deshmukh&gt;&gt;</strong> Indian enterprise customers definitely are not
+aware about the technology benefits of Ruby and also lack internal Ruby
+resources to maintain systems. But many Indian product/Web 2.0 startups
+are adopting Ruby to a great extent. I have seen successful Ruby usage
+at many startups in-hand-in with agile practices viz. Scrum.</p>
+
+<p><strong>Q: What is your perspective on the future of Ruby in India?</strong></p>
+
+<p><strong>Gautam Rege&gt;&gt;</strong> The future of India is the young software
+professionals. The biggest asset of India is man power, i.e. the
+resources. The biggest challenge unfortunately in India is ‘quality
+resources’. There has been a compliant for a long time that development
+quality of Indian professionals requires to be worked upon. However,
+with Ruby there is a very easy, clean and simple way to change this
+perspective. JRuby has added a completely new facet to Ruby and will
+encourage young Java professionals to adopt Ruby now! I am emphatic that
+programming fundamentals need to be taught and clarified very early –
+otherwise we end up writing code like standard procedural languages
+ignoring the concise and crystallized nature of Ruby eg. using blocks
+and iterators for one! This implies that the Ruby faculty also needs to
+be up to the mark ! The good thing is that a lot of students are
+interested in learning Ruby. So, I feel, as the number of Ruby resources
+increases, the future of Ruby in India will brighten. The numerous
+online local communities discussing Ruby and Rails are helping this
+cause.</p>
+
+<p><strong>Shabbir Merchant&gt;&gt;</strong> Here in India I have noticed that all
+organizations big and small are okay to outsource their development
+work. But when it comes to hosting and maintaining it, they want to hire
+someone inhouse. They insist of having someone inhouse to take care of
+project once it is deployed. They think it would be easier to find a
+Java/.Net guy to take care of the work. The low number of training
+institutes offering Ruby/Rails training affects the number of skilled
+manpower. I would specially like to highlight potential reasons it might
+fail in the Indian context. Ruby is still a technology which has not
+come into the mainstream in India. There are handful of applications
+built in Ruby/Rails in India for the Indian consumers. Also failure of
+Ruby/Rails could be attributed to a lack of skilled manpower. Although
+there are some training sources available in India. these are too few
+and whatever is taught gets outdated soon. Hence, I would say lack of
+quality and quantity of training institution could lead to its failure
+in India.</p>
+
+<p><strong>Ashutosh Ambekar&gt;&gt;</strong> Very bright! There is tremendous scope for Ruby
+in Indian SME segment – it’s fast to develop and market and cheap in
+terms of overall cost of ownership. I see more and more engineers
+showing interest in learning Ruby (we grew from team of 4 to team of 40+
+in a year) and are enjoying it and are willing to take a bet on it.</p>
+
+<p><strong>Nick Adams&gt;&gt;</strong> I think the prospects are mixed. As passion for the
+web in India increases, and more developers turn to alternatives to
+Java, Ruby may gain some traction. I also sense that the current
+employment climate makes more entrepreneurs out of us, and that
+graduates trained in Java and C are increasingly interested in learning
+more modern languages such as Ruby. It may not be enough, however.
+Developers in India tend to follow the jobs market, currently centered
+BPO work in traditional languages, so if tech leaders can’t find a way
+to create a buzz around Ruby and create jobs, we may not see significant
+growth.</p>
+
+<p><strong>Devendra Deshmukh&gt;&gt;</strong> Being part of 100% exports oriented
+organization, I am definitely not an expert on the Indian Market. But
+from a resources point of view, I feel there is definitely a need of
+having more ROR programmers available in India. This constraint many a
+times goes against finalizing application/adoption of ROR in
+software/web projects.</p>
+
+<p><strong>Q: What are the drivers behind current adoption, what are the counter
+arguments?</strong></p>
+
+<p><strong>Gautam Rege&gt;&gt;</strong> Cost and speed of development of Ruby applications
+and the flexibility to customize and change the application at a later
+stage beats all other programming platforms hands down ! Sethu adds that
+the Ruby gems today provide integration and access to the latest
+technologies like Amazon S3, etc. This ensures that Ruby is always in
+league with new technologies that become available. On the down side, I
+feel what needs to be strengthened is the source code protection (which
+does contradict the very premise of Open Source). Larger corporations
+require that their deployments be protected not only by system level
+security but at the source code level too. I have seen Thoughtworks
+Mingle encrypt their Ruby code to protect their IP, but will this become
+a norm or a novelty?
+<img src="http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif" alt=":)" />
+
+Another problem with Rruby is development and deployment of security in
+tiered applications, especially in finance sector. No matter how much we
+try, we are not able to convince large financial corporates to get their
+applications built in Ruby. I hope someone out there contradicts me and
+tells me that this step has been achieved. People have long complained
+about scalability issues in Rails but I think that has been very well
+handled with current setups.</p>
+
+<p><strong>Shabbir Merchant&gt;&gt;</strong> Indian market is very cost conscious. I think
+at this point people are looking at Rails for doing medium sized apps.
+People do not want to build heavy traffic apps with it, due to
+affordability of good developers and good hosting providers. There are
+some Indian Ruby/Rails hosting providers but they are not skilled enough
+to keep pace with the rapid changes in the deployment options. It is
+much much cheaper to host an application in PHP/Java/.Net than do a
+Ruby/Rails application.</p>
+
+<p><strong>Ashutosh Ambekar&gt;&gt;</strong> Business drivers for current adoption are rapid
+development (with integrated testing) using frameworks like Rails, cost
+of ownership, deployment solutions available on the cloud, database
+support for most of the popular databases, ease of creating REST based
+web applications using Rails framework and last but not least, big ISVs
+are investing in and are embracing Ruby in some form or other. Something
+that is non-tangible but is still a driver is that engineers enjoy
+programming in Ruby – I do! However, frequently, there are questions
+raised on scalability of Rails applications. This is one of the major
+reasons why someone may not adopt Ruby based solution. Another factor
+preventing adoption as mentioned above is availability of skilled Ruby
+developers.</p>
+
+<p><strong>Nick Adams&gt;&gt;</strong> One driver behind adoption are probably jobs created
+by outsourced work from the US and Europe, both straight Rails
+outsourcing and client projects being developed in Rails. Another, and
+the more interesting driver, is the startup and entrepreneurial
+community. Founders and techies of the increasing number of web startups
+in India are looking to Ruby as their creative tool.</p>
+
+<p><strong>Devendra Deshmukh&gt;&gt;</strong> Most important business drivers as per my
+perception are rapid development and support for cloud deployment. This
+has really enabled start-ups to quickly come out with quick
+proof-of-concepts or pilot of their business ideas. Many have made bucks
+as well though VCs or early customers.</p>
+
+<p><strong>Q: Do you think the community will thrive in the long run?</strong></p>
+
+<p><strong>Gautam Rege&gt;&gt;</strong> I have no doubt about this. In fact, I would venture
+out and say that India will probably be a Ruby application “deployment
+hub” instead of providing development only. I foresee a lot of SMEs at
+first and then larger Indian corporates embracing Ruby in the next few
+years.</p>
+
+<p><strong>Shabbir Merchant&gt;&gt;</strong> Although there are problems I still think the
+community will thrive all over, including India.</p>
+
+<p><strong>Ashutosh Ambekar&gt;&gt;</strong> Absolutely!</p>
+
+<p><strong>Nick Adams&gt;&gt;</strong> Yes, but how much depends on two things. First, if
+the work continues to come from the US and Europe, it will thrive.
+Second, news travels fast in India, especially in tech circles, and if
+we can manage to create a buzz in the small company and startup circles,
+it’s likely that Ruby will see a similar success here. It’s been great
+to see an increasing number of attendees and Ruby Fun Days and other
+such events.</p>
+
+<p><strong>Devendra Deshmukh&gt;&gt;</strong> I agree with others. Community will thrive and
+with more growth rate in emerging markets like India.</p>
+
+<p><strong>Q: What is your viewpoint about Indian RoR developers, the Indian
+environment, the Indian market, the type of applications being developed
+in India?</strong></p>
+
+<p><strong>Gautam Rege&gt;&gt;</strong> I mentioned this earlier and will re-iterate that
+considering the conservative nature of Indian markets, Ruby will be
+embraced slowly. However, like the telecom revolution in India, once it
+catches on, I feel (and hope) that Ruby will become BIG .. of course not
+at the scale that telecom has grown in India but at least a noticeable
+one. There are currently quite a few Ruby and Rails training institutes
+in India which are VERY GOOD but I feel that till we hit the grass-roots
+i.e. schools, colleges and universities, the going will be tough. I
+believe Satish Talim has already started making the difference in Pune.
+Pune University has introduced Ruby in its computer science course
+syllabus – now thats an impressive start !</p>
+
+<p><strong>Shabbir Merchant&gt;&gt;</strong> I think a very small fraction of the Indian
+developers are skilled enough to deliver world class Ruby/Rails apps.
+People are not up to date with all the latest and greatest things
+happening in the Ruby/Rails world. I think this is partially attributed
+to the rapid changes in the Ruby/Rails world itself. The Indian
+development environment is very focused on Windows platform and you will
+find magnitudes of developers working on Windows platform. I think
+Windows should be considered an important platform if we want to attract
+more people to Ruby/ROR. There are stacks such as Bitnami and Instant
+Rails available for windows, but there are several Mac/Linux tools being
+used which do not perform well on Windows. From my experience and
+talking to developers here, I found that majority of them do their
+development in Windows and deployment is done on a Linux Server.</p>
+
+<p><strong>Ashutosh Ambekar&gt;&gt;</strong> Well, to start with there are not many RoR
+developers in India as compared to other popular technologies. Most of
+us at Persistent learnt it ourselves rather than taking any glucose from
+a trainer. There are few well known companies in Rails technology in
+India, however I do not see much contribution to the community from
+India. I am pretty optimistic that there will be more RoR developers
+going forward fuelling more RoR projects. In India, I think most of the
+applications getting developed would fall under web 2.0 / consumer web
+applications.</p>
+
+<p><strong>Nick Adams&gt;&gt;</strong> An interesting question I ask of my developers, is
+‘what motivated you to learn Rails?’. Most answer ‘because my company
+had a project in Rails’. Some will tell you they learned it for fun, or
+to build an application of their own, but they are in the minority. I
+think this nicely summarizes the environment here, that it is more about
+jobs than creativity or experimentation. This is reflected in the
+relatively low number of Indian designed and developed Rails
+applications. We are trying to change that, but it requires a switch in
+the mindset of ordinary developers from seeing development as a job to
+seeing it as a passion and outlet for their own sense of creativity.</p>
+
+<p><strong>Devendra Deshmukh&gt;&gt;</strong> I believe Indian ROR developers are definitely
+best in class like their .NET/JEE peers. Most of the ROR developers in
+India as well as the ROR developers at e-Zest are self learned
+programmers. Most of them shifted from PHP and JEE due to personal
+likings or organization’s direction. Most seen Ruby applications are Web
+2.0 and Social applications. Most of the Ruby projects are shorter in
+duration and with smaller team size. This results in not having proper
+career growth plan like established .NET/JEE is a challenge to address.</p>
+
+<p><strong>Q: Can you give us a roadmap of what you would want to see from Ruby
+to make it a success in India?</strong></p>
+
+<p><strong>Gautam Rege&gt;&gt;</strong> I think localization support will play a big part to
+make Ruby a success in India. JRuby will give access to the vast Java
+localization library and Rails merging with Merb will get the best of
+best into the framework. SMEs will probably be the only ones who will
+adapt to Ruby soon. The number of SMEs in India is so overwhelming that
+the market will be a huge target sector. A lot of industries are trying
+to go “Paperless” and are now also ‘internet aware’. The cost of
+implementing an ERP or a distributed office is huge. Ruby and Rails can
+play a very big part in this to ensure that these requirements are met
+with cost-effectiveness and high quality of the application.</p>
+
+<p><strong>Shabbir Merchant&gt;&gt;</strong> We want more visibility to Ruby by introducing
+them as courses in colleges, more training centers and conferences
+devoted to Ruby. A Ruby/Rails conference would be good to start with.</p>
+
+<p><strong>Ashutosh Ambekar&gt;&gt;</strong> In the Indian context, to make it a success,
+Ruby has to reach colleges undergraduates and professors. Ruby should be
+used in the college assignments. These undergraduates are going to be
+next engineers and hence making them aware of the beauty and power of
+Ruby will certainly help. Community can also play a major role by
+answering the skeptics about scalability and security issues. Success
+stories of Ruby 1.9.x with Rails in production environment will
+certainly help. Since most of the Indian students use Microsoft
+environments, availability of better tools on Windows platform for Ruby
+(on Rails) will help greatly. Linux is getting popular gradually, so
+bundling the latest and greatest Ruby with the Linux distros will also
+help.</p>
+
+<p><strong>Nick Adams&gt;&gt;</strong> I think Ruby is great, but we need a roadmap for
+adoption that includes energizing young people who currently see Java
+and C++ as their only path, because of the jobs available. Going to talk
+in colleges and universities is one thing to be encouraged, as well as
+including business incubators and small development companies as
+potential adopters. Events and conferences will help, but we need some
+leadership too. It would be great to see more truly Indian web startups
+in Rails, as well as Ruby and Rails Gurus emerging from this side of the
+world. The talent is here, it’s time for the passion!</p>
+
+<p><strong>Devendra Deshmukh&gt;&gt;</strong> Ruby needs to become part of main stream IT
+education. It needs to become part of formal college education as well
+as standard IT training available at professional centers. Focus on past
+success stories and more visibility in media will definitely help.</p>
+
+<p><strong>Q: Anything else that you would like to add?</strong></p>
+
+<p><strong>Ashutosh Ambekar&gt;&gt;</strong> At Persistent, we have created a center of
+excellence for Ruby and is currently staffed by 40+ enthusiastic
+engineers (and growing!). Looking at the current trend, we have
+developed IPR in the form of social networking accelerators. The
+accelerators help rapidly develop social networking portals by providing
+ready-to-use features; all we need to implement is the domain part which
+changes from portal to portal. Using the accelerators, we have developed
+a social networking portal for astrologers, astrology researchers and
+advice seekers as our own initiative and would be launching it very
+soon.</p>
+
+<p><strong>Nick Adams&gt;&gt;</strong> Thanks Satish!</p>
+
+<p><strong>Devendra Deshmukh&gt;&gt;</strong> e-Zest expert ROR team members are working on
+ROR from its nascent stage which is a long time and have overcome a
+great many technical and process challenges. We are currently developing
+product accelerators using Ruby. e-Zest provide complete ROR technology
+strategy and product development solution to ISVs and start-ups.
+Start-ups are fun, we understand their every changing needs due to
+dynamic market expectations, and we thrive on enabling their businesses.
+Ruby definitely has brighter future, I assure to interested current and
+future IT professionals that you will definitely be able to make a
+successful career with your Ruby skills.</p>
+
+	
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f06%2f09%2fthe-future-of-ruby-is-fail%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f06%2f09%2fthe-future-of-ruby-is-fail%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f06%2f09%2fthe-future-of-ruby-is-fail%2f&title=The%20Future%20of%20Ruby%20is%20Fail%21&summary=The%20Future%20of%20Ruby%20is%20Fail%21%20Preamble%20Thanks%20to%20Ilya%20Grigorik%20for%20initiating%20the%20discussion%20in%20the%20Indian%20Ruby%20%2f%20Rails%20community%20around%20the%20premise%20%e2%80%9cFuture%20of%20Ruby%20is%20Fail%e2%80%9d%20%28yes%2c%20somewhat%20tongue%20in%20cheek%2c%20but%20also%20serious%29%2c%20trying%20to%20get%20a%20feel%20for%20the%20concerns%20in%20the%20community.%20The%20focus%20of%20this%20discussion%20would%20be%20on%20the%20Indian%20market%20%2f%20geographical%20area.%20RubyLearning%20is%20pleased%20to%20have%20with%20us%2c%20Ruby%20%2f%20Rails%20Gurus%20from%20Pune%2c%20India%3a%20Ashutosh%20Ambekar%20from%20Persistent%20Systems%20Ltd.%2c%20Devendra%20Deshmukh%20from%20e-Zest%2c%20Gautam%20Rege%20from%20Josh%20Software%20Pvt.}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=The%20Future%20of%20Ruby%20is%20Fail%21&url=http%3a%2f%2frubylearning.com%2fblog%2f2009%2f06%2f09%2fthe-future-of-ruby-is-fail%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-india" href="http://rubylearning.com/blog//tags/india">india</a>,
+	                
+	                <a class="post-tag post-tag-pune" href="http://rubylearning.com/blog//tags/pune">pune</a>,
+	                
+	                <a class="post-tag post-tag-ruby-interviews" href="http://rubylearning.com/blog//tags/ruby-interviews">ruby interviews</a>,
+	                
+	                <a class="post-tag post-tag-ruby-programming" href="http://rubylearning.com/blog//tags/ruby-programming">ruby programming</a>,
+	                
+	                <a class="post-tag post-tag-the-future-of-ruby-is-fail" href="http://rubylearning.com/blog//tags/the-future-of-ruby-is-fail">The Future of Ruby is Fail!</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2009/06/09/interview-author-david-black/">Interview: Author David Black</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2009/06/05/10-ruby-rails-companies-in-pune-india/">10&#43; Ruby Rails companies in Pune, India</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2009\/06\/09\/the-future-of-ruby-is-fail\/';
+    var disqus_title = 'The Future of Ruby is Fail!';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2009\/06\/09\/the-future-of-ruby-is-fail\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	
+
+  
+</body>
+</html>

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/security/</link>
+    <description>Recent content in Security on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Jul 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The Ongoing Vigil of Software Security</title>
+      <link>http://rubylearning.com/blog/2012/07/23/the-ongoing-vigil-of-software-security/</link>
+      <pubDate>Mon, 23 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2012/07/23/the-ongoing-vigil-of-software-security/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    The Ongoing Vigil of Software Security
+  &lt;/h3&gt;
+  
+  &lt;p class=&#34;update&#34;&gt;
+    This guest post is by &lt;strong&gt;James Schorr&lt;/strong&gt;, who has been developing software since 1999. He is the owner of an IT consulting company, &lt;a href=&#34;https://enspirenconsulting.com&#34;&gt;Enspiren IT Consulting, LLC&lt;/a&gt;.  He lives with his lovely wife, Tara, and their children in Kansas City, Missouri. James spends a lot of time writing code in many languages, doing IT security audits, and has a passion for Ruby on Rails in particular. He also loves spending time with his family, playing chess, going to the shooting range, hiking, fishing, and investing. His professional profile is on &lt;a href=&#34;http://www.linkedin.com/in/jamesschorr&#34;&gt;LinkedIn&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;block&#34;&gt;
+    &lt;img class=&#34;alignright&#34; alt=&#34;James M. Schorr&#34; src=&#34;http://rubylearning.com/images/James_Schorr.png&#34; width=&#34;125&#34; height=&#34;125&#34; /&gt; &lt;span class=&#34;drop_cap&#34;&gt;T&lt;/span&gt;he news is often filled with stories about exploits affecting large corporations and widely used software (LinkedIn, Yahoo, Windows, Linux, OS X, *BSD, Oracle, MySQL, Java, Flash, etc…). However, a tremendous amount of successful hacks and exploits take place on a daily basis on smaller-profile systems that we never hear about.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Some of the reasons that we keep seeing these types of exploits are that the &amp;#8220;bad guys&amp;#8221; are much smarter and more determined than we give them credit for, we&#39;re much lazier and more ignorant than we take responsibility for, and security is difficult to manage properly. As we become more and more reliant upon software, it is imperative that security be taken more seriously.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    What&#39;s the big deal?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Consider this somewhat over-the-top thought exercise:
+  &lt;/p&gt;
+  
+  &lt;blockquote&gt;
+    &lt;p&gt;
+      &lt;em&gt;Think of your systems, databases, and code as a ship floating in the middle of the Atlantic. The ship was fairly hastily constructed as the management team pushed the various craftsmen to get done in time for the journey.&lt;/em&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;em&gt;It&#39;s the middle of the hurricane season. The waves are getting higher, sharks are circling your boat, and aboard are quite a few passengers. Most of the passengers are of a fairly decent ilk, but some are not. This latter group, partially due to the insufferable boredom that accompanies their long journey, have taken delight in drilling holes in the side of the boat (with the tools that were discarded during construction). Other troublemakers spend their time throwing chum overboard to the encircling sharks and even, when no one is watching, throwing each other overboard. A few of the cleverer sort spend their time impersonating the crew and using their new privileges to look for ways to take over the ship. Sadly, even some of the crew members have been persuaded into joining their mutinous ranks.&lt;/em&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;em&gt;As time goes by, the remaining crew loses its ability to prevent damage to the craft and protect those on board, as a result of sheer exhaustion, the tenacity of the passengers, and the natural wear and tear of the elements.&lt;/em&gt;
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;p&gt;
+    What&#39;s the point of this mental exercise? We need to realize that unrelenting attacks abound, both from within and without the system. If not properly addressed, they only escalate over time.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Security is a word that has a long, storied past. According to most dictionaries, one of the definitions of security includes, &amp;#8220;free from danger&amp;#8221;. Of course, stating that a system, code base, network, etc. is secure is quite naïve at best, dangerous at worst. Recognizing the threats is the first step toward positively addressing them.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Ask any IT team member that is charged with &amp;#8220;securing&amp;#8221; anything and you&#39;ll quickly find out that it is an extremely difficult, often thankless task. Even in a tightly controlled environment, it can be pretty tough, especially during times of extreme change, turnover, growth, etc.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Why should we care?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    We need to care because our applications, databases, and systems:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      are &lt;em&gt;regularly&lt;/em&gt; being threatened from the inside and the outside, often without us even being aware of it.
+    &lt;/li&gt;
+    &lt;li&gt;
+      are depended upon by users who have invested some degree of their money, trust, time, or work into using them.
+    &lt;/li&gt;
+    &lt;li&gt;
+      haven&#39;t &amp;#8220;arrived&amp;#8221;. There is &lt;em&gt;always&lt;/em&gt; a way to circumvent the &amp;#8220;system&amp;#8221;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      typically depend upon the &amp;#8220;happy path&amp;#8221; scenarios (e.g. when all goes well).
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;h3&gt;
+    What can we do?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Thankfully, there are quite a few things that can be proactively done to help mitigate the risks and stave off the threats. For brevity&#39;s sake, I&#39;m going to give a high level overview of what can be done to help prevent exploits:
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Team Security Measures
+  &lt;/h4&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;em&gt;Who should be in charge of our project&#39;s security?&lt;/em&gt; Involve the right people, taking the time to get to know their character and mindset. Not everyone is cut out to think with the type of mindset needed to properly manage security. Unless someone is &lt;em&gt;really&lt;/em&gt; into security, is trustworthy, is assertive, and unafraid of conflict, they simply aren&#39;t the right person for this task.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;em&gt;Who has need-to-know?&lt;/em&gt; Need-to-know is an essential principle in projects. Data leakage often inadvertently occurs by team members that probably didn&#39;t need the information to begin with. Those that realize the &amp;#8220;big-picture&amp;#8221; usage of the data and need access to it for their tasks typically realize the need to keep the data private.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;em&gt;Separation of duties with each area managed by a small core team.&lt;/em&gt; While not always possible, it is helpful to have one main realm of responsibility per team. Also, the core team of each area/realm needs to remain just that &amp;#8211; the core team. In other words, the more people added, the tougher it is to keep things secure.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;em&gt;How, when and to whom do we communicate?&lt;/em&gt; The procedures for securely communicating need-to-know information are critical to establish. Various methods need to be implemented to allow team members to exchange information in as secure a fashion as possible. An example might be the usage of an encrypted volume in a shared drive (retaining the control of the encryption details).
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;em&gt;Knowledge Transfer&lt;/em&gt;: when someone leaves the team, great care should be taken to transfer the knowledge to the new member in a secure fashion. Additionally, all relevant credentials should be changed immediately, &lt;em&gt;no matter how trusted that individual or group was&lt;/em&gt;. A simple exit checklist – that is followed – can greatly help with this.
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;h4&gt;
+    Technological Security Measures
+  &lt;/h4&gt;
+  
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;em&gt;Testing is critical&lt;/em&gt;: we are testing, right? In dev-speak, &lt;code&gt;tested_code != secure_code&lt;/code&gt; but &lt;code&gt;tested_code.class == SecurityMindset&lt;/code&gt;. In other words, it is possible to write insecure, tested code, but proper testing does seem to inherit qualities from a security mindset and to encourage more thoughtful programming. In my opinion, testing generally falls into two main types: &lt;ol&gt;
+        &lt;li&gt;
+          Code-based Testing: I&#39;ll let others bore you with a long list of what&#39;s available out there but do want to point out that real-world progress can be made towards better securing code with the usage of tools/methods such as: Rspec and friends, TDD, BDD, etc.
+        &lt;/li&gt;
+        &lt;li&gt;
+          Human Testing: sometimes nothing beats enlisting the help of others to pound away on our beloved projects. You&#39;d be surprised at how many issues are found by this approach, often leading to cries of, &amp;#8220;But users aren&#39;t supposed to do that!&amp;#8221; &lt;ol&gt;
+            &lt;li&gt;
+              Non-technical users: enlist someone who can has a hard time finding the / key. This type of person will usually do all sorts of unexpected things. The unexpected behavior can quickly reveal the hidden weaknesses in the UI, workflow, and security.
+            &lt;/li&gt;
+            &lt;li&gt;
+              Enlist the upcoming geeks: you know those kids who are always jail-breaking phones? After issuing a few half-hearted reprimands, ask them to &amp;#8220;conquer&amp;#8221; your app. Offering a prize can&#39;t hurt.
+            &lt;/li&gt;
+            &lt;li&gt;
+              Enlist an expert to audit your code, procedures, and projects.
+            &lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    
+    &lt;li&gt;
+      &lt;em&gt;Logging:&lt;/em&gt; &lt;ol&gt;
+        &lt;li&gt;
+          What to log: in general, the more information about transactional details (transactional referring to any actions that involve change), the better. Note that anything related to attempted security breaches needs to be logged. Admin alerts should also be automatically sent out; these alerts need to be designed with great care to not transmit anything that would harm the system if intercepted in transit.
+        &lt;/li&gt;
+        &lt;li&gt;
+          What to &lt;em&gt;never, ever&lt;/em&gt;log: &lt;ol&gt;
+            &lt;li&gt;
+              Credentials: passwords, API keys (abstract before logging: e.g. if Bob does X with an API key, put a different identifier in the log file, not the key).
+            &lt;/li&gt;
+            &lt;li&gt;
+              Credit card numbers, PINs, debit card numbers, anything banking related unless we are doing so in compliance with &lt;strong&gt;PCI standards&lt;/strong&gt;.
+            &lt;/li&gt;
+            &lt;li&gt;
+              Medical information (see &lt;strong&gt;HIPPA&lt;/strong&gt; &amp;#8211; Health Insurance Portability and Accountability Act or your country&#39;s corresponding laws).
+            &lt;/li&gt;
+            &lt;li&gt;
+              Anything that can be used to compromise the systems or it&#39;s users.
+            &lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/li&gt;
+        
+        &lt;li&gt;
+          How to log: I personally prefer a two-pronged approach: 1) writing to log files which are automatically transferred offsite, 2) an audit trail via a NoSQL database (using a fire-and-forget type of approach; in other words send the insert but keep on moving, a failure to log to the audit trail should alert admins but not slow down or impact the user&#39;s use of the application at all).
+        &lt;/li&gt;
+        &lt;li&gt;
+          When to log: as close to the event as possible, to minimize the chance of data loss. &lt;ol&gt;
+            &lt;li&gt;
+              Log Alterability: Think, &amp;#8220;if I was a hacker and compromised this system, I&#39;d want to clean up after my activities&amp;#8221;. How do I make my logs non-alterable, even by support staff?
+            &lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    
+    &lt;li&gt;
+      &lt;em&gt;Access Levels&lt;/em&gt;: these typically fall into the following: &lt;ol&gt;
+        &lt;li&gt;
+          Users &lt;ol&gt;
+            &lt;li&gt;
+              What can they access and why
+            &lt;/li&gt;
+            &lt;li&gt;
+              Who can change their level (e.g. can the user manage their own level via subscriptions)?
+            &lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/li&gt;
+        
+        &lt;li&gt;
+          Support Staff &lt;ol&gt;
+            &lt;li&gt;
+              Level 1 CSR
+            &lt;/li&gt;
+            &lt;li&gt;
+              Level 2 CSR
+            &lt;/li&gt;
+            &lt;li&gt;
+              Level 3 Admins
+            &lt;/li&gt;
+            &lt;li&gt;
+              Dictators (can do anything with no recourse)&amp;#8230; careful with these types.
+            &lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    
+    &lt;li&gt;
+      &lt;em&gt;Crucial Elements&lt;/em&gt;: &lt;ol&gt;
+        &lt;li&gt;
+          Account Lockouts &lt;ol&gt;
+            &lt;li&gt;
+              Users are locked out for some period of time when they fail to login after X attempts or try via different IPs, etc.
+            &lt;/li&gt;
+            &lt;li&gt;
+              Users are locked out and admins alerted when they try to get around the system (these types of lockouts do not expire with time but rather require a Support Staff person to unlock them based on their discretion).
+            &lt;/li&gt;
+            &lt;li&gt;
+              Ability for Support Staff to lock and unlock users very quickly &lt;em&gt;after&lt;/em&gt; following a procedure to record why they&#39;re doing so. A permanent record needs to be kept as to who unlocked whom and why.
+            &lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/li&gt;
+        
+        &lt;li&gt;
+          Account Password Policies: password strength, requirements to change the password every X days, password history (can&#39;t reuse old passwords), etc.
+        &lt;/li&gt;
+        &lt;li&gt;
+          Other: click-limits, IP address binding, geographic-binding, usage of Oauth 2, etc.
+        &lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    
+    &lt;li&gt;
+      &lt;em&gt;Frameworks and Software Libraries&lt;/em&gt;: it&#39;s fairly common to have security vulnerabilities &amp;#8220;appear&amp;#8221; due to the integration of code from other sources. Of course, no one has time to re-invent the wheel, so to speak; nor should they. It is a good practice to always read through the source code and reported issues of 3rd party software prior to implementation. &lt;ol&gt;
+        &lt;li&gt;
+          Take the time to search for some of its common exploits and best-practice methods of usage. Have we taken the time to test what X library (framework, gem, plugin, etc.) would mean for our application&#39;s speed, stability, and security?
+        &lt;/li&gt;
+        &lt;li&gt;
+          Refrain from handling some things ourselves. A good example is credit-card processing. Why handle it yourself when a 3rd party, tested service will likely do so in a more secure manner? Look for a project that has been around for a while and has a good track-record of quickly closing vulnerabilities.
+        &lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    
+    &lt;li&gt;
+      &lt;em&gt;Servers and Hosting&lt;/em&gt;: it may save some money to host on a shared host or cousin Bill&#39;s server, but will the data be secure? It&#39;s best to strive for meeting all three of the CIA principles (Confidentiality, Integrity, and Availability) when choosing a host, striving for at least a medium-level for each principal. &lt;ol&gt;
+        &lt;li&gt;
+          Keep the servers up-to-date.
+        &lt;/li&gt;
+        &lt;li&gt;
+          Use intrusion detection applications (e.g. psad, fwsnort) to alert admins of attempts to break in the system.
+        &lt;/li&gt;
+        &lt;li&gt;
+          Use a properly configured firewall that is easy to adjust quickly.
+        &lt;/li&gt;
+        &lt;li&gt;
+          Send the logs offsite (e.g. not on the same &amp;#8220;box&amp;#8221;) to a secured server on a frequent basis.
+        &lt;/li&gt;
+        &lt;li&gt;
+          Backups: ideally, these should occur nightly of the entire codebase, logs, and database dumps; these backups should be kept offsite in the same manner as logs.
+        &lt;/li&gt;
+        &lt;li&gt;
+          Imaging: frequent images of servers can be helpful for forensics in the event of an exploit and for data recovery.
+        &lt;/li&gt;
+        &lt;li&gt;
+          Server-side miscellaneous applications (Apache, Nginx, SSH, OpenSSL, etc.): disable unused modules, limit connections, use non-default ports, etc. (see Resources for more ideas).
+        &lt;/li&gt;
+        &lt;li&gt;
+          Schedule checks for rootkits and malware on a daily basis; be sure to alert admins if any is found.
+        &lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    
+    &lt;li&gt;
+      &lt;em&gt;Database(s)&lt;/em&gt;: Familiarity with the database(s) is key to keeping them secure. For instance, if a development team is very familiar with MySQL and decides to add in a secondary technology alongside (maybe some MongoDB databases), it would be wisest to evaluate the architecture and security implications prior to implementation.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Credentials: &lt;ol&gt;
+        &lt;li&gt;
+          Where and how should we store the credentials that our app needs (e.g. api keys, database credentials, etc.)? A good thing to ask ourselves is, &amp;#8220;if someone did get into our server (as non-root, as if they did as root, it&#39;s game-over anyhow), what could they get and who would it hurt?&amp;#8221;
+        &lt;/li&gt;
+        &lt;li&gt;
+          Are we deploying our credentials to GitHub or other VCS? If so, we&#39;re blindly trusting that 3rd party to be and stay secure.
+        &lt;/li&gt;
+        &lt;li&gt;
+          Changes should be planned for and completed whenever there is a change in personnel and on a periodic basis. This can become a real hassle unless thought is given along the lines of, &amp;#8220;How do we quickly change these credentials?&amp;#8221;
+        &lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    &lt;em&gt;I hope that this article has given you at least a few ideas of how to better improve your software project&#39;s security. If so, I&#39;ll consider it a success. Feel free to ask questions and give feedback in the comments section of this post. Thanks!&lt;/em&gt;
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Resources
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Below are some resources that may be helpful (those that I have found extremely helpful over the years are denoted with a &lt;strong&gt;*&lt;/strong&gt; next to them):
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://xianshield.org/guides/apache2.0guide.html&#34;&gt;Apache 2 Hardening Guide&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;https://github.com/binarylogic/authlogic&#34;&gt;Authlogic&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://areyouahuman.com/&#34;&gt;Are You a Human Anti-Captcha*&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;https://github.com/binarylogic/authlogic&#34;&gt;Brakeman*&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.clamav.net/&#34;&gt;ClamAV&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;https://github.com/plataformatec/devise&#34;&gt;Devise*&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/security.html&#34;&gt;FreeBSD Security&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://cipherdyne.org/fwsnort/&#34;&gt;Fwsnort&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.linuxsecurity.com/&#34;&gt;Linux Security&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.greensql.com/articles/mysql-security-best-practices&#34;&gt;MySQL Quick Security Guide&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;https://calomel.org/nginx.html&#34;&gt;Nginx Security*&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://cipherdyne.org/psad/&#34;&gt;PSAD*&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.postgresql.org/support/security/&#34;&gt;PostgreSQL Security Notices&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://guides.rubyonrails.org/security.html&#34;&gt;Rails Security Guide*&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;https://github.com/relevance/rcov&#34;&gt;Rcov*&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.rootkit.nl/projects/rootkit_hunter.html/&#34;&gt;RkHunter*&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;https://github.com/rspec/rspec&#34;&gt;Rspec*&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.ruby-lang.org/en/security/&#34;&gt;Ruby Security Notices&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

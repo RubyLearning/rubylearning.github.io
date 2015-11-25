@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Advice For Ruby Beginners 3 // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Satish Talim">
+
+
+  <meta property="og:title" content="Advice For Ruby Beginners 3" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2007/10/04/advice-for-ruby-beginners-3/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2007/10/04/advice-for-ruby-beginners-3/">Advice For Ruby Beginners 3</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2007</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">Satish Talim</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">beginners</a>
+				
+					<a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">interview</a>
+				
+					<a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">popular</a>
+				
+					<a class="post-category post-category-rails" href="http://rubylearning.com/blog//categories/rails">rails</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+				
+					<a class="post-category post-category-training" href="http://rubylearning.com/blog//categories/training">training</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>This is part 3 in our <a href="http://rubylearning.com/blog/2007/09/27/advice-for-ruby-beginners-1/">ongoing
+conversation</a>
+– “<strong>Advice For Ruby Beginners</strong>“.</p>
+
+<hr />
+
+<p><strong>Satish&gt;&gt; What opportunities exist in your country for Ruby freshers;
+people who know Core Ruby thoroughly?</strong></p>
+
+<p><strong>Agnieszka (Poland)&gt;&gt;</strong> Companies that use Ruby and RoR are mostly
+happy to hire both Ruby experts and beginners. Those are usually small
+companies, some of them with a very agile spirit. Larger companies are
+mostly too conservative to adopt this technology and I don’t expect it
+to change soon. Now and then somebody is looking for programmers to join
+a startup, also investors from abroad seek Polish coders. It seems that
+demand for Ruby skills is on the rise and it is likely that soon
+companies will be looking for training from Ruby experts.</p>
+
+<p><strong>Fabio (Brazil)&gt;&gt;</strong> As I said before, big companies will not get into
+the Ruby or Rails business for the time being. I’ve been a consultant
+for this kind of corporations for the last 5 years and I already
+recognize their vices. We are also not used to have hundreds of
+startups, because we don’t have as many investors as in the USA. So it
+is very hard to start a small company here. But there are thousands of
+medium-class businesses that don’t care about brand: they care to have
+their work done with quality and within reasonable costs. That’s the
+market that Rails programmers will serve. As 37signals said: we don’t
+need to target just the Fortune 500, we have to look after the Fortune
+5,000. There’s no free lunch though: most younger programmers care about
+having stable jobs, not playing with their favorite technologies. They
+don’t study because they like, but because they need the credentials to
+get in big companies. The kind of professionals that will try Rails,
+will be necessarily outside of this status quo. At least for now.
+Ruby/Rails developers all have an entrepreneurship spirit. They are not
+plain reckless, but they enjoy taking some risks. That’s people that can
+see what has the potential to eventually become ‘the next big thing’. We
+like to be independent, we don’t like tedious jobs, boring tasks, and
+annoying co-workers. We want to stay ahead of the competition. We are
+not afraid of new things, we are not afraid of becoming obsolete, we are
+not concerned of last year’s certifications getting old. We don’t care
+about having fancy business cards and using brand new ties. Current
+Ruby/Rails developers are the kind of people that push the whole market
+forward. We think different. This is not a mass market yet, so if you
+want the easy route, I can’t recommend this, otherwise you are very
+welcome. Bottom line is: there’s not an established market ready to
+welcome new Ruby or Rails developers, yet. You’ll have to dig further on
+your own. If you want to start your own company, this is a great tool to
+get the job done. And this is a globalized world, we can’t be limited by
+our own territorial boundaries. There’s plenty of jobs available in
+other countries and many are willing to have offshore outsourced
+resources. Brazil is very very compelling as an outsourcing shop. We are
+cheaper because of the current dollar exchange rate. A good opportunity
+to start working for foreign companies.</p>
+
+<p><strong>Jamie (UK)&gt;&gt;</strong> Well mostly you’re looking at sysadmin work, web
+development work, and maybe glue code work.</p>
+
+<p><strong>Jamis (USA)&gt;&gt;</strong> There are a lot of job opportunities for people with
+Rails experience. If you want to do more general work with Ruby, your
+options are more limited, but I found that even in my previous job
+(where I did Java all day) I was able to use Ruby for various tasks,
+like code generation and system administration. Opportunities are where
+you make them!</p>
+
+<p><strong>Jens (Switzerland)&gt;&gt;</strong> I guess most of the companies that use Ruby
+in Switzerland would be looking for people that know Ruby. I know I do –
+I could use someone with Ruby skills immediately. I’m not sure about the
+large companies, the banks, the insurance companies. From what I hear,
+they are still very much “traditional” shops (Java, dot Net) and haven’t
+made the switch yet to the agile scripting languages. I guess they will
+turn around, when for example JRuby becomes more mature.</p>
+
+<p><strong>Juanjo (Spain)&gt;&gt;</strong> Thanks to Rails there is a good demand for
+web-developers. As far as I know, if you are a good Ruby/RoR programmer,
+you can easily find a job in Spain. And I think soon, the big companies
+will start using Ruby and some colleges will start teaching Ruby so this
+is just the beginning.</p>
+
+<p><strong>Julian (Netherlands)&gt;&gt;</strong> I did talk about this in my previous reply.</p>
+
+<p><strong>Manik (India)&gt;&gt;</strong> As I mentioned in my last answer, there is a
+strong and growing demand for Ruby and Rails developers in India. There
+are a lot of consultant companies doing Rails development. There are a
+lot of product companies developing products on Rails and Ruby. If you
+know of some really good developers, could you ask them to send their
+resumes to me
+<img src="http://rubylearning.com/blog/wp-includes/images/smilies/icon_wink.gif" alt=";-)" />
+</p>
+
+<p><strong>Matt (Australia)&gt;&gt;</strong> There’s not a lot of call for pure Ruby
+developers, like there is for (say) Java developers. Mostly it’s “we
+want a sysadmin who scripts in Ruby” or developing in Rails.</p>
+
+<p><strong>Mislav (Croatia)&gt;&gt;</strong> A quick search for “ruby” on several popular
+job boards here didn’t yield anything. But I guess that companies are
+starting to get interested even here and that we will soon see an
+increase in job demand. There is always an option for freelancing in the
+meantime. There are also opportunities to be employed remotely in a
+company that might be far from you, even in the US. Hey – it’s the
+Internet
+<img src="http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif" alt=":)" />
+</p>
+
+<p><strong>Ola (Sweden)&gt;&gt;</strong> I think the time is ripe to get the larger
+companies of Sweden to accept Ruby and Rails. Most of them haven’t yet,
+but most of them are also forward thinking, innovative and not as
+conservative as similar companies in other countries. I would say that
+spreading the message and teaching Ruby can definitely be done in Sweden
+right now.</p>
+
+<p><strong>Pedro (Portugal)&gt;&gt;</strong> I think in Portugal, the same thing applies to
+Ruby as for other Languages, the market is booming and for anyone
+dominating Ruby, work isn’t really going to be a problem. The market is
+actually lacking good programmers at all levels.</p>
+
+<p><strong>Peter (UK)&gt;&gt;</strong> In terms of job opportunities, the UK does better
+than most of the world, but pales in comparison to the United States
+where there are literally hundreds of jobs available. Ruby and Rails
+don’t have considerable mindshare here, and lag a long way behind
+technologies such as Java or .NET. I think people tend to make their own
+opportunities, though, and if working with Ruby and Rails gets someone
+excited enough to start their own Web site or consultancy business,
+there’s the opportunity to make money wherever you are.</p>
+
+<p><strong>Remco (Netherlands)&gt;&gt;</strong> There’s a lot of demand for computer
+specialists in the Netherlands and in the recent year this includes Ruby
+programmers. Rails has spawned a lot of companies in the Netherlands
+too. They are successfully competing which more established web
+application builders and a lot of these latter companies are switching
+there web development to Rails. No matter where you are, if web
+development is your trade, you should learn about Ruby and Ruby on Rails
+or stick with your stuff and join the ranks of Cobol programmers.</p>
+
+<p><strong>Sau (Singapore)&gt;&gt;</strong> Ruby is used professionally in an increasing
+number of small startups and consulting companies in Singapore. There
+are many job openings available and often posted up in the SRB Google
+Group.</p>
+
+<p><strong>Satish&gt;&gt; Any other suggestions for these participants (would-be Ruby
+developers)?</strong></p>
+
+<p><strong>Agnieszka (Poland)&gt;&gt;</strong> Get down to work and never stop improving
+your skills. Develop an addiction to coding standards and automated
+testing. Take as much as possible from the real and virtual community,
+but don’t forget to give back – publish code, help answer other people’s
+questions, participate in events. Take your time to try out other
+languages, make sure you know why Ruby is your language of choice.</p>
+
+<p><strong>Fabio (Brazil)&gt;&gt;</strong> My recommendations usually go beyond a particular
+technology. Of course, the Big Thing of the hour is definitely Ruby on
+Rails. It is rising very fast, it’s being matured, the community is
+exponentially growing, tools are being refined. The market is just
+starting to pay attention. We have to stay updated by the minute. Learn
+more. Learn beyond one tool or one language. There’s been Language-Wars,
+Frameworks-Wars in the past, there’s been some recently. It happens not
+because people actually ‘like’ their old technology, but because they
+can’t see ahead of their noses. They are ‘afraid’ of being wrong, of
+change. Career people don’t like changing. They want to stay in a solid
+and very predictive route, a very smooth ride up the mountain slope.
+That’s not the reality: things eventually change. Technology changes
+even faster. It’s changing right now and just closing your eyes will not
+modify this very fact. Other people think that learning things that they
+can’t immediately use is waste of resources, which is not true.
+Education is an investment. You can only recognize its value once you
+need it, not before.</p>
+
+<p><strong>Jamie (UK)&gt;&gt;</strong> Get public with your findings, blog heavily, get
+known. The Ruby community is a small world, and it’s easy to spot the
+talented folk at a distance with a little google and a few
+recommendations.</p>
+
+<p><strong>Jamis (USA)&gt;&gt;</strong> Be passionate! If you’re only learning Ruby as a
+resume item, you’re doomed to fail, simply because the Ruby/Rails
+landscape is full of passionate programmers who will always out-perform
+and out-resume you. If you are truly passionate about Ruby, that passion
+will shine through. Be prolific! Write code. Write _lots_ of code. And
+don’t be afraid to throw away most of it. Just as a writer learns to
+write by writing, so a programmer learns to program by programming. Be
+social! Find (or found!) an open-source project that appeals to you, and
+start looking for ways to contribute to it. Nothing pushes your skills
+so much as having other experienced programmers that can review and
+critique your code, and that’s what happens when you submit a patch to a
+project.</p>
+
+<p><strong>Jens (Switzerland)&gt;&gt;</strong> Enjoy programming. Have fun. Ruby helps you
+with that. Get involved in the local community. And be open about
+languages. Ruby is but one of the many fine programming languages out
+there.</p>
+
+<p><strong>Juanjo (Spain)&gt;&gt;</strong> Write code. Try new things. Learn from others and
+help other people to learn. Ruby community is a small and nice one, so
+be a part of it and participate.</p>
+
+<p><strong>Julian (Netherlands)&gt;&gt;</strong> Use Ruby to break out of the old technology
+you have been using before. Try all the weird quirky things in it that
+are new to you (like meta-programming, continuations, exceptions, base
+class extensions) to know it better. If you have been doing languages
+like PHP before (this primarily applies to web developers) – take this
+opportunity to learn how to deploy in the real world, without the warm
+fuzzy feeling of an admin-tuned restricted copy of mod_php that will
+just destroy your program after the page is sent off. And read lots of
+source written by others, ultimately. Refactor and unit test
+mercilessly, because otherwise you might have been much better off doing
+Perl. And do not get too stuck in the Rails world – there’s more to Ruby
+than just Rails, and there are some pragmatic decisions made by David
+that might limit your approach to the language.</p>
+
+<p><strong>Manik (India)&gt;&gt;</strong>\
+ a. Strengthen the basics.\
+ b. Write a lot of code.\
+ c. Read though lots of existing open source applications including
+Rails.\
+ d. Read a lot of blogs and stay on top of what is new and happening.\
+ e. Try to form or join developer communities and participate in
+developer community events, with the aim of sharing and learning.\
+ f. Release code to open source, because that makes you think if there
+is a better way of writing the same code. You would of course want to
+share your best code with the world! That being said, don’t wait forever
+to get the code in the best shape to release. Release and clearly
+mention the known issues.</p>
+
+<p><strong>Matt (Australia)&gt;&gt;</strong> Program early and program often.</p>
+
+<p><strong>Mislav (Croatia)&gt;&gt;</strong> Embrace good practices early and solve problems
+the right way. For instance, unit-testing or BDD (behaviour-driven
+development) is something without which most of the things in Ruby/Rails
+world would be unthinkable. Ensure clean separation of your modules and
+always know which part is responsible for what. Learn how to love the
+console (if you are a Windows person). If you will be working with
+Rails, use edge Rails (meaning the newest development version) from the
+start, because it is soon-to-be Rails 2.0. And, as I’ve already said,
+let things challenge you. Programming is not dull and “geeky” anymore;
+it’s creative and exciting. If you are from Croatia and need direction,
+feel free to <a href="http://workingwithrails.com/person/2764-mislav-marohni">email
+me</a>. I’d really
+like our community to get stronger. Good luck!</p>
+
+<p><strong>Ola (Sweden)&gt;&gt;</strong> Just to keep digging. Ruby is a lovely language
+with depths that can take years to grasp. Just because you don’t
+understand a feature doesn’t mean it doesn’t have a use. Most things in
+Ruby are there for a reason – so keep looking.</p>
+
+<p><strong>Pedro (Portugal)&gt;&gt;</strong> Join online and local developers communities,
+that’s the fastest and easiest way to learn and share knowledge. Why not
+use this already existing networks as an advantage point? I think this
+would be my most important and humble suggestion.</p>
+
+<p><strong>Peter (UK)&gt;&gt;</strong> It’s easy to become frustrated when you’re working on
+some code (even a single line) and it doesn’t do what you expect. Rather
+than get frustrated, try to break your code down into the smallest
+pieces possible to see where the bug is occurring. Most “bugs”, I’ve
+found, tend to come from our own incorrect assumptions about how things
+work, rather than errors made by the language or the computer itself. If
+you break things down into tiny pieces, you can quickly find out where
+things aren’t working as planned and be able to tackle any tricky
+debugging situation!</p>
+
+<p><strong>Remco (Netherlands)&gt;&gt;</strong> Make DRY (Don’t Repeat Yourself) one of your
+mantras. Avoiding copy-and-pasting trains your Ruby muscles! On the
+subject of copying, don’t copy code from others without understanding
+it. Proper code isn’t hard to read, don’t be satisfied when it works for
+you but you do not know why. And finally remember: there’s no Ruby
+nirvana. Every Ruby developer is rediscovering Ruby on a regular basis,
+including Matz. People are doing amazing things with this language,
+finding new angles to solve problems. Be prepared to keep learning this
+language and enjoy the ride.</p>
+
+<p><strong>David (USA)&gt;&gt;</strong> I’ve learned a ton of Ruby by helping other people
+learn, and answering questions on mailing lists. Of course you have to
+be comfortable with doing this, but it can be very beneficial for you as
+well as the people you’re helping. Whenever someone asks a question that
+I can’t answer, but think I should be able to, I try to figure it out
+and come up with an answer. That way they get an answer, and I learn
+something.</p>
+
+<p><strong>Sau (Singapore)&gt;&gt;</strong> Join the community, start the dialog.
+Programming with Ruby is fun and there are plenty of people who are
+willing to extend a helping hand. For any queries, feel free to discuss
+with me personally. Send me an Email at:
+cssheong[at]pacific[dot]net[dot]sg</p>
+
+<hr />
+
+<p><strong>Satish&gt;&gt; *It has been fun interacting with you all and thank you for
+sharing your views with the RubyLearning.com members.</strong>*</p>
+
+<p><a href="http://rubylearning.com/blog/2007/09/27/advice-for-ruby-beginners-1/">Advice For Ruby Beginners
+1</a></p>
+
+<p><a href="http://rubylearning.com/blog/2007/10/01/advice-for-ruby-beginners-2/">Advice For Ruby Beginners
+2</a></p>
+
+<p>Technorati Tags: <a href="http://technorati.com/tag/Advice+For+Ruby+Beginners">Advice For Ruby
+Beginners</a>, <a href="http://technorati.com/tag/Ruby+Beginners">Ruby
+Beginners</a>, <a href="http://technorati.com/tag/Ruby+Interviews">Ruby
+Interviews</a>, <a href="http://technorati.com/tag/Ruby+Serial+Interview">Ruby Serial
+Interview</a></p>
+
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2007/11/26/akitaonrails-on-ruby-symbols/">&#34;AkitaOnRails&#34; On Ruby Symbols</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2007/10/03/interview-karmen-blake/">Interview: Karmen Blake</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2007\/10\/04\/advice-for-ruby-beginners-3\/';
+    var disqus_title = 'Advice For Ruby Beginners 3';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2007\/10\/04\/advice-for-ruby-beginners-3\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

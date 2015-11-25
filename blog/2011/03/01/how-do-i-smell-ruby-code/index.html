@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    How do I smell Ruby code? // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Timon Vonk">
+
+
+  <meta property="og:title" content="How do I smell Ruby code?" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2011/03/01/how-do-i-smell-ruby-code/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2011/03/01/how-do-i-smell-ruby-code/">How do I smell Ruby code?</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>1</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2011</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">Timon Vonk</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <div>
+  <h3>
+    How do I smell Ruby code?
+  </h3>
+  
+  <h4>
+    Understanding the worst of code
+  </h4>
+  
+  <p class="update">
+    This guest post is by <strong><a href="http://www.linkedin.com/in/timonv">Timon Vonk</a></strong>, who is a self-employed Ruby enthusiast and standard nerd with an edge. He has worked with Ruby for several years, but is well-known with many other (programming) languages. Also likes martial arts, loud music, varying quantities of booze and a good scotch.
+  </p>
+  
+  <h3>
+    Introduction
+  </h3>
+  
+  <p class="block">
+    <img class="alignright" src="http://rubylearning.com/images/TimonVonk.jpg" alt="Timon Vonk" title="Timon Vonk" /> <span class="drop_cap">W</span>riting bad code isn&#8217;t a bad thing. Not understanding the problem you&#8217;re trying to solve any better after having written that piece of code is. Fortunately, that happens far less often. In this article I hope to give a better understanding of Ruby code by going into Ruby specific code smells. We&#8217;ll start with some simple examples that are common in all programming languages – they just need to be covered – and then dive into some Ruby specific smells.
+  </p>
+  
+  <h3>
+    So what is that smell?
+  </h3>
+  
+  <p>
+    The term was coined in the 90s by Kent Beck on WardsWiki (one of the first wikis around) and has been popularized ever since. A code smell is a hunch, not necessarily measurable, that the code you&#8217;re looking at can be improved in some way. This process of improvement is called refactoring, as you might know. And as far as refactoring is concerned, there is no time like now, don&#8217;t leave open ends; it’s a bad habit.
+  </p>
+  
+  <h3>
+    The Basics
+  </h3>
+  
+  <p>
+    Let us give a quick rundown on the more basic code smells:
+  </p>
+  
+  <ul>
+    <li>
+      Duplicated code, if you see any, is almost always a bad thing. We&#8217;ll get into this part a little later.
+    </li>
+    <li>
+      Multiple method / class responsibility is always a bad thing. Try factoring out your solution in multiple methods. It will make you&#8217;re code more readable and a lot better maintainable. Large methods and classes are a dead giveaway for this as well.
+    </li>
+    <li>
+      A class should never use more methods from other classes than from itself. Why is it even there?
+    </li>
+    <li>
+      A child class should always honor the contract of the parent class, i.e., be a kind of that class. Check out the Liskov substitution principle for more information.
+    </li>
+    <li>
+      If a class hardly does anything, why is it there?
+    </li>
+    <li>
+      Does your solution have a more simple approach? Complexity can be a reason of pride for some – if not most – coders, but too much makes it terrible to understand, especially later on.
+    </li>
+    <li>
+      Non-descriptive or too long identifiers or names are a good sign that either you can&#8217;t define the responsibility of the code, or you have a hard time with naming conventions.
+    </li>
+  </ul>
+  
+  <p>
+    Simple, easy smells should give a good start on fine tuning your code. However, every language has its own specific quirks. Let us take a look at Ruby.
+  </p>
+  
+  <h3>
+    Calling eval on user input or unchecked code
+  </h3>
+  
+  <pre>input = "'rm -rf /'"
+klass =  eval input
+</pre>
+  
+  <p>
+    Of course this is bad. I hope it doesn&#8217;t need any explanation. Try not to use <tt>eval</tt>, but <tt>instance_eval</tt> instead. And if you use either, make sure that the code you eval is secure &#8212; never eval user input directly.
+  </p>
+  
+  <h3>
+    Nested blocks without added value
+  </h3>
+  
+  <pre>array = [["banana", "apple"],["pineapple","beer"]]
+# And I want to call reverse on each element, I could do
+array.collect { |sub_array| sub_array.collect { |subsub_array| subsub_array.reverse }}
+# But this is much nicer
+array.collect { |sa| sa.collect(&:reverse) }
+# => [["ananab", "elppa"],["elppaenip","reeb"]]
+</pre>
+  
+  <p>
+    The reason is simple enough. Your code is more readable, and that&#8217;s what we all want. So what about nested multi-line blocks? Check it out, big chance your solution is the root of this particular evil.
+  </p>
+  
+  <h3>
+    Code similarity
+  </h3>
+  
+  <pre>def post_to_site(data)
+  url = build_url(data)
+  response = RestClient.post(url)
+end
+
+def get_from_site(data)
+  url = build_url(data)
+  response = RestClient.get(url)
+end
+
+def delete_from_site(data)
+  url = build_url(data)
+  response = RestClient.delete(url)
+end
+</pre>
+  
+  <p>
+    You can easily solve this lump of code by introducing some meta-programming:
+  </p>
+  
+  <pre>def  response_from_site(data, method = :get)
+  url = build_url(data)
+  response = RestClient.public_send(method, url)
+end
+</pre>
+  
+  <p>
+    This gives you a clean, nicer method. And it&#8217;s readable too! Isn&#8217;t that nice?
+  </p>
+  
+  <h3>
+    Long, repetitive and cluttering statements
+  </h3>
+  
+  <p>
+    Often enough you have similar parameters that call similar methods. For instance, you might need to check on some parameter and call the associated method. Or even simpler, you might need to check if a certain user input matches your criteria. I prefer a simple rule of thumb, if you&#8217;re working with any sort of collection or set, the functional approach is always cleaner, more simple and most definitely faster. The point is not to dictate when and whether you should prefer the functional approach, just that you understand that long lines of repetitive clutter screw up your code.
+  </p>
+  
+  <p>
+    Take the following example:
+  </p>
+  
+  <pre>input = "english"
+case input
+when "english"
+  puts "English, ***, do you speak it?"
+when "french"
+  puts "Baguette!"
+when "dutch"
+  puts "I only smoke *** when it's free."
+else
+  puts "Dunno"
+end
+</pre>
+  
+  <p>
+    You can imagine in complex applications that this goes on and on. I actually see it happen a lot and it’s not necessarily bad. However, it’s hard to maintain and in more complex situations it can get really hard to read through. I&#8217;ve seen loads of Rails applications where they use just this to check on a particular parameter. Really ugly!
+  </p>
+  
+  <p>
+    Since it seems like you&#8217;re white listing, one way to solve it would be to use a hash with input:result.
+  </p>
+  
+  <pre>whitelist = {
+  "english" =&gt; "English, ***, do you speak it?",
+  "french" =&gt; "Baguette!",
+  "dutch" =&gt; "I only smoke *** when it's free.",
+  "other" =&gt; "Dunno."
+}
+
+if whitelist.has_key?(input)
+  puts whitelist[input]
+else
+  puts whitelist[other]
+end
+</pre>
+  
+  <p>
+    It&#8217;s always important to be proud of the code you write. It really helps if it doesn&#8217;t smell. And I hope this article helped you do that.
+  </p>
+  
+  <p>
+    <em>Feel free to ask questions and give feedback in the comments section of this post. Thanks!</em>
+  </p>
+  
+  <p>
+    <b>You might want to read a related article</b>:
+  </p>
+  
+  <ul>
+    <li>
+      <a href="http://rubylearning.com/blog/2010/11/08/how-does-your-code-smell/">How does your code smell?</a>
+    </li>
+  </ul>
+</div>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-programming" href="http://rubylearning.com/blog//tags/programming">programming</a>,
+	                
+	                <a class="post-tag post-tag-ruby-code-smell" href="http://rubylearning.com/blog//tags/ruby-code-smell">Ruby code smell</a>,
+	                
+	                <a class="post-tag post-tag-ruby-programming" href="http://rubylearning.com/blog//tags/ruby-programming">ruby programming</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2011/07/01/20-rubyists-to-follow-on-google/">20&#43; Rubyists to Follow on Google&#43;</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2011/02/18/interview-michael-hartl-author-of-the-ruby-on-rails-tutorial-railstutorial.org/">Interview: Michael Hartl, author of the Ruby on Rails Tutorial (railstutorial.org)</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2011\/03\/01\/how-do-i-smell-ruby-code\/';
+    var disqus_title = 'How do I smell Ruby code?';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2011\/03\/01\/how-do-i-smell-ruby-code\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

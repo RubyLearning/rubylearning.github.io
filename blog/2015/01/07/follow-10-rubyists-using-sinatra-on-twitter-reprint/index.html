@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Follow 10&#43; Rubyists using Sinatra on Twitter (Reprint) // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Satish Talim">
+
+
+  <meta property="og:title" content="Follow 10&#43; Rubyists using Sinatra on Twitter (Reprint)" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2015/01/07/follow-10-rubyists-using-sinatra-on-twitter-reprint/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2015/01/07/follow-10-rubyists-using-sinatra-on-twitter-reprint/">Follow 10&#43; Rubyists using Sinatra on Twitter (Reprint)</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>7</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2015</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author" href="http://satishtalim.com" target="">Satish Talim</a></span>
+            		
+      <span class="post-author-social post-author-facebook"><a href="http://www.facebook.com/satishtalim/about" target="_blank"><i class="fa fa-facebook"></i></a></span>
+
+
+      <span class="post-author-social post-author-google-plus"><a href="https://plus.google.com/&#43;SatishTalim/about" target="_blank"><i class="fa fa-google-plus"></i></a></span>
+
+
+      <span class="post-author-social post-author-linkedin"><a href="https://www.linkedin.com/in/satishtalim" target="_blank"><i class="fa fa-linkedin"></i></a></span>
+
+
+	<span class="post-author-social post-author-twitter"><a href="http://twitter.com/IndianGuru" target="_blank"><i class="fa fa-twitter"></i></a></span>
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+				
+					<a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">Popular</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-sinatra" href="http://rubylearning.com/blog//categories/sinatra">Sinatra</a>
+				
+				</div>
+			
+
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2015%2f01%2f07%2ffollow-10-rubyists-using-sinatra-on-twitter-reprint%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2015%2f01%2f07%2ffollow-10-rubyists-using-sinatra-on-twitter-reprint%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2015%2f01%2f07%2ffollow-10-rubyists-using-sinatra-on-twitter-reprint%2f&title=Follow%2010%2b%20Rubyists%20using%20Sinatra%20on%20Twitter%20%28Reprint%29&summary=Note%3a%20This%20first%20appeared%20on%2024th%20June%202009%20and%20is%20being%20reprinted%20as%20the%20original%20is%20not%20accessible.%20What%26%238217%3bs%20Twitter%3f%20The%20New%20York%20Times%20says%3a%20Twitter%20is%20a%20simple%20messaging%20service%20that%20you%26%238217%3bve%20either%20heard%20about%20a%20lot%20or%20not%20at%20all.%20Either%20way%2c%20it%26%238217%3bs%20a%20fun%20and%20useful%20tool%2c%20well%20worth%20trying%20if%20you%20want%20to%20reach%20potential%20and%20existing%20customers%2c%20employees%20or%20employers.%20List%20of%20Rubyists%20Using%20Sinatra%20This%20list%20of%20over%2010%20Rubyists%20using%20Sinatra%2c%20is%20in%20alphabetical%20order%2c%20with%20a%20link%20to%20their%20Twitter%20profile.}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Follow%2010%2b%20Rubyists%20using%20Sinatra%20on%20Twitter%20%28Reprint%29&url=http%3a%2f%2frubylearning.com%2fblog%2f2015%2f01%2f07%2ffollow-10-rubyists-using-sinatra-on-twitter-reprint%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+
+            <div>
+  <p>
+    <b>Note</b>: This first appeared on 24th June 2009 and is being reprinted as the original is not accessible.
+  </p>
+  
+  <h3>
+    What&#8217;s Twitter?
+  </h3>
+  
+  <p>
+    <img class="alignright" src="http://rubylearning.com/images/icon_d.png" alt="Twitter" title="http://twitter.com/IndianGuru" width="128" height="128" />
+  </p>
+  
+  <p>
+    <a href="http://shiftingcareers.blogs.nytimes.com/2008/09/07/how-twitter-can-help-at-work/?excamp=GGSBtwitternews&WT.srch=1&WT.mc_ev=click&WT.mc_id=SB-S-E-GG-NA-S-twitter_news">The New York Times</a> says:
+  </p>
+  
+  <blockquote>
+    <p>
+      <a href="http://www.twitter.com/">Twitter</a> is a simple messaging service that you&#8217;ve either <a href="http://query.nytimes.com/search/sitesearch?query=twitter&srchst=cse">heard about a lot</a> or <a href="http://kara.allthingsd.com/20080428/twitter-where-nobody-know-your-name/">not at all</a>. Either way, it&#8217;s a fun and useful tool, well worth trying if you want to reach potential and existing customers, employees or employers.
+    </p>
+  </blockquote>
+  
+  <h3>
+    List of Rubyists Using Sinatra
+  </h3>
+  
+  <p>
+    This list of over 10 Rubyists using Sinatra, is in alphabetical order, with a link to their Twitter profile. The following list is <em>not</em> intended to be all-inclusive, but it should give you a great start to following some talented Rubyists using Sinatra.
+  </p>
+  
+  <ol>
+    <li>
+      Aaron Quint &#8211; <a href="http://twitter.com/aq">aq</a>
+    </li>
+    <li>
+      Adeel Ahmad &#8211; <a href="http://twitter.com/_adeel">_adeel</a>
+    </li>
+    <li>
+      Andre Lewis &#8211; <a href="http://twitter.com/alewis">alewis</a>
+    </li>
+    <li>
+      Andrew Neil &#8211; <a href="http://twitter.com/nelstrom">nelstrom</a>
+    </li>
+    <li>
+      Arjun Ram &#8211; <a href="http://twitter.com/arjunram">arjunram</a>
+    </li>
+    <li>
+      August Lilleaas &#8211; <a href="http://twitter.com/augustl">augustl</a>
+    </li>
+    <li>
+      Barry Hess &#8211; <a href="http://twitter.com/bjhess">bjhess</a>
+    </li>
+    <li>
+      Bill Siggelkow &#8211; <a href="http://twitter.com/bsiggelkow">bsiggelkow</a>
+    </li>
+    <li>
+      <em>Blake Mizerany &#8211; <a href="http://twitter.com/bmizerany">bmizerany</a></em>
+    </li>
+    <li>
+      Brian Deterling &#8211; <a href="http://twitter.com/bdeter">bdeter</a>
+    </li>
+    <li>
+      Bruno Miranda &#8211; <a href="http://twitter.com/brupm">brupm</a>
+    </li>
+    <li>
+      Carlos Gabaldon &#8211; <a href="http://twitter.com/carlosgabaldon">carlosgabaldon</a>
+    </li>
+    <li>
+      Charles Brian Quinn &#8211; <a href="http://twitter.com/seebq">seebq</a>
+    </li>
+    <li>
+      Chris Strom &#8211; <a href="http://twitter.com/eee_c">eee_c</a>
+    </li>
+    <li>
+      Corey Donohoe &#8211; <a href="http://twitter.com/atmos">atmos</a>
+    </li>
+    <li>
+      Damon Clinkscales &#8211; <a href="http://twitter.com/damon">damon</a>
+    </li>
+    <li>
+      Dan Croak &#8211; <a href="http://twitter.com/dancroak">dancroak</a>
+    </li>
+    <li>
+      Dan Mayer &#8211; <a href="http://twitter.com/danmayer">danmayer</a>
+    </li>
+    <li>
+      David Balatero &#8211; <a href="http://twitter.com/dbalatero">dbalatero</a>
+    </li>
+    <li>
+      Derek Haynes &#8211; <a href="http://twitter.com/dhaynes23">dhaynes23</a>
+    </li>
+    <li>
+      Doug Sparling &#8211; <a href="http://twitter.com/scriptrunner">scriptrunner</a>
+    </li>
+    <li>
+      Foy Savas &#8211; <a href="http://twitter.com/foysavas">foysavas</a>
+    </li>
+    <li>
+      Graham Ashton &#8211; <a href="http://twitter.com/grahamashton">grahamashton</a>
+    </li>
+    <li>
+      Hasham Malik &#8211; <a href="http://twitter.com/hasham2">hasham2</a>
+    </li>
+    <li>
+      James Edward Gray II &#8211; <a href="http://twitter.com/JEG2">JEG2</a>
+    </li>
+    <li>
+      Jean-Daniel Tanguay &#8211; <a href="http://twitter.com/jeedee">jeedee</a>
+    </li>
+    <li>
+      Jeremy Raines &#8211; <a href="http://twitter.com/jraines">jraines</a>
+    </li>
+    <li>
+      Jordan Bracco &#8211; <a href="http://twitter.com/webs">webs</a>
+    </li>
+    <li>
+      Jesse Cooke &#8211; <a href="http://twitter.com/jc00ke">jc00ke</a>
+    </li>
+    <li>
+      Joe Ferris &#8211; <a href="http://twitter.com/joeferris">joeferris</a>
+    </li>
+    <li>
+      Julio Javier Cicchelli &#8211; <a href="http://twitter.com/monsieur_rock">monsieur_rock</a>
+    </li>
+    <li>
+      Justin Britten &#8211; <a href="http://twitter.com/jbritten">jbritten</a>
+    </li>
+    <li>
+      Karel Minarik &#8211; <a href="http://twitter.com/karmiq">karmiq</a>
+    </li>
+    <li>
+      Logan Koester &#8211; <a href="http://twitter.com/logankoester">logankoester</a>
+    </li>
+    <li>
+      Luke Francl &#8211; <a href="http://twitter.com/lof">lof</a>
+    </li>
+    <li>
+      Marcin Kulik &#8211; <a href="http://twitter.com/sickill">sickill</a>
+    </li>
+    <li>
+      Matt Todd &#8211; <a href="http://twitter.com/mtodd">mtodd</a>
+    </li>
+    <li>
+      Mike Demers &#8211; <a href="http://twitter.com/mikedemers">mikedemers</a>
+    </li>
+    <li>
+      Nick Plante &#8211; <a href="http://twitter.com/zapnap">zapnap</a>
+    </li>
+    <li>
+      Nick Quaranto &#8211; <a href="http://twitter.com/qrush">qrush</a>
+    </li>
+    <li>
+      Peter Cooper &#8211; <a href="http://twitter.com/peterc">peterc</a>
+    </li>
+    <li>
+      Piyush Gupta &#8211; <a href="http://twitter.com/mba_piyush">mba_piyush</a>
+    </li>
+    <li>
+      Richard Taylor &#8211; <a href="http://twitter.com/moomerman">moomerman</a>
+    </li>
+    <li>
+      Robert Lowe &#8211; <a href="http://twitter.com/__viral">__viral</a>
+    </li>
+    <li>
+      <em>Ryan Tomayko &#8211; <a href="http://twitter.com/rtomayko">rtomayko</a></em>
+    </li>
+    <li>
+      Sam Goebert &#8211; <a href="http://twitter.com/bigcurl">bigcurl</a>
+    </li>
+    <li>
+      Sau Sheong Chang &#8211; <a href="http://twitter.com/sausheong">sausheong</a>
+    </li>
+    <li>
+      Saurabh Purnaye &#8211; <a href="http://twitter.com/saurabhp">saurabhp</a>
+    </li>
+    <li>
+      Simon Rozet &#8211; <a href="http://twitter.com/srt">srt</a>
+    </li>
+    <li>
+      Sunny Ripert &#8211; <a href="http://twitter.com/sunfox">sunfox</a>
+    </li>
+    <li>
+      Trevor Bramble &#8211; <a href="http://twitter.com/">TrevorBramble</a>
+    </li>
+    <li>
+      Vishnu Gopal &#8211; <a href="http://twitter.com/vishnugopal">vishnugopal</a>
+    </li>
+  </ol>
+  
+  <p class="note">
+    The following list is <strong>Not &#8220;Rubyists&#8221; per-se, but should still be of interest</strong>:
+  </p>
+  
+  <ol>
+    <li>
+      FiveRuns &#8211; <a href="http://twitter.com/fiveruns">fiveruns</a>
+    </li>
+    <li>
+      taazza &#8211; <a href="http://twitter.com/taazza">taazza</a>
+    </li>
+    <li>
+      thoughtbot &#8211; <a href="http://twitter.com/thoughtbot">thoughtbot</a>
+    </li>
+  </ol>
+  
+  <p>
+    <strong><span style="color:red;">Note:</span></strong> Keep the feedback coming in. We will update the list based on your recommendations.
+  </p>
+  
+  <p class="alert">
+    <strong>Have we missed out any <em>Rubyists who are using Sinatra</em>?<br />You can help</strong>. Please feel free to add a link to a Rubyist&#8217;s Twitter profile. We would love to hear why you think the particular Rubyist is important to Twitter with. Also, do add a link to your Twitter profile in the comments.
+  </p>
+</div>
+
+	
+			
+		    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frubylearning.com%2fblog%2f2015%2f01%2f07%2ffollow-10-rubyists-using-sinatra-on-twitter-reprint%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2frubylearning.com%2fblog%2f2015%2f01%2f07%2ffollow-10-rubyists-using-sinatra-on-twitter-reprint%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2frubylearning.com%2fblog%2f2015%2f01%2f07%2ffollow-10-rubyists-using-sinatra-on-twitter-reprint%2f&title=Follow%2010%2b%20Rubyists%20using%20Sinatra%20on%20Twitter%20%28Reprint%29&summary=Note%3a%20This%20first%20appeared%20on%2024th%20June%202009%20and%20is%20being%20reprinted%20as%20the%20original%20is%20not%20accessible.%20What%26%238217%3bs%20Twitter%3f%20The%20New%20York%20Times%20says%3a%20Twitter%20is%20a%20simple%20messaging%20service%20that%20you%26%238217%3bve%20either%20heard%20about%20a%20lot%20or%20not%20at%20all.%20Either%20way%2c%20it%26%238217%3bs%20a%20fun%20and%20useful%20tool%2c%20well%20worth%20trying%20if%20you%20want%20to%20reach%20potential%20and%20existing%20customers%2c%20employees%20or%20employers.%20List%20of%20Rubyists%20Using%20Sinatra%20This%20list%20of%20over%2010%20Rubyists%20using%20Sinatra%2c%20is%20in%20alphabetical%20order%2c%20with%20a%20link%20to%20their%20Twitter%20profile.}&source=RubyLearning%20Blog" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Follow%2010%2b%20Rubyists%20using%20Sinatra%20on%20Twitter%20%28Reprint%29&url=http%3a%2f%2frubylearning.com%2fblog%2f2015%2f01%2f07%2ffollow-10-rubyists-using-sinatra-on-twitter-reprint%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+		    
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-ruby" href="http://rubylearning.com/blog//tags/ruby">Ruby</a>,
+	                
+	                <a class="post-tag post-tag-ruby-beginners" href="http://rubylearning.com/blog//tags/ruby-beginners">Ruby Beginners</a>,
+	                
+	                <a class="post-tag post-tag-ruby-masters" href="http://rubylearning.com/blog//tags/ruby-masters">Ruby Masters</a>,
+	                
+	                <a class="post-tag post-tag-rubyists" href="http://rubylearning.com/blog//tags/rubyists">Rubyists</a>,
+	                
+	                <a class="post-tag post-tag-sinatra" href="http://rubylearning.com/blog//tags/sinatra">Sinatra</a>,
+	                
+	                <a class="post-tag post-tag-the-ruby-programming-language" href="http://rubylearning.com/blog//tags/the-ruby-programming-language">The Ruby Programming Language</a>,
+	                
+	                <a class="post-tag post-tag-twitter" href="http://rubylearning.com/blog//tags/twitter">Twitter</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/">Corey Donohoe: How do I learn and master Sinatra?</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/">Karel Minarik: How do I learn and master Sinatra? (Reprint)</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2015\/01\/07\/follow-10-rubyists-using-sinatra-on-twitter-reprint\/';
+    var disqus_title = 'Follow 10\x2b Rubyists using Sinatra on Twitter (Reprint)';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2015\/01\/07\/follow-10-rubyists-using-sinatra-on-twitter-reprint\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	
+
+  
+</body>
+</html>

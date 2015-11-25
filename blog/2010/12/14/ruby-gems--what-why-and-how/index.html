@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Ruby gems — what, why and how // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Gonçalo Silva">
+
+
+  <meta property="og:title" content="Ruby gems — what, why and how" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2010/12/14/ruby-gems--what-why-and-how/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#ruby-gems-what-why-and-how:81bf5c39fd316a8dded83db252799bf5">Ruby gems — what, why and how</a></li>
+<li><a href="#what-is-a-gem:81bf5c39fd316a8dded83db252799bf5">What is a gem</a>
+<ul>
+<li><a href="#structure:81bf5c39fd316a8dded83db252799bf5">Structure</a></li>
+<li><a href="#rubygems:81bf5c39fd316a8dded83db252799bf5">RubyGems</a></li>
+</ul></li>
+<li><a href="#why-is-this-useful:81bf5c39fd316a8dded83db252799bf5">Why is this useful</a></li>
+<li><a href="#how-to-make-your-own:81bf5c39fd316a8dded83db252799bf5">How to make your own</a>
+<ul>
+<li><a href="#ruby-idioms:81bf5c39fd316a8dded83db252799bf5">Ruby Idioms</a></li>
+<li><a href="#developing-with-bundler:81bf5c39fd316a8dded83db252799bf5">Developing with Bundler</a></li>
+<li><a href="#testing:81bf5c39fd316a8dded83db252799bf5">Testing</a></li>
+<li><a href="#publishing:81bf5c39fd316a8dded83db252799bf5">Publishing</a></li>
+<li><a href="#gems-for-building-gems:81bf5c39fd316a8dded83db252799bf5">Gems for building gems</a></li>
+<li><a href="#gem-template:81bf5c39fd316a8dded83db252799bf5">Gem template</a></li>
+<li><a href="#legen-wait-for-it-dary:81bf5c39fd316a8dded83db252799bf5">Legen—*wait for it*—dary</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2010/12/14/ruby-gems--what-why-and-how/">Ruby gems — what, why and how</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2010</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">Gonçalo Silva</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<h2 id="ruby-gems-what-why-and-how:81bf5c39fd316a8dded83db252799bf5">Ruby gems — what, why and how</h2>
+
+<p>This guest post is by <strong>Gonçalo Silva</strong>, who is a full-time Ruby on
+Rails developer at <a href="http://escolinhas.pt/">escolinhas.pt</a> and has
+participated in the Ruby Summer of Code 2010. He loves and contributes
+to many open-source projects, being a fan of Linux, Ruby and Android. He
+likes to call himself a hacker, but that’s just an excuse for being in
+front of the computer all the time. Oh, and he tweets at
+<a href="http://twitter.com/goncalossilva">@goncalossilva</a>.</p>
+
+<h2 id="what-is-a-gem:81bf5c39fd316a8dded83db252799bf5">What is a gem</h2>
+
+<p><img src="http://rubylearning.com/images/Goncalo_Silva_125x125.jpg" alt="Gonçalo
+Silva" />
+ At its
+most basic form, a Ruby gem is a package. It has the necessary files and
+information for being installed on the system. Quoting
+<a href="http://docs.rubygems.org/read/chapter/1%20Introducing%20RubyGems">RubyGems</a>:
+«A gem is a packaged Ruby application or library. It has a name (e.g.
+rake) and a version (e.g. 0.4.16)».</p>
+
+<p>Being very powerful, gems are of great importance in the Rubyland. They
+can easily be used to extend or change functionality within Ruby
+applications.</p>
+
+<h3 id="structure:81bf5c39fd316a8dded83db252799bf5">Structure</h3>
+
+<p>Every gem is different, but most follow a basic structure:</p>
+
+<pre><code>gem/
+|-- lib/
+|   |-- gem.rb
+|-- test/
+|-- README
+|-- Rakefile
+|-- gem.gemspec
+</code></pre>
+
+<p>Your gem’s code is located under <em>lib/</em> which typically holds a Ruby
+file with the name of the gem. You can choose to have all the magic
+happening in this file, but you can also use it to load some other Ruby
+files also located under <em>lib/</em>, typically inside a folder with the
+gem’s name. Confused? Have a look:</p>
+
+<pre><code>your_gem/
+|-- lib/
+|   |-- your_gem.rb
+|   |-- your_gem/
+|   |   |-- source1.rb
+|   |   |-- source2.rb
+|-- ...
+</code></pre>
+
+<p>The test folder’s name is not necessarily named <em>test/</em>. When you’re
+working with <a href="http://rspec.info/%20RSpec">RSpec</a>, for instance, its name
+is usually <em>spec/</em>. As you’ve probably guessed, this folder holds tests
+for your gem.</p>
+
+<p>After the <em>README</em> file, which hopefully doesn’t need any introduction,
+comes the <em>Rakefile</em>. In a gem’s context, the <em>Rakefile</em> is extremely
+useful. It can hold various tasks to help building, testing and
+debugging your gem, among all other things that you might find useful.</p>
+
+<p>The <em>gemspec*—as the name implies—contains your gem’s specification by
+defining several attributes. An example *gemspec</em> file could be:</p>
+
+<pre><code>Gem::Specification.new do |s|
+  s.name              = &quot;gem&quot;
+  s.version           = &quot;0.0.1&quot;
+  s.platform          = Gem::Platform::RUBY
+  s.authors           = [&quot;Gonçalo Silva&quot;]
+  s.email             = [&quot;goncalossilva@gmail.com&quot;]
+  s.homepage          = &quot;http://github.com/goncalossilva/gem_template&quot;
+  s.summary           = &quot;Sample gem&quot;
+  s.description       = &quot;A gem template&quot;
+  s.rubyforge_project = s.name
+
+  s.required_rubygems_version = &quot;&gt;= 1.3.6&quot;
+
+  # If you have runtime dependencies, add them here
+  # s.add_runtime_dependency &quot;other&quot;, &quot;~&gt; 1.2&quot;
+
+  # If you have development dependencies, add them here
+  # s.add_development_dependency &quot;another&quot;, &quot;= 0.9&quot;
+
+  # The list of files to be contained in the gem
+  s.files         = `git ls-files`.split(&quot;\n&quot;)
+  # s.executables   = `git ls-files`.split(&quot;\n&quot;).map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
+  # s.extensions    = `git ls-files ext/extconf.rb`.split(&quot;\n&quot;)
+
+  s.require_path = 'lib'
+
+  # For C extensions
+  # s.extensions = &quot;ext/extconf.rb&quot;
+end
+</code></pre>
+
+<p>Some attributes like the name, version, platform and summary are
+required others are optional. If you use git with your project, you can
+use the nifty trick shown above to list the project’s files, executables
+and extensions. If you don’t, you can simply fall back to using pure
+Ruby code like:</p>
+
+<pre><code>s.files = Dir[&quot;{lib}/**/*.rb&quot;, &quot;{lib}/**/*.rake&quot;, &quot;{lib}/**/*.yml&quot;, &quot;LICENSE&quot;, &quot;*.md&quot;]
+</code></pre>
+
+<p>The <a href="http://github.com/goncalossilva/dummy">dummy</a> gem is very simple.
+Because of this, it perfectly illustrates some of the ideas explained
+above. Some interesting bits are shown below:</p>
+
+<pre><code>dummy/
+|-- lib/
+|   |-- dummy/
+|   |   |-- core_ext/
+|   |   |   |-- array.rb
+|   |   |   |-- string.rb
+|   |   |-- address.rb
+|   |   |-- company.rb
+|   |   |-- ...
+|   |-- dummy.rb
+</code></pre>
+
+<p>This gem is organized into several source files inside <em>lib/</em>. The
+<em>dummy.rb</em> implements the <strong>top-level module</strong> and <strong>loads all
+functionality</strong> from the Ruby files inside <em>lib/dummy/</em>. It also
+includes some core extensions, namely to the <em>Array</em> and <em>String</em>
+classes (which are part of Ruby’s core).</p>
+
+<h3 id="rubygems:81bf5c39fd316a8dded83db252799bf5">RubyGems</h3>
+
+<p>Finally, RubyGems. It is a package manager which became part of the
+standard library in Ruby 1.9. It allows developers to search, install
+and build gems, among other features. All of this is done by using the
+<code>gem</code> command-line utility. You can find its website at
+<a href="http://rubygems.org%20rubygems.org%20%7C%20your%20community%20gem%20host/">rubygems.org</a>.</p>
+
+<h2 id="why-is-this-useful:81bf5c39fd316a8dded83db252799bf5">Why is this useful</h2>
+
+<p>Gems are very useful for not reinventing the wheel and avoiding
+duplication. That’s basically it. Many Ruby developers create and
+publish awesome gems which address specific requirements, solve specific
+problems or add specific functionality. Anyone who comes across similar
+requirements or problems can use them and eventually improve them.
+That’s the joint awesomeness of Ruby’s strong open-source foundation and
+extreme flexibility. Anyway, you’re reading this article… so you’ve
+probably understood the concept and grasped its usefulness long before
+reading this paragraph.</p>
+
+<h2 id="how-to-make-your-own:81bf5c39fd316a8dded83db252799bf5">How to make your own</h2>
+
+<p>Making your own gem is nothing more than packaging your library or
+application according to the structure stated above. Put all your code
+under <em>lib/</em>, all your tests under <em>test/</em> or <em>spec/</em>, your gem
+specification under <em>your_gem.gemspec</em> and you’re good to go. Of
+course, a few other files might come in handy, namely a <em>Rakefile</em>, a
+<em>README</em> and a <em>LICENSE</em>. A <em>CHANGELOG</em>, sometimes, might be useful as
+well.</p>
+
+<h3 id="ruby-idioms:81bf5c39fd316a8dded83db252799bf5">Ruby Idioms</h3>
+
+<p>When developing a gem, you are probably creating, extending or
+overriding functionality. You might want people to include your module
+in their classes, or perhaps you just want to extend a given class with
+your module—it’s your choice. What you shouldn’t really do, however, is
+reinventing Ruby’s module system. There is an <a href="http://yehudakatz.com/2009/11/12/better-ruby-idioms/">excellent blog
+post</a> on this
+which can help if you—like many gem authors I’ve seen—start overriding
+<code>include</code> to behave like <code>extend</code>. It’s very important to understand the
+difference between the two and, fortunately, there are <a href="http://railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/">great
+resources</a>
+about this out there.</p>
+
+<h3 id="developing-with-bundler:81bf5c39fd316a8dded83db252799bf5">Developing with Bundler</h3>
+
+<p>Using <a href="http://gembundler.com/%20Bundler">Bundler</a> to manage your gem’s
+dependencies is also pretty easy. Just create a <em>Gemfile</em> and add:</p>
+
+<pre><code>gemspec
+</code></pre>
+
+<p>After this, fire Bundler:</p>
+
+<pre><code>bundle install
+</code></pre>
+
+<p>And yes, you got it right. After adding <code>gemspec</code> to your <em>Gemfile</em>,
+Bundler can scan your <em>gemspec</em>, find your runtime and development
+dependencies and install them for you.</p>
+
+<p>While not being mandatory, I <strong>strongly</strong> recommend you to consider
+using Bundler to manage your gem’s dependencies. If used correctly, it
+can probably be a time saver.</p>
+
+<h3 id="testing:81bf5c39fd316a8dded83db252799bf5">Testing</h3>
+
+<p>When it comes to testing, you’ve got plenty of good options. Some people
+rely on test-unit (or minitest in 1.9), others prefer RSpec. It’s really
+up to you. The only bad choice you can possibly make is opting to
+<strong>not</strong> testing your gems at all.</p>
+
+<p>Once again, I’m going to use dummy’s simplicity to explain this a bit
+further. All tests were built on test-unit and are organized as follows:</p>
+
+<pre><code>dummy/
+|-- test/
+|   |-- address_test.rb
+|   |-- company_test.rb
+|   |-- ...
+|   |-- test_helper.rb
+</code></pre>
+
+<p>As you’ve seen, tests are structured similarly to dummy itself. The
+test_helper is in charge of loading the necessary libraries and setting
+up any variables or methods used across most (if not all) tests. All
+tests are organized into files which target specific functionality in
+dummy. The tests contained in <em>address_test.rb</em> run against
+<em>address.rb</em> and so on.</p>
+
+<h3 id="publishing:81bf5c39fd316a8dded83db252799bf5">Publishing</h3>
+
+<p>After everything is coded and tested, all you got left to do is
+packaging and publishing. The previously mentioned <em>gem</em> utility makes
+it all very simple. Just run <code>gem build your_gem.gemspec</code> and you should
+see something along these lines:</p>
+
+<pre><code>Successfully built RubyGem
+Name: your_gem
+Version: 0.0.1
+File: your_gem-0.0.1.gem
+</code></pre>
+
+<p>Pushing your gem to RubyGems is as easy as it is to build it. Just
+<code>gem push your_gem-0.0.1.gem</code> and soon it’ll be published. Be aware that
+the first time you issue this command you’ll be prompted to login with a
+RubyGems.org account.</p>
+
+<p>Concerning this, I like keeping these simple tasks in my <em>Rakefile</em>:</p>
+
+<pre><code>desc &quot;Validate the gemspec&quot;
+task :gemspec do
+  gemspec.validate
+end
+
+desc &quot;Build gem locally&quot;
+task :build =&gt; :gemspec do
+  system &quot;gem build #{gemspec.name}.gemspec&quot;
+  FileUtils.mkdir_p &quot;pkg&quot;
+  FileUtils.mv &quot;#{gemspec.name}-#{gemspec.version}.gem&quot;, &quot;pkg&quot;
+end
+
+desc &quot;Install gem locally&quot;
+task :install =&gt; :build do
+  system &quot;gem install pkg/#{gemspec.name}-#{gemspec.version}&quot;
+end
+</code></pre>
+
+<p>These help me build and install my gems. They also aid at keeping all
+packages in the <em>pkg/</em> folder, which is useful for keeping the root
+directory clean and tidy.</p>
+
+<h3 id="gems-for-building-gems:81bf5c39fd316a8dded83db252799bf5">Gems for building gems</h3>
+
+<p>There are a few gems which were specifically created to help developers
+build their own gems. Among them are the renowned
+<a href="https://github.com/technicalpickles/jeweler%20jeweler">jeweler</a>,
+<a href="https://github.com/seattlerb/hoe%20hoe">hoe</a> and
+<a href="https://github.com/fauna/echoe%20echoe">echoe</a>. I can’t go into detail
+in any of these since I’ve never really used them – I started building
+my gem skeleton from scratch right at the beginning. However, some of
+these tools are very helpful so you should <strong>really</strong> take a look and
+see if any fits your needs.</p>
+
+<h3 id="gem-template:81bf5c39fd316a8dded83db252799bf5">Gem template</h3>
+
+<p>As I mentioned, I’ve been using a gem skeleton for some time now, which
+<a href="https://github.com/goncalossilva/gem_template%20gem_template">you can find at
+GitHub</a>.
+Every gem I’ve built started with that template, which I kept trying to
+improve over time.</p>
+
+<p>You can start your gems from scratch, but that’s just nonsense. You
+should create your own skeleton, use one made by someone else or use a
+third-party gem to help creating your gem.</p>
+
+<h3 id="legen-wait-for-it-dary:81bf5c39fd316a8dded83db252799bf5">Legen—*wait for it*—dary</h3>
+
+<p>Ruby gems are filled with awesomeness. Hop in and start making your own!</p>
+
+<p><em>Feel free to ask questions and give feedback in the comments section of
+this post. Thanks and Good Luck!</em></p>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-programming" href="http://rubylearning.com/blog//tags/programming">programming</a>,
+	                
+	                <a class="post-tag post-tag-ruby-gems" href="http://rubylearning.com/blog//tags/ruby-gems">Ruby Gems</a>,
+	                
+	                <a class="post-tag post-tag-ruby-programming" href="http://rubylearning.com/blog//tags/ruby-programming">ruby programming</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2010/12/15/getting-started-with-heroku/">Getting started with Heroku</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2010/12/08/my-ruby-regrets/">My Ruby Regrets</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2010\/12\/14\/ruby-gems--what-why-and-how\/';
+    var disqus_title = 'Ruby gems — what, why and how';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2010\/12\/14\/ruby-gems--what-why-and-how\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

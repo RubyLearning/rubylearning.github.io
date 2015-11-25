@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Cookie-based Sessions in Sinatra // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Julio Javier Cicchelli">
+
+
+  <meta property="og:title" content="Cookie-based Sessions in Sinatra" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2009/09/30/cookie-based-sessions-in-sinatra/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#cookie-based-sessions-in-sinatra:50fe63ccfb779c42b11d499d9f56357c">Cookie-based Sessions in Sinatra</a></li>
+<li><a href="#what-are-cookies:50fe63ccfb779c42b11d499d9f56357c">What are Cookies?</a></li>
+<li><a href="#cookies-and-sinatra:50fe63ccfb779c42b11d499d9f56357c">Cookies and Sinatra</a></li>
+<li><a href="#a-simple-example:50fe63ccfb779c42b11d499d9f56357c">A Simple Example</a></li>
+<li><a href="#a-slightly-bigger-example:50fe63ccfb779c42b11d499d9f56357c">A Slightly Bigger Example</a></li>
+<li><a href="#a-final-example:50fe63ccfb779c42b11d499d9f56357c">A Final Example</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2009/09/30/cookie-based-sessions-in-sinatra/">Cookie-based Sessions in Sinatra</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2009</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author" href="http://twitter.com/monsieur_rock" target="">Julio Javier Cicchelli</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-code-snippets" href="http://rubylearning.com/blog//categories/code-snippets">Code Snippets</a>
+				
+					<a class="post-category post-category-learn-sinatra" href="http://rubylearning.com/blog//categories/learn-sinatra">Learn Sinatra</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-sinatra" href="http://rubylearning.com/blog//categories/sinatra">Sinatra</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p><img src="http://www.rubylearning.com/images/jjcicchelli.jpg" alt="Julio Javier
+Cicchelli" title="Julio Javier Cicchelli" />
+
+This is a guest post from <strong><a href="http://rubylearning.com/blog/2009/07/20/julio-javier-cicchelli-how-do-i-learn-and-master-sinatra/">Julio Javier
+Cicchelli</a></strong>.</p>
+
+<h2 id="cookie-based-sessions-in-sinatra:50fe63ccfb779c42b11d499d9f56357c">Cookie-based Sessions in Sinatra</h2>
+
+<p>Hi there everybody! My name is <a href="http://twitter.com/monsieur_rock">Javier
+Cicchelli</a> and I am the Software
+Engineer of the technological pride and joy of the Red Light District in
+Amsterdam, the Netherlands: <a href="http://rock-n-code.com">Rock &amp; Code</a>. I
+have been vested with the distinct authority to shed some light on the
+concept of <em>Cookie</em>. The purpose of this article is to teach you how to
+concoct the explosive digital mixture that would enable you to use
+cookies for sessions within your <a href="http://www.sinatrarb.com/">Sinatra</a>
+applications. Piece of cake, right? Before I move to the nitty-gritty of
+cookies in Sinatra, I want to cover the mandatory theoretical basics.
+So, I invite you to sit back and enjoy this slow and easy software ride.
+By the end of that piece, you will be asking for cookies at the nearest
+bakery!</p>
+
+<h2 id="what-are-cookies:50fe63ccfb779c42b11d499d9f56357c">What are Cookies?</h2>
+
+<p>According to the Computer Science definition, a <em>cookie</em>, which is also
+known as an <em>HTTP cookie</em>, a <em>tracking cookie</em>, or a <em>browser cookie</em>,
+is a piece of text, no bigger than 4 kilobytes, which is stored on the
+user&rsquo;s computer by a web server via a web browser. It is a key-value
+pair structure, which is designed to retain specific information such as
+user preferences, user authentication, shopping carts, demographics,
+sessions, or any other data used by a website. This mechanism, which was
+developed by <a href="http://netscape.aol.com/">Netscape</a> in the distant 1994,
+provides a way to receive information from a web server and to send it
+back from the web browser absolutely unchanged. This system complements
+the stateless nature of the HTTP protocol as it provides enough memory
+to store pieces of information during HTTP transactions.</p>
+
+<p>When you try to access a web site, your web browser connects to a web
+server and it sends a request for the respective page. Then the web
+server replies by sending the requested content and it simultaneously
+stores a new cookie on your computer. Every time the web browser
+requests web pages from the web server, it always sends the respective
+cookies back to the web server. The process takes place as described, if
+the web browser supports cookies and the user allows their usage. Only
+the web server can modify one or more of the cookie values. Then it
+sends them to the web browser upon replying to a specific request.</p>
+
+<p>According to the <a href="http://rfc.dotsrc.org/rfc/rfc2965.html">RFC2965
+specification</a>, cookies are case
+insensitive. A set of defined properties is inherent to the cookie
+structure. Those properties include an expiration date, a path and a
+domain. The first attribute requires a date defined in <em>Wdy, DD-Mon-YYYY
+HH:MM:SS GMT</em> format. The rest of the cookie characteristics require a
+path and/or a domain defined as a string. Let&rsquo;s take a look at this
+example:</p>
+
+<pre><code>Cookie: key0=value0; ...; keyX=valueX; expires=Wed, 23-Sep-2009 23:59:59 GMT; path=/; domain=.yoursite.com
+</code></pre>
+
+<p>When the expiration date is defined, your cookie will be &ldquo;persistent&rdquo; as
+it will reoccur in different sessions until the set expiration date has
+been reached. If the expiration date has not been defined in the cookie,
+it will occur until the end of your current session or when you close
+your web browser. If the path and/or the domain attributes have been
+defined in your cookie, then the web server limits the scope of the
+cookie to that specific domain, sub-domain or path.</p>
+
+<h2 id="cookies-and-sinatra:50fe63ccfb779c42b11d499d9f56357c">Cookies and Sinatra</h2>
+
+<p>Having clarified the basics, we can proceed to the next level. Prepare
+to learn how to implement cookie-based sessions in the Sinatra web
+framework. You do not have to install any extra Ruby gem.</p>
+
+<p>Get ready to rumble! First and foremost, you have to decide on the
+session strategy your Sinatra application will use in order to send to
+the web browser only those relevant pieces of information that your
+application requires. As I have already explained, this information
+depends on the kind of application you want to develop and on the
+functionalities you want to offer to your users. Then you have to enable
+the cookie based session function in Sinatra. Finally, after enabling
+the cookie-based support, you have to implement the designed session
+strategy in your application. Regardless of how you want to develop your
+application, you must always test your code in order to verify that it
+works as expected and validate that it satisfies all the given
+requirements. Throughout the remainder of this article, I will look at
+the existing methods that provides Sinatra for using sessions based on
+cookies.</p>
+
+<h2 id="a-simple-example:50fe63ccfb779c42b11d499d9f56357c">A Simple Example</h2>
+
+<p>Let&rsquo;s take it slow and easy. I will commence with a very simple example.
+I will write a cookie version of the famous &ldquo;Hello World&rdquo; example. Here
+I will use the cookie functions included in the Sinatra framework in
+order to demonstrate how to use them. In the following example, I will
+explain how to enable the session support in your Sinatra application
+and I will show you how to create a key-value pair inside the session.
+So, let&rsquo;s rock &amp; code!</p>
+
+<pre><code>require 'rubygems'
+require 'sinatra'
+
+enable :sessions
+
+get '/' do
+  session[&quot;value&quot;] ||= &quot;Hello world!&quot;
+  &quot;The cookie you've created contains the value: #{session[&quot;value&quot;]}&quot;
+end
+</code></pre>
+
+<h2 id="a-slightly-bigger-example:50fe63ccfb779c42b11d499d9f56357c">A Slightly Bigger Example</h2>
+
+<p>Now that you have a basic idea of how cookies work in Sinatra, you are
+ready to move to the next level. I will write a more complex example,
+which will consist of a tiny web application, which will ask the user to
+identify. In this example, I will use the session support provided by
+Sinatra in order to implement non-persistent cookies. Note that I am
+using the technique I resorted to in the previous example. I simply
+tuned it to the logic of this application.</p>
+
+<pre><code>require 'rubygems'
+require 'sinatra'
+require 'haml'
+
+enable :sessions
+
+get '/' do
+  session[&quot;user&quot;] ||= nil
+  haml :index
+end
+
+get '/introduction' do
+  haml :introduction
+end
+
+post '/introduction' do
+  session[&quot;user&quot;] = params[:name]
+  redirect '/'
+end
+
+get '/bye' do
+  session[&quot;user&quot;] = nil
+  haml :bye
+end
+</code></pre>
+
+<h2 id="a-final-example:50fe63ccfb779c42b11d499d9f56357c">A Final Example</h2>
+
+<p>The last example will demonstrate how to directly manage cookies through
+the <em>request</em> and <em>response</em> singletons provided by Sinatra. You will
+see in the following example that the previously described process
+involving the use cookies is clearly implemented. This technique is
+recommended when your application requires to use persistent and/or
+scoped cookies. In this example, the application uses two persistent
+cookies, which expire at the same time, in order to store and manage
+different configuration data. Unfortunately, due to a bug on the cookie
+management that I still have to investigate, I cannot test how the
+application responds to the scope of the different cookies it has
+created.</p>
+
+<pre><code>require 'rubygems'
+require 'sinatra'
+require 'haml'
+
+get '/' do
+  @@expiration_date = Time.now + (60 * 2) \
+  unless request.cookies.key?('some_options') &amp;&amp; request.cookies.key?('other_options')
+  haml :index
+end
+
+get '/some_options' do
+  @some_cookie = request.cookies[&quot;some_options&quot;]
+  haml :some_options
+end
+
+post '/some_options' do  
+  response.set_cookie('some_options', :value =&gt; cookie_values(params), :expires =&gt; @@expiration_date)
+  redirect '/'
+end
+
+get '/other_options' do
+  @other_cookie = request.cookies[&quot;other_options&quot;]
+  haml :other_options
+end
+
+post '/other_options' do
+  response.set_cookie('other_options', :value =&gt; cookie_values(params),:expires =&gt; @@expiration_date)
+  redirect '/'
+end
+
+helpers do
+  def cookie_values(parameters)
+    values = {}
+    parameters.each do |key, value|
+      case key
+      when 'options'
+        values[value] = true
+      else
+        values[key] = true
+      end
+    end
+    values
+  end
+end
+</code></pre>
+
+<p>I would like to stress that Sinatra does allow developers to use
+directly <a href="http://rack.rubyforge.org/">Rack</a> to manage cookie through the
+<em>Rack::Session::Cookie</em> middleware. Yet, I desisted from discussing this
+method because of its complexity. Furthermore, I have not elaborated on
+the existence of other alternatives to this storage mechanism. After
+all, I have to leave some room for upcoming articles I can present you
+with. Do not allow my deliberate slips to limit your curiosity! Be
+inquisitive! You can see the source code on
+<a href="http://gist.github.com/205962">Github</a>, of all the relevant examples.
+So go ahead and rock &amp; code!</p>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-cookies" href="http://rubylearning.com/blog//tags/cookies">Cookies</a>,
+	                
+	                <a class="post-tag post-tag-julio-javier-cicchelli" href="http://rubylearning.com/blog//tags/julio-javier-cicchelli">Julio Javier Cicchelli</a>,
+	                
+	                <a class="post-tag post-tag-ruby" href="http://rubylearning.com/blog//tags/ruby">Ruby</a>,
+	                
+	                <a class="post-tag post-tag-sinatra" href="http://rubylearning.com/blog//tags/sinatra">Sinatra</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2009/10/08/rpcfn-average-arrival-time-for-a-flight---2-repost/">RPCFN: Average Arrival Time For A Flight - 2 repost</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2009/09/26/rails-summit-latin-america-2009/">Rails Summit Latin America 2009</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2009\/09\/30\/cookie-based-sessions-in-sinatra\/';
+    var disqus_title = 'Cookie-based Sessions in Sinatra';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2009\/09\/30\/cookie-based-sessions-in-sinatra\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

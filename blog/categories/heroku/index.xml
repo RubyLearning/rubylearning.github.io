@@ -1,0 +1,1386 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heroku on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/heroku/</link>
+    <description>Recent content in Heroku on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Sep 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/heroku/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How do I use Sinatra to access the Google&#43; API?</title>
+      <link>http://rubylearning.com/blog/2011/09/20/how-do-i-use-sinatra-to-access-the-google-api/</link>
+      <pubDate>Tue, 20 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/09/20/how-do-i-use-sinatra-to-access-the-google-api/</guid>
+      <description>&lt;div&gt;
+  &lt;h2&gt;
+    How do I use Sinatra to access the Google+ API?
+  &lt;/h2&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    RubyLearning is conducting &lt;a href=&#34;http://goo.gl/he9ao&#34;&gt;many free, online courses on Google+&lt;/a&gt;. Some participants wanted an answer to their question &amp;#8220;&lt;strong&gt;How do I use Sinatra to access the Google+ API?&lt;/strong&gt;&amp;#8221; This blog post explains the same. Read on.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Pre-requisite
+  &lt;/h3&gt;
+  
+  &lt;h4&gt;
+    Install Sinatra, Git, Heroku, Bundler
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#34;http://goo.gl/Wr51F&#34;&gt;Refer RubyLearning&amp;#8217;s article on Google+&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Create a folder on your hard disk
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Create a folder &lt;code&gt;sinatragplus&lt;/code&gt;. This is where we will store our Sinatra app. Open a Bash shell in this folder.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Create the following folders also
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;img src=&#34;http://rubylearning.com/blog/wp-content/uploads/folder_gplus.jpg&#34; alt=&#34;Folder for app&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Organize your application
+  &lt;/h3&gt;
+  
+  &lt;h4&gt;
+    Static Files
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    Static files are served from the &lt;code&gt;public&lt;/code&gt; folder. Note that the &lt;code&gt;public&lt;/code&gt; folder name will not be included in the URL. A file ./public/stylesheets/style.css is made available as rubylearning.org/stylesheets/style.css. Do note that we can have &lt;em&gt;any&lt;/em&gt; directory layout under the &lt;code&gt;public&lt;/code&gt; folder.
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Layout
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    We will soon create &lt;code&gt;layout.erb&lt;/code&gt; file in the &lt;code&gt;views&lt;/code&gt; folder. This allows the basic layout of our site headers, footers and navigation panes to be controlled independently. A change in &lt;code&gt;layout.erb&lt;/code&gt; is instantly applied across our whole site.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Let&amp;#8217;s look at a sample file:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;..&amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;%= yield %&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    In the above file, note the usage of &lt;code&gt;yield&lt;/code&gt;. The file calls &lt;code&gt;yield&lt;/code&gt; at the point you want the content to be included i.e. it refers to some .erb in the &lt;code&gt;views&lt;/code&gt; folder and the results of that .erb are stuck at the place, where you called &lt;code&gt;yield&lt;/code&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Now, let&amp;#8217;s write our app&amp;#8217;s &lt;code&gt;layout.erb&lt;/code&gt; file:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;&amp;lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.0 Strict//EN&#34; &#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&#34;&amp;gt;
+&amp;lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;A Sinatra app to access Google+&amp;lt;/title&amp;gt;
+    &amp;lt;meta http-equiv=&#34;Content-Type&#34; content=&#34;text/html; charset=utf-8&#34; /&amp;gt;
+    &amp;lt;meta name=&#34;description&#34; content=&#34;RubyLearning.org&#34; /&amp;gt;
+    &amp;lt;meta name=&#34;keywords&#34; content=&#34;rubylearning,ruby,ruby programming,ruby course,sinatra course&#34; /&amp;gt;
+    &amp;lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;http://rubylearning.com/blog/stylesheets/style.css&#34; /&amp;gt;
+    &amp;lt;link rel=&#34;icon&#34; type=&#34;image/ico&#34; href=&#34;http://rubylearning.com/blog/images/favicon.ico&#34; /&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;%= yield %&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/pre&gt;
+  
+  &lt;h4&gt;
+    Image
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    I am using a favicon (&lt;a href=&#34;http://rubylearning.com/images/favicon.ico&#34;&gt;favicon.ico&lt;/a&gt;) for my app, which is stored in the &lt;code&gt;public/images&lt;/code&gt; folder.
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    Stylesheet
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    We have our stylesheet namely &lt;code&gt;style.css&lt;/code&gt; in the folder &lt;code&gt;public/stylesheets&lt;/code&gt;.
+  &lt;/p&gt;
+  
+  &lt;pre&gt;body
+{
+  line-height: 1.6em;
+}
+
+h1 {
+  color: #2A1959;
+  border-bottom: 2px solid #2A1959;
+}
+
+h2 {
+  color: #474B94;
+  font-size: 1.2 em;
+}
+
+#footer {
+  clear: both;
+  border-top: 1px solid #2A1959;
+  text-align: left; 
+  height: 50px; 
+  font-size: 70%;
+  width: 100%;
+}
+
+#hor-minimalist-a
+{
+  font-family: &#34;Lucida Sans Unicode&#34;, &#34;Lucida Grande&#34;, Sans-Serif;
+  font-size: 12px;
+  background: #fff;
+  margin: 45px;
+  width: 480px;
+  border-collapse: collapse;
+  text-align: left;
+}
+#hor-minimalist-a th
+{
+  font-size: 14px;
+  font-weight: normal;
+  color: #039;
+  padding: 10px 8px;
+  border-bottom: 2px solid #6678b1;
+}
+#hor-minimalist-a td
+{
+  color: #669;
+  padding: 9px 8px 0px 8px;
+}
+#hor-minimalist-a tbody tr:hover td
+{
+  color: #009;
+}
+&lt;/pre&gt;
+  
+  &lt;h4&gt;
+    View
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    A view is responsible for generating a user interface, normally based on data. For example, an online store will have a list of products to be displayed on a catalogue screen. The view accesses the data and formats it for the end-user.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    All file-based views are looked up in the &lt;code&gt;views&lt;/code&gt; folder.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Using ERB
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    ERB is written in pure Ruby and is included with the standard Sinatra distribution. ERB allows you to embed Ruby statements in an HTML page.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The important things to know about an &lt;code&gt;.erb&lt;/code&gt; file is that &lt;code&gt;&amp;lt;%= ruby_code %&amp;gt;&lt;/code&gt; evaluates the ruby code and outputs the result, and &lt;code&gt;&amp;lt;% ruby_code %&amp;gt;&lt;/code&gt; evaluates the code, but doesn&amp;#8217;t output anything.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    We will use ERB for our app.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;Note&lt;/b&gt;: If we write:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;get &#39;/&#39; do
+  erb :index
+end
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    This tells Sinatra that when a &lt;code&gt;GET&lt;/code&gt; request for &amp;#8216;/&amp;#8217; comes in, that we should use the ERB helper to render the &lt;code&gt;index.erb&lt;/code&gt; template, which is stored in the &lt;code&gt;views&lt;/code&gt; sub-folder by convention and marked up with embedded Ruby (ERB).
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Write the sinatragplus.rb app
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Store &lt;code&gt;sinatragplus.rb&lt;/code&gt; in the folder &lt;code&gt;sinatragplus&lt;/code&gt;:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;# sinatragplus.rb
+require &#39;sinatra&#39;
+require &#39;google_plus&#39;
+
+error do
+  erb :&#39;500&#39;
+end
+
+#class
+class GPlus
+  def initialize(apikey, gid)
+    @apikey = apikey
+    @gid = gid
+    get_info
+  end
+  attr_reader :row0, :row1, :row2
+  private
+    #Get info about specific G+ ID
+    def get_info
+      # GooglePlus.api_key = &#39;Your API Key&#39;
+      begin
+        GooglePlus.api_key = @apikey
+        person = GooglePlus::Person.get(@gid.to_i)
+        @row0 = person.display_name
+        @row1 = person.tagline
+        @row2 = person.url
+      rescue Exception =&gt; msg  
+        # display the system generated error message  
+        puts msg  
+      end  
+    end
+end
+ 
+get &#39;/&#39; do
+  erb :index
+end
+
+# Display Google+ details
+post &#39;/show&#39; do
+  @gplus = GPlus.new(params[:apikey], params[:gid])
+  erb :show
+end
+&lt;/pre&gt;
+  
+  &lt;h4&gt;
+    Explanation
+  &lt;/h4&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      Install: &lt;code&gt;gem install google_plus&lt;/code&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      We are going to use the above installed &lt;a href=&#34;https://github.com/seejohnrun/google_plus&#34;&gt;google_plus&lt;/a&gt; gem.
+    &lt;/li&gt;
+    &lt;li&gt;
+      To access the Google+ API, &lt;a href=&#34;https://code.google.com/apis/console#access&#34;&gt;get your own Google API key&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Note down the Google+ ID of the person whose Google+ profile you want to display using this app. For example, here&amp;#8217;s my &lt;a href=&#34;https://plus.google.com/107809992818057105754/&#34;&gt;Google+ URL&lt;/a&gt; and the number in the URL namely &lt;b&gt;107809992818057105754&lt;/b&gt; is my Google+ ID.
+    &lt;/li&gt;
+    &lt;li&gt;
+      When a GET request for &amp;#8216;/&amp;#8217; comes in, we are going to render the &lt;code&gt;index.erb&lt;/code&gt; template in the &lt;code&gt;public/views&lt;/code&gt; folder.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The file &lt;a href=&#34;https://gist.github.com/1228369#file_index.erb&#34;&gt;index.erb&lt;/a&gt; has a HTML form that accepts the Google+ API key and ID for the user profile that you want to display. &lt;b&gt;Note&lt;/b&gt; that even if you do not give any value to these fields, the app will not crash. &lt;em&gt;Handler&lt;/em&gt; is the generic term that Sinatra uses for the &amp;#8220;controllers&amp;#8221;. A handler is the initial point of entry for new HTTP requests into your application. In handlers you can reach submitted form parameters directly via the &lt;code&gt;params&lt;/code&gt; hash. Also note, that when you click on the submit button of the form a &lt;code&gt;POST&lt;/code&gt; request is being sent.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The &lt;code&gt;post &#39;/show&#39; do&lt;/code&gt; creates an object of our class &lt;code&gt;GPlus&lt;/code&gt; passing to the &lt;code&gt;initialize&lt;/code&gt; method the apikey and google id that your entered on the screen (via &lt;code&gt;params&lt;/code&gt;). The &lt;code&gt;initialize&lt;/code&gt; method in-turn calls a private method &lt;code&gt;get_info&lt;/code&gt; that accesses the Google+ API and returns a &lt;a href=&#34;http://developers.google.com/+/api/latest/people&#34;&gt;person&lt;/a&gt; object We call the method &lt;code&gt;display_name&lt;/code&gt;, &lt;code&gt;tagline&lt;/code&gt; and &lt;code&gt;url&lt;/code&gt; on the &lt;code&gt;person&lt;/code&gt; object and populate instance variables &lt;code&gt;@row0&lt;/code&gt;, &lt;code&gt;@row1&lt;/code&gt; and &lt;code&gt;@row2&lt;/code&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The &lt;a href=&#34;https://gist.github.com/1228369#file_show.erb&#34;&gt;show.erb&lt;/a&gt; displays these values in a HTML table.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;h3&gt;
+    Error Handling
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    When someone comes to a page on your domain that is no longer there (either because it’s been deleted, because they’ve typed something in wrong or because the link that they followed was wrong) they are shown the dreaded 404 ‘page not found’ error page.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    This error simply means that the person was able to communicate with your server but that the server couldn&amp;#8217;t find the page that they were after.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    404 errors should not be confused with &amp;#8220;server not found&amp;#8221; or similar errors, in which a connection to the destination server could not be made at all.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    When a &lt;code&gt;Sinatra::NotFound&lt;/code&gt; exception is raised, or the response&amp;#8217;s status code is 404, the &lt;code&gt;not_found&lt;/code&gt; handler is invoked:
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Write &lt;a href=&#34;https://gist.github.com/1228369#file_404.erb&#34;&gt;404.erb&lt;/a&gt; in the &lt;code&gt;public/views&lt;/code&gt; folder. Note that I had to surround the &lt;code&gt;erb :&#39;404&#39;&lt;/code&gt; in single quotes. This is because Ruby syntax doesn&amp;#8217;t let symbol&amp;#8217;s first character be a number. By quoting it, it gets around that issue.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    A 500 error page will be thrown to the client when the Web server (running the Web Site) encounters an unexpected condition that prevents it from fulfilling the request by the client (e.g. your Web browser) for access to the requested URL.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    By default error will catch &lt;code&gt;Sinatra::ServerError&lt;/code&gt;. Sinatra will pass you the error via the &amp;#8216;sinatra.error&amp;#8217; in &lt;code&gt;request.env&lt;/code&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Write &lt;a href=&#34;https://gist.github.com/1228369#file_500.erb&#34;&gt;500.erb&lt;/a&gt; in the &lt;code&gt;public/views&lt;/code&gt; folder.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Our app is ready! Let&amp;#8217;s deploy it to Heroku.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    Create config.ru file in the folder sinatragplus
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    This file contains:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;require &#39;./sinatragplus&#39;
+run Sinatra::Application
+&lt;/pre&gt;
+  
+  &lt;h3&gt;
+    Install required gems for our app
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    In the Bash shell type:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;$ bundle init
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Edit the created &lt;code&gt;Gemfile&lt;/code&gt; with your preferred text editor to let it look like this:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;source &#34;http://rubygems.org&#34;
+gem &#39;sinatra&#39;
+gem &#39;google_plus&#39;
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    In the Bash shell type:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;$ bundle check
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    Finally in the open Bash shell, type:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;$ bundle install
+&lt;/pre&gt;
+  
+  &lt;h3&gt;
+    Create a Procfile
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Use a &lt;code&gt;Procfile&lt;/code&gt;, a text file in the root directory of your application, to explicitly declare what command should be executed to start a web dyno. In this case, you simply need to execute the sinatragplus.rb using Ruby.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Here&amp;#8217;s our &lt;code&gt;Procfile&lt;/code&gt;:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;web: bundle exec ruby sinatragplus.rb -p $PORT&lt;/pre&gt;
+  
+  &lt;h3&gt;
+    Setup your local app to use Git
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    I have the &lt;code&gt;sinatragplus.rb&lt;/code&gt;, &lt;code&gt;Procfile&lt;/code&gt; and &lt;code&gt;config.ru&lt;/code&gt; files already in the folder &lt;code&gt;sinatragplus&lt;/code&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    In the already open Bash shell, type:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;$ git init
+$ git add .
+$ git commit -m &#34;sinatragplus first commit&#34;
+&lt;/pre&gt;
+  
+  &lt;h3&gt;
+    Create the app on Heroku
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    In the bash shell, type:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;$ heroku create sinatragplus
+&lt;/pre&gt;
+  
+  &lt;h3&gt;
+    Push your application to Heroku
+  &lt;/h3&gt;
+  
+  &lt;pre&gt;$ git push heroku master
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    That&amp;#8217;s it, the app is now running on Heroku! You can take a look at it, in your browser type: &lt;a href=&#34;http://sinatragplus.herokuapp.com/&#34;&gt;http://sinatragplus.herokuapp.com/&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    What next?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    On the &lt;code&gt;person&lt;/code&gt; object use the &lt;code&gt;attributes&lt;/code&gt; method to get all the &lt;code&gt;person&lt;/code&gt; fields back as a Hash:
+  &lt;/p&gt;
+  
+  &lt;pre&gt;properties = person.attributes
+properties.each { |key, value| puts &#34;#{key} equals #{value}&#34; }
+&lt;/pre&gt;
+  
+  &lt;h3&gt;
+    Exercise
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    In &lt;code&gt;show.erb&lt;/code&gt; I have populated only the &lt;code&gt;display_name&lt;/code&gt;, &lt;code&gt;tagline&lt;/code&gt; and &lt;code&gt;url&lt;/code&gt; fields of &lt;code&gt;person&lt;/code&gt;. Populate all the other &lt;code&gt;person&lt;/code&gt; fields in the HTML table that is generated by &lt;code&gt;show.erb&lt;/code&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Have fun!
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;alert&#34;&gt;
+    &lt;em&gt;Do post a link to your version of this program. Feel free to ask questions and give feedback in the comments section of this post.&lt;/em&gt; Fellow Rubyists, if you would like to write a guest blog post for RubyLearning email me at &lt;b&gt;satish [at] rubylearning.org&lt;/b&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting started with Heroku</title>
+      <link>http://rubylearning.com/blog/2010/12/15/getting-started-with-heroku/</link>
+      <pubDate>Wed, 15 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/12/15/getting-started-with-heroku/</guid>
+      <description>
+
+&lt;h2 id=&#34;getting-started-with-heroku:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;Getting started with Heroku&lt;/h2&gt;
+
+&lt;p&gt;This guest post is by &lt;strong&gt;&lt;a href=&#34;http://benscofield.com/about/&#34;&gt;Ben Scofield&lt;/a&gt;&lt;/strong&gt;,
+who is Heroku’s developer advocate, responsible for listening to the
+tens of thousands of developers deploying their Ruby applications to the
+cloud. He’s spoken at many conferences around the world, and in 2010
+became the co-chair for RailsConf.&lt;/p&gt;
+
+&lt;h2 id=&#34;introduction:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/ben-scofield.jpg&#34; alt=&#34;Ben
+Scofield&#34; title=&#34;Ben Scofield&#34; /&gt;
+
+Heroku has been in the news a lot lately, and it’s been a popular choice
+for Ruby application developers for a few years.If you haven’t worked
+with it before, here’s your chance — it’s designed to be as painless as
+possible to get going, and to give a powerful, stable, and scalable
+platform for your code.&lt;/p&gt;
+
+&lt;h2 id=&#34;setting-up:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;Setting up&lt;/h2&gt;
+
+&lt;p&gt;If this is your first time working with Heroku, you’ll need to start by
+setting up an account. Visit
+&lt;a href=&#34;https://api.heroku.com/signup&#34;&gt;https://api.heroku.com/signup&lt;/a&gt; and enter
+your email address. You’ll soon get an email to confirm your account;
+click on the confirmation link and choose a password, and you’re
+registered!&lt;/p&gt;
+
+&lt;p&gt;Next, you’ll want to create an app (or find an existing one you want to
+push). Heroku supports any Rack-based Ruby web framework — so you can
+use Rails, Sinatra, Camping, Ramaze, or pretty much anything you want.
+Let’s say you’re going to build a new Rails application:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rails new myapp
+$ cd myapp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After you’ve chosen (or created) your app, you’ll need to make sure it’s
+tracked in git:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git init
+$ git add .
+$ git commit -m &amp;quot;initial commit&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you’ve got your app ready to go, you’ll want to install the heroku
+gem. As you’ll see, it’s a powerful tool for managing your apps from the
+command line.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem install heroku
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And now, from your application route, run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku create
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If this is your first time using the heroku CLI, it’ll prompt you for
+your username and password — on subsequent uses, it’ll pull your
+username and API key for accessing Heroku from
+&lt;strong&gt;~/.heroku/credentials&lt;/strong&gt;, but that doesn’t exist until you’ve logged
+in through the CLI. It will also upload your public SSH key, and finally
+it’ll create your new application on Heroku and add a git remote.&lt;/p&gt;
+
+&lt;p&gt;If you want to specify the name of your app (and thus the subdomain on
+Heroku), you can pass an argument:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku create myapp # created myapp.heroku.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Finally, to push your code to heroku, push it as you would to any git
+remote:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git push heroku master
+$ heroku rake db:migrate # you&#39;ll need to do this for any schema change
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You’ll see feedback on the process, but by the end your code should be
+up and running on Heroku’s platform!&lt;/p&gt;
+
+&lt;p&gt;Of course, there’s a lot more to working with Heroku than just that, so
+here’s a little more information.&lt;/p&gt;
+
+&lt;h2 id=&#34;cli:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;CLI&lt;/h2&gt;
+
+&lt;p&gt;The heroku gem gives you a lot more than just ‘&lt;strong&gt;heroku create&lt;/strong&gt;‘,
+though. It provides a full CLI for working with your application. Here’s
+an incomplete list of what you can do with it:&lt;/p&gt;
+
+&lt;h3 id=&#34;rake:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;rake&lt;/h3&gt;
+
+&lt;p&gt;You can run any rake task you like by prefacing it with ‘&lt;strong&gt;heroku
+rake&lt;/strong&gt;‘:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku rake db:migrate
+$ heroku rake routes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(Note that heroku doesn’t run your migrations by default — when you
+change your schema, you’ll need to run ‘&lt;strong&gt;heroku rake db:migrate&lt;/strong&gt;‘ to
+update your production database.)&lt;/p&gt;
+
+&lt;h3 id=&#34;resources:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;Resources&lt;/h3&gt;
+
+&lt;p&gt;You can change your resource allocation from the command-line, too.
+‘&lt;strong&gt;heroku dynos 5&lt;/strong&gt;‘ sets your application to 5 dynos; you can do the
+same with workers. As you’ll see below, this extends to add-ons, as
+well.&lt;/p&gt;
+
+&lt;h3 id=&#34;config:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;config&lt;/h3&gt;
+
+&lt;p&gt;Many capistrano-deployed projects have sensitive configuration
+information (database.yml, etc.) in a shared folder on the server. When
+a new version of the code is deployed, those files get symlinked into
+the app. On Heroku, that’s not possible. Instead, the best practice is
+to use config variables.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku config # lists all configuration variables
+$ heroku config:add NAME=VALUE # set a new variable
+$ heroku config:remove NAME # remove an existing variable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There’s also a ‘&lt;strong&gt;heroku config:clear&lt;/strong&gt;‘ command, but it’s dangerous —
+it clears out all your environment variables, which includes those set
+by Heroku itself. If you do that, then there’s a very good chance you’ll
+lose information that you might not know (e.g., your DATABASE_URL).&lt;/p&gt;
+
+&lt;h3 id=&#34;add-ons:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;add-ons&lt;/h3&gt;
+
+&lt;p&gt;Heroku allows third-party developers to create add-ons for your
+application, providing for both infrastructure features (exception
+tracking through &lt;a href=&#34;http://addons.heroku.com/exceptional&#34;&gt;Exceptional&lt;/a&gt; and
+&lt;a href=&#34;http://addons.heroku.com/hoptoad&#34;&gt;Hoptoad&lt;/a&gt; and business features (email
+delivery through &lt;a href=&#34;http://addons.heroku.com/sendgrid&#34;&gt;SendGrid&lt;/a&gt;,
+subscription billing through
+&lt;a href=&#34;http://addons.heroku.com/recurly&#34;&gt;Recurly&lt;/a&gt;, etc.) As the owner of an
+application, you can manage your add-ons from the command line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku addons # lists addons
+$ heroku addons:add newrelic:bronze # app monitoring for free? count me in!
+$ heroku addons:remove piggyback_ssl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;plugins:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;plugins&lt;/h3&gt;
+
+&lt;p&gt;Add-ons extend your application’s functionality; plugins extend the
+heroku gem itself. You can see available plugins at
+&lt;a href=&#34;http://herocutter.heroku.com/&#34;&gt;Herocutter&lt;/a&gt;, but some of our favorites
+are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://herocutter.heroku.com/plugins/1&#34;&gt;colorize\_console&lt;/a&gt; for
+wirble colors in the heroku console&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://herocutter.heroku.com/plugins/13&#34;&gt;tab\_complete\_console&lt;/a&gt;
+for tab completion&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://herocutter.heroku.com/plugins/19&#34;&gt;heroku-accounts&lt;/a&gt; for
+managing multiple Heroku accounts on the same machine&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;and-more:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;And more&lt;/h3&gt;
+
+&lt;p&gt;The heroku CLI provides even more functionality; take a look through the
+&lt;a href=&#34;http://docs.heroku.com/heroku-command&#34;&gt;documentation&lt;/a&gt; or its own help
+(‘&lt;strong&gt;heroku&lt;/strong&gt;‘) to see more.&lt;/p&gt;
+
+&lt;h2 id=&#34;common-problems:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;Common problems&lt;/h2&gt;
+
+&lt;p&gt;Heroku imposes some constraints on your application; some of these stem
+from architectural decisions and are pretty much unavoidable, while
+others come from less fundamental decisions and can be worked around.&lt;/p&gt;
+
+&lt;h3 id=&#34;filesystem-access:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;Filesystem access&lt;/h3&gt;
+
+&lt;p&gt;Heroku’s architecture means that you can never be certain that your
+application will be running in the same space for two separate requests
+— two different dynos might serve later requests, and a single dyno
+might be moved from one EC2 instance to another for a variety of
+reasons. Because of that, Heroku doesn’t allow you access to the
+filesystem; it just doesn’t make sense.&lt;/p&gt;
+
+&lt;p&gt;To solve this, you should use an external service to host content that
+you might want to serve up. Filesystem page caching, for instance, can
+be replaced by properly using Heroku’s &lt;a href=&#34;http://docs.heroku.com/http-caching#example-caching-barcode-images-generated-with-imagemagick&#34;&gt;HTTP caching
+layer&lt;/a&gt;.
+Uploaded assets should be &lt;a href=&#34;http://docs.heroku.com/constraints#large-static-assets&#34;&gt;saved to
+S3&lt;/a&gt; or a similar
+service.&lt;/p&gt;
+
+&lt;h3 id=&#34;process-timeouts:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;Process timeouts&lt;/h3&gt;
+
+&lt;p&gt;Heroku has some opinions about acceptable HTTP behavior, and timeouts
+are a result of that. If you have a request that runs for more than 30
+seconds, the platform will automatically kill it. For many apps, this
+might include hitting remote services (like the Twitter API) or doing
+file processing (with Paperclip or a similar tool).&lt;/p&gt;
+
+&lt;p&gt;The solution is to move those long-running processes into a background
+worker. You can read more about this in the
+&lt;a href=&#34;http://docs.heroku.com/background-jobs&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;idling:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;Idling&lt;/h3&gt;
+
+&lt;p&gt;Heroku is fantastic for experimentation, which leads to a predictable
+conclusion: a lot of abandoned applications on the platform. In order to
+keep them from chewing up an inordinate amount of resources, the
+platform treats single-dyno applications a little differently (with the
+assumption that an experiment is likely to be running on the free plan):
+if the app hasn’t been hit in a certain amount of time, it gets idled
+(or spun down). Then, on the next attempt to access it, the single dyno
+is unidled.&lt;/p&gt;
+
+&lt;p&gt;The effect of this is very similar to what you might do on your local
+development box. When you’re working on an app, you fire up a local app
+server (with rails server or something like that); when you stop working
+on it, you shut down the server. Then, when you next want to hit the
+app, you have to spend a few seconds starting the server again.&lt;/p&gt;
+
+&lt;h3 id=&#34;postgres-migration:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;Postgres migration&lt;/h3&gt;
+
+&lt;p&gt;Every application on Heroku gets its own database — by default, it’s a
+5MB shared Postgres db, though you can pay to get larger (or dedicated)
+instances. This can cause problems, since the majority of Rubyists seem
+to use MySQL in development, and Postgres and MySQL aren’t always same
+in how they treat SQL and display messages. You can see some of the most
+common issues (and their solutions) in the &lt;a href=&#34;http://docs.heroku.com/database#common-issues-migrating-to-postgresql&#34;&gt;Heroku
+documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;troubleshooting:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;Troubleshooting&lt;/h2&gt;
+
+&lt;p&gt;Every app runs into problems in production — and sometimes an exception
+tracker (like Exceptional or Hoptoad) don’t give you all the information
+you need to fix it. On a VPS or dedicated server, you might be
+accustomed to SSHing in and popping into an interactive console, digging
+through logs, or something similar. With Heroku, that isn’t an option —
+but we do have some alternatives, provided in the heroku gem.&lt;/p&gt;
+
+&lt;h3 id=&#34;heroku-console:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;heroku console&lt;/h3&gt;
+
+&lt;p&gt;You might not be able to run rails server or irb on the server yourself,
+but ‘&lt;strong&gt;heroku console&lt;/strong&gt;‘ gives you an interactive shell for your
+application. Once in the shell, you’re interacting directly with your
+production instance, so be as careful as you’d normally be when futzing
+with production data.&lt;/p&gt;
+
+&lt;p&gt;There are a few things to be aware of with this console. First, it runs
+over HTTP — every command you enter is pushed up to Heroku as an HTTP
+request, so it’s subject to the same restrictions as your web app. For
+instance, any process you start that runs longer than 30 seconds will be
+killed. Also, requests from your console session tie up a dyno, so if
+you’re running on a single dyno then your web app isn’t available to
+serve regular requests while you’re updating your database.&lt;/p&gt;
+
+&lt;p&gt;The other important thing to note is that each line you send is a
+separate HTTP request. This means that you can’t write multi-line code
+in the heroku console. Say you’re trying to do this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;User.all.each do |user|
+  puts user.email
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When you hit enter after the first line, the console sends
+‘&lt;code&gt;&amp;gt;User.all.each do |user|&lt;/code&gt; to the server, which isn’t a complete
+expression. Before you can start typing the next line, then, the system
+sends back an error. You can still run this code, but you have to
+rewrite it to be on a single line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;User.all.each {|user| puts user.email}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;heroku-ps:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;heroku ps&lt;/h3&gt;
+
+&lt;p&gt;Sysadmins live and die by process lists, so Heroku provides a tool to
+see what processes you have available and what state they’re in. If you
+run &lt;strong&gt;heroku ps&lt;/strong&gt; for an active application, you’ll see something like
+the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    UPID     Slug          Command                     State       Since
+    -------  ------------  --------------------------  ----------  ---------
+    xxxxxxx  xxxxxxxxxxxx  dj                          up          16h ago
+    xxxxxxx  xxxxxxxxxxxx  cron                        idle        43m ago
+    xxxxxxx  xxxxxxxxxxxx  dyno                        up          16h ago
+    xxxxxxx  xxxxxxxxxxxx  dyno                        up          16h ago
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is especially useful when combined with the Unix
+&lt;a href=&#34;http://en.wikipedia.org/wiki/Watch_(Unix&#34;&gt;watch&lt;/a&gt;) command (if you’re on
+OS X, you may have to &lt;a href=&#34;http://osxdaily.com/2010/08/22/install-watch-command-on-os-x/&#34;&gt;install it
+manually&lt;/a&gt;),
+which reruns the command periodically so you can see how things are
+changing in real-time.&lt;/p&gt;
+
+&lt;h3 id=&#34;heroku-logs:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;heroku logs&lt;/h3&gt;
+
+&lt;p&gt;And finally, the logs. Anyone who’s built a web app knows just how
+important logs are, so Heroku provides a set of tools to help review
+(and in some cases analyze) them.&lt;/p&gt;
+
+&lt;p&gt;To use Heroku’s logging, you have to install both a plugin and an
+add-on:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku plugins:install http://github.com/heroku/heroku-logging.git
+$ heroku addons:add logging
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once that’s done, anything your app pushes to STDOUT or STDERR is
+captured in your logs — if you’re using Rails, you should make sure to
+redirect your logger to STDOUT by adding this line to your config
+(application.rb or environment.rb, depending on what version of Rails
+you’re running):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;config.action_controller.logger = Logger.new(STDOUT)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The ‘&lt;strong&gt;heroku logs&lt;/strong&gt;‘ command by itself will show you the last 20 lines
+of your log, looking something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    2010-12-10T15:13:46-07:00 app[web.1]: Completed in 74ms (View: 31, DB: 40) | 200 OK [http://myapp.heroku.com/]
+    2010-12-10T15:13:46-07:00 heroku[router]: GET myapp.heroku.com/posts queue=0 wait=0ms service=1ms bytes=975
+    2010-12-10T15:13:47-07:00 app[worker.1]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can filter the logs by source (-s) and process (-p), you can tail
+them in real-time with -t, and you can ask for a specific number of
+lines with -n. Perhaps most powerfully, you can also add syslog drains
+for your logs, pushing syslog packets to another server for long-term
+storage or analysis:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku logs:drains add syslog://your.syslog.host
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;where-to-go-for-help:e1de9e228454d1bb97c6dc0a02f63488&#34;&gt;Where to go for help&lt;/h2&gt;
+
+&lt;p&gt;This is just the tip of the iceberg, really — there’s a lot you can do
+with Heroku, and spending time digging into the platform is very
+worthwhile. Take a look at our &lt;a href=&#34;http://docs.heroku.com&#34;&gt;documentation&lt;/a&gt;,
+and talk to other developers in our &lt;a href=&#34;http://groups.google.com/group/heroku&#34;&gt;Google
+group&lt;/a&gt; and on
+&lt;a href=&#34;irc://irc.freenode.net/heroku&#34;&gt;IRC&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Feel free to ask questions and give feedback in the comments section of
+this post. Thanks and Good Luck!&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Happynerds - Programming Links for Kids</title>
+      <link>http://rubylearning.com/blog/2009/12/21/happynerds---programming-links-for-kids/</link>
+      <pubDate>Mon, 21 Dec 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/12/21/happynerds---programming-links-for-kids/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;A guest post by &lt;a href=&#34;http://citizen428.net&#34;&gt;Michael Kohl&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/michael_kohl.jpg&#34; alt=&#34;Michael Kohl&#34; title=&#34;Michael Kohl&#34; /&gt;
+
+For quite some time I was planning to create an online resource of
+programming tools for kids, because I think developing software is a
+beautiful and rewarding experience which is a perfect fit for children’s
+natural curiosity. Alas time is always short, so up until recently all I
+did was to collect links on &lt;a href=&#34;http://delicious.com&#34;&gt;delicious&lt;/a&gt; and wait.&lt;/p&gt;
+
+&lt;p&gt;Then two weeks ago I went through my personal todo list and realized
+that this idea has been sitting around for way too long, so I decided to
+finally do something about it. Thanks to the wonderful tools the Ruby
+community provides us with, all it took was this initial spark of
+motivation and an afternoon of free time to finally create &lt;strong&gt;&lt;a href=&#34;http://www.happynerds.net&#34;&gt;Happy
+Nerds&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Happy Nerds is a very small and simple site, so it seemed like a perfect
+match for the wonderfully elegant
+&lt;strong&gt;&lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;Sinatra&lt;/a&gt;&lt;/strong&gt; DSL for web applications. I’m
+constantly amazed by how productive and &lt;em&gt;fun&lt;/em&gt; development with Sinatra
+can be, especially when used together with the right tools like
+&lt;strong&gt;&lt;a href=&#34;http://github.com/rtomayko/shotgun&#34;&gt;Shotgun&lt;/a&gt;&lt;/strong&gt; and
+&lt;strong&gt;&lt;a href=&#34;http://haml-lang.com/&#34;&gt;Haml&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Before starting to code I obviously also had to decide where to host the
+site once it’s finally done, and &lt;strong&gt;&lt;a href=&#34;http://heroku.com/&#34;&gt;Heroku&lt;/a&gt;&lt;/strong&gt; just
+seemed like the most natural choice, due to its excellent support for
+everything related to Ruby web frameworks (Need gems? &lt;a href=&#34;http://docs.heroku.com/gems&#34;&gt;No
+problem!&lt;/a&gt;), a very streamlined
+&lt;a href=&#34;http://git-scm.com/&#34;&gt;git&lt;/a&gt;-based workflow and excellent command line
+tools. I also wrote a patch to add the –heroku option to
+&lt;a href=&#34;http://github.com/quirkey/sinatra-gen&#34;&gt;sinatra-gen&lt;/a&gt; a while back, so I
+was literally up and running within seconds.&lt;/p&gt;
+
+&lt;p&gt;Now all that was left to decide was the data store.
+&lt;strong&gt;&lt;a href=&#34;http://www.mongodb.org/&#34;&gt;MongoDB&lt;/a&gt;&lt;/strong&gt; had been on my radar for a long
+time and I got myself an invite to &lt;a href=&#34;http://www.mongohq.com/&#34;&gt;MongoHQ&lt;/a&gt;‘s
+beta program some weeks back, so this seemed like a good opportunity to
+finally give both of them a try. As it turned out, they are as fun to
+work with all the other projects mentioned so far!&lt;/p&gt;
+
+&lt;p&gt;Once I decided which exact tools to use, creating the actual application
+was almost too easy. I started by writing a small Ruby script which
+fetched the appropriately tagged bookmarks from delicious (where I
+stored name, URL and description) and fed them into MongoDB. After that
+all it took was a couple of very simple Sinatra “controllers” and the
+actual views, which thanks to Haml also were breeze to create.&lt;/p&gt;
+
+&lt;p&gt;So even as somebody who usually doesn’t do web application development,
+I had a first functioning version within an afternoon and a finished
+site within two. Granted, &lt;a href=&#34;http://www.happynerds.net&#34;&gt;Happy Nerds&lt;/a&gt; is
+very simple at the moment, but I just wanted to finally get the idea out
+into the open. I do have a couple of ideas for the future though and
+thanks to the used technologies I feel confident that implementing them
+will be easy and fun once I get around to do it!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interview: Aaron Quint on Sinatra</title>
+      <link>http://rubylearning.com/blog/2009/03/20/interview-aaron-quint-on-sinatra/</link>
+      <pubDate>Fri, 20 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/03/20/interview-aaron-quint-on-sinatra/</guid>
+      <description>&lt;p&gt;On the eve of the first ever online “&lt;strong&gt;Introduction to Sinatra&lt;/strong&gt;”
+course, Satish Talim of RubyLearning caught up with &lt;strong&gt;Aaron Quint&lt;/strong&gt; and
+talked to him on &lt;strong&gt;Sinatra&lt;/strong&gt;, in this interview.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/AaronQuint.jpg&#34; alt=&#34;Aaron Quint,
+USA&#34; title=&#34;Aaron Quint, USA&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish Talim&amp;gt;&amp;gt;&lt;/strong&gt; Welcome, Aaron and thanks for taking out time to
+share your thoughts. For the benefit of the readers, could you tell us
+something about your self?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aaron Quint&amp;gt;&amp;gt;&lt;/strong&gt; Thanks for having me! I’m a freelance Ruby developer
+working in Brooklyn, NY. I’ve been doing Ruby and Rails for a little
+over 3 years now, and full time for the last 2 and a half. Recently I’ve
+been getting a lot more involved with the open source community. I
+really love coding in Ruby and at this point I don’t think any other
+language has such a great community with such smart and interesting
+people. I blog (as much as I can) at
+&lt;a href=&#34;http://www.quirkey.com/blog/&#34;&gt;http://quirkey.com/blog/&lt;/a&gt;. My other
+passions are food and design and I work with a friend writing about this
+at &lt;a href=&#34;http://thescoutmag.com/&#34;&gt;http://thescoutmag.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sinatra’s greatest strength is its flexibility&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; You have worked a lot on Rails and Sinatra. How come you
+got involved with Sinatra? Tell us more about this.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aaron&amp;gt;&amp;gt;&lt;/strong&gt; I heard about Sinatra when Blake Mizerany first released
+it. I thought it was a cool idea, but didn’t really see the point. Then,
+in 2008 a number of people started working feverishly on making it a
+more elegant framework and I started to get involved. I had a sort of
+‘lightbulb’ moment and realized ‘Ah! This can be really useful!’.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; So many Ruby-based web frameworks – is this good for
+Ruby? Where does Sinatra fit in?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aaron&amp;gt;&amp;gt;&lt;/strong&gt; I’d start off by saying, that Sinatra is really less then
+a framework. A framework implies a lot of constraints or conventions,
+however, Sinatra really doesn’t limit you at all. An application in
+Sinatra can be a single file, multiple files, or multiple files across
+directories (more like Rails). There’s a reason that so much of the Ruby
+community is focused on building web applications – most applications
+and what any of us do on computers is moving towards the web. Ruby is
+such an elegant language it lends itself to different people having a
+lot of different ideas on the best way to write web apps. I don’t think
+of all these frameworks as being in competition, as we saw with the
+Rails/Merb merge, everyone is really learning and building on each
+other’s ideas and discoveries. Sinatra’s role is the tool for building
+web applications when you don’t need any of the features or overhead of
+one of the more robust frameworks.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; In your recent article for the “Rubyist” magazine, you
+mention that “think of Sinatra as a library creating simple HTTP based
+user interfaces.” Can you throw more light on this aspect?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aaron&amp;gt;&amp;gt;&lt;/strong&gt; Sinatra’s greatest strength is that its so flexible and
+requires so little to get an app running. This makes it super easy to
+use it in existing projects. My proposal is that the community should
+embrace it by including it in their gems or libraries and making simple
+web interfaces for their code. Everyone loves the command line for its
+simplicity and directness, but by using Sinatra to build a simple web
+app to interact with your code, you can make your library much easier
+(and more fun) to use.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; For a person new to web development, how can one go about
+learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aaron&amp;gt;&amp;gt;&lt;/strong&gt; I think Sinatra is a great way to get in to Ruby web
+development. Its really simple so once you’ve learned the basics,
+anything you learn beyond it is learning Ruby and is not Sinatra
+specific. Right now there aren’t any dedicated blogs or community sites
+but the Sinatra homepage:
+&lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;http://www.sinatrarb.com&lt;/a&gt; has good
+documentation. If you’re interested or have questions, Sinatra also has
+an active mailing list and irc chat room. People are usually happy to
+answer questions. I would also suggest just searching github for Sinatra
+and checking out the source of other Sinatra projects – there are a lot
+of good open source examples.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Any plans on writing a book on Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aaron&amp;gt;&amp;gt;&lt;/strong&gt; I wouldn’t be against it If someone offered me the
+opportunity – though it would be a pretty short book.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra
+Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Do you have any suggestions for RubyLearning’s
+“Introduction to Sinatra” course participants?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aaron&amp;gt;&amp;gt;&lt;/strong&gt; Don’t hesitate to ask questions on the mailing list or in
+irc. Also if you already have some understanding of Ruby, you should
+absolutely take a look at Sinatra’s source. Most of it is contained in a
+single file and its one of the best open source examples of advanced
+Ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Thanks Aaron for sharing your views with the
+&lt;strong&gt;Introduction to Sinatra&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:ee64f1d1ac2306f2c1165645026eb0a2:fn-1726-1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:ee64f1d1ac2306f2c1165645026eb0a2:fn-1726-1&#34;&gt;0&lt;/a&gt;&lt;/sup&gt;^&lt;/strong&gt; ” and ” &lt;strong&gt;Introduction to
+Merb&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:ee64f1d1ac2306f2c1165645026eb0a2:fn-1726-2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:ee64f1d1ac2306f2c1165645026eb0a2:fn-1726-2&#34;&gt;0&lt;/a&gt;&lt;/sup&gt;^&lt;/strong&gt; ” course participants.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Disclaimer:&lt;/em&gt;&lt;/strong&gt;\
+&lt;em&gt;The opinions expressed are those of Aaron Quint and do not necessarily
+reflect those of &lt;strong&gt;&lt;a href=&#34;http://rubylearning.org/&#34;&gt;RubyLearning.org&lt;/a&gt;&lt;/strong&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Post supported by 1st Easy Limited&lt;/em&gt;:&lt;/strong&gt; &lt;a href=&#34;http://www.1steasy.com/&#34;&gt;1st Easy
+Limited&lt;/a&gt; are keen to play an active role in
+encouraging the adoption of new development technologies, and are
+delighted to have been given the opportunity to support the work of
+Satish Talim and his team at RubyLearning. If you’re a developer, or an
+alumni of RubyLearning and would like to test your own Sinatra apps or
+freshly acquired skills, you’re welcome to take advantage of the free
+hosting trials that 1st Easy offer: simply visit the &lt;a href=&#34;http://www.1steasy.com/rubylearning.htm&#34;&gt;registration
+page&lt;/a&gt; and leave your details.
+The full-featured accounts are yours to do with as you please for one
+month, after which you can transfer your hard work to a paid account, or
+walk away with no questions asked!&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Introduction to Sinatra&lt;/strong&gt;: Here are the &lt;a href=&#34;http://rubylearning.com/blog/2009/02/25/introduction-to-sinatra-a-new-course/&#34;&gt;course
+details&lt;/a&gt;.
+&lt;a href=&#34;#fnref-1726-1&#34;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Introduction to Merb&lt;/strong&gt;: Here are the &lt;a href=&#34;http://rubylearning.com/blog/2009/03/02/introduction-to-merb-3rd-batch/&#34;&gt;course
+details&lt;/a&gt;.
+&lt;a href=&#34;#fnref-1726-2&#34;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interview: Ryan Tomayko on Sinatra</title>
+      <link>http://rubylearning.com/blog/2009/03/20/interview-ryan-tomayko-on-sinatra/</link>
+      <pubDate>Fri, 20 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/03/20/interview-ryan-tomayko-on-sinatra/</guid>
+      <description>&lt;p&gt;On the eve of the first ever online “&lt;strong&gt;Introduction to Sinatra&lt;/strong&gt;”
+course, Satish Talim of RubyLearning caught up with &lt;strong&gt;Ryan Tomayko&lt;/strong&gt; and
+talked to him on &lt;strong&gt;Sinatra&lt;/strong&gt;, in this interview.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/RyanTomayko.jpg&#34; alt=&#34;Ryan Tomayko,
+USA&#34; title=&#34;Ryan Tomayko, USA&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish Talim&amp;gt;&amp;gt;&lt;/strong&gt; Welcome, Ryan and thanks for taking out time to
+share your thoughts. For the benefit of the readers, could you tell us
+something about your self?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ryan Tomayko&amp;gt;&amp;gt;&lt;/strong&gt; My background is in systems design and general web
+architecture — HTTP, REST, and “web services” primarily. I’ve been
+involved in the Ruby web development community for a little over three
+years and have contributed to Rails, Rack, Sinatra, and a bunch of other
+tools and libraries. I live, work, and play in San Francisco, am happily
+married, and have two crazy kids with totally awesome websites
+(&lt;a href=&#34;http://lydia.tomayko.com/&#34;&gt;http://lydia.tomayko.com/&lt;/a&gt; and
+&lt;a href=&#34;http://elijah.tomayko.com/&#34;&gt;http://elijah.tomayko.com/&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;You can follow me on Twitter
+(&lt;a href=&#34;http://twitter.com/rtomayko&#34;&gt;http://twitter.com/rtomayko&lt;/a&gt;) and find
+out more about me at my blog
+(&lt;a href=&#34;http://tomayko.com/about&#34;&gt;http://tomayko.com/about&lt;/a&gt;).&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sinatra’s greatest strength is its flexibility&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; You are one of the lead developers of Sinatra and work at
+Heroku. How come you got involved with Sinatra? Tell us more about this.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ryan&amp;gt;&amp;gt;&lt;/strong&gt; I’ve been an advocate for standards based web development
+for quite some time, with a particular focus on server-side web
+frameworks. In 2005, I wrote an article titled “On HTTP Abuse”
+(&lt;a href=&#34;http://tomayko.com/writings/on-http-abuse&#34;&gt;http://tomayko.com/writings/on-http-abuse&lt;/a&gt;)
+to make the case that the tools we were using to build web applications
+were basically… horrible. I also outlined some of the traits I felt
+would be present in a good web framework. We’ve made a lot of progress
+since then (Rails, for instance, has fully embraced REST and HTTP), but
+when I saw what Blake Mizerany had put together in Sinatra, I was blown
+away by how closely it resembled the framework I had imagined in my head
+when I was writing that article in 2005.&lt;/p&gt;
+
+&lt;p&gt;I was hooked and have been fairly active in the project ever since.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What’s your role at Heroku?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ryan&amp;gt;&amp;gt;&lt;/strong&gt; I’ve been going under the working title of “Product
+Designer / Architect” but we like to think of ourselves as curators of
+technology more than anything. My job is to understand where the Ruby
+community is going, to play with the tools and technologies people are
+using to get there, and then to make it an order of magnitude easier for
+them to be used on Heroku than anywhere else
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; So many Ruby-based web frameworks – is this good for
+Ruby?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ryan&amp;gt;&amp;gt;&lt;/strong&gt; I can’t think of a better situation than the one we have
+now, to be honest. Rails is the premier general purpose web development
+platform – perfectly suited to a wide range of applications. It’s taken
+many of the best practices established by not only the Ruby community
+but the web development community in general and made them accessible to
+everyone. It’s maturing rapidly, is well documented, and has a large
+(but not too large!) community. Rails has become a “safe bet”.&lt;/p&gt;
+
+&lt;p&gt;The web is very young, though. There’s still a lot of stuff we’ve yet to
+figure out. Frameworks like Merb, Ramaze, Camping, Waves, etc. have a
+bit more freedom to experiment with alternative designs and philosophies
+or to focus more narrowly on achieving specific goals that might be off
+the radar for Rails. There’s very little downside to competition here
+(the talk about Rails vs. Merb “tearing the community apart” was mostly
+overblown in my estimation). Without this diversity, web development in
+Ruby might stagnate a bit.&lt;/p&gt;
+
+&lt;p&gt;Sinatra is unique in many ways. In my opinion, Rails and Sinatra aren’t
+really competitors in any kind of head-to-head sense. Once you’ve become
+familiar with both environments, I think you’ll find that each has a
+clear sweet spot and that choosing one over the other is all about using
+the best tool for the job. It’s hammer vs. saw as opposed to Craftsmen
+vs. Stanley. Using Sinatra to build a traditional CRUD app with 10-15
+models and a mostly-HTML-with-some-Ajax front-end is going to feel a bit
+wonky compared to Rails. Conversely, using Rails as the server component
+in a collaborative, browser-based map/reduce system
+(&lt;a href=&#34;http://www.igvita.com/2009/03/03/collaborative-map-reduce-in-the-browser/&#34;&gt;http://www.igvita.com/2009/03/03/collaborative-map-reduce-in-the-browser/&lt;/a&gt;)
+is going to feel like overkill. Look at some of the apps in the wild
+that were built with Sinatra
+(&lt;a href=&#34;http://www.sinatrarb.com/wild.html&#34;&gt;http://www.sinatrarb.com/wild.html&lt;/a&gt;)
+and imagine what they might look like if they had been implemented in
+Rails. I think the distinction is clear and the benefits of having
+multiple specialized frameworks obvious.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; For a person new to web development, how can one go about
+learning Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ryan&amp;gt;&amp;gt;&lt;/strong&gt; For a person just starting out with web development in
+general, I’d suggest something extremely simple and well-understood – a
+blog or TODO list, maybe. Choose something that has a lot of prior art
+so you can reference how the different resources are linked together and
+how the browser and server interact. One thing that sets Sinatra apart
+from most web frameworks is that it does not try to hide the web’s basic
+concepts and protocols from the developer. We believe that a strong
+understanding of HTTP, URLs, and the various media types/formats (HTML,
+CSS, JSON/JavaScript, RSS, etc) that make the web work is required to
+build good web applications. The more you get comfortable with those
+concepts, the more Sinatra will make sense to you.&lt;/p&gt;
+
+&lt;p&gt;Once you know what you want to build, the only thing to do is to start
+writing code – one line at a time. The Sinatra website has a good
+introduction
+(&lt;a href=&#34;http://www.sinatrarb.com/intro.html&#34;&gt;http://www.sinatrarb.com/intro.html&lt;/a&gt;)
+that covers most of the basic features supported by framework at a high
+level. From there, you might move on to some of the more detailed
+documentation
+(&lt;a href=&#34;http://www.sinatrarb.com/documentation.html&#34;&gt;http://www.sinatrarb.com/documentation.html&lt;/a&gt;)
+or watch the “Classy Web Development with Sinatra” screencasts
+(&lt;a href=&#34;http://www.pragprog.com/screencasts/v-aksinatra/classy-web-development-with-sinatra&#34;&gt;http://www.pragprog.com/screencasts/v-aksinatra/classy-web-development-with-sinatra&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;This part is important. Eventually, you’re going to run into a problem
+that you don’t know how to solve or something that doesn’t make any
+sense at all. When that happens, be sure to either send something to the
+Sinatra mailing list
+(&lt;a href=&#34;http://groups.google.com/group/sinatrarb&#34;&gt;http://groups.google.com/group/sinatrarb&lt;/a&gt;)
+or drop by #sinatra on irc.freenode.net. There’s a large group of
+insanely smart developers that are more than happy to help out. It
+doesn’t matter how “stupid” the problem is – just ask. This is actually
+a very real way of contributing to the project. Those discussions are
+archived and searchable via Google so, by asking, you make it easier for
+the next person to find their way when they have a problem.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/sinatralogo.jpg&#34; alt=&#34;Sinatra
+Icon&#34; title=&#34;Sinatra micro-framework&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Where all can Sinatra be used? What kind of projects
+should a person learning Sinatra work on?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ryan&amp;gt;&amp;gt;&lt;/strong&gt; Sinatra is a perfect fit for smaller apps/services, APIs,
+and sites that are mostly static but with some light server
+interactions. There’s a big list of Sinatra apps on the website
+(&lt;a href=&#34;http://www.sinatrarb.com/wild.html&#34;&gt;http://www.sinatrarb.com/wild.html&lt;/a&gt;),
+most of which have source code available on the GitHub.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Any plans on writing a book on Sinatra?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ryan&amp;gt;&amp;gt;&lt;/strong&gt; Book?! We’re still working on the README!
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_wink.gif&#34; alt=&#34;;)&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;There’s a community effort underway to produce a free, online book
+that’s coming along quite nicely:
+&lt;a href=&#34;http://www.sinatrarb.com/book.html&#34;&gt;http://www.sinatrarb.com/book.html&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As for me personally, I don’t own a single tech book so it would seem
+unusual for me to produce one. I wouldn’t be surprised if someone else
+put a book together at some point in the near future, though.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Since you are closely involved with both Sinatra and
+Heroku and most of the course participants have no Rails background,
+could you tell us in simple terms how one can deploy a simple Sinatra
+CRUD app on Heroku?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ryan&amp;gt;&amp;gt;&lt;/strong&gt; How about a quick and dirty wiki?&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Sign up for a Heroku account at:
+&lt;a href=&#34;http://heroku.com/&#34;&gt;http://heroku.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Install the heroku gem on your local machine (this will also install
+the Sinatra, Sequel, and Sqlite3-ruby gems as dependencies):\
+&lt;code&gt;$ sudo gem install heroku&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Create a directory for the wiki app and initialize a git
+repository:\
+&lt;code&gt;$ mkdir wiki&amp;lt;br /&amp;gt;$ cd wiki&amp;lt;br /&amp;gt;$ git init&amp;lt;br /&amp;gt;Initialized empty Git repository in .git/&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create a new heroku application. You will be prompted for your
+heroku email address and password (this is required the first time
+you create an app only):\
+&lt;code&gt;$ heroku create&amp;lt;br /&amp;gt;Enter your Heroku credentials&amp;lt;br /&amp;gt;Email: joe@example.com&amp;lt;br /&amp;gt;Password:&amp;lt;br /&amp;gt;Uploading ssh public key /Users/joe/.ssh/id_rsa.pub&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The final bit of output from the create command will be something
+like this:\
+&lt;code&gt;Created http://quiet-snow-81.heroku.com/ | git@heroku.com:quiet-snow-81.git&amp;lt;br /&amp;gt;Git remote heroku added&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The app has been created and two URLs are provided: one for the web
+face of your new app, and one for the remote git repository. A git
+remote named “heroku” is added for you automatically — we’ll push to
+this remote when it’s time to deploy in step #7.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create wiki.rb and config.ru files based on the following examples:\
+&lt;a href=&#34;https://gist.github.com/8ff54cdfd44e1a6485e2&#34;&gt;https://gist.github.com/8ff54cdfd44e1a6485e2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can start a development server to test locally. The site is
+available at &lt;a href=&#34;http://localhost:4567/&#34;&gt;http://localhost:4567/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ ruby wiki.rb&amp;lt;br /&amp;gt;== Sinatra/0.9.1.1 has taken the stage on 4567 for development&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Commit the wiki.rb and config.ru files to the git repository:\
+&lt;code&gt;$ git add wiki.rb config.ru&amp;lt;br /&amp;gt;$ git commit -m &#39;initial commit of simple sinatra wiki&#39;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Deploy the application to Heroku and open a browser:\
+&lt;code&gt;$ git push heroku master&amp;lt;br /&amp;gt;$ heroku open&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Lather, rinse, repeat
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+
+Be sure to see the Heroku documentation
+(&lt;a href=&#34;http://heroku.com/docs/&#34;&gt;http://heroku.com/docs/&lt;/a&gt;) for more
+information.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Do you have any suggestions for RubyLearningâ€™s
+“Introduction to Sinatra” course participants?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ryan&amp;gt;&amp;gt;&lt;/strong&gt; Have fun!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Thanks Ryan for sharing your views with the
+&lt;strong&gt;Introduction to Sinatra&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:b4d643ee31ff30900b4578fcf6e4b82b:fn-1739-1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:b4d643ee31ff30900b4578fcf6e4b82b:fn-1739-1&#34;&gt;0&lt;/a&gt;&lt;/sup&gt;^&lt;/strong&gt; ” and ” &lt;strong&gt;Introduction to
+Merb&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:b4d643ee31ff30900b4578fcf6e4b82b:fn-1739-2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:b4d643ee31ff30900b4578fcf6e4b82b:fn-1739-2&#34;&gt;0&lt;/a&gt;&lt;/sup&gt;^&lt;/strong&gt; ” course participants.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Disclaimer:&lt;/em&gt;&lt;/strong&gt;\
+&lt;em&gt;The opinions expressed are those of Ryan Tomayko and do not necessarily
+reflect those of &lt;strong&gt;&lt;a href=&#34;http://rubylearning.org/&#34;&gt;RubyLearning.org&lt;/a&gt;&lt;/strong&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Introduction to Sinatra&lt;/strong&gt;: Here are the &lt;a href=&#34;http://rubylearning.com/blog/2009/02/25/introduction-to-sinatra-a-new-course/&#34;&gt;course
+details&lt;/a&gt;.
+&lt;a href=&#34;#fnref-1739-1&#34;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Introduction to Merb&lt;/strong&gt;: Here are the &lt;a href=&#34;http://rubylearning.com/blog/2009/03/02/introduction-to-merb-3rd-batch/&#34;&gt;course
+details&lt;/a&gt;.
+&lt;a href=&#34;#fnref-1739-2&#34;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interview: Adam Wiggins on Heroku</title>
+      <link>http://rubylearning.com/blog/2009/03/13/interview-adam-wiggins-on-heroku/</link>
+      <pubDate>Fri, 13 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/03/13/interview-adam-wiggins-on-heroku/</guid>
+      <description>&lt;p&gt;On the eve of the first ever online “&lt;strong&gt;Introduction to Sinatra&lt;/strong&gt;”
+course, Satish Talim and Victor H. Goff III of RubyLearning caught up
+with &lt;strong&gt;Adam Wiggins&lt;/strong&gt; and talked to him on &lt;strong&gt;Heroku&lt;/strong&gt; (pronounced
+her-OH-koo), in this interview.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/AdamWiggins.jpg&#34; alt=&#34;Adam Wiggins,
+USA&#34; title=&#34;Adam Wiggins, USA&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish Talim&amp;gt;&amp;gt;&lt;/strong&gt; Welcome, Adam and thanks for taking out time to
+share your thoughts. For the benefit of the readers, could you tell us
+something about your self?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adam Wiggins&amp;gt;&amp;gt;&lt;/strong&gt; By day, I’m a Rubyist and entrepeneur. By night, I
+evangelize critical thinking and skepticism, pontificate about economics
+and cognition, and hack on music software and video games. Some people
+have said that I’m a nice guy, but I vehemently deny such a vicious
+rumor!&lt;/p&gt;
+
+&lt;p&gt;I blog at: &lt;a href=&#34;http://adam.blog.heroku.com/&#34;&gt;http://adam.blog.heroku.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Heroku – It’s fast, it’s easy, and it just works.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What’s Heroku and how did you get involved with it?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adam&amp;gt;&amp;gt;&lt;/strong&gt; I co-founded Heroku along with my partners Orion and James
+in autumn 2007. Our elevator pitch is “instant Ruby deployment.” Heroku
+is the fastest and simplest way to get a Rails, Merb, or Sinatra app
+into production.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; For a person new to development using Rack and Rack-based
+web frameworks (like Sinatra, Merb, Ramaze, and Camping), how can Heroku
+help?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adam&amp;gt;&amp;gt;&lt;/strong&gt; Passenger has done a lot for standardizing and simplifying
+the deployment of Rack apps, but it’s still up to you to provision your
+own server. Since basic Heroku apps are free, there’s nothing to stop
+anyone with basic proficiency in Ruby and Git from getting their app
+online instantly.&lt;/p&gt;
+
+&lt;p&gt;Check out our &lt;a href=&#34;http://heroku.com/docs#toc25&#34;&gt;tutorial on deploying a Rack
+app&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Victor&amp;gt;&amp;gt;&lt;/strong&gt; What is the long term goal of Heroku?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adam&amp;gt;&amp;gt;&lt;/strong&gt; I like to think that we’re championing a revolution in app
+deployment, similar to the agile revolution that happened in app
+development over the past decade. Our vision is for deploying apps into
+production to be as easy, fast, and fun as building apps with Rails or
+the other great Ruby frameworks.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Victor&amp;gt;&amp;gt;&lt;/strong&gt; When are you going to be ready for Prices and Options for
+Heroku?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adam&amp;gt;&amp;gt;&lt;/strong&gt; Pricing is already in beta. We don’t publish dates, but we
+should have something for public consumption soon. If you’d like to
+participate in the pricing beta, contact us:
+&lt;a href=&#34;http://heroku.com/about&#34;&gt;http://heroku.com/about&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Victor&amp;gt;&amp;gt;&lt;/strong&gt; I understand that Heroku can be used with Git, but does
+that mean I have to leave my other versioning tools behind, or does it
+play well with others?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adam&amp;gt;&amp;gt;&lt;/strong&gt; Git can live alongside Subversion or other version-control
+tools. In fact, using them in tandem is a pretty good way to ease into
+learning Git. You can also use Git purely as a deployment mechanism, as
+described &lt;a href=&#34;http://heroku.com/docs#toc18&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/heroku-optimized.gif&#34; alt=&#34;Heroku
+Logo&#34; title=&#34;Heroku&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Victor&amp;gt;&amp;gt;&lt;/strong&gt; Where can I find out where you are going to be speaking
+and when?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adam&amp;gt;&amp;gt;&lt;/strong&gt; Last year I spoke at Railsconf and Rubyconf, among others.
+This year I’ll be doing a talk about Rack, Sinatra, and Rails Metal at
+Railsconf, and participating in a panel with a bunch of great folks
+including the authors of Rack and Thin.&lt;/p&gt;
+
+&lt;p&gt;You can always find out what events I and the other cool dudes here at
+Heroku are attending, on the sidebar to our
+&lt;a href=&#34;http://blog.heroku.com/&#34;&gt;blog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish &amp;amp; Victor&amp;gt;&amp;gt;&lt;/strong&gt; Thanks Adam for sharing your views with the
+&lt;strong&gt;Introduction to Sinatra&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3325873d2bd52b46279601788801d882:fn-1570-1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3325873d2bd52b46279601788801d882:fn-1570-1&#34;&gt;0&lt;/a&gt;&lt;/sup&gt;^&lt;/strong&gt; ” and ” &lt;strong&gt;Introduction to
+Merb&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3325873d2bd52b46279601788801d882:fn-1570-2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3325873d2bd52b46279601788801d882:fn-1570-2&#34;&gt;0&lt;/a&gt;&lt;/sup&gt;^&lt;/strong&gt; ” course participants. You can connect with Adam
+on twitter &lt;a href=&#34;http://twitter.com/hirodusk&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Disclaimer:&lt;/em&gt;&lt;/strong&gt;\
+&lt;em&gt;The opinions expressed are those of Adam Wiggins and do not necessarily
+reflect those of &lt;strong&gt;&lt;a href=&#34;http://rubylearning.org/&#34;&gt;RubyLearning.org&lt;/a&gt;&lt;/strong&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Introduction to Sinatra&lt;/strong&gt;: Here are the &lt;a href=&#34;http://rubylearning.com/blog/2009/02/25/introduction-to-sinatra-a-new-course/&#34;&gt;course
+details&lt;/a&gt;.
+&lt;a href=&#34;#fnref-1570-1&#34;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Introduction to Merb&lt;/strong&gt;: Here are the &lt;a href=&#34;http://rubylearning.com/blog/2009/03/02/introduction-to-merb-3rd-batch/&#34;&gt;course
+details&lt;/a&gt;.
+&lt;a href=&#34;#fnref-1570-2&#34;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

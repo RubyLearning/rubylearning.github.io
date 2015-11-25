@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Yahoo! Web Services in Ruby // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Satish Talim">
+
+
+  <meta property="og:title" content="Yahoo! Web Services in Ruby" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2008/04/25/yahoo-web-services-in-ruby/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2008/04/25/yahoo-web-services-in-ruby/">Yahoo! Web Services in Ruby</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>25</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2008</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">Satish Talim</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">Popular</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <div>
+  <p class="block">
+    <img class="alignleft" title="Jose Carlos Monteiro" src="http://www.rubylearning.com/images/josecm.jpg" alt="Jose Carlos Monteiro" /><strong><a href="mailto:jose-t-monteiro@telecom.pt">Jose Carlos Monteiro</a></strong> is a Portuguese Ruby enthusiast and a mentor at RubyLearning.org. He has over 11 years of experience in programming with languages such as C, C++, Delphi, Java, Perl, PHP. He is also familiar with coding Unix Shell Scripts and used to working with version control systems (CVS and Subversion). His short-term goal is to acquire new skills, such as becoming more experienced in working with &#8220;modern&#8221; build tools (rake) and continuous integration tools. He also aims to become more familiar in applying modern concepts/methodologies such as TDD/BDD in his day-to-day work.
+  </p>
+  
+  <h3>
+    Introduction
+  </h3>
+  
+  <p>
+    Yahoo! Web Services are a set of online services that can be used by developers when creating &#8220;mashups&#8221;. These services are like a gateway to the huge amount of available data at Yahoo! The services are provided through a REST-based API, which is well documented at <a href="http://developer.yahoo.com/">Yahoo! Developer Network</a>.
+  </p>
+  
+  <h3>
+    Web Services
+  </h3>
+  
+  <p>
+    On Wikipedia one can read the following definition about <a href="http://en.wikipedia.org/wiki/Web_service">Web Services</a>: <em>A Web Service is defined by the W3C as &#8216;a software system designed to support inter-operable Machine to Machine interaction over a network.&#8217; Web services are frequently just Web APIs that can be accessed over a network, such as the Internet, and executed on a remote system hosting the requested services</em>.
+  </p>
+  
+  <p>
+    A Web Service is an online component that can be used by applications to receive or send data in a well-known XML format. Developers can use them to allow communication to happen between applications running in different operating systems and coded in distinct programming languages, since all communication is done in XML format.
+  </p>
+  
+  <h3>
+    RESTful Web Services
+  </h3>
+  
+  <p>
+    Again, on Wikipedia one can read the following definition to better understand the concept of <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">RESTful Web Service</a>: <em>RESTful Web services attempt to emulate HTTP and similar protocols by constraining the interface to a set of well-known, standard operations (e.g., GET, PUT, DELETE). Here, the focus is on interacting with stateful resources, rather than messages or operations</em>.
+  </p>
+  
+  <p>
+    A more elaborate description is given on the article about <a href="http://java.sun.com/developer/technicalArticles/WebServices/restful/">RESTful Web Services</a>, available through the Sun Developer Network: <em>In the web services world, REpresentational State Transfer (REST) is a key design idiom that embraces a stateless client-server architecture in which the web services are viewed as resources and can be identified by their URLs. Web service clients that want to use these resources access a particular representation by transferring application content using a small globally defined set of remote methods that describe the action to be performed on the resource. The HTTP methods such as GET and POST are the verbs that the developer can use to describe the necessary create, read, update, and delete (CRUD) actions to be performed. Some may see an analogy to operations in SQL, which also relies on a few common verbs, however, the REST style and HTTP protocol are mutually exclusive, and REST does not require HTTP</em>.
+  </p>
+  
+  <p>
+    The term REST is an acronym for <em>REpresentational State Transfer</em> and was coined by Roy Fielding.
+  </p>
+  
+  <h3>
+    Mashups
+  </h3>
+  
+  <p>
+    One more, the definition of <a href="http://en.wikipedia.org/wiki/Mashup_(web_application_hybrid)">mashup</a> on Wikipedia states that: <em>A mashup is a web application that combines data from more than one source into a single integrated tool. Content used in mashups is typically sourced from a third party via a public interface or API (web services), although some in the community believe that cases where private interfaces are used should not count as mashups. Other methods of sourcing content for mashups include Web feeds (e.g. RSS or Atom), and screen scraping. Many people are experimenting with mashups using Amazon, eBay, Flickr, Google, Microsoft, Yahoo and YouTube APIs, which has led to the creation of the mashup editor</em>.
+  </p>
+  
+  <h3>
+    Yahoo! Web Services and Ruby
+  </h3>
+  
+  <p>
+    Working with Yahoo! Web Services from Ruby is quite simple. One is only required to include the library Net::HTTP and use an Application ID that is <a href="http://developer.yahoo.com/wsregapp/">obtained from Yahoo! Developer Network</a>. For this how-to, Satish has already registered one such Application ID to be used in the code samples and in the following exercise(s).
+  </p>
+  
+  <p>
+    Basically, one decides if the code is to use HTTP GET or HTTP POST methods and then sends a request and waits for a response. This response is in XML format and is well documented for each Yahoo! Web Service. The same goes for the request. By also including the REXML library one is able to handle the XML Response in a more readable way.
+  </p>
+  
+  <p>
+    On Yahoo! Developer Network there are already pages with all that&#8217;s required to work with <a href="http://developer.yahoo.com/ruby/ruby-rest.html">Yahoo! Web Services</a> and parsing the <a href="http://developer.yahoo.com/ruby/ruby-xml.html">XML Response</a>. Also, Premshree Pillai has coded the Ruby API for Yahoo! Search Web Services that&#8217;s available inside the Search Developer Kit. The following code samples are taken almost straight from those pages, and don&#8217;t use the Ruby API for Yahoo! Search Web Services.
+  </p>
+  
+  <h3>
+    Code Samples
+  </h3>
+  
+  <p>
+    <strong>Using REST API with GET method:</strong>
+  </p>
+  
+  <pre><code>&lt;span style="color:blue">require 'net/http'
+
+APPLICATION_ID = 'XIM4jgrV34GXdnMQfjYVcfY6YIMvb4FrOoBmcxAMHrVWrPPte0QDpYgieP5jZKFuCsL9'
+YAHOO_WEB_SERVICE_SEARCH_URL = 'http://search.yahooapis.com/WebSearchService/V1/webSearch'
+query = 'Satish Talim'
+results_limit = 10
+url = "#{YAHOO_WEB_SERVICE_SEARCH_URL}?appid=#{APPLICATION_ID}&#038;query=#{URI.encode(query)}&#038;results=#{results_limit}"
+begin
+  xml_result_set = Net::HTTP.get_response(URI.parse(url))
+rescue Exception => e
+  puts 'Connection error: ' + e.message
+end
+print xml_result_set.body
+print xml_result_set.to_s + "\n"&lt;/span></code></pre>
+  
+  <p>
+    <strong>Explanation</strong>: The results_limit variable holds the maximum number of ResultSets in the returning response. That response is available on the xml_result_set variable, but to print it, one should call the body() method. The URL is constructed with the <a href="http://search.yahooapis.com/WebSearchService/V1/webSearch">Yahoo! Web Service Search URL</a> and with 3 arguments: appid, query and results. The query argument should be encoded to prevent non-HTML entities to be passed on the method Net::HTTP.get_response().
+  </p>
+  
+  <p>
+    <strong>Using REST API with POST method:</strong>
+  </p>
+  
+  <pre><code>&lt;span style="color:blue">require 'net/http'
+
+APPLICATION_ID = 'XIM4jgrV34GXdnMQfjYVcfY6YIMvb4FrOoBmcxAMHrVWrPPte0QDpYgieP5jZKFuCsL9'
+YAHOO_WEB_SERVICE_SEARCH_URL = 'http://search.yahooapis.com/WebSearchService/V1/webSearch'
+query = 'Satish Talim'
+results_limit = 10
+url  = YAHOO_WEB_SERVICE_SEARCH_URL
+
+post_args     = {
+  'appid'   => APPLICATION_ID,
+  'query'   => query,
+  'results' => results_limit,
+}
+
+begin
+  response, xml_result_set = Net::HTTP.post_form(URI.parse(url), post_args)
+rescue Exception => e
+  puts 'Connection error: ' + e.message
+end
+puts xml_result_set
+puts response&lt;/span></code></pre>
+  
+  <p>
+    <strong>Explanation</strong>: Same thing here as with GET, except that the method to use is Net::HTTP.post_form() which receives 2 arguments: the URL without any arguments and the arguments as a Hash.
+  </p>
+  
+  <p>
+    <strong>Using REST API with GET method and parsing the XML Response with REXML:</strong>
+  </p>
+  
+  <pre><code>&lt;span style="color:blue">require 'net/http'
+require 'rexml/document'
+
+APPLICATION_ID = 'XIM4jgrV34GXdnMQfjYVcfY6YIMvb4FrOoBmcxAMHrVWrPPte0QDpYgieP5jZKFuCsL9'
+YAHOO_WEB_SERVICE_SEARCH_URL = 'http://search.yahooapis.com/WebSearchService/V1/webSearch'
+query         = 'Satish Talim'
+results_limit = 10
+url = "#{YAHOO_WEB_SERVICE_SEARCH_URL}?appid=#{APPLICATION_ID}&#038;query=#{URI.encode(query)}&#038;results=#{results_limit}"
+
+begin
+  xml_result_set = Net::HTTP.get_response(URI.parse(url))
+rescue Exception => e
+  puts 'Connection error: ' + e.message
+end
+
+result_set = REXML::Document.new(xml_result_set.body)
+titles    = Array.new
+summaries = Array.new
+links     = Array.new
+
+result_set.elements.each('ResultSet/Result/Title') do | element |
+  titles &lt;&lt; element.text
+end
+result_set.elements.each('ResultSet/Result/Summary') do | element |
+  summaries &lt;&lt; element.text
+end
+result_set.elements.each('ResultSet/Result/Url') do | element |
+  links &lt;&lt; element.text
+end
+
+titles.each_with_index do | title, index |
+  puts "Title: #{title} - URL: #{links[index]}"
+  puts "Summary: #{summaries[index]}"
+  puts
+end
+&lt;/span></code></pre>
+  
+  <p>
+    <strong>Explanation</strong>: Exactly the same code up to the point of output. Now, instead of outputting the XML in raw format we use the class REXML::Document to parse the Result Nodes of the ResultSet into a set of Arrays: titles, summaries, links. This is just an example, since there are plenty more Response Fields that just these 3 and of course one can better control the query with other Request Parameters &#8211; as seen here: <a href="http://developer.yahoo.com/search/web/V1/webSearch.html">http://developer.yahoo.com/search/web/V1/webSearch.html</a>.
+  </p>
+  
+  <h3>
+    Exercise
+  </h3>
+  
+  <p>
+    Code a class that accesses Yahoo! Web Service Utility getTime &#8211; <a href="http://developer.yahoo.com/util/timeservice/V1/getTime.html">http://developer.yahoo.com/util/timeservice/V1/getTime.html</a> &#8211; which has methods that get the current time in Unix format and in milliseconds. It should have Exception Handling &#8211; when the ApplicationID is invalid or the URL isn&#8217;t properly parsed or the HTTP response is not OK.
+  </p>
+  
+  <p>
+    Have fun!
+  </p>
+  
+  <h3>
+    Further Reading
+  </h3>
+  
+  <h3>
+    List of Yahoo! Web Services
+  </h3>
+  
+  <ul>
+    <li>
+      <a href="http://www.yahooapis.com/util/">http://www.yahooapis.com/util/</a> &#8211; <strong>Yahoo! Utility Web Services</strong>: The Utility Web Services are little helpers for applications that consume web services.
+    </li>
+    <li>
+      <a href="http://developer.yahoo.com/openid//">http://developer.yahoo.com/openid/</a> &#8211; <strong>Yahoo! OpenID</strong>: OpenID makes it easy for you to deliver a simplified login experience for your users. Rather than having to create a unique user name and password for your website, users can now use an existing user name and password that they have created elsewhere. Of course, this is true only if &#8220;elsewhere&#8221; is a participating supplier of OpenIDs.
+    </li>
+    <li>
+      <a href="http://developer.yahoo.com/mail/">http://developer.yahoo.com/mail/</a> &#8211; <strong>Yahoo! Mail Web Services</strong>: With the Yahoo! Mail Web Service APIs, you can build applications to perform tasks such as listing messages, displaying folders, and composing and sending messages.
+    </li>
+    <li>
+      <a href="http://www.yahooapis.com/answers/">http://www.yahooapis.com/answers/</a> &#8211; <strong>Yahoo! Answers Web Services</strong>: Tap into the collective knowledge of millions of Yahoo! users with the Yahoo! Answers Web Services APIs. Search for expert advice on any topic, from within your very own site. Watch for new questions in the Answers categories of your choice. Keep track of fresh content from your favorite Answers experts, and more!
+    </li>
+    <li>
+      <a href="http://developer.yahoo.com/search/">http://developer.yahoo.com/search/</a> &#8211; <strong>Yahoo! Search Web Services</strong>: Yahoo! Search Web Services allow you to access Yahoo content and services in your favorite programming languages. This means you can now build Yahoo directly into your own applications. <a href="http://www.ysearchblog.com/archives/000084.html">http://www.ysearchblog.com/archives/000084.html</a> &#8211; A look inside the world of search from the people at Yahoo!
+    </li>
+    <li>
+      <a href="http://developer.yahoo.com/local/">http://developer.yahoo.com/local/</a> &#8211; <strong>Yahoo! Local Web Services</strong>: The content in Yahoo! Local makes a great addition to any mashup, bringing in location-based relevancy and the additional context of what real people have experienced in these places.
+    </li>
+    <li>
+      <a href="http://developer.yahoo.com/maps/">http://developer.yahoo.com/maps/</a> &#8211; <strong>Yahoo! Maps Web Services</strong>: The Yahoo! Maps APIs allow you to embed rich and interactive maps into your web and desktop applications using the Flash, Ajax and Map Image APIs.
+    </li>
+    <li>
+      <a href="http://developer.yahoo.com/travel/">http://developer.yahoo.com/travel/</a> &#8211; <strong>Yahoo! Travel Web Services</strong>: Yahoo! Travel enables you to plan your trips, explore destinations, find airfares, get ratings and reviews for hotels, find things to do, and share your plans with others. The Yahoo! Travel web services enable you to build applications that use the trip plan data from the Yahoo! Travel Trip Planner.
+    </li>
+    <li>
+      <a href="http://www.yahooapis.com/shopping/">http://www.yahooapis.com/shopping/</a> &#8211; <strong>Yahoo! Shopping Web Services</strong>: You can use Yahoo! Shopping Web Services to search their database of millions of product offers and thousands of merchants available through the Yahoo! Shopping site. The API can be used to create applications that provide comparison shopping and product search functionality as well as display user reviews.
+    </li>
+  </ul>
+  
+  <h3>
+    List of available RubyForgeGems for Yahoo! Web Services
+  </h3>
+  
+  <ul>
+    <li>
+      <a href="http://rubyforge.org/projects/yahoo/">http://rubyforge.org/projects/yahoo/</a> &#8211; A Ruby client for Yahoo Web Services.
+    </li>
+    <li>
+      <a href="http://rubyforge.org/projects/activeyahoo/">http://rubyforge.org/projects/activeyahoo/</a> &#8211; ActiveYahoo is a Ruby API for Yahoo! Web Services with a focus on encapsulating Yahoo&#8217;s responses into their own objects. (e.g., a WebSearch object will return a WebSearchResult object).
+    </li>
+    <li>
+      <a href="http://rubyforge.org/projects/ysm4r/">http://rubyforge.org/projects/ysm4r/</a> &#8211; A Ruby client for Yahoo&#8217;s Search Marketing API, enabling Ruby coders to use their favorite language to access Yahoo&#8217;s Search Marketing services!
+    </li>
+    <li>
+      <a href="http://rubyforge.org/projects/yahoolocal/">http://rubyforge.org/projects/yahoolocal/</a> &#8211; Interface with Yahoo Local web service v2. Its Painfully easy: Step 1. Set your api key: Local.api_key = &#8216;yourapikeyhere&#8217; Step 2. Search for late night munchies response = Local.search(&#8216;pizza&#8217;, {:zip => 32304}).
+    </li>
+    <li>
+      <a href="http://rubyforge.org/projects/unifiedsearch/">http://rubyforge.org/projects/unifiedsearch/</a> &#8211; Unified::Search is a Ruby library to provide a unified access wrapper to a number of different search webservices, currently supported are Google, Yahoo, MSN and Teoma. This Project Has Not Released Any Files.
+    </li>
+    <li>
+      <a href="http://rubyforge.org/projects/graticule/">http://rubyforge.org/projects/graticule/</a> &#8211; Graticule is a geocoding API that provides a common interface to all the popular services (Google, Yahoo, Geocoder.us, and MetaCarta), distance calculations, and a command line interface.
+    </li>
+    <li>
+      <a href="http://rubyforge.org/projects/upcoming/">http://rubyforge.org/projects/upcoming/</a> &#8211; A Ruby wrapper for the Upcoming.org REST based API Version 1.0. Upcoming.org is a community website for discovering and sharing events. This Project Has Not Released Any Files.
+    </li>
+    <li>
+      <a href="http://rubyforge.org/projects/upcoming-rb/">http://rubyforge.org/projects/upcoming-rb/</a> &#8211; A simple wrapper around the Yahoo! Upcoming API. This Project Has Not Released Any Files.
+    </li>
+  </ul>
+  
+  <p>
+    <em>Thank you Jose for talking to the users of RubyLearning. In case the readers have any queries, questions on this article, kindly post your questions here and Jose would be glad to answer.</em>
+  </p>
+  
+  <ul>
+    <li>
+      <strong>Note</strong>: The information provided above is derived from the <a href="http://developer.yahoo.com/">Yahoo! Developer Network</a> and all Yahoo! based trademarks and logos are trademarks or registered trademarks of Yahoo.com in the United States and other countries.
+    </li>
+    <li>
+      The above Ruby programs can be <a href="http://rubylearning.com/data/ws.zip">downloaded</a> and tried out.
+    </li>
+  </ul>
+</div>
+
+<p>Technorati Tags: <a href="http://technorati.com/tag/Jose+Carlos+Monteiro" rel="tag">Jose Carlos Monteiro</a>, <a href="http://technorati.com/tag/Portugal" rel="tag">Portugal</a>, <a href="http://technorati.com/tag/REST" rel="tag">REST</a>, <a href="http://technorati.com/tag/Ruby+Programming" rel="tag">Ruby Programming</a>, <a href="http://technorati.com/tag/Yahoo%21+Web+Services" rel="tag">Yahoo! Web Services</a>, <a href="http://technorati.com/tag/Web+Services" rel="tag">Web Services</a></p>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-programming" href="http://rubylearning.com/blog//tags/programming">programming</a>,
+	                
+	                <a class="post-tag post-tag-rest" href="http://rubylearning.com/blog//tags/rest">rest</a>,
+	                
+	                <a class="post-tag post-tag-ruby" href="http://rubylearning.com/blog//tags/ruby">Ruby</a>,
+	                
+	                <a class="post-tag post-tag-ruby-programming" href="http://rubylearning.com/blog//tags/ruby-programming">ruby programming</a>,
+	                
+	                <a class="post-tag post-tag-web-services" href="http://rubylearning.com/blog//tags/web-services">web services</a>,
+	                
+	                <a class="post-tag post-tag-yahoo" href="http://rubylearning.com/blog//tags/yahoo">yahoo</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2008/04/28/some-security-concerns-while-programming-in-ruby/">Some Security Concerns While Programming In Ruby</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2008/04/22/ruby-interview-adam-keys-of-fiveruns/">Ruby Interview: Adam Keys of FiveRuns</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2008\/04\/25\/yahoo-web-services-in-ruby\/';
+    var disqus_title = 'Yahoo! Web Services in Ruby';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2008\/04\/25\/yahoo-web-services-in-ruby\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

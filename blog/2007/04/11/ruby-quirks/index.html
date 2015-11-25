@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Ruby Quirks // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="Satish Talim">
+
+
+  <meta property="og:title" content="Ruby Quirks" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2007/04/11/ruby-quirks/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2007/04/11/ruby-quirks/">Ruby Quirks</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>11</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2007</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">Satish Talim</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-code-snippets" href="http://rubylearning.com/blog//categories/code-snippets">code snippets</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+				
+					<a class="post-category post-category-tricks" href="http://rubylearning.com/blog//categories/tricks">tricks</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p><strong>Ruby Quirks</strong> – peculiarity of behavior? I know this topic is
+debatable and remember &ldquo;one man&rsquo;s meat is another man&rsquo;s poison!&rdquo; I plan
+to write down here (in no particular order), some of the little Ruby
+quirks that I&rsquo;ve picked up and which, I now use comfortably.</p>
+
+<p><strong>1.</strong></p>
+
+<p>Peter Cooper, the author of the book ‘Beginning Ruby&rsquo; introduced me to
+Real-Time chat using an IRC client. On the #ruby channel at
+irc://irc.freenode.net/ I heard of this quirk:</p>
+
+<pre><code>class MotorCycle
+  def initialize(make, color)
+    @make, @color = make, color
+  end
+end
+
+m = MotorCycle.new('Honda', 'blue')
+m.instance_variable_set(:@make, 'Kawasaki')
+m.instance_variable_set(:@gears, 4)
+puts m.inspect
+</code></pre>
+
+<p>Check the output of the above program. In the code above:</p>
+
+<pre><code>m.instance_variable_set(:@gears, 4)
+</code></pre>
+
+<p>sets the instance variable names by <em>symbol</em> to <em>object</em>, thereby
+frustrating the efforts of the class&rsquo;s author to attempt to provide
+proper encapsulation. The variable did not have to exist prior to this
+call. <strong>Update:</strong> Hal Fulton in his excellent book ‘The Ruby Way&rsquo;
+has this to say about <code>instance_variable_set</code>:</p>
+
+<blockquote>
+<blockquote>
+<p>It&rsquo;s true these methods are powerful and potentially dangerous. They should
+be used cautiously, not casually. But it&rsquo;s impossible to say whether
+encapsulation is violated without looking at *how these tools are used*.
+If they are used intentionally as part of a good design, then all is well.
+If they are used to violate the design, or to circumvent a bad design, then
+all is not well.</p>
+</blockquote>
+</blockquote>
+
+<p><strong>2.</strong></p>
+
+<p>This one is not really a quirk but appears to be one, especially for people
+coming from a Java background. Last year, [Shashank Date][1] gave the
+[PuneRuby][2] members a presentation on ‘Why Ruby Shines&rsquo; and three points
+stood out –</p>
+
+<p>&lsquo;Expressions everywhere&rsquo;, ‘Active Class Definitions&rsquo; and ‘Everything is
+an Object&rsquo;.</p>
+
+<p><strong><em>Expressions everywhere</em></strong> – In Ruby, everything
+returns some value. Therefore a class definition is an expression and
+one can say something like:</p>
+
+<pre><code>c = class C
+end
+</code></pre>
+
+<p>The value of c is nil.</p>
+
+<p><strong><em>Active Class Definitions</em></strong> – Look at
+the following program:</p>
+
+<pre><code>class C
+  puts 'In class C'
+end
+</code></pre>
+
+<p>When this class is read the first time, it executes puts and the output
+is – ‘In class C&rsquo;.</p>
+
+<p><strong><em>Everything is an Object</em></strong> – After being with Java since 1995, the concept
+that classes in Ruby are first-class objects, is hard to digest at first – each
+is an instance of class Class. When a new class is defined (typically using
+class Name … end), an object of type Class is created and assigned to a
+constant (Name. in this case). Hal Fulton&rsquo;s suggests a <em>mantra</em> to be recited
+everyday – &ldquo;Class <em>is an object</em>, and Object <em>is a class</em>.&rdquo;</p>
+
+<p><strong>3.</strong></p>
+
+<p>If I want to swap two variables, I would normally use an additional temporary
+variable.</p>
+
+<p>In Ruby, this is not necessary:</p>
+
+<pre><code>x, y = y, x
+</code></pre>
+
+<p>will interchange the values of <code>x</code> and <code>y</code>.</p>
+
+<p><strong>4</strong>.</p>
+
+<p>Jaaron, a reader of
+this Learning Ruby Blog has this quirk for us. This one is well known
+and is the cause of much frustration.</p>
+
+<pre><code>x = 7
+[1,2,3].each do |x|
+end
+</code></pre>
+
+<p>If the name of a block parameter conflicts with the name of a local
+variable, the behavior is to assign the local variable to the argument.
+In this case, the local variable x gets assigned the value 1, then the
+value 2, then the value 3. The value 7 is lost.</p>
+
+<p><strong>Update (13th April):</strong></p>
+
+<p>Matt Chen, Matthew King and Ara Vartanian have commented on this behavior. If
+you refer to Programming Ruby Second Edition eBook (page 100) it says:</p>
+
+<blockquote>
+<blockquote>
+<p>The whole issue with variable scope and blocks is one that generates
+considerable discussion in the Ruby community. The current scheme has
+definite problems (particularly when variables are unexpectedly aliased
+inside blocks), but at the same time no one has managed to come up with
+something thats both better and acceptable to the wider community. Matz is
+promising changes in Ruby 2.0.</p>
+</blockquote>
+</blockquote>
+
+<p><strong>5.</strong></p>
+
+<p>Are instance variables inherited by a sub-class? David Black the author
+of Ruby for Rails has this to say: Instance variables are per-object,
+not per-class, and they&rsquo;re not inherited. But if a method uses one, and
+that method is available to subclasses, then it will still use the
+variable — but “the variable” in the sense of one per object. See the
+following program:</p>
+
+<pre><code>class C
+  def initialize
+    @n = 100
+  end
+
+  def increase_n
+    @n *= 20
+  end
+end
+
+class D &lt; C
+  def show_n
+    puts &quot;n is #{@n}&quot;
+  end
+end
+
+d = D.new
+d.increase_n
+d.show_n
+</code></pre>
+
+<p>The output is:</p>
+
+<pre><code>&gt;ruby p049instvarinherit.rb
+n is 2000
+&gt;Exit code: 0
+</code></pre>
+
+<p><strong>6</strong>.</p>
+
+<p>Morgan Schweers, a reader of this blog has this quirk for us.</p>
+
+<p>Imagine for a moment, that you want to be able to set a variable, but if
+it&rsquo;s not set, you default to a known value. You&rsquo;d rather do it on a
+single line. One of my co-workers tried this:</p>
+
+<pre><code>expand = defined?( expand ) ? expand : true
+</code></pre>
+
+<p>but <code>expand</code> is <em>defined</em> by being on the left hand side, BEFORE
+the RHS is evaluated, so <code>defined?</code> returns <code>true</code>, but because expand
+hasn&rsquo;t got a value yet, it returns nil. I tried:</p>
+
+<pre><code>expand = true unless defined?(expand)
+</code></pre>
+
+<p>and it doesn&rsquo;t help either, which really shocked me.</p>
+
+<p>I always believed that the postfix-conditional was evaluated before even
+beginning to evaluate the operation, but I was distinctly disabused of this
+notion by testing. Note that ‘expand?&rdquo; operator returns nil if its argument
+(which can be an arbitrary expression) is not defined; otherwise it returns a
+description of that argument. I don&rsquo;t understand the reason for the behavior,
+and I think it&rsquo;s a bug, but I&rsquo;d love to know a good language reason for it.</p>
+
+<p>I am sure that you would have noticed many other <strong>Ruby Quirks</strong>. I&rsquo;d
+definitely like to hear and add them here.</p>
+
+<p><strong>Information</strong> Ruby is an open source thorough language of
+utmost balance with combination of Perl, Smalltalk, Lisp, Ada and
+Eiffel. With the recent developments in this language, most developers
+use this language in the middle tier. Today is the era of developing
+online business applications, [mobile software][3]: and its applications.
+Most developers deploy their online applications after getting [business
+web hosting][4] and then they market for these projects through
+[affiliate marketing][5] campaigns or if they do not want to sell their
+project they can use [ppc advertising][6] for earning some revenue or
+can offer [ppc management][7] programs. When they are in the process of
+development usually they [register domain][8] and use [domain
+parking][9] facility, so that once their project is ready they can
+instantly put it on the internet.</p>
+
+<p>Technorati Tags:</p>
+
+<ul>
+<li><p><a href="http://technorati.com/tag/Ruby+Quirks">Ruby Quirks</a></p></li>
+
+<li><p>[1]: <a href="http://rubylearning.com/blog/2007/04/11/interview-shashank-date/">http://rubylearning.com/blog/2007/04/11/interview-shashank-date/</a></p></li>
+
+<li><p>[2]: <a href="http://tech.groups.yahoo.com/group/puneruby/">http://tech.groups.yahoo.com/group/puneruby/</a></p></li>
+
+<li><p>[3]: <a href="http://www.mysoftwarehubs.com">http://www.mysoftwarehubs.com</a></p></li>
+
+<li><p>[4]: <a href="http://www.envisionwebhosting.com">http://www.envisionwebhosting.com</a></p></li>
+
+<li><p>[5]: <a href="http://www.getaffiliates.net">http://www.getaffiliates.net</a></p></li>
+
+<li><p>[6]: <a href="http://www.qualifytraffic.com/Advertising-Info/PPC-Advertising.html">http://www.qualifytraffic.com/Advertising-Info/PPC-Advertising.html</a></p></li>
+
+<li><p>[7]: <a href="http://www.performanceppc.com">http://www.performanceppc.com</a></p></li>
+
+<li><p>[8]: <a href="http://www.namingwiz.com">http://www.namingwiz.com</a></p></li>
+
+<li><p>[9]: <a href="http://www.nationaldomainreg.com/Domain-Parking.html">http://www.nationaldomainreg.com/Domain-Parking.html</a></p></li>
+</ul>
+
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2007/04/19/colourcode-in-ruby/">ColourCode in Ruby</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2007/04/11/interview-shashank-date/">Interview: Shashank Date</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2007\/04\/11\/ruby-quirks\/';
+    var disqus_title = 'Ruby Quirks';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2007\/04\/11\/ruby-quirks\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

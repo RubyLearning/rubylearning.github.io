@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Satish Talim on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/satish-talim/</link>
+    <description>Recent content in Satish Talim on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/satish-talim/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Do You Know How To Use cURL</title>
+      <link>http://rubylearning.com/blog/2015/04/16/do-you-know-how-to-use-curl/</link>
+      <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/04/16/do-you-know-how-to-use-curl/</guid>
+      <description>
+
+&lt;h2 id=&#34;downloading-and-installing-curl:ecd8e27567a98a924278b0bb8f7e4877&#34;&gt;Downloading and installing cURL&lt;/h2&gt;
+
+&lt;p&gt;cURL is available on many platforms, including Windows (all variants),
+OSX (all versions) and Linux (all distros). cURL is available from the
+cURL website at &lt;a href=&#34;http://curl.haxx.se/&#34;&gt;http://curl.haxx.se/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To install cURL on Linux, you should first check for cURL binaries in
+your distributions package repository. For exact instructions on how to
+do this, refer to your distribution&amp;rsquo;s documentation. On Ubuntu and other
+Debian variants, you can install cURL by issuing the following command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get install curl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If cURL is not available in your distribution&amp;rsquo;s package repository or
+you&amp;rsquo;re running another operating system, you can find the right cURL
+package by following the download wizard located at
+&lt;a href=&#34;http://curl.haxx.se/dlwiz/&#34;&gt;http://curl.haxx.se/dlwiz/&lt;/a&gt;. Simply select
+the &amp;ldquo;curl executable&amp;rdquo; option, input information about your computer and
+operating system and it will direct you to the correct file
+download. Once downloaded, extract any files in the archive to an easily
+accessible file (for example, c:\cURL on Windows).&lt;/p&gt;
+
+&lt;p&gt;cURL is a command-line tool. This means it is run from the command
+prompt (in Windows) or terminal (in Linux or OSX) and its results are
+displayed in the terminal window. There is no graphical interface. So in
+order to use cURL, you first have to open a command-line window.&lt;/p&gt;
+
+&lt;p&gt;On Windows, go to Start -&amp;gt; Run and enter &amp;ldquo;cmd&amp;rdquo; (without quotes) into
+the dialog and press enter.&lt;/p&gt;
+
+&lt;p&gt;On OSX, open the Terminal application. You&amp;rsquo;ll find this in the
+Applications/Utilities folder.&lt;/p&gt;
+
+&lt;p&gt;On Linux, open a Bash Prompt or Terminal window.  Again, since all
+distributions are different, refer to your distributions documentation
+for more detailed information.  On Ubuntu, you can open a bash prompt by
+going to Applications -&amp;gt; Accessories -&amp;gt; Terminal.&lt;/p&gt;
+
+&lt;p&gt;Though Windows, OSX and Linux all run different command-line shells (the
+program that interprets commands on the terminal and runs executables),
+the commands presented here will work on all of them.&lt;/p&gt;
+
+&lt;p&gt;First, change the directory to where you extracted the cURL archive. If
+you installed cURL using an installer or a package on Linux, cURL will
+already be in your path (meaning it can be run even though you&amp;rsquo;re not
+currently in the same directory) so this isn&amp;rsquo;t needed. For example, if I
+placed cURL in &lt;code&gt;C:\\cURL&lt;/code&gt; on my Windows computer, I would issue the
+following command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; cd C:\cURL
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can now issue cURL commands. On Linux or OSX, you may have to
+prepend &lt;code&gt;./&lt;/code&gt; to your commands. For example, instead of &lt;code&gt;curl http://some/url&lt;/code&gt;,
+the command you&amp;rsquo;d use would be &lt;code&gt;./curl http://some/url&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To test cURL, enter the following command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -I http://twitter.com/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You should see HTTP response headers. The first line should be &amp;ldquo;HTTP/1.1
+200 OK.&amp;ldquo; This means you&amp;rsquo;ve made a successful request to Twitter using
+cURL.&lt;/p&gt;
+
+&lt;h2 id=&#34;using-curl:ecd8e27567a98a924278b0bb8f7e4877&#34;&gt;Using cURL&lt;/h2&gt;
+
+&lt;p&gt;cURL is a command-line tool. This means it&amp;rsquo;s launched from a command
+line with a number of switches and parameters. Switches change how the
+cURL command will act, and begin with the - character. For example, the
+previous example used the -I switch, which means to display the HTTP
+response headers only, and not the HTTP response body. Parameters pass
+information to either a switch, or the cURL command itself. In the
+previous example, the Twitter URL was a parameter.&lt;/p&gt;
+
+&lt;p&gt;Please refer to the following URL for the various options available in
+cURL:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://curl.haxx.se/docs/manpage.html&#34;&gt;http://curl.haxx.se/docs/manpage.html&lt;/a&gt;
+ &lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

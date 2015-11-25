@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ebooks on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/ebooks/</link>
+    <description>Recent content in Ebooks on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 May 2007 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/ebooks/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ruby eBooks</title>
+      <link>http://rubylearning.com/blog/2007/05/08/ruby-ebooks/</link>
+      <pubDate>Tue, 08 May 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2007/05/08/ruby-ebooks/</guid>
+      <description>&lt;p&gt;Ruby is growing in popularity. For those looking at learning Ruby, there
+are many online resources available. In case you want to learn Ruby
+offline, then here is a list of all the free, &lt;strong&gt;Ruby eBooks&lt;/strong&gt; available
+for download.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/&#34;&gt;Ruby Study Notes&lt;/a&gt;. A thorough collection
+of Ruby Study Notes for those who are new to the language and in
+search of a solid introduction to Ruby’s concepts and constructs.
+&lt;a href=&#34;http://rubylearning.com/download/downloads.html&#34;&gt;Purchase&lt;/a&gt; this
+&lt;strong&gt;Ruby eBook&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sapphiresteel.com/The-Little-Book-Of-Ruby&#34;&gt;The Little Book Of
+Ruby&lt;/a&gt;. It will
+guide you through the fundamentals of Ruby programming.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.infoq.com/minibooks/ruby/&#34;&gt;Mr. Neighborly’s Humble Little Ruby
+Book&lt;/a&gt;. It walks you through
+the very basics of working with Ruby.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you have come across any other free, downloadable eBook on Ruby then
+please post a comment with the url.&lt;/p&gt;
+
+&lt;p&gt;Technorati Tags: &lt;a href=&#34;http://technorati.com/tag/Ruby+eBook&#34;&gt;Ruby eBook&lt;/a&gt;,
+&lt;a href=&#34;http://technorati.com/tag/Ruby+eBooks&#34;&gt;Ruby eBooks&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

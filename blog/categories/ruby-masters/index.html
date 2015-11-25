@@ -1,0 +1,2891 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Ruby Masters // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="">
+
+
+  <meta property="og:title" content="Ruby Masters" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/categories/ruby-masters/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="http://rubylearning.com/blog/categories/ruby-masters/index.xml" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/">Corey Donohoe: How do I learn and master Sinatra?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>7</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://satishtalim.com">Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-learn-sinatra" href="http://rubylearning.com/blog//categories/learn-sinatra">Learn Sinatra</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+					        <a class="post-category post-category-sinatra" href="http://rubylearning.com/blog//categories/sinatra">Sinatra</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Note: We are re-printing this blog post that appeared on 6th July 2009, as the original post is not accessible. Welcome to the first installment on the RL blog, of a mini series &#8211; &#8220;How do I learn and master Sinatra?&#8221; &#8211; by top Rubyists using Sinatra. The interview series will provide insight and commentary from these notable Sinatra developers, with the goal of facilitating and providing answers to the questions Ruby beginners face on how to learn and master Sinatra.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2015/01/07/corey-donohoe-how-do-i-learn-and-master-sinatra/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/">Karel Minarik: How do I learn and master Sinatra? (Reprint)</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>7</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://satishtalim.com">Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-learn-sinatra" href="http://rubylearning.com/blog//categories/learn-sinatra">Learn Sinatra</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+					        <a class="post-category post-category-sinatra" href="http://rubylearning.com/blog//categories/sinatra">Sinatra</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Note: This is reprint of the blog post that appeared on 13th July 2009, as the original is not accessible. Welcome to the fourth installment on the RL blog, of a mini series &#8211; &#8220;How do I learn and master Sinatra?&#8221; &#8211; by top Rubyists using Sinatra. The interview series will provide insight and commentary from these notable Sinatra developers, with the goal of facilitating and providing answers to the questions Ruby beginners face on how to learn and master Sinatra.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2015/01/07/karel-minarik-how-do-i-learn-and-master-sinatra-reprint/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2013/06/19/how-do-i-benchmark-ruby-code/">How do I benchmark Ruby code?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>19</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://jstorimer.com">Jesse Storimer</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+					        <a class="post-category post-category-tricks" href="http://rubylearning.com/blog//categories/tricks">Tricks</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is by Jesse Storimer. Hes the author of <a href="http://www.jstorimer.com/products/working-with-unix-processes">Working With Unix Processes</a>,
+a gentle introduction to Unix system programming for Ruby programmers.
+Jesse has been programming Ruby since joining</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2013/06/19/how-do-i-benchmark-ruby-code/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2013/04/04/ruby-matrix-the-forgotten-library/">Ruby Matrix, the Forgotten Library</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Matthew Kirk</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ruby Matrix, the Forgotten Library This guest post is contributed by Matthew Kirk, who is a partner at Modulus 7, specializing in software development and strategy. The basis of his career has been around utilizing science to improve businesses. He has spoken at technology conferences around the world and in his spare time, he enjoys traveling and adding to his 2000+ vinyl record collection. Remember matrices from math class? No not the movie, but the rectangular array of numbers.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2013/04/04/ruby-matrix-the-forgotten-library/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2011/11/24/questions-on-ruby-ask-an-expert-at-rubylearning/">Questions on Ruby? Ask An Expert at RubyLearning</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://satishtalim.com">Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Questions on Ruby? Ask An Expert at RubyLearning RubyLearning is happy to announce the start of a series of blog posts titled &#8220;Ask An Expert&#8221;. We are assembling experts in various areas of Ruby programming who will answer your questions as a blog post here. To begin with, some of the experts who have agreed to answer your questions are: Gautam Rege on Ruby with MongoDB, Mongo, MongoMapper and Mongoid Gonçalo Silva on Ruby/Rails performance Sau Sheong Chang on Sinatra Sethupathi Asokan on the Ruby devise gem Staffan Nöteberg on Ruby regex Steve Klabnik on Testing in Ruby I am sure there are more Ruby experts to follow.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2011/11/24/questions-on-ruby-ask-an-expert-at-rubylearning/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2011/08/14/performance-testing-rails-applications-how-to/">Performance Testing Rails Applications: How To?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Gonçalo Silva</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+					        <a class="post-category post-category-ruby-on-rails" href="http://rubylearning.com/blog//categories/ruby-on-rails">Ruby on Rails</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Performance Testing Rails Applications: How To? This guest post is by Gonçalo Silva, who is a full-time Ruby on Rails developer at escolinhas.pt and has participated in the Ruby Summer of Code 2010. He loves and contributes to many open-source projects, being a fan of Linux, Ruby and Android. He likes to call himself a hacker, but that&#8217;s just an excuse for being in front of the computer all the time.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2011/08/14/performance-testing-rails-applications-how-to/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2011/07/28/how-do-i-test-my-code-with-minitest/">How do I test my code with Minitest?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Steve Klabnik</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>9 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	How do I test my code with Minitest? This guest post is by Steve Klabnik, who is a software craftsman, writer, and former startup CTO. Steve tries to keep his Ruby consulting hours down so that he can focus on maintaining Hackety Hack and being a core member of Team Shoes, as well as writing regularly for multiple blogs. Programming is an interesting activity. Everyone has their favorite&nbsp;metaphor that really explains what programming means to them.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2011/07/28/how-do-i-test-my-code-with-minitest/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2011/07/27/how-can-we-develop-for-tomorrows-needs/">How Can We Develop For Tomorrow&#39;s Needs?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>27</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >James Schorr</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>10 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	How Can We Develop For Tomorrow&#8217;s Needs? This guest post is by James Schorr, who has been developing software since 1999. He is the owner of an IT consulting company, Enspiren IT Consulting, LLC. He lives with his lovely wife, Tara, and their children in Kansas City, Missouri. James spends a lot of time writing code in many languages, doing IT security audits, and has a passion for Ruby on Rails in particular.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2011/07/27/how-can-we-develop-for-tomorrows-needs/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2011/07/18/cryptography-or-how-i-learned-to-stop-worrying-and-love-aes/">Cryptography Or: How I Learned to Stop Worrying, and Love AES</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Phillip Gawlowski</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Cryptography Or: How I Learned to Stop Worrying, and Love AES This guest post is by Phillip Gawlowski, who is living in the German wilderness of Oberberg near Cologne. Phillip spends his time writing Ruby as a hobby just for fun. He tries to make life a little easier for himself and for others when he is crazy enough to release his code as open source. He&#8217;s neither famous nor rich, but likes it that way (most of the time).
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2011/07/18/cryptography-or-how-i-learned-to-stop-worrying-and-love-aes/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2011/07/12/throw-catch-raise-rescue--im-so-confused/">Throw, Catch, Raise, Rescue- I&#39;m so confused!</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>12</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Avdi Grimm</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">ruby masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Throw, Catch, Raise, Rescue&#8230; I&#8217;m so confused! This guest post is by Avdi Grimm, who is the author of &#8220;Exceptional Ruby&#8220;, an in-depth guide to exceptions and failure handling in Ruby. RubyLearning readers can get a $3 discount on the book by using code RUBYLEARN. Avdi has been hacking Ruby code for 10 years, and is still loving it. He is chief aeronaut at ShipRise, a consultancy specializing in sustainable software development and in helping geographically dispersed teams work more effectively.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2011/07/12/throw-catch-raise-rescue--im-so-confused/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2011/03/01/how-do-i-smell-ruby-code/">How do I smell Ruby code?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>1</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Timon Vonk</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	How do I smell Ruby code? Understanding the worst of code This guest post is by Timon Vonk, who is a self-employed Ruby enthusiast and standard nerd with an edge. He has worked with Ruby for several years, but is well-known with many other (programming) languages. Also likes martial arts, loud music, varying quantities of booze and a good scotch. Introduction Writing bad code isn&#8217;t a bad thing. Not understanding the problem you&#8217;re trying to solve any better after having written that piece of code is.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2011/03/01/how-do-i-smell-ruby-code/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2011/02/18/interview-michael-hartl-author-of-the-ruby-on-rails-tutorial-railstutorial.org/">Interview: Michael Hartl, author of the Ruby on Rails Tutorial (railstutorial.org)</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://satishtalim.com">Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-rails" href="http://rubylearning.com/blog//categories/rails">Rails</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+					        <a class="post-category post-category-ruby-on-rails" href="http://rubylearning.com/blog//categories/ruby-on-rails">Ruby on Rails</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	RubyLearning participants talk to Michael Hartl the author of the Ruby on Rails Tutorial (railstutorial.org). Satish Talim Welcome Michael and thanks for taking out time for RubyLearning. For the benefit of the readers of this blog could you please introduce yourself and tell us what you do for a living? Michael Happy to be here. I&#8217;m a programmer, educator, and entrepreneur. Recently, I&#8217;ve been focused on making educational products and selling them online.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2011/02/18/interview-michael-hartl-author-of-the-ruby-on-rails-tutorial-railstutorial.org/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2011/01/03/how-do-i-make-a-command-line-tool-in-ruby/">How do I make a command-line tool in Ruby?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>3</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Allen Wei</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	How do I make a command-line tool in Ruby? This guest post is by Allen Wei, who works as Senior Ruby On Rails Engineer for Seravia, in Beijing. He is very enthusiastic about Ruby. He started using Ruby after several years of using Java, .NET and never came back to them. When he has some spare time, he develops Ruby gems, holds tech sessions, and shares his experience in his blog.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2011/01/03/how-do-i-make-a-command-line-tool-in-ruby/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/12/21/being-awesome-with-the-mongodb-ruby-driver/">Being Awesome with the MongoDB Ruby Driver</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>21</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://twitter.com/ethangunderson">Ethan Gunderson</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is by <strong>Ethan Gunderson</strong>, who is a software developer
+living in Chicago. By day he is a developer at</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/12/21/being-awesome-with-the-mongodb-ruby-driver/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/">How do I keep multiple Ruby projects separate?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>20</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Steve Klabnik</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>7 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">Popular</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	How do I keep multiple Ruby projects separate? This guest post is by Steve Klabnik, who is a software craftsman, writer, and former startup CTO. Steve tries to keep his Ruby consulting hours down so that he can focus on maintaining Hackety Hack and being a core member of Team Shoes, as well as writing regularly for multiple blogs. If you’re anything like me, you’re already starting a new project immediately after wrapping up the last one.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/12/15/getting-started-with-heroku/">Getting started with Heroku</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Ben Scofield</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>10 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-heroku" href="http://rubylearning.com/blog//categories/heroku">Heroku</a>
+      					
+					        <a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">Popular</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Getting started with Heroku This guest post is by Ben Scofield, who is Heroku’s developer advocate, responsible for listening to the tens of thousands of developers deploying their Ruby applications to the cloud. He’s spoken at many conferences around the world, and in 2010 became the co-chair for RailsConf. Introduction Heroku has been in the news a lot lately, and it’s been a popular choice for Ruby application developers for a few years.If you haven’t worked with it before, here’s your chance — it’s designed to be as painless as possible to get going, and to give a powerful, stable, and scalable platform for your code.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/12/15/getting-started-with-heroku/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/12/14/ruby-gems--what-why-and-how/">Ruby gems — what, why and how</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Gonçalo Silva</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<h2 id="ruby-gems-what-why-and-how:81bf5c39fd316a8dded83db252799bf5">Ruby gems — what, why and how</h2>
+
+<p>This guest post is by <strong>Gonçalo Silva</strong>, who is a full-time Ruby on
+Rails developer at <a href="http://escolinhas.pt/">escolinhas.pt</a> and has
+participated in the Ruby Summer of Code 2010. He loves and contributes
+to many open-source projects, being a fan of Linux, Ruby and Android. He
+likes to call himself a hacker, but that’s just an excuse for being in
+front of the computer all the time. Oh, and he tweets at
+<a href="http://twitter.com/goncalossilva">@goncalossilva</a>.</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/12/14/ruby-gems--what-why-and-how/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/12/08/my-ruby-regrets/">My Ruby Regrets</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>8</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Jeff Langr</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<h2 id="my-ruby-regrets:89ef3b5b060283b42151b93f55824cbd">My Ruby Regrets</h2>
+
+<p>This guest post is by <strong>Jeff Langr</strong>, who has developed software for
+thirty years, mastering many other languages (including Smalltalk, C++,
+Java, and currently C#), but just not Ruby and Python… yet. (Ever?) He
+owns the consulting and training company</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/12/08/my-ruby-regrets/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/11/30/how-do-i-build-dsls-with-yield-and-instance_eval/">How do I build DSLs with yield and instance_eval?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Michael Bleigh</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>10 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is by <strong>Michael Bleigh</strong>, a Rubyist developing web
+applications and more for <a href="http://intridea.com/">Intridea</a> from his
+hometown of Kansas City. He is a prolific member of the open-source and
+Ruby communities, releasing such projects as</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/11/30/how-do-i-build-dsls-with-yield-and-instance_eval/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/11/24/how-does-one-effectively-combine-ruby-with-git-for-source-control/">How does one effectively combine Ruby with Git for source control?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Erik Andrejko</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>10 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is by <strong>Erik Andrejko</strong>, a software developer living in
+San Francisco who spends his days working on web applications and
+solving data mining and machine learning problems</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/11/24/how-does-one-effectively-combine-ruby-with-git-for-source-control/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/11/23/dont-know-metaprogramming-in-ruby/">Don&#39;t Know Metaprogramming In Ruby?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>23</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Gavin Morrice</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>11 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">beginners</a>
+      					
+					        <a class="post-category post-category-metaprogramming" href="http://rubylearning.com/blog//categories/metaprogramming">metaprogramming</a>
+      					
+					        <a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">popular</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">ruby masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is by <strong>Gavin Morrice</strong>, Managing Director of <a href="http://katanacode.com">Katana
+Code Ltd.</a>, a software boutique based in
+Edinburgh, Scotland. He likes sharing Rails tips</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/11/23/dont-know-metaprogramming-in-ruby/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/11/17/does-ruby-have-too-many-equality-tests/">Does Ruby Have Too Many Equality Tests?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>17</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Eric Anderson</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Does Ruby Have Too Many Equality Tests? This guest post is by Eric Anderson, who develops web-based applications for small businesses though his company Pixelware, LLC in Atlanta, GA. He also runs SaveYourCall.com which allows people to record phone calls from any phone without the need for any complicated hardware. You probably started using == out of habit from other languages. It seems to work and that seems good enough. But then you might start seeing ===, =~, eql?
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/11/17/does-ruby-have-too-many-equality-tests/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/11/16/why-use-single-sign-in-solutions-in-rails/">Why Use Single Sign-in Solutions in Rails?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>16</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Omar Mekky</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>10 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Why Use Single Sign-in Solutions in Rails? This guest post is by Omar A. Mekky, a software developer living in Cairo, Egypt. His interests are every thing related to technology, sports or science. He is a partner in Mash Ltd. in Egypt and enjoys writing about Rails from time to time. Contact Omar at cousine.me or via twitter @cousine. Single sign-in solutions are becoming all popular and practical today. In this article we will see how we can approach this problem by building a simple restful provider and consumer using Authentasaurus on Rails.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/11/16/why-use-single-sign-in-solutions-in-rails/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/11/08/do-you-know-resque/">Do YOU know Resque?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>8</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Dave Hoover</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">Popular</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is by <strong><a href="http://redsquirrel.com/dave">Dave Hoover</a></strong>,
+who authored the book <a href="http://oreilly.com/catalog/9780596518387">Apprenticeship Patterns: Guidance for the
+Aspiring Software Craftsman</a>
+for O’Reilly, instigated the <a href="http://scna.softwarecraftsmanship.org/">Software Craftsmanship North America
+conference</a>, and is the Chief
+Craftsman at <a href="http://obtiva.com">Obtiva</a>. Dave began teaching himself to
+program in 2000</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/11/08/do-you-know-resque/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/11/08/how-does-your-code-smell/">How does your code smell?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>8</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Kevin Rutherford</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	How does your code smell? This guest post is by Dr. Kevin Rutherford, a UK-based agile/XP coach, developer and project leader, with over 25 years experience in software development. He is also the founder of AgileNorth and XP-Manchester. Contact him via http://www.kevinrutherford.co.uk. I expect you’re a conscientious modern developer. You write your code using test-driven or behaviour-driven development, and you never write a line of production code unless it is needed in order to make a test pass.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/11/08/how-does-your-code-smell/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/11/03/do-you-understand-rubys-objects-messages-and-blocks/">Do You Understand Ruby&#39;s Objects, Messages and Blocks?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>3</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Ed Howland</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>9 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">ruby masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is by <strong><a href="http://greenprogrammer.wordpress.com/">Ed Howland</a></strong>,
+an independent consultant who has worked in Ruby and RoR for more than 5 years,
+since the 0.13 days of Rails. He has over 22 years in the software development
+industry</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/11/03/do-you-understand-rubys-objects-messages-and-blocks/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/10/26/do-you-know-whats-new-in-ruby-1.9/">Do you know what&#39;s new in Ruby 1.9?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>26</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Carlo Pecchia</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">ruby masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is by <strong><a href="http://carlopecchia.eu/">Carlo Pecchia</a></strong>, who
+is an IT engineer mainly interested on agile methodologies and &ldquo;good
+practices&rdquo; for developing large and complex systems. He is also
+interested in web architectures and emerging programming languages.</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/10/26/do-you-know-whats-new-in-ruby-1.9/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/10/25/the-value-of-a-personal-bug-log/">The value of a personal bug log</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>25</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Brian Tarbox</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-general" href="http://rubylearning.com/blog//categories/general">General</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	The value of a personal bug log This guest post is by Brian Tarbox, who is a Distinguished Member of Technical Staff at Motorola where he works on Video On Demand Systems. He also blogs about applying a Wabi Sabi approach to software, cognition and philosophy at briantarbox.blogspot.com. He is a regular contributor to the Pragmatic Programmer magazine. His open source project for converting computer log files to music just won an Oracle Duke’s Choice award.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/10/25/the-value-of-a-personal-bug-log/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/10/18/do-you-enjoy-your-code-quality/">Do You Enjoy Your Code Quality?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >James Schorr</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>9 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">Popular</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is by <strong>James Schorr</strong>, who has been developing software
+since 1999. He is the owner of an IT consulting company, <a href="https://enspirenconsulting.com">Enspiren IT
+Consulting, LLC</a>.  He lives with his
+lovely wife, Tara, and their children in Kansas City, Missouri. James
+spends a lot of time writing code in many languages, doing IT security
+audits, and has a passion for Ruby on Rails in particular. He also loves</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/10/18/do-you-enjoy-your-code-quality/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/10/08/does-ror-deployment-deprive-you-of-your-sleep/">Does ROR deployment deprive YOU of your sleep?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>8</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Fabio Akita</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong>Fabio Akita</strong>, who works as Project
+Manager for GoNow Tecnologia, in Brazil, leading Ruby on Rails projects.
+He worked for Locaweb, the largest web hosting company in Latin America
+where he helped implement the support for Rails in a shared web hosting
+for the first time. He and Locaweb also joined forces to create the</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/10/08/does-ror-deployment-deprive-you-of-your-sleep/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/10/07/do-you-know-rubys-chainsaw-method/">Do YOU know Ruby&#39;s &#34;Chainsaw&#34; method?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>7</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Paolo Perrotta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">beginners</a>
+      					
+					        <a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">popular</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">ruby masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong><a href="http://rubylearning.com/blog/2009/07/01/interview-author-paolo-perrotta/">Paolo
+Perrotta</a></strong>,
+a freelance geek, currently coaching agile teams for a large phone
+company. He also wrotes</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/10/07/do-you-know-rubys-chainsaw-method/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/10/06/gem-sawyer-modern-day-ruby-warrior/">Gem Sawyer, Modern Day Ruby Warrior</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>6</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Nick Quaranto</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong><a href="http://twitter.com/qrush">Nick
+Quaranto</a></strong>, a web developer at
+<a href="http://thoughtbot.com/">Thoughtbot</a> in Boston, MA. Nick maintains</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/10/06/gem-sawyer-modern-day-ruby-warrior/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/10/05/an-introduction-to-outside-in-development/">An Introduction to Outside-in Development</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://twitter.com/hgimenez">Harold Gimenez</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>23 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">Popular</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong>Harold Giménez</strong>, who is a web
+developer with the crew at <a href="http://thoughtbot.com/">thoughtbot</a>, where
+he spends his days working with Rails and writing open source software.
+He&rsquo;s also involved with</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/10/05/an-introduction-to-outside-in-development/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/10/04/ruby-forensics/">Ruby Forensics</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://twitter.com/elise_huard">Elise Huard</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong><a href="http://twitter.com/elise_huard">Elise
+Huard</a></strong>, who is based in Brussels, Belgium and
+is the owner of</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/10/04/ruby-forensics/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/10/01/an-introduction-to-eventmachine-and-how-to-avoid-callback-spaghetti/">An introduction to eventmachine, and how to avoid callback spaghetti</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>1</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Martyn Loughran</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>11 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">Popular</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong><a href="http://mloughran.com/">Martyn
+Loughran</a></strong>, who works at <a href="http://new-bamboo.co.uk/">New
+Bamboo</a> in London where he builds some very
+cool apps like</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/10/01/an-introduction-to-eventmachine-and-how-to-avoid-callback-spaghetti/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/09/30/the-testing-mindset/">The Testing Mindset</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Noel Rappin</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>11 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong><a href="http://www.railsrx.com/">Noel
+Rappin</a></strong>, who is a Senior Consultant with
+Obtiva, and has been a professional web developer for a dozen years. He
+is the author of four technical books. The most recent, <em>Rails Test
+Prescriptions</em></p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/09/30/the-testing-mindset/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/09/29/an-introduction-to-desktop-apps-with-ruby/">An Introduction to Desktop Apps with Ruby</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>29</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Martin Sadler</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong><a href="http://beyondthetype.com/">Martin
+Sadler</a></strong>, who has over 10 years experience
+in the web development industry working with a range of successful high
+profile businesses, public sector organisations, and individuals. He is
+best known in the Ruby community as the creator of</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/09/29/an-introduction-to-desktop-apps-with-ruby/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/09/28/the-ruby-movement/">The Ruby movement</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="https://plus.google.com/&#43;MattAimonetti/about">Matt Aimonetti</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>7 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong><a href="http://matt.aimonetti.net/">Matt Aimonetti</a></strong>,
+a Senior Engineer at Sony Playstation in San Diego, CA.
+<a href="https://plus.google.com/+MattAimonetti/about">Matt</a> has been
+active in the Ruby community for many years, he developed or contributed
+to a lot OSS libraries and frameworks, spoke at users groups and
+conferences in the U.S. and abroad. Working with startups, fortune 100
+companies and traditional companies, he had the opportunity</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/09/28/the-ruby-movement/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/09/27/almost-everything-is-an-object-and-everything-is-almost-an-object/">Almost everything is an object (and everything is almost an object!)</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>27</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >David Black</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>7 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong>David A. Black</strong>, a Senior Developer
+with <a href="http://www.cyrusinnovation.com">Cyrus Innovation, Inc.</a> David has
+been programming in Ruby for ten years, and is the author of</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/09/27/almost-everything-is-an-object-and-everything-is-almost-an-object/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/09/24/so-youre-new-to-ruby/">So, you&#39;re new to Ruby!</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Julio Javier Cicchelli</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>12 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">ruby masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong><a href="http://twitter.com/monsieur_rock">Javier
+Cicchelli</a></strong>, a Software Engineer at
+<a href="http://rock-n-code.com">Rock &amp; Code</a>, the Software and Marketing
+communications shop that rocks! Currently, they are doing their dirty
+deeds and conducting their high voltage operations in the (in)famous Red
+Light District in Amsterdam, The Netherlands. Some four years ago, he
+started developing all the symptoms of a peculiar case of programmer&rsquo;s
+schizophrenia. It all happened when</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/09/24/so-youre-new-to-ruby/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/09/23/incorporating-web-apis-to-spark-computer-programming-exercises/">Incorporating Web APIs to spark computer programming exercises</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>23</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Karmen Blake</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong>Karmen Blake</strong>, who is a software
+developer for <a href="http://wildfireapp.com/">Wildfireapp</a>, focused on
+creating apps to better help companies integrate branded interactive
+campaigns with viral features of the social web. Karmen has over 10
+years of experience in software development</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/09/23/incorporating-web-apis-to-spark-computer-programming-exercises/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/09/22/14-ways-to-have-fun-coding-ruby/">14 Ways To Have Fun Coding Ruby</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>22</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Jeff Schoolcraft</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">Popular</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong>Jeff Schoolcraft</strong>, who runs <a href="http://thequeue.net/">The
+Queue Incorporated</a> a freelance consultancy that
+provides custom software development in Ruby, Rails and iOS. He produces
+screencasts with his partner, Istvan Hoka, at
+<a href="http://bddcasts.com/">BDDCasts</a>. When he&rsquo;s not building his business
+he&rsquo;s trying to keep up with</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/09/22/14-ways-to-have-fun-coding-ruby/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/09/21/writing-modular-web-applications-with-rack/">Writing modular web applications with Rack</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>21</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Sau Sheong Chang</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>11 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<h2 id="writing-modular-web-applications-with-rack:86c823197e7c8fd58e50e1f2aed5f56f">Writing modular web applications with Rack</h2>
+
+<p>This guest post is contributed by <strong>Sau Sheong Chang</strong>, who is currently
+the Director of the Applied Cloud Computing Lab, in HP Labs Singapore.</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/09/21/writing-modular-web-applications-with-rack/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/09/20/how-to-learn-ruby-or-any-programming-language/">How to Learn Ruby (or any programming language)</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>20</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Geoffrey Grosenbach</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p>This guest post is contributed by <strong><a href="https://topfunky.backpackit.com/pub/846300-conference-bio">Geoffrey
+Grosenbach</a></strong>,
+who designs, produces, and publishes the acclaimed</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/09/20/how-to-learn-ruby-or-any-programming-language/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2010/09/08/ruby-gurus-to-blog-on-rubylearning/">Ruby Gurus to blog on RubyLearning</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>8</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://satishtalim.com">Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<h2 id="ruby-gurus-to-blog-on-rubylearning:8514f35d161d91c7424c1eaa5c26ff89">Ruby Gurus to blog on RubyLearning</h2>
+
+<p>RubyLearning is happy to announce that the following Ruby Gurus would be
+individually writing a guest blog post here starting 20th Sept. 2010.
+The focus of the blog post would be towards <em>Ruby Newbies</em>. These gurus
+are:</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2010/09/08/ruby-gurus-to-blog-on-rubylearning/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2009/06/24/follow-10-rubyists-using-sinatra-on-twitter/">Follow 10&#43; Rubyists using Sinatra on Twitter</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2009</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://satishtalim.com">Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+					        <a class="post-category post-category-sinatra" href="http://rubylearning.com/blog//categories/sinatra">Sinatra</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	What&#8217;s Twitter? The New York Times says: Twitter is a simple messaging service that you&#8217;ve either heard about a lot or not at all. Either way, it&#8217;s a fun and useful tool, well worth trying if you want to reach potential and existing customers, employees or employers. List of Rubyists Using Sinatra This list of over 10 Rubyists using Sinatra, is in alphabetical order, with a link to their Twitter profile.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2009/06/24/follow-10-rubyists-using-sinatra-on-twitter/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2009/01/20/little-known-ways-to-ruby-mastery-by-ryan-bates/">Little Known Ways to Ruby Mastery by Ryan Bates</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>20</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2009</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://satishtalim.com">Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the last installment of the weekly interview series on the RL blog – “Path to Ruby Mastery” – by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. This week, we’re happy to have Ryan Bates from USA.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2009/01/20/little-known-ways-to-ruby-mastery-by-ryan-bates/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2009/01/13/little-known-ways-to-ruby-mastery-by-thibaut-barrere/">Little Known Ways to Ruby Mastery by Thibaut Barrere</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>13</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2009</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://satishtalim.com">Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>9 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the next installment of the weekly interview series on the RL blog – “Path to Ruby Mastery” – by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. This week, we’re happy to have Thibaut Barrere from France.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2009/01/13/little-known-ways-to-ruby-mastery-by-thibaut-barrere/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2009/01/06/little-known-ways-to-ruby-mastery-by-josh-susser/">Little Known Ways to Ruby Mastery by Josh Susser</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>6</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2009</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://satishtalim.com">Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>10 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the next installment of the weekly interview series on the RL blog – “Path to Ruby Mastery” – by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. We welcome your suggestions for interviewees and questions.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2009/01/06/little-known-ways-to-ruby-mastery-by-josh-susser/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/12/30/little-known-ways-to-ruby-mastery-by-ilya-grigorik/">Little Known Ways to Ruby Mastery by Ilya Grigorik</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" href="http://satishtalim.com">Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>11 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the next installment of the weekly interview series on the RL blog &#8211; &#8220;Path to Ruby Mastery&#8221; &#8211; by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. We welcome your suggestions for interviewees and questions.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/12/30/little-known-ways-to-ruby-mastery-by-ilya-grigorik/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/12/16/little-known-ways-to-ruby-mastery-by-peter-cooper/">Little Known Ways to Ruby Mastery by Peter Cooper</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>16</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>11 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the next installment of the weekly interview series on the RL blog &#8211; &#8220;Path to Ruby Mastery&#8221; &#8211; by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. We welcome your suggestions for interviewees and questions.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/12/16/little-known-ways-to-ruby-mastery-by-peter-cooper/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/12/09/little-known-ways-to-ruby-mastery-by-chris-matthieu/">Little Known Ways to Ruby Mastery by Chris Matthieu</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>9</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the next installment of the weekly interview series on the RL blog &#8211; &#8220;Path to Ruby Mastery&#8221; &#8211; by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. We welcome your suggestions for interviewees and questions.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/12/09/little-known-ways-to-ruby-mastery-by-chris-matthieu/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/12/02/little-known-ways-to-ruby-mastery-by-ezra-zygmuntowicz/">Little Known Ways to Ruby Mastery by Ezra Zygmuntowicz</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>2</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the next installment of the weekly interview series on the RL blog &#8211; &#8220;Path to Ruby Mastery&#8221; &#8211; by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. We welcome your suggestions for interviewees and questions.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/12/02/little-known-ways-to-ruby-mastery-by-ezra-zygmuntowicz/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/11/25/little-known-ways-to-ruby-mastery-by-bruce-tate/">Little Known Ways to Ruby Mastery by Bruce Tate</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>25</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the next installment of the weekly interview series on the RL blog &#8211; &#8220;Path to Ruby Mastery&#8221; &#8211; by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. We welcome your suggestions for interviewees and questions.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/11/25/little-known-ways-to-ruby-mastery-by-bruce-tate/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/11/18/little-known-ways-to-ruby-mastery-by-ian-dees/">Little Known Ways to Ruby Mastery by Ian Dees</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the next installment of the weekly interview series on the RL blog &#8211; &#8220;Path to Ruby Mastery&#8221; &#8211; by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. We welcome your suggestions for interviewees and questions.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/11/18/little-known-ways-to-ruby-mastery-by-ian-dees/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/11/11/little-known-ways-to-ruby-mastery-by-jonathan-conway/">Little Known Ways to Ruby Mastery by Jonathan Conway</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>11</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the next installment of the weekly interview series on the RL blog &#8211; &#8220;Path to Ruby Mastery&#8221; &#8211; by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. We welcome your suggestions for interviewees and questions.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/11/11/little-known-ways-to-ruby-mastery-by-jonathan-conway/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/10/29/50-rubyists-to-follow-on-twitter/">50&#43; Rubyists to Follow on Twitter</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>29</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	The response to an earlier post &#8220;Famous Ruby Personalities: Who do you recommend?&#8221; was very encouraging and many wrote in asking for the Twitter profiles of these Famous Ruby Personalities and other Ruby developers and bloggers. But What&#8217;s Twitter? The New York Times says: Twitter is a simple messaging service that you&#8217;ve either heard about a lot or not at all. Either way, it&#8217;s a fun and useful tool, well worth trying if you want to reach potential and existing customers, employees or employers.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/10/29/50-rubyists-to-follow-on-twitter/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/10/28/little-known-ways-to-ruby-mastery-by-chris-osullivan/">Little Known Ways to Ruby Mastery by Chris O&#39;Sullivan</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>7 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">ruby masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	<p><div>
+  <h3>
+    A weekly series from the Ruby Masters
+  </h3></p>
+
+<p><p class="update">
+  Welcome to the next installment of the weekly interview series on the <abbr title="RubyLearning">RL</abbr> blog &#8211; &#8220;<strong>Path to Ruby Mastery</strong>&#8221; &#8211; by top trainers and developers in the <strong>Ruby community</strong>, from across the globe.</p>
+
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/10/28/little-known-ways-to-ruby-mastery-by-chris-osullivan/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/10/21/little-known-ways-to-ruby-mastery-by-jay-fields/">Little Known Ways to Ruby Mastery by Jay Fields</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>21</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>11 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the next installment of the weekly interview series on the RL blog &#8211; &#8220;Path to Ruby Mastery&#8221; &#8211; by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. We welcome your suggestions for interviewees and questions.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/10/21/little-known-ways-to-ruby-mastery-by-jay-fields/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/10/14/little-known-ways-to-ruby-mastery-by-stuart-halloway/">Little Known Ways to Ruby Mastery by Stuart Halloway</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+					        <a class="post-category post-category-training" href="http://rubylearning.com/blog//categories/training">Training</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the next installment of the weekly interview series on the RL blog &#8211; &#8220;Path to Ruby Mastery&#8221; &#8211; by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. We welcome your suggestions for interviewees and questions.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/10/14/little-known-ways-to-ruby-mastery-by-stuart-halloway/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/10/07/little-known-ways-to-ruby-mastery-by-dr-nic-williams/">Little Known Ways to Ruby Mastery by Dr Nic Williams</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>7</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+					        <a class="post-category post-category-training" href="http://rubylearning.com/blog//categories/training">Training</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the next installment of the weekly interview series on the RL blog &#8211; &#8220;Path to Ruby Mastery&#8221; &#8211; by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. We welcome your suggestions for interviewees and questions.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/10/07/little-known-ways-to-ruby-mastery-by-dr-nic-williams/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/09/30/little-known-ways-to-ruby-mastery-by-james-edward-gray-ii/">Little Known Ways to Ruby Mastery by James Edward Gray II</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>7 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+					        <a class="post-category post-category-training" href="http://rubylearning.com/blog//categories/training">Training</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters Welcome to the second installment of the weekly interview series on the RL blog &#8211; &#8220;Path to Ruby Mastery&#8221; &#8211; by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. We welcome your suggestions for interviewees and questions.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/09/30/little-known-ways-to-ruby-mastery-by-james-edward-gray-ii/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/09/25/famous-ruby-personalities-who-do-you-recommend/">Famous Ruby Personalities: Who do you recommend?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>25</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ruby is designed to make programmers happy Do we really care? Goggle for Famous Ruby Personalities and you will be surprised to find no relevant information on this. Let us try and addresses this issue and salute the Famous Ruby Personalities that have helped Ruby developers and enthusiasts have fun, joy and be happy while programming! Rock Stars Yukihiro Matsumoto or &#8220;Matz,&#8221; as he is known online, obviously is the first choice for giving us this wonderful Ruby programming language.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/09/25/famous-ruby-personalities-who-do-you-recommend/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/blog/2008/09/23/little-known-ways-to-ruby-mastery-by-jamie-van-dyke/">Little Known Ways to Ruby Mastery by Jamie van Dyke</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>23</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2008</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >Satish Talim</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+      					
+					        <a class="post-category post-category-interview" href="http://rubylearning.com/blog//categories/interview">Interview</a>
+      					
+					        <a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+      					
+					        <a class="post-category post-category-training" href="http://rubylearning.com/blog//categories/training">Training</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	A weekly series from the Ruby Masters We&#8217;re excited to launch a new interview series on the RL blog &#8211; &#8220;Path to Ruby Mastery&#8221; &#8211; by top trainers and developers in the Ruby community, from across the globe. The interview series will provide insight and commentary from these notable Ruby trainers and developers, with the goal of facilitating and providing answers to the questions Ruby beginners face. We welcome your suggestions for interviewees and questions.
+            </article>
+			<div class="read-more-link">
+				<a href="/blog/2008/09/23/little-known-ways-to-ruby-mastery-by-jamie-van-dyke/"><span class="read-more-slashes">//</span>Read More...</a>
+			</div>
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+  
+</body>
+</html>

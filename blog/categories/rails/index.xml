@@ -1,0 +1,3191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rails on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/rails/</link>
+    <description>Recent content in Rails on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Jan 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/rails/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Routing Basics: Ruby on Rails for Front-End Developers</title>
+      <link>http://rubylearning.com/blog/2014/01/29/routing-basics-ruby-on-rails-for-front-end-developers/</link>
+      <pubDate>Wed, 29 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2014/01/29/routing-basics-ruby-on-rails-for-front-end-developers/</guid>
+      <description>
+
+&lt;h2 id=&#34;routing-basics-ruby-on-rails-for-front-end-developers:4e7b8dbbe1de83e198d0a24ae124a1b5&#34;&gt;Routing Basics: Ruby on Rails for Front-End Developers&lt;/h2&gt;
+
+&lt;p&gt;This guest post is by&amp;nbsp;&lt;strong&gt;Miles Matthias&lt;/strong&gt;, who in between
+trips and sips, usually with planes and bourbon, enjoys talking to people
+about difficult challenges and tapping on his keyboard to help solve them.
+He moved to Boulder in January of 2012, after meeting his future wife and
+picking up degrees in Computer Science and Information Assurance in Omaha,
+Nebraska. Boulder was his ninth move after growing up in Virginia, Kansas,
+Illinois, and Indiana, and would be more than happy if Colorado became his
+permanent home. With experience in network security monitoring,
+vulnerability assessments, red hat teaming, bash scripting, and web and iOS
+development, he enjoys building simple and beautiful applications,
+contributing to the open source community, and writing about his life
+experiences.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#34;Miles Matthias&#34;
+src=&#34;http://rubylearning.com/images/MilesMatthias.jpg&#34; width=&#34;125&#34; height=&#34;125&#34;
+/&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s an excerpt from my book&amp;rsquo;s chapter on routing, and then I&amp;rsquo;ll give you
+some examples:&lt;/p&gt;
+
+&lt;h2 id=&#34;routes-config:4e7b8dbbe1de83e198d0a24ae124a1b5&#34;&gt;Routes config&lt;/h2&gt;
+
+&lt;p&gt;Remember that bit about convention over configuration? Well rails definitely
+prefers configuration to convention in one instance &amp;ndash; routes. In the file
+&lt;code&gt;config/routes.rb&lt;/code&gt;, you&amp;rsquo;ll find direction given to the rails router on which
+controller method to call for a given request. Here&amp;rsquo;s a simple route
+declaration:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rails&#34;&gt;match &#39;articles&#39;, to: &#39;articles#index&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If a user makes a request to &lt;code&gt;yoursite.com/articles&lt;/code&gt;, the rails router will
+look for a controller called &lt;code&gt;ArticlesController&lt;/code&gt; and if there&amp;rsquo;s a method
+called &lt;code&gt;index&lt;/code&gt;, it will call it, passing along the information in the request.
+Then it&amp;rsquo;s up to the controller to respond.&lt;/p&gt;
+
+&lt;h2 id=&#34;resources:4e7b8dbbe1de83e198d0a24ae124a1b5&#34;&gt;Resources&lt;/h2&gt;
+
+&lt;p&gt;You&amp;rsquo;ll also see what rails calls &lt;code&gt;resources&lt;/code&gt; in the routes file, which promotes
+the convention over configuration pattern. Resources handle the 85% case where
+your application is representing standard RESTful CRUD operations on a &amp;lsquo;thing&amp;rsquo;,
+such as an article. The above example route could be replaced with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rails&#34;&gt;resources :articles
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;which would then mandate that the method names in the matching controller match
+the rails resourceful actions.&lt;/p&gt;
+
+&lt;h2 id=&#34;examples:4e7b8dbbe1de83e198d0a24ae124a1b5&#34;&gt;Examples&lt;/h2&gt;
+
+&lt;p&gt;If we had the following in your &lt;code&gt;config/routes.rb&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rails&#34;&gt;resources :articles
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and our &lt;code&gt;/app/controllers/articles_controller.rb&lt;/code&gt; file looked like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rails&#34;&gt;class ArticlesController &amp;lt; ApplicationController
+  def index
+    @articles = Article.all
+  end
+  def show
+    @article = Article.find(params[:id])
+  end
+  def edit
+    @article = Article.find(params[:id])
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the list of what HTTP Verbs and URL combinations match to what methods
+inside a controller:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://draftin.com:443/images/8207?token=RfEJPDQAtoETzsOHSeHWJfDgHHYF2mPCJCqj-mBULXEgHHS7BmmbHwfL1IVM1qCU2zCxrt7d3LIUboyzJGQ3ir0&#34; alt=&#34;&#34; width=&#34;670&#34; /&gt;&lt;br /&gt;&lt;em&gt;(Credit: &lt;a href=&#34;http://guides.rubyonrails.org/routing.html#crud-verbs-and-actions&#34;&gt;http://guides.rubyonrails.org/routing.html#crud-verbs-and-actions&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice in the controller that we didn&amp;rsquo;t call &lt;code&gt;render&lt;/code&gt; at all. That&amp;rsquo;s because
+Rails automatically attempts to render a view that has a filename of the same
+name of the method called in the controller. If it can&amp;rsquo;t find one, it will
+default to the &lt;code&gt;index.html&lt;/code&gt; view for the controller, or the application
+&lt;code&gt;index.html&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;For example, if someone wanted to get an article at
+&lt;code&gt;http://mywebsite.com/articles/1234&lt;/code&gt;, Rails would call the &lt;code&gt;show&lt;/code&gt; method in our
+controller with &lt;code&gt;1234&lt;/code&gt; as the id param. That method (above) will find the
+article that matches that id and then rails will call render on a view in
+&lt;code&gt;/app/views/articles/show.html.erb&lt;/code&gt;. Here&amp;rsquo;s an example of what that view might
+look like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rhtml&#34;&gt;&amp;lt;h1&amp;gt;
+    &amp;lt;%= @article.title %&amp;gt;
+&amp;lt;/h1&amp;gt;
+&amp;lt;h2&amp;gt;
+    by &amp;lt;%= @article.author %&amp;gt;
+&amp;lt;/h2&amp;gt;
+&amp;lt;%= @article.body %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you&amp;rsquo;d like to learn more about how Ruby on Rails&amp;rsquo; front-end stack works or
+you&amp;rsquo;re a front-end developer needing to do some work in Ruby on Rails, check
+out my book, &lt;a href=&#34;http://dojo4.com/blog/we-wrote-a-book&#34;&gt;&amp;ldquo;Ruby on Rails
+Explained for Front-End Developers&amp;rdquo;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Feel free to ask questions and give feedback in the comments section of this post. Thanks!&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Minimal I18n with Rails 3.2</title>
+      <link>http://rubylearning.com/blog/2012/07/24/minimal-i18n-with-rails-3.2/</link>
+      <pubDate>Tue, 24 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2012/07/24/minimal-i18n-with-rails-3.2/</guid>
+      <description>
+
+&lt;p class=&#34;update&#34;&gt;
+This guest post is by &lt;strong&gt;Fabio Akita&lt;/strong&gt;, also known as &lt;a href=&#34;http://twitter.com/akitaonrails&#34;&gt;akitaonrails&lt;/a&gt;. He is a known Brazilian Ruby Activist and has been the program chairman for &lt;a href=&#34;http://www.rubyconf.com.br/en&#34;&gt;Rubyconf Brazil 2012&lt;/a&gt; for the last 5 years. He also co-founded &lt;a href=&#34;http://www.codeminer42.com&#34;&gt;Codeminer 42&lt;/a&gt;, a software boutique specialized in taking care of outsourced work from fledgling startups that need great Rails developers. Fabio has been publicly evangelizing Ruby, Rails and agile techniques since 2006 and has talked around 100 times in conferences around the globe.
+&lt;/p&gt;
+
+&lt;p class=&#34;block&#34;&gt;
+&lt;img class=&#34;alignright&#34; src=&#34;http://www.rubylearning.com/images/akita.jpg&#34; alt=&#34;Fabio Akita&#34; width=&#34;125&#34; height=&#34;125&#34; /&gt; &lt;span class=&#34;drop_cap&#34;&gt;I&lt;/span&gt;f you don&#39;t know me, I&#39;m natural from Brazil where we speak Brazilian Portuguese. If you&#39;re from outside of the USA, it&#39;s likely that you bump into the same issues as I do when writing apps that wants to achieve worldwide repercussion: internationalization and localization. Problem is, most developers are careless about it and start writing code with English and Portuguese all mixed up. And when the time comes to explicitly support both, we have to go deep intervention in the code to extract all the particular language bits into manageable structures.
+&lt;/p&gt;
+
+&lt;p&gt;
+Even though both Ruby and Ruby on Rails have gone through lots of improvements in this regard, several developers are still uncertain on how to properly use those features. One thing in particular, when talking about multi-cultural apps, there is more to it than just translating strings. Bear in mind that there is both &lt;a href=&#34;http://en.wikipedia.org/wiki/Internationalization_and_localization&#34;&gt;Localization (L10n) and Internationalization (I18n)&lt;/a&gt;. I won&#39;t go too deep into the matters of L10n but if you&#39;re building the next multi-cultural app, keep that in mind.
+&lt;/p&gt;
+
+&lt;p&gt;
+I&#39;ve posted all the code I&#39;ll use in this article to my Github account, you can &lt;a href=&#34;https://github.com/akitaonrails/Rails-3-I18n-Demonstration&#34;&gt;check it out here&lt;/a&gt; and you can also see a live version at my Heroku free account &lt;a href=&#34;http://i18n-demo.herokuapp.com/&#34;&gt;here&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+Let&#39;s start with the basics:
+&lt;/p&gt;
+
+&lt;h2 id=&#34;database-and-string-codification:d53fe26ba76391477759d28ae79caa0a&#34;&gt;Database and string codification&lt;/h2&gt;
+
+&lt;p&gt;
+I don&#39;t intend to repeat all that has been discussed in the past about encodings, unicode, UTF8 and everything that is now properly and fully supported on Ruby 1.9. If you didn&#39;t follow that thread, I highly recommend you start reading Yehuda Katz&#39;s great articles:
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://yehudakatz.com/2010/05/05/ruby-1-9-encodings-a-primer-and-the-solution-for-rails/&#34;&gt;Ruby 1.9 Encodings: A Primer and the Solution for Rails&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://yehudakatz.com/2010/05/17/encodings-unabridged/&#34;&gt;Encodings, Unabridged&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+If you&#39;re from countries that have English as the natural language, keep in mind one thing about Unicode and Latin1 encodings &amp;#8211; from &lt;a href=&#34;http://en.wikipedia.org/wiki/ASCII&#34;&gt;Wikipedia&lt;/a&gt;:
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+To allow backward compatibility, the 128 ASCII and 256 ISO-8859-1 (Latin 1) characters are assigned Unicode/UCS code points that are the same as their codes in the earlier standards. Therefore, ASCII can be considered a 7-bit encoding scheme for a very small subset of Unicode/UCS, and, conversely, the UTF-8 encoding forms are binary-compatible with ASCII for code points below 128, meaning all ASCII is valid UTF-8. The other encoding forms resemble ASCII in how they represent the first 128 characters of Unicode, but use 16 or 32 bits per character, so they require conversion for compatibility (similarly UCS-2 is upwards compatible with UTF-16).
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+Bottomline is that if you forget to deal with UTF8 and fallback to Latin1, you won&#39;t notice for a long time. Most modern systems: databases, text editors, etc already default to UTF8, but some don&#39;t. First things first: make sure you&#39;re saving your source code files as UTF8. Second: make sure your database was created with UTF8 support. For example, if you create your Rails app databases using the standard &lt;tt&gt;rake db:create&lt;/tt&gt;, you&#39;re safe to have it as UTF8 but if you create them manually using your database command line tool, enforce UTF8. On MySQL you must do:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;```EATE DATABASE dbname
+CHARACTER SET utf8
+COLLATE utf8_general_ci;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+On PostgreSQL you must do:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;CREATE DATABASE dbname
+WITH OWNER &amp;quot;postgres&amp;quot;
+ENCODING &#39;UTF8&#39;
+LC_COLLATE = &#39;en_US.UTF-8&#39;
+LC_CTYPE = &#39;en_US.UTF-8&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+Obviously, change &lt;tt&gt;dbname&lt;/tt&gt; and &lt;tt&gt;postgres&lt;/tt&gt; accordingly. Don&#39;t mix up! If you&#39;re dealing with text, make sure your code, Ruby gems you depend on, all use UTF8. It was a much harder experience 2 years ago, but now that the community has committed to Ruby 1.9, you won&#39;t notice it most of the time.
+&lt;/p&gt;
+
+&lt;p&gt;
+About the source code, even if you save your file as UTF8 you have to take one extra care. If you&#39;re writing text in languages that need special characters, you must start your file with one the following lines:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# encoding: UTF-8
+# coding: UTF-8
+# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+Choose one and use just one, they all work the same and they instruct the Ruby interpreter to properly handle the special characters. Ruby will warn you of that if you try to run source code with non-English characters in it.
+&lt;/p&gt;
+
+&lt;p&gt;
+But I might add that most of the time, in a Rails app, having to add one of these lines can be considered a &amp;#8220;code smell&amp;#8221;. That&#39;s because you should&#39;ve extracted that non-English text into external i18n files and your Ruby code should be free of language-specific text. So use this is you must, but in everyday programming you should extract those strings.
+&lt;/p&gt;
+
+&lt;p&gt;
+And an extra recommendation: people sometimes discuss whether we should write the code itself in our native languages or default to English. I hardly recommend that you must default to English for things such as class names, methods names, variables names, even documentation in comments within the code. We live in a globalized world and the market has already defaulted to English, so keep the pseudo-patriotic discussions for other places. In code you write in English. You never know when a foreigner might join your team. You never know when you will have to join a foreign team. Do not limit neither your code nor yourself.
+&lt;/p&gt;
+
+&lt;h2 id=&#34;starting-a-new-rails-app:d53fe26ba76391477759d28ae79caa0a&#34;&gt;Starting a new Rails app&lt;/h2&gt;
+
+&lt;p&gt;
+I&#39;ll assume you already at least the very basics on how to bootstrap a new Rails app. The official Rails support for I18n started at Rails 2.2, and the great Rails Guides has a very good introduction on &lt;a href=&#34;http://guides.rubyonrails.org/i18n.html&#34;&gt;Rails Internationalization API&lt;/a&gt;. I&#39;ll assume that you read and understood it all so not to repeat what&#39;s already nicely explained there. The idea is to enhance on some of the points that I feel people still have a hard time dealing with.
+&lt;/p&gt;
+
+&lt;p&gt;
+L10n wise, you should start customizing your app by modifying the &lt;tt&gt;config/application.rb&lt;/tt&gt;, approximately around line 28 to become something like the following snippet:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+# Run &amp;quot;rake -D time&amp;quot; for a list of tasks for finding time zone names. Default is UTC.
+config.time_zone = &#39;Brasilia&#39;
+
+# The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+# config.i18n.load_path += Dir[Rails.root.join(&#39;my&#39;, &#39;locales&#39;, &#39;*.{rb,yml}&#39;).to_s]
+config.i18n.available_locales = [:en, :&amp;quot;pt-BR&amp;quot;]
+config.i18n.default_locale = :&amp;quot;pt-BR&amp;quot;
+
+# Configure the default encoding used in templates for Ruby 1.9.
+config.encoding = &amp;quot;utf-8&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+Throughout this article, I&#39;ll use Brazilian Portuguese and Brazil as an example non-English language and culture. You have to change it accordingly to your country. Time zone is one point that always confuses everybody, but the bottom line is that your database should always record date and time in UTC, the Greenwich GMT-0. I live in the &amp;#8220;Brazilia&amp;#8221;, which is GMT-3. That means that while in Greenwhich it&#39;s noon, in Brazil it&#39;s 9 AM. And I have an extra problem: my country is big enough to have 3 different time zones and Daylight Savings. Rails&#39; ActiveSupport already does a decent job overriding what it must in order for you to be able to operate on dates and times regardless of their time zones because all basic operations goes through UTC.
+&lt;/p&gt;
+
+&lt;p&gt;
+Take this code (running within Rails console to have ActiveSupport already activated):
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt; Time.zone = &#39;Brasilia&#39;
+=&amp;gt; &amp;quot;Brasilia&amp;quot;
+&amp;gt;&amp;gt; t1 = Time.zone.local(2012,7,13,12,0,0)
+=&amp;gt; Fri, 13 Jul 2012 12:00:00 BRT -03:00
+
+&amp;gt;&amp;gt; Time.zone = &#39;Tokyo&#39;
+=&amp;gt; &amp;quot;Tokyo&amp;quot;
+&amp;gt;&amp;gt; t2 = Time.zone.local(2012,7,13,12,0,0)
+=&amp;gt; Fri, 13 Jul 2012 12:00:00 JST +09:00
+
+[21] pry(main)&amp;gt; t1 - t2
+=&amp;gt; 43200.0
+[25] pry(main)&amp;gt; (t1 - t2) / 1.day
+=&amp;gt; 0.5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+We are using the exact same input date and time, 7/13/2012 12:00:00 PM. But when we create 2 Time objects using different time zones, you can see that the subtraction of both objects gives a 12 hours difference (which is the actual time difference between Brazil and Japan). Now, you can have people on both countries write in their local times and have operations that respect that difference.
+&lt;/p&gt;
+
+&lt;p&gt;
+But I digress. Coming back to Rails i18n support, you will read in the guides that the default location for translated strings is within &lt;tt&gt;config/locales&lt;/tt&gt;. And you can have 2 difference kinds of files: Ruby or YAML. I recommend using YAML files but this is more a personal taste. You can even mix locale files in YAML and Ruby.
+&lt;/p&gt;
+
+&lt;p&gt;
+Now, Rails itself is internationalized, defaulting to English. So all ActiveRecord&#39;s validation messages, for example, are already properly extracted. One Rubyist that have been pitching about i18n support a long time ago is &lt;a href=&#34;http://svenfuchs.com&#34;&gt;Sven Fuchs&lt;/a&gt; and he maintains a repository of i18n goodies for you to explore called &lt;a href=&#34;https://github.com/svenfuchs/rails-i18n&#34;&gt;rails-i18n&lt;/a&gt;. There you will find the files needed to translate the Rails framework itself. And if your country/language is not there, please contribute back.
+&lt;/p&gt;
+
+&lt;p&gt;
+In my case, I&#39;m interested in the Brazilian Portuguese translations, you can download it like this:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl https://raw.github.com/svenfuchs/rails-i18n/master/rails/locale/pt-BR.yml &amp;gt; config/locales/rails.pt-BR.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+Those locale files don&#39;t only add translated strings, it also starts the basics of L10n by properly adding data formats. Check out this &lt;a href=&#34;https://github.com/akitaonrails/Rails-3-I18n-Demonstration/blob/master/app/views/welcome/index.html.erb&#34;&gt;example view template&lt;/a&gt; in my demonstration app.
+&lt;/p&gt;
+
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;
+Rails commands
+&lt;/td&gt;
+
+&lt;td&gt;
+Output in English
+&lt;/td&gt;
+
+&lt;td&gt;
+Output in Brazilian Portuguese
+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;
+number_to_currency(123.56)
+&lt;/td&gt;
+
+&lt;td&gt;
+$123.56
+&lt;/td&gt;
+
+&lt;td&gt;
+R$ 123,56
+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;
+number_to_human(100_555_123.15)
+&lt;/td&gt;
+
+&lt;td&gt;
+101 Million
+&lt;/td&gt;
+
+&lt;td&gt;
+100 milhões
+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;
+I18n.l(Time.current, format: :long)
+&lt;/td&gt;
+
+&lt;td&gt;
+July 23, 2012 22:26
+&lt;/td&gt;
+
+&lt;td&gt;
+Segunda, 23 de Julho de 2012, 22:25 h
+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;
+distance_of_time_in_words(1.hour + 20.minutes)
+&lt;/td&gt;
+
+&lt;td&gt;
+about 1 hour
+&lt;/td&gt;
+
+&lt;td&gt;
+aproximadamente 1 hora
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;
+You can see that Rails already does a lot of heavy lifting for you, so don&#39;t put all that effort to waste.
+&lt;/p&gt;
+
+&lt;h2 id=&#34;devise:d53fe26ba76391477759d28ae79caa0a&#34;&gt;Devise&lt;/h2&gt;
+
+&lt;p&gt;
+Most web apps that have user authentication use Devise. If you want to learn more check out Ryan Bates&#39; awesome screencasts:
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://railscasts.com/episodes/209-devise-revised&#34;&gt;Episode 209: Devise (revised)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://railscasts.com/episodes/210-customizing-devise&#34;&gt;Episode 210: Customizing Devise&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://railscasts.com/episodes/235-devise-and-omniauth-revised&#34;&gt;Episode 235: Devise and OmniAuth (revised)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+The same as Rails, Devise also has extracted its internal strings and is fully internationalizable. Check out it&#39;s &lt;a href=&#34;https://github.com/plataformatec/devise/wiki/I18n&#34;&gt;Wiki about i18n&lt;/a&gt; for more details. But you can start by downloading your translated files from &lt;a href=&#34;http://tigrish.com/&#34;&gt;Christopher Dell&#39;s&lt;/a&gt; project, like this:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl https://raw.github.com/tigrish/devise-i18n/master/locales/en-US.yml &amp;gt; config/locales/devise.en.yml
+curl https://github.com/tigrish/devise-i18n/blob/master/locales/pt-BR.yml &amp;gt; config/locales/devise.pt-BR.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+But if you want to have everything translated, you have to go the extra mile and actually use Devise&#39;s generator to clone its view templates within your Rails app by running &lt;tt&gt;rails g devise:views&lt;/tt&gt;. This will copy the templates in &lt;tt&gt;app/views/devise&lt;/tt&gt;. Keep the templates you want and translate all of them. As an example, take the resend confirmation template:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;h2&amp;gt;Resend confirmation instructions&amp;lt;/h2&amp;gt;
+
+&amp;lt;%= form_for(resource, :as =&amp;gt; resource_name, :url =&amp;gt; confirmation_path(resource_name), :html =&amp;gt; { :method =&amp;gt; :post }) do |f| %&amp;gt;
+&amp;lt;%= devise_error_messages! %&amp;gt;
+
+&amp;lt;div&amp;gt;&amp;lt;%= f.label :email %&amp;gt;&amp;lt;br /&amp;gt;
+&amp;lt;%= f.email_field :email %&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;div&amp;gt;&amp;lt;%= f.submit &amp;quot;Resend confirmation instructions&amp;quot; %&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;% end %&amp;gt;
+
+&amp;lt;%= render &amp;quot;devise/shared/links&amp;quot; %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+You have to extract them manually. In the case of Brazilian Portuguese I have already done the heavy lifting myself, you can download them from my &lt;a href=&#34;https://github.com/akitaonrails/Rails-3-I18n-Demonstration/tree/master/app/views/devise&#34;&gt;demonstration project&lt;/a&gt; and replace the originals. Don&#39;t forget to also download the YAML file:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://raw.github.com/akitaonrails/Rails-3-I18n-Demonstration/master/config/locales/devise.views.en.yml &amp;gt; config/locales/devise.views.en.yml
+wget https://raw.github.com/akitaonrails/Rails-3-I18n-Demonstration/master/config/locales/devise.views.pt-BR.yml &amp;gt; config/locales/devise.views.pt-BR.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+&amp;#8212;
+&lt;/p&gt;
+
+&lt;p&gt;
+This should take care of the view templates, but you also have to take care of Rails&#39; Form Helpers properly translating your model attributes. The Rails Guides quickly explain that, but in summary you have to have something similar to the following snippets in your &lt;tt&gt;config/locales&lt;/tt&gt; file:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;activemodel:
+  errors:
+    &amp;lt;&amp;lt;: *errors
+activerecord:
+  errors:
+    &amp;lt;&amp;lt;: *errors
+  models:
+    user: &amp;quot;Usuário&amp;quot;
+    article: &amp;quot;Artigo&amp;quot;
+  attributes:
+    user:
+      email: &amp;quot;E-mail&amp;quot;
+      password: &amp;quot;Senha&amp;quot;
+      password_confirmation: &amp;quot;Confirmar Senha&amp;quot;
+      current_password: &amp;quot;Senha Atual&amp;quot;
+      remember_me: &amp;quot;Lembre-se de mim&amp;quot;
+    article:
+      title: &amp;quot;Título&amp;quot;
+      body: &amp;quot;Conteúdo&amp;quot;
+      body_html: &amp;quot;Conteúdo em HTML&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+The &lt;tt&gt;User&lt;/tt&gt; model is what Devise creates for you by default. As an added example, there is a &lt;tt&gt;Article&lt;/tt&gt; model. The code should speak for itself. You translate the model class name in &lt;tt&gt;activerecord.models&lt;/tt&gt; and the attributes in &lt;tt&gt;activerecord.attributes.[model]&lt;/tt&gt;.
+&lt;/p&gt;
+
+&lt;h2 id=&#34;the-extra-mile-on-database-tables-with-globalize-3:d53fe26ba76391477759d28ae79caa0a&#34;&gt;The extra mile on database tables with Globalize 3&lt;/h2&gt;
+
+&lt;p&gt;
+We took care of most of the structural translations already but you still have your user generated content. If you will have an application that users from around the world can use, maybe you may want to have content that reflects each user&#39;s language. The concept is quite simple: each content &lt;tt&gt;:has_many&lt;/tt&gt; translations.
+&lt;/p&gt;
+
+&lt;p&gt;
+O conceito é simples: queremos um suporte que me permita utilizar os mesmos nomes de atributos mas que devolvam valores diferntes dependendo da localização escolhida atualmente. If we would add an Rspec spec to cover this behavior, it would look like this:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;describe Article do
+  before(:each) do
+    I18n.locale = :en
+    @article = Article.create title: &amp;quot;Hello World&amp;quot;, body: &amp;quot;Test&amp;quot;
+    I18n.locale = :&amp;quot;pt-BR&amp;quot;
+    @article.update_attributes(title: &amp;quot;Ola Mundo&amp;quot;, body: &amp;quot;Teste&amp;quot;)
+  end
+
+  context &amp;quot;translations&amp;quot; do
+    it &amp;quot;should read the correct translation&amp;quot; do
+      @article = Article.last
+
+      I18n.locale = :en
+      @article.title.should == &amp;quot;Hello World&amp;quot;
+      @article.body.should == &amp;quot;Test&amp;quot;
+
+      I18n.locale = :&amp;quot;pt-BR&amp;quot;
+      @article.title.should == &amp;quot;Ola Mundo&amp;quot;
+      @article.body.should == &amp;quot;Teste&amp;quot;
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+I chose to use Sven Fuchs&#39; &lt;a href=&#34;https://github.com/svenfuchs/globalize3&#34;&gt;Globalize 3&lt;/a&gt; gem. Add that to your &lt;tt&gt;Gemfile&lt;/tt&gt; as &lt;tt&gt;gem &#39;globalize3&#39;&lt;/tt&gt;, run the &lt;tt&gt;bundle&lt;/tt&gt; command and you&#39;re good to go.
+&lt;/p&gt;
+
+&lt;p&gt;
+If you already have a &lt;tt&gt;Article&lt;/tt&gt; model in your app, you should add a new migration like this:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class CreateArticles &amp;lt; ActiveRecord::Migration
+  def up
+    create_table :articles do |t|
+      t.string :slug, null: false
+      t.timestamps
+    end
+    add_index :articles, :slug, unique: true
+
+    Article.create_translation_table! :title =&amp;gt; :string, :body =&amp;gt; :text
+  end
+
+  def down
+    drop_table :articles
+    Article.drop_translation_table!
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+Do not use Rails 3&#39;s new &lt;tt&gt;change&lt;/tt&gt; migration method. After that just migrate your database and let&#39;s go back to the Article model:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Article &amp;lt; ActiveRecord::Base
+  attr_accessible :slug, :title, :body, :locale, :translations_attributes
+
+  translates :title, :body
+  accepts_nested_attributes_for :translations
+
+  class Translation
+    attr_accessible :locale, :title, :body
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+Don&#39;t mind the table created in the migration, you will use the &lt;tt&gt;Article&lt;/tt&gt; model as usual. It will detect the current &lt;tt&gt;I18n.locale&lt;/tt&gt; and save the content in the proper fields. Changing the current locale makes it query the different translations.
+&lt;/p&gt;
+
+&lt;h2&gt;
+Managing your Globalized content with ActiveAdmin
+&lt;/h2&gt;
+
+&lt;p&gt;
+Whenever I need an administration section, my first choice is to use the formidable &lt;a href=&#34;http://activeadmin.info&#34;&gt;Active Admin&lt;/a&gt;, it has a clean neutral design that my clients enjoy, it&#39;s easy to use, and easily customizable. If you have a model associated with a CarrierWave uploader, for example, it will automatically show a file input attribute and that&#39;s because it&#39;s using Formtastic underneath to assemble the forms automatically. Read Active Admin&#39;s documentation to understand how to get started.
+&lt;/p&gt;
+
+&lt;p&gt;
+Now, to support a Globalize 3 extended model we will need some more tweaking. First of all let&#39;s add additional gems to the &lt;tt&gt;Gemfile&lt;/tt&gt; to help:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;...
+group :assets do
+  gem &#39;jquery-ui-rails&#39;
+  ...
+end
+...
+gem &#39;jquery-rails&#39;
+gem &#39;activeadmin&#39;
+gem &#39;ActiveAdmin-Globalize3-inputs&#39;
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+Now, we need to tell Active Admin to handle the &lt;tt&gt;Article&lt;/tt&gt; model. We do that by creating a &lt;tt&gt;app/admin/article.rb&lt;/tt&gt; file like this:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ActiveAdmin.register Article do
+  index do
+    column :id
+    column :slug
+    column :title
+    default_actions
+  end
+
+  show do |article|
+    attributes_table do
+      row :slug
+      I18n.available_locales.each do |locale|
+        h3 I18n.t(locale, scope: [&amp;quot;translation&amp;quot;])
+        div do
+          h4 article.translations.where(locale: locale).first.title
+        end
+      end
+    end
+    active_admin_comments
+  end
+...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+The &lt;tt&gt;index&lt;/tt&gt; block is quite standard. Now the &lt;tt&gt;show&lt;/tt&gt; block is interesting as we are accessing the &lt;tt&gt;translations&lt;/tt&gt; association from the &lt;tt&gt;Article&lt;/tt&gt; model directly. We iterate through each supported translation, as defined in &lt;tt&gt;config/application.rb&lt;/tt&gt;.
+&lt;/p&gt;
+&lt;!-- Find this graphic
+&lt;p style=&#34;text-align: center&#34;&gt;
+&lt;img src=&#34;http://akitaonrails.com/uploads/2012/7/14/Screen%20Shot%202012-07-14%20at%208.28.56%20PM_original.png&#34; /&gt;
+&lt;/p&gt;
+--&gt;
+&lt;p&gt;
+I&#39;m using &lt;a href=&#34;https://github.com/mimimi/ActiveAdmin-Globalize3-inputs&#34;&gt;ActiveAdmin-Globalize3-inputs&lt;/a&gt;, which is turn depends on JQuery UI to adapt the administration form to use tabs for each locale.
+&lt;/p&gt;
+
+&lt;p&gt;
+Then we take advantage of ActiveRecord&#39;s ability to handle mass assigned nested attributes through &lt;a href=&#34;http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html#method-i-accepts_nested_attributes_for&#34;&gt;accepts_nested_attributes_for&lt;/a&gt;. To take advantage of this feature, we need to edit our Article model like this:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Article &amp;lt; ActiveRecord::Base
+  attr_accessible :body, :slug, :title, :locale, :translations_attributes
+    ...
+  translates :title, :body
+  accepts_nested_attributes_for :translations
+    ...
+  class Translation
+    attr_accessible :locale, :title, :body
+  end
+
+  def translations_attributes=(attributes)
+    new_translations = attributes.values.reduce({}) do |new_values, translation|
+      new_values.merge! translation.delete(&amp;quot;locale&amp;quot;) =&amp;gt; translation
+    end
+    set_translations new_translations
+  end
+    ...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+Now we need to make sure JQuery UI is available by modifying &lt;tt&gt;app/assets/stylesheets/active_admin.css&lt;/tt&gt; like this:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Active Admin CSS Styles
+@import &amp;quot;active_admin/mixins&amp;quot;;
+@import &amp;quot;active_admin/base&amp;quot;;
+@import &amp;quot;jquery.ui.tabs&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+And also modify the &lt;tt&gt;app/assets/javascripts/active_admin.js&lt;/tt&gt; like this:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//= require active_admin/base
+//= require jquery.ui.tabs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+Finally, there is a last bit that we need to add to the end of the &lt;tt&gt;app/admin/articles.rb&lt;/tt&gt; file:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ActiveAdmin.register Article do
+  ...
+form do |f|
+    f.input :slug
+    f.globalize_inputs :translations do |lf|
+      lf.inputs do
+        lf.input :title
+        lf.input :body
+
+        lf.input :locale, :as =&amp;gt; :hidden
+      end
+    end
+
+    f.buttons
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+That will tap into Active Admin&#39;s internal Formtastic dependency and with the gem we added it will produce a screen like this:
+&lt;/p&gt;
+&lt;!-- Find this graphic
+&lt;p style=&#34;text-align: center&#34;&gt;
+&lt;img src=&#34;http://akitaonrails.com/uploads/2012/7/14/Screen%20Shot%202012-07-14%20at%208.28.41%20PM_original.png&#34; /&gt;
+&lt;/p&gt;
+--&gt;
+
+&lt;p&gt;
+By the way, sometimes people forget that in order for the Asset Pipeline to properly compile Active Admin&#39;s assets in production, you have to declare them in the &lt;tt&gt;config/application.rb&lt;/tt&gt; file like this:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;config.assets.precompile += %w(active_admin.js active_admin.css)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+As a last tip, Active Admin interface itself is fully internationalizable. Read it&#39;s &lt;a href=&#34;http://activeadmin.info/docs/1-general-configuration.html#internationalization_i18n&#34;&gt;documentation&lt;/a&gt; and you will find the YAML files that you can use to translate it to your native language.
+&lt;/p&gt;
+
+&lt;h3&gt;
+I18n Routes
+&lt;/h3&gt;
+
+&lt;p&gt;
+Last, but not least, for SEO purposes it is a good idea to have all or at least most of your URLs fully translated to your native language. For instance, we would want to have the following routes pointing all to the same actions:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/users/sign_in
+/en/users/sign_in
+/pt-BR/usuarios/login
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+There are several gems that try to achieve this, but the best I found so far is &lt;a href=&#34;https://github.com/francesc/rails-translate-routes&#34;&gt;rails-translate-routes&lt;/a&gt;. As usual, just add it to our &lt;tt&gt;Gemfile&lt;/tt&gt; like this: &lt;tt&gt;gem &#39;rails-translate-routes&#39;&lt;/tt&gt; and run the &lt;tt&gt;bundle&lt;/tt&gt; command. Then go edit your &lt;tt&gt;config/routes.rb&lt;/tt&gt; file to looks like this:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;I18nDemo::Application.routes.draw do
+  # rotas para active admin
+  ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  # rotas de autenticação do Devise
+  devise_for :users
+
+  # rotas pra artigos
+  resources :articles
+
+  # pagina principal
+  get &amp;quot;welcome/index&amp;quot;, as: &amp;quot;welcome&amp;quot;
+  root to: &#39;welcome#index&#39;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+We can translate just what we need, as an example let&#39;s say that we want our Article routes and Devise&#39;s routes to be translated but we don&#39;t care for Active Admin&#39;s routes. So we can organize the routes file like this:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;I18nDemo::Application.routes.draw do
+  devise_for :users
+  resources :articles
+  get &amp;quot;welcome/index&amp;quot;, as: &amp;quot;welcome&amp;quot;
+  root to: &#39;welcome#index&#39;
+end
+
+ActionDispatch::Routing::Translator.translate_from_file(
+  &#39;config/locales/routes.yml&#39;, {
+    prefix_on_default_locale: true,
+    keep_untranslated_routes: true })
+
+I18nDemo::Application.routes.draw do
+  ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+Where we put the &lt;tt&gt;translate_from_file&lt;/tt&gt; defines the separation between what&#39;s translated and what is not. Now it&#39;s just a matter of creating a file named &lt;tt&gt;config/locales/routes.yml&lt;/tt&gt; with the following translations:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;en:
+  routes:
+pt-BR:
+  routes:
+    welcome: bemvindo
+    new: novo
+    edit: editar
+    destroy: destruir
+    password: senha
+    sign_in: login
+    users: usuarios
+    cancel: cancelar
+    article: artigo
+    articles: artigos
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+The &lt;tt&gt;en.routes&lt;/tt&gt; block is empty because &amp;#8211; as I recommended in the beginning of the article &amp;#8211; all our code is in English, so Rails will just pick the classes&#39; names and the entire app is in English by default. In the &lt;tt&gt;[your language].routes&lt;/tt&gt; just make the translations for the words you want. After all that, when we run Rails&#39; &lt;tt&gt;rake routes&lt;/tt&gt; task, we will have an output that looks like this:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;...
+article_pt_br GET    /pt-BR/artigos/:id(.:format)    articles#show {:locale=&amp;gt;&amp;quot;pt-BR&amp;quot;}
+   article_en GET    /en/articles/:id(.:format)      articles#show {:locale=&amp;gt;&amp;quot;en&amp;quot;}
+              GET    /articles/:id(.:format)         articles#show
+              PUT    /pt-BR/artigos/:id(.:format)    articles#update {:locale=&amp;gt;&amp;quot;pt-BR&amp;quot;}
+              PUT    /en/articles/:id(.:format)      articles#update {:locale=&amp;gt;&amp;quot;en&amp;quot;}
+              PUT    /articles/:id(.:format)         articles#update
+              DELETE /pt-BR/artigos/:id(.:format)    articles#destroy {:locale=&amp;gt;&amp;quot;pt-BR&amp;quot;}
+              DELETE /en/articles/:id(.:format)      articles#destroy {:locale=&amp;gt;&amp;quot;en&amp;quot;}
+              DELETE /articles/:id(.:format)         articles#destroy
+welcome_pt_br GET    /pt-BR/bemvindo/index(.:format) welcome#index {:locale=&amp;gt;&amp;quot;pt-BR&amp;quot;}
+   welcome_en GET    /en/welcome/index(.:format)     welcome#index {:locale=&amp;gt;&amp;quot;en&amp;quot;}
+              GET    /welcome/index(.:format)        welcome#index
+   root_pt_br        /pt-BR                          welcome#index {:locale=&amp;gt;&amp;quot;pt-BR&amp;quot;}
+      root_en        /en                             welcome#index {:locale=&amp;gt;&amp;quot;en&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;ndash;&lt;/p&gt;
+
+&lt;p&gt;
+Have you ever questioned yourself on the usage of named routes such as &lt;tt&gt;new_article_path&lt;/tt&gt; in your view templates when you could just easily write &amp;#8220;/articles/new&amp;#8221;? Now you know why: the same named route will obey the internal &lt;tt&gt;I18n.locale&lt;/tt&gt; and output the correct translated route. Pro tip: always try to adhere to the conventions instead of trying to be too smart, in this case, having being smart will cost you a lot of time to reconvert every hard-coded route as a named route.
+&lt;/p&gt;
+
+&lt;p&gt;
+We now need the application to be able to detect the &lt;tt&gt;locale&lt;/tt&gt; options within the &lt;tt&gt;params&lt;/tt&gt; hash, so let&#39;s edit &lt;tt&gt;/app/controllers/application_controller.rb&lt;/tt&gt;:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class ApplicationController &amp;lt; ActionController::Base
+  protect_from_forgery
+
+  before_filter :set_locale
+  before_filter :set_locale_from_url
+
+  private
+
+  def set_locale
+    if lang = request.env[&#39;HTTP_ACCEPT_LANGUAGE&#39;]
+      lang = lang[/^[a-z]{2}/]
+      lang = :&amp;quot;pt-BR&amp;quot; if lang == &amp;quot;pt&amp;quot;
+    end
+    I18n.locale = params[:locale] || lang || I18n.default_locale
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+Now both &lt;tt&gt;http://localhost:3000/en/articles&lt;/tt&gt; and &lt;tt&gt;http://localhost:3000/pt-BR/artigos&lt;/tt&gt; will respond correctly. To create links in our pages to change the language, we can create a little helper to put in the view layout:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;module ApplicationHelper
+  def language_links
+    links = []
+    I18n.available_locales.each do |locale|
+      locale_key = &amp;quot;translation.#{locale}&amp;quot;
+      if locale == I18n.locale
+        links &amp;lt;&amp;lt; link_to(I18n.t(locale_key), &amp;quot;#&amp;quot;, class: &amp;quot;btn disabled&amp;quot;)
+      else
+        links &amp;lt;&amp;lt; link_to(I18n.t(locale_key), url_for(locale: locale.to_s), class: &amp;quot;btn&amp;quot;)
+      end
+    end
+    links.join(&amp;quot;\n&amp;quot;).html_safe
+  end
+    ...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+The &lt;tt&gt;url_for&lt;/tt&gt; helper will create links that return to the current page in the browser, but with the translated route and proper &lt;tt&gt;locale&lt;/tt&gt; parameter. Just add the helper somewhere in your layout view template:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;...
+&amp;lt;div class=&amp;quot;form-actions&amp;quot;&amp;gt;
+  &amp;lt;%= language_links %&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;!-- Find these graphics 
+&lt;p&gt;
+This is the result you will see:
+&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center&#34;&gt;
+&lt;img src=&#34;http://akitaonrails.com/uploads/2012/7/14/Screen%20Shot%202012-07-14%20at%209.26.29%20PM_original.png&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center&#34;&gt;
+&lt;img src=&#34;http://akitaonrails.com/uploads/2012/7/14/Screen%20Shot%202012-07-14%20at%209.26.01%20PM_original.png&#34; /&gt;
+&lt;/p&gt;
+--&gt;
+
+&lt;p&gt;
+There are several different techniques to detect the language. You can make Rails understand subdomains, user&#39;s authenticated session, browser default language, cookies, but I prefer simple URI sections like the above examples show.
+&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion:d53fe26ba76391477759d28ae79caa0a&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;
+As you can see, there are several things we can add to our applications to make them fully international. But even if you&#39;re not planning to add multiple languages, it doesn&#39;t hurt to follow a few simple rules:
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+Make sure your database and source files are all using UTF8. It&#39;s very common to find applications running under Latin1 and having lot&#39;s of pain to reconvert everything to UTF8.
+&lt;/li&gt;
+&lt;li&gt;
+Having language specific text within your Ruby source code or view templates has to be considered a &#34;code smell&#34;. Rails already makes all the heavy lifting, so just create a simple &lt;tt&gt;config/locales/en.yml&lt;/tt&gt; to start.
+&lt;/li&gt;
+&lt;li&gt;
+Adding something as Globalize 3, on the other hand, may not be necessary unless you&#39;re sure you will need it. It&#39;s not difficult to add it later.
+&lt;/li&gt;
+&lt;li&gt;
+Do not use methods such as &lt;tt&gt;strftime&lt;/tt&gt; or other methods that hard code the format of data conversions. Use &lt;tt&gt;&lt;a href=&#34;http://api.rubyonrails.org/classes/ActionView/Helpers/TranslationHelper.html#method-i-localize&#34;&gt;I18n.localize&lt;/a&gt;&lt;/tt&gt; for formatting.
+&lt;/li&gt;
+&lt;li&gt;
+And study more about Time zones and Rails support, you never know when you&#39;re gonna be bitten by time related issues.
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+There is a lot more you can tweak in your Rails application but this covers what you will face most commonly in your next multi-cultural world-wide application.
+&lt;/p&gt;
+
+&lt;p class=&#34;alert&#34;&gt;
+&lt;em&gt;I hope you found this article useful. Feel free to ask questions and give feedback in the comments section of this post. Thanks!&lt;/em&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interview: Michael Hartl, author of the Ruby on Rails Tutorial (railstutorial.org)</title>
+      <link>http://rubylearning.com/blog/2011/02/18/interview-michael-hartl-author-of-the-ruby-on-rails-tutorial-railstutorial.org/</link>
+      <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2011/02/18/interview-michael-hartl-author-of-the-ruby-on-rails-tutorial-railstutorial.org/</guid>
+      <description>&lt;div&gt;
+  &lt;p class=&#34;alert&#34;&gt;
+    RubyLearning participants talk to Michael Hartl the author of the Ruby on Rails Tutorial (&lt;a href=&#34;http://ruby.railstutorial.org/&#34;&gt;railstutorial.org&lt;/a&gt;).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Michael Hartl&#34; src=&#34;http://rubylearning.com/images/headshot_smaller.jpg&#34; alt=&#34;Michael Hartl&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish Talim&gt;&gt;&lt;/strong&gt; Welcome Michael and thanks for taking out time for RubyLearning. For the benefit of the readers of this blog could you please introduce yourself and tell us what you do for a living?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; Happy to be here. I&amp;#8217;m a programmer, educator, and entrepreneur. Recently, I&amp;#8217;ve been focused on making educational products and selling them online. I&amp;#8217;ve been doing web development since around 2001 and Rails development since 2005. I also have a background in academic teaching and research, principally in theoretical and computational physics.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    My current products are the Ruby on Rails Tutorial book and the Ruby on Rails Tutorial screencasts. The &lt;a href=&#34;http://railstutorial.org/ruby-on-rails-tutorial-book&#34;&gt;book is available for free online&lt;/a&gt;, for &lt;a href=&#34;http://railstutorial.org/&#34;&gt;buy as a PDF&lt;/a&gt;, and as a &lt;a href=&#34;http://amzn.to/RTbook&#34;&gt;print edition&lt;/a&gt;. The &lt;a href=&#34;http://railstutorial.org/&#34;&gt;screencasts are available for purchase&lt;/a&gt; from the Rails Tutorial website or (if you have a subscription) from Safari Books Online. I especially recommend the &lt;a href=&#34;http://railstutorial.org/&#34;&gt;Rails Tutorial PDF/screencast bundle&lt;/a&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Ricardo Astorquia, Spain&gt;&gt;&lt;/strong&gt; How do you get the right balance for teaching in a book for those folks that may have different backgrounds, where more details are necessary while another reader may need just a little more guidance than just a reference book?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; It&amp;#8217;s important to realize that advanced readers rarely mind a little basic material, especially if including it is a core part of your style, and that basic material helps bring the newbies up to speed. One inspiration is The Economist magazine&amp;#8217;s house style, which usually includes some information about a company or person, no matter how famous; for example, they might write &amp;#8220;General Electric, an American conglomerate&amp;#8221; or &amp;#8220;Steve Jobs, boss of Apple&amp;#8221;. I try always to include enough detail that even a beginner has a place to start if they need further information.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Vince Vincent, USA&gt;&gt;&lt;/strong&gt; Do you intend to create a sequel as new Rails versions are released? If not, what is the speediest way for a Rails developer to progress from here (aside from reading the API which many suggest)?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I plan to keep the &lt;a href=&#34;http://railstutorial.org/&#34;&gt;Ruby on Rails Tutorial&lt;/a&gt; up-to-date. The book is easy to edit, but the screencasts are trickier, so for a while I might only supplement the screencasts. Eventually, though, I anticipate having to re-cut the entire series once Rails has changed enough to justify the effort.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Imhotep Albasiel, USA&gt;&gt;&lt;/strong&gt; Would you be writing about Rails development on Windows in the future?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I am hoping to cover Rails development on Windows in future editions. Part of the issue has been the lack of a standard Windows installation method, but the new &lt;a href=&#34;http://railsinstaller.org/&#34;&gt;Rails Installer&lt;/a&gt; aims to change that, so I&amp;#8217;m optimistic that Rails development will start to take off on Windows.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Samnang Chhun, Cambodia&gt;&gt;&lt;/strong&gt; Is it important to understand Rack when learning Rails?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; Rack is a Ruby library that provides a standard interface between web frameworks and web servers. Most Ruby web frameworks, including Rails and Sinatra, use Rack, and it is certainly important in some contexts, but I think that Rack can be skipped when first learning Rails. It&amp;#8217;s really more of an intermediate-to-advanced topic.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Samnang Chhun, Cambodia&gt;&gt;&lt;/strong&gt; What should I do next to become a Rails guru?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; There are lots of great Rails resources out there, and I particularly recommend &lt;a href=&#34;http://railscasts.com/&#34;&gt;Railscasts&lt;/a&gt; by Ryan Bates. Of course, there&amp;#8217;s no substitute for writing your own application, so I suggest picking a problem that interests you and plunging ahead.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Victor Goff, USA&gt;&gt;&lt;/strong&gt; On January 25th, you were notified that your RailsTutorial was banned by a certain country. Have you cashed in on the notoriety yet!?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I&amp;#8217;m not sure being blocked by the Great Firewall of China is a big enough story to earn me much notoriety. It is weird, though, and disappointing. I guess it means I&amp;#8217;ve made the big time?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Victor Goff, USA&gt;&gt;&lt;/strong&gt; How do you manage having a publication that can be broken by updates in the gems that you use, either in the production directly, or in testing?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; This is a big lesson I learned from my first Rails book, called RailsSpace. In that book, my coauthor and I made the mistake of not using specific version numbers for the gems, but the Ruby on Rails 3 Tutorial book avoids this error. Every one of the gems in the book is tied to a particular version number, so the tutorial is (virtually) guaranteed to work as advertised. Of course, I do occasionally update the book with new gem versions, but I always test the new gems to make sure they work. (The sample application&amp;#8217;s test suite proves invaluable in this context.)
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Robin Gowin, USA&gt;&gt;&lt;/strong&gt; Where do you see Rails going, and what do you think of the Rails &amp;#8211; Merb merger?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I think Rails is off to the races now, especially with the release of Rails 3. The Rails core team and the Merb developers deserve immense credit for setting aside their differences and joining forces to make Rails 3 happen. Given how modular the core of Rails is now, I expect all kinds of great innovation in the next few years.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Mohnish Jadwani, India&gt;&gt;&lt;/strong&gt; If developers want to migrate from an application built on Rails 2 to an application built on Rails 3, what are the challenges one would face for this migration (I understand this would be an app specific question, I only want to know in generic terms). How best can this be dealt?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; Since the Rails Tutorial is aimed mainly at beginners, I didn&amp;#8217;t feel that covering the upgrade from Rails 2 to Rails 3 fit with the core philosophy of the book. Moreover, there are already lots of resources to help make the Rails 2.x to 3.x upgrade, including an e-book dedicated to this subject (Jeremy McAnally&amp;#8217;s &amp;#8220;&lt;a href=&#34;http://www.railsupgradehandbook.com/&#34;&gt;Rails 3 Upgrade Handbook&lt;/a&gt;&amp;#8220;).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Zachary S. Scott, USA&gt;&gt;&lt;/strong&gt; Do you have plans for any other Ruby (non-Rails related) project?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I am contemplating making a Ruby tutorial at some point, but no promises! I&amp;#8217;m also planning to open-source PolyTeXnic, the Ruby program I use to make the HTML and PDF versions of the book.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Zachary S. Scott, USA&gt;&gt;&lt;/strong&gt; What do you think of Sinatra?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; I&amp;#8217;ve only dabbled with Sinatra, but I&amp;#8217;d like to know it better. It seems very clean and elegant.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish Talim&gt;&gt;&lt;/strong&gt; Anything else you would like to add?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Michael&gt;&gt;&lt;/strong&gt; Web development is hard, so don&amp;#8217;t get discouraged if you run into difficulties. All web developers run into difficulties all the time. With practice, you&amp;#8217;ll get better at powering through the problems &amp;mdash and you&amp;#8217;ll also learn that sometimes you have to give up and hack around them. &lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:-)&#34; class=&#34;wp-smiley&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Thank you Michael. In case you have any queries and/or questions, please post your questions here (as comments to this blog post) and Michael would be glad to answer.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Indian Ruby on Rails Portfolio</title>
+      <link>http://rubylearning.com/blog/2010/02/08/indian-ruby-on-rails-portfolio/</link>
+      <pubDate>Mon, 08 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2010/02/08/indian-ruby-on-rails-portfolio/</guid>
+      <description>
+
+&lt;h2 id=&#34;indian-ruby-on-rails-portfolio:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Indian Ruby on Rails Portfolio&lt;/h2&gt;
+
+&lt;p&gt;I am compiling a list (in alphabetical order) showcasing Indian websites
+made with &lt;strong&gt;Ruby on Rails&lt;/strong&gt;. Hat Tip: &lt;strong&gt;&lt;a href=&#34;http://akitaonrails.com/2009/12/15/brazilian-ruby-on-rails-portfolio&#34;&gt;Fabio
+Akita&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;adomado:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Adomado&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://adomado.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/adomado_logo.png&#34; alt=&#34;Adomado&#34; title=&#34;Adomado&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://adomado.com/&#34;&gt;Adomado&lt;/a&gt;&lt;/strong&gt; is India’s first Internet rewards
+program. They are an advertising and product offer supported model and
+help you to earn exciting rewards for performing a range of online
+activities. They also help their users to support their favorite charity
+without paying any money. Users can checkout their exciting offers at
+&lt;a href=&#34;http://adomado.com/inside/my_offers&#34;&gt;http://adomado.com/inside/my_offers&lt;/a&gt;
+which they keep on updating from time to time.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon
+EC2&lt;/a&gt;. The contact person is &lt;a href=&#34;http://twitter.com/makuchaku&#34;&gt;Mayank
+Jain&lt;/a&gt; and their ROR development center is
+in &lt;strong&gt;New Delhi&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;ads4good:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Ads4Good&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://app.ads4good.org/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/ads4good-tagline.jpg&#34; alt=&#34;Ads4Good&#34; title=&#34;Ads4Good&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://app.ads4good.org/&#34;&gt;Ads4Good&lt;/a&gt;&lt;/strong&gt; is a social venture startup
+which provides users with ad-widgets (adjets) that can be easily placed
+on websites, blogs and other web pages and the funds generated from ads
+on the widget gets donated to support causes of users’ interest. This
+makes it an easy, ongoing and sustainable way of contributing back to
+society. They also ensure a win-win situation for everyone involved –
+users get to donate with no out-of-pocket spend and get visibility of
+the impact; organizations get actionable funds; advertising networks get
+increased reach.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted at Linode, Amazon
+S3/Cloudfront. The contact person is &lt;a href=&#34;mailto:akshay@ads4good.org&#34;&gt;Akshay
+Surve&lt;/a&gt; and their ROR development center is
+in &lt;strong&gt;Mumbai&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;bubbleideas:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;BubbleIdeas&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://bubbleideas.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/thumbnail.gif&#34; alt=&#34;BubbleIdeas&#34; title=&#34;BubbleIdeas&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://bubbleideas.com/&#34;&gt;BubbleIdeas&lt;/a&gt;&lt;/strong&gt; is a Gov 2.0 solution,
+Organized Crowdsourcing, Customer engagement, Ideas etc. The offering is
+SAAS and much more simpler and leaner than most solutions available on
+the web.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2010 and is hosted by
+&lt;a href=&#34;http://www.slicehost.com/&#34;&gt;Slicehost&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:arvind@bubbleideas.com&#34;&gt;Arvind
+Nigam&lt;/a&gt; and their ROR development center
+is in &lt;strong&gt;Noida&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;bukluv:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Bukluv&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://bukluv.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/bukluv-150-91.png&#34; alt=&#34;Bukluv&#34; title=&#34;Bukluv&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://bukluv.com/&#34;&gt;Bukluv&lt;/a&gt;&lt;/strong&gt; is a website dedicated to people who
+love reading. Here, registered users can write their opinions on books
+they’ve read in the form of mini-reviews which are limited to 250
+characters. People can follow others and get a live feed of recently
+posted mini-reviews.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2010 and is hosted by hosted by &lt;a href=&#34;http://www.hostingrails.com/&#34;&gt;Hosting
+Rails&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:ebukuluv@gmail.com&#34;&gt;Mohammed
+Aslam/Nithin Bekal&lt;/a&gt; and their ROR development
+center is in &lt;strong&gt;Kasaragod, Kerala&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;bumsonthesaddle:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;BumsOnTheSaddle&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://bumsonthesaddle.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/bots.gif&#34; alt=&#34;BumsOnTheSaddle&#34; title=&#34;BumsOnTheSaddle&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;At &lt;strong&gt;&lt;a href=&#34;http://bumsonthesaddle.com/&#34;&gt;BumsOnTheSaddle&lt;/a&gt;&lt;/strong&gt;, they love cycling
+and are trying to make a difference in the way cycling is experienced in
+India. It is a mass of Rails sites:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.bumsonthesaddle.com/&#34;&gt;Mephisto blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://notebook.bumsonthesaddle.com/&#34;&gt;Signal Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;and a couple of more features, that are in the pipeline and yet to
+be released. The main site is also going to be refreshed with
+community features using Tog engine.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The site was created in 2006 and is hosted by &lt;a href=&#34;http://www.hostingrails.com/&#34;&gt;Hosting
+Rails&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:rohan@bumsonthesaddle.com&#34;&gt;Rohan
+Kini&lt;/a&gt; and their ROR development center
+is in &lt;strong&gt;Bangalore&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;doattend:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;DoAttend&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://doattend.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/da-logo-180x60.png&#34; alt=&#34;DoAttend&#34; title=&#34;DoAttend&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://doattend.com/&#34;&gt;DoAttend&lt;/a&gt;&lt;/strong&gt; is an Online Event Registration
+Application built for Event Managers. A product of &lt;a href=&#34;http://tenmiles.com/&#34;&gt;Tenmiles
+Corporation&lt;/a&gt;, DoAttend lets you create an event
+page with a custom URL, setup and sell tickets online, track
+registrations real time and much more. It enables Indian event managers
+to collect payments online in India Rupees (INR) and provides
+integration with Paypal for international customer base. Its free for
+Events that don’t have any registration fee and for paid events it
+charges the event managers a very small portion of ticket sale price.
+There are no setup or monthly fee.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by
+&lt;a href=&#34;http://www.slicehost.com/&#34;&gt;Slicehost&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:shalin@tenmiles.com&#34;&gt;Shalin
+Jain&lt;/a&gt; and their ROR development center is in
+&lt;strong&gt;Chennai&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;dunnitt:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Dunnitt&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.dunnitt.com/login&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/dunnitt_logo_beta.png&#34; alt=&#34;Dunnitt&#34; title=&#34;Dunnitt&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.dunnitt.com/login&#34;&gt;Dunnitt&lt;/a&gt;&lt;/strong&gt; is a new corner of social
+networking that has to do with coordinating collaborative activities
+with family, friends, office colleagues and others. It is a Universal
+Activity Exchange with access to your activities from anywhere, anytime&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2010 and is hosted by
+&lt;a href=&#34;http://www.linode.com/&#34;&gt;Linode&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:info@spritle.com&#34;&gt;Balaji D
+Loganathan&lt;/a&gt; and their ROR development center is
+in &lt;strong&gt;Chennai&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;fedena:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Fedena&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.fedena.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/fed%20ico.png&#34; alt=&#34;Fedena&#34; title=&#34;Fedena&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.fedena.com/&#34;&gt;Fedena&lt;/a&gt;&lt;/strong&gt; is an open source school/campus
+management system developed using Ruby on Rails. With Fedena, they hope
+to be able to provide an easy solution to schools and colleges to manage
+their activities online. Fedena has many different fetures such as
+student database management, timetable, attendance and examination
+results management, and also human resources and finance management.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by hosted by &lt;a href=&#34;http://www.hostingrails.com/&#34;&gt;Hosting
+Rails&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:info@fedena.com&#34;&gt;Arvind
+GS&lt;/a&gt; and their ROR development center is in
+&lt;strong&gt;Mangalore&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;hireplug:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;HirePlug&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.hireplug.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/hplg.gif&#34; alt=&#34;HirePlug&#34; title=&#34;HirePlug&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.hireplug.com/&#34;&gt;HirePlug&lt;/a&gt;&lt;/strong&gt; is a Social Hiring portal.
+Their goal is to make hiring fast, effective and fun. Job Boards
+seriously lack top talent. The same talent is available on the Social
+Networks and is untapped. The idea revolves around providing a unified
+platform for Talent Management, Job Board and leveraging social networks
+for hiring the top talent by means of referral hiring.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by
+&lt;a href=&#34;http://www.serverloft.com/&#34;&gt;ServerLoft&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:chandi.rajan@gmail.com&#34;&gt;Rajan
+Chandi&lt;/a&gt; and their ROR development center
+is in &lt;strong&gt;Pune&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;iloveread-in:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;iloveread.in&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://iloveread.in/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/i-love-read-logo.jpg&#34; alt=&#34;iloveread.in&#34; title=&#34;iloveread.in&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://iloveread.in/&#34;&gt;iloveread.in&lt;/a&gt;&lt;/strong&gt; is a book lending library in
+Chennai, incubated and based out of IIT-Madras. Customers can register
+on the site for free (with their email id) and browse our collection.
+They can select a membership plan, pay through their internet gateway
+(or by cash) and order books online. The books are delivered to their
+house at no extra cost. They also provide recommendations to their users
+(especially for school kids) and popular lists of award winning books.
+iloveread.in also has tie-ups with schools in Chennai and employs
+trained professionals to organize story telling and book reading
+sessions, alternative endings and various other activities for students.&lt;/p&gt;
+
+&lt;p&gt;The site has been designed for a clean and smooth browsing experience
+with loads of AJAX and ample white spaces to avoid clutter. They plan to
+introduce a host of other features such as SMS and Gtalk based search
+and ordering, use of Adobe Flex for a richer browsing experience,
+multi-lingual support for Indian languages and also a very basic HTML
+version of the site for slow internet connections.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by &lt;a href=&#34;http://www.aptana.com/cloud&#34;&gt;Aptana
+Cloud&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:sahilgore@gmail.com&#34;&gt;Sahil
+Gore&lt;/a&gt; and their ROR development center is in
+&lt;strong&gt;Pune&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;josh-software-pvt-ltd:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Josh Software Pvt. Ltd.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.joshsoftware.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/logo-thumbnail.jpg&#34; alt=&#34;Josh Software Pvt. Ltd.,
+Pune&#34; title=&#34;Josh Software Pvt. Ltd., Pune&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.joshsoftware.com/&#34;&gt;Josh Software Pvt. Ltd., Pune&lt;/a&gt;&lt;/strong&gt;
+company’s website was developed using &lt;strong&gt;eJOSH&lt;/strong&gt;, an open source custom
+&lt;a href=&#34;http://github.com/joshsoftware/ejosh&#34;&gt;ROR CMS&lt;/a&gt;. A great way of showing
+that Josh Software is a true Ruby on Rails development company. Some of
+the many ROR based sites developed by JoshSoftware are: &lt;a href=&#34;http://www.paisamatters.com/&#34;&gt;Paisa
+Matters&lt;/a&gt; and
+&lt;a href=&#34;http://www.brandpotion.com/&#34;&gt;BrandPotion&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The JoshSoftware site was created in 2009 and is hosted on &lt;a href=&#34;http://www.linode.com/&#34;&gt;linode VPS
+server&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:gautam@joshsoftware.com&#34;&gt;Gautam
+Rege&lt;/a&gt; and their ROR development center
+is in &lt;strong&gt;Pune&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;jusbill-com:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;JusBill.com&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://jusbill.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/LogoJusbill.png&#34; alt=&#34;JusBill.com&#34; title=&#34;JusBill.com&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://jusbill.com/&#34;&gt;JusBill.com&lt;/a&gt;&lt;/strong&gt; is an extremely simply and easy
+application to generate professional invoices. The online system allows
+companies to monitor and control their multiple offices &amp;amp; shops; it also
+allows manufacturers to streamline and integrate with their dealers. An
+offline module that works even when there is no internet; and later
+synchronizes with the SaaS based application ensuring that Jusbill is
+the complete solution for invoicing needs. The enterprise edition also
+features payment &amp;amp; order tracking and ecommerce web-store integration.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon
+EC2&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:info@sysblitz.com&#34;&gt;Vikram
+Bahl&lt;/a&gt; and their ROR development center is in
+&lt;strong&gt;Noida&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;mangospring-engage:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;MangoSpring Engage&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.engagesmart.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/engage%20logo.jpg&#34; alt=&#34;MangoSpring
+Engage&#34; title=&#34;MangoSpring Engage&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.engagesmart.com/&#34;&gt;MangoSpring Engage&lt;/a&gt;&lt;/strong&gt; is a smart set of
+employee communication and social collaboration tools to boost daily
+productivity while creating a smart company for this decade. By smart,
+they mean Engage infuses intelligence in communication systems and day
+to day processes; creating a vibrant, open company. More than a tool,
+Engage is a way of working, a way of collaborating and a way of creating
+an informed, productive workforce.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2010 and is hosted at
+&lt;a href=&#34;http://www.adhost.com/&#34;&gt;Adhost&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:vishwam@mangospring.com&#34;&gt;Vishwa
+Malhotra&lt;/a&gt; and their ROR development
+center is in &lt;strong&gt;Pune&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;muziboo:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Muziboo&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.muziboo.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/muziboo_logo.jpg&#34; alt=&#34;Muziboo&#34; title=&#34;Muziboo&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.muziboo.com/&#34;&gt;Muziboo&lt;/a&gt;&lt;/strong&gt; is an online platform where
+musicians &amp;amp; budding talents upload their performances to showcase,
+invite reviews, discuss and collaborate. So, what makes Muziboo tick?
+The interactive Community. Muziboo is a strongly knit global community
+that wickedly indulges day after day in commenting and discussing the
+music (posted here) and music related topics. The community here is
+eclectic that consumes every genre of music – anything from Rock ‘n’
+Roll to Trance and Classical.&lt;/p&gt;
+
+&lt;p&gt;In addition, Muziboo as a platform offers a variety of easy tools to
+share your music across the Online world – be it your blog or Facebook
+or Twitter.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2007 and is hosted by
+&lt;a href=&#34;http://www.hetzner.de/&#34;&gt;Hetzner&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:nithya@muziboo.com/&#34;&gt;Nithya
+Dayal&lt;/a&gt; and their ROR development center is
+in &lt;strong&gt;Bangalore&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;mustseeindia:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;MustSeeIndia&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.mustseeindia.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/logot-full.png&#34; alt=&#34;MustSeeIndia&#34; title=&#34;MustSeeIndia&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.mustseeindia.com/&#34;&gt;MustSeeIndia&lt;/a&gt;&lt;/strong&gt; is a travel information
+and sharing portal for India. It focuses on providing comprehensive and
+reliable information about 400+ tourist destinations in India. Apart
+from information, it also provides flight, train and bus ticketing
+services as well as hotel bookings via its sub portal
+&lt;a href=&#34;http://book.mustseeindia.com/&#34;&gt;http://book.mustseeindia.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2008 and is hosted by
+&lt;a href=&#34;http://softlayer.com/&#34;&gt;SoftLayer&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:sanjay@mustseeindia.com&#34;&gt;Sanjay
+Goel&lt;/a&gt; and their ROR development center
+is in &lt;strong&gt;Bangalore&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;naarad:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Naarad&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.intinno.com/products/naarad/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/logo-width-150.jpg&#34; alt=&#34;Naarad&#34; title=&#34;Naarad&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.intinno.com/products/naarad/&#34;&gt;Naarad&lt;/a&gt;&lt;/strong&gt; is a cloud based
+secure and powerful academic process management platform that’s
+surprisingly affordable! About 10,000 students use this system already.
+&lt;a href=&#34;http://naarad.in/login&#34;&gt;Demo URL&lt;/a&gt;: Login: demo and Password: demo12345&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon
+EC2&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:mayank@intinno.com&#34;&gt;Mayank
+Jain&lt;/a&gt; and their ROR development center is in
+&lt;strong&gt;Gurgaon&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;paathshaala:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Paathshaala&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.intinno.com/products/paathshaala/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/logo-width-150.jpg&#34; alt=&#34;Paathshaala&#34; title=&#34;Paathshaala&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.intinno.com/products/paathshaala/&#34;&gt;Paathshaala&lt;/a&gt;&lt;/strong&gt; is a
+learning management system fostering collaboration between
+administration, teachers and students. It is extensively used in IIT
+Kharagpur (across 18 departments and over 5000 students) and Sinhgad
+College of Engineering. &lt;a href=&#34;http://iitkgp.intinno.com/&#34;&gt;Demo URL&lt;/a&gt;: Email:
+profdemo@intinno.com and Password: pd12&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2008 and is hosted by &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon
+EC2&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:mayank@intinno.com&#34;&gt;Mayank
+Jain&lt;/a&gt; and their ROR development center is in
+&lt;strong&gt;Gurgaon&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;parasharplus:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Parasharplus&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.parasharplus.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/parasharplus.jpg&#34; alt=&#34;Parasharplus&#34; title=&#34;Parasharplus&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.parasharplus.com/&#34;&gt;Parasharplus&lt;/a&gt;&lt;/strong&gt; is a social networking
+portal for astrologers, astrology researchers and those interested in
+astrology. The portal provides features to create astrology charts using
+Vimshottari Dasha system of vedic astrology and a powerful query engine
+to search charts based on planetary positions and/or life events.&lt;/p&gt;
+
+&lt;p&gt;The unique feature of the portal is to create community databases of
+astrology charts and using a powerful query engine, find patters in
+charts and life events to facilitate astrology research.&lt;/p&gt;
+
+&lt;p&gt;The social networking features include discussion forums, communities,
+scraps, chat, access control, friend list, profile management ; which
+enable the astrologers and users to interact with each other to seek
+advice and collaborate information.&lt;/p&gt;
+
+&lt;p&gt;The social networking features are built as web 2.0 accelerators which
+enable the company (www.persistentsys.com) to quickly build social
+networking portals for any other domain.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted at &lt;a href=&#34;http://www.persistentsys.com/newpspl/index.shtml&#34;&gt;Persistent Systems
+Ltd.&lt;/a&gt; The contact
+person is &lt;a href=&#34;mailto:ashutosh_ambekar@persistent.co.in&#34;&gt;Ashutosh Ambekar&lt;/a&gt;
+and their ROR development center is in &lt;strong&gt;Pune&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;planet-ruby-on-rails:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Planet Ruby on Rails&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://planetrubyonrails.net/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/planetrubyonrailsnet.png&#34; alt=&#34;Planet Ruby on
+Rails&#34; title=&#34;Planet Ruby on Rails&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://planetrubyonrails.net/&#34;&gt;Planet Ruby on Rails&lt;/a&gt;&lt;/strong&gt; is a RSS/Atom
+feed aggregator. It displays posts of top Ruby on Rails blogs and
+related technology blogs. The differentiating features are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;you can navigate site using keyboard shortcuts like J, K, H, L, S.&lt;/li&gt;
+&lt;li&gt;You can search within the site.&lt;/li&gt;
+&lt;li&gt;You also get an aggregated feed of this site (50+ subscribers of the
+feed).&lt;/li&gt;
+&lt;li&gt;You can subscribe to the feed and you will get all the posts in a
+feed without subscribing to individual sites feed.&lt;/li&gt;
+&lt;li&gt;Site’s interface is clean and designed for easier readability.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are other similar Planet Sites with .com and .org domains. But the
+main difference is
+&lt;a href=&#34;http://planetrubyonrails.net/&#34;&gt;planetrubyonrails.net&lt;/a&gt; is open source
+and the code is available at
+&lt;a href=&#34;http://github.com/anildigital/planet&#34;&gt;Github&lt;/a&gt;. You can contribute to it
+to make it better.&lt;/p&gt;
+
+&lt;p&gt;The first commit was made on 2008-05-25. The site is live from that date
+and is hosted by &lt;a href=&#34;http://www.slicehost.com/&#34;&gt;Slicehost&lt;/a&gt;. The site was
+coded by &lt;a href=&#34;mailto:anil@digitalcodes.org&#34;&gt;Anil Wadghule&lt;/a&gt; and he seeks
+contributors to it. It will always be free and ad-free. Anil is based in
+&lt;strong&gt;Pune&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;pravasi-vishwa:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Pravasi Vishwa&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.pravasivishwa.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/pravasi_logo.png&#34; alt=&#34;Pravasi
+Vishwa&#34; title=&#34;Pravasi Vishwa&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.pravasivishwa.com/&#34;&gt;Pravasi Vishwa&lt;/a&gt;&lt;/strong&gt; is a bilingual
+portal in Marathi/English focused on travel information on locations
+from India and abroad. This site is a web version of a formally known
+publication &lt;strong&gt;Pravasi Diary&lt;/strong&gt; which is being published over the last 40
+years. The site also contains some unique content that is generally not
+available on other travel portals. The site is designed and developed by
+&lt;a href=&#34;http://ideaclay.com/&#34;&gt;ideaclay&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2010 and is hosted by
+&lt;a href=&#34;http://dreamhost.com/&#34;&gt;DreamHost&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:sachin.joshi@ideaclay.com&#34;&gt;Sachin
+Joshi&lt;/a&gt; and their ROR development
+center is in &lt;strong&gt;Pune&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;purpletrail:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;PurpleTrail&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.purpletrail.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/pt%20logo.jpg&#34; alt=&#34;PurpleTrail&#34; title=&#34;PurpleTrail&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.purpletrail.com/&#34;&gt;PurpleTrail&lt;/a&gt;&lt;/strong&gt; is the only online
+service that gives you, stylish, ad-free invitations and eCards for
+FREE! It now also offers creating and sending &lt;em&gt;personalized&lt;/em&gt; printed
+invitations and cards in minutes. You can order professionally printed
+cards or print them at home. It truly is as easy as 1-2-3!&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2007 and is hosted at
+&lt;a href=&#34;http://www.adhost.com/&#34;&gt;Adhost&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:vishwam@mangospring.com&#34;&gt;Vishwa
+Malhotra&lt;/a&gt; and their ROR development
+center is in &lt;strong&gt;Pune&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;quizzing-platform:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Quizzing Platform&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.intinno.com/products/quizzing/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/logo-width-150.jpg&#34; alt=&#34;Quizzing
+Platform&#34; title=&#34;Quizzing Platform&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.intinno.com/products/quizzing/&#34;&gt;Quizzing Platform&lt;/a&gt;&lt;/strong&gt; is a
+Quiz platform aimed to organise the tedious and time-consuming question
+bank management process of educational institutes.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon
+EC2&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:mayank@intinno.com&#34;&gt;Mayank
+Jain&lt;/a&gt; and their ROR development center is in
+&lt;strong&gt;Gurgaon&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;reviewgang:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Reviewgang&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.reviewgang.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/RG%20logo%20.png&#34; alt=&#34;Reviewgang&#34; title=&#34;Reviewgang&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.reviewgang.com/&#34;&gt;Reviewgang&lt;/a&gt;&lt;/strong&gt; is a RoR based review site
+for Indian movies (currently limited to Hindi movies). Reviewgang
+provides aggregated and curated critic reviews and ratings, videos,
+trailers and synopses of Indian movies. The critic reviews are from main
+stream media critics and registered users can add their own reviews and
+ratings. The application also provides a list of upcoming movies in
+addition to the currently released movies.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2010 and is hosted by
+&lt;a href=&#34;http://www.hetzner.de/&#34;&gt;Hetzner&lt;/a&gt;. The contact person is &lt;a href=&#34;http://www.manu-j.com/&#34;&gt;Manu
+J&lt;/a&gt; and their ROR development center is in
+&lt;strong&gt;Chennai&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;rootein:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Rootein&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://rootein.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/rootein_thumbnail.jpg&#34; alt=&#34;Rootein&#34; title=&#34;Rootein&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://rootein.com/&#34;&gt;Rootein&lt;/a&gt;&lt;/strong&gt; is a web app that lets you build
+habits and track progress as you go along. It keeps you motivated like
+you’ve never experienced before. The calendar that makes it simple to
+track your progress, the daily reminders, and the slack detector, which
+will gently nudge you if it finds you go missing too many days in a row,
+are all designed to make the serious task of building habits fun enough
+so you never lose interest.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by
+&lt;a href=&#34;http://www.webfaction.com/&#34;&gt;Webfaction&lt;/a&gt;. The contact persons are its
+founders &lt;a href=&#34;http://twitter.com/makuchaku&#34;&gt;Amitabh Jotwani &amp;amp; Kunal Dua&lt;/a&gt; and
+their ROR development center is in &lt;strong&gt;New Delhi&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;salaree-com:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Salaree.com&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://salaree.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/logo_salaree.png&#34; alt=&#34;Salaree.com&#34; title=&#34;Salaree.com&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://salaree.com/&#34;&gt;Salaree.com&lt;/a&gt;&lt;/strong&gt; is an Online Payroll Application
+designed for Indian businesses. With their friendly application a
+business can do their monthly payroll quickly and accurately.
+Salaree.com offers all the usual modules familiar to Payroll accountants
+and HR folks like PF, ESI, TDS etc. They also provide an attendance
+module among many others. You can also email password protected payslips
+PDFs to employees as well as inform them via email. In the near future
+they will also have E-Filing of Taxes.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by
+&lt;a href=&#34;http://www.hetzner.de/&#34;&gt;Hetzner&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:asanghi@salaree.com&#34;&gt;Aditya
+Sanghi&lt;/a&gt; and their ROR development center is
+in &lt;strong&gt;Jaipur, Rajasthan&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;shipx:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;ShipX&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.shipx.in/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/ShipX.png&#34; alt=&#34;ShipX&#34; title=&#34;ShipX&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.shipx.in/&#34;&gt;ShipX&lt;/a&gt;&lt;/strong&gt; is India’s first web-based freight
+shopping and booking platform. Their goal is to revolutionize the way
+shippers search, book, and ship their freight. Their easy-to-use portal
+helps shippers to instantly get competitive quotes from top-quality
+service providers, compare them side-by-side, make a choice, and book
+their shipment.&lt;/p&gt;
+
+&lt;p&gt;They are working on their beta release, it will be launched in about a
+month’s time. Alpha version (to understand the market and customer
+needs) was launched in later half of 2008 and was well received.&lt;/p&gt;
+
+&lt;p&gt;The site is hosted by &lt;a href=&#34;http://www.slicehost.com/&#34;&gt;Slicehost&lt;/a&gt;. The
+contact person is &lt;a href=&#34;mailto:asaxena@shipx.in&#34;&gt;Abhinav Saxena&lt;/a&gt; and their
+ROR development center is in &lt;strong&gt;Bangalore&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;sokrati:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Sokrati&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sokrati.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/sokrati_logo.gif&#34; alt=&#34;Sokrati&#34; title=&#34;Sokrati&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://sokrati.com/&#34;&gt;Sokrati&lt;/a&gt;&lt;/strong&gt; is a performance based digital
+marketing platform. Sokrati SearchAds is their flagship product that
+provides SEM agencies &amp;amp; end-advertisers a completely automated hassle
+free search marketing platform. Sokrati is based on their
+&lt;a href=&#34;http://sem.sokrati.com/login&#34;&gt;platform&lt;/a&gt; is which is built using RoR.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2008 and is hosted by &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon
+EC2&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:anubhav@sokrati.com&#34;&gt;Anubhav
+Sonthalia&lt;/a&gt; and their ROR development center
+is in &lt;strong&gt;Pune&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;sysblitz:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Sysblitz&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sysblitz.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/sysblitz.png&#34; alt=&#34;Sysblitz&#34; title=&#34;Sysblitz&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://sysblitz.com/&#34;&gt;Sysblitz&lt;/a&gt;&lt;/strong&gt; is an Integrated Suite of On Demand
+Business Applications designed for the Small &amp;amp; Medium Enterprise. It
+comprises several business applications which can be used individually
+or an in integrated fashion depending upon the size and needs of the
+business. Sysblitz CRM is the Sales Force Automation Tool; Sysblitz
+Workforce provides a Human Resource Management application; Sysblitz ERP
+helps manufacturers and traders to manage Inventory, Invoicing,
+Payments; Sysblitz Financials manages accounting and financial
+management.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon
+EC2&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:info@sysblitz.com&#34;&gt;Navin Singh /
+Vikram Bahl&lt;/a&gt; and their ROR development center
+is in &lt;strong&gt;Noida&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;unitedprosperity:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;UnitedProsperity&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.unitedprosperity.org/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/uplogo.jpg&#34; alt=&#34;UnitedProsperity&#34; title=&#34;UnitedProsperity&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.unitedprosperity.org/&#34;&gt;UnitedProsperity&lt;/a&gt;&lt;/strong&gt; is a non-profit
+organization that helps you &lt;strong&gt;combat extreme global poverty&lt;/strong&gt; powerfully
+by &lt;strong&gt;multiplying the impact of your money&lt;/strong&gt; through loan guarantees. It
+is the world’s first social guaranteeing website.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by
+&lt;a href=&#34;http://www.a2hosting.com/&#34;&gt;A2Hosting&lt;/a&gt;. The contact person is
+&lt;a href=&#34;mailto:contactus@unitedprosperity.org&#34;&gt;Bhalchander Vishwanath&lt;/a&gt; and
+their ROR development center is in &lt;strong&gt;Chennai&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;vectorbrookmath:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;VectorBrookMath&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://vectorbrookmath.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/vblogo.png&#34; alt=&#34;VectorBrookMath&#34; title=&#34;VectorBrookMath&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://vectorbrookmath.com/&#34;&gt;VectorBrookMath&lt;/a&gt;&lt;/strong&gt; is a novel online
+platform for learning and practicing mathematics. Using a set of
+algorithms, VectorBrookMath.com can generate problems on each topic,
+giving the student virtually boundless practice opportunities.
+VectorBrookMath.com currently has content for standards 7, 8, 9 and 10
+for CBSE, ICSE, and 13 state boards. There is no charge to use the
+platform.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by
+&lt;a href=&#34;http://www.slicehost.com/&#34;&gt;Slicehost&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:rails@vectorbrook.com&#34;&gt;Ashwin
+Mangale&lt;/a&gt; and their ROR development center
+is in &lt;strong&gt;Pune&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;webroar:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;WebROaR&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://webroar.in/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/webroar-logo.gif&#34; alt=&#34;WebROaR&#34; title=&#34;WebROaR&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://webroar.in/&#34;&gt;WebROaR&lt;/a&gt;&lt;/strong&gt; is an application server that makes
+deployments of Ruby web applications extremely simple. It provides an
+integrated solution to view the run time performance numbers and email
+notifications in case any exceptions occur in any of the deployed
+applications. The server’s extremely user friendly admin panel itself is
+a Ruby on Rails application.&lt;/p&gt;
+
+&lt;p&gt;The server is 5 to 55% faster than all other comparable deployment
+stacks for Ruby on Rails applications. It is freely available under
+GPLv3.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by
+&lt;a href=&#34;http://www.slicehost.com/&#34;&gt;Slicehost&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:aditya.babbar@webroar.in&#34;&gt;Aditya
+Babbar&lt;/a&gt; and their ROR development
+centers are in &lt;strong&gt;Indore&lt;/strong&gt; and &lt;strong&gt;Noida&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;whol-ly:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Whol.ly&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://whol.ly/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/Wholly.png&#34; alt=&#34;Whol.ly&#34; title=&#34;Whol.ly&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://whol.ly/&#34;&gt;Whol.ly&lt;/a&gt;&lt;/strong&gt; brings the power of local currencies and
+the best of social networking to your neighborhood. Their purpose is to
+dramatically improve communication across neighborhoods while
+stimulating solidarity and creative activity among neighbors.&lt;/p&gt;
+
+&lt;p&gt;The site was created in 2009 and is hosted by &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon
+EC2&lt;/a&gt;. The contact person is &lt;a href=&#34;mailto:abhishek@whol.ly&#34;&gt;Abhishek
+Parolkar&lt;/a&gt; and their ROR development center is
+in &lt;strong&gt;Bangalore&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;update:86fc8c50597bb51bd4a9e6d0a8ac1774&#34;&gt;Update&lt;/h2&gt;
+
+&lt;p&gt;I’ll be updating this page from time to time. If you are the owner /
+developer of such a website(s), then I would appreciate if you would
+send me by email, as much information about the same. Namely:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;150×91 thumbnail and the URL to the website.&lt;/li&gt;
+&lt;li&gt;4-5 line details about this website(s) that includes what the site
+is about, when (year) it was created, the contact person’s name and
+email id, the name and URL of the hosting company where the site is
+hosted.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you are aware of any such Indian website(s) made with Ruby on Rails,
+please send me the following -&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;the URL of the website(s).&lt;/li&gt;
+&lt;li&gt;the contact person’s email id, if known.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Thank you for your time and help.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rails Summit Latin America 2009</title>
+      <link>http://rubylearning.com/blog/2009/09/26/rails-summit-latin-america-2009/</link>
+      <pubDate>Sat, 26 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/09/26/rails-summit-latin-america-2009/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.railssummit.com.br/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/rails_summit_2009.png&#34; alt=&#34;Rails Summit Latin America
+2009&#34; title=&#34;Rails Summit Latin America 2009&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Back in 2005 there was virtually no Ruby community in Brazil. David
+Hansson himself was there, at the FISL conference, showcasing a pre-1.0
+Rails (which later became the famous 15-min blog screencast). Only 3
+years later the community grew up dramatically and in 2008, Rails
+Summit Latin America was unleashed and it was a huge success. They had more
+than 20 international speakers, more than 550 attendees in 2 full days with 2
+parallel tracks, real-time translators, coffee-break, lunch, ubiquitous wi-fi,
+and much more. They targetted a RailsConf-like event and I think they
+delivered.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/MarcosFabioWillian.jpg&#34; alt=&#34;Marcos, Fabio and Willian at the Rails Summit Latin America
+2008&#34; title=&#34;Marcos, Fabio and Willian at the Rails Summit Latin America 2008&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This year they want to repeat the success with the 2nd edition of the
+Summit. It’s going to happen at the same place, in Sao Paulo City,
+Brazil. They expect to see people through out South America.&lt;/p&gt;
+
+&lt;p&gt;Attend to celebrate Rails, get to know other Railers, increase your
+business network and, of course, learn even more about Ruby and Rails.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interview: Author Antonio Cangiano</title>
+      <link>http://rubylearning.com/blog/2009/07/15/interview-author-antonio-cangiano/</link>
+      <pubDate>Wed, 15 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/07/15/interview-author-antonio-cangiano/</guid>
+      <description>&lt;p&gt;Our Book Promotion: “&lt;strong&gt;Ruby on Rails for Microsoft Developers&lt;/strong&gt;” has
+just started. Win one of four books to be given out for active
+participation. The coolest thing? Author &lt;strong&gt;Antonio Cangiano&lt;/strong&gt; will be on
+site to answer questions! &lt;a href=&#34;http://rubylearning.com/blog/2009/07/07/book-promotion-ruby-on-rails-for-microsoft-developers/&#34;&gt;Click
+here&lt;/a&gt;
+for more details. Here, in this brief interview, Satish Talim of
+RubyLearning talks to Antonio Cangiano.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/acangiano.gif&#34; alt=&#34;Antonio
+Cangiano&#34; title=&#34;Antonio Cangiano&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Antonio, could you tell us something about yourself –
+your background, where you are based?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Antonio&amp;gt;&amp;gt;&lt;/strong&gt; Sure, Satish. I’m an Italian hacker living in Toronto,
+Canada where I work as a Software Engineer and Technical Evangelist for
+IBM. Part of the reason why I was hired by IBM was due to my expertise
+and passion for Ruby and Ruby on Rails (which I’d been following since
+2004).&lt;/p&gt;
+
+&lt;p&gt;In 2006 I developed the first version of the adapter that enables
+&lt;a href=&#34;http://db2express.com/&#34;&gt;DB2&lt;/a&gt; to work with ActiveRecord/Rails, and have
+since been engaged in many projects that involved Rails and other
+dynamic languages and frameworks. I like to think of myself as being a
+very curious person who always approach new technologies with an open
+mind. My passion for Ruby and other open source tools turns me into the
+guy who’s always pushing for an increased level of adoption of these
+less common, but exciting technologies within IBM and the enterprise
+world.&lt;/p&gt;
+
+&lt;p&gt;Lately, in my limited spare time, I’ve been working on
+&lt;a href=&#34;http://thinkcode.tv/&#34;&gt;ThinkCode.TV&lt;/a&gt;, a startup that will focus on
+producing and selling high-quality programming screencasts in English
+and Italian.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What inspired/prompted you to write “Ruby on Rails for
+Microsoft Developers”? What need were you trying to fill?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Antonio&amp;gt;&amp;gt;&lt;/strong&gt; When people first approach the Rails community, they
+immediately notice that there is a huge percentage of Mac users. If you
+are developing with Ruby on Rails, it’s almost given that you are using
+Mac OS X or Linux. Therefore many books and tutorials on the subject
+tend to make assumptions about their audience’s skill set, what
+operating system they use and about their editors. This introduces a
+major adoption barrier for many developers who are coming from Windows,
+who may not be familiar with *nix operating systems, or may not be able
+to afford the latest Mac hardware.&lt;/p&gt;
+
+&lt;p&gt;By taking advantage of my background in the .NET world, and my
+experience with all the three main operating systems, including Windows,
+I thought I would write a Rails book aimed at those who wish to learn
+about Rails (but don’t necessarily want to switch their OS, editor and
+development environment).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; There is some confusion in the minds of the reader
+regarding the book’s title. Can you clarify?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Antonio&amp;gt;&amp;gt;&lt;/strong&gt; The confusion surrounding the title is quite
+understandable. Readers might think, is this a book for people who work
+at Microsoft? Is it a book for &lt;a href=&#34;http://www.daxx.com/view/net_developers_for_hire&#34;&gt;.NET
+programmers&lt;/a&gt;? Is it
+for those who use Windows as their OS? The answers is that it’s for all
+of the above.&lt;/p&gt;
+
+&lt;p&gt;As mentioned in my answer to the previous question, this book targets
+the wide – and underrepresented – audience of Windows users who may be
+familiar with Microsoft development tools. You don’t have to be a .NET
+programmer to read this book, but if you are, you’ll find some nice
+references and comparisons that will make the learning path a bit
+smoother for you. If on the other hand you don’t know the first thing
+about .NET, you’ll fully enjoy the book nevertheless. Somewhat
+ironically, the first two emails I received as an author, came from
+developers who were Windows users, but who had taken the plunge and were
+now following the book on Mac OS X.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; I know that it is too early to say, but looking back are
+there some topics that you now wish should have been covered or dropped
+from the book?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Antonio&amp;gt;&amp;gt;&lt;/strong&gt; When I started writing the book,
+&lt;a href=&#34;http://www.ironruby.net/&#34;&gt;IronRuby&lt;/a&gt; was at a very early stage and was
+progressing slowly. Now they’ve sped things up and have already reached
+a feature rich release (0.9) that isn’t too far from achieving 1.0
+stable status. As it stands now, the book is packed full of information
+about Rails, but if I were to rewrite the book today, I would dedicate a
+solid chapter to IronRuby.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Antonio. In case you have any queries and/or questions,
+kindly post your questions here (as comments to this blog post) and
+Antonio would be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interview: Author Eldon Alameda</title>
+      <link>http://rubylearning.com/blog/2009/06/15/interview-author-eldon-alameda/</link>
+      <pubDate>Mon, 15 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/06/15/interview-author-eldon-alameda/</guid>
+      <description>&lt;div&gt;
+  &lt;p class=&#34;alert&#34;&gt;
+    Our Book Promotion: &amp;#8220;&lt;strong&gt;Foundation Rails 2&lt;/strong&gt;&amp;#8221; starts soon. Win one of four books to be given out for active participation. The coolest thing? Author &lt;b&gt;Eldon Alameda&lt;/b&gt; will be on site to answer questions! &lt;a href=&#34;http://rubylearning.com/blog/2009/06/10/book-promotion-foundation-rails-2/&#34;&gt;Click here&lt;/a&gt; for more details. Here, in this brief interview, Satish Talim of RubyLearning talks to Eldon Alameda.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Eldon Alameda&#34; src=&#34;http://rubylearning.com/images/ealameda.jpg&#34; alt=&#34;Eldon Alameda&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Eldon, could you tell us something about yourself &amp;#8211; your background, where you are based?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Eldon&gt;&gt;&lt;/strong&gt; I&amp;#8217;m originally from California, but have been residing in Kansas City for the last 11 years. I have a large number of years of experience working for a variety of companies such as IBM, Sprint, dot-com&amp;#8217;s, advertising agencies, and even a stint as the central region webmaster for the National Weather Service. Currently I&amp;#8217;m working as an architect and as the leader of the core product development team for a technology startup in the digital incentive arena. It&amp;#8217;s a really fun environment as we&amp;#8217;re working on a fairly large and complex code base that has some very strict performance requirements.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    I&amp;#8217;m also an ex-Marine, so I can tend to be a bit on the opinionated and gruff side &amp;#8211; especially when it comes to code quality. Perhaps paradoxically, I&amp;#8217;m also a big Disney fan who tries to take my family to Disney World once a year.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Foundation Rails 2&#34; src=&#34;http://rubylearning.com/images/medallion.jpg&#34; alt=&#34;Foundation Rails 2&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; How is your book &amp;#8220;Foundation Rails 2&amp;#8243; different from the other Rails books?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Eldon&gt;&gt;&lt;/strong&gt; That&amp;#8217;s a good question. To be honest, I was fairly resistant when the publisher first contacted me to ask me to write this book. It felt like there was already a huge selection of books and resources for a beginner to use to learn Rails and I didn&amp;#8217;t feel like writing another book unless it added value. When I took the time to take a deeper look at the beginners books that were available at the time, however, it seemed to me that there were some important gaps in them.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    For one, many of the books seemed to rely too heavily on using scaffolding and plugins. While these tools certainly have their place, I&amp;#8217;ve been called far too many times to &amp;#8220;fix&amp;#8221; projects where it was obvious that the original developer was over-using these tools and didn&amp;#8217;t understand the underlying code that these tools were adding to the project. For my book &amp;#8211; I really wanted to make sure that the reader had a solid understanding of the basics before I introduced these tools. Thus, I didn&amp;#8217;t cover scaffolding or plugins until chapter 9 and even then I present them only as a way to expedite the development of a prototype.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Secondly, it felt that many of the books out there had the goal of teaching Rails while building a single application in the book. While this sounds like a good idea, in practice, it felt like most of the books that chose this path were rushing the reader through the learning process in order to build the app. As Rails is composed of several individual libraries that work together, I opted to take the readers through a deeper hands-on tour of how to use each of the Rails libraries that provide its MVC architecture before bringing it all back together to build a sample application.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Finally, I really wanted to encourage readers to have fun and explore concepts beyond the simple examples that I provide in the book, so I really strived to give the reader something to play with in each chapter. So for most of the chapters I either was guiding the reader through experiments in the console or I was having them complete sample Rails applications using the tools that we were discussing in that chapter. I know that I feel that I learn best when I&amp;#8217;m getting my hands dirty in the code and so I was hoping that by ensuring that readers were able to be actively playing with Rails code throughout the book, that they would be able to learn better as well.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Who’s the audience for your book &amp;#8211; Foundation Rails 2?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Eldon&gt;&gt;&lt;/strong&gt; I wrote this book with goal of providing a solid introduction to Rails for people who have some passing familiarity with other scripting languages such as JavaScript or PHP. That being said, my main requirement for readers of my book is simply a motivation to learn and curiosity to play around with the code beyond just the words on the page. I don&amp;#8217;t believe it&amp;#8217;s possible to learn how to code anything without actually investing the time at the keyboard yourself.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Looking back are there some topics that you now wish should have been covered or dropped from the book?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Eldon&gt;&gt;&lt;/strong&gt; Unfortunately, I&amp;#8217;m somewhat of a perfectionist so if given more time to write the book I would have loved to continue refining and expanding many of the areas of the book. Most notably, while I was able to provide an introduction to testing using Rspec, I would have loved to have expanded that and given readers even more value.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Secondly, as someone who now has to interview and hire other Rails developers &amp;#8211; &lt;span style=&#34;background-color: #FFFFCC;&#34;&gt;one of my big frustrations is how many &amp;#8220;professional&amp;#8221; Rails developers I meet who have a very shallow knowledge of core Ruby or even generic object-oriented design concepts&lt;/span&gt;. So those are areas that I would have loved to expand upon in my book if I could have done it without overwhelming the reader.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Anything else you would like to add?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Eldon&gt;&gt;&lt;/strong&gt; The best advice I can give is one of my core personal philosophies and something that I try to communicate to my team members; which is the importance of what I call the &amp;#8220;Sharpening the Axe&amp;#8221;. That term is based on a bible verse I once had to memorize when I was younger which stated that:
+  &lt;/p&gt;
+  
+  &lt;blockquote&gt;
+    &lt;p&gt;
+      &amp;#8220;If the axe is blunt, and one doesn&amp;#8217;t sharpen the edge, then he must use more strength; but skill brings success.&amp;#8221;
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;p&gt;
+    The basic premise being that you need to continually be looking to keep yourself and your skills sharp. The stronger your foundation is on the basics, then the easier it will be for you to solve the bigger problems. Conversely if you&amp;#8217;re weak on the fundamentals, then you can still solve problem but they&amp;#8217;re going to difficult and consume more of your energy.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    So if you find that you don&amp;#8217;t feel like you quite understand how something like blocks work in Ruby, you should take the time out of your schedule to invest in digging deeper into that area until you truly learn it. The quality of resources for learning Ruby that are available today are light-years ahead of what what was available when I first started coding in Ruby.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Thank you Eldon. In case you have any queries and/or questions, kindly post your questions here (as comments to this blog post) and Eldon would be glad to answer.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Quick Chat with Chetan Mittal of Mortar Systems</title>
+      <link>http://rubylearning.com/blog/2009/06/13/a-quick-chat-with-chetan-mittal-of-mortar-systems/</link>
+      <pubDate>Sat, 13 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/06/13/a-quick-chat-with-chetan-mittal-of-mortar-systems/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    &lt;img class=&#34;alignright&#34; title=&#34;Chetan Mittal&#34; src=&#34;http://www.rubylearning.com/images/bio-photo.gif&#34; alt=&#34;Chetan Mittal&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Chetan, could you tell us something about yourself &amp;#8211; your background, where you are based?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Chetan&gt;&gt;&lt;/strong&gt; I am born and raised in Chandigarh, India&amp;#8217;s most beautiful city. I am a computer engineer by both qualification and profession, and a MBA from Melbourne Business School (UQ/MtEliza). In 2000 I moved to Australia; worked and stayed there for six years before coming back to India in 2006, year I put my hands on Rails, to start Mortar Systems. I have worked on government projects in Australia for different verticals such as Transport, Healthcare etc.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Could you tell us a little more about your company?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Chetan&gt;&gt;&lt;/strong&gt; Mortar Systems is a small IT boutique where we provide services such as product engineering, web/mobile development and business IT consulting to small and micro enterprises for verticals ranging from retail to high-tech. The technologies we use are open-source such as &lt;strong&gt;Ruby&lt;/strong&gt;, Java, Python, SugarCRM etc. We are also partner with SUN in their Startup Essential program for India; with this we can provide discounted software / hardware for our product engineering customers.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Typically we follow Agile model and craftsmanship practices. We have experience in providing Scrum and XP training / consulting to some of the IT shops in India.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Getting back to your comnpany, what are your future plans?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Chetan&gt;&gt;&lt;/strong&gt; Currently we are a team 4 developers, thus our future plan for the next 2 years is to grow this team to at least 50, and build up some expertise in any of the two verticals of our target market. We have successfully signed up a 3 years contract with an outsourced Sales firm, so finger crossed!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;strong&gt;Satish&gt;&gt;&lt;/strong&gt; Anything else you would like to add?&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Chetan&gt;&gt;&lt;/strong&gt; I would like to add my thoughts on the current IT resources market in India. Nowadays I see a lot of startups coming out of India but not many out of them making it big on international (or even national) circuit. The problem I foresee is that most of these startups are unable to get good team members because the college graduates (not IITs, NITs) just don&amp;#8217;t want to work for them, or just are not skilled enough. I can&amp;#8217;t say much on when the education standards in India will rise, but would like to point out a few startups portals like &lt;a href=&#34;http://workforastartup.in/&#34;&gt;http://workforastartup.in&lt;/a&gt; or others which can help Indian startups to hire really potential talent.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;color:#CC3333;&#34;&gt;&lt;em&gt;Thank you Chetan.&lt;/em&gt;&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Book Promotion: Foundation Rails 2</title>
+      <link>http://rubylearning.com/blog/2009/06/10/book-promotion-foundation-rails-2/</link>
+      <pubDate>Wed, 10 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/06/10/book-promotion-foundation-rails-2/</guid>
+      <description>&lt;div&gt;
+  &lt;h3&gt;
+    Book Promotion: Foundation Rails 2
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    RubyLearning is pleased to announce the promotion of the book &amp;#8220;&lt;strong&gt;Foundation Rails 2&lt;/strong&gt;&amp;#8221; by author Eldon Alameda.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;a href=&#34;http://www.friendsofed.com/book.html?isbn=9781430210399&#34;&gt;&lt;img class=&#34;alignright&#34; src=&#34;http://rubylearning.com/images/medallion.jpg&#34; style=&#34;border: 0px none;&#34; alt=&#34;Foundation Rails 2&#34; title=&#34;Foundation Rails 2&#34; /&gt;&lt;/a&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The general idea of a &lt;strong&gt;book promotion&lt;/strong&gt; is that it gives the participants a chance to ask relevant questions, interact with the author of the book and in the process possibly win a copy of the book, all for free!
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Here are the details:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      Promotion Period: &lt;strong&gt;16th to 18th June 2009&lt;/strong&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Registrations have started. Anyone interested in Ruby programming can join. It is &lt;strong&gt;FREE&lt;/strong&gt;. Join &lt;a href=&#34;http://rubylearning.org/class/course/view.php?id=35&#34;&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt; and use Enrollment key: &lt;b&gt;BPCE101&lt;/b&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      You can start posting your questions related to the book, immediately.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&#34;background-color: #FFFFCC;&#34;&gt;&lt;b&gt;Remember:&lt;/b&gt; Don&amp;#8217;t wait! You could win a copy of this book and it&amp;#8217;s free to join&lt;/span&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    The previous book promotions of &amp;#8220;Wicked Cool Ruby Scripts&amp;#8221;, &amp;#8220;Rails Test Prescriptions&amp;#8221;, &amp;#8220;Ruby in Practice&amp;#8221;, &amp;#8220;Head First Rails&amp;#8221; and &amp;#8220;Programming Ruby 1.9&amp;#8243; were a big success.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    For questions related to this blog post or to schedule a new book promotion, contact: mail [at] satishtalim [dot] com
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Future of Ruby is Fail!</title>
+      <link>http://rubylearning.com/blog/2009/06/09/the-future-of-ruby-is-fail/</link>
+      <pubDate>Tue, 09 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/06/09/the-future-of-ruby-is-fail/</guid>
+      <description>
+
+&lt;h2 id=&#34;the-future-of-ruby-is-fail:f1cc04954d56997687c319f15df949e6&#34;&gt;The Future of Ruby is Fail!&lt;/h2&gt;
+
+&lt;h3 id=&#34;preamble:f1cc04954d56997687c319f15df949e6&#34;&gt;Preamble&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks to &lt;a href=&#34;http://www.igvita.com/&#34;&gt;Ilya Grigorik&lt;/a&gt; for initiating the
+discussion in the Indian Ruby / Rails community around the premise
+“Future of Ruby is Fail” (yes, somewhat tongue in cheek, but also
+serious), trying to get a feel for the concerns in the community. The
+focus of this discussion would be on the Indian market / geographical
+area.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;RubyLearning is pleased to have with us, Ruby / Rails Gurus from Pune,
+India: &lt;strong&gt;Ashutosh Ambekar&lt;/strong&gt; from Persistent Systems Ltd., &lt;strong&gt;Devendra
+Deshmukh&lt;/strong&gt; from e-Zest, &lt;strong&gt;Gautam Rege&lt;/strong&gt; from Josh Software Pvt. Ltd.,
+&lt;strong&gt;Nick Adams&lt;/strong&gt; from SapnaSolutions Pvt. Ltd. and &lt;strong&gt;Shabbir Merchant&lt;/strong&gt;
+from Pragmatic Technology Solutions.&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: The title of this blog post is controversial but many in the
+community are talking about it. What’s your quick reaction to this
+statement?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/rege.jpg&#34; alt=&#34;Gautam
+Rege&#34; title=&#34;Gautam Rege&#34; /&gt;
+&lt;strong&gt;Gautam
+Rege&amp;gt;&amp;gt;&lt;/strong&gt; Since you asked for my quick reaction, my answer is an
+emphatic “No, Ruby rocks!”. However, the thought did send a shiver down
+my spine! The reason put in one simple word – passion. Can a passion
+really die?
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+
+Given the “Indian perspective”, the industry is adapting to Ruby, but
+slowly. A lot of companies are looking at Ruby with a fresh outlook than
+one which is dismissive in nature. It is going to take some time before
+Ruby becomes as popular as Java and .NET applications but my gut feeling
+tells me – its only a matter of time ! Sethupathi Asokan, my colleague
+who co-founded Josh Software with me feels that Ruby will ride on the
+Rails popularity. There are more takers for Rails and hence Ruby, than
+the other way round. So, as Rails gets popular, Ruby lives on!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/shabbir.png&#34; alt=&#34;Shabbir
+Merchant&#34; title=&#34;Shabbir Merchant&#34; /&gt;
+&lt;strong&gt;Shabbir
+Merchant&amp;gt;&amp;gt;&lt;/strong&gt; I think 3-5 years is a long time, but I already see that
+Ruby and Rails, although a popular platform in North America/Europe, has
+failed to gain traction in the Indian Market place. But I think I do not
+completely agree that it will fail completely but what can happen is
+that it will not penetrate the market, the way Java has done. I think
+mass penetration will not happen unless big companies like IBM, HP, Sun
+endorse it in a big way. Currently they are heavily invested in Java and
+a move to Ruby would be very challenging.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/Ashutosh.png&#34; alt=&#34;Ashutosh
+Ambekar&#34; title=&#34;Ashutosh Ambekar&#34; /&gt;
+&lt;strong&gt;Ashutosh
+Ambekar&amp;gt;&amp;gt;&lt;/strong&gt; No! Ruby won’t fail. It has been around for 10 years and
+still being actively developed. Ruby 1.9.x recently came out and is
+showing best performance numbers. Likes of Sun Microsystems and
+Microsoft are rolling in millions of dollars on their version of Ruby
+(which will adhere to “standard” Ruby). I have observed that software
+shops in the US considering Ruby (in some flavor) for developing their
+enterprise applications. With support from larger ISVs and programmer
+community bringing in frameworks based on Ruby (Ruby on Rails, Sinatra
+etc), I do not think Ruby will fail, it will evolve and will fuel rapid
+application development using meta-programming.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/NickAdams.png&#34; alt=&#34;Nick
+Adams&#34; title=&#34;Nick Adams&#34; /&gt;
+&lt;strong&gt;Nick
+Adams&amp;gt;&amp;gt;&lt;/strong&gt; My first reaction would be to ask: ‘What do we mean by
+fail?’. I think if we mean a failure for Ruby to gain traction and
+massive uptake, perhaps. It is generally the case that for wide scale
+adoption of any new technology, big business needs to adopt it. This is
+unlikely for a number of reasons. However, I believe Ruby continues to
+see growth in many other areas, notably in web application development.
+I do not sense a failure for Ruby in the short or medium term. My quick
+reaction is surprise that there is talk in the community of a ‘fail’!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.rubylearning.com/images/Deven.jpg&#34; alt=&#34;Devendra
+Deshmukh&#34; title=&#34;Devendra Deshmukh&#34; /&gt;
+&lt;strong&gt;Devendra
+Deshmukh&amp;gt;&amp;gt;&lt;/strong&gt; Very innovative and thought provocative blog post title.
+I believe Ruby won’t fail in the next 3-5 years but it will undergo
+substantial changes to get rid of current technology limitations. Ruby
+has inevitably became one of the top two or three strategic choices for
+start-ups and early stage web 2.0 and social applications. But since,
+other programming frameworks and tool-sets are learning Ruby’s lessons
+and unless we see cohesive actions from the Ruby Community, it looks
+like Ruby will get some serious competition in next 1-2 years.
+Improvement on Scalability, performance, security and deployment may
+help Ruby to maintain its leadership amongst its peers and competition
+as well. While reading various community posts, I am certainly seeing
+positive actions towards future.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: Imagine for a moment that in the long run Ruby did ‘fail’, what in
+your opinion would have been the causes of this failure?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gautam Rege&amp;gt;&amp;gt;&lt;/strong&gt; Adaptability and Availability of resources. I was
+arguing about the choice of technology for web-based banking software
+with a close associate of mine, who sits pretty high up in the technical
+think tank of a leading bank in India. I was told in no uncertain terms
+that .NET ASP, C# would be the choice of technology. Aghast at the
+response, I retorted saying that ‘whatever you build, I can build better
+and faster in Rails’. He said calmly – ‘I don’t deny YOUR skills, but
+what will we do when you are not around?’. There are hordes of .NET
+resources available in India from zillions of technical institutes who
+are churning out .NET and Java professionals. I don’t mean to say that
+.NET, C# are more popular but the more commonly taught languages are
+the ones which people in India tend to adapt to. There are a lot of
+people who know .NET, C# than Ruby. Currently, the situation is
+improving but it will be some time before large corporations adapt to
+Ruby. Having said this, currently the Indian market is flooded with Java
+and .NET resources and it is a fact that a lot of multi-tiered critical
+applications are built on these platforms and not Ruby. When anyone
+adapts to Ruby, they have to be sure of a supply of Ruby professionals.
+Solution, you may ask: We need to get Ruby taught in schools !&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Shabbir Merchant&amp;gt;&amp;gt;&lt;/strong&gt; I think if Ruby fails, the failure of Ruby
+could be attributed to multiple reasons. I think the most important one
+could be fragmentation of the community in terms of using different VMs
+or even due to different Ruby web frameworks. We have already seen this
+in the case of Rails and Merb. But thankfully this has been resolved by
+the merger. But such situations could arise again. The huge success of
+Java platform I think is that they have good leadership in place and a
+community process for single VM. Another reason for the failure could be
+attributed to the rapid changes in the framework which are sometimes
+essential but leaves lot of legacy things to be migrated. Another
+potential reason could be our inability to attract and make it easier
+for developers coming from Java/.Net/PHP world to move to Ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ashutosh Ambekar&amp;gt;&amp;gt;&lt;/strong&gt; Too many choices each competing for the market
+place with their own “customization” over standard Ruby. Programmers may
+find it difficult to choose and stick to a flavor for long, or may give
+it up all together for another “stable” alternative. Functional
+programming languages become popular sooner with frameworks (like Lift
+etc.) which may be considered to be more scalable, secure, robust by
+software architects.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick Adams&amp;gt;&amp;gt;&lt;/strong&gt; If Ruby were to fail (lost traction or suffered
+quality issues), it might be due to over dilution of the core developer
+community, resulting in some serious problems with its implementation.
+This might lead to developers switching their applications to another
+simple OO language with similar capabilities, such as Python. This was
+the fear of many, including Zed Shaw when he rather publicly declared
+his loss of faith in the Rails community and shortly after Ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Devendra Deshmukh&amp;gt;&amp;gt;&lt;/strong&gt; Failure will be certainly attributed to
+technology limitations mentioned earlier and divisive Ruby community.
+But the key factor would be emergence of better competitive framework. I
+think it is a possibility in the long run. This new framework may be
+derived from Ruby but supported by strong community or enterprise
+organizations like IBM or Sun.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: How is the Ruby market different in India than in say USA/Canada?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gautam Rege&amp;gt;&amp;gt;&lt;/strong&gt; The Indian market is the still a conservative one –
+people will not accept new things unless they see it working ‘somewhere
+else’. Bigger corporations take time in adapting to new technology and
+considering the man-power availability in India, prefer to keep an IT
+development team in-house. SMEs (Small and Medium-sized enterprises) are
+far more adaptable and open to newer solutions if they are robust and
+cost-effective. This is where I foresee (and hope) Rails making it big !
+SMEs can benefit a lot from products and applications using Ruby. And
+this shall have its chain-reaction: Bigger corporations seeing this
+change shall start looking at Ruby. Technical and Training institutes in
+turn, seeing the need for Ruby shall start introducing it in their
+curriculum. Sethu (as he popularly called) feels that today there are
+more people fluent in Python, Perl and PHP than in Ruby. Is there a fear
+of ‘Yet another scripting language to learn?’
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+
+So, adaptability is a slow but steady process.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Shabbir Merchant&amp;gt;&amp;gt;&lt;/strong&gt; I have executed some projects for Indian
+clients and for them the cost of development and impatience outweighs
+speed of development and all the goodies which Ruby/Rails brings with
+it. Good Rails developers who cam deliver practical applications come at
+a higher cost compared to a PHP/.Net/Java developers. Also, I have found
+that even small clients prefer to develop and maintain applications
+within their respective organizations instead of outsourcing it. Hence
+when they decide on developing an application it is easier for them to
+find a .Net/Java developer as their numbers are large.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ashutosh Ambekar&amp;gt;&amp;gt;&lt;/strong&gt; The main difference is that you need to educate
+the Indian VP engineering / decision maker about what Ruby (on Rails) is
+and how it will help them, giving them examples of the success stories
+(in the west). US/Canadian customers come with their homework and ask
+you to develop a solution using Ruby (on Rails). There are Indian
+startups whom I worked with and agreed on using Ruby (on Rails) but
+these are very few. Majority of the Indian software market still finds
+comfort in .NET/Java world – and for obvious reason – Ruby skills are
+still scarce to find in India. In the USA/Canada Ruby is being adopted
+at a faster pace – in the enterprise software area as well. It will be a
+while before this trend hits India as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick Adams&amp;gt;&amp;gt;&lt;/strong&gt; I believe Ruby is a language of creativity. It makes
+doing otherwise complicated things simple, so you can throw together
+brilliant ideas elegantly and in fewer lines. I am yet to see creative
+development work taking off in India. Currently the core market for Ruby
+and frameworks such as Rails in India is rapid prototyping for US lead
+ideas, or outsourcing existing projects. Perhaps as use of the web in
+India increases, we may see this change.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Devendra Deshmukh&amp;gt;&amp;gt;&lt;/strong&gt; Indian enterprise customers definitely are not
+aware about the technology benefits of Ruby and also lack internal Ruby
+resources to maintain systems. But many Indian product/Web 2.0 startups
+are adopting Ruby to a great extent. I have seen successful Ruby usage
+at many startups in-hand-in with agile practices viz. Scrum.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: What is your perspective on the future of Ruby in India?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gautam Rege&amp;gt;&amp;gt;&lt;/strong&gt; The future of India is the young software
+professionals. The biggest asset of India is man power, i.e. the
+resources. The biggest challenge unfortunately in India is ‘quality
+resources’. There has been a compliant for a long time that development
+quality of Indian professionals requires to be worked upon. However,
+with Ruby there is a very easy, clean and simple way to change this
+perspective. JRuby has added a completely new facet to Ruby and will
+encourage young Java professionals to adopt Ruby now! I am emphatic that
+programming fundamentals need to be taught and clarified very early –
+otherwise we end up writing code like standard procedural languages
+ignoring the concise and crystallized nature of Ruby eg. using blocks
+and iterators for one! This implies that the Ruby faculty also needs to
+be up to the mark ! The good thing is that a lot of students are
+interested in learning Ruby. So, I feel, as the number of Ruby resources
+increases, the future of Ruby in India will brighten. The numerous
+online local communities discussing Ruby and Rails are helping this
+cause.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Shabbir Merchant&amp;gt;&amp;gt;&lt;/strong&gt; Here in India I have noticed that all
+organizations big and small are okay to outsource their development
+work. But when it comes to hosting and maintaining it, they want to hire
+someone inhouse. They insist of having someone inhouse to take care of
+project once it is deployed. They think it would be easier to find a
+Java/.Net guy to take care of the work. The low number of training
+institutes offering Ruby/Rails training affects the number of skilled
+manpower. I would specially like to highlight potential reasons it might
+fail in the Indian context. Ruby is still a technology which has not
+come into the mainstream in India. There are handful of applications
+built in Ruby/Rails in India for the Indian consumers. Also failure of
+Ruby/Rails could be attributed to a lack of skilled manpower. Although
+there are some training sources available in India. these are too few
+and whatever is taught gets outdated soon. Hence, I would say lack of
+quality and quantity of training institution could lead to its failure
+in India.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ashutosh Ambekar&amp;gt;&amp;gt;&lt;/strong&gt; Very bright! There is tremendous scope for Ruby
+in Indian SME segment – it’s fast to develop and market and cheap in
+terms of overall cost of ownership. I see more and more engineers
+showing interest in learning Ruby (we grew from team of 4 to team of 40+
+in a year) and are enjoying it and are willing to take a bet on it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick Adams&amp;gt;&amp;gt;&lt;/strong&gt; I think the prospects are mixed. As passion for the
+web in India increases, and more developers turn to alternatives to
+Java, Ruby may gain some traction. I also sense that the current
+employment climate makes more entrepreneurs out of us, and that
+graduates trained in Java and C are increasingly interested in learning
+more modern languages such as Ruby. It may not be enough, however.
+Developers in India tend to follow the jobs market, currently centered
+BPO work in traditional languages, so if tech leaders can’t find a way
+to create a buzz around Ruby and create jobs, we may not see significant
+growth.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Devendra Deshmukh&amp;gt;&amp;gt;&lt;/strong&gt; Being part of 100% exports oriented
+organization, I am definitely not an expert on the Indian Market. But
+from a resources point of view, I feel there is definitely a need of
+having more ROR programmers available in India. This constraint many a
+times goes against finalizing application/adoption of ROR in
+software/web projects.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: What are the drivers behind current adoption, what are the counter
+arguments?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gautam Rege&amp;gt;&amp;gt;&lt;/strong&gt; Cost and speed of development of Ruby applications
+and the flexibility to customize and change the application at a later
+stage beats all other programming platforms hands down ! Sethu adds that
+the Ruby gems today provide integration and access to the latest
+technologies like Amazon S3, etc. This ensures that Ruby is always in
+league with new technologies that become available. On the down side, I
+feel what needs to be strengthened is the source code protection (which
+does contradict the very premise of Open Source). Larger corporations
+require that their deployments be protected not only by system level
+security but at the source code level too. I have seen Thoughtworks
+Mingle encrypt their Ruby code to protect their IP, but will this become
+a norm or a novelty?
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; /&gt;
+
+Another problem with Rruby is development and deployment of security in
+tiered applications, especially in finance sector. No matter how much we
+try, we are not able to convince large financial corporates to get their
+applications built in Ruby. I hope someone out there contradicts me and
+tells me that this step has been achieved. People have long complained
+about scalability issues in Rails but I think that has been very well
+handled with current setups.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Shabbir Merchant&amp;gt;&amp;gt;&lt;/strong&gt; Indian market is very cost conscious. I think
+at this point people are looking at Rails for doing medium sized apps.
+People do not want to build heavy traffic apps with it, due to
+affordability of good developers and good hosting providers. There are
+some Indian Ruby/Rails hosting providers but they are not skilled enough
+to keep pace with the rapid changes in the deployment options. It is
+much much cheaper to host an application in PHP/Java/.Net than do a
+Ruby/Rails application.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ashutosh Ambekar&amp;gt;&amp;gt;&lt;/strong&gt; Business drivers for current adoption are rapid
+development (with integrated testing) using frameworks like Rails, cost
+of ownership, deployment solutions available on the cloud, database
+support for most of the popular databases, ease of creating REST based
+web applications using Rails framework and last but not least, big ISVs
+are investing in and are embracing Ruby in some form or other. Something
+that is non-tangible but is still a driver is that engineers enjoy
+programming in Ruby – I do! However, frequently, there are questions
+raised on scalability of Rails applications. This is one of the major
+reasons why someone may not adopt Ruby based solution. Another factor
+preventing adoption as mentioned above is availability of skilled Ruby
+developers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick Adams&amp;gt;&amp;gt;&lt;/strong&gt; One driver behind adoption are probably jobs created
+by outsourced work from the US and Europe, both straight Rails
+outsourcing and client projects being developed in Rails. Another, and
+the more interesting driver, is the startup and entrepreneurial
+community. Founders and techies of the increasing number of web startups
+in India are looking to Ruby as their creative tool.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Devendra Deshmukh&amp;gt;&amp;gt;&lt;/strong&gt; Most important business drivers as per my
+perception are rapid development and support for cloud deployment. This
+has really enabled start-ups to quickly come out with quick
+proof-of-concepts or pilot of their business ideas. Many have made bucks
+as well though VCs or early customers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: Do you think the community will thrive in the long run?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gautam Rege&amp;gt;&amp;gt;&lt;/strong&gt; I have no doubt about this. In fact, I would venture
+out and say that India will probably be a Ruby application “deployment
+hub” instead of providing development only. I foresee a lot of SMEs at
+first and then larger Indian corporates embracing Ruby in the next few
+years.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Shabbir Merchant&amp;gt;&amp;gt;&lt;/strong&gt; Although there are problems I still think the
+community will thrive all over, including India.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ashutosh Ambekar&amp;gt;&amp;gt;&lt;/strong&gt; Absolutely!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick Adams&amp;gt;&amp;gt;&lt;/strong&gt; Yes, but how much depends on two things. First, if
+the work continues to come from the US and Europe, it will thrive.
+Second, news travels fast in India, especially in tech circles, and if
+we can manage to create a buzz in the small company and startup circles,
+it’s likely that Ruby will see a similar success here. It’s been great
+to see an increasing number of attendees and Ruby Fun Days and other
+such events.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Devendra Deshmukh&amp;gt;&amp;gt;&lt;/strong&gt; I agree with others. Community will thrive and
+with more growth rate in emerging markets like India.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: What is your viewpoint about Indian RoR developers, the Indian
+environment, the Indian market, the type of applications being developed
+in India?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gautam Rege&amp;gt;&amp;gt;&lt;/strong&gt; I mentioned this earlier and will re-iterate that
+considering the conservative nature of Indian markets, Ruby will be
+embraced slowly. However, like the telecom revolution in India, once it
+catches on, I feel (and hope) that Ruby will become BIG .. of course not
+at the scale that telecom has grown in India but at least a noticeable
+one. There are currently quite a few Ruby and Rails training institutes
+in India which are VERY GOOD but I feel that till we hit the grass-roots
+i.e. schools, colleges and universities, the going will be tough. I
+believe Satish Talim has already started making the difference in Pune.
+Pune University has introduced Ruby in its computer science course
+syllabus – now thats an impressive start !&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Shabbir Merchant&amp;gt;&amp;gt;&lt;/strong&gt; I think a very small fraction of the Indian
+developers are skilled enough to deliver world class Ruby/Rails apps.
+People are not up to date with all the latest and greatest things
+happening in the Ruby/Rails world. I think this is partially attributed
+to the rapid changes in the Ruby/Rails world itself. The Indian
+development environment is very focused on Windows platform and you will
+find magnitudes of developers working on Windows platform. I think
+Windows should be considered an important platform if we want to attract
+more people to Ruby/ROR. There are stacks such as Bitnami and Instant
+Rails available for windows, but there are several Mac/Linux tools being
+used which do not perform well on Windows. From my experience and
+talking to developers here, I found that majority of them do their
+development in Windows and deployment is done on a Linux Server.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ashutosh Ambekar&amp;gt;&amp;gt;&lt;/strong&gt; Well, to start with there are not many RoR
+developers in India as compared to other popular technologies. Most of
+us at Persistent learnt it ourselves rather than taking any glucose from
+a trainer. There are few well known companies in Rails technology in
+India, however I do not see much contribution to the community from
+India. I am pretty optimistic that there will be more RoR developers
+going forward fuelling more RoR projects. In India, I think most of the
+applications getting developed would fall under web 2.0 / consumer web
+applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick Adams&amp;gt;&amp;gt;&lt;/strong&gt; An interesting question I ask of my developers, is
+‘what motivated you to learn Rails?’. Most answer ‘because my company
+had a project in Rails’. Some will tell you they learned it for fun, or
+to build an application of their own, but they are in the minority. I
+think this nicely summarizes the environment here, that it is more about
+jobs than creativity or experimentation. This is reflected in the
+relatively low number of Indian designed and developed Rails
+applications. We are trying to change that, but it requires a switch in
+the mindset of ordinary developers from seeing development as a job to
+seeing it as a passion and outlet for their own sense of creativity.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Devendra Deshmukh&amp;gt;&amp;gt;&lt;/strong&gt; I believe Indian ROR developers are definitely
+best in class like their .NET/JEE peers. Most of the ROR developers in
+India as well as the ROR developers at e-Zest are self learned
+programmers. Most of them shifted from PHP and JEE due to personal
+likings or organization’s direction. Most seen Ruby applications are Web
+2.0 and Social applications. Most of the Ruby projects are shorter in
+duration and with smaller team size. This results in not having proper
+career growth plan like established .NET/JEE is a challenge to address.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: Can you give us a roadmap of what you would want to see from Ruby
+to make it a success in India?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gautam Rege&amp;gt;&amp;gt;&lt;/strong&gt; I think localization support will play a big part to
+make Ruby a success in India. JRuby will give access to the vast Java
+localization library and Rails merging with Merb will get the best of
+best into the framework. SMEs will probably be the only ones who will
+adapt to Ruby soon. The number of SMEs in India is so overwhelming that
+the market will be a huge target sector. A lot of industries are trying
+to go “Paperless” and are now also ‘internet aware’. The cost of
+implementing an ERP or a distributed office is huge. Ruby and Rails can
+play a very big part in this to ensure that these requirements are met
+with cost-effectiveness and high quality of the application.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Shabbir Merchant&amp;gt;&amp;gt;&lt;/strong&gt; We want more visibility to Ruby by introducing
+them as courses in colleges, more training centers and conferences
+devoted to Ruby. A Ruby/Rails conference would be good to start with.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ashutosh Ambekar&amp;gt;&amp;gt;&lt;/strong&gt; In the Indian context, to make it a success,
+Ruby has to reach colleges undergraduates and professors. Ruby should be
+used in the college assignments. These undergraduates are going to be
+next engineers and hence making them aware of the beauty and power of
+Ruby will certainly help. Community can also play a major role by
+answering the skeptics about scalability and security issues. Success
+stories of Ruby 1.9.x with Rails in production environment will
+certainly help. Since most of the Indian students use Microsoft
+environments, availability of better tools on Windows platform for Ruby
+(on Rails) will help greatly. Linux is getting popular gradually, so
+bundling the latest and greatest Ruby with the Linux distros will also
+help.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick Adams&amp;gt;&amp;gt;&lt;/strong&gt; I think Ruby is great, but we need a roadmap for
+adoption that includes energizing young people who currently see Java
+and C++ as their only path, because of the jobs available. Going to talk
+in colleges and universities is one thing to be encouraged, as well as
+including business incubators and small development companies as
+potential adopters. Events and conferences will help, but we need some
+leadership too. It would be great to see more truly Indian web startups
+in Rails, as well as Ruby and Rails Gurus emerging from this side of the
+world. The talent is here, it’s time for the passion!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Devendra Deshmukh&amp;gt;&amp;gt;&lt;/strong&gt; Ruby needs to become part of main stream IT
+education. It needs to become part of formal college education as well
+as standard IT training available at professional centers. Focus on past
+success stories and more visibility in media will definitely help.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: Anything else that you would like to add?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ashutosh Ambekar&amp;gt;&amp;gt;&lt;/strong&gt; At Persistent, we have created a center of
+excellence for Ruby and is currently staffed by 40+ enthusiastic
+engineers (and growing!). Looking at the current trend, we have
+developed IPR in the form of social networking accelerators. The
+accelerators help rapidly develop social networking portals by providing
+ready-to-use features; all we need to implement is the domain part which
+changes from portal to portal. Using the accelerators, we have developed
+a social networking portal for astrologers, astrology researchers and
+advice seekers as our own initiative and would be launching it very
+soon.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nick Adams&amp;gt;&amp;gt;&lt;/strong&gt; Thanks Satish!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Devendra Deshmukh&amp;gt;&amp;gt;&lt;/strong&gt; e-Zest expert ROR team members are working on
+ROR from its nascent stage which is a long time and have overcome a
+great many technical and process challenges. We are currently developing
+product accelerators using Ruby. e-Zest provide complete ROR technology
+strategy and product development solution to ISVs and start-ups.
+Start-ups are fun, we understand their every changing needs due to
+dynamic market expectations, and we thrive on enabling their businesses.
+Ruby definitely has brighter future, I assure to interested current and
+future IT professionals that you will definitely be able to make a
+successful career with your Ruby skills.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>10&#43; Ruby Rails companies in Pune, India</title>
+      <link>http://rubylearning.com/blog/2009/06/05/10-ruby-rails-companies-in-pune-india/</link>
+      <pubDate>Fri, 05 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/06/05/10-ruby-rails-companies-in-pune-india/</guid>
+      <description>
+
+&lt;h2 id=&#34;10-ruby-rails-companies-in-pune-india:73e4cebbaf57b8494265b47e266579ef&#34;&gt;10+ Ruby Rails companies in Pune, India&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: In Aug. 2014, we have updated &lt;a href=&#34;http://rubylearning.com/blog/2014/08/13/ruby-rails-companies-in-pune-india/&#34;&gt;this
+list&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Are you looking out for companies in India, working in &lt;strong&gt;Ruby, Rails,
+Merb and / or Sinatra&lt;/strong&gt; to out-source your projects? Here’s a list of
+companies in Pune, India working with Ruby and frameworks like Rails,
+Merb and Sinatra.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.betterlabs.net/&#34;&gt;BetterLabs&lt;/a&gt;&lt;/strong&gt; (Contact Person:
+&lt;a href=&#34;mailto:vaibhav.domkundwar@betterlabs.net&#34;&gt;Vaibhav Domkundwar&lt;/a&gt;), is
+located in San Jose, USA and Pune, India. BetterLabs is an unique
+product incubation firm that works on early stage concepts to
+experiment, validate, and iterate on the concept to take it from
+idea to company. This incubation model allows startup founders to
+test their core concepts at drastically lower costs and in a short
+timeframe to evolve and iterate it to build early alpha and beta
+versions. It also empowers founders to take a proven and validated
+concept to investors when they are ready for raising their financing
+rounds. Their engagement model is based on cash and equity
+commitment and they are fully invested in the success of the
+startups. Most importantly, their core cross functional team
+approach empowers startup founders with a skilled team consisting of
+a product manager, an architect, a developer, a designer and a
+deployment team that addresses all the requirements for software
+startups. BetterLabs develops and incubates its own products in
+addition to working with startup founders. BetterLabs was one of the
+early adopter of Ruby and Rails and has an experienced Rails team
+that has developed complex web applications including SaaS marketing
+automation, community-driven social sites, real time web search and
+online rental search and discovery platform amongst others.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.bohiyaanam.com/case_studies/index.html&#34;&gt;Bohiyaanam Technology (P)
+Ltd.&lt;/a&gt;&lt;/strong&gt; (Contact
+Person: &lt;a href=&#34;mailto:kcdesai@seagullinfo.com&#34;&gt;Kalpesh C. Desai&lt;/a&gt;),
+provides solutions from an operational perspective. Bohiyaanam has
+provided integration, development, QA and professional services in
+the Telecom OSS/BSS domain. Bohiyaanam has carried out a broad range
+of projects over 90+ engagements for 20+ customers across 5
+continents including 50+ multi-vendor interfaces development, 5
+products development, 10+ product installations, 10+ acceptances by
+end customers, 10+ custom software packages development and 50+
+training sessions. Bohiyaanam’s customers include reputed vendors
+and operators including Alcatel-Lucent, Amdocs, VodaFone, BSNL,
+MTNL, Etisalat, TeliaSonera and Saudi Telecom. Bohiyaanam has
+experience with a large spectrum of software technologies. Many of
+the telecom integration technologies are also useful for Web2.0
+portal development. Bohiyaanam has developed portals with Indian
+language support, e.g.,
+&lt;a href=&#34;http://www.pravachanprakashan.org/&#34;&gt;www.pravachanprakashan.org&lt;/a&gt;,
+&lt;a href=&#34;http://www.madhusmitaji.org/&#34;&gt;www.madhusmitaji.org&lt;/a&gt;,
+&lt;a href=&#34;http://www.jsgpunemetrocity.org/&#34;&gt;www.jsgpunemetrocity.org&lt;/a&gt;,
+&lt;a href=&#34;http://www.roochakkeboond.org.in/rkb/rkbuser/searchengine/html/index.html&#34;&gt;www.roochakkeboond.org.in&lt;/a&gt;.
+Bohiyaanam has used the Ruby on Rails (RoR) framework to develop the
+portal
+&lt;a href=&#34;http://www.myehealthrecords.co.in/&#34;&gt;www.myehealthrecords.co.in&lt;/a&gt;.
+The challenges in the development included combining data from
+different tables into one form, scalable treatment for attachments
+of medical records and context sensitive links in forms for ease of
+navigation. Bohiyaanam also developed a Form Builder application to
+output RoR code for Patient Lab Tests. This makes the customer
+self-sufficient when there is a need to add more lab tests for a
+client. The product has been launched by the customer and
+development of several enhancements is in progress.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.e-zest.net/&#34;&gt;e-Zest&lt;/a&gt;&lt;/strong&gt; (Contact Person: &lt;a href=&#34;mailto:devendra@e-zest.net&#34;&gt;Devendra
+Deshmukh&lt;/a&gt;), was established in 1998.
+e-Zest is an Outsourced product development company with dedicated
+competency center for OpenSource Technologies. e-Zest’s OpenSource
+competency center is focused on Web 2.0, RIA &amp;amp; Social applications
+development using OpenSource technologies like ROR, PHP &amp;amp; JEE.
+e-Zest’s Ruby on Rails team understands challenges faced by ISVs &amp;amp;
+startup entrepreneurs &amp;amp; help them to leverage power of Ruby on Rails
+to achieve speed in execution and control cost. e-Zest expert ROR
+team members are working on ROR from its nascent stage which is a
+long time and have overcome a great many technical and process
+challenges. e-Zest provide complete ROR technology strategy and
+product development solution including functionality due dilligence,
+prototype development, core product development and training. e-Zest
+specialize in ISVs and startups. Theyunderstand their every changing
+needs due to dynamic market expectations, and they thrive on
+enabling their businesses. e-Zest also implement and customise
+popular ROR based open source solutions at enterprises to ensure
+quick turnaround and agility. e-Zest OpenSource competency’s large
+number of clients span from United Nations to MIT Startup Pearl
+Media. e-Zest has strongs skills on Web 2.0, Ajax &amp;amp; Cloud computing.
+e-Zest is a member of various industry associations like NASSCOM,
+Indo-German Chamber of Commerce and MCCIA. It is a 100% export
+oriented unit (EOU) registered with the Software Technology Parks of
+India (STPI) and has two subsidiary offices viz. e-Zest (UK) Ltd. at
+London UK and e-Zest Inc. at Walnut Creek CA USA.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://exoticainfotech.com/&#34;&gt;Exotica Infotech&lt;/a&gt;&lt;/strong&gt; (Contact Person:
+&lt;a href=&#34;mailto:ravindra@exoticainfotech.com&#34;&gt;Ravindra Shelake&lt;/a&gt;), are a
+full-service oriented consultancy specializing in web development
+and consulting services, founded in Pune, India in the year 2007 by
+highly experienced software professionals. They offer full cycle
+custom software programming services, from product idea, offshore
+software development to outsourcing support and enhancement. As a
+result, clients are involved in all phases of the software
+development process – ensuring effective design and proactive
+project management. They are supported by a strong network of
+experienced directors, interviewing services, project managers, team
+leaders and developers – who all share a firm commitment to high
+service quality. They work extensively on open source technologies
+like Ruby and its frameworks (Rails, Merb, Sinatra, etc.), PHP,
+Joomla and Drupal.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.joshsoftware.com/&#34;&gt;Josh Software Pvt. Ltd.&lt;/a&gt;&lt;/strong&gt; (Contact
+Person: &lt;a href=&#34;mailto:gautam@joshsoftware.com&#34;&gt;Gautam Rege&lt;/a&gt;), co-founded
+by Gautam Rege and Sethupathi Asokan in 2007, offers a new brand of
+solutions to the community. Having the core team with past
+experience in product companies, Josh offers unique web based
+product solutions using RoR in various industry sectors like
+Finance, Insurance, Medicine, IT and even the Ad industry. With a
+core strength of 15 people, the Josh team also has expertize in the
+core technologies like J2EE, .NET and C on Unix. The team has been
+passionately working in RoR for the past 2 years and has a rich set
+of satisfied clients with RoR deployments. Josh has started working
+on Merb as well, and takes all efforts to ensure that the leading
+web technologies are mastered. The Josh Mantra has been to couple
+the Josh software product development expertize with the clients
+domain knowledge to build world-class products.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://mangospring.com/&#34;&gt;MangoSpring&lt;/a&gt;&lt;/strong&gt; (Contact Person: &lt;a href=&#34;mailto:vishwam@mangospring.com&#34;&gt;Vishwa
+Malhotra&lt;/a&gt;), was founded in 2007, and
+offers group-centric communication technology that enables instant,
+intelligent, focused, one-to-one or multi-party discussions over
+web, desktop and mobile. These conversations securely connect
+website visitors, employees, partners or customers with the right
+people and persist as long as it makes sense. MangoSpring Group
+software is targeted towards companies in a variety of industries,
+including social networking, technology, media, content, interest
+communities &amp;amp; groups, eCommerce and financial services.
+MangoSpring’s worldwide headquarters is in Seattle, Washington and
+EMEA headquarters is in Pune, India. All of MangoSpring products are
+primarily built using RubyOnRails on the front-end and J2EE on the
+backend. For complete list of MangoSpring RubyOnRails based
+products, visit the MangoSpring website.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.persistentsys.com/&#34;&gt;Persistent Systems&lt;/a&gt;&lt;/strong&gt; (Contact
+Person: &lt;a href=&#34;mailto:yashraj_bhawsar@persistent.co.in&#34;&gt;Yashraj Bhawsar&lt;/a&gt;),
+was established in 1990 by Dr. Anand Deshpande. It is focused on
+Outsourced Product Development [OPD] only. Persistent has 170+
+customers, 4000+ employees and they are in Pune, Nagpur, Goa and
+Hyderabad. In the last 5 years, they did 2000+ product releases.
+Recently Persistent got Nasscom Innovation Award 2008. Persistent is
+associated with academia and researchers. They have a research
+center at Indiana University in Bloomington, employees are working
+with IIT B on Research in Analytics, and are helping in Data
+handling for Washington University’s Cancer Research Center, IUCAA
+in Pune etc. Persistent is active in CSI, VLDB activities and
+conferences. Persistent’s execution model is Competency Center
+based. They are organized by domain and related expertise. Over the
+years, Persistent has developed Competency Centers [CC] in Telecom
+Devices, Life Sciences and Healthcare, Analytics, Storage, Security,
+and Virtualization to name a few. In this list is the recent
+addition of Ruby on Rails CC. With the advantages that ROR has, it
+was a compelling decision to set up a CC. Around 40+ engineers are
+working in this area with a primary domain focus of Collaboration
+Capabilities. They have developed a Social Networking and Community
+Portal Product in ROR which is a success and is live now. ROR CC has
+executed work in other domains like supply chain management, Ideas
+Management. The flexibility of ROR gave the competency an edge to
+work successfully in the areas of Cross Platform Integration. With
+REST based architecture, it’s easy for the Social Networking Product
+to be present in any other portal platform or consume other
+services/widgets etc. Recently the ROR CC got a change to work
+closely with India’s most sought -after business graduate school to
+manage their research ideas and are working on the collaboration
+platform.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.pragtech.co.in/&#34;&gt;Pragmatic Technology Solutions&lt;/a&gt;&lt;/strong&gt;
+(Contact Person: &lt;a href=&#34;mailto:info@pragtech.co.in&#34;&gt;Shabbir Merchant&lt;/a&gt;),
+are a dynamic and fast growing Ruby/Ruby on Rails Software
+Development, Consulting and Training Company based out of Pune,
+India. Here are some highlights of their company:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;They follow SCRUM agile method for software development and use
+Project Management, Version Control and Testing tools to produce
+quality product.&lt;/li&gt;
+&lt;li&gt;They are on bleeding edge of development and use the latest
+release of Ruby, Rails, Plugins and Gems to create cutting-edge
+web applications.&lt;/li&gt;
+&lt;li&gt;They have experienced and talented software engineers and
+designers who can develop and deploy Flash/Flex, Javascript,
+HTML/CSS based Ruby on Rails web applications.&lt;/li&gt;
+&lt;li&gt;They also have conducted Ruby on Rails workshops and provide
+corporate training in Ruby on Rails.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The projects they have worked on:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.focusdirect.net/&#34;&gt;focudirect&lt;/a&gt;: focusdirect is a
+Dubai based HR consulting company.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.edu2be.com/&#34;&gt;edu2be&lt;/a&gt;: edi2be is a elearning portal
+for k12 students.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://sapnasolutions.com/en&#34;&gt;SapnaSolutions&lt;/a&gt;&lt;/strong&gt; (Contact Person:
+&lt;a href=&#34;mailto:hsiao.anthony@gmail.com&#34;&gt;Anthony Hsiao&lt;/a&gt;), was co-founded by
+Nicholas Adams (UK), Anthony Hsiao (Germany) (both also from
+EnTrip.com) and Yann Le Gouic (France), and focuses on building Ruby
+on Rails applications. Relying on proven business models, we produce
+innovative technology solutions in consumer web and
+software-as-a-service domains, as well as Facebook and iPhone
+applications. Being a multi-lingual international team, we also
+provide offshore development services for startups from Europe.
+SapnaSolutions wants to attract the brightest and most interesting
+Rails developers from India and abroad, and unites like-minded web
+enthusiasts behind the idea that together, as a closely knit team,
+they can make history.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.thoughtworker.com/&#34;&gt;ThoughtWorks&lt;/a&gt;&lt;/strong&gt; (Contact Person:
+&lt;a href=&#34;mailto:rmathew@thoughtworks.com&#34;&gt;Rajiv Mathew&lt;/a&gt;), employs some of
+the world’s leading Ruby developers and contributors to the Rails
+project. Although Ruby on Rails is relatively new on the scene, it
+is based on technologies and approaches that ThoughtWorks has used
+effectively with clients for many years. Our deep experience with
+custom software development gives us an accurate picture of when and
+where Ruby is a good fit and when it is not. Our ongoing project
+work with Ruby and Rails proves that Ruby excels in the following
+applications: Web 2.0 applications that make use of REST and/or AJAX
+designs; Small to medium web-based applications with aggressive
+time-to-market goals; Low-cost internal prototypes and pilot
+applications; Highly-targeted internal applications and utility
+programs; So-called “soft layer” APIs on hardened transactional
+systems; Build systems for complex enterprise systems. Ruby’s
+productivity can also result in early hi-fi prototypes that quickly
+allows for the exploration of new ideas. ThoughtWorks Pune also
+hosted the Ruby Fun Day, to have fun playing around with Ruby
+technology and Ruby On Rails. It was a great way to meet fellow Ruby
+enthusiasts and discuss new innovations in the Ruby world. The URL
+of that event is at
+&lt;a href=&#34;http://www.thoughtworker.com/events/ruby-funday-pune&#34;&gt;http://www.thoughtworker.com/events/ruby-funday-pune&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.truesparrow.com/&#34;&gt;True Sparrow Systems&lt;/a&gt;&lt;/strong&gt; (Contact
+Person: &lt;a href=&#34;mailto:info@truesparrow.com&#34;&gt;Nishith Shah&lt;/a&gt;), was founded in&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;They enjoy working on internet applications using Ruby on
+Rails with a clear focus on user experience, scalability and
+performance. They believe in the Ship It! model – ship early and
+often; gather feedback; repeat. They also believe in trying their
+best, and beyond that it’s alright to fail and to make mistakes.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you have worked with any of these companies or with some company (in
+Pune) not listed here, &lt;em&gt;please do comment about your experience with the
+company.&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(Disclaimer: None of these companies has ever paid me anything and none
+requested this post.. just to be clear!)&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Book Promotion: Head First Rails</title>
+      <link>http://rubylearning.com/blog/2009/05/20/book-promotion-head-first-rails/</link>
+      <pubDate>Wed, 20 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/05/20/book-promotion-head-first-rails/</guid>
+      <description>&lt;p&gt;RubyLearning is pleased to announce the promotion of the book “&lt;strong&gt;Head
+First Rails&lt;/strong&gt;” by author David Griffiths.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://oreilly.com/catalog/9780596515775/?CMP=ILC-hf1st#top&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/hfrails_180x180.gif&#34; alt=&#34;Head First
+Rails&#34; title=&#34;Head First Rails&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The general idea of a &lt;strong&gt;book promotion&lt;/strong&gt; is that it gives the
+participants a chance to ask relevant questions, interact with the
+author of the book and in the process possibly win a copy of the book;
+all for free!&lt;/p&gt;
+
+&lt;p&gt;Here are the details:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Promotion Period: &lt;strong&gt;26th to 28th May 2009&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;35% discount on the book offered.&lt;/li&gt;
+&lt;li&gt;Registrations have started. Anyone interested in Ruby programming
+can join. It is &lt;strong&gt;FREE&lt;/strong&gt;. Join
+&lt;a href=&#34;http://rubylearning.org/class/course/view.php?id=35&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt; and
+use Enrollment key: &lt;strong&gt;BPCE101&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;You can start posting your questions related to the book,
+immediately.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Remember:&lt;/strong&gt; Don’t wait! You could win a copy of this book and it’s
+free to join.&lt;/p&gt;
+
+&lt;p&gt;The previous book promotions of “Wicked Cool Ruby Scripts” and “Rails
+Test Prescriptions” were a big success.&lt;/p&gt;
+
+&lt;p&gt;For questions related to this blog post or to schedule a new book
+promotion, contact: mail [at] satishtalim [dot] com&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interview: Author David Griffiths</title>
+      <link>http://rubylearning.com/blog/2009/05/20/interview-author-david-griffiths/</link>
+      <pubDate>Wed, 20 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/05/20/interview-author-david-griffiths/</guid>
+      <description>&lt;p&gt;Our Book Promotion: “&lt;strong&gt;Head First Rails&lt;/strong&gt;” starts soon. Win one of four
+books to be given out for active participation. The coolest thing?
+Author &lt;strong&gt;David Griffiths&lt;/strong&gt; will be on site to answer questions! &lt;a href=&#34;http://rubylearning.com/blog/2009/05/20/book-promotion-head-first-rails/&#34;&gt;Click
+here&lt;/a&gt;
+for more details. Here, in this brief interview, Satish Talim of
+RubyLearning talks to David Griffiths.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/Dg_on_beach.png&#34; alt=&#34;David
+Griffiths&#34; title=&#34;David Griffiths&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; David, could you tell us something about yourself – your
+background, where you are based?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;David&amp;gt;&amp;gt;&lt;/strong&gt; I’m an agile developer, writer and trainer based in the
+UK. I used to write a monthly Java development column and I’ve used and
+taught agile methods to companies around the UK. But I’ve been writing
+code since I was 12 years old. I worked with Java from the alpha release
+in the 90s. A lot of things on the client side as well as a lot of
+enterprise stuff. But everything changed for me when I got an early copy
+of Bruce Tate’s Up and Running with Ruby on Rails. I found myself in
+Boston for 3 days with nothing else to do. And anyone who’s been to
+Boston knows that it’s famous for two things: coffee and book shops. So
+I got a copy of Tate’s book and a laptop and spent three days burying
+myself deep into Rails and consuming more caffeine than was probably
+wise. It was incredible. Here was a way of doing things with a few
+simple commands, that would have taken 19 classes, an enterprise
+container and 3-400 lines of XML in Java. An old professor once told me
+“The profound is always simple” – and Rails was the living embodiment of
+that. I was hooked. It really hasn’t been the same since.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/hfrails_180x180.gif&#34; alt=&#34;Head First
+Rails&#34; title=&#34;Head First Rails&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Your book “Head First Rails” – what is it about?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;David&amp;gt;&amp;gt;&lt;/strong&gt; It’s kind of odd that I’m doing this interview for Ruby
+Learning, because the truth is that Head First Rails really isn’t a Ruby
+book. It gives you enough Ruby to do Rails, but Rails is the focus. The
+interesting thing of course, is that by doing it that way, it actually
+gives you a reason to learn Ruby. Kathy Sierra (the co-creator of the
+Head First series) says that there is a world of difference between
+wanting to learn a language, and needing to learn a language. Head First
+Rails gives you a reason to learn enough Ruby to learn Rails.&lt;/p&gt;
+
+&lt;p&gt;I should probably say a little about Head First in general. The Head
+First series is best known for titles like Head First Java and Head
+First Design Patterns. It’s now expanding into lots of other subjects.
+Head First uses psychological techniques to engage you. The truth is
+that your brain (more specifically the part of your brain called the
+reptilian complex) really doesn’t think that learning computer languages
+is very important to your survival. You can spend hours staring at
+books. You can try to convince it that you need to get that code written
+or you can’t pay the mortgage. But no – that doesn’t work. Your brain is
+more concerned about keeping you watered and fed, and uneaten by lions.&lt;/p&gt;
+
+&lt;p&gt;So what the Head First books do is trick your brain into thinking that
+this stuff matters. The books try to turn learning a slightly abstract
+topic into a survival exercise. That’s what Head First Rails attempts to
+do. It’s not a reference book – it’s a survival book.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Who is the book targeted at?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;David&amp;gt;&amp;gt;&lt;/strong&gt; O’Reilly marketing always say “It’s for anyone with a
+credit card”
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:-)&#34; /&gt;
+
+The truth is that the book was written for people like me. People who
+have probably developed in some other language and framework, and are
+looking to learn about a newer, faster, more lightweight, more
+productive tool. They probably have a lot of ideas for the kinds of
+systems they want to write, but simply don’t have the time to hack away
+at one of the traditional frameworks. They may have even tried to get
+into Rails before, but somehow couldn’t get engaged with the material.
+They may have even bought two or three Rails books, but they haven’t
+really read that much of them. Head First Rails is designed to give you
+that way into the topic.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What’s been your experience with the publisher –
+O’Reilly?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;David&amp;gt;&amp;gt;&lt;/strong&gt; They’re a great company to work for. The amazing thing is
+that they’re a really small company compared to a lot of the tech
+publishers. This really tiny publishing house, that has a reputation and
+stature far beyond its size. I think the reason for its success is
+primarily down to the leadership of Tim O’Reilly. He’s surrounded
+himself with a group of talented and creative people who are driven to
+change the world by spreading knowledge.&lt;/p&gt;
+
+&lt;p&gt;Dealing with O’Reilly editors is completely different from my previous
+experience in the magazine world. In a lot of publishing, editors are
+the people who run the schedules. They bark at you when you’re late.
+They make sure you’ve signed the right contracts. They check that the
+blurb on the book matches what’s inside. I’m simplifying of course.&lt;/p&gt;
+
+&lt;p&gt;But the kind of editorial support you get from O’Reilly is world’s
+apart. To begin with they train you. They ship you off to their offices
+and train you. Not simply in how to put one word after another, but they
+train you in the deep stuff. The hard stuff. Things like how to motivate
+a topic. How to make something engaging. Something that maybe at first
+is kind of non-descript. Then there’s all the meta-cognition stuff –
+learning about learning. Looking at the way the brain works, how it
+interacts with its environment. How to use design, and redundancy, and
+twists and turns and conflict to involve the learner with the material.
+Then when you’re creating the book you really are part of a team. A
+whole group of people who transform some vague and anomalous idea you
+had into a book. It’s a truly, profoundly enjoyable idea. That’s why I’m
+writing another one – it can’t be the money
+&lt;img src=&#34;http://rubylearning.com/blog/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:-)&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Looking back, are there some topics that you now wish
+should have been covered or dropped from the book?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;David&amp;gt;&amp;gt;&lt;/strong&gt; I think taking a second run at the book I would taken some
+of the material from chapter 2 and spread it more evenly through the
+book. In chapter 2 you build an application from the ground up – no
+scaffolding. It gets in quite deep. Looking back, chapter 2 was tougher
+than it should have been. It’s a bit of a baptism by fire. Of course –
+by the time you get through chapter 2 you have a pretty profound
+understanding of how Rails thinks. It’s takes you beyond a simple how-to
+guide. You know the “Do this command and get this cool effect”. In
+effect, you write your own scaffolding. Not because that’s something
+you’re likley to do much (if at all) in the real world, but you do it so
+that the way Rails works gets under your skin. But even so, it’s the one
+area of the book that I’ll be sure to re-assess in future editions.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Any plans for a second edition of the book especially as
+Rails 3 will be released soon?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;David&amp;gt;&amp;gt;&lt;/strong&gt; At Head First we usually keep things pretty quiet until
+stuff’s about to come out. The problem with any Rails book is that it
+gets out of date pretty quickly and this is certainly an area that we
+need to keep an eye on. Rails is a very rapidly expanding area of
+development. I get the feeling – and I think you do too – that it is a
+technology at the cusp. It is just at that sweet, sweet moment where it
+goes from innovation into being true mass market technology. I think
+with that kind of momentum, we’d be foolish not to keep the material up
+to date. Another thing to consider as well is that it’s called O’Reilly
+Media, not O’Reilly Publishing. There are a whole raft of things that
+are in the pipeline that I think are likely to transform the way
+knowledge and skills are made available to people. Rails will be in
+there somewhere.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Anything else you would like to add?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;David&amp;gt;&amp;gt;&lt;/strong&gt; Err… well I am on twitter (@dgriffiths) if you’re into
+that kind of thing. And I suppose I ought to plug the next book. I’m
+currently working with a guy called Paul Barry on a new book called Head
+First Programming. It’s due out later this year, and will make a
+splendid Christmas/Hannuka/Diwali gift for any nascent hackers in the
+family.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you David. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and David would
+be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Book Promotion: Rails Test Prescriptions</title>
+      <link>http://rubylearning.com/blog/2009/05/02/book-promotion-rails-test-prescriptions/</link>
+      <pubDate>Sat, 02 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/05/02/book-promotion-rails-test-prescriptions/</guid>
+      <description>&lt;p&gt;RubyLearning is pleased to announce the promotion of the book “&lt;strong&gt;Rails
+Test Prescriptions&lt;/strong&gt;” by author Noel Rappin.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.railsprescriptions.com/&#34;&gt;&lt;img src=&#34;http://rubylearning.com/images/cover_thumbnail.png&#34; alt=&#34;Rails Test Prescriptions&#34; title=&#34;Rails Test Prescriptions&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The general idea of a &lt;strong&gt;book promotion&lt;/strong&gt; is that it gives the
+participants a chance to ask relevant questions, interact with the
+author of the book and in the process possibly win a copy of the book;
+all for free!&lt;/p&gt;
+
+&lt;p&gt;Here are the details:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Promotion Period: &lt;strong&gt;12th to 14th May 2009&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rubylearning.com/blog/2009/05/01/interview-author-noel-rappin/&#34;&gt;An interview with the author Noel Rappin&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Registrations have started. Anyone interested in Ruby programming
+can join. It is &lt;strong&gt;FREE&lt;/strong&gt;. Join
+&lt;a href=&#34;http://rubylearning.org/class/course/view.php?id=35&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt; and
+use Enrollment key: &lt;strong&gt;BPCE101&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;You can start posting your questions related to the book,
+immediately.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Remember:&lt;/strong&gt; Don’t wait! You could win a copy of this book and it’s
+free to join.&lt;/p&gt;
+
+&lt;p&gt;The previous book promotion of “Wicked Cool Ruby Scripts&amp;rsquo;” was a big
+success.&lt;/p&gt;
+
+&lt;p&gt;For questions related to this blog post or to schedule a new book
+promotion, contact: mail [at] satishtalim [dot] com&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interview: Author Noel Rappin</title>
+      <link>http://rubylearning.com/blog/2009/05/01/interview-author-noel-rappin/</link>
+      <pubDate>Fri, 01 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2009/05/01/interview-author-noel-rappin/</guid>
+      <description>&lt;p&gt;Our second Book Promotion: “&lt;strong&gt;Rails Test Prescriptions&lt;/strong&gt;” starts soon.
+Win one of four books to be given out for active participation. The
+coolest thing? Author &lt;strong&gt;Noel Rappin&lt;/strong&gt; will be on site to answer
+questions! &lt;a href=&#34;http://rubylearning.org/class/course/view.php?id=35&#34;&gt;Click
+here&lt;/a&gt; to join for
+free. Here, in this brief interview, Satish Talim of RubyLearning talks
+to Noel Rappin.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/head_shot_small.jpg&#34; alt=&#34;Noel
+Rappin&#34; title=&#34;Noel Rappin&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Noel, could you tell us something about yourself – your
+background, where you are based?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Noel&amp;gt;&amp;gt;&lt;/strong&gt; I work for &lt;a href=&#34;http://www.pathf.com/&#34;&gt;Pathfinder Development&lt;/a&gt;,
+a web consulting firm in Chicago, Illinois, as the Vice President of
+Rails Practice, which means that I am a technical lead or technical
+consultant on our Rails projects in addition to keeping a general eye on
+the latest and greatest tools. I’ve been working in web applications for
+about ten years, the last few of which have been primarily in Rails.
+Before that, I earned a Ph.D. in educational technology from the Georgia
+Institute of Technology.&lt;/p&gt;
+
+&lt;p&gt;I am the author or co-author of three books, _Jython Essentials_,
+_wxPython in Action_, and &lt;a href=&#34;http://www.pathf.com/showcase/books/professional-ruby-on-rails/&#34;&gt;Professional Ruby on
+Rails&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/cover_thumbnail.png&#34; alt=&#34;Rails Test
+Prescriptions&#34; title=&#34;Rails Test Prescriptions&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Your book “Rails Test Prescriptions” – what is it about?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Noel&amp;gt;&amp;gt;&lt;/strong&gt; Ideally, it’s a complete guide to testing your Rails
+application, by which I mean both the technical aspects of how the
+testing tools work as well as the process by which you can take
+advantage of testing to improve your code. The book starts with a
+detailed tutorial about how to get started on a new project using a
+test-driven development process. Following that, the book has sections
+on each of the major components of Rails testing, unit testing,
+functional testing, fixtures, and so on. Later sections cover testing
+style and tips for better testing, as well as popular third-party tools
+like Shoulda, Cucumber, factory tools, and so on.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Who is the book targeted at?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Noel&amp;gt;&amp;gt;&lt;/strong&gt; The book assumes some basic knowledge of Rails, but beyond
+that, it doesn’t assume any particular knowledge or experience with
+testing. I hope, though, that even if you think you know how to test,
+you’ll still get value from the discussions of testing style, how to
+test in unusual situations, and newer test tools like Cucumber.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Why did you decide to publish the book yourself?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Noel&amp;gt;&amp;gt;&lt;/strong&gt; Probably the most important reason is the ability to easily
+keep the book up to date over time. Rails tools change so rapidly that
+any print book starts to go out of date the second it hits the shelves.
+Having a chance to update the book when a new version of a tool is
+released will make the book valuable to it’s readers for longer.&lt;/p&gt;
+
+&lt;p&gt;I’ve worked with some wonderful people at technical publishers, but the
+publishing industry works slowly, and this was a chance to write about a
+subject that I was excited about without having to spend six months
+convincing a publisher that the topic was worth their time.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; What kinds of tests and tools to write these tests, do
+you cover in the book?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Noel&amp;gt;&amp;gt;&lt;/strong&gt; I start with the basic tools that come with Rails, on the
+theory that everybody will have access to them. After that, I try to
+cover everything that either seems to have a substantial number of
+users, or that I just personally use and like. In the case where there
+are multiple tools that do the same thing, I tried to focus on the one
+tool that either had the most interesting functionality or the largest
+user base. For example, rather than write essentially the same topic
+about three different mock object frameworks, I chose to focus on Mocha
+due to it’s prominent use by the core Rails team.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Satish&amp;gt;&amp;gt;&lt;/strong&gt; Anything else you would like to add?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Noel&amp;gt;&amp;gt;&lt;/strong&gt; This book is still very much a work in progress, so in
+addition to questions about Rails and testing, I’m very much interested
+in what kind of topics I should be including in the book.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you Noel. In case you have any queries and/or questions, kindly
+post your questions here (as comments to this blog post) and Noel would
+be glad to answer.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

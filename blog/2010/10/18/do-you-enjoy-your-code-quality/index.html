@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Do You Enjoy Your Code Quality? // RubyLearning Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="googlebot" content="nofollow">
+<meta name="keywords" content="">
+<meta name="author" content="James Schorr">
+
+
+  <meta property="og:title" content="Do You Enjoy Your Code Quality?" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://rubylearning.com/blog/2010/10/18/do-you-enjoy-your-code-quality/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://rubylearning.com/blog//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="RubyLearning Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-59044-10", 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Ruby Learning</h1>
+    <h2 class="brand-tagline">Not Just Ruby Any More!</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/blog/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/">Hub</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.org">Online Course</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://satishtalim.com/">Satish</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://rubylearning.com/satishtalim/tutorial.html">Tutorial</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#do-you-enjoy-your-code-quaility:ccc71b4b036a00839a660d9060addc1d">Do You Enjoy Your Code Quaility?</a></li>
+<li><a href="#pre-development:ccc71b4b036a00839a660d9060addc1d">Pre-Development</a></li>
+<li><a href="#development:ccc71b4b036a00839a660d9060addc1d">Development</a></li>
+<li><a href="#post-development:ccc71b4b036a00839a660d9060addc1d">Post-Development</a></li>
+<li><a href="#enjoying-your-development:ccc71b4b036a00839a660d9060addc1d">Enjoying Your Development:</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/blog/2010/10/18/do-you-enjoy-your-code-quality/">Do You Enjoy Your Code Quality?</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2010</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">James Schorr</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-beginners" href="http://rubylearning.com/blog//categories/beginners">Beginners</a>
+				
+					<a class="post-category post-category-popular" href="http://rubylearning.com/blog//categories/popular">Popular</a>
+				
+					<a class="post-category post-category-ruby" href="http://rubylearning.com/blog//categories/ruby">Ruby</a>
+				
+					<a class="post-category post-category-ruby-masters" href="http://rubylearning.com/blog//categories/ruby-masters">Ruby Masters</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>This guest post is by <strong>James Schorr</strong>, who has been developing software
+since 1999. He is the owner of an IT consulting company, <a href="https://enspirenconsulting.com">Enspiren IT
+Consulting, LLC</a>.  He lives with his
+lovely wife, Tara, and their children in Kansas City, Missouri. James
+spends a lot of time writing code in many languages, doing IT security
+audits, and has a passion for Ruby on Rails in particular. He also loves
+spending time with his family, playing chess, going to the shooting
+range, hiking, fishing, and investing. His professional profile is
+on <a href="http://www.linkedin.com/in/jamesschorr">LinkedIn</a>.</p>
+
+<p><img src="http://rubylearning.com/images/James_Schorr.png" alt="James M. Schorr" />
+</p>
+
+<h2 id="do-you-enjoy-your-code-quaility:ccc71b4b036a00839a660d9060addc1d">Do You Enjoy Your Code Quaility?</h2>
+
+<p>There&rsquo;s something innately satisfying about programming; or, at least,
+there should be. It&rsquo;s a creative act in and of itself that has
+incredible power and potential to affect change. Craftsmanship, in and
+of itself, typically attracts those who like to think outside the box
+and those who like to create. In this way, it really is more of an art
+than anything else and can produce a great deal of satisfaction and
+delight.</p>
+
+<p>Compare the carpenter that hand-crafts a beautiful cabinet to a factory
+worker who pushes buttons to cause a machine to form identical cabinets
+over and over again. While both can experience a measure of satisfaction
+in their work, only the carpenter enjoys long-term satisfaction. The
+goal of this article is to enable you to improve code quality and, thus,
+transform the mundane into the beautiful. No matter where you&rsquo;re at on
+the spectrum, beginner to advanced, there is always room for
+improvement. As the code quality improves, your ability to delight in it
+and enjoy what you&rsquo;re doing does as well.</p>
+
+<p>I have a number of applications in Production and have learned a lot
+over the years about the code quality, systems, and programming in
+general. I&rsquo;ve also been regularly called on to carefully check a
+tremendous amount of others&rsquo; source code in my consulting business and
+earlier jobs. Here are some practical, real-world ways to improve your
+code quality and development habits in general. I have learned the hard
+way on a few of these. Some may only apply to the non-employee
+developer, but almost all are pretty universal:</p>
+
+<h2 id="pre-development:ccc71b4b036a00839a660d9060addc1d">Pre-Development</h2>
+
+<ul>
+<li>Gather the requirements and &ldquo;stories&rdquo; from the client. I like the
+idea of stories better because it&rsquo;s more in line with how the
+non-developer thinks. In other words, &ldquo;I want A to happen as a B
+when I do C&rdquo;. Make sure that those you&rsquo;re meeting with are told to
+come prepared with as much information as possible, especially from
+the end users of the planned application.</li>
+<li>Question every need and distill them down by asking &ldquo;Why?&rdquo; In
+general, the requirements of users are based on what they know the
+possibilities are and what they&rsquo;ve used before. You, however, may
+quickly see that a need is better met a different way, or even cause
+issues if fulfilled.</li>
+<li>Clarify what is necessary and &ldquo;nice-to-have&rdquo;, as this has a direct
+impact on the timeline and budget.</li>
+<li>Refuse to reproduce lousy software. In other words, turn down work,
+if necessary, that will need you to reproduce some other system that
+wasn&rsquo;t designed well unless you&rsquo;re given the freedom to do it right.
+It&rsquo;s just not worth it, both for you or the users. How do you
+recognize lousy software? Look at the UI, speed, security, and
+stability; would you want to use it?</li>
+<li>Reject unrealistic timelines nicely, &ldquo;Yes, I could do this in 3
+months, but you won&rsquo;t get the quality that you deserve. To do this
+right, we need 5 months.&rdquo; Stick to your deadlines if possible. Ask
+yourself, &ldquo;Do I want to work 17-20 hours a day to hit an unrealistic
+deadline?&rdquo; Been there, done that, lesson learned.</li>
+<li>Accept the least amount of features for functionality for the first
+version. It&rsquo;s far more important to have a stable foundation than a
+ton of features. Slate other features for future releases after the
+foundation is laid properly. You can expect future needs (and
+should), but only include the minimums for the first version or
+iteration.</li>
+<li>Realize that just because we &ldquo;can&rdquo; doesn&rsquo;t mean that we &ldquo;should&rdquo;.
+Anything&rsquo;s possible, but not everything&rsquo;s advisable. This is a tough
+one, especially in the pre-development excitement, brainstorming
+phase. For instance, yes we could pull in a Google map for every
+row, but should we? How long will the requests take as the data set
+size increases?</li>
+<li>If you don&rsquo;t know the answer to &ldquo;Why&rdquo; for a feature and &ldquo;What&rdquo; it
+will impact, don&rsquo;t even start answering &ldquo;How&rdquo;.</li>
+<li>Ensure that you&rsquo;re using a great version control system (I&rsquo;m partial
+to GIT) and a hosted code repository if necessary. Backups are
+essential as well.</li>
+<li>Block off large amounts of undivided time to work on the project.
+For instance, it&rsquo;s not a good day to write code if you have to leave
+every few minutes.</li>
+</ul>
+
+<h2 id="development:ccc71b4b036a00839a660d9060addc1d">Development</h2>
+
+<ul>
+<li>Spend as much time as possible understanding the real-world and data
+needs of the client before writing <em>any</em> code. This is absolutely
+<em>critical</em> to make sure that your application is designed from the
+ground as a stable, relevant application. Don&rsquo;t move forward until
+you think that you have a pretty good grasp of the needs; get help
+if you need to.</li>
+<li>Out-engineer user-error as much as possible. In other words, never
+trust that the user will do what you expect, especially when
+entering data. For instance, about 4 years ago, I was reviewing a
+proposed payroll-entry system software for a Fortune-500 company.
+The software trusted the user to enter the number of their
+dependents properly for tax deduction purposes. When I questioned
+the developer, &ldquo;What if someone enters a negative number?&rdquo;, his face
+grew pale. We found that an employee would end up with a raise,
+instead of a deduction! Ouch.</li>
+<li>Don&rsquo;t reinvent the wheel. For instance, it makes no sense to develop
+your own login system for Ruby on Rails when there are great ones
+already out there that have run through a gauntlet in the
+real-world.</li>
+<li>Don&rsquo;t implement <em>anything</em> unless you understand, as much as time
+allows, what you&rsquo;re &ldquo;plugging in&rdquo;. Read the issues reported, read
+through the source code, and familiarize yourself with how it works.
+Don&rsquo;t choose something merely because 3 people recommended it in
+some forum. I&rsquo;ve seen this often: a developer quickly slaps in a 3rd
+party open source app or gem and a few months later, there&rsquo;s an
+issue that they do not know how to resolve. Usually it&rsquo;s because
+they thought they&rsquo;d found a quick fix, without thinking about any
+future issues. Perhaps the worst example that I&rsquo;ve seen is
+hot-linking to Javascript code on a website somewhere, in blind
+trust that the link will stay live.</li>
+<li>Be open to including other languages and technologies where
+appropriate. For instance, just because your app is written in Ruby,
+if a Perl or Python is better suited for a certain backend feature,
+it may be good to use it. Even if you don&rsquo;t integrate it, reading
+through it can help you see a better way to solve an issue at hand.</li>
+<li>Don&rsquo;t do in code what your database can already do, as this will cut
+down the speed quite a bit. For instance, why use <code>Date</code> in Ruby in
+a SQL query on a MySQL-backed application when MySQL&rsquo;s
+<code>CURRENT_DATE()</code> will work fine (and faster)? In other words, know
+the capabilities of the technologies that you&rsquo;re using.</li>
+<li>Avoid including &ldquo;experimental&rdquo; or &ldquo;cutting-edge&rdquo; features in your
+project if possible. While fun, the risk of issues just isn&rsquo;t worth
+it unless your project is just a learning exercise.</li>
+<li>Communicate what you need to keep the client in the loop. That being
+said, too much communication about every little snag and solution
+will only frustrate them.</li>
+</ul>
+
+<h2 id="post-development:ccc71b4b036a00839a660d9060addc1d">Post-Development</h2>
+
+<ul>
+<li>Review your code for speed, stability, security, and usability.</li>
+<li>Have someone else review it or discuss it with them.</li>
+<li>Have non-technical people do real-world testing on your product.
+You&rsquo;d be surprised at how many things you think are intuitive and
+easy that really aren&rsquo;t to an average user.</li>
+<li>Never, ever, ever stop learning, even if it&rsquo;s unrelated to your
+current development language of choice.</li>
+<li>Don&rsquo;t be afraid to ask for help. Even the best developers can gain a
+lot of insight and knowledge from reading others&rsquo; code and
+interacting with others.</li>
+<li>Revisit old code and see what you would&rsquo;ve done differently. Often,
+you&rsquo;ll find yourself encouraged as you see how better your code is
+now than then.</li>
+</ul>
+
+<h2 id="enjoying-your-development:ccc71b4b036a00839a660d9060addc1d">Enjoying Your Development:</h2>
+
+<ul>
+<li>How do you work best? In quiet, with music, with lots of lighting,
+dim lighting, etc&hellip;? A happy developer is much more likely to produce
+quality. Spend some time setting up your work environment the way
+that you&rsquo;re most comfortable with. It&rsquo;s amazing how mood-based
+programming can be. Improve your mood and you&rsquo;ll improve your code.</li>
+<li>What tool(s) do you like to use? As much as possible, insist on
+those tools, &ldquo;Yes, I can write this app in TextEdit or Notepad, but
+I can do it better with this \$79 tool X.&rdquo;</li>
+<li>Give yourself time to think and rest. There are some days where I
+just can&rsquo;t write code well; other days where it&rsquo;s just flowing. This
+is due to how your brain functions. You need sleep and a change of
+pace and scenery now and then. Schedule breaks if you must and
+realize that some days are going to be tough. On tough days, learn
+something new.</li>
+<li>Walk away for a while. It&rsquo;s easy to get &ldquo;tunnel vision&rdquo; and think
+that you&rsquo;re close to solving a problem and to think that more effort
+will solve it. While true at times, I find that it&rsquo;s best to walk
+away from the issue at hand for a while and do something completely
+different. For example, I tried once for 7 hours to power-through a
+complicated area of code and just couldn&rsquo;t get it right. I finally
+stopped working on code that day, came back the next day to it, and
+solved it in 16 minutes. You would be surprised at the ideas or
+solutions that will spring into your mind as you are thinking about
+or doing other things.</li>
+<li>Set realistic deadlines. For instance, before telling your client or
+boss that this will be done next Friday, add a week. You never know
+what issues you might hit and will find yourself, more often than
+not, very grateful for the extra time to get it done right. If you
+end early, you&rsquo;re a hero!</li>
+<li>Remember, you&rsquo;re a person, not a robot. In other words, you deserve
+time to eat, sleep, get away, etc&hellip; When necessary, remind others
+nicely.</li>
+<li>Know your limits and enforce them. In other words, &ldquo;No, I can&rsquo;t and
+won&rsquo;t recreate Gmail.&rdquo;</li>
+</ul>
+
+<p>As the work quality improves, it will stand out and you will be called
+upon more and more to help others, do other projects, etc&hellip; As your level
+of expertise grows, help others by tactfully pointing out improvements,
+respecting them, and encouraging them. In doing so, you will find
+yourself enjoying the quality of your work.</p>
+
+<p><em>I hope you found this article valuable. Feel free to ask questions and
+give feedback in the comments section of this post. Thanks!</em></p>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-code-quality" href="http://rubylearning.com/blog//tags/code-quality">Code Quality</a>,
+	                
+	                <a class="post-tag post-tag-james-m.-schorr" href="http://rubylearning.com/blog//tags/james-m.-schorr">James M. Schorr</a>,
+	                
+	                <a class="post-tag post-tag-programming" href="http://rubylearning.com/blog//tags/programming">programming</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/blog/2010/10/25/the-value-of-a-personal-bug-log/">The value of a personal bug log</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/blog/2010/10/15/let-the-world-know-who-you-are/">Let The World Know Who YOU Are!</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rubylearning';
+    var disqus_identifier = 'http:\/\/rubylearning.com\/blog\/2010\/10\/18\/do-you-enjoy-your-code-quality\/';
+    var disqus_title = 'Do You Enjoy Your Code Quality?';
+    var disqus_url = 'http:\/\/rubylearning.com\/blog\/2010\/10\/18\/do-you-enjoy-your-code-quality\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2015 RubyLearning. All rights reserved. </p>
+</div>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

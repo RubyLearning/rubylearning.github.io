@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Volt on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/volt/</link>
+    <description>Recent content in Volt on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Feb 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/volt/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Meet Volt: a Promising Ruby Framework for Dynamic Applications</title>
+      <link>http://rubylearning.com/blog/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/</link>
+      <pubDate>Wed, 11 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;By Amaury Andres Peniche Gonzalez – Software Engineer at
+&lt;a href=&#34;http://www.toptal.com/&#34;&gt;Toptal&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://rubylearning.com/images/amaury.jpg&#34; width=144 height=144&gt;
+&lt;/img&gt;&lt;/p&gt;
+
+&lt;p&gt;Amaury is a systems and production engineer with experience in front and
+back-end development, computer graphics, and networking. Amaury
+currently works as a freelance &lt;a href=&#34;http://www.toptal.com/ruby&#34;&gt;Ruby engineer at
+Toptal&lt;/a&gt;, where he was involved in numerous
+projects, mainly related to Ruby on Rails.&lt;/p&gt;
+
+&lt;h2 id=&#34;ruby-and-the-volt-framework:d3bc95303a4beee64472c5f06d514b40&#34;&gt;Ruby and the Volt framework&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Volt&lt;/strong&gt; is a Ruby web framework designed for data rich applications.
+Both the server and client sides are written in Ruby (which is then
+compiled to JS using OPAL), so this allows the developer to write very
+dynamic applications without having to write a single line of Javascript
+code. If you’re a Ruby fan like me, you’ll love this framework.&lt;/p&gt;
+
+&lt;p&gt;In an attempt to make web applications a lot more dynamic, front-end
+Javascript frameworks like Angular.js, Backbone.js and Ember.js have
+gained a lot of popularity. However, these frameworks often require a
+back-end application to be useful, so they are used in conjunction with
+web frameworks like Ruby on Rails and Django.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, Volt is capable of managing the back-end and a
+dynamic front-end. Since both functionalities are tightly integrated
+into its core (in fact, Volt is more like an MVVM architecture,
+leveraging the advantages of data bindings), it enables the developer to
+build these applications quickly.&lt;/p&gt;
+
+&lt;p&gt;A very cool feature that comes out of the box is Volt’s real-time
+feature. If you ever made real-time applications, you know the process
+can be challenging – you probably implemented AJAX-polling, web sockets,
+Server-Sent Events (SSE) or even used external services, adding
+complexity to the application and even incurring additional costs.
+Unlike other frameworks, Volt keeps a connection with the server alive
+(via web sockets), so instead of making Ajax requests for each action,
+it pushes changes instantly to all clients. No configuration is needed
+for this to work.&lt;/p&gt;
+
+&lt;h3 id=&#34;using-volt-to-create-a-chat-application:d3bc95303a4beee64472c5f06d514b40&#34;&gt;Using Volt To Create A Chat Application&lt;/h3&gt;
+
+&lt;p&gt;In this guide I am going to take you through the process of creating a
+real-time application using Volt, and what better way than a chat
+application to demonstrate its capabilities, since chat remains the
+number one use case of real time applications.&lt;/p&gt;
+
+&lt;p&gt;First of all, let’s install Volt and MongoDB. The latter process will
+not be covered in detail:&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/0f03f5437f3c9821ce6d49ce3424afda431808f1/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/setup_part1.sh?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Now we’re ready to create our first app, lets call it ‘chat’. We can do
+that easily in a couple of lines:&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/89d0a5924f410c6f5d0e03c1f323b01045a6b536/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/setup_part2.sh?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The document structure has some similarities to Rails. The main
+difference Rails users will notice is that we have an extra folder
+inside app that contains the rest of the folders like assets,
+controllers, models and views, this extra folder is a ‘Component’.&lt;/p&gt;
+
+&lt;p&gt;A Component is an isolated section of the app. All pages inside a
+Component are rendered without reloading the page since all files for
+that component are loaded with the initial http request, so if we visit
+a page of a different component, a new http request will be made and the
+page will be ‘reloaded’. For this example let’s use the default
+component called ‘main’.&lt;/p&gt;
+
+&lt;p&gt;Let’s start the server by executing ‘volt server’ command in console,
+and see how it looks in the browser by navigating to
+&lt;a href=&#34;http://localhost:3000&#34;&gt;localhost:3000&lt;/a&gt;:&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/461f71e3d021d66681b73fe24af2909fc58b5053/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/start_server.sh?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Also don’t forget to start MongoDB in console:&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/0f03f5437f3c9821ce6d49ce3424afda431808f1/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/start_mongod.sh?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;We can notice that Volt comes with a number of default pages, including
+‘Home’ and ‘About’. These can be customized right away.&lt;/p&gt;
+
+&lt;p&gt;The other thing worth mentioning is the login button at the top right
+side of the page. Volt has a “user” functionality integrated to the
+framework via the ‘volt-user-templates’ gem, which provides a way to
+register and authenticate users, right out of the box.&lt;/p&gt;
+
+&lt;h3 id=&#34;getting-started:d3bc95303a4beee64472c5f06d514b40&#34;&gt;Getting Started&lt;/h3&gt;
+
+&lt;p&gt;Now, let’s start working on our app. First of all we don’t need the
+‘About’ page so we can go ahead and delete the following: The
+app/main/views/main/about.html file, the about action in
+app/main/controllers/main_controller.rb, remove the ‘/about’ route in
+the &lt;code&gt;app/main/config/routes.rb&lt;/code&gt; and the nav link in
+&lt;code&gt;app/main/views/main/main.html&lt;/code&gt;.&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/461f71e3d021d66681b73fe24af2909fc58b5053/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/main_part1.html?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Now let’s get down to business and start by listing all registered
+users:&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/461f71e3d021d66681b73fe24af2909fc58b5053/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/main_part2.html?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Now all the registered users are being listed in the homepage. Note that
+the code written inside &lt;code&gt;{{ }}&lt;/code&gt; is Ruby code that gets executed. This way
+we can iterate over user collection and print each one out.&lt;/p&gt;
+
+&lt;p&gt;As you may have noticed, &lt;code&gt;users&lt;/code&gt; is the name of the collection where
+all users are stored; something to have in mind is that attributes are
+accessed with an underscore &lt;code&gt;_&lt;/code&gt; prepended to the attribute name. For
+this to work, we first need to add a line of code at the top of the
+main_controller.rb file:&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/0f03f5437f3c9821ce6d49ce3424afda431808f1/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/main_controller.part1.rb?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Volt comes with multiple collection models accessible from the
+controller, and each of them stores the information in a different
+place. The store collection model stores the data in the data store, and
+here we are specifying the controller to use that one (right now the
+only data store supported is MongoDB). Let’s create a couple of users to
+see what it looks like:&lt;/p&gt;
+
+&lt;p&gt;Right now there is nothing exciting about this page, we’re just listing
+the registered users. Now I would like to be able to select a user to
+send a message to, remove the name of the currently logged in user from
+the list (since he shouldn’t be able to send messages to himself), show
+the list only to authenticated users and show a ‘landing’ page to
+non-authenticated users:&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/0f03f5437f3c9821ce6d49ce3424afda431808f1/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/main_.part3.html?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;code&gt;Volt.user&lt;/code&gt; returns the current (logged in) user or &lt;code&gt;nil&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;e-click&lt;/code&gt; attribute lets us select a method from the controller that
+will be called when that element is clicked.&lt;/p&gt;
+
+&lt;h3 id=&#34;attributes-and-css:d3bc95303a4beee64472c5f06d514b40&#34;&gt;Attributes and CSS&lt;/h3&gt;
+
+&lt;p&gt;In fact, all &lt;code&gt;e-&lt;/code&gt; attributes are event binders in Volt, so for example
+we can add &lt;code&gt;e-submit&lt;/code&gt; to a form to choose the action that will be called
+on the controller. We are going to add the ‘selected’ user’s ID to the
+parameters so we can know which one has been selected and add a class
+called &lt;code&gt;active&lt;/code&gt; which we can later style.&lt;/p&gt;
+
+&lt;p&gt;Now let’s create the &lt;code&gt;select_conversation&lt;/code&gt; method in the controller:&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/0f03f5437f3c9821ce6d49ce3424afda431808f1/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/main_controller.part2.html?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;And that’s it – if you check out the page again, you can see that the
+URL changes every time you click on a user’s name. Also, the class
+&lt;code&gt;active&lt;/code&gt; is being added to that element, so let’s add some CSS to make
+it visible (I’ll go ahead and add the CSS for items we will add later
+on):&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/b774ae9a7ae6cc98fceefea4a99e8b2bdb50d2db/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/active.css?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Now let’s create a form on the right side to send messages to each user:&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/89d0a5924f410c6f5d0e03c1f323b01045a6b536/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/main_part2.html?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;First, we’re checking if there is a user selected before displaying the
+form, then we display all messages from the current conversation (the
+conversation with the selected user) from a method in the controller
+we’re going to define in a bit and at the bottom we’re displaying a form
+for sending new messages.&lt;/p&gt;
+
+&lt;p&gt;Notice that the value of the input is an attribute we’re creating on the
+page collection model since we don’t want it to be stored in the data
+store. Now let’s define the &lt;code&gt;current_conversation&lt;/code&gt; and &lt;code&gt;send_message&lt;/code&gt;
+methods in the controller:&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/0f03f5437f3c9821ce6d49ce3424afda431808f1/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/main_controller.part3.rb?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;In the &lt;code&gt;send_message&lt;/code&gt; method we add a new message to the collection if
+the message is not blank (we’re checking inline so we don’t have to mess
+with validations at the moment), then we set the &lt;code&gt;page._new_message&lt;/code&gt; to
+&lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt; so we empty the input field.&lt;/p&gt;
+
+&lt;p&gt;We might want to add that line to the end of the select_conversation
+method as well. The current conversation method just queries the
+&lt;code&gt;_messages&lt;/code&gt; collection for messages between the selected user and the
+current user.&lt;/p&gt;
+
+&lt;h3 id=&#34;wrap-up-with-real-time-notifications:d3bc95303a4beee64472c5f06d514b40&#34;&gt;Wrap Up With Real-Time Notifications&lt;/h3&gt;
+
+&lt;p&gt;To finish, I would like to have some kind of notification system, so
+users could see when other users are messaging them.&lt;/p&gt;
+
+&lt;p&gt;Let’s add a new collection called &lt;code&gt;_notifications&lt;/code&gt; and create a new one
+after each message is sent:&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/a321082720529d3cf8c1cc4f15b208ff38728b47/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/add_and_delete_notifications.rb?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Also, we need to delete notifications from after a user selects the
+conversation and sees the new messages, so I added that part to the
+&lt;code&gt;select_conversation&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;p&gt;Let’s add a notification counter right next to the user name:&lt;/p&gt;
+
+&lt;script src=&#34;https://bitbucket.org/teamrubylearning/rubylearning-code-snippets/src/0f03f5437f3c9821ce6d49ce3424afda431808f1/2015/02/11/meet-volt-a-promising-ruby-framework-for-dynamic-applications/index_main.part1.html?embed=t&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Now the app is ready, you can open a couple of browsers and start
+testing the real-time capabilities of Volt.&lt;/p&gt;
+
+&lt;h3 id=&#34;volt-is-definitely-worth-a-try:d3bc95303a4beee64472c5f06d514b40&#34;&gt;Volt Is Definitely Worth A Try&lt;/h3&gt;
+
+&lt;p&gt;Even though Volt is not as mature and robust as most of the popular
+frameworks that have been around for years (at the moment of Volt is
+still in beta), it is worth considering and studying.&lt;/p&gt;
+
+&lt;p&gt;In case you are interested, take it out for a spin and keep an eye on
+further developments, as Volt looks like a very promising framework even
+at this early stage of development.&lt;/p&gt;
+
+&lt;p&gt;There are a lot of cool new features in the pipeline and I’m pretty sure
+Volt will become more relevant over the next couple of years, as more
+people start experimenting with it. Due to a number of innovative
+features, many developers could fall in love with Volt and use it for
+their next project.&lt;/p&gt;
+
+&lt;p&gt;Finally, here’s the &lt;a href=&#34;https://gist.github.com/apeniche/2bb6edd82c3e3e0044e6&#34;&gt;complete
+code&lt;/a&gt; that we have
+developed.
+&lt;script src=&#34;https://gist.github.com/apeniche/2bb6edd82c3e3e0044e6.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on RubyLearning Blog</title>
+    <link>http://rubylearning.com/blog/categories/go/</link>
+    <description>Recent content in Go on RubyLearning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Mar 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rubylearning.com/blog/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My articles on Go for JoshSoftware</title>
+      <link>http://rubylearning.com/blog/2014/03/13/my-articles-on-go-for-joshsoftware/</link>
+      <pubDate>Thu, 13 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://rubylearning.com/blog/2014/03/13/my-articles-on-go-for-joshsoftware/</guid>
+      <description>&lt;div&gt;
+  &lt;p&gt;
+    Here are some articles I have written on Go for &lt;a href=&#34;http://www.joshsoftware.com/&#34;&gt;JoshSoftware&lt;/a&gt;, a company that is now into Go projects too.
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      My experience at the awesome, first-ever GopherCon 2014 &amp;#8211; &lt;a href=&#34;http://blog.joshsoftware.com/2014/05/05/my-experience-at-the-awesome-first-ever-gophercon-2014/&#34;&gt;link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      A Fun, Weather Forecast Go Web App &amp;#8211; &lt;a href=&#34;http://blog.joshsoftware.com/2014/04/07/a-fun-weather-forecast-go-web-app/&#34;&gt;link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Fun with Gmail and Go &amp;#8211; &lt;a href=&#34;http://blog.joshsoftware.com/2014/04/02/fun-with-gmail-and-go/&#34;&gt;link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Learn to build and deploy simple Go Web Apps, Part Four &amp;#8211; &lt;a href=&#34;http://blog.joshsoftware.com/2014/03/17/learn-to-build-and-deploy-simple-go-web-apps-part-four/&#34;&gt;link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Learn to build and deploy simple Go Web Apps, Part Three &amp;#8211; &lt;a href=&#34;http://blog.joshsoftware.com/2014/03/14/learn-to-build-and-deploy-simple-go-web-apps-part-three/&#34;&gt;link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Learn to build and deploy simple Go Web Apps, Part Two &amp;#8211; &lt;a href=&#34;http://blog.joshsoftware.com/2014/03/13/learn-to-build-and-deploy-simple-go-web-apps-part-two/&#34;&gt;link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Learn to build and deploy simple Go Web Apps, Part One &amp;#8211; &lt;a href=&#34;http://blog.joshsoftware.com/2014/03/12/learn-to-build-and-deploy-simple-go-web-apps-part-one/&#34;&gt;link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      How Do I Create A Presentation Using Go? &amp;#8211; &lt;a href=&#34;http://blog.joshsoftware.com/2014/03/10/how-do-i-create-a-presentation-using-go/&#34;&gt;link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      A Simple Go Web App on Heroku with MongoDB on MongoHQ &amp;#8211; &lt;a href=&#34;http://blog.joshsoftware.com/2014/02/28/a-simple-go-web-app-on-heroku-with-mongodb-on-mongohq/&#34;&gt;link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      Does the next decade belong to Go? &amp;#8211; &lt;a href=&#34;http://blog.joshsoftware.com/2014/02/04/does-the-next-decade-belong-to-go/&#34;&gt;link&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
