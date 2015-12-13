@@ -69,9 +69,6 @@
           <div id="main-inner"><a name="TemplateInfo"></a>
             <h1>Ruby Installation</h1>
 
-            <h3>What is Ruby?</h3>
-
-
             <p class="post-footer align-right">
               <strong>
                 <a href="/satishtalim/introduction.html">&lt;Introduction | </a>
@@ -86,33 +83,18 @@
               Yukihiro Matsumoto, commonly known as 'Matz' created the Ruby language in 1993. An <a href="http://www.linuxdevcenter.com/pub/a/linux/2001/11/29/ruby.html" >interview with him</a> in 2001, talks about the history of Ruby. Matz's "<a href="http://www.artima.com/intv/ruby.html">The Philosophy of Ruby</a>" is another good read.
             </p>
 
-            <h3>How Ruby can help you, in more detail</h3>
-
-            <p>In David Black's book, '<em>Ruby for Rails</em>', he mentions that a solid grounding in Ruby can serve you, as a Rails developer, in four ways:</p>
-
-            <ol>
-              <li><span>By helping you know what the code in your application (including Rails boilerplate code) is doing</span></li>
-              <li><span>By helping you do more in, and with, your Rails applications than you can if you limit yourself to the readily available Rails idioms and techniques (as powerful as those are)</span></li>
-              <li><span>By allowing you to familiarize yourself with the Rails source code, which in turn enables you to participate in discussions about Rails and perhaps even submit bug reports and code patches</span></li>
-              <li><span>By giving you a powerful tool for administrative and organization tasks (for example, legacy code conversion) connected with your application</span></li>
-            </ol>
-
             <h3>Downloading Ruby</h3>
 
             <p>As an open source language, Ruby has been ported to run on many different computer platforms and architectures. This means that if you develop a Ruby program on one machine, it's likely you'll be able to run it without any changes on a different machine. You can use Ruby, in one form or another, on most operating systems and platforms.</p>
 
-            <p>Though I talk about Ruby on a Windows platform, <strong>these notes are appropriate for Linux/Mac users as well</strong>.</p>
+            <p>In this course, we will be using latest version of Ruby, which is currently 2.2.3</p>
+            <p>There are multiple ways to install and manage Ruby. If you are on Windows, the simplest way to get Ruby installed is by using the <a href="http://rubyinstaller.org/" >Ruby Installer for Windows</a>. Download the latest version of Ruby 2.2.3. After you have downloaded this, double-click this file and install Ruby on your PC, accepting all the defaults. After you have installed your Ruby software, the System Environment Variable path is already set to point to the bin folder of Ruby. <em>Always check whether this has been set properly or not. If not, set it externally.</em> If you are on a UNIX-like operating system like Linux or Mac OS X, then you can either use <a href="https://github.com/sstephenson/rbenv#readme">rbenv</a> with <a href="https://www.ruby-lang.org/en/documentation/installation/#ruby-build">ruby-build</a> or <a href="http://rvm.io">RVM.</a> We don't recommend installing Ruby via package managers on UNIX-like systems at the Ruby versions available via package managers might be outdated. More information on various installation options with detailed explanation can be found <a href="https://www.ruby-lang.org/en/documentation/installation/">here.</a></p>
 
-            <p>The simplest way to get Ruby installed on a PC is by using the <a href="http://rubyinstaller.org/" >Ruby Installer for Windows</a>. Download the latest verion of Ruby 1.9. After you have downloaded this, double-click this file and install Ruby on your PC, accepting all the defaults. After you have installed your Ruby software, the System Environment Variable path is already set to point to the bin folder of Ruby. <em>Always check whether this has been set properly or not. If not, set it externally.</em></p>
-
+            <h3>Downloading an Editor</h3>
             <p>You can use any editor you like, as long as it's a plain-text editor and not a word processor) and a directory (a.k.a. a folder) in which to store your Ruby program files. The folder is separate from other work areas so that you can keep track of your practice program files.</p>
+            <p>Do not hesitate to ask any questions related to installing and setting up Ruby or an Editor correctly in the forums.</p>
 
-            <p>You'll find two executables in the Ruby Windows distribution. <em>ruby.exe</em> is meant to be used at a command prompt (a DOS shell), just as in the Unix version. For applications that read and write to the standard input and output, this is fine. But this also means that anytime you run <em>ruby.exe</em>, you'll get a DOS shell even if you don't want one - Windows will create a new command prompt window and display it while Ruby is running. This may not be appropriate behavior if, for example, you double-click a Ruby script that uses a graphical interface (such as Tk), or if you are running a Ruby script as a background task or from inside another program. In these cases, you'll want to use <em>rubyw.exe</em>. It is the same as <em>ruby.exe</em> except that it does not provide standard in, standard out, or standard error and does not launch a DOS shell when run.</p>
-
-            <p>Do note that these instructions assume that you are going to use a <i>Windows</i> platform. For installation on other platforms, you can refer <a href="http://www.ruby-lang.org/en/downloads/">here</a>.</p>
-
-            <!-- google_ad_section_end -->
-            <p style="background-color: #FAFAFA; padding: 5px; margin-top: 20px; font-size: 65%;"><strong>Note</strong>: The Ruby Logo is Copyright (c) 2006, Yukihiro Matsumoto. I have made extensive references to information, related to Ruby, available in the public domain (wikis and the blogs, articles of various <span style="font-weight: bold;" title="Click Gurus on the menu above">Ruby Gurus</span>), my acknowledgment and thanks to all of them. Much of the material on <a href="/">rubylearning.com</a> and in the course at <a href="http://rubylearning.org/">rubylearning.org</a> is drawn <strong>primarily</strong> from the <strong>Programming Ruby book</strong>, available from <a href="http://pragprog.com/book/ruby3/programming-ruby-1-9-2-0">The Pragmatic Bookshelf</a>.</p>
+            <p style="background-color: #FAFAFA; padding: 5px; margin-top: 20px; font-size: 65%;"><strong>Note</strong>: The Ruby Logo is Copyright (c) 2006, Yukihiro Matsumoto. I have made extensive references to information, related to Ruby, available in the public domain (wikis and the blogs, articles of various <span style="font-weight: bold;" title="Click Gurus on the menu above">Ruby Gurus</span>), my acknowledgment and thanks to all of them. Much of the material on <a href="/">rubylearning.com</a> and in the course at <a href="http://rubylearning.org/">rubylearning.org</a> is drawn <strong>primarily</strong> from the <strong>Programming Ruby book</strong>, available from <a href="http://pragprog.com/book/ruby4/programming-ruby-1-9-2-0">The Pragmatic Bookshelf</a>.</p>
 
             <p class="post-footer align-right">
               <strong>
