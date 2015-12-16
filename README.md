@@ -4,6 +4,6 @@
 ### Running the app locally
 
 ```
-gem install github-pages
-jekyll serve
+bundle install
+bundle exec jekyll serve
 ```
