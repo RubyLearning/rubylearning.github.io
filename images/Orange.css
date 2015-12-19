@@ -51,7 +51,6 @@ h3 { font-size: 1.2em; text-transform: none;}
 
 #main h1, #rightbar h1 {
   padding: 10px 0 5px 5px;
-  /* top, right, bottom, and left margin */
   margin: 0 0 0 10px;
   text-transform: uppercase;
   border-bottom: 1px solid #f2f2f2;   
@@ -177,31 +176,23 @@ form.searchform input.button {
 /*    Layout     */
 /*****************/
 #wrap {
-  /* changes by Paul O'B 
-  margin: 0 auto; specifying 0 pixels on top and bottom, with auto margins on the left and right 
-  width: 850px; */
-  width: 100%;
-  
+  margin: 0 auto; /* specifying 0 pixels on top and bottom, with auto margins on the left and right */
+  /* margin: 0px auto 0px 0px; if left margin to go? */
+  width: 850px;    
   text-align: left;   
   background: #FFF; 
 }
 #content-wrap {
   clear:both;
-  /* changes by Paul O'B
-  margin: 0; padding:0;
-  width: 850px; */
-  width: 100%;
+   margin: 0; padding:0;
+  width: 850px; 
 }
 
 /* header */
 #header {
-  /* changes by Paul O'B
-  position: relative; */
-  clear: both;
-  
+  position: relative;
   background: url(headerbg-orange.gif) repeat-x 0 0;
   height: 84px; 
-  width: 100%; /* changes by Paul O'B */
 }
 #header h1#logo {
   position: absolute;
@@ -211,7 +202,7 @@ form.searchform input.button {
   color: #CCC;
   text-transform: lowercase;
   /* change the values of top and Left to adjust the position of the logo*/
-  top: 0; left: 15px;  
+  top: 0; left: 5px;  
 }
 #header h2#slogan {
   position: absolute;
@@ -220,7 +211,7 @@ form.searchform input.button {
   text-transform: none;
   color: #FFF;
   /* change the values of top and Left to adjust the position of the slogan*/
-  top: 56px; left:75px;   /* 48 to 56 */
+  top: 56px; left:65px;   /* 48 to 56 */
 }
 #header .searchform {
   position: absolute;
@@ -229,15 +220,12 @@ form.searchform input.button {
 
 /* main column */
 #main {
-  margin:0 170px 0 0;
+  float: left;
+  margin-left: 15px;
   padding: 0;
+  width: 74%;
   border-left: 1px solid #f2f2f2;
 }
-/* mac hide \*/
-* html main{height:1%}
-/* end height*/
-#main-inner{width:99%;float:left;}
-* html #main-inner{overflow:hidden}
 /* Added by Satish on 5th Jan 2007 - start */
 .post-note {
   background-color: #EBEBEB;
@@ -271,7 +259,7 @@ form.searchform input.button {
 /* sideabar */
 #sidebar {
   float: left;
-  width: 165px;
+  width: 21%;
   margin: 0;  padding: 0; 
   display: inline;  
 }
@@ -299,7 +287,7 @@ form.searchform input.button {
 /* rightbar */
 #rightbar {
   float: right;
-  width: 165px;
+  width: 21%;
   padding: 0; margin: 0;    
 }
 
@@ -308,10 +296,9 @@ form.searchform input.button {
   clear: both;
   background: #FFF url(footerbg.gif) repeat-x left top;
   border-top: 1px solid #F2F2F2;
-  text-align: left; 
+  text-align: center; 
   height: 50px; 
   font-size: 70%; /* added by Talim on 1st March 2007 */
-  width: 100%;
 }
 #footer a {
   text-decoration: none;
@@ -326,10 +313,10 @@ form.searchform input.button {
 #menu ul {  
   position: relative; 
   bottom: 4px;
-  margin: 0 0 0 7px; padding: 0;
+  margin: 0; padding: 0;  
   float: left;
   font: bold 0.96em 'Trebuchet MS', Tahoma, Arial, Sans-serif; /* original 1.4 */
-  width:100%;
+  width: 850px;/* 775px; */
   border: 1px solid #808080;
   border-width: 0 0 4px 0;  
   list-style: none;
@@ -487,9 +474,4 @@ div.adsense3
 #partners {
   font-size: 80%;
   color:#EC981F;
-}
-.google{
-    text-align:left;
-    border-bottom:1px solid #ccc;
-    padding-bottom:10px
 }
