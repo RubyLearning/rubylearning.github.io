@@ -1,117 +1,117 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<title>Ruby Blocks: Ruby Study Notes - Best Ruby Guide, Ruby Tutorial</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="description" content="Ruby Study Notes - Best Ruby Guide, Ruby Tutorial" />
-<meta name="keywords" content="ruby blocks,ruby study notes,ruby guide,free ruby programming course,best ruby guide,ruby tutorials,ruby tutorial,learn ruby,ruby,ruby on rails,ruby rails,ruby learning,ruby tutoring,learning ruby,ruby programming,ruby on rails development,ruby training" />
-<meta name="Distribution" content="Global" />
-<meta name="author" content="Satish Talim / Original design: Erwin Aligam - ealigam@gmail.com" />
-<meta name="copyright" content="Satish Talim 2007 and beyond..." />
-<meta name="verify-v1" content="rFu86se+IkbtF+bH8mgJBKwU5HnKaSd8Ghw9umXQOkM=" />
-<meta name="robots" content="index,follow" />
-<meta http-equiv="Expires" content="0" />
-<meta name="revisit-after" content="1 days" />
-<link rel="stylesheet" href="/images/NewOrange.css" type="text/css" />
-<link rel="stylesheet" href="/images/syntaxhighlighter.css" type="text/css" />
-<link rel="icon" type="image/ico" href="/images/favicon.ico" />
-<!-- Google +1 button code -->
-<link rel="canonical" href="/satishtalim/ruby_blocks.html" />
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-<!-- Google Analytics code -->
-<script type="text/javascript">
+  <head>
+    <title>Ruby Blocks: Ruby Study Notes - Best Ruby Guide, Ruby Tutorial</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Ruby Study Notes - Best Ruby Guide, Ruby Tutorial" />
+    <meta name="keywords" content="ruby blocks,ruby study notes,ruby guide,free ruby programming course,best ruby guide,ruby tutorials,ruby tutorial,learn ruby,ruby,ruby on rails,ruby rails,ruby learning,ruby tutoring,learning ruby,ruby programming,ruby on rails development,ruby training" />
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Satish Talim / Original design: Erwin Aligam - ealigam@gmail.com" />
+    <meta name="copyright" content="Satish Talim 2007 and beyond..." />
+    <meta name="verify-v1" content="rFu86se+IkbtF+bH8mgJBKwU5HnKaSd8Ghw9umXQOkM=" />
+    <meta name="robots" content="index,follow" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="revisit-after" content="1 days" />
+    <link rel="stylesheet" href="/images/NewOrange.css" type="text/css" />
+    <link rel="stylesheet" href="/images/syntaxhighlighter.css" type="text/css" />
+    <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+    <!-- Google +1 button code -->
+    <link rel="canonical" href="/satishtalim/ruby_blocks.html" />
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <!-- Google Analytics code -->
+    <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-59044-10']);
-  _gaq.push(['_trackPageview']);
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-59044-10']);
+     _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
 
-</script>
-<!-- Google Analytics code ends -->
-</head>
+    </script>
+    <!-- Google Analytics code ends -->
+  </head>
 
-<body>
-<!-- wrap starts here -->
-<div id="wrap">
+  <body>
+    <!-- wrap starts here -->
+    <div id="wrap">
 
-    <div id="header">
+      <div id="header">
 
         <h1 id="logo">Ruby<span class="orange">Learning.com</span></h1>
         <h2 id="slogan">Helping Ruby Programmers become Awesome!</h2>
 
-    </div>
+      </div>
 
-    <div id="menu">
+      <div id="menu">
         <ul>
-            <li><a href="/" title="Home page for rubylearning.com">Home</a></li>
-            <li><a href="/satishtalim/tutorial.html" title="Get started Learning Ruby here...">Tutorial</a></li>
-            <li><a href="/download/downloads.html" title="Download this tutorial as an eBook">Downloads</a></li>
-            <li><a href="/other/testimonials.html" title="People around the world who benefited from this site">Testimonials</a></li>
-            <li><a href="/other/certification.html" title="Get certified in Ruby">Certification</a></li>
-            <li><a href="/satishtalim/ruby_guide.html" title="Ruby Guide, Mentor">Mentor</a></li>
-            <li><a href="/blog/" title="Ruby blog of Learning Ruby site">Blog</a></li>
-            <li><a href="http://rubylearning.org/" title="Free Online Ruby Course">Online Course</a></li>
-            <li><a href="http://ruby-challenge.rubylearning.org/" title="Ruby Programming Challenge for Newbies">Challenge</a></li>
-            <li><a href="/satishtalim/about.html" title="Information about Satish Talim">About</a></li>
+          <li><a href="/" title="Home page for rubylearning.com">Home</a></li>
+          <li><a href="/satishtalim/tutorial.html" title="Get started Learning Ruby here...">Tutorial</a></li>
+          <li><a href="/download/downloads.html" title="Download this tutorial as an eBook">Downloads</a></li>
+          <li><a href="/other/testimonials.html" title="People around the world who benefited from this site">Testimonials</a></li>
+          <li><a href="/other/certification.html" title="Get certified in Ruby">Certification</a></li>
+          <li><a href="/satishtalim/ruby_guide.html" title="Ruby Guide, Mentor">Mentor</a></li>
+          <li><a href="/blog/" title="Ruby blog of Learning Ruby site">Blog</a></li>
+          <li><a href="http://rubylearning.org/" title="Free Online Ruby Course">Online Course</a></li>
+          <li><a href="http://ruby-challenge.rubylearning.org/" title="Ruby Programming Challenge for Newbies">Challenge</a></li>
+          <li><a href="/satishtalim/about.html" title="Information about Satish Talim">About</a></li>
         </ul>
-    </div>
+      </div>
 
-    <!-- content-wrap starts here -->
-    <div id="content-wrap">
+      <!-- content-wrap starts here -->
+      <div id="content-wrap">
 
-            <div id="main">
+        <div id="main">
 
-                <div id="main-inner"><a name="TemplateInfo"></a>
-                <h1>Ruby Blocks</h1>
+          <div id="main-inner"><a name="TemplateInfo"></a>
+            <h1>Ruby Blocks</h1>
 
-                <p class="post-footer align-right">
-                  <strong>
-                    <a href="/satishtalim/simple_constructs.html">&lt;Simple Constructs | </a>
-                    <a href="/satishtalim/tutorial.html">TOC | </a>
-                    <a href="/satishtalim/ruby_arrays.html">Arrays &gt;</a>
-                  </strong>
-                </p>
+            <p class="post-footer align-right">
+              <strong>
+                <a href="/satishtalim/simple_constructs.html">&lt;Simple Constructs | </a>
+                <a href="/satishtalim/tutorial.html">TOC | </a>
+                <a href="/satishtalim/ruby_arrays.html">Arrays &gt;</a>
+              </strong>
+            </p>
 
-                <p>Ruby Code blocks (called <i>closures</i> in other languages) are definitely one of the coolest features of Ruby and are chunks of code between braces or between <strong>do- end</strong> that you can associate with <i>method invocations</i>, almost as if they were parameters. A Ruby block is a way of grouping statements, and may appear only in the source <i>adjacent to a method call</i>; the block is written starting on the same line as the method call's last parameter (or the closing parenthesis of the parameter list). The code in the block is not executed at the time it is encountered. Instead, Ruby remembers the context in which the block appears (the local variables, the current object, and so on) and then enters the method.</p>
+            <p>Ruby Code blocks (called <i>closures</i> in other languages) are definitely one of the coolest features of Ruby and are chunks of code between braces or between <strong>do- end</strong> that you can associate with <i>method invocations</i>, almost as if they were parameters. A Ruby block is a way of grouping statements, and may appear only in the source <i>adjacent to a method call</i>; the block is written starting on the same line as the method call's last parameter (or the closing parenthesis of the parameter list). The code in the block is not executed at the time it is encountered. Instead, Ruby remembers the context in which the block appears (the local variables, the current object, and so on) and then enters the method.</p>
 
-                <p>The Ruby standard is to use braces for single-line blocks and <strong>do- end</strong> for multi-line blocks. Keep in mind that the braces syntax has a higher precedence than the <strong>do..end</strong> syntax. Braces have a high precedence; <b>do</b> has a low precedence. If the method invocation has parameters that are not enclosed in parentheses, the brace form of a block will bind to the last parameter, not to the overall invocation. The <b>do</b> form will bind to the invocation.</p>
+            <p>The Ruby standard is to use braces for single-line blocks and <strong>do- end</strong> for multi-line blocks. Keep in mind that the braces syntax has a higher precedence than the <strong>do..end</strong> syntax. Braces have a high precedence; <b>do</b> has a low precedence. If the method invocation has parameters that are not enclosed in parentheses, the brace form of a block will bind to the last parameter, not to the overall invocation. The <b>do</b> form will bind to the invocation.</p>
 
-                <p>Matz says that <i>any method</i> can be called with a block as an implicit argument. Inside the method, you can call the block using the <strong>yield</strong> keyword with a value.</p>
+            <p>Matz says that <i>any method</i> can be called with a block as an implicit argument. Inside the method, you can call the block using the <strong>yield</strong> keyword with a value.</p>
 
-                <p>Also, as you will soon learn, blocks can have their own arguments. There are many methods in Ruby that iterate over a range of values. Most of these iterators are written in such a way as to be able to take a code block as part of their calling syntax. The method can then yield control to the code block (i.e. execute the block) during execution as many times as is necessary for the iteration to complete (e.g. if we are iterating over array values, we can execute the block as many times as there are array values etc.).</p>
+            <p>Also, as you will soon learn, blocks can have their own arguments. There are many methods in Ruby that iterate over a range of values. Most of these iterators are written in such a way as to be able to take a code block as part of their calling syntax. The method can then yield control to the code block (i.e. execute the block) during execution as many times as is necessary for the iteration to complete (e.g. if we are iterating over array values, we can execute the block as many times as there are array values etc.).</p>
 
-                <p>Once you have created a block, you can associate it with a call to a method. Usually the code blocks passed into methods are anonymous objects, created on the spot. For example, in the following code, the block containing <strong>puts</strong> "Hello" is associated with the call to a method greet.</p>
+            <p>Once you have created a block, you can associate it with a call to a method. Usually the code blocks passed into methods are anonymous objects, created on the spot. For example, in the following code, the block containing <strong>puts</strong> "Hello" is associated with the call to a method greet.</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 greet {puts 'Hello'}
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <p>If the method has parameters, they appear before the block.</p>
+            <p>If the method has parameters, they appear before the block.</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 verbose_greet("PuneRuby") {puts 'Hello'}
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <p>A method can then invoke an <i>associated</i> block one or more time using the Ruby <strong>yield</strong> statement. Thus any method that wants to take a block as a parameter can use the <strong>yield</strong> keyword to execute the block at any time.</p>
+            <p>A method can then invoke an <i>associated</i> block one or more time using the Ruby <strong>yield</strong> statement. Thus any method that wants to take a block as a parameter can use the <strong>yield</strong> keyword to execute the block at any time.</p>
 
-                <p>Program <strong>p022codeblock.rb</strong> illustrates what we have just discussed.</p>
+            <p>Program <strong>p022codeblock.rb</strong> illustrates what we have just discussed.</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 =begin
                   Ruby Code blocks are chunks of code between braces or
                   between do- end that you can associate with method invocations
@@ -125,72 +125,72 @@
                 end
                 # Code blocks may appear only in the source adjacent to a method call
                 call_block {puts 'In the block'}
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <p>The output is:</p>
+            <p>The output is:</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 >ruby p022codeblock.rb
                 Start of method
                 In the block
                 In the block
                 End of method
                 >Exit code: 0
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <p>If you provide a code block when you call a method, then inside the method, you can yield control to that code block - suspend execution of the method; execute the code in the block; and return control to the method body, right after the call to <strong>yield</strong>. If no code block is passed, Ruby raises an exception:</p>
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <p>If you provide a code block when you call a method, then inside the method, you can yield control to that code block - suspend execution of the method; execute the code in the block; and return control to the method body, right after the call to <strong>yield</strong>. If no code block is passed, Ruby raises an exception:</p>
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 no block given (LocalJumpError)
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <p>You can provide parameters to the call to <strong>yield</strong>: these will be passed to the block. Within the block, you list the names of the arguments to receive the parameters between vertical bars (|).</p>
+            <p>You can provide parameters to the call to <strong>yield</strong>: these will be passed to the block. Within the block, you list the names of the arguments to receive the parameters between vertical bars (|).</p>
 
-                <p>The program <strong>p023codeblock2.rb</strong> illustrates the same.</p>
+            <p>The program <strong>p023codeblock2.rb</strong> illustrates the same.</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 # You can provide parameters to the call to yield:
                 # these will be passed to the block
                 def call_block
                   yield('hello', 99)
                 end
                 call_block {|str, num| puts str + ' ' + num.to_s}
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <p>The output is:</p>
+            <p>The output is:</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 >ruby p023codeblock2.rb
                 hello 99
                 >Exit code: 0
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <p><strong>Note</strong> that the code in the block is not executed at the time it is encountered by the Ruby interpreter. Instead, Ruby remembers the context in which the block appears and then enters the method.</p>
+            <p><strong>Note</strong> that the code in the block is not executed at the time it is encountered by the Ruby interpreter. Instead, Ruby remembers the context in which the block appears and then enters the method.</p>
 
-                <p>A code block's return value (like that of a method) is the value of the last expression evaluated in the code block. This return value is made available inside the method; it comes through as the return value of <strong>yield</strong>.</p>
+            <p>A code block's return value (like that of a method) is the value of the last expression evaluated in the code block. This return value is made available inside the method; it comes through as the return value of <strong>yield</strong>.</p>
 
-                <p><strong>block_given?</strong> returns true if <strong>yield</strong> would execute a block in the current context. Refer to the following example:</p>
+            <p><strong>block_given?</strong> returns true if <strong>yield</strong> would execute a block in the current context. Refer to the following example:</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 def try
                   if block_given?
                     yield
@@ -201,48 +201,48 @@
                 try # => "no block"
                 try { puts "hello" } # => "hello"
                 try do puts "hello" end # => "hello"
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <h3>Block Variables</h3>
-                <p>Let us see what happens in the following example when a variable outside a block is <b>x</b> and a block parameter is also named <b>x</b>.</p>
+            <h3>Block Variables</h3>
+            <p>Let us see what happens in the following example when a variable outside a block is <b>x</b> and a block parameter is also named <b>x</b>.</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 x = 10
                 5.times do |x|
                   puts "x inside the block: #{x}"
                 end
 
                 puts "x outside the block: #{x}"
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <p>The output is:</p>
+            <p>The output is:</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 x inside the block: 0
                 x inside the block: 1
                 x inside the block: 2
                 x inside the block: 3
                 x inside the block: 4
                 x outside the block: 10
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <p>You will observe that after the block has executed, <b>x</b> outside the block is the original <b>x</b>. Hence the block parameter <b>x</b> was local to the block.</p>
+            <p>You will observe that after the block has executed, <b>x</b> outside the block is the original <b>x</b>. Hence the block parameter <b>x</b> was local to the block.</p>
 
-                <p>Next observe what happens to <b>x</b> in the following example:</p>
+            <p>Next observe what happens to <b>x</b> in the following example:</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 x = 10
                 5.times do |y|
                   x = y
@@ -250,97 +250,97 @@
                 end
 
                 puts "x outside the block: #{x}"
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <p>The output is:</p>
+            <p>The output is:</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 x inside the block: 0
                 x inside the block: 1
                 x inside the block: 2
                 x inside the block: 3
                 x inside the block: 4
                 x outside the block: 4
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <p>Since <b>x</b> is <em>not a block parameter</em> here, the variable <b>x</b> is the same inside and outside the block.</p>
-                <p>In Ruby 1.9, blocks introduce their own scope for the <em>block parameters only</em>. This is illustrated by the following example:</p>
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <p>Since <b>x</b> is <em>not a block parameter</em> here, the variable <b>x</b> is the same inside and outside the block.</p>
+            <p>In Ruby 1.9, blocks introduce their own scope for the <em>block parameters only</em>. This is illustrated by the following example:</p>
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 x = 10
                 5.times do |y; x|
                   x = y
                   puts "x inside the block: #{x}"
                 end
                 puts "x outside the block: #{x}"
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
-                <p>The output is:</p>
-<div class="column2">
-<!-- InstanceBeginEditable name="Code" -->
-<textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
+            <p>The output is:</p>
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
 x inside the block: 0
 x inside the block: 1
 x inside the block: 2
 x inside the block: 3
 x inside the block: 4
 x outside the block: 10
-</textarea>
-<!-- InstanceEndEditable -->
-</div>
-                <p>In the above block, a new feature is being used: block local variable. In short, block local variables shield a block from manipulating variables outside of its scope. This prevents a block from unintentionally clobbering any variables outside its scope. If you don't want to clobber variables, use block local variables for the variables your block creates.</p>
-                <p>The syntax for a block local variable is simple. Put a semicolon after the normal block parameter list, then list the variable you want as block local variables. For example, if the block takes two variables a and b, and uses to local variables x and y, the parameter list would look like this: |a,b; x,y|.</p>
-                <h3>Summary</h3>
-
-                <p>I have listed down all the <strong><a href="/satishtalim/ruby_summary3.html">important points</a></strong> you need to remember after you have completed the following topics: <a href="/satishtalim/ruby_ri_tool.html">Ruby ri Tool</a>, <a href="/satishtalim/more_on_strings.html">More on Strings</a>, <a href="/satishtalim/simple_constructs.html">Simple Constructs</a>, <a href="/satishtalim/ruby_blocks.html">Ruby Blocks</a>.</p>
-
-                <p style="background-color: #FAFAFA; padding: 5px; margin-top: 20px; font-size: 65%;"><strong>Note</strong>: The Ruby Logo is Copyright (c) 2006, Yukihiro Matsumoto. I have made extensive references to information, related to Ruby, available in the public domain (wikis and the blogs, articles of various <span style="font-weight: bold;" title="Click Gurus on the menu above">Ruby Gurus</span>), my acknowledgment and thanks to all of them. Much of the material on <a href="/">rubylearning.com</a> and in the course at <a href="http://rubylearning.org/">rubylearning.org</a> is drawn <strong>primarily</strong> from the <strong>Programming Ruby book</strong>, available from <a href="http://pragprog.com/book/ruby3/programming-ruby-1-9-2-0">The Pragmatic Bookshelf</a>.</p>
-
-                <p class="post-footer align-right">
-                  <strong>
-                    <a href="/satishtalim/simple_constructs.html">&lt;Simple Constructs | </a>
-                    <a href="/satishtalim/tutorial.html">TOC | </a>
-                    <a href="/satishtalim/ruby_arrays.html">Arrays &gt;</a>
-                  </strong>
-                </p>
-
+              </textarea>
+              <!-- InstanceEndEditable -->
             </div>
-            <!-- main inner ends here -->
+            <p>In the above block, a new feature is being used: block local variable. In short, block local variables shield a block from manipulating variables outside of its scope. This prevents a block from unintentionally clobbering any variables outside its scope. If you don't want to clobber variables, use block local variables for the variables your block creates.</p>
+            <p>The syntax for a block local variable is simple. Put a semicolon after the normal block parameter list, then list the variable you want as block local variables. For example, if the block takes two variables a and b, and uses to local variables x and y, the parameter list would look like this: |a,b; x,y|.</p>
+            <h3>Summary</h3>
+
+            <p>I have listed down all the <strong><a href="/satishtalim/ruby_summary3.html">important points</a></strong> you need to remember after you have completed the following topics: <a href="/satishtalim/ruby_ri_tool.html">Ruby ri Tool</a>, <a href="/satishtalim/more_on_strings.html">More on Strings</a>, <a href="/satishtalim/simple_constructs.html">Simple Constructs</a>, <a href="/satishtalim/ruby_blocks.html">Ruby Blocks</a>.</p>
+
+            <p style="background-color: #FAFAFA; padding: 5px; margin-top: 20px; font-size: 65%;"><strong>Note</strong>: The Ruby Logo is Copyright (c) 2006, Yukihiro Matsumoto. I have made extensive references to information, related to Ruby, available in the public domain (wikis and the blogs, articles of various <span style="font-weight: bold;" title="Click Gurus on the menu above">Ruby Gurus</span>), my acknowledgment and thanks to all of them. Much of the material on <a href="/">rubylearning.com</a> and in the course at <a href="http://rubylearning.org/">rubylearning.org</a> is drawn <strong>primarily</strong> from the <strong>Programming Ruby book</strong>, available from <a href="http://pragprog.com/book/ruby3/programming-ruby-1-9-2-0">The Pragmatic Bookshelf</a>.</p>
+
+            <p class="post-footer align-right">
+              <strong>
+                <a href="/satishtalim/simple_constructs.html">&lt;Simple Constructs | </a>
+                <a href="/satishtalim/tutorial.html">TOC | </a>
+                <a href="/satishtalim/ruby_arrays.html">Arrays &gt;</a>
+              </strong>
+            </p>
+
+          </div>
+          <!-- main inner ends here -->
         </div>
 
-            <div id="rightbar">
+        <div id="rightbar">
 
-            </div>
+        </div>
 
-    <!-- content-wrap ends here -->
+        <!-- content-wrap ends here -->
+      </div>
+
+      <!-- wrap ends here -->
     </div>
 
-<!-- wrap ends here -->
-</div>
+    <!-- footer starts here -->
+    <div id="footer">
+      <!-- CHANGE THE FOOTER -->
+      <p>&copy; 2006-2016&nbsp;<strong>RubyLearning.com - A Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 30th Nov. 2015 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">Home</a> | <a href="/privacy.html">Privacy</a> | <a href="/sitemap.html">Sitemap</a></p>
 
-<!-- footer starts here -->
-<div id="footer">
-    <!-- CHANGE THE FOOTER -->
-    <p>&copy; 2006-2016&nbsp;<strong>RubyLearning.com - A Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 30th Nov. 2015 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">Home</a> | <a href="/privacy.html">Privacy</a> | <a href="/sitemap.html">Sitemap</a></p>
+    </div>
 
-</div>
+    <!-- footer ends here -->
 
-<!-- footer ends here -->
-
-<!-- SyntaxHighlighter code -->
-<script src="/js/shCore.js" type="text/javascript"></script>
-<script src="/js/shBrushRuby.js" type="text/javascript"></script>
-<script type="text/javascript">
-dp.SyntaxHighlighter.HighlightAll('code');
-</script>
-<!-- SyntaxHighlighter code -->
-</body>
+    <!-- SyntaxHighlighter code -->
+    <script src="/js/shCore.js" type="text/javascript"></script>
+    <script src="/js/shBrushRuby.js" type="text/javascript"></script>
+    <script type="text/javascript">
+     dp.SyntaxHighlighter.HighlightAll('code');
+    </script>
+    <!-- SyntaxHighlighter code -->
+  </body>
 </html>
