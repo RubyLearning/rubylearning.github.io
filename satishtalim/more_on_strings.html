@@ -2,95 +2,95 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<head>
+  <head>
 
-<title>More On Strings: Ruby Study Notes - Best Ruby Guide, Ruby Tutorial</title>
+    <title>More On Strings: Ruby Study Notes - Best Ruby Guide, Ruby Tutorial</title>
 
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="description" content="Ruby Study Notes - Best Ruby Guide, Ruby Tutorial" />
-<meta name="keywords" content="ruby strings,ruby study notes,ruby guide,free ruby programming course,best ruby guide,ruby tutorials,ruby tutorial,learn ruby,ruby,ruby on rails,ruby rails,ruby learning,ruby tutoring,learning ruby,ruby programming,ruby on rails development,ruby training" />
-<meta name="Distribution" content="Global" />
-<meta name="author" content="Satish Talim / Original design: Erwin Aligam - ealigam@gmail.com" />
-<meta name="copyright" content="Satish Talim 2007 and beyond..." />
-<meta name="verify-v1" content="rFu86se+IkbtF+bH8mgJBKwU5HnKaSd8Ghw9umXQOkM=" />
-<meta name="robots" content="index,follow" />
-<meta http-equiv="Expires" content="0" />
-<meta name="revisit-after" content="1 days" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Ruby Study Notes - Best Ruby Guide, Ruby Tutorial" />
+    <meta name="keywords" content="ruby strings,ruby study notes,ruby guide,free ruby programming course,best ruby guide,ruby tutorials,ruby tutorial,learn ruby,ruby,ruby on rails,ruby rails,ruby learning,ruby tutoring,learning ruby,ruby programming,ruby on rails development,ruby training" />
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Satish Talim / Original design: Erwin Aligam - ealigam@gmail.com" />
+    <meta name="copyright" content="Satish Talim 2007 and beyond..." />
+    <meta name="verify-v1" content="rFu86se+IkbtF+bH8mgJBKwU5HnKaSd8Ghw9umXQOkM=" />
+    <meta name="robots" content="index,follow" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="revisit-after" content="1 days" />
 
-<link rel="stylesheet" href="/images/NewOrange.css" type="text/css" />
-<link rel="stylesheet" href="/images/syntaxhighlighter.css" type="text/css" />
-<link rel="icon" type="image/ico" href="/images/favicon.ico" />
-<!-- Google +1 button code -->
-<link rel="canonical" href="/satishtalim/more_on_strings.html" />
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-<!-- Google Analytics code -->
-<script type="text/javascript">
+    <link rel="stylesheet" href="/images/NewOrange.css" type="text/css" />
+    <link rel="stylesheet" href="/images/syntaxhighlighter.css" type="text/css" />
+    <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+    <!-- Google +1 button code -->
+    <link rel="canonical" href="/satishtalim/more_on_strings.html" />
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <!-- Google Analytics code -->
+    <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-59044-10']);
-  _gaq.push(['_trackPageview']);
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-59044-10']);
+     _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
 
-</script>
-<!-- Google Analytics code ends -->
-</head>
+    </script>
+    <!-- Google Analytics code ends -->
+  </head>
 
-<body>
-<!-- wrap starts here -->
-<div id="wrap">
+  <body>
+    <!-- wrap starts here -->
+    <div id="wrap">
 
-    <div id="header">
+      <div id="header">
 
         <h1 id="logo">Ruby<span class="orange">Learning.com</span></h1>
         <h2 id="slogan">Helping Ruby Programmers become Awesome!</h2>
 
-    </div>
+      </div>
 
-    <div id="menu">
+      <div id="menu">
         <ul>
-            <li><a href="/" title="Home page for rubylearning.com">Home</a></li>
-            <li><a href="/satishtalim/tutorial.html" title="Get started Learning Ruby here...">Tutorial</a></li>
-            <li><a href="/download/downloads.html" title="Download this tutorial as an eBook">Downloads</a></li>
-            <li><a href="/other/testimonials.html" title="People around the world who benefited from this site">Testimonials</a></li>
-            <li><a href="/other/certification.html" title="Get certified in Ruby">Certification</a></li>
-            <li><a href="/satishtalim/ruby_guide.html" title="Ruby Guide, Mentor">Mentor</a></li>
-            <li><a href="/blog/" title="Ruby blog of Ruby Learning site">Blog</a></li>
-            <li><a href="http://rubylearning.org/" title="Online Ruby Course">Online Course</a></li>
-            <li><a href="http://ruby-challenge.rubylearning.org/" title="Ruby Programming Challenge for Newbies">Challenge</a></li>
-            <li><a href="/satishtalim/about.html" title="Information about Satish Talim">About</a></li>
+          <li><a href="/" title="Home page for rubylearning.com">Home</a></li>
+          <li><a href="/satishtalim/tutorial.html" title="Get started Learning Ruby here...">Tutorial</a></li>
+          <li><a href="/download/downloads.html" title="Download this tutorial as an eBook">Downloads</a></li>
+          <li><a href="/other/testimonials.html" title="People around the world who benefited from this site">Testimonials</a></li>
+          <li><a href="/other/certification.html" title="Get certified in Ruby">Certification</a></li>
+          <li><a href="/satishtalim/ruby_guide.html" title="Ruby Guide, Mentor">Mentor</a></li>
+          <li><a href="/blog/" title="Ruby blog of Ruby Learning site">Blog</a></li>
+          <li><a href="http://rubylearning.org/" title="Online Ruby Course">Online Course</a></li>
+          <li><a href="http://ruby-challenge.rubylearning.org/" title="Ruby Programming Challenge for Newbies">Challenge</a></li>
+          <li><a href="/satishtalim/about.html" title="Information about Satish Talim">About</a></li>
         </ul>
-    </div>
+      </div>
 
-    <!-- content-wrap starts here -->
-    <div id="content-wrap">
+      <!-- content-wrap starts here -->
+      <div id="content-wrap">
 
-            <div id="main">
+        <div id="main">
 
-                <div id="main-inner"><a name="TemplateInfo"></a>
-                <h1>More On Strings</h1>
+          <div id="main-inner"><a name="TemplateInfo"></a>
+            <h1>More On Strings</h1>
 
-                <p class="post-footer align-right">
-                  <strong>
-                    <a href="/satishtalim/ruby_ri_tool.html">&lt;Ruby ri Tool | </a>
-                    <a href="/satishtalim/tutorial.html">TOC | </a>
-                    <a href="/satishtalim/simple_constructs.html">Simple Constructs&gt;</a>
-                  </strong>
-                </p>
+            <p class="post-footer align-right">
+              <strong>
+                <a href="/satishtalim/ruby_ri_tool.html">&lt;Ruby ri Tool | </a>
+                <a href="/satishtalim/tutorial.html">TOC | </a>
+                <a href="/satishtalim/simple_constructs.html">Simple Constructs&gt;</a>
+              </strong>
+            </p>
 
-                <p>There are many methods in the <strong>String</strong> class (you don't have to memorize them all; you can look up the documentation) like the <strong>reverse</strong> that gives a backwards version of a string (<strong>reverse</strong> does not change the original string). <strong>length</strong> that tells us the number of characters (including spaces) in the string. <strong>upcase</strong> changes every lowercase letter to uppercase, and <strong>downcase</strong> changes every uppercase letter to lowercase. <strong>swapcase</strong> switches the case of every letter in the string, and finally, <strong>capitalize</strong> is just like <strong>downcase</strong>, except that it switches the first character to uppercase (if it is a letter), <strong>slice</strong> gives you a substring of a larger string.</p>
+            <p>There are many methods in the <strong>String</strong> class (you don't have to memorize them all; you can look up the documentation) like the <strong>reverse</strong> that gives a backwards version of a string (<strong>reverse</strong> does not change the original string). <strong>length</strong> that tells us the number of characters (including spaces) in the string. <strong>upcase</strong> changes every lowercase letter to uppercase, and <strong>downcase</strong> changes every uppercase letter to lowercase. <strong>swapcase</strong> switches the case of every letter in the string, and finally, <strong>capitalize</strong> is just like <strong>downcase</strong>, except that it switches the first character to uppercase (if it is a letter), <strong>slice</strong> gives you a substring of a larger string.</p>
 
-                <p>The methods <strong>upcase</strong>, <strong>downcase</strong>, <strong>swapcase</strong> and <strong>capitalize</strong> have corresponding methods that modify a string in place rather than creating a new one: <strong>upcase!</strong>, <strong>downcase!</strong>, <strong>swapcase!</strong> and <strong>capitalize!</strong>. Assuming you don't need the original string, these methods will save memory, especially if the string is large.</p>
+            <p>The methods <strong>upcase</strong>, <strong>downcase</strong>, <strong>swapcase</strong> and <strong>capitalize</strong> have corresponding methods that modify a string in place rather than creating a new one: <strong>upcase!</strong>, <strong>downcase!</strong>, <strong>swapcase!</strong> and <strong>capitalize!</strong>. Assuming you don't need the original string, these methods will save memory, especially if the string is large.</p>
 
-                <p>We know that <em>String literals</em> are sequences of characters between single or double quotation marks. The difference between the two forms is the amount of processing Ruby does on the string while constructing the literal. In the single-quoted case, Ruby does very little. The backslash works to escape another backslash, so that the second backslash is not itself interpreted as an escape character. In single-quoted strings, a backslash is not special if the character that follows it is anything other than a quote or a backslash. For example 'a\b' and 'a\\b' are equal. In the double-quoted case, Ruby does more work. First, it looks for substitutions - sequences that start with a backslash character - and replaces them with some binary value. The  second thing that Ruby does with double-quoted strings is expression interpolation. Within the string, the sequence #{expression} is replaced by the value of expression (refer <strong>p013expint.rb</strong>). In this program, the value returned by a Ruby method is the value of the last expression evaluated, so we can get rid of the temporary variable (result) and the <strong>return</strong> statement altogether.</p>
+            <p>We know that <em>String literals</em> are sequences of characters between single or double quotation marks. The difference between the two forms is the amount of processing Ruby does on the string while constructing the literal. In the single-quoted case, Ruby does very little. The backslash works to escape another backslash, so that the second backslash is not itself interpreted as an escape character. In single-quoted strings, a backslash is not special if the character that follows it is anything other than a quote or a backslash. For example 'a\b' and 'a\\b' are equal. In the double-quoted case, Ruby does more work. First, it looks for substitutions - sequences that start with a backslash character - and replaces them with some binary value. The  second thing that Ruby does with double-quoted strings is expression interpolation. Within the string, the sequence #{expression} is replaced by the value of expression (refer <strong>p013expint.rb</strong>). In this program, the value returned by a Ruby method is the value of the last expression evaluated, so we can get rid of the temporary variable (result) and the <strong>return</strong> statement altogether.</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 # p013expint.rb
                 def say_goodnight(name)
                   result = "Good night, #{name}"
@@ -103,30 +103,30 @@
                   "Good night, #{name}"
                 end
                 puts say_goodnight2('Talim')
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <p>It is to be noted that every time a string literal is used in an assignment or as a parameter, a new <strong>String</strong> object is created.</p>
+            <p>It is to be noted that every time a string literal is used in an assignment or as a parameter, a new <strong>String</strong> object is created.</p>
 
-                <p>How is memory managed for <strong>Strings</strong> in Ruby? Is there a separate pool for <strong>Strings</strong>? Strings are objects of class <strong>String</strong>. The <strong>String</strong> class has more than 75 standard methods. If you refer to <a href="http://www.rubyist.net/%7Eslagell/ruby/strings.html">Ruby User's Guide</a>, it says that "we do not have to consider the space occupied by a string. We are free from all memory management."</p>
+            <p>How is memory managed for <strong>Strings</strong> in Ruby? Is there a separate pool for <strong>Strings</strong>? Strings are objects of class <strong>String</strong>. The <strong>String</strong> class has more than 75 standard methods. If you refer to <a href="http://www.rubyist.net/%7Eslagell/ruby/strings.html">Ruby User's Guide</a>, it says that "we do not have to consider the space occupied by a string. We are free from all memory management."</p>
 
-                <h3>Listing all methods of a class or object</h3>
+            <h3>Listing all methods of a class or object</h3>
 
-                <p><strong>String.methods.sort</strong><br />
-                shows you a list of methods that the <strong>Class</strong> object <strong>String</strong> responds to.<br /><br />
-                <strong>String.instance_methods.sort</strong><br />
-                This method tells you all the instance methods that instances of <strong>String</strong> are endowed with.<br /><br />
-                <strong>String.instance_methods(false).sort</strong><br />
-                With this method, you can view a class's instance methods without those of the class's ancestors.</p>
+            <p><strong>String.methods.sort</strong><br />
+              shows you a list of methods that the <strong>Class</strong> object <strong>String</strong> responds to.<br /><br />
+              <strong>String.instance_methods.sort</strong><br />
+              This method tells you all the instance methods that instances of <strong>String</strong> are endowed with.<br /><br />
+              <strong>String.instance_methods(false).sort</strong><br />
+              With this method, you can view a class's instance methods without those of the class's ancestors.</p>
 
-                <h3>Comparing two strings for equality</h3>
+            <h3>Comparing two strings for equality</h3>
 
-                <p>Strings have several methods for testing equality. The most common one is == (double equals sign). Another equality-test instance method, <strong>String.eql?</strong>, tests two strings for identical content. It returns the same result as ==. A third instance method, <strong>String.equal?</strong>, tests whether two strings are the same object. An example <strong>p013strcmp.rb</strong> illustrates this:</p>
+            <p>Strings have several methods for testing equality. The most common one is == (double equals sign). Another equality-test instance method, <strong>String.eql?</strong>, tests two strings for identical content. It returns the same result as ==. A third instance method, <strong>String.equal?</strong>, tests whether two strings are the same object. An example <strong>p013strcmp.rb</strong> illustrates this:</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 # p013strcmp.rb
                 # String#eql?, tests two strings for identical content.
                 # It returns the same result as ==
@@ -154,17 +154,17 @@
                 else
                   puts 'Two Strings are not identical objects'
                 end
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
 
-                <h3>Using %w</h3>
+            <h3>Using %w</h3>
 
-                <p>Sometimes creating arrays of words can be a pain, what with all the quotes and commas. Fortunately, Ruby has a shortcut: %w does just what we want.</p>
+            <p>Sometimes creating arrays of words can be a pain, what with all the quotes and commas. Fortunately, Ruby has a shortcut: %w does just what we want.</p>
 
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
                 names1 = [ 'ann', 'richard', 'william', 'susan', 'pat' ]
                 puts names1[0] # ann
                 puts names1[3] # susan
@@ -172,105 +172,105 @@
                 names2 = %w{  ann richard william susan pat }
                 puts names2[0] # ann
                 puts names2[3] # susan
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
-
-                <h3>Character Set</h3>
-
-                <p>A character set, or more specifically, a coded character set is a set of character symbols, each of which has a unique numerical ID, which is called the character's <em>code point</em>.</p>
-
-                <p>An example of a character set is the 128-character ASCII character set, which is mostly made up of the letters, numbers, and punctuation used in the English language. The most expansive character set in common use is the Universal Character Set (UCS), as defined in the Unicode standard, which contains over 1.1 million code points.</p>
-
-                <p>The letter A, for example, is assigned a magic number by the Unicode consortium which is written like this: U+0048. A string "Hello" which, in Unicode, corresponds to these five code points:</p>
-
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
-                U+0048 U+0065 U+006C U+006C U+006F
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
-
-                <p>Just a bunch of code points. Numbers, really. We haven't yet said anything about how to store this in memory. That's where encodings come in.</p>
-
-                <h3>Character Encoding</h3>
-
-                <p>UTF-8 can be used for storing your string of Unicode code points, those magic U+ numbers, in memory using 8 bit bytes. In UTF-8, every code point from 0-127 is stored in a single byte. Only code points 128 and above are stored using 2, 3, in fact, up to 6 bytes. This has the neat side effect that English text looks exactly the same in UTF-8 as it did in ASCII.</p>
-
-                <p><b>It does not make sense to have a string without knowing what encoding it uses</b>. Thus, if you have a string, you have to know what encoding it is in or you cannot interpret it or display it to users correctly.</p>
-
-                <p>Ruby supports the idea of character encodings.</p>
-
-                <h3>Encoding class</h3>
-
-                <p>Objects of class <b>Encoding</b> each represent a different character encoding. The <b>Encoding.list</b> method returns a list of the built-in encodings.</p>
-
-                <p>Ruby has a way of setting the encoding on a file-by-file basis using a new magic comment. If the first line of a file is a comment (or the second line if the first line is a #! shebang line), Ruby scans it looking for the string <b>coding:</b>. If it finds it, Ruby then skips any spaces and looks for the (case-insensitive) name of an encoding. Thus, to specify that a source file is in UTF-8 encoding, you can write this:</p>
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
-                # coding: utf-8
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
-
-                <p>As Ruby is just scanning for <b>coding:</b>, you could also write the following:</p>
-                <div class="column2">
-                <!-- InstanceBeginEditable name="Code" -->
-                <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
-                # encoding: utf-8
-                </textarea>
-                <!-- InstanceEndEditable -->
-                </div>
-
-                <p><b>Note</b>: Ruby writes a byte sequence \xEF\xBB\xBF at the start of a source file, when you use utf-8.</p>
-                <p>If nothing overrides the setting, the default encoding for source is US-ASCII.</p>
-
-                <p>Here's some example code:</p>
-
-                <p><script type="text/javascript" src="https://gist.github.com/1241425.js">
-                </script></p>
-                <p>You can refer to all the details of the <strong>String</strong> class <a href="http://ruby-doc.org/core-1.9.3/String.html">here.</a></p>
-
-                <p style="background-color: #FAFAFA; padding: 5px; margin-top: 20px; font-size: 65%;"><strong>Note</strong>: The Ruby Logo is Copyright (c) 2006, Yukihiro Matsumoto. I have made extensive references to information, related to Ruby, available in the public domain (wikis and the blogs, articles of various <span style="font-weight: bold;" title="Click Gurus on the menu above">Ruby Gurus</span>), my acknowledgment and thanks to all of them. Much of the material on <a href="/">rubylearning.com</a> and in the course at <a href="http://rubylearning.org/">rubylearning.org</a> is drawn <strong>primarily</strong> from the <strong>Programming Ruby book</strong>, available from <a href="http://pragprog.com/book/ruby3/programming-ruby-1-9-2-0">The Pragmatic Bookshelf</a>.</p>
-
-                <p class="post-footer align-right">
-                  <strong>
-                    <a href="/satishtalim/ruby_ri_tool.html">&lt;Ruby ri Tool | </a>
-                    <a href="/satishtalim/tutorial.html">TOC | </a>
-                    <a href="/satishtalim/simple_constructs.html">Simple Constructs&gt;</a>
-                  </strong>
-                </p>
-
+              </textarea>
+              <!-- InstanceEndEditable -->
             </div>
-            <!-- main inner ends here -->
+
+            <h3>Character Set</h3>
+
+            <p>A character set, or more specifically, a coded character set is a set of character symbols, each of which has a unique numerical ID, which is called the character's <em>code point</em>.</p>
+
+            <p>An example of a character set is the 128-character ASCII character set, which is mostly made up of the letters, numbers, and punctuation used in the English language. The most expansive character set in common use is the Universal Character Set (UCS), as defined in the Unicode standard, which contains over 1.1 million code points.</p>
+
+            <p>The letter A, for example, is assigned a magic number by the Unicode consortium which is written like this: U+0048. A string "Hello" which, in Unicode, corresponds to these five code points:</p>
+
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                U+0048 U+0065 U+006C U+006C U+006F
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
+
+            <p>Just a bunch of code points. Numbers, really. We haven't yet said anything about how to store this in memory. That's where encodings come in.</p>
+
+            <h3>Character Encoding</h3>
+
+            <p>UTF-8 can be used for storing your string of Unicode code points, those magic U+ numbers, in memory using 8 bit bytes. In UTF-8, every code point from 0-127 is stored in a single byte. Only code points 128 and above are stored using 2, 3, in fact, up to 6 bytes. This has the neat side effect that English text looks exactly the same in UTF-8 as it did in ASCII.</p>
+
+            <p><b>It does not make sense to have a string without knowing what encoding it uses</b>. Thus, if you have a string, you have to know what encoding it is in or you cannot interpret it or display it to users correctly.</p>
+
+            <p>Ruby supports the idea of character encodings.</p>
+
+            <h3>Encoding class</h3>
+
+            <p>Objects of class <b>Encoding</b> each represent a different character encoding. The <b>Encoding.list</b> method returns a list of the built-in encodings.</p>
+
+            <p>Ruby has a way of setting the encoding on a file-by-file basis using a new magic comment. If the first line of a file is a comment (or the second line if the first line is a #! shebang line), Ruby scans it looking for the string <b>coding:</b>. If it finds it, Ruby then skips any spaces and looks for the (case-insensitive) name of an encoding. Thus, to specify that a source file is in UTF-8 encoding, you can write this:</p>
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                # coding: utf-8
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
+
+            <p>As Ruby is just scanning for <b>coding:</b>, you could also write the following:</p>
+            <div class="column2">
+              <!-- InstanceBeginEditable name="Code" -->
+              <textarea name="code" class="ruby:nogutter:nocontrols" rows="15" cols="60">
+                # encoding: utf-8
+              </textarea>
+              <!-- InstanceEndEditable -->
+            </div>
+
+            <p><b>Note</b>: Ruby writes a byte sequence \xEF\xBB\xBF at the start of a source file, when you use utf-8.</p>
+            <p>If nothing overrides the setting, the default encoding for source is US-ASCII.</p>
+
+            <p>Here's some example code:</p>
+
+            <p><script type="text/javascript" src="https://gist.github.com/1241425.js">
+            </script></p>
+            <p>You can refer to all the details of the <strong>String</strong> class <a href="http://ruby-doc.org/core-1.9.3/String.html">here.</a></p>
+
+            <p style="background-color: #FAFAFA; padding: 5px; margin-top: 20px; font-size: 65%;"><strong>Note</strong>: The Ruby Logo is Copyright (c) 2006, Yukihiro Matsumoto. I have made extensive references to information, related to Ruby, available in the public domain (wikis and the blogs, articles of various <span style="font-weight: bold;" title="Click Gurus on the menu above">Ruby Gurus</span>), my acknowledgment and thanks to all of them. Much of the material on <a href="/">rubylearning.com</a> and in the course at <a href="http://rubylearning.org/">rubylearning.org</a> is drawn <strong>primarily</strong> from the <strong>Programming Ruby book</strong>, available from <a href="http://pragprog.com/book/ruby3/programming-ruby-1-9-2-0">The Pragmatic Bookshelf</a>.</p>
+
+            <p class="post-footer align-right">
+              <strong>
+                <a href="/satishtalim/ruby_ri_tool.html">&lt;Ruby ri Tool | </a>
+                <a href="/satishtalim/tutorial.html">TOC | </a>
+                <a href="/satishtalim/simple_constructs.html">Simple Constructs&gt;</a>
+              </strong>
+            </p>
+
+          </div>
+          <!-- main inner ends here -->
         </div>
 
-            <div id="rightbar">
+        <div id="rightbar">
 
-            </div>
+        </div>
 
-    <!-- content-wrap ends here -->
+        <!-- content-wrap ends here -->
+      </div>
+
+      <!-- wrap ends here -->
     </div>
 
-<!-- wrap ends here -->
-</div>
+    <!-- footer starts here -->
+    <div id="footer">
+      <!-- CHANGE THE FOOTER -->
+      <p>&copy; 2006-2016&nbsp;<strong>RubyLearning.com - A Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 30th Nov. 2015 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">Home</a> | <a href="/privacy.html">Privacy</a> | <a href="/sitemap.html">Sitemap</a></p>
+    </div>
+    <!-- footer ends here -->
 
-<!-- footer starts here -->
-<div id="footer">
-    <!-- CHANGE THE FOOTER -->
-    <p>&copy; 2006-2016&nbsp;<strong>RubyLearning.com - A Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 30th Nov. 2015 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">Home</a> | <a href="/privacy.html">Privacy</a> | <a href="/sitemap.html">Sitemap</a></p>
-</div>
-<!-- footer ends here -->
+    <!-- SyntaxHighlighter code -->
+    <script src="/js/shCore.js" type="text/javascript"></script>
+    <script src="/js/shBrushRuby.js" type="text/javascript"></script>
+    <script type="text/javascript">
+     dp.SyntaxHighlighter.HighlightAll('code');
+    </script>
+    <!-- SyntaxHighlighter code -->
 
-<!-- SyntaxHighlighter code -->
-<script src="/js/shCore.js" type="text/javascript"></script>
-<script src="/js/shBrushRuby.js" type="text/javascript"></script>
-<script type="text/javascript">
-dp.SyntaxHighlighter.HighlightAll('code');
-</script>
-<!-- SyntaxHighlighter code -->
-
-</body>
+  </body>
 </html>
