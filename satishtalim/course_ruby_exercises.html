@@ -189,7 +189,7 @@ The above logic is combined into a single if check below
 # Get the input and determine if it is a leap year
 puts "Enter the year: "
 STDOUT.flush
-input_year = gets.chomp.to_i
+input_year = gets.to_i
 if ((input_year % 4 == 0) &amp;&amp; (input_year % 100 > 0)) || (input_year % 400 == 0)
   puts "Year #{input_year} is a leap year"
 else
@@ -208,7 +208,7 @@ end
 # Get the input and determine if it is a leap year
 puts "Enter the year: "
 STDOUT.flush
-input_year = gets.chomp.to_i
+input_year = gets.to_i
 if leap_year?(input_year)
   puts "Year #{input_year} is a leap year and has #{366*60*24} minutes in the year"
 else
