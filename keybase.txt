@@ -1,0 +1,74 @@
+==================================================================
+https://keybase.io/kotp
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://rubylearning.com
+  * I am kotp (https://keybase.io/kotp) on keybase.
+  * I have a public key with fingerprint 59B5 F22D 3782 D4F9 BB56  AE32 6D51 1075 FE42 5493
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "012019fb64231f19aba7476b8f0528692cd5edb5e76b001037de1a5c9b9101bb10a60a",
+            "fingerprint": "59b5f22d3782d4f9bb56ae326d511075fe425493",
+            "host": "keybase.io",
+            "key_id": "6d511075fe425493",
+            "kid": "0101193b82cf17443e8953377b1e3cdd744ae8668a085f39a14aa3c22a4d54c7a0f60a",
+            "uid": "5b7c67faedafe6d7b4085f3d372b9d00",
+            "username": "kotp"
+        },
+        "service": {
+            "hostname": "rubylearning.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1488445004,
+    "expire_in": 157680000,
+    "prev": "be6ad09c8a2660fada51e89856c11fcc1e41dfcad5ea12cd38fb3e13eb3374ba",
+    "seqno": 64,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owFtUm1QVFUYXhZxCN1iwBqmJPBGyTSL3XO/7wpOMpjCWCo4wDhDyzn3ngs3du8u
++wU7fIwWFgupJJoWZU40aTqtpGgCMxo4DUVNEBialoqAzaKgRuPHQNZd0n+dP2fO
+e57nOc953rfJFGkwRtg3xHofZG5sjvghhAyFX18qrCKQQ/YTliqiDM9t2CZjt8da
+psqEhSABRQJRQRxD0UABIkSQZ3gOCQrJUgInUpLMYhmxWK+RJCBpXsYAspKIREAC
+hAAJORISZkJRtRLscrpUzaPLsiJiFYqSaV6gZEYREWI5iGmKk1kASJ5VMEOxjEjr
+xFKHO8zQzSHoxstUh17TD9Y5e/+Df+SbBECkkUBJCuAZhsaCyNI0zyOAaUmW9RLE
+AscJkBRYhRYhYCCkJYqCjMwyEg9J5T/f3jk5FvESxysQy1DBnMwjZo6m+6eQKJNk
+GOjGLg3acdirw+MkasyEXvGpEg6HGv7Fw1uXF/ltGLo0PZFlksOuc50uh8chOWz6
+banH47SEyR6/M4yuwMj6UMeKVE3WSTrBh11u1aERFqAjJY8aFgaMIDAMS5KMmcCV
+TtWFrWoYwfKcQOor/Az26ZIIc1AmRalQgBTHkQqUIQv0fASWkwBQJAlgBsiKBPXW
+QqB3mBYURGNAY6QnyKBwLG5crjkIC6e/5YEluqhbLdGgx+vCRE1MwLh4niHCaJgf
+ZQxPmCHmsdhHY5f5SazhQJ029bR6491af031xtDIp782t88I6lO9k8+pT9x4P7uy
+r2XIm21YHYgcGe7dwkdoBedtC774eZDqezN+s8tZywWunkpRU3Eoz6sdvrxhoqDj
+1pZ61v72k8GXX7oYGjzUn1Rz7nh3T8Y/3xRvLbIZjC9MmLr9USnbIhf1LW3Iity0
+fu/a+mDHjx8L/u3pxz6Y2pvmv870zJ+NxUrD86MjMa4VjC9heulnMb8nH09cjq4u
+7Bq7Twzvvth3/3bW1nV9H/ZOtWqz5yz9Rw99dDZtkZ1rn2xSbOkdGfuECdPl3dTY
+0N072z4/kRQqrs9fM8PnmAYanrmH5MrpdwIJq6IbbdMdEzuj8kK7fOsPfFtxUjLW
+9TQn5q27Y05unH3xYGrQWjm5NvVBEr3HtPynsWeH9oxltJyofuWrgd8KyQWdRX/2
+U1+6M+vs/jTr48G3qg+mMqsvzKTufP3I/rIr4mvl4y0d0W257kB2oDZ/dnG+u9zc
+X7wpjvnrj4Txhv1NpxcenSlCrVncytycI5fOWOX3Xu00JB5ry427O+g3vyGYloyn
+JK6K5IczDO2lVTs291fU4y4+L+1wWmZOyXBc17wkdldT/MqJKyuKcvadvH2zJuib
+kiHfeDa6rXX79xVMxGhwYM217y7cim9aIp5vuH5z9BdTcueZv7uTytPvlXDZ8FpK
+wWnDEH/qXw==
+=9zab
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kotp
+
+==================================================================
