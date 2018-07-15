@@ -227,7 +227,7 @@
 
                 <p>For each <strong>rescue</strong> clause in the <strong>begin</strong> block, Ruby compares the raised Exception against each of the parameters in turn. The match will succeed if the exception named in the <strong>rescue</strong> clause is the same as the type of the currently thrown exception, or is a superclass of that exception. The code in an <strong>else</strong> clause is executed if the code in the body of the <strong>begin</strong> statement runs to completion <em>without</em> exceptions. If an exception occurs, then the <strong>else</strong> clause will obviously not be executed. The use of an <strong>else</strong> clause is not particularly common in Ruby.</p>
 
-                <p>If you want to interrogate a rescued exception, you can map the Exception object to a variable within the <strong>rescue</strong> clause, as shown in the program <strong>p046excpvar.rb</strong></p>
+                <p>If you want to interrogate a rescued exception, you can map the Exception (we are using the Exception <strong>StandardError</strong> below) object to a variable within the <strong>rescue</strong> clause, as shown in the program <strong>p046excpvar.rb</strong></p>
 
                 <div class="column2">
                 <!-- InstanceBeginEditable name="Code" -->
@@ -235,7 +235,7 @@
                 # p046excpvar.rb
                 begin
                   raise 'A test exception.'
-                rescue Exception => e
+                rescue StandardError => e
                   puts e.message
                   puts e.backtrace.inspect
                 end
@@ -260,7 +260,7 @@
 
                 <p>If you need the guarantee that some processing is done at the end of a block of code, regardless of whether an exception was raised then the <strong>ensure</strong> clause can be used. <strong>ensure</strong> goes after the last <strong>rescue</strong> clause and contains a chunk of code that will always be executed as the block terminates. The <strong>ensure</strong> block will always run.</p>
 
-                <p>Some common exceptions are:<br /><br /><b>RuntimeError</b> (this is the default exception raised by the raise method), <b>NoMethodError</b>, <b>NameError</b>, <b>IOError</b>, <b>TypeError</b> and <b>ArgumentError</b>.</p>
+                <p>Some common exceptions are:<br /><br /><b>RuntimeError</b> (this is the default exception raised by the raise method), <b>StandardError</b>, <b>NoMethodError</b>, <b>NameError</b>, <b>IOError</b>, <b>TypeError</b> and <b>ArgumentError</b>.
 
                 <p><strong>An Example</strong>: Let's modify program <strong>p027readwrite.rb</strong> to include exception handling as shown in example <strong>p046xreadwrite.rb</strong> below.</p>
 
@@ -282,7 +282,7 @@
                     # use "" for two lines of text
                     f2.puts "Created by Satish\nThank God!"
                   end
-                rescue Exception => msg
+                rescue StandardError => msg
                   # display the system generated error message
                   puts msg
                 end
@@ -374,7 +374,7 @@
 <!-- footer starts here -->
 <div id="footer">
     <!-- CHANGE THE FOOTER -->
-    <p>&copy; 2006-2017&nbsp;<strong>RubyLearning.com - A Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 1st Jan. 2016 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">Home</a> | <a href="/privacy.html">Privacy</a> | <a href="/sitemap.html">Sitemap</a></p>
+    <p>&copy; 2006-2018&nbsp;<strong>RubyLearning.com - A Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 14th July 2018 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">Home</a> | <a href="/privacy.html">Privacy</a> | <a href="/sitemap.html">Sitemap</a></p>
 </div>
 
 <!-- footer ends here -->
