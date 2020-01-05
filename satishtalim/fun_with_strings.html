@@ -83,11 +83,20 @@
                   </strong>
                 </p>
 
-                <p>String literals are sequences of characters between single or double quotation marks.</p>
+                <p>
+                  String literals are sequences of characters between single or
+                  double quotation marks.
+                </p>
 
-                <p>'' (ie. two single quotes) does not have anything in it at all; we call that an empty string.</p>
+                <p>
+                  '' (ie. two single quotes) does not have anything in it at
+                  all; we call that an empty string.
+                </p>
 
-                <p>Here's a program <strong>p003rubystrings.rb</strong> that explores strings to some extent.</p>
+                <p>
+                  Here's a program <strong>p003rubystrings.rb</strong> that
+                  explores strings to some extent.
+                </p>
 
                 <div class="column2">
                 <!-- InstanceBeginEditable name="Code" -->
@@ -95,7 +104,7 @@
                 # p003rubystrings.rb
                 =begin
                   Ruby Strings
-                  In Ruby, strings are mutable
+                  In Ruby, strings are, by default, mutable
                 =end
 
                 puts "Hello World"
@@ -116,9 +125,27 @@
                 <!-- InstanceEndEditable -->
                 </div>
 
-                <p class="post-note">a. If <strong>puts</strong> is passed an object that is not a string, <strong>puts</strong> calls the <strong>to_s</strong> method of that object and prints the string returned by that method.<br />b. In Ruby, strings are <strong>mutable</strong>. They can expand as needed, without using much time and memory. Ruby stores a string as a sequence of characters.</p>
+                <p class="post-note">
+                  a. If <strong>puts</strong> is passed an
+                  object that is not a string, <strong>puts</strong> calls the
+                  <strong>to_s</strong> method of that object and prints the
+                  string returned by that method.<br />
+                  b. In Ruby, strings are <strong>mutable</strong>. They
+                  can expand as needed, without using much time and memory. Ruby
+                  stores a string as a sequence of characters.<br />
+                  c. Introduced in Ruby 2.3, the magic string of <code>#
+                  frozen_string_literal: true</code> will freeze literal
+                  strings, allowing specific strings to be mutable by prepending
+                  a <code>+</code> directly before the opening string delimiter.
+                  Using <code>.dup</code> on a string will allow the cloned
+                  string to be mutable as well, allowing for benefits from
+                  mutating strings, when that makes sense to do so.
+                </p>
 
-                <p>It's worth knowing that a special kind of string exists that uses the back-tick (`) or Grave accent as called in the US, as a beginning and ending delimiter. For example:</p>
+                <p>It's worth knowing that a special kind of string exists that
+                  uses the back-tick (`) or Grave accent as called in the US, as
+                  a beginning and ending delimiter. For example:
+                </p>
 
                 <div class="column2">
                 <!-- InstanceBeginEditable name="Code" -->
@@ -128,7 +155,13 @@
                 <!-- InstanceEndEditable -->
                 </div>
 
-                <p>The command output string is sent to the operating system as a command to be executed (under windows operating system, we have sent the dir command), whereupon the output of the command (dir on a command window would display all the files and sub directories in your folder) is then displayed by <strong>puts</strong>.</p>
+                <p>The command output string is sent to the operating system as
+                  a command to be executed (under windows operating system, we
+                  have sent the dir command), whereupon the output of the
+                  command (dir on a command window would display all the files
+                  and sub directories in your folder) is then displayed by
+                  <strong>puts</strong>.
+                </p>
 
                 <p>On Linux and Mac, you can instead do:</p>
 
@@ -140,7 +173,15 @@
                 <!-- InstanceEndEditable -->
                 </div>
 
-                <p>Another way to spawn a separate process is to use the <strong>Kernel</strong> method <strong>system</strong>. The method executes the given command in a sub-process; it returns <strong>true</strong> if the command was found and executed properly. It returns <strong>false</strong> if command exited with a nonzero exit status, and <b>nil</b> if the command failed to execute. Remember, the command's output will simply go to the same destination as your program's output.</p>
+                <p>Another way to spawn a separate process is to use the
+                  <strong>Kernel</strong> method <strong>system</strong>. The
+                  method executes the given command in a sub-process; it returns
+                  <strong>true</strong> if the command was found and executed
+                  properly. It returns <strong>false</strong> if command exited
+                  with a nonzero exit status, and <b>nil</b> if the command
+                  failed to execute. Remember, the command's output will simply
+                  go to the same destination as your program's output.
+                </p>
 
                 <div class="column2">
                 <!-- InstanceBeginEditable name="Code" -->
@@ -177,7 +218,7 @@
 <!-- footer starts here -->
 <div id="footer">
     <!-- CHANGE THE FOOTER -->
-<p>&copy; 2006-2017&nbsp;<strong>RubyLearning.com - A Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 1st Jan. 2016 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">Home</a> | <a href="/privacy.html">Privacy</a> | <a href="/sitemap.html">Sitemap</a></p>
+<p>&copy; 2006-2020&nbsp;<strong>RubyLearning.com - A Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 5th Jan. 2020 | Design: <a href="mailto:ealigam@gmail.com">Erwin Aligam</a> | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">Home</a> | <a href="/privacy.html">Privacy</a> | <a href="/sitemap.html">Sitemap</a></p>
 </div>
 <!-- footer ends here -->
 
