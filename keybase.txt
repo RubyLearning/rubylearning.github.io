@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/kotp
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://rubylearning.github.io
+  * I am kotp (https://keybase.io/kotp) on keybase.
+  * I have a public key ASDfMj9tVAQnEr0gkkb3_oGrw3q0xpX9h2dveWfyhO35eQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012019fb64231f19aba7476b8f0528692cd5edb5e76b001037de1a5c9b9101bb10a60a",
+      "host": "keybase.io",
+      "kid": "0120df323f6d54042712bd209246f7fe81abc37ab4c695fd87676f7967f284edf9790a",
+      "uid": "5b7c67faedafe6d7b4085f3d372b9d00",
+      "username": "kotp"
+    },
+    "merkle_root": {
+      "ctime": 1657264990,
+      "hash": "69cc2dfd647ffb3a56ba2dabd79525c85e2eaf47f2ce204e9f63ee9d143273b8c8be8612b20802d19cc80463ebe75c122c549cd59fdcae42f02c5a8ef46d766e",
+      "hash_meta": "75f80affdc5af1b17fbd827378b7ba81af9c32e92b1db84d2ebc9a395e81d5ba",
+      "seqno": 22811366
+    },
+    "service": {
+      "entropy": "tL+ANkFCbCSy+HnjEmF5Xk7r",
+      "hostname": "rubylearning.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.0.2"
+  },
+  "ctime": 1657265026,
+  "expire_in": 504576000,
+  "prev": "0ef8fe235c91e85a86baf362148b21cb7678ae41011082118242fc243ecae2f1",
+  "seqno": 263,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg3zI/bVQEJxK9IJJG9/6Bq8N6tMaV/Ydnb3ln8oTt+XkKp3BheWxvYWTETJcCzQEHxCAO+P4jXJHoWoa682IUiyHLdniuQQEQghGCQvwkPsri8cQg+p38Hx9cHd9IAijzbP9Inayaf39Qr+Gaunl2JFBd070CAcKjc2lnxECIuVvAftyvYnU6b+2txGO9Ad7smAExLUqtDA0bZnW3axVXNzj9atxTrpzxY9+86dTSWFo+L6n/mZVc44edsTEHqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQgxnCUxOZU0BHJOgzGnrV4SixFB4f9bHtaTJURO/k1UI6jdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kotp
+
+==================================================================
