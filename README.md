@@ -1,4 +1,4 @@
-# RubyLearning.com
+# rubylearning.github.io
 
 
 ### Running the app locally
