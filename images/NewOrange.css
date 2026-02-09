@@ -1,40 +1,40 @@
 /***************************************************************************
-   AUTHOR:          Erwin Aligam 
+   AUTHOR:          Erwin Aligam
    WEBSITE:         http://www.styleshout.com/
    TEMPLATE NAME:   Stylevantage - orange
    TEMPLATE CODE:   S-0001
-   VERSION:         1.1  
+   VERSION:         1.1
    MODIIED:         Satish Talim - Sept. 1st, 2011
    Update by:	    Samay Bhavsar (http://www.samay.info) - September 4th, 2010
    FLUID LAYOUT:    Yes
- ***************************************************************************/ 
- 
+ ***************************************************************************/
+
 /********************************************
    HTML ELEMENTS
- ********************************************/ 
+ ********************************************/
 
-  
+
 /* top elements */
 /* To make the content reach the edges of the browser window, we set the
-   margin and padding of the body and html elements to zero                
+   margin and padding of the body and html elements to zero
    The universal selector (*) matches every element in the document.       */
 * {
   margin: 0; padding: 0; /* sets 0 margin and 0 padding on everything      */
-} 
+}
 body {
   margin: 0; padding: 0;
 /*  font: 81%/1.5em Georgia, verdana, arial, Helvetica, sans-serif;*/
    font: 85%/1.6em "Lucida Sans","Lucida Grande","Lucida Sans Unicode",Lucida,Verdana,Tahoma,sans-serif;
   color: #333333;            /* Text color Black                           */
   background-color: #FFFFFF; /* White                                      */
-  text-align: center;   
+  text-align: center;
 }
 
 /* links */
 a {
   background: inherit;
-  font-weight: bold; 
-  color: #333333; 
+  font-weight: bold;
+  color: #333333;
 }
 a:hover {
   background: inherit;
@@ -46,7 +46,7 @@ a:hover {
 h1, h2, h3 {
 
 
-  color: #222; 
+  color: #222;
 }
 h1 { font-size: 1.8em; }
 h2 { font-size: 1.5em; text-transform: none; }
@@ -58,14 +58,14 @@ h3 { font-size: 1.4em; text-transform: none;}
   margin: 0 0 0 0px;
   font-family:georgia, serif;
   border-right:1px solid #ffffff;
-  border-bottom: 0px solid #f2f2f2;   
-} 
+  border-bottom: 0px solid #f2f2f2;
+}
 
 #sidebar h1 {
   padding: 10px 0px 5px 30px;
   background: url(square_arrow.gif) no-repeat 2px 12px;
   margin: 0;
-  text-transform: uppercase;  
+  text-transform: uppercase;
 }
 
 p, h1, h2, h3 {
@@ -73,7 +73,7 @@ p, h1, h2, h3 {
 }
 ul, ol {
   margin: 10px 30px;
-  padding: 0 15px;  
+  padding: 0 15px;
   color: #333333; /* EC981F */
 }
 ul span, ol span {
@@ -85,15 +85,15 @@ img {
   border: 2px solid #CCC;
 }
 img.float-right {
-  margin: 5px 0px 5px 15px;  
+  margin: 5px 0px 5px 15px;
 }
 img.float-left {
   margin: 5px 15px 5px 0px;
 }
-a img {  
+a img {
   border: 2px solid #FFFFFF; /* original: EC981F */
 }
-a:hover img {  
+a:hover img {
   border: 2px solid #806B4D !important; /* IE fix*/
   border: 2px solid #b00015;
 }
@@ -103,11 +103,11 @@ code {
   padding: 10px;
   text-align: left;
   display: block;
-  overflow: auto;  
+  overflow: auto;
   font: 500 1em/1.6em 'Lucida Console', 'courier new', monospace;
   /* white-space: pre; */
   background: #FAFAFA;
-  border: 1px solid #f2f2f2;  
+  border: 1px solid #f2f2f2;
   border-left: 3px solid #b00015;
 }
 acronym {
@@ -116,18 +116,18 @@ acronym {
 }
 blockquote {
   margin: 15px;
-  padding: 0 0 0 32px;    
+  padding: 0 0 0 32px;
    background: #FAFAFA url(quote.gif) no-repeat 5px 10px !important;
   background-position: 8px 10px;
-  border: 1px solid #f2f2f2; 
-  border-left: 3px solid #777777;  
+  border: 1px solid #f2f2f2;
+  border-left: 3px solid #777777;
 }
 
 /* form elements */
 form {
   margin:10px; padding: 0;
-  border: 1px solid #f2f2f2; 
-  background-color: #FAFAFA; 
+  border: 1px solid #f2f2f2;
+  background-color: #FAFAFA;
 }
 label {
   display:block;
@@ -149,27 +149,27 @@ textarea {
   display:block;
   color:#777;
 }
-input.button { 
-  margin: 0; 
-  font: bold 1em Arial, Sans-serif; 
+input.button {
+  margin: 0;
+  font: bold 1em Arial, Sans-serif;
   border: 1px solid #CCC;
-  background: #FFF; 
-  padding: 2px 3px; 
-  color: #333;  
+  background: #FFF;
+  padding: 2px 3px;
+  color: #333;
 }
 
 /* search form */
 form.searchform {
   background: transparent;
   border: none;
-  margin: 0; padding: 0;  
+  margin: 0; padding: 0;
 }
-form.searchform input.textbox { 
-  margin: 0; 
+form.searchform input.textbox {
+  margin: 0;
   width: 120px;
-  border: 1px solid #CCC; 
+  border: 1px solid #CCC;
   background: #FFF;
-  color: #333; 
+  color: #333;
   vertical-align: top;
 }
 form.searchform input.button {
@@ -182,12 +182,12 @@ form.searchform input.button {
 /*****************/
 #wrap {
 
-  margin: 0 auto; 
-  width: 960px; 
+  margin: 0 auto;
+  width: 960px;
 /*  width: 100%; */
 
-  
-  text-align: left;   
+
+  text-align: left;
   background: #FFF; /* CCFFCC */
 }
 #content-wrap {
@@ -205,7 +205,7 @@ form.searchform input.button {
   clear: both;
 
 /*  background: url(headerbg-orange.gif) repeat-x 0 0;*/
-  height: 120px; 
+  height: 120px;
   width: 100%; /* changes by Paul O'B */
 }
 #header h1#logo {
@@ -216,7 +216,7 @@ form.searchform input.button {
   color: #b00015;
   text-transform: lowercase;
   /* change the values of top and Left to adjust the position of the logo*/
-  top: 18px; 
+  top: 18px;
   /* text-shadow: -0.07em 0.0em 0.07em #eee; */
 
 }
@@ -227,13 +227,13 @@ form.searchform input.button {
   text-transform: none;
 
   /* change the values of top and Left to adjust the position of the slogan*/
-  top: 80px; 
+  top: 80px;
 padding-left:56px;
    /* 48 to 56 */
 }
 #header .searchform {
   position: absolute;
-  top: 5px; right: 3px; 
+  top: 5px; right: 3px;
 }
 
 /* main column */
@@ -283,20 +283,20 @@ border-right:1px solid #F2F2F2;}
 #sidebar {
   float: left;
   width: 165px;
-  margin: 0;  padding: 0; 
-  display: inline;  
+  margin: 0;  padding: 0;
+  display: inline;
 }
 #sidebar ul.sidemenu {
   list-style: none;
   text-align: left;
-  margin: 0 0 8px 0;  
-  padding-right: 0;   
+  margin: 0 0 8px 0;
+  padding-right: 0;
   text-decoration: none;
 }
 #sidebar ul.sidemenu li {
   border-bottom: 1px solid #EFF0F1;
   background: url(arrow.gif) no-repeat 2px 5px;
-  padding: 2px 5px 2px 20px;  
+  padding: 2px 5px 2px 20px;
 }
 
 * html body #sidebar ul.sidemenu li { height: 1%; }
@@ -304,14 +304,14 @@ border-right:1px solid #F2F2F2;}
 #sidebar ul.sidemenu a {
   font-weight: bold;
   background-image: none;
-  text-decoration: none;  
+  text-decoration: none;
 }
 
 /* rightbar */
 #rightbar {
   float: right;
   width: 165px;
-  padding: 0; margin: 0;    
+  padding: 0; margin: 0;
 }
 
 /* footer */
@@ -319,8 +319,8 @@ border-right:1px solid #F2F2F2;}
   clear: both;
 /*  background: #FFF url(footerbg.gif) repeat-x left top;*/
   border-top: 0px solid #F2F2F2;
-  text-align: left; 
-  height: 50px; 
+  text-align: left;
+  height: 50px;
   font-size: 70%; /* added by Talim on 1st March 2007 */
 /*  width: 100%;*/
   width:960px;
@@ -335,29 +335,29 @@ border-right:1px solid #F2F2F2;}
 /* menu */
 #menu {
   clear: both;
-  margin: 0; padding: 0;  
+  margin: 0; padding: 0;
   margin-bottom:10px;
   font: 85%/1.6em "Lucida Sans","Lucida Grande","Lucida Sans Unicode",Lucida,Verdana,Tahoma,sans-serif;
 }
-#menu ul {  
-  position: relative; 
+#menu ul {
+  position: relative;
   bottom: 4px;
-  margin: 16px 0 0 5px; padding: 0;  
+  margin: 16px 0 0 5px; padding: 0;
   float: left;
 /*  font: 1.1em Arial, Sans-serif;  original 1.4 */
   width:100%;
   border: 1px solid #808080;
-  border-width: 1px 0 1px 0;  
+  border-width: 1px 0 1px 0;
   list-style: none;
   line-height:24px;
   background-color:#555;
 
 }
 #menu ul li{
-  display: inline;  
+  display: inline;
 }
-#menu ul li a { 
-  position: relative; 
+#menu ul li a {
+  position: relative;
 /*  bottom: -2px;*/
   float: left;
   color: #fff;
@@ -369,13 +369,13 @@ border-right:1px solid #F2F2F2;}
 }
 #menu ul li a:hover{
   color: #fff;
-  background-color: #b00015; 
+  background-color: #b00015;
 /*  border-bottom: 2px solid #B00015;*/
 
 }
 #menu ul li#current a{
   color: #333;
-  background-color: #b00015; 
+  background-color: #b00015;
 /*  border-bottom: 2px solid #B00015;*/
 }
 
@@ -391,7 +391,7 @@ p.float-left   { float: left; margin-right:10px;}
 /* display classes */
 .clear  { clear: both; }
 .block  { display: block; }
-.hide   { display: none; }  
+.hide   { display: none; }
 .orange { color: #333333; }
 
 /* Satish added for syntax highlighter 27/1/2007 */
@@ -404,30 +404,30 @@ p.float-left   { float: left; margin-right:10px;}
 }
 
 .mugshot
-{ 
-  float : left; 
-  margin-right : 3%; 
+{
+  float : left;
+  margin-right : 3%;
   /*height:100px;*/
   width:75px
 }
 
-/*p.testimonial:first-letter 
-{ 
-  font-size : 200%; 
-  line-height : 1px; 
-  vertical-align : -100%; 
+/*p.testimonial:first-letter
+{
+  font-size : 200%;
+  line-height : 1px;
+  vertical-align : -100%;
 }*/
 
-.p-default 
-{ 
-  text-indent : 0.0in; 
-  padding-left : 0.15in; 
+.p-default
+{
+  text-indent : 0.0in;
+  padding-left : 0.15in;
   margin-left : 0px;   margin-bottom : 10px;
-  
+
 }
-.testimonial 
-{ 
-   
+.testimonial
+{
+
    min-height:100px;
    height:auto !important;
    height:100px;
@@ -488,24 +488,24 @@ div.adsense3
 {
   margin:55px 63px 10px
 }
-#ad_code_sky { 
-  text-align:center; 
-  width:187px; 
-  padding: 10px 0 17px 0; 
+#ad_code_sky {
+  text-align:center;
+  width:187px;
+  padding: 10px 0 17px 0;
   background:transparent url(whitewide.png) center center no-repeat;
 }
-#ad_code_bot { 
-  width:520px; 
-  padding:16px 30px; 
-  text-align:center; 
-  background: transparent url(bright.jpg) center center no-repeat; 
+#ad_code_bot {
+  width:520px;
+  padding:16px 30px;
+  text-align:center;
+  background: transparent url(bright.jpg) center center no-repeat;
 }
-#ad_code_postit { 
+#ad_code_postit {
   /* float: right; */
-  background:#FFFFFF url(postit.jpg) center center no-repeat; 
-  width: 175px; 
-  text-align:center; 
-  padding:25px; 
+  background:#FFFFFF url(postit.jpg) center center no-repeat;
+  width: 175px;
+  text-align:center;
+  padding:25px;
 }
 #partners {
   font-size: 80%;
