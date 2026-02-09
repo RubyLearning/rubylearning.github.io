@@ -214,7 +214,7 @@ form.searchform input.button {
   font: bold 3.8em 'Trebuchet MS', Arial, Sans-serif;
   letter-spacing: -2px;
   color: #b00015;
-  text-transform: lowercase;
+  text-transform: none;
   /* change the values of top and Left to adjust the position of the logo*/
   top: 18px;
   /* text-shadow: -0.07em 0.0em 0.07em #eee; */

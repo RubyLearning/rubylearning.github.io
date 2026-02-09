@@ -200,7 +200,7 @@ form.searchform input.button {
   font: bolder 3.8em 'Trebuchet MS', Arial, Sans-serif;
   letter-spacing: -2px;
   color: #CCC;
-  text-transform: lowercase;
+  text-transform: none;
   /* change the values of top and Left to adjust the position of the logo*/
   top: 0; left: 5px;
 }
