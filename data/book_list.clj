@@ -1,4 +1,4 @@
-(ns #^{:doc "The code for exercise 5 of week 1 of the RubyLearning.org 
+(ns #^{:doc "The code for exercise 5 of week 1 of the rubylearning.github.io
             Clojure 101 course."
        :author "Daniel Solano Gómez"}
   book-list)
@@ -17,7 +17,7 @@
            ["Kathryn Stockett"]
            9.50)
    (struct book
-           "Change Your Prain, Change Your Body"
+           "Change Your Brain, Change Your Body"
            ["Daniel G. Amen M.D."]
            14.29)
    (struct book
